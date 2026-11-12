@@ -85,6 +85,8 @@ export const BalanceZ = z.object({
     oleaje: z.object({ nombre: z.string(), mult: z.number() }),
     raices: z.object({ nombre: z.string(), curaDivisor: z.number() }),
   }),
+  /** Pasivas con nombre y mensaje propios que funcionan igual que una de las tres de arriba. */
+  pasivasAlias: z.record(z.string(), z.object({ nombre: z.string(), mecanica: z.enum(['ultimo_rescoldo', 'oleaje', 'raices']) })),
   empujon: z.object({ potencia: z.number() }),
   cansancio: z.object({ desdeTurno: z.number().int(), danoDivisor: z.number() }),
   maxTurnos: z.number().int(),
@@ -98,6 +100,8 @@ export const SobresZ = z.object({
   nivelInicial: z.number().int().min(1),
   rarezas: z.array(z.object({ id: RarezaIdZ, nombre: z.string(), estrellas: z.number().int(), potencial: z.number(), esencia: z.number().int() })).length(4),
   pity: z.object({ rara: z.number().int(), epica: z.number().int() }),
+  /** Criaturas del sobre de bienvenida. */
+  bienvenida: z.array(z.string()).min(1),
   gratis: z.object({ sobre: z.string(), cadaHoras: z.number(), maxAcumulados: z.number().int() }),
   sobres: z.array(z.object({ id: z.string(), nombre: z.string(), costo: z.number().int(), tipo: z.string().nullable(), prob: ProbRarezasZ })),
 });

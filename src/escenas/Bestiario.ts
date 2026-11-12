@@ -6,7 +6,7 @@ import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
 import { juego } from '../juego';
-import { COLOR_RAREZA, estrellas, textura } from '../ui/criaturas';
+import { COLOR_RAREZA, estrellas, miniatura, textura } from '../ui/criaturas';
 import { C, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { partir, Texto } from '../ui/texto';
@@ -85,8 +85,8 @@ export class Bestiario extends Phaser.Scene {
         const y = 22 + k * 29 + 14;
         g.fillStyle(n(C.papelSombra), 1).fillRoundedRect(x - 13, y - 13, 26, 26, 3);
         const mia = criaturaDe(estado, c.id);
-        if (mia) this.add.image(x, y - 4, textura(c.id, 'frente', mia.brillante)).setScale(0.4);
-        else if (estado.vistas.includes(c.id)) this.add.image(x, y - 4, textura(c.id, 'silueta')).setScale(0.4);
+        if (mia) miniatura(this.add.image(x, y, textura(c.id, 'frente', mia.brillante)), c.id, 24, 0.5);
+        else if (estado.vistas.includes(c.id)) miniatura(this.add.image(x, y, textura(c.id, 'silueta')), c.id, 24, 0.5);
         else new Texto(this, x - 13, y - 7, 26, 14, C.apagado, 'centro', { tam: 11, peso: 600 }).poner('?');
       }),
     );

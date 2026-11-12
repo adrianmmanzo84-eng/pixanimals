@@ -17,7 +17,9 @@ export const C = {
   barraFondo: 0x39425e,
 };
 
-export const COLOR_TIPO: Record<string, number> = { brasa: 0xf07a3c, marea: 0x3f9be8, brote: 0x45b35f, neutro: 0x9fb0c4 };
+export const COLOR_TIPO: Record<string, number> = {
+  brasa: 0xf07a3c, marea: 0x3f9be8, brote: 0x45b35f, rayo: 0xd9a514, roca: 0x9a8466, cielo: 0x5cb8de, sombra: 0x7a56b0, neutro: 0x9fb0c4,
+};
 export const COLOR_ESTADO: Record<string, number> = { quemadura: 0xc0394f, veneno: 0x7a3a9a, paralisis: 0xc89010, sueno: 0x5b6a8c };
 
 export const n = (hex: string) => parseInt(hex.slice(1), 16);

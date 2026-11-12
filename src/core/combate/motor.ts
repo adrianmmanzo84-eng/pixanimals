@@ -295,12 +295,17 @@ export class Batalla {
     return this.rng.prob(50) ? [0, 1] : [1, 0];
   }
 
+  /** Mecánica de la pasiva de una criatura (las pasivas con alias funcionan como una de las tres básicas). */
+  private mecanica(c: Combatiente): string {
+    return this.datos.balance.pasivasAlias[c.especie.pasiva]?.mecanica ?? c.especie.pasiva;
+  }
+
   private calcular(lado: Lado, potencia: number, categoria: Habilidad['categoria'], tipo: string, azar: number, critico: boolean, consumir: boolean) {
     const yo = this.act(lado);
     const rival = this.act((1 - lado) as Lado);
     const b = this.datos.balance;
     let otros = 1;
-    if (yo.especie.pasiva === 'ultimo_rescoldo' && yo.ps / yo.stats.ps < b.pasivas.ultimo_rescoldo.umbralPs) otros *= b.pasivas.ultimo_rescoldo.mult;
+    if (this.mecanica(yo) === 'ultimo_rescoldo' && yo.ps / yo.stats.ps < b.pasivas.ultimo_rescoldo.umbralPs) otros *= b.pasivas.ultimo_rescoldo.mult;
     if (yo.oleaje) otros *= b.pasivas.oleaje.mult;
     if (yo.estado?.id === 'quemadura' && categoria === 'fisica') otros *= b.estados.quemadura.multFisico;
     if (consumir) yo.oleaje = false;
@@ -384,7 +389,7 @@ export class Batalla {
     if (potencia > 0) {
       const azar = b.dano.azarMin + this.rng.sig() * (b.dano.azarMax - b.dano.azarMin);
       const critico = this.rng.prob(b.dano.criticoProb + (this.velocidad(lado) > this.velocidad(ladoRival) ? b.dano.criticoBonusVeloz : 0));
-      const usabaPasiva = yo.especie.pasiva === 'ultimo_rescoldo' && yo.ps / yo.stats.ps < b.pasivas.ultimo_rescoldo.umbralPs;
+      const usabaPasiva = this.mecanica(yo) === 'ultimo_rescoldo' && yo.ps / yo.stats.ps < b.pasivas.ultimo_rescoldo.umbralPs;
       const res = this.calcular(lado, potencia, categoria, tipo, azar, critico, true);
       let dano = res.dano;
       const g = rival.guardia;
@@ -392,7 +397,7 @@ export class Batalla {
       if (reducido) dano = Math.max(1, Math.floor(dano * (1 - (g.reduccion ?? 0))));
       dano = Math.min(dano, rival.ps);
       rival.ps -= dano;
-      if (usabaPasiva) ev.push({ t: 'pasiva', lado, pasiva: 'ultimo_rescoldo' });
+      if (usabaPasiva) ev.push({ t: 'pasiva', lado, pasiva: yo.especie.pasiva });
       ev.push({ t: 'dano', lado: ladoRival, cantidad: dano, ps: rival.ps, critico, efectividad: res.efectividad, reducido });
       if (reducido && g.contraEstado && (!g.contraEstado.soloFisico || categoria === 'fisica') && this.rng.prob(g.contraEstado.prob)) {
         this.aplicarEstado(lado, g.contraEstado.estado, ev, false);
@@ -440,9 +445,9 @@ export class Batalla {
       }
     }
 
-    if (h && h.rol === 'soporte' && yo.especie.pasiva === 'oleaje' && !yo.oleaje) {
+    if (h && h.rol === 'soporte' && this.mecanica(yo) === 'oleaje' && !yo.oleaje) {
       yo.oleaje = true;
-      ev.push({ t: 'pasiva', lado, pasiva: 'oleaje' });
+      ev.push({ t: 'pasiva', lado, pasiva: yo.especie.pasiva });
     }
   }
 
@@ -476,7 +481,7 @@ export class Batalla {
           continue;
         }
       }
-      if (c.especie.pasiva === 'raices' && c.ps < c.stats.ps) {
+      if (this.mecanica(c) === 'raices' && c.ps < c.stats.ps) {
         const cantidad = Math.min(c.stats.ps - c.ps, Math.max(1, Math.floor(c.stats.ps / b.pasivas.raices.curaDivisor)));
         c.ps += cantidad;
         ev.push({ t: 'cura', lado, cantidad, ps: c.ps, origen: 'pasiva' });

@@ -24,6 +24,7 @@ export interface ConfigCombate {
 
 interface Panel {
   x: number;
+  y: number;
   nombre: Texto;
   nivel: Texto;
   ps: Texto;
@@ -38,6 +39,17 @@ interface Panel {
 const POS = [
   { x: 51, y: 77 },
   { x: 186, y: 53 },
+] as const;
+/** Lienzo de los sprites (96×96). Se apoyan en la plataforma: la base queda 32 px bajo POS.y y crecen hacia arriba. */
+const LIENZO = 96;
+const ORIGEN_Y = (LIENZO - 32) / LIENZO;
+/**
+ * Paneles en diagonal, como el clásico: el del rival arriba a la izquierda y el tuyo abajo a la derecha.
+ * Así cada criatura tiene casi toda la altura libre (las etapas finales miden hasta 86 px).
+ */
+const PANEL = [
+  { x: 122, y: 82 },
+  { x: 2, y: 2 },
 ] as const;
 const MENU = ['menu.atacar', 'menu.bolsa', 'menu.equipo', 'menu.retirarse'];
 
@@ -97,14 +109,14 @@ export class Combate extends Phaser.Scene {
     this.add.image(0, 0, fondo(this, arena)).setOrigin(0, 0).setScale(0.25);
     this.add.graphics().fillStyle(n(C.tinta), 1).fillRect(0, 110, 240, 50);
     this.sprites = [
-      this.add.image(POS[0].x - 120, POS[0].y, textura(yo.especie.id, 'espalda', yo.brillante)),
-      this.add.image(POS[1].x + 120, POS[1].y, textura(el.especie.id, 'frente', el.brillante)),
+      this.add.image(POS[0].x - 120, POS[0].y, textura(yo.especie.id, 'espalda', yo.brillante)).setOrigin(0.5, ORIGEN_Y),
+      this.add.image(POS[1].x + 120, POS[1].y, textura(el.especie.id, 'frente', el.brillante)).setOrigin(0.5, ORIGEN_Y),
     ];
     this.fx = new Efectos(this, this.add.layer());
-    this.paneles = [this.crearPanel(2), this.crearPanel(122)];
+    this.paneles = [this.crearPanel(PANEL[0].x, PANEL[0].y), this.crearPanel(PANEL[1].x, PANEL[1].y)];
     this.refrescarPanel(0);
     this.refrescarPanel(1);
-    this.turnoTxt = new Texto(this, 90, 30, 60, 10, '#ffffff', 'centro', { borde: '#2b3a78' });
+    this.turnoTxt = new Texto(this, 4, 30, 60, 10, '#ffffff', 'izq', { borde: '#2b3a78' });
 
     this.gVentanas = this.add.graphics();
     this.msg = new Texto(this, 10, 118, 220, 30, C.tinta);
@@ -243,7 +255,7 @@ export class Combate extends Phaser.Scene {
         case 'cura':
           sonido.tocar('cura');
           await Promise.all([this.fx.curar(this.centro(e.lado)), this.animarPs(e.lado, e.ps)]);
-          await this.decir(t(e.origen === 'pasiva' ? 'c.raices' : 'c.cura', { n: this.nom(e.lado) }));
+          await this.decir(t(e.origen === 'pasiva' ? `c.curaPasiva.${this.bat.act(e.lado).especie.pasiva}` : 'c.cura', { n: this.nom(e.lado) }));
           break;
         case 'item':
           if (e.lado === 0) sonido.tocar('aceptar');
@@ -571,19 +583,21 @@ export class Combate extends Phaser.Scene {
 
   // ------------------------------------------------------------ dibujo
 
-  private crearPanel(x: number): Panel {
+  private crearPanel(x: number, y: number): Panel {
     const g = this.add.graphics();
-    ventana(g, x, 2, 116, 26, 0.95);
-    new Texto(this, x + 6, 16, 12, 10, C.resalte).poner(t('ps'));
+    ventana(g, x, y, 116, 26, 0.95);
+    new Texto(this, x + 6, y + 14, 12, 10, C.resalte).poner(t('ps'));
     return {
       x,
-      nombre: new Texto(this, x + 6, 6, 60, 10),
-      nivel: new Texto(this, x + 84, 6, 26, 10, C.tintaSuave, 'der'),
-      ps: new Texto(this, x + 76, 16, 34, 10, C.tinta, 'der'),
+      y,
+      nombre: new Texto(this, x + 6, y + 4, 80, 10),
+      nivel: new Texto(this, x + 88, y + 4, 22, 10, C.tintaSuave, 'der'),
+      ps: new Texto(this, x + 76, y + 14, 34, 10, C.tinta, 'der'),
       barra: this.add.graphics(),
       puntos: this.add.graphics(),
       estadoFondo: this.add.graphics(),
-      estado: new Texto(this, x + 62, 6, 20, 10, C.papel, 'centro'),
+      // El estado va fuera del panel, después de los puntos del equipo, para no tapar nombres largos.
+      estado: new Texto(this, x === PANEL[0].x ? x - 52 : x + 142, y + 8, 20, 10, C.papel, 'centro'),
       mostrado: 0,
     };
   }
@@ -608,29 +622,30 @@ export class Combate extends Phaser.Scene {
     const r = v / max;
     const ancho = v > 0 ? Math.max(1, Math.floor(56 * r)) : 0;
     p.barra.clear();
-    p.barra.fillStyle(n(C.tinta), 1).fillRect(p.x + 18, 17, 58, 6);
-    p.barra.fillStyle(C.barraFondo, 1).fillRect(p.x + 19, 18, 56, 4);
-    p.barra.fillStyle(r > 0.5 ? C.psAlto : r > 0.2 ? C.psMedio : C.psBajo, 1).fillRect(p.x + 19, 18, ancho, 4);
+    p.barra.fillStyle(n(C.tinta), 1).fillRect(p.x + 18, p.y + 15, 58, 6);
+    p.barra.fillStyle(C.barraFondo, 1).fillRect(p.x + 19, p.y + 16, 56, 4);
+    p.barra.fillStyle(r > 0.5 ? C.psAlto : r > 0.2 ? C.psMedio : C.psBajo, 1).fillRect(p.x + 19, p.y + 16, ancho, 4);
     if (lado === 0) {
       // Barra fina de experiencia de tu criatura.
       const mia = criaturaDe(juego.estado, c.especie.id);
       const frac = mia && mia.nivel < DATOS.balance.nivelMax ? mia.xp / xpParaSubir(DATOS, mia.nivel) : 1;
-      p.barra.fillStyle(C.barraFondo, 1).fillRect(p.x + 19, 23.6, 56, 1.2);
-      p.barra.fillStyle(0x5aa9f0, 1).fillRect(p.x + 19, 23.6, 56 * frac, 1.2);
+      p.barra.fillStyle(C.barraFondo, 1).fillRect(p.x + 19, p.y + 21.6, 56, 1.2);
+      p.barra.fillStyle(0x5aa9f0, 1).fillRect(p.x + 19, p.y + 21.6, 56 * frac, 1.2);
     }
     p.ps.poner(`${v}/${max}`);
     p.mostrado = valor;
   }
 
-  /** Un punto por criatura del equipo: relleno si sigue en pie, hueco si cayó, con aro si está en el campo. */
+  /** Un punto por criatura del equipo, al costado del panel que da al centro: relleno si sigue en pie, hueco si cayó, con aro si está en el campo. */
   private pintarPuntos(lado: Lado): void {
     const p = this.paneles[lado];
     const equipo = this.bat.equipos[lado];
     p.puntos.clear();
     equipo.miembros.forEach((m, i) => {
-      const x = lado === 0 ? p.x + 8 + i * 8 : p.x + 108 - i * 8;
-      p.puntos.fillStyle(n(C.marco), 1).fillCircle(x, 32, i === equipo.activo ? 3.4 : 2.8);
-      p.puntos.fillStyle(m.ps > 0 ? C.psAlto : n(C.papel), 1).fillCircle(x, 32, 2);
+      const x = lado === 0 ? p.x - 6 - i * 8 : p.x + 122 + i * 8;
+      const y = p.y + 13;
+      p.puntos.fillStyle(n(C.marco), 1).fillCircle(x, y, i === equipo.activo ? 3.4 : 2.8);
+      p.puntos.fillStyle(m.ps > 0 ? C.psAlto : n(C.papel), 1).fillCircle(x, y, 2);
     });
   }
 
@@ -642,7 +657,7 @@ export class Combate extends Phaser.Scene {
       p.estado.poner('');
       return;
     }
-    p.estadoFondo.fillStyle(COLOR_ESTADO[est.id] ?? 0x566c86, 1).fillRoundedRect(p.x + 62, 5, 20, 9, 2);
+    p.estadoFondo.fillStyle(COLOR_ESTADO[est.id] ?? 0x566c86, 1).fillRoundedRect(p.x === PANEL[0].x ? p.x - 52 : p.x + 142, p.y + 7, 20, 9, 2);
     p.estado.poner(t(`estado.abrev.${est.id}`));
   }
 

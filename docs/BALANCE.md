@@ -220,6 +220,8 @@ Valores en `src/data/items.json` y `src/data/economia.json`.
 
 ## Formas Eclipse
 
+> Los stats y resultados de esta sección son de antes de las 13 familias; los vigentes están en «13 familias y 7 tipos».
+
 Alternativa a la etapa 4: mismo total, más ataque y velocidad, menos defensa. Se consiguen desde la etapa 3 a nivel 40, con la barra de Entrenamiento llena y una Piedra Eclipse.
 
 | Criatura | PS | Atq | Def | AtE | DfE | Vel | Total |
@@ -241,3 +243,109 @@ Victorias a nivel 46 (3000 combates, IA Experta):
 | Brote contra Solarión (desventaja) | 22 % | 33 % |
 
 Titán Eclipse empezó con Velocidad 87 y le ganaba el 46 % a Solarión, su rival con ventaja; con 83 ya no lo adelanta y el triángulo se mantiene.
+
+## 13 familias y 7 tipos
+
+### Tabla de tipos
+
+Con ventaja de tipo el daño se multiplica por 1,25; en contra, por 0,85. Cada tipo vence a 2 y pierde contra 2; se mantiene el triángulo original.
+
+| Tipo | Vence a | Pierde contra |
+|---|---|---|
+| Brasa | Brote, Sombra | Marea, Cielo |
+| Marea | Brasa, Roca | Brote, Rayo |
+| Brote | Marea, Roca | Brasa, Cielo |
+| Rayo | Marea, Cielo | Roca, Sombra |
+| Roca | Rayo, Sombra | Marea, Brote |
+| Cielo | Brasa, Brote | Rayo, Sombra |
+| Sombra | Rayo, Cielo | Brasa, Roca |
+
+### Familias (stats de etapa 1; las demás etapas escalan a 380 / 450 / 520)
+
+Brote conserva su ajuste propio por etapa (D72). Cada Eclipse suma lo mismo que su etapa 4 pero pasa un 14 % de Defensa y Def. Especial y un 6 % de PS al ataque principal (55 %), la Velocidad (30 %) y el otro ataque.
+
+| Línea · Eclipse | Tipo | Pasiva | PS | Atq | Def | AtE | DfE | Vel |
+|---|---|---|---|---|---|---|---|---|
+| Lumbrito → Leobrasa → Ignileón → Solarión · Solarión Eclipse | Brasa | Último Rescoldo | 64 | 48 | 50 | 54 | 38 | 46 |
+| Aletín → Corsario → Almirante → Leviatán · Leviatán Eclipse | Marea | Oleaje | 56 | 35 | 66 | 62 | 48 | 33 |
+| Brotín → Robledo → Guardabosque → Titán Ancestral · Titán Eclipse | Brote | Raíces | 60 | 50 | 52 | 40 | 56 | 42 |
+| Mantín → Mantabrisa → Nimbomanta → Soberaya · Soberaya Eclipse | Cielo | Viento a Favor | 50 | 44 | 36 | 54 | 42 | 74 |
+| Larvín → Capullón → Polinoche → Obsidia · Obsidia Eclipse | Sombra | Luna Nueva | 38 | 38 | 36 | 56 | 70 | 62 |
+| Ajolín → Chispolote → Truenolote → Ajotrón · Ajotrón Eclipse | Rayo | Carga Estática | 52 | 44 | 30 | 52 | 60 | 62 |
+| Caracolín → Pedrecol → Murallacol → Bastión · Bastión Eclipse | Roca | Piedra Viva | 50 | 48 | 78 | 34 | 60 | 30 |
+| Colibrín → Picoespina → Espinaflor → Florarca · Florarca Eclipse | Brote | Furia Espinosa | 50 | 62 | 54 | 36 | 34 | 64 |
+| Pangolito → Prismolín → Cuarzolín → Prismón · Prismón Eclipse | Roca | Piedra Viva | 44 | 62 | 54 | 36 | 50 | 54 |
+| Gequito → Velogeco → Aurogeco → Auragón · Auragón Eclipse | Cielo | Viento a Favor | 46 | 64 | 60 | 34 | 38 | 58 |
+| Ermitín → Pinzacho → Relicario → Relicón · Relicón Eclipse | Marea | Refugio | 62 | 60 | 76 | 28 | 34 | 40 |
+| Orejín → Saltaluna → Medialuna → Astaluna · Astaluna Eclipse | Sombra | Luna Nueva | 48 | 68 | 48 | 38 | 42 | 56 |
+| Pulpín → Tintapus → Abisopus → Regiopus · Regiopus Eclipse | Sombra | Tinta | 48 | 56 | 32 | 68 | 66 | 30 |
+
+Las pasivas nuevas usan una de las 3 mecánicas: Carga Estática, Viento a Favor y Tinta funcionan como Oleaje; Luna Nueva y Furia Espinosa, como Último Rescoldo; Piedra Viva y Refugio, como Raíces.
+
+### Cómo se ajustó
+
+Con stats «a ojo», las familias resistentes ganaban el 94 % de sus cruces sin ventaja de tipo y las frágiles el 8 %. Los stats de las familias nuevas, y los de Brasa y Marea, salieron de una búsqueda automática por simulación (D88). La meta era que cada familia quedara cerca del 50 % contra rivales sin ventaja de tipo y que la ventaja de tipo diera al menos el 62 %, sin cambiar el estilo de cada familia. También cambiaron tres habilidades de apoyo que subían la Velocidad (D87): Corriente ahora sube la Def. Especial, Viento de Cola el Ataque Especial y Luna Creciente el Ataque. Si Corriente subía el Ataque Especial, Brote dejaba de ganarle a Marea.
+
+### Resultado (`npm run familias -- 1000`, IA Experta)
+
+«Todas» es el promedio de victorias contra las otras 12 familias; «sin ventaja de tipo» cuenta solo los cruces en que ninguno de los dos tiene ventaja.
+
+**Etapa 1 (nivel 12)**
+
+```
+Brotín         brote   todas  62 %   sin ventaja de tipo  56 %
+Orejín         sombra  todas  57 %   sin ventaja de tipo  50 %
+Aletín         marea   todas  55 %   sin ventaja de tipo  48 %
+Gequito        cielo   todas  51 %   sin ventaja de tipo  51 %
+Lumbrito       brasa   todas  50 %   sin ventaja de tipo  49 %
+Mantín         cielo   todas  50 %   sin ventaja de tipo  60 %
+Larvín         sombra  todas  50 %   sin ventaja de tipo  56 %
+Ajolín         rayo    todas  49 %   sin ventaja de tipo  48 %
+Pangolito      roca    todas  49 %   sin ventaja de tipo  45 %
+Colibrín       brote   todas  46 %   sin ventaja de tipo  50 %
+Ermitín        marea   todas  46 %   sin ventaja de tipo  49 %
+Pulpín         sombra  todas  46 %   sin ventaja de tipo  49 %
+Caracolín      roca    todas  40 %   sin ventaja de tipo  35 %
+Con ventaja de tipo se gana el 86 % (mín 63, máx 100, 46 cruces)
+```
+
+**Etapa final (nivel 46)**
+
+```
+Leviatán       marea   todas  59 %   sin ventaja de tipo  55 %
+Titán Ancestral brote   todas  59 %   sin ventaja de tipo  52 %
+Prismón        roca    todas  54 %   sin ventaja de tipo  56 %
+Astaluna       sombra  todas  54 %   sin ventaja de tipo  42 %
+Bastión        roca    todas  54 %   sin ventaja de tipo  59 %
+Solarión       brasa   todas  52 %   sin ventaja de tipo  50 %
+Regiopus       sombra  todas  49 %   sin ventaja de tipo  57 %
+Relicón        marea   todas  49 %   sin ventaja de tipo  55 %
+Florarca       brote   todas  48 %   sin ventaja de tipo  55 %
+Ajotrón        rayo    todas  44 %   sin ventaja de tipo  39 %
+Auragón        cielo   todas  44 %   sin ventaja de tipo  31 %
+Obsidia        sombra  todas  43 %   sin ventaja de tipo  52 %
+Soberaya       cielo   todas  41 %   sin ventaja de tipo  44 %
+Con ventaja de tipo se gana el 87 % (mín 61, máx 100, 46 cruces)
+```
+
+**Eclipse contra su forma normal (nivel 46)**
+
+```
+Solarión Eclipse    45 %
+Leviatán Eclipse    65 %
+Titán Eclipse       61 %
+Soberaya Eclipse    56 %
+Obsidia Eclipse     59 %
+Ajotrón Eclipse     56 %
+Bastión Eclipse     68 %
+Florarca Eclipse    49 %
+Prismón Eclipse     65 %
+Auragón Eclipse     52 %
+Relicón Eclipse     67 %
+Astaluna Eclipse    61 %
+Regiopus Eclipse    55 %
+```
+
+Triángulo original (`npm run ajustar`): Brasa > Brote 75–78 %, Brote > Marea 87–92 %, Marea > Brasa 94–96 % en las 4 etapas.
+
+Puntos débiles: Caracolín es la familia más floja en la etapa 1 (35 % sin ventaja), pero en la final queda entre las fuertes; Auragón y Ajotrón quedan bajos en la etapa final (31 y 39 %). Bastión, Relicón, Leviatán y Prismón Eclipse le ganan el 65–68 % a su forma normal; Solarión Eclipse, el 45 %.

@@ -22,8 +22,9 @@ El script recorta cada criatura, la reduce al lienzo del juego, limita la paleta
 
 1. Hoja de arte en `arte/originales/<familia>.png` (ver arriba) y `python3 scripts/importar_arte.py`.
 2. Una entrada por etapa en `src/data/criaturas.json`: `id`, `nombre` (hasta 16 letras), `tipo`, `familia`, `etapa`, `pasiva`, stats `base`, 4 `habilidades`, `descripcion` (hasta 90 letras), `evoluciona` y `sprites` (`<familia>_<etapa>`). Para que sea pareja, usa los totales de stats de la tabla de `docs/BALANCE.md`.
-3. Si es de un **tipo nuevo**: agrégalo a `src/data/tipos.json` (a quién vence), con su color en `COLOR_TIPO` (`src/ui/estilo.ts`), sus 4 habilidades en `habilidades.json` y un fondo de combate.
-4. `npm run validar && npm test && npm run ajustar` para revisar datos, pruebas y balance.
+3. Si es de un **tipo nuevo**: agrégalo a `src/data/tipos.json` (a quién vence), con su color en `COLOR_TIPO` (`src/ui/estilo.ts`), su partícula en `PARTICULA_TIPO` y `COLOR_GARRA` (`src/ui/efectos.ts`), sus 4 habilidades en `habilidades.json` y su escenario en `FONDO_POR_TIPO` (`src/ui/fondos.ts`).
+   Una pasiva nueva puede reutilizar una de las 3 mecánicas con nombre propio: `pasivasAlias` en `balance.json` y sus mensajes en `src/i18n/es.json`.
+4. `npm run validar && npm test && npm run familias` para revisar datos, pruebas y balance contra todas las familias.
 
 Lo que necesito de ti para cada familia nueva: la hoja de arte, los nombres, el tipo (uno existente o uno nuevo, y contra quién gana y pierde) y el rol (veloz, resistente, especial…). Con eso propongo stats, habilidades y efectos.
 
@@ -31,11 +32,11 @@ Lo que necesito de ti para cada familia nueva: la hoja de arte, los nombres, el 
 
 | Archivo en `public/sprites/` | Tamaño | Contenido |
 | --- | --- | --- |
-| `familia_etapa_frente.png` | 64×64 px | De frente, mirando a la izquierda |
-| `familia_etapa_espalda.png` | 64×64 px | De espaldas, mirando a la derecha |
+| `familia_etapa_frente.png` | 96×96 px | De frente, mirando a la izquierda |
+| `familia_etapa_espalda.png` | 96×96 px | De espaldas, mirando a la derecha |
 | `familia_etapa_icono.png` | 64×32 px | Dos cuadros de 32×32, uno al lado del otro |
 
-Reglas si dibujas directo a tamaño final: fondo transparente, cada píxel opaco o transparente, hasta 15 colores, la criatura apoyada en la base del lienzo y centrada. Tamaño máximo por etapa: 40, 50, 58 y 64 px.
+Reglas si dibujas directo a tamaño final: fondo transparente, cada píxel opaco o transparente, hasta 15 colores, la criatura apoyada en la base del lienzo y centrada. Tamaño máximo por etapa: 36, 48, 62 y 80 px; las ramas (Eclipse), 86 px. En combate se ven a ese tamaño, apoyadas en su plataforma: cuanto más evolucionada, más grande.
 
 ## Fondos de combate
 

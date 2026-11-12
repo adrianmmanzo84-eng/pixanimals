@@ -8,12 +8,12 @@
       "etapa": 1,
       "pasiva": "ultimo_rescoldo",
       "base": {
-        "ps": 50,
-        "atq": 52,
-        "def": 42,
-        "ate": 60,
-        "dfe": 46,
-        "vel": 50
+        "ps": 64,
+        "atq": 48,
+        "def": 50,
+        "ate": 54,
+        "dfe": 38,
+        "vel": 46
       },
       "habilidades": [
         "zarpazo_ardiente",
@@ -44,12 +44,12 @@
       "etapa": 2,
       "pasiva": "ultimo_rescoldo",
       "base": {
-        "ps": 63,
-        "atq": 66,
-        "def": 53,
-        "ate": 76,
-        "dfe": 58,
-        "vel": 64
+        "ps": 81,
+        "atq": 62,
+        "def": 63,
+        "ate": 68,
+        "dfe": 48,
+        "vel": 58
       },
       "habilidades": [
         "zarpazo_ardiente",
@@ -80,12 +80,12 @@
       "etapa": 3,
       "pasiva": "ultimo_rescoldo",
       "base": {
-        "ps": 75,
-        "atq": 78,
-        "def": 63,
-        "ate": 90,
-        "dfe": 69,
-        "vel": 75
+        "ps": 96,
+        "atq": 72,
+        "def": 75,
+        "ate": 81,
+        "dfe": 57,
+        "vel": 69
       },
       "habilidades": [
         "zarpazo_ardiente",
@@ -121,12 +121,12 @@
       "etapa": 4,
       "pasiva": "ultimo_rescoldo",
       "base": {
-        "ps": 87,
-        "atq": 90,
-        "def": 73,
-        "ate": 104,
-        "dfe": 80,
-        "vel": 86
+        "ps": 111,
+        "atq": 82,
+        "def": 87,
+        "ate": 94,
+        "dfe": 66,
+        "vel": 80
       },
       "habilidades": [
         "zarpazo_ardiente",
@@ -152,12 +152,12 @@
       "etapa": 4,
       "pasiva": "ultimo_rescoldo",
       "base": {
-        "ps": 80,
-        "atq": 104,
-        "def": 64,
-        "ate": 100,
-        "dfe": 70,
-        "vel": 102
+        "ps": 104,
+        "atq": 87,
+        "def": 75,
+        "ate": 109,
+        "dfe": 57,
+        "vel": 88
       },
       "habilidades": [
         "zarpazo_ardiente",
@@ -183,12 +183,12 @@
       "etapa": 1,
       "pasiva": "oleaje",
       "base": {
-        "ps": 50,
-        "atq": 45,
-        "def": 50,
-        "ate": 56,
-        "dfe": 50,
-        "vel": 49
+        "ps": 56,
+        "atq": 35,
+        "def": 66,
+        "ate": 62,
+        "dfe": 48,
+        "vel": 33
       },
       "habilidades": [
         "dentellada_marina",
@@ -219,12 +219,12 @@
       "etapa": 2,
       "pasiva": "oleaje",
       "base": {
-        "ps": 63,
-        "atq": 57,
-        "def": 63,
-        "ate": 71,
-        "dfe": 63,
-        "vel": 63
+        "ps": 71,
+        "atq": 43,
+        "def": 84,
+        "ate": 79,
+        "dfe": 61,
+        "vel": 42
       },
       "habilidades": [
         "dentellada_marina",
@@ -255,12 +255,12 @@
       "etapa": 3,
       "pasiva": "oleaje",
       "base": {
-        "ps": 75,
-        "atq": 68,
-        "def": 75,
-        "ate": 84,
-        "dfe": 75,
-        "vel": 73
+        "ps": 84,
+        "atq": 52,
+        "def": 99,
+        "ate": 93,
+        "dfe": 72,
+        "vel": 50
       },
       "habilidades": [
         "dentellada_marina",
@@ -296,12 +296,12 @@
       "etapa": 4,
       "pasiva": "oleaje",
       "base": {
-        "ps": 87,
-        "atq": 78,
-        "def": 86,
-        "ate": 97,
-        "dfe": 87,
-        "vel": 85
+        "ps": 97,
+        "atq": 62,
+        "def": 114,
+        "ate": 107,
+        "dfe": 83,
+        "vel": 57
       },
       "habilidades": [
         "dentellada_marina",
@@ -327,12 +327,12 @@
       "etapa": 4,
       "pasiva": "oleaje",
       "base": {
-        "ps": 82,
-        "atq": 80,
-        "def": 72,
-        "ate": 114,
-        "dfe": 72,
-        "vel": 100
+        "ps": 91,
+        "atq": 67,
+        "def": 98,
+        "ate": 126,
+        "dfe": 71,
+        "vel": 67
       },
       "habilidades": [
         "dentellada_marina",
@@ -524,6 +524,1456 @@
       "descripcion": "Guardián del bosque de noche. Sus astas retorcidas crecen en espinas.",
       "sprites": "brote_4b",
       "evoluciona": []
+    },
+    {
+      "id": "mantin",
+      "nombre": "Mantín",
+      "tipo": "cielo",
+      "familia": "mantarraya",
+      "etapa": 1,
+      "pasiva": "viento_a_favor",
+      "base": {
+        "ps": 50,
+        "atq": 44,
+        "def": 36,
+        "ate": 54,
+        "dfe": 42,
+        "vel": 74
+      },
+      "habilidades": [
+        "rafaga_celeste",
+        "manto_de_nubes",
+        "viento_de_cola",
+        "tormenta_estelar"
+      ],
+      "descripcion": "Flota como una nube redonda. Le encanta el viento tibio de la tarde.",
+      "evoluciona": [
+        {
+          "a": "mantabrisa",
+          "nivel": 16
+        }
+      ],
+      "sprites": "mantarraya_1"
+    },
+    {
+      "id": "mantabrisa",
+      "nombre": "Mantabrisa",
+      "tipo": "cielo",
+      "familia": "mantarraya",
+      "etapa": 2,
+      "pasiva": "viento_a_favor",
+      "base": {
+        "ps": 63,
+        "atq": 56,
+        "def": 46,
+        "ate": 68,
+        "dfe": 53,
+        "vel": 94
+      },
+      "habilidades": [
+        "rafaga_celeste",
+        "manto_de_nubes",
+        "viento_de_cola",
+        "tormenta_estelar"
+      ],
+      "descripcion": "Planea sobre las corrientes de aire sin mover las aletas.",
+      "evoluciona": [
+        {
+          "a": "nimbomanta",
+          "nivel": 28
+        }
+      ],
+      "sprites": "mantarraya_2"
+    },
+    {
+      "id": "nimbomanta",
+      "nombre": "Nimbomanta",
+      "tipo": "cielo",
+      "familia": "mantarraya",
+      "etapa": 3,
+      "pasiva": "viento_a_favor",
+      "base": {
+        "ps": 75,
+        "atq": 66,
+        "def": 54,
+        "ate": 81,
+        "dfe": 63,
+        "vel": 111
+      },
+      "habilidades": [
+        "rafaga_celeste",
+        "manto_de_nubes",
+        "viento_de_cola",
+        "tormenta_estelar"
+      ],
+      "descripcion": "Sus alas de cielo nocturno brillan con pequeñas estrellas.",
+      "evoluciona": [
+        {
+          "a": "soberaya",
+          "nivel": 40
+        },
+        {
+          "a": "soberaya_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "mantarraya_3"
+    },
+    {
+      "id": "soberaya",
+      "nombre": "Soberaya",
+      "tipo": "cielo",
+      "familia": "mantarraya",
+      "etapa": 4,
+      "pasiva": "viento_a_favor",
+      "base": {
+        "ps": 87,
+        "atq": 76,
+        "def": 62,
+        "ate": 94,
+        "dfe": 73,
+        "vel": 128
+      },
+      "habilidades": [
+        "rafaga_celeste",
+        "manto_de_nubes",
+        "viento_de_cola",
+        "tormenta_estelar"
+      ],
+      "descripcion": "Reina del cielo alto. Sus colas de cinta dibujan auroras.",
+      "evoluciona": [],
+      "sprites": "mantarraya_4"
+    },
+    {
+      "id": "soberaya_eclipse",
+      "nombre": "Soberaya Eclipse",
+      "tipo": "cielo",
+      "familia": "mantarraya",
+      "etapa": 4,
+      "pasiva": "viento_a_favor",
+      "base": {
+        "ps": 82,
+        "atq": 80,
+        "def": 53,
+        "ate": 107,
+        "dfe": 63,
+        "vel": 135
+      },
+      "habilidades": [
+        "rafaga_celeste",
+        "manto_de_nubes",
+        "viento_de_cola",
+        "tormenta_estelar"
+      ],
+      "descripcion": "Sus alas de guadaña curvan la gravedad a su alrededor.",
+      "evoluciona": [],
+      "sprites": "mantarraya_4b"
+    },
+    {
+      "id": "larvin",
+      "nombre": "Larvín",
+      "tipo": "sombra",
+      "familia": "polilla",
+      "etapa": 1,
+      "pasiva": "luna_nueva",
+      "base": {
+        "ps": 38,
+        "atq": 38,
+        "def": 36,
+        "ate": 56,
+        "dfe": 70,
+        "vel": 62
+      },
+      "habilidades": [
+        "polvo_oscuro",
+        "alas_de_obsidiana",
+        "danza_lunar",
+        "eclipse_total"
+      ],
+      "descripcion": "Oruga tímida que duerme de día y come hojas de noche.",
+      "evoluciona": [
+        {
+          "a": "capullon",
+          "nivel": 16
+        }
+      ],
+      "sprites": "polilla_1"
+    },
+    {
+      "id": "capullon",
+      "nombre": "Capullón",
+      "tipo": "sombra",
+      "familia": "polilla",
+      "etapa": 2,
+      "pasiva": "luna_nueva",
+      "base": {
+        "ps": 48,
+        "atq": 47,
+        "def": 46,
+        "ate": 71,
+        "dfe": 89,
+        "vel": 79
+      },
+      "habilidades": [
+        "polvo_oscuro",
+        "alas_de_obsidiana",
+        "danza_lunar",
+        "eclipse_total"
+      ],
+      "descripcion": "Su caparazón violeta guarda un sueño que dura semanas.",
+      "evoluciona": [
+        {
+          "a": "polinoche",
+          "nivel": 28
+        }
+      ],
+      "sprites": "polilla_2"
+    },
+    {
+      "id": "polinoche",
+      "nombre": "Polinoche",
+      "tipo": "sombra",
+      "familia": "polilla",
+      "etapa": 3,
+      "pasiva": "luna_nueva",
+      "base": {
+        "ps": 57,
+        "atq": 57,
+        "def": 54,
+        "ate": 84,
+        "dfe": 105,
+        "vel": 93
+      },
+      "habilidades": [
+        "polvo_oscuro",
+        "alas_de_obsidiana",
+        "danza_lunar",
+        "eclipse_total"
+      ],
+      "descripcion": "Sus alas sueltan un polvo que da sueño a quien lo respira.",
+      "evoluciona": [
+        {
+          "a": "obsidia",
+          "nivel": 40
+        },
+        {
+          "a": "obsidia_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "polilla_3"
+    },
+    {
+      "id": "obsidia",
+      "nombre": "Obsidia",
+      "tipo": "sombra",
+      "familia": "polilla",
+      "etapa": 4,
+      "pasiva": "luna_nueva",
+      "base": {
+        "ps": 67,
+        "atq": 66,
+        "def": 62,
+        "ate": 97,
+        "dfe": 121,
+        "vel": 107
+      },
+      "habilidades": [
+        "polvo_oscuro",
+        "alas_de_obsidiana",
+        "danza_lunar",
+        "eclipse_total"
+      ],
+      "descripcion": "Sus alas de obsidiana tapan la luna cuando vuela.",
+      "evoluciona": [],
+      "sprites": "polilla_4"
+    },
+    {
+      "id": "obsidia_eclipse",
+      "nombre": "Obsidia Eclipse",
+      "tipo": "sombra",
+      "familia": "polilla",
+      "etapa": 4,
+      "pasiva": "luna_nueva",
+      "base": {
+        "ps": 63,
+        "atq": 71,
+        "def": 53,
+        "ate": 113,
+        "dfe": 104,
+        "vel": 116
+      },
+      "habilidades": [
+        "polvo_oscuro",
+        "alas_de_obsidiana",
+        "danza_lunar",
+        "eclipse_total"
+      ],
+      "descripcion": "Alas dentadas y marcas carmesí. Su polvo apaga la luz.",
+      "evoluciona": [],
+      "sprites": "polilla_4b"
+    },
+    {
+      "id": "ajolin",
+      "nombre": "Ajolín",
+      "tipo": "rayo",
+      "familia": "ajolote",
+      "etapa": 1,
+      "pasiva": "carga_estatica",
+      "base": {
+        "ps": 52,
+        "atq": 44,
+        "def": 30,
+        "ate": 52,
+        "dfe": 60,
+        "vel": 62
+      },
+      "habilidades": [
+        "chispazo",
+        "piel_estatica",
+        "carga_ionica",
+        "tormenta_electrica"
+      ],
+      "descripcion": "Sonríe todo el tiempo. Sus branquias chispean si se asusta.",
+      "evoluciona": [
+        {
+          "a": "chispolote",
+          "nivel": 16
+        }
+      ],
+      "sprites": "ajolote_1"
+    },
+    {
+      "id": "chispolote",
+      "nombre": "Chispolote",
+      "tipo": "rayo",
+      "familia": "ajolote",
+      "etapa": 2,
+      "pasiva": "carga_estatica",
+      "base": {
+        "ps": 66,
+        "atq": 56,
+        "def": 38,
+        "ate": 66,
+        "dfe": 75,
+        "vel": 79
+      },
+      "habilidades": [
+        "chispazo",
+        "piel_estatica",
+        "carga_ionica",
+        "tormenta_electrica"
+      ],
+      "descripcion": "Guarda electricidad en sus branquias rosadas.",
+      "evoluciona": [
+        {
+          "a": "truenolote",
+          "nivel": 28
+        }
+      ],
+      "sprites": "ajolote_2"
+    },
+    {
+      "id": "truenolote",
+      "nombre": "Truenolote",
+      "tipo": "rayo",
+      "familia": "ajolote",
+      "etapa": 3,
+      "pasiva": "carga_estatica",
+      "base": {
+        "ps": 78,
+        "atq": 66,
+        "def": 45,
+        "ate": 78,
+        "dfe": 90,
+        "vel": 93
+      },
+      "habilidades": [
+        "chispazo",
+        "piel_estatica",
+        "carga_ionica",
+        "tormenta_electrica"
+      ],
+      "descripcion": "Cuando se enoja, el agua a su alrededor zumba.",
+      "evoluciona": [
+        {
+          "a": "ajotron",
+          "nivel": 40
+        },
+        {
+          "a": "ajotron_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "ajolote_3"
+    },
+    {
+      "id": "ajotron",
+      "nombre": "Ajotrón",
+      "tipo": "rayo",
+      "familia": "ajolote",
+      "etapa": 4,
+      "pasiva": "carga_estatica",
+      "base": {
+        "ps": 90,
+        "atq": 76,
+        "def": 52,
+        "ate": 90,
+        "dfe": 104,
+        "vel": 108
+      },
+      "habilidades": [
+        "chispazo",
+        "piel_estatica",
+        "carga_ionica",
+        "tormenta_electrica"
+      ],
+      "descripcion": "Guardián de las lagunas. Sus branquias son relámpagos.",
+      "evoluciona": [],
+      "sprites": "ajolote_4"
+    },
+    {
+      "id": "ajotron_eclipse",
+      "nombre": "Ajotrón Eclipse",
+      "tipo": "rayo",
+      "familia": "ajolote",
+      "etapa": 4,
+      "pasiva": "carga_estatica",
+      "base": {
+        "ps": 85,
+        "atq": 80,
+        "def": 45,
+        "ate": 105,
+        "dfe": 89,
+        "vel": 116
+      },
+      "habilidades": [
+        "chispazo",
+        "piel_estatica",
+        "carga_ionica",
+        "tormenta_electrica"
+      ],
+      "descripcion": "Su armadura violeta zumba con una tormenta encerrada.",
+      "evoluciona": [],
+      "sprites": "ajolote_4b"
+    },
+    {
+      "id": "caracolin",
+      "nombre": "Caracolín",
+      "tipo": "roca",
+      "familia": "caracol",
+      "etapa": 1,
+      "pasiva": "piedra_viva",
+      "base": {
+        "ps": 50,
+        "atq": 48,
+        "def": 78,
+        "ate": 34,
+        "dfe": 60,
+        "vel": 30
+      },
+      "habilidades": [
+        "golpe_de_concha",
+        "refugio_de_piedra",
+        "endurecer",
+        "avalancha"
+      ],
+      "descripcion": "Lento pero valiente. Su concha es lisa como una piedra de río.",
+      "evoluciona": [
+        {
+          "a": "pedrecol",
+          "nivel": 16
+        }
+      ],
+      "sprites": "caracol_1"
+    },
+    {
+      "id": "pedrecol",
+      "nombre": "Pedrecol",
+      "tipo": "roca",
+      "familia": "caracol",
+      "etapa": 2,
+      "pasiva": "piedra_viva",
+      "base": {
+        "ps": 63,
+        "atq": 61,
+        "def": 99,
+        "ate": 43,
+        "dfe": 76,
+        "vel": 38
+      },
+      "habilidades": [
+        "golpe_de_concha",
+        "refugio_de_piedra",
+        "endurecer",
+        "avalancha"
+      ],
+      "descripcion": "Su concha se llena de piedritas que encuentra en el camino.",
+      "evoluciona": [
+        {
+          "a": "murallacol",
+          "nivel": 28
+        }
+      ],
+      "sprites": "caracol_2"
+    },
+    {
+      "id": "murallacol",
+      "nombre": "Murallacol",
+      "tipo": "roca",
+      "familia": "caracol",
+      "etapa": 3,
+      "pasiva": "piedra_viva",
+      "base": {
+        "ps": 75,
+        "atq": 72,
+        "def": 117,
+        "ate": 51,
+        "dfe": 90,
+        "vel": 45
+      },
+      "habilidades": [
+        "golpe_de_concha",
+        "refugio_de_piedra",
+        "endurecer",
+        "avalancha"
+      ],
+      "descripcion": "Su caparazón de roca es tan duro como una muralla.",
+      "evoluciona": [
+        {
+          "a": "bastion",
+          "nivel": 40
+        },
+        {
+          "a": "bastion_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "caracol_3"
+    },
+    {
+      "id": "bastion",
+      "nombre": "Bastión",
+      "tipo": "roca",
+      "familia": "caracol",
+      "etapa": 4,
+      "pasiva": "piedra_viva",
+      "base": {
+        "ps": 87,
+        "atq": 83,
+        "def": 135,
+        "ate": 59,
+        "dfe": 104,
+        "vel": 52
+      },
+      "habilidades": [
+        "golpe_de_concha",
+        "refugio_de_piedra",
+        "endurecer",
+        "avalancha"
+      ],
+      "descripcion": "Una fortaleza que camina. Las grietas de su concha brillan.",
+      "evoluciona": [],
+      "sprites": "caracol_4"
+    },
+    {
+      "id": "bastion_eclipse",
+      "nombre": "Bastión Eclipse",
+      "tipo": "roca",
+      "familia": "caracol",
+      "etapa": 4,
+      "pasiva": "piedra_viva",
+      "base": {
+        "ps": 82,
+        "atq": 104,
+        "def": 116,
+        "ate": 65,
+        "dfe": 89,
+        "vel": 64
+      },
+      "habilidades": [
+        "golpe_de_concha",
+        "refugio_de_piedra",
+        "endurecer",
+        "avalancha"
+      ],
+      "descripcion": "Caparazón de basalto afilado. Nada lo hace retroceder.",
+      "evoluciona": [],
+      "sprites": "caracol_4b"
+    },
+    {
+      "id": "colibrin",
+      "nombre": "Colibrín",
+      "tipo": "brote",
+      "familia": "colibri",
+      "etapa": 1,
+      "pasiva": "furia_espinosa",
+      "base": {
+        "ps": 50,
+        "atq": 62,
+        "def": 54,
+        "ate": 36,
+        "dfe": 34,
+        "vel": 64
+      },
+      "habilidades": [
+        "pico_espina",
+        "escudo_de_petalos",
+        "nectar",
+        "huracan_floral"
+      ],
+      "descripcion": "Polluelo redondo que aletea tan rápido que zumba.",
+      "evoluciona": [
+        {
+          "a": "picoespina",
+          "nivel": 16
+        }
+      ],
+      "sprites": "colibri_1"
+    },
+    {
+      "id": "picoespina",
+      "nombre": "Picoespina",
+      "tipo": "brote",
+      "familia": "colibri",
+      "etapa": 2,
+      "pasiva": "furia_espinosa",
+      "base": {
+        "ps": 63,
+        "atq": 79,
+        "def": 68,
+        "ate": 46,
+        "dfe": 43,
+        "vel": 81
+      },
+      "habilidades": [
+        "pico_espina",
+        "escudo_de_petalos",
+        "nectar",
+        "huracan_floral"
+      ],
+      "descripcion": "Su pico es fino como una espina. Visita mil flores al día.",
+      "evoluciona": [
+        {
+          "a": "espinaflor",
+          "nivel": 28
+        }
+      ],
+      "sprites": "colibri_2"
+    },
+    {
+      "id": "espinaflor",
+      "nombre": "Espinaflor",
+      "tipo": "brote",
+      "familia": "colibri",
+      "etapa": 3,
+      "pasiva": "furia_espinosa",
+      "base": {
+        "ps": 75,
+        "atq": 93,
+        "def": 81,
+        "ate": 54,
+        "dfe": 51,
+        "vel": 96
+      },
+      "habilidades": [
+        "pico_espina",
+        "escudo_de_petalos",
+        "nectar",
+        "huracan_floral"
+      ],
+      "descripcion": "Sus alas de hojas cortan el aire como cuchillas.",
+      "evoluciona": [
+        {
+          "a": "florarca",
+          "nivel": 40
+        },
+        {
+          "a": "florarca_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "colibri_3"
+    },
+    {
+      "id": "florarca",
+      "nombre": "Florarca",
+      "tipo": "brote",
+      "familia": "colibri",
+      "etapa": 4,
+      "pasiva": "furia_espinosa",
+      "base": {
+        "ps": 87,
+        "atq": 107,
+        "def": 94,
+        "ate": 62,
+        "dfe": 59,
+        "vel": 111
+      },
+      "habilidades": [
+        "pico_espina",
+        "escudo_de_petalos",
+        "nectar",
+        "huracan_floral"
+      ],
+      "descripcion": "Ave floral con corona de pétalos. Poliniza bosques enteros.",
+      "evoluciona": [],
+      "sprites": "colibri_4"
+    },
+    {
+      "id": "florarca_eclipse",
+      "nombre": "Florarca Eclipse",
+      "tipo": "brote",
+      "familia": "colibri",
+      "etapa": 4,
+      "pasiva": "furia_espinosa",
+      "base": {
+        "ps": 82,
+        "atq": 121,
+        "def": 81,
+        "ate": 66,
+        "dfe": 51,
+        "vel": 119
+      },
+      "habilidades": [
+        "pico_espina",
+        "escudo_de_petalos",
+        "nectar",
+        "huracan_floral"
+      ],
+      "descripcion": "Sus alas de hojas cortantes giran como un torbellino.",
+      "evoluciona": [],
+      "sprites": "colibri_4b"
+    },
+    {
+      "id": "pangolito",
+      "nombre": "Pangolito",
+      "tipo": "roca",
+      "familia": "pangolin",
+      "etapa": 1,
+      "pasiva": "piedra_viva",
+      "base": {
+        "ps": 44,
+        "atq": 62,
+        "def": 54,
+        "ate": 36,
+        "dfe": 50,
+        "vel": 54
+      },
+      "habilidades": [
+        "escama_afilada",
+        "bola_de_cristal",
+        "pulir_escamas",
+        "lluvia_de_prismas"
+      ],
+      "descripcion": "Se enrolla como una bolita cuando algo lo sorprende.",
+      "evoluciona": [
+        {
+          "a": "prismolin",
+          "nivel": 16
+        }
+      ],
+      "sprites": "pangolin_1"
+    },
+    {
+      "id": "prismolin",
+      "nombre": "Prismolín",
+      "tipo": "roca",
+      "familia": "pangolin",
+      "etapa": 2,
+      "pasiva": "piedra_viva",
+      "base": {
+        "ps": 56,
+        "atq": 79,
+        "def": 68,
+        "ate": 46,
+        "dfe": 63,
+        "vel": 68
+      },
+      "habilidades": [
+        "escama_afilada",
+        "bola_de_cristal",
+        "pulir_escamas",
+        "lluvia_de_prismas"
+      ],
+      "descripcion": "Sus escamas empiezan a brillar como cristal de colores.",
+      "evoluciona": [
+        {
+          "a": "cuarzolin",
+          "nivel": 28
+        }
+      ],
+      "sprites": "pangolin_2"
+    },
+    {
+      "id": "cuarzolin",
+      "nombre": "Cuarzolín",
+      "tipo": "roca",
+      "familia": "pangolin",
+      "etapa": 3,
+      "pasiva": "piedra_viva",
+      "base": {
+        "ps": 66,
+        "atq": 93,
+        "def": 81,
+        "ate": 54,
+        "dfe": 75,
+        "vel": 81
+      },
+      "habilidades": [
+        "escama_afilada",
+        "bola_de_cristal",
+        "pulir_escamas",
+        "lluvia_de_prismas"
+      ],
+      "descripcion": "Cada escama es un prisma que descompone la luz.",
+      "evoluciona": [
+        {
+          "a": "prismon",
+          "nivel": 40
+        },
+        {
+          "a": "prismon_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "pangolin_3"
+    },
+    {
+      "id": "prismon",
+      "nombre": "Prismón",
+      "tipo": "roca",
+      "familia": "pangolin",
+      "etapa": 4,
+      "pasiva": "piedra_viva",
+      "base": {
+        "ps": 76,
+        "atq": 107,
+        "def": 94,
+        "ate": 62,
+        "dfe": 87,
+        "vel": 94
+      },
+      "habilidades": [
+        "escama_afilada",
+        "bola_de_cristal",
+        "pulir_escamas",
+        "lluvia_de_prismas"
+      ],
+      "descripcion": "Guardián de escamas cristalinas. Brilla como un arcoíris.",
+      "evoluciona": [],
+      "sprites": "pangolin_4"
+    },
+    {
+      "id": "prismon_eclipse",
+      "nombre": "Prismón Eclipse",
+      "tipo": "roca",
+      "familia": "pangolin",
+      "etapa": 4,
+      "pasiva": "piedra_viva",
+      "base": {
+        "ps": 71,
+        "atq": 123,
+        "def": 81,
+        "ate": 67,
+        "dfe": 75,
+        "vel": 103
+      },
+      "habilidades": [
+        "escama_afilada",
+        "bola_de_cristal",
+        "pulir_escamas",
+        "lluvia_de_prismas"
+      ],
+      "descripcion": "Escamas afiladas y una gran cola acorazada de cristal.",
+      "evoluciona": [],
+      "sprites": "pangolin_4b"
+    },
+    {
+      "id": "gequito",
+      "nombre": "Gequito",
+      "tipo": "cielo",
+      "familia": "gecko",
+      "etapa": 1,
+      "pasiva": "viento_a_favor",
+      "base": {
+        "ps": 46,
+        "atq": 64,
+        "def": 60,
+        "ate": 34,
+        "dfe": 38,
+        "vel": 58
+      },
+      "habilidades": [
+        "coletazo_aurora",
+        "planeo",
+        "luz_de_aurora",
+        "picado_celeste"
+      ],
+      "descripcion": "Diminuto y curioso. Trepa por cualquier pared sin caerse.",
+      "evoluciona": [
+        {
+          "a": "velogeco",
+          "nivel": 16
+        }
+      ],
+      "sprites": "gecko_1"
+    },
+    {
+      "id": "velogeco",
+      "nombre": "Velogeco",
+      "tipo": "cielo",
+      "familia": "gecko",
+      "etapa": 2,
+      "pasiva": "viento_a_favor",
+      "base": {
+        "ps": 58,
+        "atq": 81,
+        "def": 76,
+        "ate": 43,
+        "dfe": 48,
+        "vel": 74
+      },
+      "habilidades": [
+        "coletazo_aurora",
+        "planeo",
+        "luz_de_aurora",
+        "picado_celeste"
+      ],
+      "descripcion": "Despliega sus membranas y planea de árbol en árbol.",
+      "evoluciona": [
+        {
+          "a": "aurogeco",
+          "nivel": 28
+        }
+      ],
+      "sprites": "gecko_2"
+    },
+    {
+      "id": "aurogeco",
+      "nombre": "Aurogeco",
+      "tipo": "cielo",
+      "familia": "gecko",
+      "etapa": 3,
+      "pasiva": "viento_a_favor",
+      "base": {
+        "ps": 69,
+        "atq": 96,
+        "def": 90,
+        "ate": 51,
+        "dfe": 57,
+        "vel": 87
+      },
+      "habilidades": [
+        "coletazo_aurora",
+        "planeo",
+        "luz_de_aurora",
+        "picado_celeste"
+      ],
+      "descripcion": "Sus membranas violetas brillan como una aurora.",
+      "evoluciona": [
+        {
+          "a": "auragon",
+          "nivel": 40
+        },
+        {
+          "a": "auragon_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "gecko_3"
+    },
+    {
+      "id": "auragon",
+      "nombre": "Auragón",
+      "tipo": "cielo",
+      "familia": "gecko",
+      "etapa": 4,
+      "pasiva": "viento_a_favor",
+      "base": {
+        "ps": 80,
+        "atq": 111,
+        "def": 103,
+        "ate": 59,
+        "dfe": 66,
+        "vel": 101
+      },
+      "habilidades": [
+        "coletazo_aurora",
+        "planeo",
+        "luz_de_aurora",
+        "picado_celeste"
+      ],
+      "descripcion": "Gran planeador del cielo. Su cola dibuja la aurora boreal.",
+      "evoluciona": [],
+      "sprites": "gecko_4"
+    },
+    {
+      "id": "auragon_eclipse",
+      "nombre": "Auragón Eclipse",
+      "tipo": "cielo",
+      "familia": "gecko",
+      "etapa": 4,
+      "pasiva": "viento_a_favor",
+      "base": {
+        "ps": 75,
+        "atq": 126,
+        "def": 89,
+        "ate": 64,
+        "dfe": 57,
+        "vel": 109
+      },
+      "habilidades": [
+        "coletazo_aurora",
+        "planeo",
+        "luz_de_aurora",
+        "picado_celeste"
+      ],
+      "descripcion": "Sus membranas dentadas lanzan destellos cian y magenta.",
+      "evoluciona": [],
+      "sprites": "gecko_4b"
+    },
+    {
+      "id": "ermitin",
+      "nombre": "Ermitín",
+      "tipo": "marea",
+      "familia": "cangrejo",
+      "etapa": 1,
+      "pasiva": "refugio",
+      "base": {
+        "ps": 62,
+        "atq": 60,
+        "def": 76,
+        "ate": 28,
+        "dfe": 34,
+        "vel": 40
+      },
+      "habilidades": [
+        "pinza_marina",
+        "concha_sagrada",
+        "coraza_de_sal",
+        "pinza_de_asedio"
+      ],
+      "descripcion": "Cambia de concha cuando crece. Siempre busca la más bonita.",
+      "evoluciona": [
+        {
+          "a": "pinzacho",
+          "nivel": 16
+        }
+      ],
+      "sprites": "cangrejo_1"
+    },
+    {
+      "id": "pinzacho",
+      "nombre": "Pinzacho",
+      "tipo": "marea",
+      "familia": "cangrejo",
+      "etapa": 2,
+      "pasiva": "refugio",
+      "base": {
+        "ps": 79,
+        "atq": 76,
+        "def": 96,
+        "ate": 35,
+        "dfe": 43,
+        "vel": 51
+      },
+      "habilidades": [
+        "pinza_marina",
+        "concha_sagrada",
+        "coraza_de_sal",
+        "pinza_de_asedio"
+      ],
+      "descripcion": "Su concha dorada guarda tesoros que encuentra en la playa.",
+      "evoluciona": [
+        {
+          "a": "relicario",
+          "nivel": 28
+        }
+      ],
+      "sprites": "cangrejo_2"
+    },
+    {
+      "id": "relicario",
+      "nombre": "Relicario",
+      "tipo": "marea",
+      "familia": "cangrejo",
+      "etapa": 3,
+      "pasiva": "refugio",
+      "base": {
+        "ps": 93,
+        "atq": 90,
+        "def": 114,
+        "ate": 42,
+        "dfe": 51,
+        "vel": 60
+      },
+      "habilidades": [
+        "pinza_marina",
+        "concha_sagrada",
+        "coraza_de_sal",
+        "pinza_de_asedio"
+      ],
+      "descripcion": "Protege su concha como si fuera un cofre sagrado.",
+      "evoluciona": [
+        {
+          "a": "relicon",
+          "nivel": 40
+        },
+        {
+          "a": "relicon_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "cangrejo_3"
+    },
+    {
+      "id": "relicon",
+      "nombre": "Relicón",
+      "tipo": "marea",
+      "familia": "cangrejo",
+      "etapa": 4,
+      "pasiva": "refugio",
+      "base": {
+        "ps": 107,
+        "atq": 104,
+        "def": 132,
+        "ate": 49,
+        "dfe": 59,
+        "vel": 69
+      },
+      "habilidades": [
+        "pinza_marina",
+        "concha_sagrada",
+        "coraza_de_sal",
+        "pinza_de_asedio"
+      ],
+      "descripcion": "Guardián acorazado. Su gran pinza cubre a sus amigos.",
+      "evoluciona": [],
+      "sprites": "cangrejo_4"
+    },
+    {
+      "id": "relicon_eclipse",
+      "nombre": "Relicón Eclipse",
+      "tipo": "marea",
+      "familia": "cangrejo",
+      "etapa": 4,
+      "pasiva": "refugio",
+      "base": {
+        "ps": 101,
+        "atq": 122,
+        "def": 114,
+        "ate": 53,
+        "dfe": 51,
+        "vel": 79
+      },
+      "habilidades": [
+        "pinza_marina",
+        "concha_sagrada",
+        "coraza_de_sal",
+        "pinza_de_asedio"
+      ],
+      "descripcion": "Su pinza de asedio parte las rocas de la costa.",
+      "evoluciona": [],
+      "sprites": "cangrejo_4b"
+    },
+    {
+      "id": "orejin",
+      "nombre": "Orejín",
+      "tipo": "sombra",
+      "familia": "liebre",
+      "etapa": 1,
+      "pasiva": "luna_nueva",
+      "base": {
+        "ps": 48,
+        "atq": 68,
+        "def": 48,
+        "ate": 38,
+        "dfe": 42,
+        "vel": 56
+      },
+      "habilidades": [
+        "patada_lunar",
+        "salto_nocturno",
+        "luna_creciente",
+        "embestida_astral"
+      ],
+      "descripcion": "Sus orejas caídas tiemblan con cualquier ruido.",
+      "evoluciona": [
+        {
+          "a": "saltaluna",
+          "nivel": 16
+        }
+      ],
+      "sprites": "liebre_1"
+    },
+    {
+      "id": "saltaluna",
+      "nombre": "Saltaluna",
+      "tipo": "sombra",
+      "familia": "liebre",
+      "etapa": 2,
+      "pasiva": "luna_nueva",
+      "base": {
+        "ps": 61,
+        "atq": 86,
+        "def": 61,
+        "ate": 48,
+        "dfe": 53,
+        "vel": 71
+      },
+      "habilidades": [
+        "patada_lunar",
+        "salto_nocturno",
+        "luna_creciente",
+        "embestida_astral"
+      ],
+      "descripcion": "Salta tan alto que parece tocar la luna.",
+      "evoluciona": [
+        {
+          "a": "medialuna",
+          "nivel": 28
+        }
+      ],
+      "sprites": "liebre_2"
+    },
+    {
+      "id": "medialuna",
+      "nombre": "Medialuna",
+      "tipo": "sombra",
+      "familia": "liebre",
+      "etapa": 3,
+      "pasiva": "luna_nueva",
+      "base": {
+        "ps": 72,
+        "atq": 102,
+        "def": 72,
+        "ate": 57,
+        "dfe": 63,
+        "vel": 84
+      },
+      "habilidades": [
+        "patada_lunar",
+        "salto_nocturno",
+        "luna_creciente",
+        "embestida_astral"
+      ],
+      "descripcion": "Las marcas de su lomo cambian con las fases de la luna.",
+      "evoluciona": [
+        {
+          "a": "astaluna",
+          "nivel": 40
+        },
+        {
+          "a": "astaluna_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "liebre_3"
+    },
+    {
+      "id": "astaluna",
+      "nombre": "Astaluna",
+      "tipo": "sombra",
+      "familia": "liebre",
+      "etapa": 4,
+      "pasiva": "luna_nueva",
+      "base": {
+        "ps": 83,
+        "atq": 118,
+        "def": 83,
+        "ate": 66,
+        "dfe": 73,
+        "vel": 97
+      },
+      "habilidades": [
+        "patada_lunar",
+        "salto_nocturno",
+        "luna_creciente",
+        "embestida_astral"
+      ],
+      "descripcion": "Liebre mítica con astas de luna. Corre por el cielo nocturno.",
+      "evoluciona": [],
+      "sprites": "liebre_4"
+    },
+    {
+      "id": "astaluna_eclipse",
+      "nombre": "Astaluna Eclipse",
+      "tipo": "sombra",
+      "familia": "liebre",
+      "etapa": 4,
+      "pasiva": "luna_nueva",
+      "base": {
+        "ps": 78,
+        "atq": 133,
+        "def": 71,
+        "ate": 70,
+        "dfe": 63,
+        "vel": 105
+      },
+      "habilidades": [
+        "patada_lunar",
+        "salto_nocturno",
+        "luna_creciente",
+        "embestida_astral"
+      ],
+      "descripcion": "Astas de espinas y grandes garras. Lunas violetas la rodean.",
+      "evoluciona": [],
+      "sprites": "liebre_4b"
+    },
+    {
+      "id": "pulpin",
+      "nombre": "Pulpín",
+      "tipo": "sombra",
+      "familia": "pulpo",
+      "etapa": 1,
+      "pasiva": "tinta",
+      "base": {
+        "ps": 48,
+        "atq": 56,
+        "def": 32,
+        "ate": 68,
+        "dfe": 66,
+        "vel": 30
+      },
+      "habilidades": [
+        "chorro_de_tinta",
+        "nube_de_tinta",
+        "regenerar",
+        "marea_negra"
+      ],
+      "descripcion": "Tímido. Suelta un poquito de tinta cuando lo miran.",
+      "evoluciona": [
+        {
+          "a": "tintapus",
+          "nivel": 16
+        }
+      ],
+      "sprites": "pulpo_1"
+    },
+    {
+      "id": "tintapus",
+      "nombre": "Tintapus",
+      "tipo": "sombra",
+      "familia": "pulpo",
+      "etapa": 2,
+      "pasiva": "tinta",
+      "base": {
+        "ps": 61,
+        "atq": 71,
+        "def": 41,
+        "ate": 86,
+        "dfe": 84,
+        "vel": 37
+      },
+      "habilidades": [
+        "chorro_de_tinta",
+        "nube_de_tinta",
+        "regenerar",
+        "marea_negra"
+      ],
+      "descripcion": "Escribe dibujos en la arena con sus tentáculos.",
+      "evoluciona": [
+        {
+          "a": "abisopus",
+          "nivel": 28
+        }
+      ],
+      "sprites": "pulpo_2"
+    },
+    {
+      "id": "abisopus",
+      "nombre": "Abisopus",
+      "tipo": "sombra",
+      "familia": "pulpo",
+      "etapa": 3,
+      "pasiva": "tinta",
+      "base": {
+        "ps": 72,
+        "atq": 84,
+        "def": 48,
+        "ate": 102,
+        "dfe": 99,
+        "vel": 45
+      },
+      "habilidades": [
+        "chorro_de_tinta",
+        "nube_de_tinta",
+        "regenerar",
+        "marea_negra"
+      ],
+      "descripcion": "Vive en el mar profundo, donde la luz no llega.",
+      "evoluciona": [
+        {
+          "a": "regiopus",
+          "nivel": 40
+        },
+        {
+          "a": "regiopus_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "pulpo_3"
+    },
+    {
+      "id": "regiopus",
+      "nombre": "Regiopus",
+      "tipo": "sombra",
+      "familia": "pulpo",
+      "etapa": 4,
+      "pasiva": "tinta",
+      "base": {
+        "ps": 83,
+        "atq": 97,
+        "def": 55,
+        "ate": 119,
+        "dfe": 114,
+        "vel": 52
+      },
+      "habilidades": [
+        "chorro_de_tinta",
+        "nube_de_tinta",
+        "regenerar",
+        "marea_negra"
+      ],
+      "descripcion": "Soberano abisal. Su manto parece una corona.",
+      "evoluciona": [],
+      "sprites": "pulpo_4"
+    },
+    {
+      "id": "regiopus_eclipse",
+      "nombre": "Regiopus Eclipse",
+      "tipo": "sombra",
+      "familia": "pulpo",
+      "etapa": 4,
+      "pasiva": "tinta",
+      "base": {
+        "ps": 78,
+        "atq": 101,
+        "def": 47,
+        "ate": 135,
+        "dfe": 98,
+        "vel": 61
+      },
+      "habilidades": [
+        "chorro_de_tinta",
+        "nube_de_tinta",
+        "regenerar",
+        "marea_negra"
+      ],
+      "descripcion": "Su tinta abisal oscurece el mar entero.",
+      "evoluciona": [],
+      "sprites": "pulpo_4b"
     }
   ]
 }

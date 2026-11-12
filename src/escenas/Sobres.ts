@@ -6,7 +6,7 @@ import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
 import { juego } from '../juego';
-import { COLOR_RAREZA, estrellas, textura } from '../ui/criaturas';
+import { COLOR_RAREZA, estrellas, miniatura, textura } from '../ui/criaturas';
 import { C, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { Texto } from '../ui/texto';
@@ -194,7 +194,7 @@ export class Sobres extends Phaser.Scene {
       cara.fillStyle(n(COLOR_RAREZA[carta.rareza]), 1).fillRoundedRect(-29, -44, 58, 88, 4);
       cara.fillStyle(n(C.papel), 1).fillRoundedRect(-26.5, -41.5, 53, 83, 3);
       cara.fillStyle(COLOR_TIPO[especie.tipo]!, 0.25).fillRoundedRect(-24, -39, 48, 44, 3);
-      const sprite = this.add.image(0, -17, textura(carta.especie, 'frente', carta.brillante)).setScale(0.66);
+      const sprite = miniatura(this.add.image(0, -17, textura(carta.especie, 'frente', carta.brillante)), carta.especie, 40, 0.75);
       const lineas = [
         new Texto(this, -31, 6, 62, 10, C.tinta, 'centro', { peso: 600 }).poner(especie.nombre),
         new Texto(this, -31, 15, 62, 10, COLOR_RAREZA[carta.rareza], 'centro', { tam: 6.6 }).poner(estrellas(carta.rareza)),

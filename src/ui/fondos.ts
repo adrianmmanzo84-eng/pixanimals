@@ -6,7 +6,9 @@ import { ESCALA } from './texto';
  * Son placeholders: más adelante se pueden reemplazar por ilustraciones propias.
  */
 export type FondoId = 'pradera' | 'costa' | 'volcan' | 'bosque' | 'menu';
-export const FONDO_POR_TIPO: Record<string, FondoId> = { brasa: 'volcan', marea: 'costa', brote: 'bosque' };
+export const FONDO_POR_TIPO: Record<string, FondoId> = {
+  brasa: 'volcan', marea: 'costa', brote: 'bosque', rayo: 'costa', roca: 'volcan', cielo: 'pradera', sombra: 'bosque',
+};
 
 type Ctx = CanvasRenderingContext2D;
 const W = 240 * ESCALA;

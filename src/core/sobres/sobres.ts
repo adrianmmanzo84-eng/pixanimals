@@ -116,9 +116,9 @@ export function abrirSobre(datos: Datos, estado: EstadoJuego, idSobre: string, r
   return rarezas.map((rareza) => recibir(datos, estado, rng.elegir(candidatas).id, rareza, rng.prob(100 / datos.sobres.brillanteUnoEn)));
 }
 
-/** Sobre de bienvenida: una criatura de cada familia, para empezar con equipo completo. */
+/** Sobre de bienvenida: las criaturas de `sobres.bienvenida` (una de cada familia original), para empezar con equipo completo. */
 export function sobreBienvenida(datos: Datos, estado: EstadoJuego, rng: Rng): Carta[] {
   const basico = datos.sobres.sobres.find((s) => s.id === datos.sobres.gratis.sobre)!;
   estado.bienvenida = true;
-  return [...datos.criaturas.values()].filter((c) => c.etapa === 1).map((c) => recibir(datos, estado, c.id, tirarRareza(basico.prob, rng), false));
+  return datos.sobres.bienvenida.map((id) => recibir(datos, estado, id, tirarRareza(basico.prob, rng), false));
 }

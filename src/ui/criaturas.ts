@@ -56,13 +56,33 @@ function girarTono(d: Uint8ClampedArray, i: number): void {
 }
 
 const altos = new Map<string, number>();
+const anchos = new Map<string, number>();
 
 /** Alto en píxeles de la parte visible del sprite de frente (para centrar los efectos sobre el cuerpo). */
 export function altoVisible(idEspecie: string): number {
   return altos.get(DATOS.criaturas.get(idEspecie)!.sprites) ?? 48;
 }
 
-function medirAlto(escena: Phaser.Scene, clave: string): number {
+/**
+ * Para miniaturas (cartas, Bestiario, listas): centra la parte visible del sprite en el punto dado.
+ * Los sprites se apoyan en la base de un lienzo de 96×96, así que sin esto las criaturas chicas quedarían bajas.
+ */
+export function centrarVisible<T extends Phaser.GameObjects.Image>(img: T, idEspecie: string): T {
+  return img.setOrigin(0.5, 1 - altoVisible(idEspecie) / 2 / img.height);
+}
+
+/**
+ * Miniatura: centra la criatura y la escala para que entre en una caja de `caja` px, sin pasar de `maxEscala`
+ * (así las bebés no se ven gigantes y las grandes no se salen de su casilla).
+ */
+export function miniatura<T extends Phaser.GameObjects.Image>(img: T, idEspecie: string, caja: number, maxEscala: number): T {
+  const sprites = DATOS.criaturas.get(idEspecie)!.sprites;
+  const lado = Math.max(altoVisible(idEspecie), anchos.get(sprites) ?? 48);
+  return centrarVisible(img, idEspecie).setScale(Math.min(maxEscala, caja / lado));
+}
+
+/** Alto (desde la base del lienzo) y ancho de la parte visible de un sprite. */
+function medir(escena: Phaser.Scene, clave: string): { alto: number; ancho: number } {
   const img = escena.textures.get(clave).getSourceImage() as HTMLImageElement;
   const lienzo = document.createElement('canvas');
   lienzo.width = img.width;
@@ -70,13 +90,24 @@ function medirAlto(escena: Phaser.Scene, clave: string): number {
   const ctx = lienzo.getContext('2d')!;
   ctx.drawImage(img, 0, 0);
   const d = ctx.getImageData(0, 0, img.width, img.height).data;
-  for (let y = 0; y < img.height; y++) for (let x = 0; x < img.width; x++) if (d[(y * img.width + x) * 4 + 3]! > 0) return img.height - y;
-  return img.height;
+  let arriba = img.height;
+  let izq = img.width;
+  let der = -1;
+  for (let y = 0; y < img.height; y++)
+    for (let x = 0; x < img.width; x++)
+      if (d[(y * img.width + x) * 4 + 3]! > 0) {
+        arriba = Math.min(arriba, y);
+        izq = Math.min(izq, x);
+        der = Math.max(der, x);
+      }
+  return { alto: img.height - arriba, ancho: Math.max(1, der - izq + 1) };
 }
 
 export function prepararTexturasCriaturas(escena: Phaser.Scene): void {
   for (const c of DATOS.criaturas.values()) {
-    altos.set(c.sprites, medirAlto(escena, `${c.sprites}_frente`));
+    const m = medir(escena, `${c.sprites}_frente`);
+    altos.set(c.sprites, m.alto);
+    anchos.set(c.sprites, m.ancho);
     for (const vista of ['frente', 'espalda', 'icono']) escena.textures.get(`${c.sprites}_${vista}`).setFilter(Phaser.Textures.FilterMode.NEAREST);
     derivar(escena, `${c.sprites}_frente`, '_b', girarTono);
     derivar(escena, `${c.sprites}_espalda`, '_b', girarTono);

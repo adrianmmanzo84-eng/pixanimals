@@ -1,8 +1,73 @@
 {
   "tipos": [
-    { "id": "brasa", "nombre": "Brasa", "abrev": "BRA", "vence": ["brote"] },
-    { "id": "marea", "nombre": "Marea", "abrev": "MAR", "vence": ["brasa"] },
-    { "id": "brote", "nombre": "Brote", "abrev": "BRO", "vence": ["marea"] },
-    { "id": "neutro", "nombre": "Neutro", "abrev": "NEU", "vence": [] }
+    {
+      "id": "brasa",
+      "nombre": "Brasa",
+      "abrev": "BRA",
+      "vence": [
+        "brote",
+        "sombra"
+      ]
+    },
+    {
+      "id": "marea",
+      "nombre": "Marea",
+      "abrev": "MAR",
+      "vence": [
+        "brasa",
+        "roca"
+      ]
+    },
+    {
+      "id": "brote",
+      "nombre": "Brote",
+      "abrev": "BRO",
+      "vence": [
+        "marea",
+        "roca"
+      ]
+    },
+    {
+      "id": "rayo",
+      "nombre": "Rayo",
+      "abrev": "RAY",
+      "vence": [
+        "marea",
+        "cielo"
+      ]
+    },
+    {
+      "id": "roca",
+      "nombre": "Roca",
+      "abrev": "ROC",
+      "vence": [
+        "rayo",
+        "sombra"
+      ]
+    },
+    {
+      "id": "cielo",
+      "nombre": "Cielo",
+      "abrev": "CIE",
+      "vence": [
+        "brasa",
+        "brote"
+      ]
+    },
+    {
+      "id": "sombra",
+      "nombre": "Sombra",
+      "abrev": "SOM",
+      "vence": [
+        "rayo",
+        "cielo"
+      ]
+    },
+    {
+      "id": "neutro",
+      "nombre": "Neutro",
+      "abrev": "NEU",
+      "vence": []
+    }
   ]
 }

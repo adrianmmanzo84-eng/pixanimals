@@ -7,7 +7,7 @@ Convierte las hojas de arte de arte/originales/ en los archivos que usa el juego
              de frente arriba y de espaldas abajo, o de frente a la izquierda y de espaldas a la derecha.
              Las ramas usan 24 colores: el aura gasta paleta y con 15 se perdían los detalles del cuerpo.
              Salida: public/sprites/<familia>_<etapa>[letra]_{frente,espalda,icono}.png
-             64x64 (icono 64x32), 15 colores como máximo, sin semitransparencias.
+             96x96 (icono 64x32), 15 colores como máximo, sin semitransparencias.
   Fondos:    fondo_<id>.png (proporción 2:1, con las dos plataformas dibujadas).
              Salida: public/fondos/<id>.jpg de 960x448.
 
@@ -24,8 +24,11 @@ from PIL import Image
 
 RAIZ = os.path.join(os.path.dirname(__file__), '..')
 ORIG = os.path.join(RAIZ, 'arte', 'originales')
-# Tamaño máximo (ancho o alto) de cada etapa dentro del lienzo de 64x64: crecer se tiene que notar.
-TAMANOS = [40, 50, 58, 64]
+# Tamaño máximo (ancho o alto) de cada etapa dentro del lienzo de 96x96: crecer se tiene que notar.
+# Las ramas (formas Eclipse) son algo más grandes que su etapa: llevan aura.
+LIENZO = 96
+TAMANOS = [36, 48, 62, 80]
+EXTRA_RAMA = 6
 
 
 def bandas(v, minimo, hueco):
@@ -111,7 +114,7 @@ def cuantizar(piezas, colores=15):
     return res
 
 
-def lienzo(rgb, mask, ancho=64, alto=64):
+def lienzo(rgb, mask, ancho=LIENZO, alto=LIENZO):
     """Coloca la criatura centrada y apoyada en la base del lienzo."""
     h, w = mask.shape
     out = np.zeros((alto, ancho, 4), np.uint8)
@@ -160,7 +163,7 @@ def criaturas():
         es_rama = re.fullmatch(r'([a-z]+)_([1-4])([a-z])', base)
         if es_rama:
             # Rama: una sola criatura; su tamaño es el de su etapa.
-            convertir(*rama(img), TAMANOS[int(es_rama.group(2)) - 1], destino, base, colores=24)
+            convertir(*rama(img), TAMANOS[int(es_rama.group(2)) - 1] + EXTRA_RAMA, destino, base, colores=24)
             print(f'✓ rama {base}')
         elif re.fullmatch(r'[a-z]+', base):
             frentes, espaldas = celdas(img)

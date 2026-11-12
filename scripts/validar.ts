@@ -11,8 +11,8 @@ const { datos, errores } = cargarDatos();
 const avisos: string[] = [];
 const carpeta = new URL('../public/sprites/', import.meta.url).pathname;
 const VISTAS: [string, number, number][] = [
-  ['frente', 64, 64],
-  ['espalda', 64, 64],
+  ['frente', 96, 96],
+  ['espalda', 96, 96],
   ['icono', 64, 32],
 ];
 

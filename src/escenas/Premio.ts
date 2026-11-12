@@ -6,7 +6,7 @@ import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
 import { juego } from '../juego';
-import { COLOR_RAREZA, estrellas, textura } from '../ui/criaturas';
+import { COLOR_RAREZA, estrellas, miniatura, textura } from '../ui/criaturas';
 import { C, n, prepararCamara } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { iconoItem, iconoMoneda } from '../ui/iconos';
@@ -109,7 +109,7 @@ export class Premio extends Phaser.Scene {
       iconoItem(icono, DATOS.items.get(p.item)!, 0, -16, 2.2);
       linea(6, t('premio.item', { i: DATOS.items.get(p.item)!.nombre, n: p.cantidad }));
     } else {
-      cont.add(this.add.image(0, -17, textura(p.especie, 'frente', p.brillante)).setScale(0.66));
+      cont.add(miniatura(this.add.image(0, -17, textura(p.especie, 'frente', p.brillante)), p.especie, 40, 0.75));
       linea(6, DATOS.criaturas.get(p.especie)!.nombre);
       cont.add(new Texto(this, -31, 16, 62, 10, COLOR_RAREZA[p.rareza], 'centro', { tam: 6.6 }).poner(estrellas(p.rareza)).imagen);
     }

@@ -26,7 +26,7 @@ export function cargarEfectosIlustrados(escena: Phaser.Scene): void {
 const PALETA: Record<string, string> = {
   r: '#e03820', o: '#f08030', y: '#f8d030', w: '#ffffff', b: '#2868b8', c: '#4890e0', l: '#a8dcf8',
   g: '#3f7a30', G: '#68b040', L: '#a8d868', d: '#805830', D: '#a87848', p: '#7a3a9a', P: '#b060d0',
-  k: '#1f2340', n: '#ffe070',
+  k: '#1f2340', n: '#ffe070', a: '#7c8394', A: '#b8bfcc', s: '#3c2a66', S: '#8a68d0', v: '#9fe6ff', V: '#e8fbff',
 };
 
 const MAPAS: Record<string, string[]> = {
@@ -40,6 +40,9 @@ const MAPAS: Record<string, string[]> = {
   espora: ['.PPP.', 'PPwPP', 'PPPPP', 'pPPPp', '.ppp.'],
   corteza: ['.dddd..', 'dDDDDd.', 'dDdDDDd', 'dDDDdDd', '.dDDDd.', '..ddd..'],
   brillo: ['..L..', '..L..', 'LLwLL', '..L..', '..L..'],
+  piedra: ['..aaa..', '.aAAAa.', 'aAAwAAa', 'aAAAAaa', 'aaAAaa.', '.aaaa..'],
+  pluma: ['.....vV', '....vVv', '...vVv.', '..vVv..', '.vVv...', 'vVv....', 'v......'],
+  sombra: ['..sss..', '.sSSSs.', 'sSSwSSs', 'sSSSSSs', '.sSSSs.', '..sss..'],
   ola: Array.from({ length: 16 }, (_, y) =>
     Array.from({ length: 24 }, (_, x) => {
       const cresta = 5 - Math.round(4 * Math.sin((x / 24) * Math.PI * 2));
@@ -49,11 +52,17 @@ const MAPAS: Record<string, string[]> = {
   ),
 };
 
-const PARTICULA_TIPO: Record<string, string> = { brasa: 'llama', marea: 'gota', brote: 'hoja', neutro: 'chispa' };
+const PARTICULA_TIPO: Record<string, string> = {
+  brasa: 'llama', marea: 'gota', brote: 'hoja', rayo: 'chispa', roca: 'piedra', cielo: 'pluma', sombra: 'sombra', neutro: 'chispa',
+};
 const COLOR_GARRA: Record<string, [number, number]> = {
   brasa: [0xf08030, 0xf8d030],
   marea: [0x4890e0, 0xa8dcf8],
   brote: [0x68b040, 0xa8d868],
+  rayo: [0xe0b020, 0xfff0a0],
+  roca: [0x7c8394, 0xd0c8b8],
+  cielo: [0x5cb8de, 0xe8fbff],
+  sombra: [0x5a3a9a, 0xb090f0],
   neutro: [0xc8d4dc, 0xffffff],
 };
 

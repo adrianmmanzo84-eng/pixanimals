@@ -2,7 +2,7 @@
 
 Juego web de colección y combate por turnos: criaturas y efectos en pixel art sobre fondos de estilo animado. Nombre de trabajo.
 
-**Estado: Fase 3 terminada – Tienda, Bolsa, ítems, Entrenamiento, evolución con animación y carta premio. Formas Eclipse (rama con la Piedra Eclipse) para las 3 familias.**
+**Estado: Fase 3 terminada – Tienda, Bolsa, ítems, Entrenamiento, evolución con animación y carta premio. 13 familias (65 criaturas, con su forma Eclipse) y 7 tipos; las criaturas crecen en pantalla al evolucionar.**
 
 ## Ejecutar
 
@@ -18,7 +18,8 @@ Abre la dirección que muestra la terminal (normalmente http://localhost:5173). 
 | `npm test` | Pruebas automáticas de combate, equipos, sobres, pity, experiencia, guardado, ítems, tienda, evolución y premios |
 | `npm run simular` | 10.000 combates IA contra IA por cruce (1 vs 1 y 3 vs 3); imprime la tabla de balance |
 | `npm run simular -- 3000 experta etapas` | Balance de las etapas 2 a 4 y cuánto vale evolucionar |
-| `npm run ajustar` | Ventaja de tipo en cada etapa (para probar repartos de stats con la variable `AJUSTE`) |
+| `npm run ajustar` | Ventaja de tipo en cada etapa entre las 3 familias originales (para probar repartos de stats con la variable `AJUSTE`) |
+| `npm run familias` | Cada familia contra todas, en la etapa 1 y en la final, más cada Eclipse contra su forma normal |
 | `npm run validar` | Revisa los JSON y que cada criatura tenga sus sprites correctos |
 | `npm run placeholders` | Regenera los sprites placeholder |
 | `npm run build` | Versión optimizada en `dist/`, lista para subir a un hosting estático |

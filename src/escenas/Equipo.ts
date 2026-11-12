@@ -9,7 +9,7 @@ import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
 import { juego } from '../juego';
-import { COLOR_RAREZA, estrellas, textura } from '../ui/criaturas';
+import { COLOR_RAREZA, estrellas, miniatura, textura } from '../ui/criaturas';
 import { C, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { partir, Texto } from '../ui/texto';
@@ -71,7 +71,7 @@ export class Equipo extends Phaser.Scene {
       const activa = i === this.sel;
       g.fillStyle(activa ? 0xfde9c8 : n(C.papelSombra), 1).fillRoundedRect(10, y, 220, 33, 4);
       if (activa) g.lineStyle(1.2, n(C.resalte), 1).strokeRoundedRect(10, y, 220, 33, 4);
-      this.add.image(28, y + 16, textura(c.especie, 'frente', c.brillante)).setScale(0.48);
+      miniatura(this.add.image(28, y + 16, textura(c.especie, 'frente', c.brillante)), c.especie, 30, 0.6);
       new Texto(this, 48, y + 2, 80, 10, C.tinta, 'izq', { peso: 600 }).poner(especie.nombre + (c.brillante ? ' ✦' : ''));
       g.fillStyle(COLOR_TIPO[especie.tipo] ?? 0x5b6a8c, 1).fillRoundedRect(48, y + 12, 30, 8, 3);
       new Texto(this, 48, y + 12, 30, 9, C.papel, 'centro', { tam: 6 }).poner(DATOS.tipos.get(especie.tipo)!.nombre.toUpperCase());
@@ -257,7 +257,8 @@ export class Equipo extends Phaser.Scene {
 
     this.add.graphics().fillStyle(0x141830, 1).fillRect(0, 0, 240, 160);
     const brillo = this.add.graphics();
-    const sprite = this.add.image(120, 64, textura(c.especie, 'frente', c.brillante));
+    // Tamaño real de combate, apoyada en la base: al evolucionar se nota cuánto crece.
+    const sprite = this.add.image(120, 112, textura(c.especie, 'frente', c.brillante)).setOrigin(0.5, 1);
     const g = this.add.graphics();
     ventana(g, 4, 120, 232, 36);
     const msg = new Texto(this, 12, 126, 216, 20);
@@ -273,7 +274,7 @@ export class Equipo extends Phaser.Scene {
     for (let k = 0; k < 26 && !cancelada; k++) {
       nueva = !nueva;
       sprite.setTexture(textura(nueva ? destino : c.especie, 'blanca'));
-      brillo.clear().fillStyle(0xffffff, 0.08 + k * 0.012).fillCircle(120, 64, 24 + k);
+      brillo.clear().fillStyle(0xffffff, 0.08 + k * 0.012).fillCircle(120, 72, 24 + k);
       if (k % 3 === 0) sonido.tocar('cursor');
       await esperar(pausa);
       pausa = Math.max(50, pausa * 0.86);
@@ -289,7 +290,7 @@ export class Equipo extends Phaser.Scene {
       juego.guardar();
       this.cameras.main.flash(500, 255, 255, 255);
       sprite.setTexture(textura(destino, 'frente', c.brillante));
-      brillo.clear().fillStyle(0xfde9c8, 0.18).fillCircle(120, 64, 46);
+      brillo.clear().fillStyle(0xfde9c8, 0.18).fillCircle(120, 72, 48);
       sonido.tocar('victoria');
       this.tweens.add({ targets: sprite, scale: 1.08, duration: 160, yoyo: true });
       msg.poner(partir(t('evo.lista', { n: antes.nombre, m: despues.nombre }), 214).join('\n'));

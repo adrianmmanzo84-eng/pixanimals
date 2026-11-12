@@ -73,5 +73,35 @@
     "desdeTurno": 20,
     "danoDivisor": 8
   },
-  "maxTurnos": 300
+  "maxTurnos": 300,
+  "pasivasAlias": {
+    "carga_estatica": {
+      "nombre": "Carga Estática",
+      "mecanica": "oleaje"
+    },
+    "viento_a_favor": {
+      "nombre": "Viento a Favor",
+      "mecanica": "oleaje"
+    },
+    "tinta": {
+      "nombre": "Tinta",
+      "mecanica": "oleaje"
+    },
+    "luna_nueva": {
+      "nombre": "Luna Nueva",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "furia_espinosa": {
+      "nombre": "Furia Espinosa",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "piedra_viva": {
+      "nombre": "Piedra Viva",
+      "mecanica": "raices"
+    },
+    "refugio": {
+      "nombre": "Refugio",
+      "mecanica": "raices"
+    }
+  }
 }

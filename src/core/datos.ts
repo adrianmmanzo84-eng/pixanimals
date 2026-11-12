@@ -47,7 +47,7 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
   }
   for (const c of criaturas) {
     if (!mTipos.has(c.tipo)) errores.push(`Criatura ${c.id}: tipo inexistente (${c.tipo}).`);
-    if (!(c.pasiva in balance.pasivas)) errores.push(`Criatura ${c.id}: pasiva inexistente (${c.pasiva}).`);
+    if (!(c.pasiva in balance.pasivas) && !(c.pasiva in balance.pasivasAlias)) errores.push(`Criatura ${c.id}: pasiva inexistente (${c.pasiva}).`);
     for (const id of [...c.habilidades, ...(c.habilidadesPrueba ?? [])])
       if (!mHab.has(id)) errores.push(`Criatura ${c.id}: habilidad inexistente (${id}).`);
     for (const ev of c.evoluciona) {
@@ -65,6 +65,7 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
     if (p.tipo === 'item' && !mItems.has(p.item)) errores.push(`Premio: ítem inexistente (${p.item}).`);
     if ((p.tipo === 'monedas' || p.tipo === 'esencia') && p.min > p.max) errores.push(`Premio de ${p.tipo}: min mayor que max.`);
   }
+  for (const id of sobres.bienvenida) if (mCri.get(id)?.etapa !== 1) errores.push(`Sobre de bienvenida: ${id} no es una criatura de etapa 1.`);
   if (!sobres.sobres.some((s) => s.id === sobres.gratis.sobre)) errores.push(`El sobre gratis (${sobres.gratis.sobre}) no existe.`);
   return { datos: { tipos: mTipos, balance, habilidades: mHab, criaturas: mCri, sobres, economia, items: mItems, reglasItems }, errores };
 }

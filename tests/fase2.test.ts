@@ -15,8 +15,9 @@ const trio = (nivel = 10) => ['lumbrito', 'aletin', 'brotin'].map((id) => crearC
 const tipos = (ev: Evento[]) => ev.map((e) => e.t);
 
 describe('datos de la fase 2', () => {
-  it('15 criaturas: 3 familias × 4 etapas + 3 Eclipse, con totales 300 / 380 / 450 / 520 (Brote, algo menos desde la etapa 2)', () => {
-    expect(DATOS.criaturas.size).toBe(15);
+  it('65 criaturas: 13 familias × 4 etapas + 13 Eclipse, con totales 300 / 380 / 450 / 520 (Brote, algo menos desde la etapa 2)', () => {
+    expect(DATOS.criaturas.size).toBe(65);
+    expect(new Set([...DATOS.criaturas.values()].map((c) => c.familia)).size).toBe(13);
     for (const c of DATOS.criaturas.values()) {
       const total = Object.values(c.base).reduce((a, b) => a + b, 0);
       const meta = [300, 380, 450, 520][c.etapa - 1]!;
@@ -165,7 +166,10 @@ describe('sobres', () => {
     const e = estadoNuevo(DATOS, 0);
     e.monedas = 100000;
     for (let s = 0; s < 60; s++)
-      for (const c of abrirSobre(DATOS, e, 'marea', new Rng(s), 0) as { especie: string }[]) expect(c.especie).toBe('aletin');
+      for (const c of abrirSobre(DATOS, e, 'marea', new Rng(s), 0) as { especie: string }[]) {
+        expect(DATOS.criaturas.get(c.especie)!.tipo).toBe('marea');
+        expect(DATOS.criaturas.get(c.especie)!.etapa).toBe(1);
+      }
     for (let s = 0; s < 60; s++)
       for (const c of abrirSobre(DATOS, e, 'raro', new Rng(s), 0) as { especie: string }[]) expect(DATOS.criaturas.get(c.especie)!.etapa).toBe(1);
   });
@@ -198,7 +202,7 @@ describe('sobres', () => {
     const e = estadoNuevo(DATOS, 0);
     sobreBienvenida(DATOS, e, new Rng(5));
     e.monedas = 100000;
-    const mia = criaturaDe(e, 'aletin')!;
+    const mia = criaturaDe(e, 'lumbrito')!;
     mia.rareza = 'comun';
     mia.nivel = 9;
     let vistoMejora = false;
@@ -206,7 +210,7 @@ describe('sobres', () => {
     for (let s = 0; s < 300 && !(vistoMejora && vistoRepetida); s++) {
       const esenciaAntes = e.esencia;
       const rarezaAntes = mia.rareza;
-      const cartas = abrirSobre(DATOS, e, 'marea', new Rng(s), 0) as { resultado: string; esencia: number }[];
+      const cartas = abrirSobre(DATOS, e, 'brasa', new Rng(s), 0) as { resultado: string; esencia: number }[];
       expect(e.esencia - esenciaAntes).toBe(cartas.reduce((x, c) => x + c.esencia, 0));
       if (cartas.some((c) => c.resultado === 'mejora')) {
         vistoMejora = true;
