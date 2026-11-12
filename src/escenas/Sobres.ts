@@ -157,12 +157,17 @@ export class Sobres extends Phaser.Scene {
 
     const mazo = cartas.map((_, i) => {
       const cont = this.add.container(46 + i * 74, 190);
-      const dorso = this.add.graphics();
-      dorso.fillStyle(0x10142c, 1).fillRoundedRect(-34, -46, 68, 92, 5);
-      dorso.fillStyle(n(C.marco), 1).fillRoundedRect(-32, -44, 64, 88, 4);
-      dorso.fillStyle(n(C.marcoClaro), 1).fillRoundedRect(-26, -38, 52, 76, 3);
-      dorso.fillStyle(n(C.marco), 1).fillCircle(0, 0, 12);
-      dorso.fillStyle(0xffffff, 1).fillCircle(0, 0, 6);
+      let dorso: Phaser.GameObjects.GameObject;
+      if (this.textures.exists('carta_dorso')) dorso = this.add.image(0, 0, 'carta_dorso');
+      else {
+        const gr = this.add.graphics();
+        gr.fillStyle(0x10142c, 1).fillRoundedRect(-31, -46, 62, 92, 5);
+        gr.fillStyle(n(C.marco), 1).fillRoundedRect(-29, -44, 58, 88, 4);
+        gr.fillStyle(n(C.marcoClaro), 1).fillRoundedRect(-23, -38, 46, 76, 3);
+        gr.fillStyle(n(C.marco), 1).fillCircle(0, 0, 12);
+        gr.fillStyle(0xffffff, 1).fillCircle(0, 0, 6);
+        dorso = gr;
+      }
       cont.add(dorso);
       return cont;
     });
@@ -177,18 +182,18 @@ export class Sobres extends Phaser.Scene {
       await this.tw({ targets: cont, scaleX: 0, duration: 110 });
       cont.removeAll(true);
       const cara = this.add.graphics();
-      cara.fillStyle(0x10142c, 1).fillRoundedRect(-34, -46, 68, 92, 5);
-      cara.fillStyle(n(COLOR_RAREZA[carta.rareza]), 1).fillRoundedRect(-32, -44, 64, 88, 4);
-      cara.fillStyle(n(C.papel), 1).fillRoundedRect(-29.5, -41.5, 59, 83, 3);
-      cara.fillStyle(COLOR_TIPO[especie.tipo]!, 0.25).fillRoundedRect(-27, -39, 54, 44, 3);
+      cara.fillStyle(0x10142c, 1).fillRoundedRect(-31, -46, 62, 92, 5);
+      cara.fillStyle(n(COLOR_RAREZA[carta.rareza]), 1).fillRoundedRect(-29, -44, 58, 88, 4);
+      cara.fillStyle(n(C.papel), 1).fillRoundedRect(-26.5, -41.5, 53, 83, 3);
+      cara.fillStyle(COLOR_TIPO[especie.tipo]!, 0.25).fillRoundedRect(-24, -39, 48, 44, 3);
       const sprite = this.add.image(0, -17, textura(carta.especie, 'frente', carta.brillante)).setScale(0.66);
       const lineas = [
-        new Texto(this, -34, 6, 68, 10, C.tinta, 'centro', { peso: 600 }).poner(especie.nombre),
-        new Texto(this, -34, 15, 68, 10, COLOR_RAREZA[carta.rareza], 'centro', { tam: 6.6 }).poner(estrellas(carta.rareza)),
-        new Texto(this, -34, 24, 68, 10, carta.resultado === 'repetida' ? C.tintaSuave : C.resalte, 'centro', { tam: 6.6 }).poner(
+        new Texto(this, -31, 6, 62, 10, C.tinta, 'centro', { peso: 600 }).poner(especie.nombre),
+        new Texto(this, -31, 15, 62, 10, COLOR_RAREZA[carta.rareza], 'centro', { tam: 6.6 }).poner(estrellas(carta.rareza)),
+        new Texto(this, -31, 24, 62, 10, carta.resultado === 'repetida' ? C.tintaSuave : C.resalte, 'centro', { tam: 6.6 }).poner(
           carta.resultado === 'nueva' ? t('carta.nueva') : carta.resultado === 'mejora' ? t('carta.mejora') : t('carta.repetida', { n: carta.esencia }),
         ),
-        new Texto(this, -34, 33, 68, 10, '#b07a00', 'centro', { tam: 6.6, peso: 600 }).poner(carta.brillante ? t('carta.brillante') : ''),
+        new Texto(this, -31, 33, 62, 10, '#b07a00', 'centro', { tam: 6.6, peso: 600 }).poner(carta.brillante ? t('carta.brillante') : ''),
       ];
       cont.add([cara, sprite, ...lineas.map((l) => l.imagen)]);
       const buena = carta.rareza === 'rara' || carta.rareza === 'epica' || carta.brillante;

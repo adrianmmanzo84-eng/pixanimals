@@ -13,6 +13,8 @@ export class Arranque extends Phaser.Scene {
   preload(): void {
     for (const id of FONDOS_ILUSTRADOS) this.load.image(`fondoimg_${id}`, `fondos/${id}.jpg`);
     cargarEfectosIlustrados(this);
+    this.load.image('fondoimg_portada', 'fondos/portada.jpg');
+    this.load.image('carta_dorso', 'ui/carta_dorso.png');
     for (const c of DATOS.criaturas.values()) {
       this.load.image(`${c.sprites}_frente`, `sprites/${c.sprites}_frente.png`);
       this.load.image(`${c.sprites}_espalda`, `sprites/${c.sprites}_espalda.png`);
@@ -24,6 +26,7 @@ export class Arranque extends Phaser.Scene {
     // Las criaturas y los efectos son pixel art: se amplían sin suavizado.
     prepararTexturasCriaturas(this);
     crearTexturasEfectos(this);
+    if (this.textures.exists('carta_dorso')) this.textures.get('carta_dorso').setFilter(Phaser.Textures.FilterMode.NEAREST);
     this.scene.start('Menu');
   }
 }

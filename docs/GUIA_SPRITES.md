@@ -32,6 +32,13 @@ Deja en `arte/originales/` imágenes `fondo_<id>.png` de proporción 2:1 (por ej
 
 Un fondo para un tipo nuevo necesita además una línea en `FONDO_POR_TIPO` (`src/ui/fondos.ts`).
 
+## Portada y dorso de carta
+
+- `portada.png`: ilustración apaisada (unos 2:1) para el menú principal. Se ajusta al ancho del juego; deja las criaturas lejos del centro, que lo tapa el menú.
+- `carta_dorso.png`: dorso de carta vertical (2:3) con fondo transparente. Se reduce a 62×92.
+
+Ambos se convierten con `python3 scripts/importar_arte.py`.
+
 ## Efectos de ataque
 
 Un PNG por efecto en `arte/originales/efectos/`, con fondo transparente, del **momento principal** del efecto (una imagen fija, no una tira de animación). El nombre del archivo es el valor de `animacion` de la habilidad (`llamarada.png`, `ola.png`…). Dos casos especiales: `zarpazo_brote.png` es la versión del zarpazo para el elemento Brote, y `empujon.png` es el golpe básico sin habilidad.

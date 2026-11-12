@@ -37,7 +37,11 @@ export class Menu extends Phaser.Scene {
     this.filas = [];
     this.modo = 'principal';
     prepararCamara(this);
-    this.add.image(0, 0, fondo(this, 'menu')).setOrigin(0, 0).setScale(0.25);
+    if (this.textures.exists('fondoimg_portada')) {
+      // Ilustración de portada ajustada al ancho (sus criaturas están en los bordes); debajo, el panel del equipo.
+      this.add.graphics().fillStyle(0x1a1c2c, 1).fillRect(0, 0, 240, 160);
+      this.add.image(0, 0, 'fondoimg_portada').setOrigin(0, 0).setScale(0.25);
+    } else this.add.image(0, 0, fondo(this, 'menu')).setOrigin(0, 0).setScale(0.25);
     const g = this.add.graphics();
     new Texto(this, 0, 2, 240, 16, '#ffffff', 'centro', { tam: 13, peso: 600, borde: '#2b3a78' }).poner(t('titulo'));
     new Texto(this, 0, 17, 240, 10, '#ffffff', 'centro', { borde: '#2b3a78' }).poner(

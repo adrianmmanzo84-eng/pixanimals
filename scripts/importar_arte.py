@@ -8,6 +8,10 @@ Convierte las hojas de arte de arte/originales/ en los archivos que usa el juego
   Fondos:    fondo_<id>.png (proporción 2:1, con las dos plataformas dibujadas).
              Salida: public/fondos/<id>.jpg de 960x448.
 
+  Portada:   portada.png (ilustración apaisada). Salida: public/fondos/portada.jpg de 960 de ancho.
+  Cartas:    carta_dorso.png (dorso de carta, vertical, fondo transparente).
+             Salida: public/ui/carta_dorso.png de 62x92 (colores sin limitar: los íconos chicos se perdían), sin semitransparencias.
+
 Uso: python3 scripts/importar_arte.py      (requiere Pillow y numpy)
 """
 import os
@@ -141,6 +145,36 @@ def fondos():
         print(f'✓ fondo {nombre[6:-4]}')
 
 
+def portada():
+    ruta = os.path.join(ORIG, 'portada.png')
+    if not os.path.exists(ruta):
+        return
+    img = Image.open(ruta).convert('RGB')
+    # Se ajusta al ancho: las criaturas dibujadas en los bordes tienen que verse enteras.
+    img = img.resize((960, round(img.height * 960 / img.width)), Image.LANCZOS)
+    img.save(os.path.join(RAIZ, 'public', 'fondos', 'portada.jpg'), quality=88, optimize=True)
+    print(f'✓ portada 960x{img.height}')
+
+
+def carta():
+    ruta = os.path.join(ORIG, 'carta_dorso.png')
+    if not os.path.exists(ruta):
+        return
+    img = Image.open(ruta).convert('RGBA')
+    img = img.crop(img.getbbox())
+    rgb, mask = reducir(img, 92 / img.height)
+    out = np.zeros((*mask.shape, 4), np.uint8)
+    out[:, :, :3] = rgb
+    out[:, :, 3] = mask * 255
+    out[out[:, :, 3] == 0] = 0
+    destino = os.path.join(RAIZ, 'public', 'ui')
+    os.makedirs(destino, exist_ok=True)
+    Image.fromarray(out, 'RGBA').save(os.path.join(destino, 'carta_dorso.png'))
+    print(f'✓ dorso de carta {out.shape[1]}x{out.shape[0]}')
+
+
 if __name__ == '__main__':
     criaturas()
     fondos()
+    portada()
+    carta()

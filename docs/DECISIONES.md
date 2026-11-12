@@ -93,3 +93,5 @@ Cada entrada: qué se decidió, por qué y qué alternativa se descartó. Las m�
 | D56 | El rayo de Mirada se gira hacia el rival; el resto se refleja. Arrullo no se refleja | Las «Z» del sueño tienen que seguir leyéndose |
 | D57 | El anillo de fuego y el escudo usan media imagen tenue detrás | Da la sensación de rodear a la criatura sin separar capas |
 | D58 | Las partículas pequeñas (chispas, gotas, zetas, esporas) y los efectos de estado y curación siguen dibujados por código | Acompañan a las imágenes; si falta un PNG, el efecto por código lo reemplaza |
+| D59 | Portada del autor en el menú principal, ajustada al ancho (960×455) y con el panel del equipo debajo | Recortarla a 3:2 cortaba las criaturas dibujadas en los bordes |
+| D60 | Dorso de carta del autor (62×92, sin limitar colores) en la apertura de sobres; las caras pasan de 68 a 62 de ancho para coincidir | Con 24 colores se perdían la llama, la hoja y el cristal |
