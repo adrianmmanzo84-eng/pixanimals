@@ -1,0 +1,145 @@
+import { z } from 'zod';
+
+/** Esquemas de todos los archivos de datos. Si un JSON no cumple, el juego no arranca y `npm run validar` falla. */
+
+export const StatIdZ = z.enum(['atq', 'def', 'ate', 'dfe', 'vel']);
+export const EstadoIdZ = z.enum(['quemadura', 'veneno', 'paralisis', 'sueno']);
+const ObjetivoZ = z.enum(['rival', 'propio']);
+const ProbZ = z.number().min(1).max(100);
+
+export const EfectoZ = z.discriminatedUnion('tipo', [
+  z.object({ tipo: z.literal('estado'), estado: EstadoIdZ, prob: ProbZ, objetivo: ObjetivoZ }),
+  z.object({ tipo: z.literal('etapa'), stat: StatIdZ, delta: z.number().int().min(-3).max(3), prob: ProbZ, objetivo: ObjetivoZ }),
+  z.object({ tipo: z.literal('cura'), porcentaje: z.number().min(1).max(100) }),
+  z.object({
+    tipo: z.literal('guardia'),
+    modo: z.enum(['reduce', 'bloquea']),
+    reduccion: z.number().min(0).max(1).optional(),
+    contraEstado: z.object({ estado: EstadoIdZ, prob: ProbZ, soloFisico: z.boolean() }).optional(),
+  }),
+]);
+
+/** Efectos visuales disponibles (implementados en src/ui/efectos.ts). */
+export const AnimacionZ = z.enum([
+  'zarpazo', 'proyectil', 'impacto', 'llamarada', 'anillo_fuego', 'grito', 'dentellada', 'burbujas', 'corriente', 'ola',
+  'corteza', 'sol', 'hojas', 'mirada', 'arrullo', 'polen', 'raices', 'rayo', 'brillo',
+]);
+
+export const HabilidadZ = z.object({
+  id: z.string().min(1),
+  nombre: z.string().min(1).max(19),
+  tipo: z.string(),
+  categoria: z.enum(['fisica', 'especial', 'estado']),
+  rol: z.enum(['ofensiva', 'defensiva', 'soporte', 'estado', 'final']),
+  potencia: z.number().int().min(0).max(200),
+  /** null = no puede fallar (habilidades sobre uno mismo). */
+  precision: z.number().min(1).max(100).nullable(),
+  usos: z.number().int().min(1).max(40),
+  prioridad: z.number().int().min(0).max(2).default(0),
+  enfriamiento: z.number().int().min(0).max(10).default(0),
+  noRepetir: z.boolean().default(false),
+  efectos: z.array(EfectoZ).default([]),
+  /** Efecto visual. Si falta, se elige uno según tipo y categoría. */
+  animacion: AnimacionZ.optional(),
+});
+
+const BaseStatZ = z.number().int().min(1).max(255);
+export const CriaturaZ = z.object({
+  id: z.string().min(1),
+  nombre: z.string().min(1).max(16),
+  tipo: z.string(),
+  familia: z.string(),
+  etapa: z.number().int().min(1).max(4),
+  pasiva: z.string(),
+  base: z.object({ ps: BaseStatZ, atq: BaseStatZ, def: BaseStatZ, ate: BaseStatZ, dfe: BaseStatZ, vel: BaseStatZ }),
+  habilidades: z.array(z.string()).length(4),
+  habilidadesPrueba: z.array(z.string()).length(4).optional(),
+  descripcion: z.string().max(90),
+  /** Siguiente etapa y nivel mínimo para alcanzarla. */
+  evoluciona: z.object({ a: z.string(), nivel: z.number().int().min(2).max(100) }).optional(),
+  /** Prefijo de archivo: <sprites>_frente.png, <sprites>_espalda.png, <sprites>_icono.png */
+  sprites: z.string().regex(/^[a-z]+_[0-9][a-z]?$/),
+});
+
+export const TiposZ = z.object({
+  tipos: z.array(z.object({ id: z.string(), nombre: z.string(), abrev: z.string().length(3), vence: z.array(z.string()) })),
+});
+
+export const BalanceZ = z.object({
+  nivelMax: z.number().int(),
+  stats: z.object({ psBase: z.number(), psDivisor: z.number(), statBase: z.number(), statDivisor: z.number() }),
+  dano: z.object({
+    factorBase: z.number(), factorNivel: z.number(), mismoTipo: z.number(), ventaja: z.number(), desventaja: z.number(),
+    azarMin: z.number(), azarMax: z.number(), criticoProb: z.number(), criticoBonusVeloz: z.number(), criticoMult: z.number(),
+  }),
+  etapas: z.object({ paso: z.number(), max: z.number().int() }),
+  final: z.object({ turnoMinimo: z.number().int() }),
+  estados: z.object({
+    quemadura: z.object({ turnos: z.number().int(), danoDivisor: z.number(), multFisico: z.number(), inmunes: z.array(z.string()) }),
+    veneno: z.object({ turnos: z.number().int(), danoDivisor: z.number(), inmunes: z.array(z.string()) }),
+    paralisis: z.object({ turnos: z.number().int(), multVelocidad: z.number(), probPerderTurno: z.number(), inmunes: z.array(z.string()) }),
+    sueno: z.object({ turnosMin: z.number().int(), turnosMax: z.number().int(), inmunes: z.array(z.string()) }),
+  }),
+  pasivas: z.object({
+    ultimo_rescoldo: z.object({ nombre: z.string(), umbralPs: z.number(), mult: z.number() }),
+    oleaje: z.object({ nombre: z.string(), mult: z.number() }),
+    raices: z.object({ nombre: z.string(), curaDivisor: z.number() }),
+  }),
+  empujon: z.object({ potencia: z.number() }),
+  cansancio: z.object({ desdeTurno: z.number().int(), danoDivisor: z.number() }),
+  maxTurnos: z.number().int(),
+});
+
+export const RarezaIdZ = z.enum(['comun', 'poco_comun', 'rara', 'epica']);
+const ProbRarezasZ = z.object({ comun: z.number(), poco_comun: z.number(), rara: z.number(), epica: z.number() });
+export const SobresZ = z.object({
+  cartasPorSobre: z.number().int().min(1),
+  brillanteUnoEn: z.number().int().min(1),
+  nivelInicial: z.number().int().min(1),
+  rarezas: z.array(z.object({ id: RarezaIdZ, nombre: z.string(), estrellas: z.number().int(), potencial: z.number(), esencia: z.number().int() })).length(4),
+  pity: z.object({ rara: z.number().int(), epica: z.number().int() }),
+  gratis: z.object({ sobre: z.string(), cadaHoras: z.number(), maxAcumulados: z.number().int() }),
+  sobres: z.array(z.object({ id: z.string(), nombre: z.string(), costo: z.number().int(), tipo: z.string().nullable(), prob: ProbRarezasZ })),
+});
+export const EconomiaZ = z.object({
+  monedasIniciales: z.number().int(),
+  tamanoEquipo: z.number().int().min(1).max(6),
+  recompensas: z.object({ novata: z.number().int(), tactica: z.number().int(), experta: z.number().int(), derrota: z.number().int() }),
+  xp: z.object({ porVictoriaBase: z.number(), porNivelRival: z.number(), curvaBase: z.number(), curvaLineal: z.number(), curvaCuadratica: z.number() }),
+});
+
+/** Partida guardada. Al cambiar su forma hay que subir `version` y migrar en guardado.ts. */
+export const CriaturaJugadorZ = z.object({
+  especie: z.string(),
+  nivel: z.number().int().min(1),
+  xp: z.number().min(0),
+  rareza: RarezaIdZ,
+  brillante: z.boolean(),
+});
+export const EstadoJuegoZ = z.object({
+  version: z.literal(1),
+  monedas: z.number().int().min(0),
+  esencia: z.number().int().min(0),
+  criaturas: z.array(CriaturaJugadorZ),
+  equipo: z.array(z.string()),
+  vistas: z.array(z.string()),
+  pity: z.object({ rara: z.number().int().min(0), epica: z.number().int().min(0) }),
+  gratis: z.object({ acumulados: z.number().int().min(0), desde: z.number() }),
+  bienvenida: z.boolean(),
+  estadisticas: z.object({ combates: z.number().int(), victorias: z.number().int(), sobres: z.number().int() }),
+});
+
+export type RarezaId = z.infer<typeof RarezaIdZ>;
+export type Sobres = z.infer<typeof SobresZ>;
+export type SobreDef = Sobres['sobres'][number];
+export type Economia = z.infer<typeof EconomiaZ>;
+export type CriaturaJugador = z.infer<typeof CriaturaJugadorZ>;
+export type EstadoJuego = z.infer<typeof EstadoJuegoZ>;
+export type StatId = z.infer<typeof StatIdZ>;
+export type EstadoId = z.infer<typeof EstadoIdZ>;
+export type Efecto = z.infer<typeof EfectoZ>;
+export type Habilidad = z.infer<typeof HabilidadZ>;
+export type Animacion = z.infer<typeof AnimacionZ>;
+export type Criatura = z.infer<typeof CriaturaZ>;
+export type Balance = z.infer<typeof BalanceZ>;
+export type TipoDef = z.infer<typeof TiposZ>['tipos'][number];

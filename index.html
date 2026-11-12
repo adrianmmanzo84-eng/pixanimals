@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#1a1c2c" />
+    <title>PIXANIMALS</title>
+    <link rel="icon" href="data:," />
+    <style>
+      * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+      html, body { margin: 0; height: 100%; background: #1a1c2c; color: #f4f4f4; font-family: system-ui, sans-serif; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
+      #app { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 8px; }
+      #pantalla { position: relative; line-height: 0; border: 3px solid #333c57; border-radius: 8px; background: #000; }
+      #pantalla canvas { display: block; border-radius: 4px; }
+      #silencio { position: absolute; bottom: 8px; right: 8px; z-index: 2; min-width: 44px; height: 36px; padding: 0 10px; border-radius: 8px; border: 2px solid #566c86; background: #29366f; color: #f4f4f4; font-size: 13px; font-weight: 600; }
+      #mando { display: none; width: 100%; max-width: 420px; justify-content: space-between; align-items: center; padding: 0 10px; }
+      body.tactil #mando { display: flex; }
+      body.tactil #silencio { top: 8px; bottom: auto; }
+      body.tactil #app { justify-content: flex-start; padding-top: 52px; gap: 22px; }
+      #cruz { display: grid; grid-template-columns: repeat(3, 52px); grid-template-rows: repeat(3, 52px); }
+      #botones { display: flex; gap: 14px; align-items: flex-end; }
+      #mando button { border: 2px solid #566c86; background: #333c57; color: #f4f4f4; font-size: 20px; font-weight: 700; border-radius: 10px; touch-action: none; }
+      #mando button:active, #mando button.pulsado { background: #41a6f6; }
+      #cruz button { width: 52px; height: 52px; }
+      #botones button { width: 68px; height: 68px; border-radius: 50%; }
+      #botones button[data-accion="a"] { background: #38b764; border-color: #a7f070; margin-bottom: 26px; }
+      #botones button[data-accion="b"] { background: #b13e53; border-color: #ef7d57; }
+      #guardado { position: fixed; inset: 0; z-index: 5; display: none; align-items: center; justify-content: center; background: rgba(20, 24, 48, 0.82); padding: 14px; touch-action: auto; user-select: text; -webkit-user-select: text; }
+      #guardado.abierto { display: flex; }
+      #guardado .caja { width: 100%; max-width: 440px; background: #fbfaf3; color: #1f2340; border: 3px solid #2b3a78; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+      #guardado h2 { margin: 0; font-size: 18px; }
+      #guardado p { margin: 0; font-size: 13px; line-height: 1.4; }
+      #guardado textarea { width: 100%; height: 110px; font: 12px ui-monospace, monospace; border: 2px solid #9fb0c4; border-radius: 8px; padding: 8px; resize: none; user-select: text; -webkit-user-select: text; }
+      #guardado button { min-height: 42px; border-radius: 8px; border: 2px solid #2b3a78; background: #5aa9f0; color: #10142c; font-size: 14px; font-weight: 600; }
+      #guardado button.peligro { background: #f3c0c8; border-color: #c0394f; }
+      #guardado .estado { min-height: 18px; font-weight: 600; color: #2b6a3f; }
+      #ayuda { font-size: 12px; color: #94b0c2; text-align: center; }
+      body.tactil #ayuda { display: none; }
+    </style>
+  </head>
+  <body>
+    <button id="silencio" type="button" aria-pressed="false">Sonido: sí</button>
+    <div id="app">
+      <div id="pantalla"></div>
+      <div id="mando" aria-label="Controles táctiles">
+        <div id="cruz">
+          <span></span><button type="button" data-accion="arriba" aria-label="Arriba">▲</button><span></span>
+          <button type="button" data-accion="izquierda" aria-label="Izquierda">◀</button><span></span>
+          <button type="button" data-accion="derecha" aria-label="Derecha">▶</button>
+          <span></span><button type="button" data-accion="abajo" aria-label="Abajo">▼</button><span></span>
+        </div>
+        <div id="botones">
+          <button type="button" data-accion="b" aria-label="Volver">B</button>
+          <button type="button" data-accion="a" aria-label="Aceptar">A</button>
+        </div>
+      </div>
+      <div id="ayuda">Flechas: mover · Z o Enter: aceptar · X: volver</div>
+    </div>
+    <div id="guardado" role="dialog" aria-modal="true" aria-labelledby="g-titulo">
+      <div class="caja">
+        <h2 id="g-titulo"></h2>
+        <p id="g-texto"></p>
+        <textarea id="g-codigo" spellcheck="false" aria-label="Código de guardado"></textarea>
+        <p class="estado" id="g-estado" aria-live="polite"></p>
+        <button type="button" id="g-copiar"></button>
+        <button type="button" id="g-cargar"></button>
+        <button type="button" id="g-borrar" class="peligro"></button>
+        <button type="button" id="g-cerrar"></button>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

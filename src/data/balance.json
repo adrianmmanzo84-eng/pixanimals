@@ -1,0 +1,77 @@
+{
+  "nivelMax": 50,
+  "stats": {
+    "psBase": 20,
+    "psDivisor": 12,
+    "statBase": 5,
+    "statDivisor": 25
+  },
+  "dano": {
+    "factorBase": 0.042,
+    "factorNivel": 0.0088,
+    "mismoTipo": 1.5,
+    "ventaja": 1.25,
+    "desventaja": 0.85,
+    "azarMin": 0.85,
+    "azarMax": 1.0,
+    "criticoProb": 5,
+    "criticoBonusVeloz": 8,
+    "criticoMult": 1.5
+  },
+  "etapas": {
+    "paso": 0.5,
+    "max": 2
+  },
+  "final": {
+    "turnoMinimo": 3
+  },
+  "estados": {
+    "quemadura": {
+      "turnos": 4,
+      "danoDivisor": 12,
+      "multFisico": 0.75,
+      "inmunes": [
+        "brasa"
+      ]
+    },
+    "veneno": {
+      "turnos": 5,
+      "danoDivisor": 10,
+      "inmunes": []
+    },
+    "paralisis": {
+      "turnos": 4,
+      "multVelocidad": 0.5,
+      "probPerderTurno": 25,
+      "inmunes": []
+    },
+    "sueno": {
+      "turnosMin": 1,
+      "turnosMax": 3,
+      "inmunes": []
+    }
+  },
+  "pasivas": {
+    "ultimo_rescoldo": {
+      "nombre": "Último Rescoldo",
+      "umbralPs": 0.3334,
+      "mult": 1.3
+    },
+    "oleaje": {
+      "nombre": "Oleaje",
+      "mult": 1.3
+    },
+    "raices": {
+      "nombre": "Raíces",
+      "curaDivisor": 40
+    }
+  },
+  "empujon": {
+    "potencia": 30
+  },
+  "cansancio": {
+    "desdeTurno": 20,
+    "danoDivisor": 8
+  },
+  "maxTurnos": 300
+}

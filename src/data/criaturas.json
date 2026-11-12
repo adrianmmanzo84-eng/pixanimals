@@ -1,0 +1,400 @@
+{
+  "criaturas": [
+    {
+      "id": "lumbrito",
+      "nombre": "Lumbrito",
+      "tipo": "brasa",
+      "familia": "brasa",
+      "etapa": 1,
+      "pasiva": "ultimo_rescoldo",
+      "base": {
+        "ps": 50,
+        "atq": 52,
+        "def": 42,
+        "ate": 60,
+        "dfe": 46,
+        "vel": 50
+      },
+      "habilidades": [
+        "zarpazo_ardiente",
+        "pelaje_igneo",
+        "grito_de_manada",
+        "rugido_solar"
+      ],
+      "habilidadesPrueba": [
+        "zarpazo_ardiente",
+        "pelaje_igneo",
+        "mirada_abrasadora",
+        "rugido_solar"
+      ],
+      "descripcion": "Cachorro solar. La gema de su frente brilla más cuando gana una carrera.",
+      "sprites": "brasa_1",
+      "evoluciona": {
+        "a": "leobrasa",
+        "nivel": 16
+      }
+    },
+    {
+      "id": "leobrasa",
+      "nombre": "Leobrasa",
+      "tipo": "brasa",
+      "familia": "brasa",
+      "etapa": 2,
+      "pasiva": "ultimo_rescoldo",
+      "base": {
+        "ps": 63,
+        "atq": 66,
+        "def": 53,
+        "ate": 76,
+        "dfe": 58,
+        "vel": 64
+      },
+      "habilidades": [
+        "zarpazo_ardiente",
+        "pelaje_igneo",
+        "grito_de_manada",
+        "rugido_solar"
+      ],
+      "habilidadesPrueba": [
+        "zarpazo_ardiente",
+        "pelaje_igneo",
+        "mirada_abrasadora",
+        "rugido_solar"
+      ],
+      "descripcion": "Su melena se enciende al combatir. Entrena rugiendo contra el viento.",
+      "sprites": "brasa_2",
+      "evoluciona": {
+        "a": "ignileon",
+        "nivel": 28
+      }
+    },
+    {
+      "id": "ignileon",
+      "nombre": "Ignileón",
+      "tipo": "brasa",
+      "familia": "brasa",
+      "etapa": 3,
+      "pasiva": "ultimo_rescoldo",
+      "base": {
+        "ps": 75,
+        "atq": 78,
+        "def": 63,
+        "ate": 90,
+        "dfe": 69,
+        "vel": 75
+      },
+      "habilidades": [
+        "zarpazo_ardiente",
+        "pelaje_igneo",
+        "grito_de_manada",
+        "rugido_solar"
+      ],
+      "habilidadesPrueba": [
+        "zarpazo_ardiente",
+        "pelaje_igneo",
+        "mirada_abrasadora",
+        "rugido_solar"
+      ],
+      "descripcion": "Su melena arde como una hoguera. Corre de sol a sol sin cansarse.",
+      "sprites": "brasa_3",
+      "evoluciona": {
+        "a": "solarion",
+        "nivel": 40
+      }
+    },
+    {
+      "id": "solarion",
+      "nombre": "Solarión",
+      "tipo": "brasa",
+      "familia": "brasa",
+      "etapa": 4,
+      "pasiva": "ultimo_rescoldo",
+      "base": {
+        "ps": 87,
+        "atq": 90,
+        "def": 73,
+        "ate": 104,
+        "dfe": 80,
+        "vel": 86
+      },
+      "habilidades": [
+        "zarpazo_ardiente",
+        "pelaje_igneo",
+        "grito_de_manada",
+        "rugido_solar"
+      ],
+      "habilidadesPrueba": [
+        "zarpazo_ardiente",
+        "pelaje_igneo",
+        "mirada_abrasadora",
+        "rugido_solar"
+      ],
+      "descripcion": "Rey solar. Dicen que su corona de fuego nunca se ha apagado.",
+      "sprites": "brasa_4"
+    },
+    {
+      "id": "aletin",
+      "nombre": "Aletín",
+      "tipo": "marea",
+      "familia": "marea",
+      "etapa": 1,
+      "pasiva": "oleaje",
+      "base": {
+        "ps": 50,
+        "atq": 45,
+        "def": 50,
+        "ate": 56,
+        "dfe": 50,
+        "vel": 49
+      },
+      "habilidades": [
+        "dentellada_marina",
+        "escudo_de_burbujas",
+        "corriente",
+        "tsunami"
+      ],
+      "habilidadesPrueba": [
+        "dentellada_marina",
+        "escudo_de_burbujas",
+        "arrullo_de_olas",
+        "tsunami"
+      ],
+      "descripcion": "Usa su aleta como vela. Salta sobre las olas solo para ver qué hay detrás.",
+      "sprites": "marea_1",
+      "evoluciona": {
+        "a": "corsario",
+        "nivel": 16
+      }
+    },
+    {
+      "id": "corsario",
+      "nombre": "Corsario",
+      "tipo": "marea",
+      "familia": "marea",
+      "etapa": 2,
+      "pasiva": "oleaje",
+      "base": {
+        "ps": 63,
+        "atq": 57,
+        "def": 63,
+        "ate": 71,
+        "dfe": 63,
+        "vel": 63
+      },
+      "habilidades": [
+        "dentellada_marina",
+        "escudo_de_burbujas",
+        "corriente",
+        "tsunami"
+      ],
+      "habilidadesPrueba": [
+        "dentellada_marina",
+        "escudo_de_burbujas",
+        "arrullo_de_olas",
+        "tsunami"
+      ],
+      "descripcion": "Sus aletas cortan las olas como espadas. Nada envuelto en espuma.",
+      "sprites": "marea_2",
+      "evoluciona": {
+        "a": "almirante",
+        "nivel": 28
+      }
+    },
+    {
+      "id": "almirante",
+      "nombre": "Almirante",
+      "tipo": "marea",
+      "familia": "marea",
+      "etapa": 3,
+      "pasiva": "oleaje",
+      "base": {
+        "ps": 75,
+        "atq": 68,
+        "def": 75,
+        "ate": 84,
+        "dfe": 75,
+        "vel": 73
+      },
+      "habilidades": [
+        "dentellada_marina",
+        "escudo_de_burbujas",
+        "corriente",
+        "tsunami"
+      ],
+      "habilidadesPrueba": [
+        "dentellada_marina",
+        "escudo_de_burbujas",
+        "arrullo_de_olas",
+        "tsunami"
+      ],
+      "descripcion": "Lleva aletas blindadas. Guía a su banco por las corrientes más bravas.",
+      "sprites": "marea_3",
+      "evoluciona": {
+        "a": "leviatan",
+        "nivel": 40
+      }
+    },
+    {
+      "id": "leviatan",
+      "nombre": "Leviatán",
+      "tipo": "marea",
+      "familia": "marea",
+      "etapa": 4,
+      "pasiva": "oleaje",
+      "base": {
+        "ps": 87,
+        "atq": 78,
+        "def": 86,
+        "ate": 97,
+        "dfe": 87,
+        "vel": 85
+      },
+      "habilidades": [
+        "dentellada_marina",
+        "escudo_de_burbujas",
+        "corriente",
+        "tsunami"
+      ],
+      "habilidadesPrueba": [
+        "dentellada_marina",
+        "escudo_de_burbujas",
+        "arrullo_de_olas",
+        "tsunami"
+      ],
+      "descripcion": "Coloso de coral y placas. Un remolino lo acompaña adonde vaya.",
+      "sprites": "marea_4"
+    },
+    {
+      "id": "brotin",
+      "nombre": "Brotín",
+      "tipo": "brote",
+      "familia": "brote",
+      "etapa": 1,
+      "pasiva": "raices",
+      "base": {
+        "ps": 60,
+        "atq": 50,
+        "def": 52,
+        "ate": 40,
+        "dfe": 56,
+        "vel": 42
+      },
+      "habilidades": [
+        "zarpazo_de_raiz",
+        "armadura_de_corteza",
+        "bano_de_sol",
+        "furia_del_bosque"
+      ],
+      "habilidadesPrueba": [
+        "zarpazo_de_raiz",
+        "polen_toxico",
+        "abrazo_de_raices",
+        "furia_del_bosque"
+      ],
+      "descripcion": "Osezno tranquilo. Si duerme al sol, el brote de su cabeza da una hoja nueva.",
+      "sprites": "brote_1",
+      "evoluciona": {
+        "a": "robledo",
+        "nivel": 16
+      }
+    },
+    {
+      "id": "robledo",
+      "nombre": "Robledo",
+      "tipo": "brote",
+      "familia": "brote",
+      "etapa": 2,
+      "pasiva": "raices",
+      "base": {
+        "ps": 76,
+        "atq": 63,
+        "def": 66,
+        "ate": 51,
+        "dfe": 71,
+        "vel": 53
+      },
+      "habilidades": [
+        "zarpazo_de_raiz",
+        "armadura_de_corteza",
+        "bano_de_sol",
+        "furia_del_bosque"
+      ],
+      "habilidadesPrueba": [
+        "zarpazo_de_raiz",
+        "polen_toxico",
+        "abrazo_de_raices",
+        "furia_del_bosque"
+      ],
+      "descripcion": "Le asoman las primeras astas. Sus puños de raíz no sueltan nada.",
+      "sprites": "brote_2",
+      "evoluciona": {
+        "a": "guardabosque",
+        "nivel": 28
+      }
+    },
+    {
+      "id": "guardabosque",
+      "nombre": "Guardabosque",
+      "tipo": "brote",
+      "familia": "brote",
+      "etapa": 3,
+      "pasiva": "raices",
+      "base": {
+        "ps": 90,
+        "atq": 75,
+        "def": 78,
+        "ate": 60,
+        "dfe": 84,
+        "vel": 63
+      },
+      "habilidades": [
+        "zarpazo_de_raiz",
+        "armadura_de_corteza",
+        "bano_de_sol",
+        "furia_del_bosque"
+      ],
+      "habilidadesPrueba": [
+        "zarpazo_de_raiz",
+        "polen_toxico",
+        "abrazo_de_raices",
+        "furia_del_bosque"
+      ],
+      "descripcion": "Viste corteza y hojas. Sus astas dan brotes nuevos cada estación.",
+      "sprites": "brote_3",
+      "evoluciona": {
+        "a": "titan_ancestral",
+        "nivel": 40
+      }
+    },
+    {
+      "id": "titan_ancestral",
+      "nombre": "Titán Ancestral",
+      "tipo": "brote",
+      "familia": "brote",
+      "etapa": 4,
+      "pasiva": "raices",
+      "base": {
+        "ps": 104,
+        "atq": 87,
+        "def": 90,
+        "ate": 69,
+        "dfe": 97,
+        "vel": 73
+      },
+      "habilidades": [
+        "zarpazo_de_raiz",
+        "armadura_de_corteza",
+        "bano_de_sol",
+        "furia_del_bosque"
+      ],
+      "habilidadesPrueba": [
+        "zarpazo_de_raiz",
+        "polen_toxico",
+        "abrazo_de_raices",
+        "furia_del_bosque"
+      ],
+      "descripcion": "El bosque crece sobre su lomo. Sus astas florecen cada primavera.",
+      "sprites": "brote_4"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "monedasIniciales": 200,
+  "tamanoEquipo": 3,
+  "recompensas": {
+    "novata": 20,
+    "tactica": 30,
+    "experta": 40,
+    "derrota": 5
+  },
+  "xp": {
+    "porVictoriaBase": 12,
+    "porNivelRival": 5,
+    "curvaBase": 10,
+    "curvaLineal": 4,
+    "curvaCuadratica": 0.5
+  }
+}

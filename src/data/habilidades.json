@@ -1,0 +1,36 @@
+{
+  "habilidades": [
+    { "id": "zarpazo_ardiente", "animacion": "zarpazo", "nombre": "Zarpazo Ardiente", "tipo": "brasa", "categoria": "fisica", "rol": "ofensiva", "potencia": 45, "precision": 100, "usos": 20,
+      "efectos": [{ "tipo": "estado", "estado": "quemadura", "prob": 10, "objetivo": "rival" }] },
+    { "id": "pelaje_igneo", "animacion": "anillo_fuego", "nombre": "Pelaje Ígneo", "tipo": "brasa", "categoria": "estado", "rol": "defensiva", "potencia": 0, "precision": null, "usos": 10, "prioridad": 1,
+      "efectos": [{ "tipo": "guardia", "modo": "reduce", "reduccion": 0.6, "contraEstado": { "estado": "quemadura", "prob": 30, "soloFisico": true } }] },
+    { "id": "grito_de_manada", "animacion": "grito", "nombre": "Grito de Manada", "tipo": "brasa", "categoria": "estado", "rol": "soporte", "potencia": 0, "precision": null, "usos": 15,
+      "efectos": [{ "tipo": "etapa", "stat": "atq", "delta": 1, "prob": 100, "objetivo": "propio" }] },
+    { "id": "rugido_solar", "animacion": "llamarada", "nombre": "Rugido Solar", "tipo": "brasa", "categoria": "especial", "rol": "final", "potencia": 90, "precision": 90, "usos": 5, "enfriamiento": 4, "efectos": [] },
+
+    { "id": "dentellada_marina", "animacion": "dentellada", "nombre": "Dentellada Marina", "tipo": "marea", "categoria": "especial", "rol": "ofensiva", "potencia": 45, "precision": 100, "usos": 20,
+      "efectos": [{ "tipo": "etapa", "stat": "dfe", "delta": -1, "prob": 15, "objetivo": "rival" }] },
+    { "id": "escudo_de_burbujas", "animacion": "burbujas", "nombre": "Escudo de Burbujas", "tipo": "marea", "categoria": "estado", "rol": "defensiva", "potencia": 0, "precision": null, "usos": 8, "prioridad": 1, "noRepetir": true,
+      "efectos": [{ "tipo": "guardia", "modo": "bloquea" }] },
+    { "id": "corriente", "animacion": "corriente", "nombre": "Corriente", "tipo": "marea", "categoria": "estado", "rol": "soporte", "potencia": 0, "precision": null, "usos": 15,
+      "efectos": [{ "tipo": "etapa", "stat": "vel", "delta": 1, "prob": 100, "objetivo": "propio" }] },
+    { "id": "tsunami", "animacion": "ola", "nombre": "Tsunami", "tipo": "marea", "categoria": "especial", "rol": "final", "potencia": 85, "precision": 95, "usos": 5, "enfriamiento": 4, "efectos": [] },
+
+    { "id": "zarpazo_de_raiz", "animacion": "zarpazo", "nombre": "Zarpazo de Raíz", "tipo": "brote", "categoria": "fisica", "rol": "ofensiva", "potencia": 40, "precision": 100, "usos": 20,
+      "efectos": [{ "tipo": "estado", "estado": "veneno", "prob": 20, "objetivo": "rival" }] },
+    { "id": "armadura_de_corteza", "animacion": "corteza", "nombre": "Armadura de Corteza", "tipo": "brote", "categoria": "estado", "rol": "defensiva", "potencia": 0, "precision": null, "usos": 15,
+      "efectos": [{ "tipo": "etapa", "stat": "def", "delta": 1, "prob": 100, "objetivo": "propio" }] },
+    { "id": "bano_de_sol", "animacion": "sol", "nombre": "Baño de Sol", "tipo": "brote", "categoria": "estado", "rol": "soporte", "potencia": 0, "precision": null, "usos": 3, "noRepetir": true,
+      "efectos": [{ "tipo": "cura", "porcentaje": 25 }] },
+    { "id": "furia_del_bosque", "animacion": "hojas", "nombre": "Furia del Bosque", "tipo": "brote", "categoria": "fisica", "rol": "final", "potencia": 80, "precision": 85, "usos": 5, "enfriamiento": 4, "efectos": [] },
+
+    { "id": "mirada_abrasadora", "animacion": "mirada", "nombre": "Mirada Abrasadora", "tipo": "brasa", "categoria": "estado", "rol": "estado", "potencia": 0, "precision": 90, "usos": 10,
+      "efectos": [{ "tipo": "estado", "estado": "quemadura", "prob": 100, "objetivo": "rival" }] },
+    { "id": "arrullo_de_olas", "animacion": "arrullo", "nombre": "Arrullo de Olas", "tipo": "marea", "categoria": "estado", "rol": "estado", "potencia": 0, "precision": 70, "usos": 8,
+      "efectos": [{ "tipo": "estado", "estado": "sueno", "prob": 100, "objetivo": "rival" }] },
+    { "id": "polen_toxico", "animacion": "polen", "nombre": "Polen Tóxico", "tipo": "brote", "categoria": "estado", "rol": "estado", "potencia": 0, "precision": 90, "usos": 10,
+      "efectos": [{ "tipo": "estado", "estado": "veneno", "prob": 100, "objetivo": "rival" }] },
+    { "id": "abrazo_de_raices", "animacion": "raices", "nombre": "Abrazo de Raíces", "tipo": "brote", "categoria": "estado", "rol": "estado", "potencia": 0, "precision": 85, "usos": 10,
+      "efectos": [{ "tipo": "estado", "estado": "paralisis", "prob": 100, "objetivo": "rival" }] }
+  ]
+}

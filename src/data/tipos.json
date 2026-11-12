@@ -1,0 +1,8 @@
+{
+  "tipos": [
+    { "id": "brasa", "nombre": "Brasa", "abrev": "BRA", "vence": ["brote"] },
+    { "id": "marea", "nombre": "Marea", "abrev": "MAR", "vence": ["brasa"] },
+    { "id": "brote", "nombre": "Brote", "abrev": "BRO", "vence": ["marea"] },
+    { "id": "neutro", "nombre": "Neutro", "abrev": "NEU", "vence": [] }
+  ]
+}

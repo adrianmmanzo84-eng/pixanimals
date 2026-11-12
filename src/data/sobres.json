@@ -1,0 +1,106 @@
+{
+  "cartasPorSobre": 3,
+  "brillanteUnoEn": 64,
+  "nivelInicial": 5,
+  "rarezas": [
+    {
+      "id": "comun",
+      "nombre": "Común",
+      "estrellas": 1,
+      "potencial": 0,
+      "esencia": 10
+    },
+    {
+      "id": "poco_comun",
+      "nombre": "Poco común",
+      "estrellas": 2,
+      "potencial": 4,
+      "esencia": 25
+    },
+    {
+      "id": "rara",
+      "nombre": "Rara",
+      "estrellas": 3,
+      "potencial": 8,
+      "esencia": 60
+    },
+    {
+      "id": "epica",
+      "nombre": "Épica",
+      "estrellas": 4,
+      "potencial": 12,
+      "esencia": 150
+    }
+  ],
+  "pity": {
+    "rara": 10,
+    "epica": 40
+  },
+  "gratis": {
+    "sobre": "basico",
+    "cadaHoras": 4,
+    "maxAcumulados": 2
+  },
+  "sobres": [
+    {
+      "id": "basico",
+      "nombre": "Sobre Básico",
+      "costo": 100,
+      "tipo": null,
+      "prob": {
+        "comun": 70,
+        "poco_comun": 22,
+        "rara": 7,
+        "epica": 1
+      }
+    },
+    {
+      "id": "brasa",
+      "nombre": "Sobre Brasa",
+      "costo": 250,
+      "tipo": "brasa",
+      "prob": {
+        "comun": 70,
+        "poco_comun": 22,
+        "rara": 7,
+        "epica": 1
+      }
+    },
+    {
+      "id": "marea",
+      "nombre": "Sobre Marea",
+      "costo": 250,
+      "tipo": "marea",
+      "prob": {
+        "comun": 70,
+        "poco_comun": 22,
+        "rara": 7,
+        "epica": 1
+      }
+    },
+    {
+      "id": "brote",
+      "nombre": "Sobre Brote",
+      "costo": 250,
+      "tipo": "brote",
+      "prob": {
+        "comun": 70,
+        "poco_comun": 22,
+        "rara": 7,
+        "epica": 1
+      }
+    },
+    {
+      "id": "raro",
+      "nombre": "Sobre Raro",
+      "costo": 600,
+      "tipo": null,
+      "prob": {
+        "comun": 40,
+        "poco_comun": 35,
+        "rara": 20,
+        "epica": 5
+      }
+    }
+  ]
+}
