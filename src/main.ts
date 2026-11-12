@@ -62,6 +62,8 @@ async function iniciar(): Promise<void> {
     scene: [Arranque, Menu, Sobres, Bestiario, Equipo, Combate],
   });
   ajustarEscala(juego.canvas);
+  // Solo en desarrollo: acceso desde la consola para pruebas visuales.
+  if (import.meta.env.DEV) Object.assign(window, { __pixGame: juego });
   window.addEventListener('resize', () => ajustarEscala(juego.canvas));
 }
 

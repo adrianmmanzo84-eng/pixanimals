@@ -83,3 +83,13 @@ Cada entrada: qué se decidió, por qué y qué alternativa se descartó. Las m�
 | D51 | Fondos ilustrados del autor en `public/fondos/` (960×448, JPG). Las criaturas se colocan sobre las plataformas dibujadas | Los fondos pintados por código quedan solo como respaldo y para el menú |
 | D52 | `npm run placeholders` ya no pisa sprites existentes | Protege el arte definitivo |
 | D53 | D23 queda a criterio del autor: su Lumbrito lleva llama en la cola | Se avisó del parecido con un personaje de otra franquicia; el diseño es claramente un león con melena y gema |
+
+## Efectos ilustrados (12-nov-2026)
+
+| # | Decisión | Motivo / alternativa descartada |
+| --- | --- | --- |
+| D54 | Los 17 efectos del autor son imágenes fijas animadas por código (crecer, viajar, revelarse, cerrarse, temblar) | No hacen falta tiras de fotogramas; cada efecto se anima según su forma (la mandíbula se parte y se cierra, las raíces y el rayo de sol se revelan, la ola cruza el campo) |
+| D55 | Tamaños: 64 px de lado mayor; 96 los tres finales; 112 el rayo de Mirada Abrasadora; 48–56 grito, empujón y polen | El rayo tiene que cruzar el campo sin ampliarse; los efectos chicos no deben tapar a la criatura de etapa 1 (40 px) |
+| D56 | El rayo de Mirada se gira hacia el rival; el resto se refleja. Arrullo no se refleja | Las «Z» del sueño tienen que seguir leyéndose |
+| D57 | El anillo de fuego y el escudo usan media imagen tenue detrás | Da la sensación de rodear a la criatura sin separar capas |
+| D58 | Las partículas pequeñas (chispas, gotas, zetas, esporas) y los efectos de estado y curación siguen dibujados por código | Acompañan a las imágenes; si falta un PNG, el efecto por código lo reemplaza |

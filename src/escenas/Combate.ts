@@ -579,8 +579,8 @@ export class Combate extends Phaser.Scene {
   }
 
   /** Centro del cuerpo visible de la criatura activa (los sprites se apoyan en la base de su lienzo). */
-  private centro(lado: Lado): { x: number; y: number } {
-    return { x: POS[lado].x, y: POS[lado].y + 32 - altoVisible(this.bat.act(lado).especie.id) / 2 };
+  private centro(lado: Lado): { x: number; y: number; base: number } {
+    return { x: POS[lado].x, y: POS[lado].y + 32 - altoVisible(this.bat.act(lado).especie.id) / 2, base: POS[lado].y + 32 };
   }
 
   private texturaDe(lado: Lado, c: Combatiente): string {

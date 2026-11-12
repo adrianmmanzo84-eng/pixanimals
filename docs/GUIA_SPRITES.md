@@ -32,9 +32,13 @@ Deja en `arte/originales/` imágenes `fondo_<id>.png` de proporción 2:1 (por ej
 
 Un fondo para un tipo nuevo necesita además una línea en `FONDO_POR_TIPO` (`src/ui/fondos.ts`).
 
-## Partículas de los ataques (más adelante)
+## Efectos de ataque
 
-Hoy se dibujan por código. Si quieres ilustrarlas, serán PNG pequeños de unos 8×8 px (llama, gota, hoja, chispa, burbuja…).
+Un PNG por efecto en `arte/originales/efectos/`, con fondo transparente, del **momento principal** del efecto (una imagen fija, no una tira de animación). El nombre del archivo es el valor de `animacion` de la habilidad (`llamarada.png`, `ola.png`…). Dos casos especiales: `zarpazo_brote.png` es la versión del zarpazo para el elemento Brote, y `empujon.png` es el golpe básico sin habilidad.
+
+Dibújalos en dirección **de abajo a la izquierda hacia arriba a la derecha** (de tu criatura hacia el rival); el juego los refleja o gira cuando ataca el rival. Excepción: la ola rompe hacia la izquierda.
+
+Después ejecuta `python3 scripts/importar_efectos.py`. Recorta, reduce a 64 px de lado mayor (96 para los finales, 112 para el rayo de Mirada, 48–56 para grito, empujón y polen), deja 16 colores y genera `public/efectos/<nombre>.png`. La animación (aparecer, viajar, cerrarse, crecer, temblar) está en `src/ui/efectos.ts`. Un efecto sin imagen usa el dibujado por código. Las partículas pequeñas (chispas, gotas, zetas) siguen dibujadas por código.
 
 ## Nota de diseño
 

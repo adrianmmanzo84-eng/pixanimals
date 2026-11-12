@@ -58,6 +58,7 @@ Regla de arquitectura: `core/` nunca importa nada de `escenas/` ni de Phaser.
 - **Una habilidad:** una entrada en `src/data/habilidades.json`. Su descripción en pantalla se genera sola a partir de sus efectos. El campo `animacion` elige el efecto visual (lista en `src/esquemas/esquemas.ts`).
 - **Una criatura:** una entrada en `src/data/criaturas.json` y sus sprites (ver `docs/GUIA_SPRITES.md`).
 - **Arte nuevo:** deja las hojas en `arte/originales/` y ejecuta `python3 scripts/importar_arte.py`.
+- **Efectos de ataque:** deja los PNG en `arte/originales/efectos/` y ejecuta `python3 scripts/importar_efectos.py`.
 - Después, `npm run validar`.
 
 ## Documentación
