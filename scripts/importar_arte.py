@@ -3,7 +3,9 @@ Convierte las hojas de arte de arte/originales/ en los archivos que usa el juego
 
   Criaturas: una hoja por familia (<familia>.png, por ejemplo brasa.png) con fondo transparente,
              de 1 a 4 columnas (etapas 1 a 4) y 2 filas (arriba de frente, abajo de espaldas).
-             Ramas: <familia>_<etapa><letra>.png (por ejemplo brasa_3b.png), una sola columna.
+             Ramas: <familia>_<etapa><letra>.png (por ejemplo brasa_4b.png), una sola criatura:
+             de frente arriba y de espaldas abajo, o de frente a la izquierda y de espaldas a la derecha.
+             Las ramas usan 24 colores: el aura gasta paleta y con 15 se perdían los detalles del cuerpo.
              Salida: public/sprites/<familia>_<etapa>[letra]_{frente,espalda,icono}.png
              64x64 (icono 64x32), 15 colores como máximo, sin semitransparencias.
   Fondos:    fondo_<id>.png (proporción 2:1, con las dos plataformas dibujadas).
@@ -63,6 +65,25 @@ def celdas(img):
     return salida
 
 
+def rama(img):
+    """Frente y espalda de una sola criatura, en 2 filas o lado a lado. Ignora el polvo suelto del aura."""
+    a = np.array(img)
+    lleno = a[:, :, 3] > 200
+    filas = [b for b in bandas(lleno.sum(axis=1), 4, 6) if b[1] - b[0] > 40]
+    if len(filas) == 2:
+        f, e = celdas(img)
+        return f[0], e[0]
+    cols = [b for b in bandas(lleno.sum(axis=0), 4, 20) if b[1] - b[0] > 40]
+    assert len(cols) == 2, f'rama: se esperaban 2 vistas y hay {len(cols)}'
+    vistas = []
+    for x0, x1 in cols:
+        sub = lleno[:, x0:x1 + 1]
+        ys = np.where(sub.sum(axis=1) >= 2)[0]
+        xs = np.where(sub.sum(axis=0) >= 2)[0]
+        vistas.append(img.crop((x0 + xs[0], ys[0], x0 + xs[-1] + 1, ys[-1] + 1)))
+    return vistas[0], vistas[1]
+
+
 def reducir(recorte, factor):
     """Reduce con promedio de área (alfa premultiplicado) y deja cada píxel opaco o transparente."""
     w = max(1, round(recorte.width * factor))
@@ -118,9 +139,9 @@ def icono(frente):
 NO_CRIATURAS = ('fondo_', 'portada', 'carta_dorso')
 
 
-def convertir(frente, espalda, tamano, destino, nombre):
+def convertir(frente, espalda, tamano, destino, nombre, colores=15):
     factor = tamano / max(frente.width, frente.height, espalda.width, espalda.height)
-    f, e = cuantizar([reducir(frente, factor), reducir(espalda, factor)])
+    f, e = cuantizar([reducir(frente, factor), reducir(espalda, factor)], colores)
     lf, le = lienzo(*f), lienzo(*e)
     Image.fromarray(lf, 'RGBA').save(os.path.join(destino, f'{nombre}_frente.png'))
     Image.fromarray(le, 'RGBA').save(os.path.join(destino, f'{nombre}_espalda.png'))
@@ -135,18 +156,19 @@ def criaturas():
         if not archivo.endswith('.png') or archivo.startswith(NO_CRIATURAS):
             continue
         base = archivo[:-4]
-        frentes, espaldas = celdas(Image.open(os.path.join(ORIG, archivo)).convert('RGBA'))
-        rama = re.fullmatch(r'([a-z]+)_([1-4])([a-z])', base)
-        if rama:
+        img = Image.open(os.path.join(ORIG, archivo)).convert('RGBA')
+        es_rama = re.fullmatch(r'([a-z]+)_([1-4])([a-z])', base)
+        if es_rama:
             # Rama: una sola criatura; su tamaño es el de su etapa.
-            convertir(frentes[0], espaldas[0], TAMANOS[int(rama.group(2)) - 1], destino, base)
+            convertir(*rama(img), TAMANOS[int(es_rama.group(2)) - 1], destino, base, colores=24)
             print(f'✓ rama {base}')
         elif re.fullmatch(r'[a-z]+', base):
+            frentes, espaldas = celdas(img)
             for i in range(len(frentes)):
                 convertir(frentes[i], espaldas[i], TAMANOS[i], destino, f'{base}_{i + 1}')
             print(f'✓ {base}: {len(frentes)} etapa(s)')
         else:
-            print(f'· {archivo}: nombre no reconocido (usa familia.png o familia_3b.png); se omite')
+            print(f'· {archivo}: nombre no reconocido (usa familia.png o familia_4b.png); se omite')
 
 
 def fondos():

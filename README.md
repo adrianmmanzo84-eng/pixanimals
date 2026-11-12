@@ -2,7 +2,7 @@
 
 Juego web de colección y combate por turnos: criaturas y efectos en pixel art sobre fondos de estilo animado. Nombre de trabajo.
 
-**Estado: Fase 3 terminada – Tienda, Bolsa, ítems, Entrenamiento, evolución con animación y carta premio.**
+**Estado: Fase 3 terminada – Tienda, Bolsa, ítems, Entrenamiento, evolución con animación y carta premio. Formas Eclipse (rama con la Piedra Eclipse) para las 3 familias.**
 
 ## Ejecutar
 

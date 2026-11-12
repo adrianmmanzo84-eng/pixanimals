@@ -16,7 +16,7 @@ python3 scripts/importar_arte.py && npm run validar
 
 El script recorta cada criatura, la reduce al lienzo del juego, limita la paleta y crea los iconos. Necesita Python con Pillow y numpy.
 
-**Ramas** (evoluciones alternativas, como Eclipsión): una hoja aparte de una sola columna llamada `<familia>_<etapa><letra>.png`, por ejemplo `brasa_3b.png`. Genera `brasa_3b_frente.png`, etc.
+**Ramas** (evoluciones alternativas, como las formas Eclipse): una hoja aparte llamada `<familia>_<etapa><letra>.png`, por ejemplo `brasa_4b.png`, con una sola criatura: de frente arriba y de espaldas abajo, o de frente a la izquierda y de espaldas a la derecha. Puede llevar aura; usa hasta 24 colores. Genera `brasa_4b_frente.png`, etc. En `criaturas.json`, la etapa anterior la lista en `evoluciona` con `"item": "piedra_eclipse"`. Las Eclipse de familias que todavía no están en el juego esperan en `arte/originales/eclipse/`.
 
 ## Agregar una familia nueva
 

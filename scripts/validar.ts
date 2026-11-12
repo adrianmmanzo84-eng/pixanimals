@@ -38,7 +38,9 @@ for (const c of datos.criaturas.values()) {
       if (a !== 0 && a !== 255) break;
     }
     if (!transparente) errores.push(`${nombre}: no tiene fondo transparente.`);
-    if (colores.size > 15) errores.push(`${nombre}: usa ${colores.size} colores; el máximo es 15 más transparencia.`);
+    // Las ramas (sprites con letra, como brasa_4b) llevan aura y admiten 24 colores.
+    const max = /_\d[a-z]$/.test(c.sprites) ? 24 : 15;
+    if (colores.size > max) errores.push(`${nombre}: usa ${colores.size} colores; el máximo es ${max} más transparencia.`);
   }
 }
 

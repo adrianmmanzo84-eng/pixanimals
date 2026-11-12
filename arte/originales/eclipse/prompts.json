@@ -1,0 +1,84 @@
+{
+  "herramienta": "Generador de imágenes integrado",
+  "instruccion_comun": "Create an ECLIPSE ALTERNATE of the FINAL MYTHICAL evolution of the creature in reference. Not another evolution lineup. One original family only, exactly TWO matching full-body sprites side-by-side: FRONT three-quarter facing viewer left on left, BACK three-quarter facing away upper right on right. Identical anatomy, armor and ornaments front/back. PIXANIMALS authentic chunky LOW RESOLUTION PIXEL ART, like actual 80-96 logical pixel battle sprites enlarged nearest-neighbor. Very visible uniform square pixel blocks, hard stepped 1 logical pixel dark outlines, large deliberate flat color clusters, 3 flat shades per material, restrained 20-color palette. NO fine illustration, painting, smooth gradients, antialiasing, soft light or fuzzy glow. Eclipse must be MUCH WILDER, MORE AGGRESSIVE and MORE IMPOSING than mythic: powerful exaggerated anatomy, ferocious eyes, battle-ready pose, dramatic distinctive silhouette, dangerous-looking armor or natural appendages. Keep recognizable species and unique identity motifs. Include impressive ELEMENT-SPECIFIC AURA made of discrete hard-edged square pixel clusters, keep gaps between body and aura for readability. Genuine transparent background, no floor, shadows, scene, text, logo, frames, UI or labels. Leave WIDE CLEAR TRANSPARENT MARGIN outside all body and aura tips, at least 10 percent of whole canvas on every outer side. Separate two sprites with clear central gap, entire wings tails horns antlers and aura fully visible, no cropping. Character bodies occupy about 60 percent of image height so aura fits. ",
+  "familias": [
+    {
+      "archivo": "01_leon_eclipse.png",
+      "nombre": "León de fuego",
+      "referencia": "pixanimals-leon-pixelart-v2.png",
+      "instrucciones": "Preserve leonine quadruped anatomy, orange coat, cream muzzle, ruby forehead diamond, flaming mane and tail. ECLIPSE: huge muscular black-and-crimson solar lion, savage roaring jaws, serrated enormous flame mane, broken gold solar crown integrated into mane, obsidian armored paws with large claws, red ruby chest gem, white-hot orange flame tail. Aura is jagged crimson-gold solar flare arcs tightly framing body, no floating detached sun."
+    },
+    {
+      "archivo": "02_tiburon_eclipse.png",
+      "nombre": "Tiburón de agua",
+      "referencia": "pixanimals-tiburon-pixelart-v2.png",
+      "instrucciones": "Preserve shark body, forked tail, tall cyan dorsal fin, cream belly, forehead aquamarine gem and silver fin armor. ECLIPSE: massive abyssal navy shark, savage wide toothed jaw, serrated silver-black fin armor, split crystalline cyan dorsal crest, restrained gold relic details, cyan eye and gem, larger powerful tail. Aura is angular violet/cyan tidal currents curling tightly around fins, no legs."
+    },
+    {
+      "archivo": "03_oso_eclipse.png",
+      "nombre": "Oso del bosque",
+      "referencia": "pixanimals-oso-pixelart-v2.png",
+      "instrucciones": "Preserve brown bear anatomy, cream muzzle/chest, emerald forehead gem, branching oak antlers, bark armor, leafy back mantle. ECLIPSE: imposing feral dark chestnut bear in aggressive braced quadruped stance, enormous claws, massive twisted black thorn antlers crowned with dark emerald leaves, cracked black bark armor and intense lime chest jewel, predatory amber eyes. Aura is jagged emerald thorn-energy with sparse violet spores, not flames."
+    },
+    {
+      "archivo": "04_mantarraya_eclipse.png",
+      "nombre": "Mantarraya celeste",
+      "referencia": "01_mantarraya_celeste.png",
+      "instrucciones": "Use only column4 mythic manta as identity reference. Preserve diamond manta body, gold forehead gem, blue wings with constellation markings, three ribbon tails. ECLIPSE: enormous predatory celestial manta with scythe-shaped dark indigo triple-layer wings, sharp black-gold crest, icy cyan underside, fierce narrow eyes, three powerful serrated ribbon tails. Aura is angular deep violet gravitational crescents with cyan sparks at wingtips. Remains a manta not bird."
+    },
+    {
+      "archivo": "05_polilla_eclipse.png",
+      "nombre": "Polilla de obsidiana",
+      "referencia": "02_polilla_obsidiana.png",
+      "instrucciones": "Use column4 mythical moth as reference. Preserve cream moth face, twin antennae, violet diamond chest mark and four-lobed dark wings with pale eye-spots. ECLIPSE: ominous colossal obsidian moth, violently angular black/violet jagged wing blades, fierce magenta eyes, elaborate amber broken eclipse crest around thorax, sharp long antennae and armored thorax. Wing eyespots become striking crimson-violet diamonds. Aura is angular violet dust ribbons and red pixel motes around outer wings."
+    },
+    {
+      "archivo": "06_ajolote_eclipse.png",
+      "nombre": "Ajolote tormenta",
+      "referencia": "03_ajolote_tormenta.png",
+      "instrucciones": "Use column4 mythic axolotl as reference. Preserve four-legged axolotl anatomy, external fan gills, cyan oval forehead mark, violet body and paddle fin tail. ECLIPSE: huge low muscular storm axolotl beast with fierce grinning muzzle, black violet scale armor, enormous branching cyan/magenta lightning-shaped gill fan, powerful sharp claws and saw-edged paddle tail. Aura is compact jagged cyan electrical bolts with magenta tips, flat pixels no glow."
+    },
+    {
+      "archivo": "07_caracol_eclipse.png",
+      "nombre": "Caracol fortaleza",
+      "referencia": "04_caracol_fortaleza.png",
+      "instrucciones": "Use column4 fortress snail as reference. Preserve peach snail face, two long eyestalks, mint forehead spiral gem, massive spiral basalt shell and crawling foot. ECLIPSE: colossal aggressive dark basalt snail titan, enormous black angular shell plates with violent serrated ridges, vivid toxic mint seams, massive muscular dark peach crawling foot and fierce heavy brow eyestalks. Aura is angular mint shockwave shards and dark violet dust near shell. No legs, no buildings."
+    },
+    {
+      "archivo": "08_colibri_eclipse.png",
+      "nombre": "Colibrí espina",
+      "referencia": "05_colibri_espina.png",
+      "instrucciones": "Use column4 mythical hummingbird as reference. Preserve hummingbird anatomy, long beak, cream belly, emerald leaf-feather wings, magenta cheek spot and petal collar, forked tail. ECLIPSE: savage regal obsidian-emerald hummingbird predator, long lance-shaped beak, crimson magenta thorn-petal crown, four huge blade-shaped leaf wing layers, long forked serrated tail and gold crest tips. Aura is magenta-green razor leaf wind streaks tightly around wing silhouette. No humanoid anatomy."
+    },
+    {
+      "archivo": "09_pangolin_eclipse.png",
+      "nombre": "Pangolín prisma",
+      "referencia": "06_pangolin_prisma.png",
+      "instrucciones": "Use column4 mythic pangolin as reference. Preserve elongated rounded pangolin snout, four strong legs, overlapping amethyst/cyan scales, huge segmented tail and fanlike dorsal crest. ECLIPSE: heavily muscular black-amethyst armored pangolin, extremely sharp overlapping prism scales, enormous saw-shaped crystalline crest, massive coiled mace tail, fierce ice-cyan eyes and large digging claws. Aura is sharp angular violet/cyan crystal energy shards near armor. No floating unrelated crystals or scenery."
+    },
+    {
+      "archivo": "10_gecko_eclipse.png",
+      "nombre": "Gecko aurora",
+      "referencia": "07_gecko_aurora.png",
+      "instrucciones": "Use column4 mythic gecko as reference. Preserve mint gecko head, coral cheek dots, adhesive finger pads, cyan/violet gliding membranes, coral-ringed curled tail. ECLIPSE: huge predatory dark teal gecko with intensely fierce eyes, angular crown head fins, very broad serrated indigo/magenta gliding skin membranes, large gripping adhesive toes and long powerful ringed tail with sharp fin. Aura is compact angular aurora streaks of cyan and magenta around membranes. No feather wings."
+    },
+    {
+      "archivo": "11_cangrejo_eclipse.png",
+      "nombre": "Cangrejo relicario",
+      "referencia": "08_cangrejo_relicario.png",
+      "instrucciones": "Use column4 mythic hermit crab as reference. Preserve coral face, two eyestalks, spiral teal/bronze shell with cyan seams, six legs and asymmetrical giant shield claw. ECLIPSE: colossal menacing black-teal relic crab, towering serrated bronze shell, fierce heavy armored eyestalks, massive brutal shield claw with saw ridges and cyan core, smaller sharp pincer, broad powerful walking legs. Aura is angular cyan/violet pressure cracks and compact gold sparks. No treasure chest or buildings."
+    },
+    {
+      "archivo": "12_liebre_eclipse.png",
+      "nombre": "Liebre lunar",
+      "referencia": "09_conejo_lunar.png",
+      "instrucciones": "Use column4 mythic lunar hare as reference. Preserve cream/silver hare muzzle, lilac nose, crescent chest gem, two huge crescent ears, branching antlers, violet fur accents and strong hindquarters. ECLIPSE: towering feral lunar jackalope, deep violet-black fur with silver face and chest, savage amber eyes, immense sharp crescent ears, black silver branching thorn antlers, powerful crouched hind legs and clawed forefeet. Aura is crisp angular violet moon crescents and icy silver pixel sparks around shoulders. Recognizable hare not deer or humanoid."
+    },
+    {
+      "archivo": "13_pulpo_eclipse.png",
+      "nombre": "Pulpo tinta",
+      "referencia": "10_pulpo_tinta.png",
+      "instrucciones": "Use column4 mythic octopus as reference. Preserve eight tentacles, turquoise suction cups, forehead teardrop gem, angular crownlike mantle and violet/cream patterns. ECLIPSE: colossal fierce abyssal octopus sovereign, muscular black indigo tentacles with cyan suckers, enormous serrated crown mantle with magenta amethyst ridges, intense predatory turquoise eyes and sharp geometric cream markings. Eight distinct sweeping tentacles, no extra limbs. Aura is angular violet-black ink curls and cyan square droplets tightly around body, no scenery."
+    }
+  ]
+}

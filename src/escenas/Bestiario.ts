@@ -12,6 +12,7 @@ import { fondo } from '../ui/fondos';
 import { partir, Texto } from '../ui/texto';
 
 const VISIBLES = 3;
+type Fila = (Criatura | null)[];
 
 /** Bestiario: una fila por familia y una columna por etapa. Lo no visto es un signo de pregunta; lo visto, una silueta. Con más de 3 familias, se desplaza. */
 export class Bestiario extends Phaser.Scene {
@@ -25,7 +26,7 @@ export class Bestiario extends Phaser.Scene {
   private situacion!: Texto;
   private detalle!: Texto;
   private descripcion!: Texto;
-  private filas: Criatura[][] = [];
+  private filas: Fila[] = [];
   private scroll = 0;
 
   constructor() {
@@ -37,22 +38,37 @@ export class Bestiario extends Phaser.Scene {
     this.col = d?.col ?? 0;
   }
 
-  /** Una fila por familia, ordenada por etapa; las ramas siguen en otra fila si no entran. */
-  private armarFilas(): Criatura[][] {
+  /**
+   * Una fila por familia, con cada criatura en la columna de su etapa. Las ramas (las que se consiguen con una piedra)
+   * van en la fila de abajo, debajo de la forma a la que reemplazan; las casillas sin criatura quedan vacías.
+   */
+  private armarFilas(): Fila[] {
+    const ramas = new Set([...DATOS.criaturas.values()].flatMap((c) => c.evoluciona.filter((e) => e.item).map((e) => e.a)));
     const familias = new Map<string, Criatura[]>();
     for (const c of DATOS.criaturas.values()) familias.set(c.familia, [...(familias.get(c.familia) ?? []), c]);
     return [...familias.values()].flatMap((lista) => {
-      const orden = [...lista].sort((a, b) => a.etapa - b.etapa);
-      const res: Criatura[][] = [];
-      for (let i = 0; i < orden.length; i += 4) res.push(orden.slice(i, i + 4));
+      const res: Fila[] = [];
+      const orden = [...lista].sort((a, b) => Number(ramas.has(a.id)) - Number(ramas.has(b.id)) || a.etapa - b.etapa);
+      for (const c of orden) {
+        let k = ramas.has(c.id) ? 1 : 0;
+        while (res[k]?.[c.etapa - 1]) k++;
+        while (res.length <= k) res.push([null, null, null, null]);
+        res[k]![c.etapa - 1] = c;
+      }
       return res;
     });
+  }
+
+  /** Columna con criatura más cercana a `col` dentro de la fila. */
+  private cercana(fila: Fila, col: number): number {
+    const llenas = fila.flatMap((c, j) => (c ? [j] : []));
+    return llenas.reduce((m, j) => (Math.abs(j - col) < Math.abs(m - col) ? j : m), llenas[0]!);
   }
 
   create(): void {
     this.filas = this.armarFilas();
     this.fila = Math.min(this.fila, this.filas.length - 1);
-    this.col = Math.min(this.col, this.filas[this.fila]!.length - 1);
+    this.col = this.cercana(this.filas[this.fila]!, this.col);
     this.scroll = Math.max(0, Math.min(this.fila - 1, this.filas.length - VISIBLES));
     prepararCamara(this);
     this.add.image(0, 0, fondo(this, 'menu')).setOrigin(0, 0).setScale(0.25);
@@ -64,6 +80,7 @@ export class Bestiario extends Phaser.Scene {
 
     this.filas.slice(this.scroll, this.scroll + VISIBLES).forEach((fila, k) =>
       fila.forEach((c, j) => {
+        if (!c) return;
         const x = 8 + j * 29 + 14;
         const y = 22 + k * 29 + 14;
         g.fillStyle(n(C.papelSombra), 1).fillRoundedRect(x - 13, y - 13, 26, 26, 3);
@@ -94,14 +111,15 @@ export class Bestiario extends Phaser.Scene {
   }
 
   private alPulsar(a: AccionEntrada): void {
-    const largo = this.filas[this.fila]!.length;
-    if (a === 'izquierda') this.col = (this.col + largo - 1) % largo;
-    else if (a === 'derecha') this.col = (this.col + 1) % largo;
+    const llenas = this.filas[this.fila]!.flatMap((c, j) => (c ? [j] : []));
+    const i = llenas.indexOf(this.col);
+    if (a === 'izquierda') this.col = llenas[(i + llenas.length - 1) % llenas.length]!;
+    else if (a === 'derecha') this.col = llenas[(i + 1) % llenas.length]!;
     else if (a === 'arriba' || a === 'abajo') {
       const fila = (this.fila + (a === 'abajo' ? 1 : this.filas.length - 1)) % this.filas.length;
       sonido.tocar('cursor');
       // Cambiar de fila puede desplazar la cuadrícula: se redibuja la escena.
-      this.scene.restart({ fila, col: Math.min(this.col, this.filas[fila]!.length - 1) });
+      this.scene.restart({ fila, col: this.cercana(this.filas[fila]!, this.col) });
       return;
     } else if (a === 'b') {
       sonido.tocar('cancelar');

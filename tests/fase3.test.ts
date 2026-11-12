@@ -58,9 +58,12 @@ describe('tienda', () => {
     e.esencia = 100;
     expect(comprar(DATOS, e, 'vit_atq', 0)).toBe(true);
   });
-  it('las piedras sin criatura que las use no se venden', () => {
-    expect(catalogo(DATOS).some((i) => i.id === 'piedra_eclipse')).toBe(false);
-    expect(comprar(DATOS, conLumbrito(), 'piedra_eclipse', 0)).toBe('no_se_vende');
+  it('las piedras solo se venden si alguna criatura las usa', () => {
+    expect(catalogo(DATOS).some((i) => i.id === 'piedra_eclipse')).toBe(true);
+    const sinRamas = new Map([...DATOS.criaturas].map(([id, c]) => [id, { ...c, evoluciona: c.evoluciona.filter((e) => !e.item) }]));
+    const d = { ...DATOS, criaturas: sinRamas };
+    expect(catalogo(d).some((i) => i.id === 'piedra_eclipse')).toBe(false);
+    expect(comprar(d, conLumbrito(), 'piedra_eclipse', 0)).toBe('no_se_vende');
   });
   it('ofertas del día: fijas durante el día, distintas otro día, con descuento', () => {
     const hoy = ofertasDelDia(DATOS, 100);
@@ -261,5 +264,32 @@ describe('carta premio', () => {
     expect(cantidad(e, 'pocion')).toBe(1);
     expect(carta?.resultado).toBe('nueva');
     expect(criaturaDe(e, 'aletin')).toBeDefined();
+  });
+});
+
+describe('formas Eclipse', () => {
+  it('cada familia tiene una Eclipse: sale de la etapa 3 a nivel 40 con la Piedra Eclipse y suma lo mismo que la etapa 4', () => {
+    const eclipses = [...DATOS.criaturas.values()].filter((c) => c.sprites.endsWith('_4b'));
+    expect(eclipses.map((c) => c.familia).sort()).toEqual(['brasa', 'brote', 'marea']);
+    for (const ec of eclipses) {
+      const padre = [...DATOS.criaturas.values()].find((c) => c.evoluciona.some((e) => e.a === ec.id))!;
+      expect(padre.etapa).toBe(3);
+      const ev = padre.evoluciona.find((e) => e.a === ec.id)!;
+      expect([ev.nivel, ev.item]).toEqual([40, 'piedra_eclipse']);
+      const normal = DATOS.criaturas.get(padre.evoluciona.find((e) => !e.item)!.a)!;
+      const suma = (c: typeof ec) => Object.values(c.base).reduce((a, b) => a + b, 0);
+      expect(suma(ec)).toBe(suma(normal));
+      expect([ec.tipo, ec.etapa, ec.evoluciona.length]).toEqual([normal.tipo, 4, 0]);
+    }
+  });
+  it('Ignileón evoluciona a Solarión Eclipse gastando la piedra', () => {
+    const e = estadoNuevo(DATOS, 0);
+    e.criaturas.push({ ...nuevaCriatura('ignileon', 40, 'comun', false), entrenamiento: 100 });
+    e.equipo = ['ignileon'];
+    expect(evolucionar(DATOS, e, 'ignileon', 'solarion_eclipse')).toBe(false);
+    agregar(e, 'piedra_eclipse');
+    expect(evolucionar(DATOS, e, 'ignileon', 'solarion_eclipse')).toBe(true);
+    expect(criaturaDe(e, 'solarion_eclipse')).toBeTruthy();
+    expect(cantidad(e, 'piedra_eclipse')).toBe(0);
   });
 });

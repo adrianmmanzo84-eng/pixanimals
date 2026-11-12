@@ -15,8 +15,8 @@ const trio = (nivel = 10) => ['lumbrito', 'aletin', 'brotin'].map((id) => crearC
 const tipos = (ev: Evento[]) => ev.map((e) => e.t);
 
 describe('datos de la fase 2', () => {
-  it('12 criaturas: 3 familias × 4 etapas con totales 300 / 380 / 450 / 520 (Brote, algo menos desde la etapa 2)', () => {
-    expect(DATOS.criaturas.size).toBe(12);
+  it('15 criaturas: 3 familias × 4 etapas + 3 Eclipse, con totales 300 / 380 / 450 / 520 (Brote, algo menos desde la etapa 2)', () => {
+    expect(DATOS.criaturas.size).toBe(15);
     for (const c of DATOS.criaturas.values()) {
       const total = Object.values(c.base).reduce((a, b) => a + b, 0);
       const meta = [300, 380, 450, 520][c.etapa - 1]!;

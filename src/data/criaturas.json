@@ -105,6 +105,11 @@
         {
           "a": "solarion",
           "nivel": 40
+        },
+        {
+          "a": "solarion_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
         }
       ]
     },
@@ -137,6 +142,37 @@
       ],
       "descripcion": "Rey solar. Dicen que su corona de fuego nunca se ha apagado.",
       "sprites": "brasa_4",
+      "evoluciona": []
+    },
+    {
+      "id": "solarion_eclipse",
+      "nombre": "Solarión Eclipse",
+      "tipo": "brasa",
+      "familia": "brasa",
+      "etapa": 4,
+      "pasiva": "ultimo_rescoldo",
+      "base": {
+        "ps": 80,
+        "atq": 104,
+        "def": 64,
+        "ate": 100,
+        "dfe": 70,
+        "vel": 102
+      },
+      "habilidades": [
+        "zarpazo_ardiente",
+        "pelaje_igneo",
+        "grito_de_manada",
+        "rugido_solar"
+      ],
+      "habilidadesPrueba": [
+        "zarpazo_ardiente",
+        "pelaje_igneo",
+        "mirada_abrasadora",
+        "rugido_solar"
+      ],
+      "descripcion": "Un sol eclipsado. Su melena arde en carmesí y ruge más fuerte que nunca.",
+      "sprites": "brasa_4b",
       "evoluciona": []
     },
     {
@@ -244,6 +280,11 @@
         {
           "a": "leviatan",
           "nivel": 40
+        },
+        {
+          "a": "leviatan_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
         }
       ]
     },
@@ -276,6 +317,37 @@
       ],
       "descripcion": "Coloso de coral y placas. Un remolino lo acompaña adonde vaya.",
       "sprites": "marea_4",
+      "evoluciona": []
+    },
+    {
+      "id": "leviatan_eclipse",
+      "nombre": "Leviatán Eclipse",
+      "tipo": "marea",
+      "familia": "marea",
+      "etapa": 4,
+      "pasiva": "oleaje",
+      "base": {
+        "ps": 82,
+        "atq": 80,
+        "def": 72,
+        "ate": 114,
+        "dfe": 72,
+        "vel": 100
+      },
+      "habilidades": [
+        "dentellada_marina",
+        "escudo_de_burbujas",
+        "corriente",
+        "tsunami"
+      ],
+      "habilidadesPrueba": [
+        "dentellada_marina",
+        "escudo_de_burbujas",
+        "arrullo_de_olas",
+        "tsunami"
+      ],
+      "descripcion": "Viene del mar más hondo. Una corriente violeta gira a su alrededor.",
+      "sprites": "marea_4b",
       "evoluciona": []
     },
     {
@@ -383,6 +455,11 @@
         {
           "a": "titan_ancestral",
           "nivel": 40
+        },
+        {
+          "a": "titan_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
         }
       ]
     },
@@ -415,6 +492,37 @@
       ],
       "descripcion": "El bosque crece sobre su lomo. Sus astas florecen cada primavera.",
       "sprites": "brote_4",
+      "evoluciona": []
+    },
+    {
+      "id": "titan_eclipse",
+      "nombre": "Titán Eclipse",
+      "tipo": "brote",
+      "familia": "brote",
+      "etapa": 4,
+      "pasiva": "raices",
+      "base": {
+        "ps": 84,
+        "atq": 106,
+        "def": 66,
+        "ate": 64,
+        "dfe": 70,
+        "vel": 83
+      },
+      "habilidades": [
+        "zarpazo_de_raiz",
+        "armadura_de_corteza",
+        "bano_de_sol",
+        "furia_del_bosque"
+      ],
+      "habilidadesPrueba": [
+        "zarpazo_de_raiz",
+        "polen_toxico",
+        "abrazo_de_raices",
+        "furia_del_bosque"
+      ],
+      "descripcion": "Guardián del bosque de noche. Sus astas retorcidas crecen en espinas.",
+      "sprites": "brote_4b",
       "evoluciona": []
     }
   ]

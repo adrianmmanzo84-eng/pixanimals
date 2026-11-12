@@ -211,10 +211,33 @@ Valores en `src/data/items.json` y `src/data/economia.json`.
 | Vitaminas (6, una por stat) | +3 % al stat para siempre; 5 por stat y 12 en total | 40 Esencia |
 | Incienso | 30 min con Rara y Épica ×2 en los sobres | 150 monedas |
 | Poción · Antídoto · Tónico · Carta Escudo | 50 % de PS · quita el estado · +5 usos por habilidad · la mitad de daño ese turno | 30 · 20 · 40 · 35 monedas |
-| Piedra Eclipse | Habilita una rama de evolución | 400 monedas (no se vende hasta que exista la rama) |
+| Piedra Eclipse | Etapa 3 → forma Eclipse a nivel 40 (se gasta) | 400 monedas |
 
 - **Ofertas del día:** 3 ítems con −30 %.
 - **Ítems por combate:** 2 como máximo; usar uno gasta el turno.
 - **Entrenamiento:** barra de 100; +10 por victoria a cada participante; 1 Esencia por punto. Llenarla con Esencia cuesta 100, lo que dan unas 4 cartas Comunes repetidas.
 - **Carta premio** (3 cartas por victoria; pesos): monedas 20–50 (40), Esencia 15–40 (22), Caramelo chico (15), Poción (8), Caramelo mediano (6), Tónico (4), Incienso (2), criatura de etapa 1 (3).
 
+## Formas Eclipse
+
+Alternativa a la etapa 4: mismo total, más ataque y velocidad, menos defensa. Se consiguen desde la etapa 3 a nivel 40, con la barra de Entrenamiento llena y una Piedra Eclipse.
+
+| Criatura | PS | Atq | Def | AtE | DfE | Vel | Total |
+|---|---|---|---|---|---|---|---|
+| Solarión Eclipse | 80 | 104 | 64 | 100 | 70 | 102 | 520 |
+| Leviatán Eclipse | 82 | 80 | 72 | 114 | 72 | 100 | 520 |
+| Titán Eclipse | 84 | 106 | 66 | 64 | 70 | 83 | 473 |
+
+Victorias a nivel 46 (3000 combates, IA Experta):
+
+| Cruce | Eclipse | Forma normal |
+|---|---|---|
+| Contra su propia forma normal | 58 / 48 / 61 % (Brasa / Marea / Brote) | — |
+| Brasa contra Titán Ancestral (ventaja) | 67 % | 67 % |
+| Marea contra Solarión (ventaja) | 93 % | 88 % |
+| Brote contra Leviatán (ventaja) | 76 % | 86 % |
+| Brasa contra Leviatán (desventaja) | 6 % | 12 % |
+| Marea contra Titán Ancestral (desventaja) | 22 % | 14 % |
+| Brote contra Solarión (desventaja) | 22 % | 33 % |
+
+Titán Eclipse empezó con Velocidad 87 y le ganaba el 46 % a Solarión, su rival con ventaja; con 83 ya no lo adelanta y el triángulo se mantiene.

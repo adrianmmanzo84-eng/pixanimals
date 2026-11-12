@@ -103,7 +103,7 @@ Cada entrada: qué se decidió, por qué y qué alternativa se descartó. Las m�
 | D61 | La partida pasa a la versión 2 (Bolsa, incienso, vitaminas, Entrenamiento) y las de la versión 1 se migran solas | Nadie pierde su progreso |
 | D62 | Evolucionar pide nivel mínimo y la barra de Entrenamiento llena (100). Hoy se llena con victorias (+10 a quien participó) o infundiendo Esencia (1 por punto); en la Fase 4 la llenarán los minijuegos | El brief pide «nivel + barra de Esencia de Entrenamiento». La Esencia de las repetidas por fin tiene uso |
 | D63 | Sigue la regla de un ejemplar por especie: si ya tienes la especie destino, la evolución se bloquea con aviso | Mantener el modelo de colección simple. Alternativa futura: varios ejemplares con identificador propio |
-| D64 | Las ramas se definen en `evoluciona` con un `item` (piedra). La Piedra Eclipse existe pero no se vende hasta que haya una criatura que la use | Sin arte de Eclipsión todavía; el sistema queda listo y probado |
+| D64 | Las ramas se definen en `evoluciona` con un `item` (piedra). Una piedra solo se vende si alguna criatura la usa | El sistema quedó listo antes que el arte; desde D74 la Piedra Eclipse se vende |
 | D65 | Vitaminas: +3 % por dosis, hasta 5 por stat y 12 en total; se pagan con Esencia | Bonus permanente pequeño: ayuda sin romper el balance |
 | D66 | Incienso: 30 min con Rara y Épica ×2 (lo que suben se descuenta de Común); se acumula | El jugador ve las probabilidades ya ajustadas en la pantalla de sobres |
 | D67 | Ítems de combate: usar uno gasta el turno, va antes que los ataques y hay un máximo de 2 por combate. El rival no usa ítems | Evita combates eternos a fuerza de pociones |
@@ -113,4 +113,8 @@ Cada entrada: qué se decidió, por qué y qué alternativa se descartó. Las m�
 | D71 | El menú Equipo pasa a «Mis criaturas»: toda la colección, con equipo y reserva, Entrenamiento y evolución | Con la evolución puede haber más criaturas que lugares en el equipo |
 | D72 | La familia Brote pierde 5, 11 y 16 % de PS, Defensa y Def. Especial en las etapas 2, 3 y 4 (totales 369 / 422 / 473) | Con las proporciones de la etapa 1, Brote dominaba al crecer (Brasa le ganaba solo el 25 % en la etapa 4 pese a la ventaja de tipo). Moverlos al Ataque Especial daba un oso con AtE 116, poco creíble |
 | D73 | El importador de arte acepta cualquier familia (de 1 a 4 etapas) y ramas (`familia_3b.png`); el Bestiario se ordena por familias y se desplaza | Para sumar las criaturas nuevas del autor sin tocar código |
-
+| D74 | Formas Eclipse: una por familia, de etapa 4, alternativa a la forma final. Ignileón, Almirante y Guardabosque evolucionan a nivel 40 con la Piedra Eclipse (400 monedas) en Solarión Eclipse, Leviatán Eclipse o Titán Eclipse | El autor las diseñó como «forma alternativa de la etapa mítica». Los nombres son provisionales hasta que el autor elija otros |
+| D75 | Cada Eclipse suma lo mismo que su etapa 4, con más ataque y velocidad y menos defensa; conserva tipo, pasiva y habilidades | Un cambio de estilo, no una mejora gratis: le gana 48–61 % a su forma normal y respeta el triángulo de tipos |
+| D76 | Las ramas admiten la hoja lado a lado (frente a la izquierda, espalda a la derecha) y 24 colores en lugar de 15 | Así vinieron las hojas Eclipse; el aura gasta paleta y con 15 colores se perdían la cara y los detalles |
+| D77 | En el Bestiario, cada criatura ocupa la columna de su etapa y las ramas van debajo de la forma a la que reemplazan | Se ve de un vistazo qué forma es alternativa a cuál |
+| D78 | Las 10 Eclipse de familias que todavía no están en el juego se guardan en `arte/originales/eclipse/` hasta que entren sus familias | No hay criaturas base para conectarlas |
