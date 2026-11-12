@@ -44,11 +44,27 @@ export function serializar(estado: EstadoJuego): string {
   return JSON.stringify(estado);
 }
 
+/**
+ * Lleva una partida guardada con una versión anterior a la actual, sin perder nada.
+ * v1 → v2 (Fase 3): Bolsa, incienso, vitaminas y barra de Entrenamiento.
+ */
+export function migrar(obj: unknown): unknown {
+  if (!obj || typeof obj !== 'object') return obj;
+  const o = obj as Record<string, unknown>;
+  if (o.version === 1) {
+    o.version = 2;
+    o.inventario = {};
+    o.incienso = { hasta: 0, mult: 1 };
+    if (Array.isArray(o.criaturas)) for (const c of o.criaturas as Record<string, unknown>[]) Object.assign(c, { vitaminas: {}, entrenamiento: 0 });
+  }
+  return o;
+}
+
 /** Devuelve la partida si el texto es válido; si no, null (nunca lanza). */
 export function deserializar(texto: string | null): EstadoJuego | null {
   if (!texto) return null;
   try {
-    const r = EstadoJuegoZ.safeParse(JSON.parse(texto));
+    const r = EstadoJuegoZ.safeParse(migrar(JSON.parse(texto)));
     return r.success ? r.data : null;
   } catch {
     return null;

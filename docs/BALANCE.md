@@ -24,7 +24,7 @@ nivel de stat = ±50 % por nivel, tope ±2
 | Aletín | 50 | 45 | 50 | 56 | 50 | 49 | Especial equilibrado; bloquea con su escudo |
 | Brotín | 60 | 50 | 52 | 40 | 56 | 42 | Resistente; se cura y envenena |
 
-Hay 4 etapas por familia. Las etapas 2, 3 y 4 usan las mismas proporciones que la etapa 1, escaladas a 380, 450 y 520 de total; evolucionan en los niveles 16, 28 y 40. Se simularán cuando exista la evolución (Fase 3).
+Hay 4 etapas por familia; evolucionan en los niveles 16, 28 y 40. Brasa y Marea usan las proporciones de la etapa 1, escaladas a 380, 450 y 520 de total. Brote tiene algo menos de PS y defensas desde la etapa 2 (ver «Fase 3: etapas evolucionadas»).
 
 ## Estados
 
@@ -98,7 +98,7 @@ Valores en `src/data/sobres.json` y `src/data/economia.json`.
 | Experiencia por rival derrotado | 12 + 5 × nivel del rival, repartida entre quienes participaron |
 | Experiencia para subir del nivel n | 10 + 4n + n²/2 |
 
-Con estos valores, un Sobre Básico cuesta entre 3 y 5 victorias. La Esencia se acumula pero todavía no se gasta: su uso llega con los ítems y la evolución de la Fase 3.
+Con estos valores, un Sobre Básico cuesta entre 3 y 5 victorias. La Esencia se gasta en vitaminas y en la barra de Entrenamiento (Fase 3).
 
 ## Simulación completa
 
@@ -185,3 +185,36 @@ Equipos de 3 contra 3 (orden inicial al azar):
   tactica vs novata: gana A 88.6% · 27.7 turnos de media (máx. 57) · 0.0 cambios de A por combate
   experta vs novata: gana A 98.2% · 30.9 turnos de media (máx. 61) · 1.3 cambios de A por combate
 ```
+
+## Fase 3: etapas evolucionadas
+
+`npm run ajustar -- 3000` (1 contra 1, IA Experta, nivel típico de cada etapa). Objetivo: que cada etapa repita el perfil de la etapa 1.
+
+| Etapa (nivel) | Brasa sobre Brote | Brote sobre Marea | Marea sobre Brasa | Totales Brasa / Marea / Brote |
+| --- | --- | --- | --- | --- |
+| 1 (12) | 66 % | 85 % | 94 % | 300 / 300 / 300 |
+| 2 (22) | 66 % | 86 % | 91 % | 380 / 380 / 369 |
+| 3 (34) | 64 % | 89 % | 89 % | 450 / 450 / 422 |
+| 4 (46) | 67 % | 86 % | 88 % | 520 / 520 / 473 |
+
+Antes del ajuste, con las proporciones de la etapa 1 en todas las etapas, Brasa le ganaba a Brote solo el 54 / 35 / 24 % en las etapas 2 / 3 / 4. En la etapa 1, el valor fijo de la fórmula (+5 en cada stat) suaviza las diferencias; con stats grandes, la resistencia y la curación de Brote pesan cada vez más.
+
+Evolucionar vale la pena: a igual nivel, la etapa nueva le gana a la anterior de su familia el 73–100 % de las veces, y le gana a la etapa anterior de la familia que la vence por tipo el 34–71 %. Una evolución compensa más o menos una desventaja de tipo.
+
+## Fase 3: ítems y premios
+
+Valores en `src/data/items.json` y `src/data/economia.json`.
+
+| Ítem | Efecto | Precio |
+| --- | --- | --- |
+| Caramelo chico / mediano / grande | 60 / 200 / 600 de experiencia | 40 / 120 / 320 monedas |
+| Vitaminas (6, una por stat) | +3 % al stat para siempre; 5 por stat y 12 en total | 40 Esencia |
+| Incienso | 30 min con Rara y Épica ×2 en los sobres | 150 monedas |
+| Poción · Antídoto · Tónico · Carta Escudo | 50 % de PS · quita el estado · +5 usos por habilidad · la mitad de daño ese turno | 30 · 20 · 40 · 35 monedas |
+| Piedra Eclipse | Habilita una rama de evolución | 400 monedas (no se vende hasta que exista la rama) |
+
+- **Ofertas del día:** 3 ítems con −30 %.
+- **Ítems por combate:** 2 como máximo; usar uno gasta el turno.
+- **Entrenamiento:** barra de 100; +10 por victoria a cada participante; 1 Esencia por punto. Llenarla con Esencia cuesta 100, lo que dan unas 4 cartas Comunes repetidas.
+- **Carta premio** (3 cartas por victoria; pesos): monedas 20–50 (40), Esencia 15–40 (22), Caramelo chico (15), Poción (8), Caramelo mediano (6), Tónico (4), Incienso (2), criatura de etapa 1 (3).
+

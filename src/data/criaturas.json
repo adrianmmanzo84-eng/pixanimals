@@ -29,10 +29,12 @@
       ],
       "descripcion": "Cachorro solar. La gema de su frente brilla más cuando gana una carrera.",
       "sprites": "brasa_1",
-      "evoluciona": {
-        "a": "leobrasa",
-        "nivel": 16
-      }
+      "evoluciona": [
+        {
+          "a": "leobrasa",
+          "nivel": 16
+        }
+      ]
     },
     {
       "id": "leobrasa",
@@ -63,10 +65,12 @@
       ],
       "descripcion": "Su melena se enciende al combatir. Entrena rugiendo contra el viento.",
       "sprites": "brasa_2",
-      "evoluciona": {
-        "a": "ignileon",
-        "nivel": 28
-      }
+      "evoluciona": [
+        {
+          "a": "ignileon",
+          "nivel": 28
+        }
+      ]
     },
     {
       "id": "ignileon",
@@ -97,10 +101,12 @@
       ],
       "descripcion": "Su melena arde como una hoguera. Corre de sol a sol sin cansarse.",
       "sprites": "brasa_3",
-      "evoluciona": {
-        "a": "solarion",
-        "nivel": 40
-      }
+      "evoluciona": [
+        {
+          "a": "solarion",
+          "nivel": 40
+        }
+      ]
     },
     {
       "id": "solarion",
@@ -130,7 +136,8 @@
         "rugido_solar"
       ],
       "descripcion": "Rey solar. Dicen que su corona de fuego nunca se ha apagado.",
-      "sprites": "brasa_4"
+      "sprites": "brasa_4",
+      "evoluciona": []
     },
     {
       "id": "aletin",
@@ -161,10 +168,12 @@
       ],
       "descripcion": "Usa su aleta como vela. Salta sobre las olas solo para ver qué hay detrás.",
       "sprites": "marea_1",
-      "evoluciona": {
-        "a": "corsario",
-        "nivel": 16
-      }
+      "evoluciona": [
+        {
+          "a": "corsario",
+          "nivel": 16
+        }
+      ]
     },
     {
       "id": "corsario",
@@ -195,10 +204,12 @@
       ],
       "descripcion": "Sus aletas cortan las olas como espadas. Nada envuelto en espuma.",
       "sprites": "marea_2",
-      "evoluciona": {
-        "a": "almirante",
-        "nivel": 28
-      }
+      "evoluciona": [
+        {
+          "a": "almirante",
+          "nivel": 28
+        }
+      ]
     },
     {
       "id": "almirante",
@@ -229,10 +240,12 @@
       ],
       "descripcion": "Lleva aletas blindadas. Guía a su banco por las corrientes más bravas.",
       "sprites": "marea_3",
-      "evoluciona": {
-        "a": "leviatan",
-        "nivel": 40
-      }
+      "evoluciona": [
+        {
+          "a": "leviatan",
+          "nivel": 40
+        }
+      ]
     },
     {
       "id": "leviatan",
@@ -262,7 +275,8 @@
         "tsunami"
       ],
       "descripcion": "Coloso de coral y placas. Un remolino lo acompaña adonde vaya.",
-      "sprites": "marea_4"
+      "sprites": "marea_4",
+      "evoluciona": []
     },
     {
       "id": "brotin",
@@ -293,10 +307,12 @@
       ],
       "descripcion": "Osezno tranquilo. Si duerme al sol, el brote de su cabeza da una hoja nueva.",
       "sprites": "brote_1",
-      "evoluciona": {
-        "a": "robledo",
-        "nivel": 16
-      }
+      "evoluciona": [
+        {
+          "a": "robledo",
+          "nivel": 16
+        }
+      ]
     },
     {
       "id": "robledo",
@@ -306,11 +322,11 @@
       "etapa": 2,
       "pasiva": "raices",
       "base": {
-        "ps": 76,
+        "ps": 72,
         "atq": 63,
-        "def": 66,
+        "def": 63,
         "ate": 51,
-        "dfe": 71,
+        "dfe": 67,
         "vel": 53
       },
       "habilidades": [
@@ -327,10 +343,12 @@
       ],
       "descripcion": "Le asoman las primeras astas. Sus puños de raíz no sueltan nada.",
       "sprites": "brote_2",
-      "evoluciona": {
-        "a": "guardabosque",
-        "nivel": 28
-      }
+      "evoluciona": [
+        {
+          "a": "guardabosque",
+          "nivel": 28
+        }
+      ]
     },
     {
       "id": "guardabosque",
@@ -340,11 +358,11 @@
       "etapa": 3,
       "pasiva": "raices",
       "base": {
-        "ps": 90,
+        "ps": 80,
         "atq": 75,
-        "def": 78,
+        "def": 69,
         "ate": 60,
-        "dfe": 84,
+        "dfe": 75,
         "vel": 63
       },
       "habilidades": [
@@ -361,10 +379,12 @@
       ],
       "descripcion": "Viste corteza y hojas. Sus astas dan brotes nuevos cada estación.",
       "sprites": "brote_3",
-      "evoluciona": {
-        "a": "titan_ancestral",
-        "nivel": 40
-      }
+      "evoluciona": [
+        {
+          "a": "titan_ancestral",
+          "nivel": 40
+        }
+      ]
     },
     {
       "id": "titan_ancestral",
@@ -374,11 +394,11 @@
       "etapa": 4,
       "pasiva": "raices",
       "base": {
-        "ps": 104,
+        "ps": 87,
         "atq": 87,
-        "def": 90,
+        "def": 76,
         "ate": 69,
-        "dfe": 97,
+        "dfe": 81,
         "vel": 73
       },
       "habilidades": [
@@ -394,7 +414,8 @@
         "furia_del_bosque"
       ],
       "descripcion": "El bosque crece sobre su lomo. Sus astas florecen cada primavera.",
-      "sprites": "brote_4"
+      "sprites": "brote_4",
+      "evoluciona": []
     }
   ]
 }

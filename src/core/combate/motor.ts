@@ -1,4 +1,4 @@
-import type { Criatura, Efecto, EstadoId, Habilidad, StatId } from '../../esquemas/esquemas';
+import type { Criatura, Efecto, EstadoId, Habilidad, Item, StatId } from '../../esquemas/esquemas';
 import type { Datos } from '../datos';
 import type { Rng } from '../rng';
 import { calcularDano, calcularStats, multEtapa, type Efectividad, type Stats } from './formulas';
@@ -45,7 +45,10 @@ export interface Equipo {
   activo: number;
 }
 
-export type Accion = { tipo: 'habilidad'; indice: number } | { tipo: 'empujon' } | { tipo: 'cambio'; indice: number };
+export type Accion = { tipo: 'habilidad'; indice: number } | { tipo: 'empujon' } | { tipo: 'cambio'; indice: number } | { tipo: 'item'; item: Item };
+
+/** Por qué no se puede usar un ítem ahora. */
+export type MotivoItem = 'limite' | 'no_es_de_combate' | 'ps_llenos' | 'sin_estado' | 'usos_llenos';
 
 export type MotivoBloqueo = 'usos' | 'enfriamiento' | 'turno' | 'repetir';
 
@@ -65,7 +68,9 @@ export type Evento =
   | { t: 'sin_efecto'; lado: Lado }
   | { t: 'etapa'; lado: Lado; stat: StatId; delta: number }
   | { t: 'etapa_tope'; lado: Lado; stat: StatId; delta: number }
-  | { t: 'cura'; lado: Lado; cantidad: number; ps: number; origen: 'habilidad' | 'pasiva' }
+  | { t: 'cura'; lado: Lado; cantidad: number; ps: number; origen: 'habilidad' | 'pasiva' | 'item' }
+  | { t: 'item'; lado: Lado; item: Item }
+  | { t: 'usos'; lado: Lado; cantidad: number }
   | { t: 'cansancio'; lado: Lado; cantidad: number; ps: number }
   | { t: 'debilitado'; lado: Lado }
   | { t: 'fin'; ganador: Lado | null };
@@ -74,6 +79,8 @@ export interface OpcionesCombatiente {
   setPrueba?: boolean;
   /** Bonus porcentual a todos los stats (rareza del ejemplar). */
   potencial?: number;
+  /** Bonus porcentual por stat (vitaminas). */
+  extra?: Partial<Record<keyof Stats, number>>;
   brillante?: boolean;
 }
 
@@ -81,7 +88,7 @@ export function crearCombatiente(datos: Datos, idEspecie: string, nivel: number,
   const especie = datos.criaturas.get(idEspecie);
   if (!especie) throw new Error(`Criatura inexistente: ${idEspecie}`);
   const ids = opciones.setPrueba && especie.habilidadesPrueba ? especie.habilidadesPrueba : especie.habilidades;
-  const stats = calcularStats(especie, nivel, datos.balance, opciones.potencial ?? 0);
+  const stats = calcularStats(especie, nivel, datos.balance, opciones.potencial ?? 0, opciones.extra);
   return {
     especie,
     nombre: especie.nombre,
@@ -109,6 +116,8 @@ export class Batalla {
   /** Último turno en que cada lado cambió de criatura por decisión propia. */
   ultimoCambio: [number, number] = [-9, -9];
   private turnoUltimaCaida = 0;
+  /** Ítems usados por cada lado en este combate. */
+  itemsUsados: [number, number] = [0, 0];
 
   constructor(
     readonly datos: Datos,
@@ -152,6 +161,18 @@ export class Batalla {
     return validas.length ? validas : [{ tipo: 'empujon' }];
   }
 
+  /** null si el ítem se puede usar ahora sobre la criatura activa; si no, el motivo. */
+  bloqueoItem(lado: Lado, item: Item): MotivoItem | null {
+    if (item.uso !== 'combate') return 'no_es_de_combate';
+    if (this.itemsUsados[lado] >= this.datos.reglasItems.maxPorCombate) return 'limite';
+    const c = this.act(lado);
+    const e = item.efecto;
+    if (e.tipo === 'cura' && c.ps >= c.stats.ps) return 'ps_llenos';
+    if (e.tipo === 'antidoto' && !c.estado) return 'sin_estado';
+    if (e.tipo === 'tonico' && c.habilidades.every((h) => h.usos >= h.def.usos)) return 'usos_llenos';
+    return null;
+  }
+
   velocidad(lado: Lado): number {
     const c = this.act(lado);
     const b = this.datos.balance;
@@ -188,7 +209,8 @@ export class Batalla {
           this.ultimoCambio[lado] = this.turno;
           this.hacerCambio(lado, a.indice, false, ev);
         }
-      } else this.actuar(lado, a, ev);
+      } else if (a.tipo === 'item') this.usarItem(lado, a.item, ev);
+      else this.actuar(lado, a, ev);
     }
     if (!this.terminado) this.finDeTurno(orden, ev);
     if (!this.terminado && this.turno >= this.datos.balance.maxTurnos) this.terminar(null, ev);
@@ -216,6 +238,36 @@ export class Batalla {
     return null;
   }
 
+  /** Usar un ítem gasta el turno. Si dejó de tener efecto (p. ej. ya no hay estado), se gasta igual. */
+  private usarItem(lado: Lado, item: Item, ev: Evento[]): void {
+    const c = this.act(lado);
+    this.itemsUsados[lado]++;
+    ev.push({ t: 'item', lado, item });
+    const e = item.efecto;
+    if (e.tipo === 'cura') {
+      const cantidad = Math.min(c.stats.ps - c.ps, Math.max(1, Math.floor((c.stats.ps * e.porcentaje) / 100)));
+      if (cantidad <= 0) return void ev.push({ t: 'sin_efecto', lado });
+      c.ps += cantidad;
+      ev.push({ t: 'cura', lado, cantidad, ps: c.ps, origen: 'item' });
+    } else if (e.tipo === 'antidoto') {
+      if (!c.estado) return void ev.push({ t: 'sin_efecto', lado });
+      const estado = c.estado.id;
+      c.estado = null;
+      ev.push({ t: 'estado_fin', lado, estado });
+    } else if (e.tipo === 'tonico') {
+      let total = 0;
+      for (const h of c.habilidades) {
+        const suma = Math.min(e.usos, h.def.usos - h.usos);
+        h.usos += suma;
+        total += suma;
+      }
+      ev.push(total > 0 ? { t: 'usos', lado, cantidad: total } : { t: 'sin_efecto', lado });
+    } else if (e.tipo === 'escudo') {
+      c.guardia = { tipo: 'guardia', modo: 'reduce', reduccion: e.reduccion };
+      ev.push({ t: 'guardia', lado, modo: 'reduce' });
+    }
+  }
+
   private hacerCambio(lado: Lado, indice: number, forzado: boolean, ev: Evento[]): void {
     const sale = this.act(lado);
     // Al salir del campo se pierden las mejoras y la guardia; los estados y los usos se conservan.
@@ -229,7 +281,7 @@ export class Batalla {
   }
 
   private prioridad(lado: Lado, a: Accion): number {
-    if (a.tipo === 'cambio') return 5;
+    if (a.tipo === 'cambio' || a.tipo === 'item') return 5;
     return a.tipo === 'habilidad' ? (this.act(lado).habilidades[a.indice]?.def.prioridad ?? 0) : 0;
   }
 

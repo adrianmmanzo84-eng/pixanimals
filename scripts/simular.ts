@@ -2,6 +2,7 @@
  * Simulación masiva de combates IA contra IA para detectar criaturas rotas.
  * Uso: npm run simular            (10.000 combates por cruce, IA experta, niveles 5/15/30)
  *      npm run simular -- 2000 tactica
+ *      npm run simular -- 3000 experta etapas   (etapas 2 a 4 entre sí y contra la etapa anterior)
  */
 import { DATOS } from '../src/core/datos';
 import { Rng } from '../src/core/rng';
@@ -101,4 +102,34 @@ function main(): void {
   }
 }
 
-if (process.argv[1]?.includes('simular')) main();
+/** Etapas evolucionadas: cruces dentro de cada etapa y cuánto pesa evolucionar a igual nivel. */
+function etapas(): void {
+  const NIVEL_ETAPA: Record<number, number> = { 1: 12, 2: 22, 3: 34, 4: 46 };
+  console.log(`Etapas evolucionadas: ${N} combates por cruce · IA ${ia}\n`);
+  for (const etapa of [2, 3, 4]) {
+    const nivel = NIVEL_ETAPA[etapa]!;
+    const lista = [...DATOS.criaturas.values()].filter((c) => c.etapa === etapa && c.evoluciona.length + 1 > 0).map((c) => c.id);
+    console.log(`=== Etapa ${etapa} · nivel ${nivel} ===`);
+    for (const a of lista)
+      for (const b of lista) {
+        if (a >= b) continue;
+        const r = simularCruce(a, b, nivel, N, ia, 777 + etapa);
+        console.log(`  ${`${a} vs ${b}`.padEnd(36)} gana A ${r.victoriasA.toFixed(1).padStart(5)}% · ${r.turnosMedios.toFixed(1)} turnos`);
+      }
+    console.log(`  Evolucionar a igual nivel (${nivel}), contra la etapa anterior de cada familia:`);
+    for (const c of DATOS.criaturas.values()) {
+      if (c.etapa !== etapa) continue;
+      const previa = [...DATOS.criaturas.values()].find((p) => p.evoluciona.some((e) => e.a === c.id))!;
+      for (const rival of [...DATOS.criaturas.values()].filter((x) => x.etapa === etapa - 1)) {
+        const r = simularCruce(c.id, rival.id, nivel, Math.min(N, 2000), ia, 31 + etapa);
+        console.log(`    ${c.id} (de ${previa.id}) vs ${rival.id}: ${r.victoriasA.toFixed(0)}%`);
+      }
+    }
+    console.log('');
+  }
+}
+
+if (process.argv[1]?.includes('simular')) {
+  if (process.argv[4] === 'etapas') etapas();
+  else main();
+}

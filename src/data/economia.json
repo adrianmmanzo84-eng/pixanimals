@@ -13,5 +13,61 @@
     "curvaBase": 10,
     "curvaLineal": 4,
     "curvaCuadratica": 0.5
+  },
+  "entrenamiento": {
+    "max": 100,
+    "porVictoria": 10,
+    "esenciaPorPunto": 1
+  },
+  "premio": {
+    "cartas": 3,
+    "opciones": [
+      {
+        "tipo": "monedas",
+        "min": 20,
+        "max": 50,
+        "peso": 40
+      },
+      {
+        "tipo": "esencia",
+        "min": 15,
+        "max": 40,
+        "peso": 22
+      },
+      {
+        "tipo": "item",
+        "item": "caramelo_s",
+        "cantidad": 1,
+        "peso": 15
+      },
+      {
+        "tipo": "item",
+        "item": "pocion",
+        "cantidad": 1,
+        "peso": 8
+      },
+      {
+        "tipo": "item",
+        "item": "caramelo_m",
+        "cantidad": 1,
+        "peso": 6
+      },
+      {
+        "tipo": "item",
+        "item": "tonico",
+        "cantidad": 1,
+        "peso": 4
+      },
+      {
+        "tipo": "item",
+        "item": "incienso",
+        "cantidad": 1,
+        "peso": 2
+      },
+      {
+        "tipo": "criatura",
+        "peso": 3
+      }
+    ]
   }
 }

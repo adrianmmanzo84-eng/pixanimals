@@ -95,3 +95,22 @@ Cada entrada: qué se decidió, por qué y qué alternativa se descartó. Las m�
 | D58 | Las partículas pequeñas (chispas, gotas, zetas, esporas) y los efectos de estado y curación siguen dibujados por código | Acompañan a las imágenes; si falta un PNG, el efecto por código lo reemplaza |
 | D59 | Portada del autor en el menú principal, ajustada al ancho (960×455) y con el panel del equipo debajo | Recortarla a 3:2 cortaba las criaturas dibujadas en los bordes |
 | D60 | Dorso de carta del autor (62×92, sin limitar colores) en la apertura de sobres; las caras pasan de 68 a 62 de ancho para coincidir | Con 24 colores se perdían la llama, la hoja y el cristal |
+
+## Fase 3: ítems y evolución (12-nov-2026)
+
+| # | Decisión | Motivo / alternativa descartada |
+| --- | --- | --- |
+| D61 | La partida pasa a la versión 2 (Bolsa, incienso, vitaminas, Entrenamiento) y las de la versión 1 se migran solas | Nadie pierde su progreso |
+| D62 | Evolucionar pide nivel mínimo y la barra de Entrenamiento llena (100). Hoy se llena con victorias (+10 a quien participó) o infundiendo Esencia (1 por punto); en la Fase 4 la llenarán los minijuegos | El brief pide «nivel + barra de Esencia de Entrenamiento». La Esencia de las repetidas por fin tiene uso |
+| D63 | Sigue la regla de un ejemplar por especie: si ya tienes la especie destino, la evolución se bloquea con aviso | Mantener el modelo de colección simple. Alternativa futura: varios ejemplares con identificador propio |
+| D64 | Las ramas se definen en `evoluciona` con un `item` (piedra). La Piedra Eclipse existe pero no se vende hasta que haya una criatura que la use | Sin arte de Eclipsión todavía; el sistema queda listo y probado |
+| D65 | Vitaminas: +3 % por dosis, hasta 5 por stat y 12 en total; se pagan con Esencia | Bonus permanente pequeño: ayuda sin romper el balance |
+| D66 | Incienso: 30 min con Rara y Épica ×2 (lo que suben se descuenta de Común); se acumula | El jugador ve las probabilidades ya ajustadas en la pantalla de sobres |
+| D67 | Ítems de combate: usar uno gasta el turno, va antes que los ataques y hay un máximo de 2 por combate. El rival no usa ítems | Evita combates eternos a fuerza de pociones |
+| D68 | Ofertas del día: 3 ítems con −30 %, iguales todo el día (se calculan desde la fecha local) | Rotación diaria del brief sin servidor |
+| D69 | Carta premio tras cada victoria: 3 cartas boca abajo, se elige una y luego se ven todas. Monedas, Esencia, ítems o (3 %) una criatura de etapa 1 | Pedido del autor; mostrar las otras da el «casi» que motiva a volver |
+| D70 | Los amuletos equipables pasan a la Fase 5 | Mantener el alcance de la Fase 3 |
+| D71 | El menú Equipo pasa a «Mis criaturas»: toda la colección, con equipo y reserva, Entrenamiento y evolución | Con la evolución puede haber más criaturas que lugares en el equipo |
+| D72 | La familia Brote pierde 5, 11 y 16 % de PS, Defensa y Def. Especial en las etapas 2, 3 y 4 (totales 369 / 422 / 473) | Con las proporciones de la etapa 1, Brote dominaba al crecer (Brasa le ganaba solo el 25 % en la etapa 4 pese a la ventaja de tipo). Moverlos al Ataque Especial daba un oso con AtE 116, poco creíble |
+| D73 | El importador de arte acepta cualquier familia (de 1 a 4 etapas) y ramas (`familia_3b.png`); el Bestiario se ordena por familias y se desplaza | Para sumar las criaturas nuevas del autor sin tocar código |
+

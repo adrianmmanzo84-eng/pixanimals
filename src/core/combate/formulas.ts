@@ -20,16 +20,17 @@ export type Efectividad = 'ventaja' | 'desventaja' | 'neutro';
  * PS = psBase + base×nivel/psDivisor · otros stats = statBase + base×nivel/statDivisor
  * `potencial` es el bonus porcentual por rareza del ejemplar (0, 4, 8 o 12).
  */
-export function calcularStats(especie: Criatura, nivel: number, b: Balance, potencial = 0): Stats {
-  const m = 1 + potencial / 100;
-  const otro = (base: number) => Math.floor((b.stats.statBase + Math.floor((base * nivel) / b.stats.statDivisor)) * m);
+export function calcularStats(especie: Criatura, nivel: number, b: Balance, potencial = 0, extra: Partial<Record<keyof Stats, number>> = {}): Stats {
+  // `extra`: bonus porcentual propio de cada stat (vitaminas), que se suma al potencial.
+  const m = (k: keyof Stats) => 1 + (potencial + (extra[k] ?? 0)) / 100;
+  const otro = (k: Exclude<keyof Stats, 'ps'>) => Math.floor((b.stats.statBase + Math.floor((especie.base[k] * nivel) / b.stats.statDivisor)) * m(k));
   return {
-    ps: Math.floor((b.stats.psBase + Math.floor((especie.base.ps * nivel) / b.stats.psDivisor)) * m),
-    atq: otro(especie.base.atq),
-    def: otro(especie.base.def),
-    ate: otro(especie.base.ate),
-    dfe: otro(especie.base.dfe),
-    vel: otro(especie.base.vel),
+    ps: Math.floor((b.stats.psBase + Math.floor((especie.base.ps * nivel) / b.stats.psDivisor)) * m('ps')),
+    atq: otro('atq'),
+    def: otro('def'),
+    ate: otro('ate'),
+    dfe: otro('dfe'),
+    vel: otro('vel'),
   };
 }
 

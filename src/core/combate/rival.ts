@@ -17,8 +17,11 @@ export function generarRival(datos: Datos, equipoJugador: CriaturaJugador[], rng
     const fuente = bolsa.length ? bolsa : iniciales;
     let especie = fuente.splice(Math.floor(rng.sig() * fuente.length), 1)[0] ?? rng.elegir(iniciales);
     const nivel = Math.max(1, Math.min(datos.balance.nivelMax, promedio + rng.entero(-1, 1)));
-    while (especie.evoluciona && nivel >= especie.evoluciona.nivel && datos.criaturas.get(especie.evoluciona.a)!.etapa <= etapaMax) {
-      especie = datos.criaturas.get(especie.evoluciona.a)!;
+    // Sigue la línea principal (sin piedras) mientras el nivel y la etapa máxima lo permitan.
+    for (;;) {
+      const ev = especie.evoluciona.find((e) => !e.item);
+      if (!ev || nivel < ev.nivel || datos.criaturas.get(ev.a)!.etapa > etapaMax) break;
+      especie = datos.criaturas.get(ev.a)!;
     }
     return crearCombatiente(datos, especie.id, nivel);
   });

@@ -1,0 +1,228 @@
+{
+  "vitaminas": {
+    "maxPorStat": 5,
+    "maxTotal": 12
+  },
+  "ofertas": {
+    "cantidad": 3,
+    "descuento": 30
+  },
+  "maxPorCombate": 2,
+  "items": [
+    {
+      "id": "caramelo_s",
+      "nombre": "Caramelo chico",
+      "descripcion": "Da 60 de experiencia a una criatura.",
+      "uso": "fuera",
+      "efecto": {
+        "tipo": "xp",
+        "cantidad": 60
+      },
+      "precio": {
+        "monedas": 40
+      },
+      "color": "#f4a6c8"
+    },
+    {
+      "id": "caramelo_m",
+      "nombre": "Caramelo mediano",
+      "descripcion": "Da 200 de experiencia a una criatura.",
+      "uso": "fuera",
+      "efecto": {
+        "tipo": "xp",
+        "cantidad": 200
+      },
+      "precio": {
+        "monedas": 120
+      },
+      "color": "#e070a8"
+    },
+    {
+      "id": "caramelo_l",
+      "nombre": "Caramelo grande",
+      "descripcion": "Da 600 de experiencia a una criatura.",
+      "uso": "fuera",
+      "efecto": {
+        "tipo": "xp",
+        "cantidad": 600
+      },
+      "precio": {
+        "monedas": 320
+      },
+      "color": "#b8408a"
+    },
+    {
+      "id": "vit_ps",
+      "nombre": "Vitamina Vigor",
+      "descripcion": "PS +3 % para siempre. Hasta 5 dosis por stat.",
+      "uso": "fuera",
+      "efecto": {
+        "tipo": "vitamina",
+        "stat": "ps",
+        "porcentaje": 3
+      },
+      "precio": {
+        "esencia": 40
+      },
+      "color": "#5cc85c"
+    },
+    {
+      "id": "vit_atq",
+      "nombre": "Vitamina Fuerza",
+      "descripcion": "Ataque +3 % para siempre. Hasta 5 dosis por stat.",
+      "uso": "fuera",
+      "efecto": {
+        "tipo": "vitamina",
+        "stat": "atq",
+        "porcentaje": 3
+      },
+      "precio": {
+        "esencia": 40
+      },
+      "color": "#e85a3a"
+    },
+    {
+      "id": "vit_def",
+      "nombre": "Vitamina Coraza",
+      "descripcion": "Defensa +3 % para siempre. Hasta 5 dosis por stat.",
+      "uso": "fuera",
+      "efecto": {
+        "tipo": "vitamina",
+        "stat": "def",
+        "porcentaje": 3
+      },
+      "precio": {
+        "esencia": 40
+      },
+      "color": "#d8a040"
+    },
+    {
+      "id": "vit_ate",
+      "nombre": "Vitamina Chispa",
+      "descripcion": "At. Especial +3 % para siempre. Hasta 5 dosis.",
+      "uso": "fuera",
+      "efecto": {
+        "tipo": "vitamina",
+        "stat": "ate",
+        "porcentaje": 3
+      },
+      "precio": {
+        "esencia": 40
+      },
+      "color": "#9a5ae0"
+    },
+    {
+      "id": "vit_dfe",
+      "nombre": "Vitamina Calma",
+      "descripcion": "Def. Especial +3 % para siempre. Hasta 5 dosis.",
+      "uso": "fuera",
+      "efecto": {
+        "tipo": "vitamina",
+        "stat": "dfe",
+        "porcentaje": 3
+      },
+      "precio": {
+        "esencia": 40
+      },
+      "color": "#4aa0e0"
+    },
+    {
+      "id": "vit_vel",
+      "nombre": "Vitamina Brisa",
+      "descripcion": "Velocidad +3 % para siempre. Hasta 5 dosis.",
+      "uso": "fuera",
+      "efecto": {
+        "tipo": "vitamina",
+        "stat": "vel",
+        "porcentaje": 3
+      },
+      "precio": {
+        "esencia": 40
+      },
+      "color": "#60d8d0"
+    },
+    {
+      "id": "incienso",
+      "nombre": "Incienso",
+      "descripcion": "30 min: el doble de cartas Raras y Épicas en sobres.",
+      "uso": "fuera",
+      "efecto": {
+        "tipo": "incienso",
+        "minutos": 30,
+        "mult": 2
+      },
+      "precio": {
+        "monedas": 150
+      },
+      "color": "#c890e8"
+    },
+    {
+      "id": "pocion",
+      "nombre": "Poción",
+      "descripcion": "En combate: recupera el 50 % de los PS.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "cura",
+        "porcentaje": 50
+      },
+      "precio": {
+        "monedas": 30
+      },
+      "color": "#e04848"
+    },
+    {
+      "id": "antidoto",
+      "nombre": "Antídoto",
+      "descripcion": "En combate: quita quemadura, veneno, parálisis o sueño.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "antidoto"
+      },
+      "precio": {
+        "monedas": 20
+      },
+      "color": "#70c070"
+    },
+    {
+      "id": "tonico",
+      "nombre": "Tónico",
+      "descripcion": "En combate: +5 usos a cada habilidad (sin pasar del máximo).",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "tonico",
+        "usos": 5
+      },
+      "precio": {
+        "monedas": 40
+      },
+      "color": "#f0c040"
+    },
+    {
+      "id": "carta_escudo",
+      "nombre": "Carta Escudo",
+      "descripcion": "En combate, este turno: recibe la mitad de daño. Va primero.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "escudo",
+        "reduccion": 0.5
+      },
+      "precio": {
+        "monedas": 35
+      },
+      "color": "#5aa9f0"
+    },
+    {
+      "id": "piedra_eclipse",
+      "nombre": "Piedra Eclipse",
+      "descripcion": "Hace posible una evolución nocturna. Se gasta al usarla.",
+      "uso": "evolucion",
+      "efecto": {
+        "tipo": "piedra"
+      },
+      "precio": {
+        "monedas": 400
+      },
+      "color": "#5a3a9a"
+    }
+  ]
+}

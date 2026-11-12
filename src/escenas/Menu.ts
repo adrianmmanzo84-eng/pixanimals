@@ -3,6 +3,7 @@ import { DATOS } from '../core/datos';
 import { NIVELES_IA } from '../core/combate/ia';
 import { equipoDe } from '../core/estado/juego';
 import { sobresGratis } from '../core/sobres/sobres';
+import { puedeEvolucionar } from '../core/progresion/evolucion';
 import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
@@ -13,7 +14,9 @@ import { fondo } from '../ui/fondos';
 import { abrirGuardado } from '../ui/guardadoDom';
 import { Texto } from '../ui/texto';
 
-const OPCIONES = ['menu.combatir', 'menu.sobres', 'menu.equipoP', 'menu.bestiario', 'menu.guardado'];
+const OPCIONES = ['menu.combatir', 'menu.sobres', 'menu.tienda', 'menu.bolsaP', 'menu.equipoP', 'menu.bestiario', 'menu.guardado'];
+const DESTINOS = ['', 'Sobres', 'Tienda', 'BolsaEscena', 'Equipo', 'Bestiario', ''];
+const ALTO_FILA = 11;
 
 /** Menú principal: desde aquí se entra a todo lo demás. */
 export class Menu extends Phaser.Scene {
@@ -48,8 +51,8 @@ export class Menu extends Phaser.Scene {
       `${t('rec.monedas', { n: estado.monedas })}   ·   ${t('rec.esencia', { n: estado.esencia })}`,
     );
 
-    ventana(g, 56, 30, 128, 80);
-    for (let i = 0; i < 5; i++) this.filas.push(new Texto(this, 72, 36 + i * 14, 108, 10));
+    ventana(g, 56, 29, 128, 83);
+    for (let i = 0; i < OPCIONES.length; i++) this.filas.push(new Texto(this, 72, 33 + i * ALTO_FILA, 108, 10));
     this.cursor = this.add.graphics();
 
     // Equipo actual, con icono animado de dos cuadros.
@@ -74,13 +77,14 @@ export class Menu extends Phaser.Scene {
   private opciones(): string[] {
     if (this.modo === 'dificultad') return NIVELES_IA.map((ia) => t('menu.premio', { ia: t(`ia.${ia}`), n: DATOS.economia.recompensas[ia] }));
     const hayGratis = sobresGratis(DATOS, juego.estado, Date.now()).disponibles > 0;
-    return OPCIONES.map((c) => t(c === 'menu.sobres' && hayGratis ? 'menu.sobres.gratis' : c));
+    const hayEvolucion = juego.estado.criaturas.some((c) => puedeEvolucionar(DATOS, juego.estado, c));
+    return OPCIONES.map((c) => t(c === 'menu.sobres' && hayGratis ? 'menu.sobres.gratis' : c === 'menu.equipoP' && hayEvolucion ? 'menu.equipoEvo' : c));
   }
 
   private pintar(): void {
     const ops = this.opciones();
     this.filas.forEach((f, i) => f.poner(ops[i] ?? '', i === this.sel ? C.resalte : C.tinta));
-    const y = 37 + this.sel * 14;
+    const y = 34 + this.sel * ALTO_FILA;
     this.cursor.clear().fillStyle(n(C.resalte), 1).fillTriangle(63, y, 63, y + 6, 67, y + 3);
     this.ayuda.poner(t('menu.dificultad')).visible(false);
   }
@@ -100,7 +104,7 @@ export class Menu extends Phaser.Scene {
         this.scene.start('Combate', { ia: NIVELES_IA[this.sel] });
         return;
       }
-      const destino = ['', 'Sobres', 'Equipo', 'Bestiario', ''][this.sel]!;
+      const destino = DESTINOS[this.sel]!;
       if (this.sel === 0) {
         if (!equipoDe(juego.estado).length) {
           sonido.tocar('negado');
@@ -109,7 +113,7 @@ export class Menu extends Phaser.Scene {
         this.modo = 'dificultad';
         this.sel = 1;
         sonido.tocar('aceptar');
-      } else if (this.sel === 4) {
+      } else if (this.sel === OPCIONES.length - 1) {
         sonido.tocar('aceptar');
         Entrada.escuchar(null);
         abrirGuardado(() => this.scene.restart());

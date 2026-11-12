@@ -1,7 +1,7 @@
 import type { EstadoJuego, RarezaId, SobreDef } from '../../esquemas/esquemas';
 import type { Datos } from '../datos';
 import type { Rng } from '../rng';
-import { criaturaDe, marcarVista } from '../estado/juego';
+import { criaturaDe, marcarVista, nuevaCriatura } from '../estado/juego';
 
 /** Reglas de los sobres: tiradas de rareza, pity, sobre gratis y qué pasa con las repetidas. */
 
@@ -33,7 +33,7 @@ export function sobresGratis(datos: Datos, estado: EstadoJuego, ahora: number): 
   return { disponibles, faltaMs };
 }
 
-function tirarRareza(prob: SobreDef['prob'], rng: Rng): RarezaId {
+export function tirarRareza(prob: SobreDef['prob'], rng: Rng): RarezaId {
   let x = rng.sig() * 100;
   for (const r of ORDEN_RAREZA) {
     x -= prob[r];
@@ -43,12 +43,12 @@ function tirarRareza(prob: SobreDef['prob'], rng: Rng): RarezaId {
 }
 
 /** Guarda una carta en la colección y dice qué pasó con ella. */
-function recibir(datos: Datos, estado: EstadoJuego, especie: string, rareza: RarezaId, brillante: boolean): Carta {
+export function recibir(datos: Datos, estado: EstadoJuego, especie: string, rareza: RarezaId, brillante: boolean): Carta {
   const esenciaDe = (r: RarezaId) => datos.sobres.rarezas.find((x) => x.id === r)!.esencia;
   marcarVista(estado, especie);
   const mia = criaturaDe(estado, especie);
   if (!mia) {
-    estado.criaturas.push({ especie, nivel: datos.sobres.nivelInicial, xp: 0, rareza, brillante });
+    estado.criaturas.push(nuevaCriatura(especie, datos.sobres.nivelInicial, rareza, brillante));
     if (estado.equipo.length < datos.economia.tamanoEquipo) estado.equipo.push(especie);
     return { especie, rareza, brillante, resultado: 'nueva', esencia: 0, ganaBrillo: false };
   }
@@ -64,6 +64,18 @@ function recibir(datos: Datos, estado: EstadoJuego, especie: string, rareza: Rar
   const esencia = esenciaDe(rareza);
   estado.esencia += esencia;
   return { especie, rareza, brillante, resultado: 'repetida', esencia, ganaBrillo };
+}
+
+/** Con incienso activo, Rara y Épica se multiplican y la diferencia se le quita a Común (y si no alcanza, a Poco común). */
+export function probConIncienso(prob: SobreDef['prob'], estado: EstadoJuego, ahora: number): SobreDef['prob'] {
+  if (ahora >= estado.incienso.hasta || estado.incienso.mult <= 1) return prob;
+  const rara = prob.rara * estado.incienso.mult;
+  const epica = prob.epica * estado.incienso.mult;
+  let resto = rara + epica - prob.rara - prob.epica;
+  const comun = Math.max(0, prob.comun - resto);
+  resto -= prob.comun - comun;
+  const poco = Math.max(0, prob.poco_comun - resto);
+  return { comun, poco_comun: poco, rara, epica };
 }
 
 export type MotivoSobre = 'inexistente' | 'monedas';
@@ -91,7 +103,8 @@ export function abrirSobre(datos: Datos, estado: EstadoJuego, idSobre: string, r
   } else estado.monedas -= def.costo;
 
   const candidatas = [...datos.criaturas.values()].filter((c) => c.etapa === 1 && (!def.tipo || c.tipo === def.tipo));
-  const rarezas: RarezaId[] = Array.from({ length: datos.sobres.cartasPorSobre }, () => tirarRareza(def.prob, rng));
+  const prob = probConIncienso(def.prob, estado, ahora);
+  const rarezas: RarezaId[] = Array.from({ length: datos.sobres.cartasPorSobre }, () => tirarRareza(prob, rng));
   // Pity: tras N sobres sin Rara (o sin Épica), la primera carta de este sobre la garantiza.
   if (estado.pity.epica >= datos.sobres.pity.epica) rarezas[0] = 'epica';
   else if (estado.pity.rara >= datos.sobres.pity.rara && rango(rarezas[0]!) < rango('rara')) rarezas[0] = 'rara';

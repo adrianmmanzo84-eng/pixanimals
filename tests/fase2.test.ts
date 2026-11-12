@@ -4,7 +4,7 @@ import { Rng } from '../src/core/rng';
 import { Batalla, crearCombatiente, type Accion, type Evento } from '../src/core/combate/motor';
 import { elegirAccion, elegirReemplazo, NIVELES_IA } from '../src/core/combate/ia';
 import { generarRival } from '../src/core/combate/rival';
-import { criaturaDe, estadoNuevo, ponerAlFrente } from '../src/core/estado/juego';
+import { criaturaDe, estadoNuevo, nuevaCriatura, ponerAlFrente } from '../src/core/estado/juego';
 import { deserializar, exportarCodigo, importarCodigo, serializar } from '../src/core/estado/guardado';
 import { abrirSobre, costoDe, sobreBienvenida, sobresGratis } from '../src/core/sobres/sobres';
 import { aplicarRecompensa, darXp, xpParaSubir } from '../src/core/progresion/experiencia';
@@ -15,16 +15,24 @@ const trio = (nivel = 10) => ['lumbrito', 'aletin', 'brotin'].map((id) => crearC
 const tipos = (ev: Evento[]) => ev.map((e) => e.t);
 
 describe('datos de la fase 2', () => {
-  it('12 criaturas: 3 familias × 4 etapas con totales 300 / 380 / 450 / 520', () => {
+  it('12 criaturas: 3 familias × 4 etapas con totales 300 / 380 / 450 / 520 (Brote, algo menos desde la etapa 2)', () => {
     expect(DATOS.criaturas.size).toBe(12);
-    for (const c of DATOS.criaturas.values()) expect(Object.values(c.base).reduce((a, b) => a + b, 0)).toBe([300, 380, 450, 520][c.etapa - 1]);
+    for (const c of DATOS.criaturas.values()) {
+      const total = Object.values(c.base).reduce((a, b) => a + b, 0);
+      const meta = [300, 380, 450, 520][c.etapa - 1]!;
+      // La familia Brote cambia total por curación y resistencia (ver docs/BALANCE.md).
+      if (c.familia === 'brote' && c.etapa > 1) expect(total).toBeGreaterThan(meta - 60);
+      else expect(total).toBe(meta);
+      expect(total).toBeLessThanOrEqual(meta);
+    }
   });
   it('las cadenas de evolución suben de etapa dentro de la misma familia', () => {
     for (const c of DATOS.criaturas.values()) {
-      if (!c.evoluciona) continue;
-      const sig = DATOS.criaturas.get(c.evoluciona.a)!;
-      expect(sig.familia).toBe(c.familia);
-      expect(sig.etapa).toBe(c.etapa + 1);
+      for (const ev of c.evoluciona) {
+        const sig = DATOS.criaturas.get(ev.a)!;
+        expect(sig.familia).toBe(c.familia);
+        expect(sig.etapa).toBe(c.etapa + 1);
+      }
     }
   });
 });
@@ -84,7 +92,7 @@ describe('equipos y cambio de criatura', () => {
   });
   it('el rival generado es parejo: mismo tamaño, nivel cercano y sin etapas superiores', () => {
     const rng = new Rng(4);
-    const mio = [{ especie: 'lumbrito', nivel: 20, xp: 0, rareza: 'comun' as const, brillante: false }, { especie: 'aletin', nivel: 22, xp: 0, rareza: 'comun' as const, brillante: false }];
+    const mio = [nuevaCriatura('lumbrito', 20, 'comun', false), nuevaCriatura('aletin', 22, 'comun', false)];
     for (let i = 0; i < 50; i++) {
       const rival = generarRival(DATOS, mio, rng);
       expect(rival).toHaveLength(2);
@@ -216,7 +224,7 @@ describe('sobres', () => {
 describe('experiencia y recompensas', () => {
   it('curva de experiencia y subida de varios niveles de una vez', () => {
     expect(xpParaSubir(DATOS, 5)).toBe(42);
-    const c = { especie: 'lumbrito', nivel: 5, xp: 0, rareza: 'comun' as const, brillante: false };
+    const c = nuevaCriatura('lumbrito', 5, 'comun', false);
     expect(darXp(DATOS, c, 41)).toBe(0);
     expect(darXp(DATOS, c, 1)).toBe(1);
     expect(c).toMatchObject({ nivel: 6, xp: 0 });

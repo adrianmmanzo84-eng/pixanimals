@@ -1,6 +1,6 @@
 {
   "name": "pixanimals",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,7 +10,8 @@
     "test": "vitest run",
     "simular": "tsx scripts/simular.ts",
     "validar": "tsx scripts/validar.ts",
-    "placeholders": "tsx scripts/generar-placeholders.ts"
+    "placeholders": "tsx scripts/generar-placeholders.ts",
+    "ajustar": "tsx scripts/ajustar-etapas.ts"
   },
   "dependencies": {
     "@fontsource/fredoka": "^5.3.0",

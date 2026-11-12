@@ -6,7 +6,8 @@ import { elegirAccion, elegirReemplazo, type NivelIA } from '../core/combate/ia'
 import { generarRival } from '../core/combate/rival';
 import { combatienteDe, criaturaDe, equipoDe, marcarVista } from '../core/estado/juego';
 import { aplicarRecompensa, xpParaSubir } from '../core/progresion/experiencia';
-import type { Habilidad } from '../esquemas/esquemas';
+import type { Habilidad, Item } from '../esquemas/esquemas';
+import { cantidad, quitar } from '../core/items/items';
 import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
@@ -108,7 +109,7 @@ export class Combate extends Phaser.Scene {
     this.gVentanas = this.add.graphics();
     this.msg = new Texto(this, 10, 118, 220, 30, C.tinta);
     MENU.forEach((clave, i) => {
-      this.opciones.push(new Texto(this, 154 + (i % 2) * 40, 120 + Math.floor(i / 2) * 15, 40, 10, i === 1 ? C.apagado : C.tinta).poner(t(clave)).visible(false));
+      this.opciones.push(new Texto(this, 154 + (i % 2) * 40, 120 + Math.floor(i / 2) * 15, 40, 10, C.tinta).poner(t(clave)).visible(false));
     });
     for (let i = 0; i < 4; i++) {
       const x = 14 + (i % 2) * 110;
@@ -244,6 +245,14 @@ export class Combate extends Phaser.Scene {
           await Promise.all([this.fx.curar(this.centro(e.lado)), this.animarPs(e.lado, e.ps)]);
           await this.decir(t(e.origen === 'pasiva' ? 'c.raices' : 'c.cura', { n: this.nom(e.lado) }));
           break;
+        case 'item':
+          if (e.lado === 0) sonido.tocar('aceptar');
+          await this.decir(t('c.item', { i: e.item.nombre, n: this.nom(e.lado) }));
+          break;
+        case 'usos':
+          sonido.tocar('cura');
+          await Promise.all([this.fx.curar(this.centro(e.lado)), this.decir(t('c.usos', { n: this.nom(e.lado) }))]);
+          break;
         case 'cansancio':
           await this.animarPs(e.lado, e.ps);
           await this.decir(t('c.cansancio', { n: this.nom(e.lado) }));
@@ -271,6 +280,8 @@ export class Combate extends Phaser.Scene {
     if (r.monedas) lineas.push(t('fin.monedas', { n: r.monedas }));
     if (r.xpPorCriatura) lineas.push(t('fin.xp', { n: r.xpPorCriatura }));
     for (const s of r.subidas) lineas.push(t('fin.sube', { n: DATOS.criaturas.get(s.especie)!.nombre, nv: s.nivel }));
+    if (r.entrenamiento) lineas.push(t('fin.entrenamiento', { n: r.entrenamiento }));
+    for (const e of r.listas) lineas.push(t('fin.evoLista', { n: DATOS.criaturas.get(e)!.nombre }));
     const alto = 34 + lineas.length * 9;
     const g = this.add.graphics();
     ventana(g, 44, 32, 152, alto);
@@ -283,7 +294,8 @@ export class Combate extends Phaser.Scene {
     this.alPulsar = (a) => {
       if (a !== 'a' && a !== 'b') return;
       sonido.tocar('aceptar');
-      this.scene.start('Menu');
+      // Al ganar se elige una carta premio.
+      this.scene.start(r.victoria ? 'Premio' : 'Menu');
     };
   }
 
@@ -326,8 +338,13 @@ export class Combate extends Phaser.Scene {
               this.alPulsar = null;
               resolver('retirada');
             } else {
-              sonido.tocar('negado');
-              this.msg.poner(partir(t('menu.proximamente'), 124).join('\n'));
+              if (!this.itemsDeCombate().some((i) => cantidad(juego.estado, i.id) > 0)) {
+                sonido.tocar('negado');
+                this.msg.poner(partir(t('bolsa.vacia'), 124).join('\n'));
+                return;
+              }
+              sonido.tocar('aceptar');
+              menuBolsa();
             }
             return;
           } else return;
@@ -362,8 +379,69 @@ export class Combate extends Phaser.Scene {
           this.modoHabilidades(sel);
         };
       };
+      const menuBolsa = () => {
+        const items = this.itemsDeCombate();
+        const usable = (i: Item) => cantidad(juego.estado, i.id) > 0 && this.bat.bloqueoItem(0, i) === null;
+        // El cursor empieza en el primer ítem que se pueda usar ahora (o, si no hay, en el primero que tengas).
+        let sel = items.findIndex(usable);
+        if (sel < 0) sel = Math.max(0, items.findIndex((i) => cantidad(juego.estado, i.id) > 0));
+        this.modoBolsa(items, sel);
+        this.alPulsar = (a) => {
+          if (a === 'izquierda' || a === 'derecha') sel = Math.min(items.length - 1, sel ^ 1);
+          else if (a === 'arriba' || a === 'abajo') sel = Math.min(items.length - 1, sel ^ 2);
+          else if (a === 'b') {
+            sonido.tocar('cancelar');
+            menuPrincipal();
+            return;
+          } else if (a === 'a') {
+            const item = items[sel]!;
+            if (cantidad(juego.estado, item.id) < 1 || this.bat.bloqueoItem(0, item) !== null) {
+              sonido.tocar('negado');
+              return;
+            }
+            sonido.tocar('aceptar');
+            // El ítem se gasta al elegirlo; la partida se guarda al final del combate.
+            quitar(juego.estado, item.id);
+            this.alPulsar = null;
+            resolver({ tipo: 'item', item });
+            return;
+          } else return;
+          sonido.tocar('cursor');
+          this.modoBolsa(items, sel);
+        };
+      };
       menuPrincipal();
     });
+  }
+
+  /** Ítems de combate en el orden de los datos (hasta 4, una celda cada uno). */
+  private itemsDeCombate(): Item[] {
+    return [...DATOS.items.values()].filter((i) => i.uso === 'combate').slice(0, 4);
+  }
+
+  private modoBolsa(items: Item[], sel: number): void {
+    this.ocultarMenus();
+    this.msg.visible(false);
+    this.gVentanas.clear();
+    ventana(this.gVentanas, 2, 112, 236, 46);
+    this.gVentanas.fillStyle(n(C.papelSombra), 1).fillRect(8, 135, 224, 1);
+    items.forEach((it, i) => {
+      const n0 = cantidad(juego.estado, it.id);
+      const bloqueado = n0 < 1 || this.bat.bloqueoItem(0, it) !== null;
+      const color = bloqueado ? C.apagado : i === sel ? C.resalte : C.tinta;
+      this.celdas[i]!.nombre.poner(it.nombre, color).visible(true);
+      this.celdas[i]!.usos.poner(`×${n0}`, color).visible(true);
+    });
+    const x = 8 + (sel % 2) * 110;
+    const y = 117 + Math.floor(sel / 2) * 9;
+    this.cursor.fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3);
+    const it = items[sel]!;
+    const motivo = cantidad(juego.estado, it.id) < 1 ? 'sin_unidades' : this.bat.bloqueoItem(0, it);
+    this.info1.imagen.setX(10);
+    this.info1.poner(t('bolsa.restan', { n: this.bat.itemsUsados[0], max: DATOS.reglasItems.maxPorCombate })).visible(true);
+    this.info2
+      .poner(motivo ? t(`bolsa.${motivo}`, { n: DATOS.reglasItems.maxPorCombate }) : it.descripcion, motivo ? C.resalte : C.tinta)
+      .visible(true);
   }
 
   /** Lista del equipo para cambiar de criatura. Si es forzado (la activa cayó) no se puede cancelar. */
@@ -435,7 +513,7 @@ export class Combate extends Phaser.Scene {
     this.gVentanas.clear();
     ventana(this.gVentanas, 2, 112, 138, 46);
     ventana(this.gVentanas, 142, 112, 96, 46);
-    this.opciones.forEach((o, i) => o.poner(t(MENU[i]!), i === 1 || (i === 2 && !this.bat.banca(0).length) ? C.apagado : C.tinta).visible(true));
+    this.opciones.forEach((o, i) => o.poner(t(MENU[i]!), i === 2 && !this.bat.banca(0).length ? C.apagado : C.tinta).visible(true));
     const x = 148 + (sel % 2) * 40;
     const y = 121 + Math.floor(sel / 2) * 15;
     this.cursor.fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3);

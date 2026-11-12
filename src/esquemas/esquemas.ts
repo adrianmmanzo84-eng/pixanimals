@@ -55,8 +55,8 @@ export const CriaturaZ = z.object({
   habilidades: z.array(z.string()).length(4),
   habilidadesPrueba: z.array(z.string()).length(4).optional(),
   descripcion: z.string().max(90),
-  /** Siguiente etapa y nivel mínimo para alcanzarla. */
-  evoluciona: z.object({ a: z.string(), nivel: z.number().int().min(2).max(100) }).optional(),
+  /** Evoluciones posibles: a qué especie, desde qué nivel y, en las ramas, qué ítem hace falta. */
+  evoluciona: z.array(z.object({ a: z.string(), nivel: z.number().int().min(2).max(100), item: z.string().optional() })).default([]),
   /** Prefijo de archivo: <sprites>_frente.png, <sprites>_espalda.png, <sprites>_icono.png */
   sprites: z.string().regex(/^[a-z]+_[0-9][a-z]?$/),
 });
@@ -101,11 +101,52 @@ export const SobresZ = z.object({
   gratis: z.object({ sobre: z.string(), cadaHoras: z.number(), maxAcumulados: z.number().int() }),
   sobres: z.array(z.object({ id: z.string(), nombre: z.string(), costo: z.number().int(), tipo: z.string().nullable(), prob: ProbRarezasZ })),
 });
+const PremioZ = z.discriminatedUnion('tipo', [
+  z.object({ tipo: z.literal('monedas'), min: z.number().int().min(1), max: z.number().int().min(1), peso: z.number().positive() }),
+  z.object({ tipo: z.literal('esencia'), min: z.number().int().min(1), max: z.number().int().min(1), peso: z.number().positive() }),
+  z.object({ tipo: z.literal('item'), item: z.string(), cantidad: z.number().int().min(1), peso: z.number().positive() }),
+  z.object({ tipo: z.literal('criatura'), peso: z.number().positive() }),
+]);
 export const EconomiaZ = z.object({
   monedasIniciales: z.number().int(),
   tamanoEquipo: z.number().int().min(1).max(6),
   recompensas: z.object({ novata: z.number().int(), tactica: z.number().int(), experta: z.number().int(), derrota: z.number().int() }),
   xp: z.object({ porVictoriaBase: z.number(), porNivelRival: z.number(), curvaBase: z.number(), curvaLineal: z.number(), curvaCuadratica: z.number() }),
+  /** Barra de Entrenamiento: hay que llenarla para evolucionar. */
+  entrenamiento: z.object({ max: z.number().int().min(1), porVictoria: z.number().int().min(0), esenciaPorPunto: z.number().min(0) }),
+  /** Carta premio al ganar: se tira una de estas opciones por cada carta. */
+  premio: z.object({ cartas: z.number().int().min(2).max(5), opciones: z.array(PremioZ).min(1) }),
+});
+
+export const StatVitaminaZ = z.enum(['ps', 'atq', 'def', 'ate', 'dfe', 'vel']);
+const PrecioZ = z.object({ monedas: z.number().int().min(1).optional(), esencia: z.number().int().min(1).optional() }).refine((p) => !!p.monedas !== !!p.esencia, 'Un precio es en monedas o en Esencia (uno de los dos).');
+export const EfectoItemZ = z.discriminatedUnion('tipo', [
+  z.object({ tipo: z.literal('xp'), cantidad: z.number().int().min(1) }),
+  z.object({ tipo: z.literal('vitamina'), stat: StatVitaminaZ, porcentaje: z.number().min(1).max(20) }),
+  z.object({ tipo: z.literal('piedra') }),
+  z.object({ tipo: z.literal('incienso'), minutos: z.number().int().min(1), mult: z.number().min(1) }),
+  z.object({ tipo: z.literal('cura'), porcentaje: z.number().min(1).max(100) }),
+  z.object({ tipo: z.literal('antidoto') }),
+  z.object({ tipo: z.literal('tonico'), usos: z.number().int().min(1) }),
+  z.object({ tipo: z.literal('escudo'), reduccion: z.number().min(0.05).max(1) }),
+]);
+export const ItemZ = z.object({
+  id: z.string().regex(/^[a-z0-9_]+$/),
+  nombre: z.string().min(1).max(18),
+  descripcion: z.string().min(1).max(70),
+  /** Dónde se usa: fuera del combate, dentro, o al evolucionar (piedras). */
+  uso: z.enum(['fuera', 'combate', 'evolucion']),
+  efecto: EfectoItemZ,
+  /** null: no se vende (solo se consigue como premio). */
+  precio: PrecioZ.nullable(),
+  /** Icono de 16x16 (public/items/<id>.png). Si falta, se dibuja uno por código. */
+  color: z.string().regex(/^#[0-9a-f]{6}$/i),
+});
+export const ItemsZ = z.object({
+  items: z.array(ItemZ),
+  vitaminas: z.object({ maxPorStat: z.number().int().min(1), maxTotal: z.number().int().min(1) }),
+  ofertas: z.object({ cantidad: z.number().int().min(0), descuento: z.number().int().min(0).max(90) }),
+  maxPorCombate: z.number().int().min(0),
 });
 
 /** Partida guardada. Al cambiar su forma hay que subir `version` y migrar en guardado.ts. */
@@ -115,9 +156,13 @@ export const CriaturaJugadorZ = z.object({
   xp: z.number().min(0),
   rareza: RarezaIdZ,
   brillante: z.boolean(),
+  /** Dosis de vitamina tomadas, por stat. */
+  vitaminas: z.partialRecord(StatVitaminaZ, z.number().int().min(0)),
+  /** Barra de Entrenamiento (0 a economia.entrenamiento.max). Se vacía al evolucionar. */
+  entrenamiento: z.number().int().min(0),
 });
 export const EstadoJuegoZ = z.object({
-  version: z.literal(1),
+  version: z.literal(2),
   monedas: z.number().int().min(0),
   esencia: z.number().int().min(0),
   criaturas: z.array(CriaturaJugadorZ),
@@ -127,6 +172,10 @@ export const EstadoJuegoZ = z.object({
   gratis: z.object({ acumulados: z.number().int().min(0), desde: z.number() }),
   bienvenida: z.boolean(),
   estadisticas: z.object({ combates: z.number().int(), victorias: z.number().int(), sobres: z.number().int() }),
+  /** Cantidad de cada ítem en la Bolsa. */
+  inventario: z.record(z.string(), z.number().int().min(0)),
+  /** Hasta cuándo (ms) dura el incienso activo, y con qué multiplicador. */
+  incienso: z.object({ hasta: z.number(), mult: z.number() }),
 });
 
 export type RarezaId = z.infer<typeof RarezaIdZ>;
@@ -142,4 +191,9 @@ export type Habilidad = z.infer<typeof HabilidadZ>;
 export type Animacion = z.infer<typeof AnimacionZ>;
 export type Criatura = z.infer<typeof CriaturaZ>;
 export type Balance = z.infer<typeof BalanceZ>;
+export type Item = z.infer<typeof ItemZ>;
+export type EfectoItem = z.infer<typeof EfectoItemZ>;
+export type Items = z.infer<typeof ItemsZ>;
+export type StatVitamina = z.infer<typeof StatVitaminaZ>;
+export type Premio = z.infer<typeof PremioZ>;
 export type TipoDef = z.infer<typeof TiposZ>['tipos'][number];

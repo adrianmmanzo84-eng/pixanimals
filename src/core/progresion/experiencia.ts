@@ -3,6 +3,7 @@ import type { Datos } from '../datos';
 import type { NivelIA } from '../combate/ia';
 import type { Batalla } from '../combate/motor';
 import { criaturaDe } from '../estado/juego';
+import { puedeEvolucionar, sumarEntrenamiento } from './evolucion';
 
 /** XP necesaria para pasar del nivel n al n+1: base + lineal×n + cuadrática×n². */
 export function xpParaSubir(datos: Datos, nivel: number): number {
@@ -28,6 +29,10 @@ export interface Recompensa {
   monedas: number;
   xpPorCriatura: number;
   subidas: { especie: string; nivel: number }[];
+  /** Puntos de Entrenamiento que ganó cada participante (solo al ganar). */
+  entrenamiento: number;
+  /** Criaturas que ahora cumplen todo para evolucionar (y antes no). */
+  listas: string[];
 }
 
 /**
@@ -44,12 +49,18 @@ export function aplicarRecompensa(datos: Datos, estado: EstadoJuego, bat: Batall
   const xpPorCriatura = retirada ? 0 : Math.floor(xpTotal / Math.max(1, participantes.length));
   const monedas = retirada ? 0 : victoria ? eco.recompensas[dificultad] : eco.recompensas.derrota;
   const subidas: Recompensa['subidas'] = [];
+  const listas: string[] = [];
+  const entrenamiento = victoria ? eco.entrenamiento.porVictoria : 0;
   for (const m of participantes) {
     const mia = criaturaDe(estado, m.especie.id);
-    if (mia && xpPorCriatura > 0 && darXp(datos, mia, xpPorCriatura) > 0) subidas.push({ especie: mia.especie, nivel: mia.nivel });
+    if (!mia) continue;
+    const antes = puedeEvolucionar(datos, estado, mia);
+    if (xpPorCriatura > 0 && darXp(datos, mia, xpPorCriatura) > 0) subidas.push({ especie: mia.especie, nivel: mia.nivel });
+    sumarEntrenamiento(datos, mia, entrenamiento);
+    if (!antes && puedeEvolucionar(datos, estado, mia)) listas.push(mia.especie);
   }
   estado.monedas += monedas;
   estado.estadisticas.combates++;
   if (victoria) estado.estadisticas.victorias++;
-  return { victoria, monedas, xpPorCriatura, subidas };
+  return { victoria, monedas, xpPorCriatura, subidas, entrenamiento, listas };
 }

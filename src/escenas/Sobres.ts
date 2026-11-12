@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { DATOS } from '../core/datos';
 import { Rng } from '../core/rng';
-import { abrirSobre, costoDe, ORDEN_RAREZA, sobreBienvenida, sobresGratis, type Carta } from '../core/sobres/sobres';
+import { abrirSobre, costoDe, ORDEN_RAREZA, probConIncienso, sobreBienvenida, sobresGratis, type Carta } from '../core/sobres/sobres';
 import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
@@ -112,13 +112,21 @@ export class Sobres extends Phaser.Scene {
     this.cursor.clear().fillStyle(n(C.resalte), 1).fillTriangle(10, y, 10, y + 6, 14, y + 3);
 
     const def = DATOS.sobres.sobres[this.sel]!;
-    ORDEN_RAREZA.forEach((r, i) => this.probs[i]!.poner(`${estrellas(r)}  ${def.prob[r]} %`, COLOR_RAREZA[r]));
+    const prob = probConIncienso(def.prob, estado, ahora);
+    const pct = (x: number) => (Number.isInteger(x) ? String(x) : x.toFixed(1));
+    ORDEN_RAREZA.forEach((r, i) => this.probs[i]!.poner(`${estrellas(r)}  ${pct(prob[r])} %`, COLOR_RAREZA[r]));
     this.probs[4]!.poner(t('sobres.brillante', { n: DATOS.sobres.brillanteUnoEn }), C.tintaSuave);
     this.probs[5]!.poner(t('sobres.pity.rara', { n: Math.max(1, DATOS.sobres.pity.rara - estado.pity.rara + 1) }), C.tintaSuave);
     this.probs[6]!.poner(t('sobres.pity.epica', { n: Math.max(1, DATOS.sobres.pity.epica - estado.pity.epica + 1) }), C.tintaSuave);
 
     const contenido = t('sobres.contenido', { extra: def.tipo ? t('sobres.soloTipo', { tipo: DATOS.tipos.get(def.tipo)!.nombre }) : t('sobres.cualquiera') });
-    const reloj = gratis.disponibles > 0 ? t('sobres.gratisListo', { n: gratis.disponibles }) : t('sobres.proximo', { t: duracion(gratis.faltaMs) });
+    const incienso = Math.ceil((estado.incienso.hasta - ahora) / 60_000);
+    const reloj =
+      incienso > 0
+        ? t('sobres.incienso', { m: incienso })
+        : gratis.disponibles > 0
+          ? t('sobres.gratisListo', { n: gratis.disponibles })
+          : t('sobres.proximo', { t: duracion(gratis.faltaMs) });
     this.pie.poner([contenido, reloj, t('sobres.ayuda')].join('\n'), C.tinta);
   }
 

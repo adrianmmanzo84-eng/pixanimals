@@ -2,9 +2,9 @@
 
 ## Lo más simple: una hoja por familia
 
-Deja en `arte/originales/` una imagen PNG **con fondo transparente** por familia (`brasa.png`, `marea.png`, `brote.png`):
+Deja en `arte/originales/` una imagen PNG **con fondo transparente** por familia, con el nombre de la familia en minúsculas y sin acentos (`brasa.png`, `marea.png`, `brote.png`, o una nueva como `trueno.png`):
 
-- 4 columnas: etapas 1, 2, 3 y 4, de izquierda a derecha.
+- De 1 a 4 columnas: etapas 1, 2, 3 y 4, de izquierda a derecha.
 - 2 filas: arriba de frente (mirando a la izquierda), abajo de espaldas (mirando a la derecha).
 - Deja aire entre criaturas: no deben tocarse.
 
@@ -15,6 +15,17 @@ python3 scripts/importar_arte.py && npm run validar
 ```
 
 El script recorta cada criatura, la reduce al lienzo del juego, limita la paleta y crea los iconos. Necesita Python con Pillow y numpy.
+
+**Ramas** (evoluciones alternativas, como Eclipsión): una hoja aparte de una sola columna llamada `<familia>_<etapa><letra>.png`, por ejemplo `brasa_3b.png`. Genera `brasa_3b_frente.png`, etc.
+
+## Agregar una familia nueva
+
+1. Hoja de arte en `arte/originales/<familia>.png` (ver arriba) y `python3 scripts/importar_arte.py`.
+2. Una entrada por etapa en `src/data/criaturas.json`: `id`, `nombre` (hasta 16 letras), `tipo`, `familia`, `etapa`, `pasiva`, stats `base`, 4 `habilidades`, `descripcion` (hasta 90 letras), `evoluciona` y `sprites` (`<familia>_<etapa>`). Para que sea pareja, usa los totales de stats de la tabla de `docs/BALANCE.md`.
+3. Si es de un **tipo nuevo**: agrégalo a `src/data/tipos.json` (a quién vence), con su color en `COLOR_TIPO` (`src/ui/estilo.ts`), sus 4 habilidades en `habilidades.json` y un fondo de combate.
+4. `npm run validar && npm test && npm run ajustar` para revisar datos, pruebas y balance.
+
+Lo que necesito de ti para cada familia nueva: la hoja de arte, los nombres, el tipo (uno existente o uno nuevo, y contra quién gana y pierde) y el rol (veloz, resistente, especial…). Con eso propongo stats, habilidades y efectos.
 
 ## Qué genera (o qué entregar a mano)
 
