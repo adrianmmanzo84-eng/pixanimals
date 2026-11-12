@@ -6,6 +6,7 @@ import { elegirAccion, elegirReemplazo, type NivelIA } from '../core/combate/ia'
 import { generarRival } from '../core/combate/rival';
 import { combatienteDe, criaturaDe, equipoDe, marcarVista } from '../core/estado/juego';
 import { aplicarRecompensa, xpParaSubir } from '../core/progresion/experiencia';
+import { registrar } from '../core/progresion/misiones';
 import type { Habilidad, Item } from '../esquemas/esquemas';
 import { cantidad, quitar } from '../core/items/items';
 import { Entrada, type AccionEntrada } from '../entrada';
@@ -207,6 +208,7 @@ export class Combate extends Phaser.Scene {
           await this.animGolpe(e.lado);
           await this.animarPs(e.lado, e.ps);
           if (e.critico) await this.decir(t('c.critico'));
+          if (e.efectividad === 'ventaja' && e.lado === 1) registrar(DATOS, juego.estado, 'eficaz');
           if (e.efectividad === 'ventaja') await this.decir(t('c.ventaja'));
           if (e.efectividad === 'desventaja') await this.decir(t('c.desventaja', { n: this.nom(e.lado) }));
           break;
@@ -258,7 +260,10 @@ export class Combate extends Phaser.Scene {
           await this.decir(t(e.origen === 'pasiva' ? `c.curaPasiva.${this.bat.act(e.lado).especie.pasiva}` : 'c.cura', { n: this.nom(e.lado) }));
           break;
         case 'item':
-          if (e.lado === 0) sonido.tocar('aceptar');
+          if (e.lado === 0) {
+            sonido.tocar('aceptar');
+            registrar(DATOS, juego.estado, 'item');
+          }
           await this.decir(t('c.item', { i: e.item.nombre, n: this.nom(e.lado) }));
           break;
         case 'usos':

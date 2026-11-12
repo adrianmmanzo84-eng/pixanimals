@@ -111,6 +111,16 @@ const PremioZ = z.discriminatedUnion('tipo', [
   z.object({ tipo: z.literal('item'), item: z.string(), cantidad: z.number().int().min(1), peso: z.number().positive() }),
   z.object({ tipo: z.literal('criatura'), peso: z.number().positive() }),
 ]);
+const RangoZ = z.object({ min: z.number().int().min(0), max: z.number().int().min(0) });
+export const MinijuegoIdZ = z.enum(['bayas', 'eco', 'golpe']);
+export const EventoMisionZ = z.enum(['victoria', 'combate', 'eficaz', 'minijuego', 'sobre', 'item', 'record']);
+export const MisionZ = z.object({
+  id: z.string().min(1),
+  evento: EventoMisionZ,
+  meta: z.number().int().min(1),
+  premio: z.object({ tipo: z.enum(['monedas', 'esencia']), cantidad: z.number().int().min(1) }),
+});
+
 export const EconomiaZ = z.object({
   monedasIniciales: z.number().int(),
   tamanoEquipo: z.number().int().min(1).max(6),
@@ -120,6 +130,16 @@ export const EconomiaZ = z.object({
   entrenamiento: z.object({ max: z.number().int().min(1), porVictoria: z.number().int().min(0), esenciaPorPunto: z.number().min(0) }),
   /** Carta premio al ganar: se tira una de estas opciones por cada carta. */
   premio: z.object({ cartas: z.number().int().min(2).max(5), opciones: z.array(PremioZ).min(1) }),
+  /** Premio por entrar cada día; el último día del ciclo regala además un sobre. */
+  diario: z.object({ monedas: z.number().int().min(0), ciclo: z.number().int().min(1), sobreUltimoDia: z.string() }),
+  /** Premio de cada partida de minijuego, según el puntaje (0 a 1). */
+  minijuegos: z.object({
+    conPremioPorDia: z.number().int().min(1),
+    entrenamiento: RangoZ,
+    monedas: RangoZ,
+    lista: z.array(MinijuegoIdZ).min(1),
+  }),
+  misiones: z.object({ porDia: z.number().int().min(1), lista: z.array(MisionZ).min(1) }),
 });
 
 export const StatVitaminaZ = z.enum(['ps', 'atq', 'def', 'ate', 'dfe', 'vel']);
@@ -166,7 +186,7 @@ export const CriaturaJugadorZ = z.object({
   entrenamiento: z.number().int().min(0),
 });
 export const EstadoJuegoZ = z.object({
-  version: z.literal(2),
+  version: z.literal(3),
   monedas: z.number().int().min(0),
   esencia: z.number().int().min(0),
   criaturas: z.array(CriaturaJugadorZ),
@@ -180,6 +200,17 @@ export const EstadoJuegoZ = z.object({
   inventario: z.record(z.string(), z.number().int().min(0)),
   /** Hasta cuándo (ms) dura el incienso activo, y con qué multiplicador. */
   incienso: z.object({ hasta: z.number(), mult: z.number() }),
+  /** Racha de días seguidos con premio diario cobrado. */
+  diario: z.object({ ultimoDia: z.number().int(), racha: z.number().int().min(0) }),
+  /** Partidas de minijuego de hoy y mejor puntaje de cada uno. */
+  minijuegos: z.object({ dia: z.number().int(), partidas: z.record(z.string(), z.number().int().min(0)), records: z.record(z.string(), z.number()) }),
+  /** Misiones del día. */
+  misiones: z.object({
+    dia: z.number().int(),
+    lista: z.array(z.object({ id: z.string(), progreso: z.number().int().min(0), cobrada: z.boolean() })),
+  }),
+  /** Sobres regalados que se abren gratis (id del sobre → cantidad). */
+  sobresRegalo: z.record(z.string(), z.number().int().min(0)),
 });
 
 export type RarezaId = z.infer<typeof RarezaIdZ>;
@@ -201,3 +232,6 @@ export type Items = z.infer<typeof ItemsZ>;
 export type StatVitamina = z.infer<typeof StatVitaminaZ>;
 export type Premio = z.infer<typeof PremioZ>;
 export type TipoDef = z.infer<typeof TiposZ>['tipos'][number];
+export type MinijuegoId = z.infer<typeof MinijuegoIdZ>;
+export type EventoMision = z.infer<typeof EventoMisionZ>;
+export type Mision = z.infer<typeof MisionZ>;

@@ -5,6 +5,14 @@
 type Nota = { onda: OscillatorType | 'ruido'; f: number; f2?: number; dur: number; vol?: number; t?: number };
 
 const EFECTOS: Record<string, Nota[]> = {
+  // Minijuegos: las 4 notas de Eco (do, mi, sol, do agudo), atrapar, fallar y la cuenta regresiva.
+  eco0: [{ onda: 'triangle', f: 523, dur: 0.22, vol: 0.35 }],
+  eco1: [{ onda: 'triangle', f: 659, dur: 0.22, vol: 0.35 }],
+  eco2: [{ onda: 'triangle', f: 784, dur: 0.22, vol: 0.35 }],
+  eco3: [{ onda: 'triangle', f: 1047, dur: 0.22, vol: 0.35 }],
+  atrapa: [{ onda: 'square', f: 880, f2: 1320, dur: 0.06, vol: 0.2 }],
+  cuenta: [{ onda: 'square', f: 440, dur: 0.08, vol: 0.25 }],
+  ya: [{ onda: 'square', f: 880, dur: 0.16, vol: 0.3 }],
   cursor: [{ onda: 'square', f: 880, dur: 0.04, vol: 0.25 }],
   aceptar: [{ onda: 'square', f: 660, dur: 0.05 }, { onda: 'square', f: 990, dur: 0.07, t: 0.05 }],
   cancelar: [{ onda: 'square', f: 440, f2: 300, dur: 0.09 }],

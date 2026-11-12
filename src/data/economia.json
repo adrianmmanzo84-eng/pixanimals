@@ -69,5 +69,112 @@
         "peso": 3
       }
     ]
+  },
+  "diario": {
+    "monedas": 50,
+    "ciclo": 7,
+    "sobreUltimoDia": "raro"
+  },
+  "minijuegos": {
+    "conPremioPorDia": 5,
+    "entrenamiento": {
+      "min": 8,
+      "max": 20
+    },
+    "monedas": {
+      "min": 5,
+      "max": 15
+    },
+    "lista": [
+      "bayas",
+      "eco",
+      "golpe"
+    ]
+  },
+  "misiones": {
+    "porDia": 3,
+    "lista": [
+      {
+        "id": "gana_1",
+        "evento": "victoria",
+        "meta": 1,
+        "premio": {
+          "tipo": "monedas",
+          "cantidad": 25
+        }
+      },
+      {
+        "id": "gana_3",
+        "evento": "victoria",
+        "meta": 3,
+        "premio": {
+          "tipo": "monedas",
+          "cantidad": 60
+        }
+      },
+      {
+        "id": "combate_4",
+        "evento": "combate",
+        "meta": 4,
+        "premio": {
+          "tipo": "monedas",
+          "cantidad": 40
+        }
+      },
+      {
+        "id": "eficaz_5",
+        "evento": "eficaz",
+        "meta": 5,
+        "premio": {
+          "tipo": "esencia",
+          "cantidad": 30
+        }
+      },
+      {
+        "id": "minijuego_2",
+        "evento": "minijuego",
+        "meta": 2,
+        "premio": {
+          "tipo": "monedas",
+          "cantidad": 40
+        }
+      },
+      {
+        "id": "minijuego_5",
+        "evento": "minijuego",
+        "meta": 5,
+        "premio": {
+          "tipo": "esencia",
+          "cantidad": 35
+        }
+      },
+      {
+        "id": "sobre_1",
+        "evento": "sobre",
+        "meta": 1,
+        "premio": {
+          "tipo": "monedas",
+          "cantidad": 40
+        }
+      },
+      {
+        "id": "item_2",
+        "evento": "item",
+        "meta": 2,
+        "premio": {
+          "tipo": "esencia",
+          "cantidad": 25
+        }
+      },
+      {
+        "id": "record_1",
+        "evento": "record",
+        "meta": 1,
+        "premio": {
+          "tipo": "monedas",
+          "cantidad": 50
+        }
+      }
+    ]
   }
 }

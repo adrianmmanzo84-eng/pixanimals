@@ -2,6 +2,7 @@ import type { EstadoJuego, RarezaId, SobreDef } from '../../esquemas/esquemas';
 import type { Datos } from '../datos';
 import type { Rng } from '../rng';
 import { criaturaDe, marcarVista, nuevaCriatura } from '../estado/juego';
+import { registrar } from '../progresion/misiones';
 
 /** Reglas de los sobres: tiradas de rareza, pity, sobre gratis y qué pasa con las repetidas. */
 
@@ -81,11 +82,13 @@ export function probConIncienso(prob: SobreDef['prob'], estado: EstadoJuego, aho
 export type MotivoSobre = 'inexistente' | 'monedas';
 
 /** ¿Se puede abrir este sobre ahora? Devuelve cómo se pagaría. */
-export function costoDe(datos: Datos, estado: EstadoJuego, idSobre: string, ahora: number): { gratis: boolean; costo: number; puede: boolean } {
+export function costoDe(datos: Datos, estado: EstadoJuego, idSobre: string, ahora: number): { gratis: boolean; regalo: boolean; costo: number; puede: boolean } {
   const def = datos.sobres.sobres.find((s) => s.id === idSobre);
-  if (!def) return { gratis: false, costo: 0, puede: false };
-  const gratis = datos.sobres.gratis.sobre === idSobre && sobresGratis(datos, estado, ahora).disponibles > 0;
-  return { gratis, costo: gratis ? 0 : def.costo, puede: gratis || estado.monedas >= def.costo };
+  if (!def) return { gratis: false, regalo: false, costo: 0, puede: false };
+  // Primero se usan los sobres regalados (premio diario), después el gratis por tiempo.
+  const regalo = (estado.sobresRegalo[idSobre] ?? 0) > 0;
+  const gratis = regalo || (datos.sobres.gratis.sobre === idSobre && sobresGratis(datos, estado, ahora).disponibles > 0);
+  return { gratis, regalo, costo: gratis ? 0 : def.costo, puede: gratis || estado.monedas >= def.costo };
 }
 
 /** Abre un sobre: cobra (o gasta el gratis), tira las cartas, aplica el pity y actualiza la colección. */
@@ -94,7 +97,8 @@ export function abrirSobre(datos: Datos, estado: EstadoJuego, idSobre: string, r
   if (!def) return 'inexistente';
   const pago = costoDe(datos, estado, idSobre, ahora);
   if (!pago.puede) return 'monedas';
-  if (pago.gratis) {
+  if (pago.regalo) estado.sobresRegalo[idSobre] = estado.sobresRegalo[idSobre]! - 1;
+  else if (pago.gratis) {
     const { disponibles } = sobresGratis(datos, estado, ahora);
     // Si estaba al máximo, el reloj del siguiente sobre arranca ahora.
     if (disponibles >= datos.sobres.gratis.maxAcumulados) estado.gratis.desde = ahora;
@@ -112,6 +116,7 @@ export function abrirSobre(datos: Datos, estado: EstadoJuego, idSobre: string, r
   estado.pity.rara = mejor >= rango('rara') ? 0 : estado.pity.rara + 1;
   estado.pity.epica = mejor >= rango('epica') ? 0 : estado.pity.epica + 1;
   estado.estadisticas.sobres++;
+  registrar(datos, estado, 'sobre', 1, ahora);
 
   return rarezas.map((rareza) => recibir(datos, estado, rng.elegir(candidatas).id, rareza, rng.prob(100 / datos.sobres.brillanteUnoEn)));
 }

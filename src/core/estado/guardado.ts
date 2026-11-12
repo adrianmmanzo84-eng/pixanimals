@@ -47,6 +47,7 @@ export function serializar(estado: EstadoJuego): string {
 /**
  * Lleva una partida guardada con una versión anterior a la actual, sin perder nada.
  * v1 → v2 (Fase 3): Bolsa, incienso, vitaminas y barra de Entrenamiento.
+ * v2 → v3 (Fase 4): premio diario, minijuegos, misiones y sobres regalados.
  */
 export function migrar(obj: unknown): unknown {
   if (!obj || typeof obj !== 'object') return obj;
@@ -56,6 +57,13 @@ export function migrar(obj: unknown): unknown {
     o.inventario = {};
     o.incienso = { hasta: 0, mult: 1 };
     if (Array.isArray(o.criaturas)) for (const c of o.criaturas as Record<string, unknown>[]) Object.assign(c, { vitaminas: {}, entrenamiento: 0 });
+  }
+  if (o.version === 2) {
+    o.version = 3;
+    o.diario = { ultimoDia: -1, racha: 0 };
+    o.minijuegos = { dia: -1, partidas: {}, records: {} };
+    o.misiones = { dia: -1, lista: [] };
+    o.sobresRegalo = {};
   }
   return o;
 }

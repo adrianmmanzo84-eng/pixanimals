@@ -11,6 +11,8 @@ type Oyente = (a: AccionEntrada) => void;
 let oyente: Oyente | null = null;
 const alPrimerGesto: (() => void)[] = [];
 let huboGesto = false;
+/** Acciones que están apretadas ahora (para minijuegos que se mueven mientras mantienes la flecha). */
+const apretadas = new Set<AccionEntrada>();
 
 function emitir(a: AccionEntrada): void {
   if (!huboGesto) {
@@ -25,6 +27,10 @@ export const Entrada = {
   escuchar(f: Oyente | null): void {
     oyente = f;
   },
+  /** ¿Está apretada ahora esta acción? */
+  apretada(a: AccionEntrada): boolean {
+    return apretadas.has(a);
+  },
   /** Se llama una vez, en el primer toque o tecla (los navegadores exigen un gesto para el audio). */
   alPrimerGesto(f: () => void): void {
     alPrimerGesto.push(f);
@@ -36,15 +42,25 @@ export const Entrada = {
       const a = TECLAS[e.key];
       if (!a) return;
       e.preventDefault();
+      apretadas.add(a);
       if (!e.repeat || (a !== 'a' && a !== 'b')) emitir(a);
     });
+    window.addEventListener('keyup', (e) => {
+      const a = TECLAS[e.key];
+      if (a) apretadas.delete(a);
+    });
+    window.addEventListener('blur', () => apretadas.clear());
     document.querySelectorAll<HTMLButtonElement>('#mando button').forEach((boton) => {
       boton.addEventListener('pointerdown', (e) => {
         e.preventDefault();
         boton.classList.add('pulsado');
+        apretadas.add(boton.dataset.accion as AccionEntrada);
         emitir(boton.dataset.accion as AccionEntrada);
       });
-      const soltar = () => boton.classList.remove('pulsado');
+      const soltar = () => {
+        boton.classList.remove('pulsado');
+        apretadas.delete(boton.dataset.accion as AccionEntrada);
+      };
       boton.addEventListener('pointerup', soltar);
       boton.addEventListener('pointerleave', soltar);
       boton.addEventListener('pointercancel', soltar);

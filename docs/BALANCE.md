@@ -349,3 +349,25 @@ Regiopus Eclipse    55 %
 Triángulo original (`npm run ajustar`): Brasa > Brote 75–78 %, Brote > Marea 87–92 %, Marea > Brasa 94–96 % en las 4 etapas.
 
 Puntos débiles: Caracolín es la familia más floja en la etapa 1 (35 % sin ventaja), pero en la final queda entre las fuertes; Auragón y Ajotrón quedan bajos en la etapa final (31 y 39 %). Bastión, Relicón, Leviatán y Prismón Eclipse le ganan el 65–68 % a su forma normal; Solarión Eclipse, el 45 %.
+
+## Fase 4: minijuegos, premio diario y misiones
+
+Valores en `src/data/economia.json`.
+
+| Concepto | Valor |
+|---|---|
+| Partida de minijuego | 8 a 20 de Entrenamiento y 5 a 15 monedas, proporcional al puntaje |
+| Partidas con premio | 5 por minijuego y por día |
+| Premio diario | 50 monedas; el día 7 de la racha, además un Sobre Raro |
+| Misiones | 3 por día; 25 a 60 monedas o 25 a 35 de Esencia cada una |
+
+Puntaje (de 0 a 1) de cada minijuego:
+
+| Minijuego | Cómo se juega | Puntaje 1 |
+|---|---|---|
+| Lluvia de Bayas | 30 s; baya +1, dorada +3, piedra −2 y aturde | 35 bayas |
+| Eco | Secuencia que empieza en 3 y suma una por acierto; un error termina | 10 flechas (tope 12) |
+| Golpe Justo | 8 rondas; centro 2 puntos, franja 1 | 16 puntos |
+
+Ritmo: con 3 minijuegos × 5 partidas, un buen jugador suma hasta 300 de Entrenamiento por día (3 barras llenas), además de 10 por victoria. Una barra (100) son unas 6 partidas buenas, unos 5 minutos.
+

@@ -4,6 +4,7 @@ import type { NivelIA } from '../combate/ia';
 import type { Batalla } from '../combate/motor';
 import { criaturaDe } from '../estado/juego';
 import { puedeEvolucionar, sumarEntrenamiento } from './evolucion';
+import { registrar } from './misiones';
 
 /** XP necesaria para pasar del nivel n al n+1: base + lineal×n + cuadrática×n². */
 export function xpParaSubir(datos: Datos, nivel: number): number {
@@ -62,5 +63,7 @@ export function aplicarRecompensa(datos: Datos, estado: EstadoJuego, bat: Batall
   estado.monedas += monedas;
   estado.estadisticas.combates++;
   if (victoria) estado.estadisticas.victorias++;
+  if (!retirada) registrar(datos, estado, 'combate');
+  if (victoria) registrar(datos, estado, 'victoria');
   return { victoria, monedas, xpPorCriatura, subidas, entrenamiento, listas };
 }

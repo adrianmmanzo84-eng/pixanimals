@@ -12,6 +12,11 @@ import { Combate } from './escenas/Combate';
 import { Tienda } from './escenas/Tienda';
 import { BolsaEscena } from './escenas/BolsaEscena';
 import { Premio } from './escenas/Premio';
+import { Minijuegos } from './escenas/Minijuegos';
+import { Misiones } from './escenas/Misiones';
+import { MiniBayas } from './escenas/minijuegos/Bayas';
+import { MiniEco } from './escenas/minijuegos/Eco';
+import { MiniGolpe } from './escenas/minijuegos/Golpe';
 import { ESCALA } from './ui/texto';
 
 /** El mundo del juego mide 240×160; se dibuja a 4× para que letras y fondos salgan suaves. */
@@ -62,7 +67,7 @@ async function iniciar(): Promise<void> {
     banner: false,
     audio: { noAudio: true },
     scale: { mode: Phaser.Scale.NONE },
-    scene: [Arranque, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, BolsaEscena, Premio],
+    scene: [Arranque, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, Misiones],
   });
   ajustarEscala(juego.canvas);
   // Solo en desarrollo: acceso desde la consola para pruebas visuales.

@@ -2,7 +2,7 @@
 
 Juego web de colección y combate por turnos: criaturas y efectos en pixel art sobre fondos de estilo animado. Nombre de trabajo.
 
-**Estado: Fase 3 terminada – Tienda, Bolsa, ítems, Entrenamiento, evolución con animación y carta premio. 13 familias (65 criaturas, con su forma Eclipse) y 7 tipos; las criaturas crecen en pantalla al evolucionar.**
+**Estado: Fase 4 terminada – 3 minijuegos que entrenan a tus criaturas, premio diario con racha y misiones del día. Antes: tienda, ítems, evolución, carta premio, 13 familias (65 criaturas) y 7 tipos.**
 
 ## Ejecutar
 
@@ -15,7 +15,7 @@ Abre la dirección que muestra la terminal (normalmente http://localhost:5173). 
 | Comando | Qué hace |
 | --- | --- |
 | `npm run dev` | Juego en modo desarrollo, con recarga automática |
-| `npm test` | Pruebas automáticas de combate, equipos, sobres, pity, experiencia, guardado, ítems, tienda, evolución y premios |
+| `npm test` | Pruebas automáticas de combate, equipos, sobres, pity, experiencia, guardado, ítems, tienda, evolución, premios, minijuegos, premio diario y misiones |
 | `npm run simular` | 10.000 combates IA contra IA por cruce (1 vs 1 y 3 vs 3); imprime la tabla de balance |
 | `npm run simular -- 3000 experta etapas` | Balance de las etapas 2 a 4 y cuánto vale evolucionar |
 | `npm run ajustar` | Ventaja de tipo en cada etapa entre las 3 familias originales (para probar repartos de stats con la variable `AJUSTE`) |
@@ -37,12 +37,14 @@ src/
   core/        Reglas del juego en TypeScript puro (sin Phaser). Se prueban y simulan en Node.
     combate/   formulas.ts (única fuente de las fórmulas), motor.ts, ia.ts, rival.ts
     sobres/    tiradas de rareza, pity, sobre gratis, repetidas
-    progresion/ experiencia, recompensas, evolución y Entrenamiento, carta premio
+    progresion/ experiencia, recompensas, evolución y Entrenamiento, carta premio, premio diario, misiones
+    minijuegos/ premios y límites de los minijuegos
     items/     Bolsa, tienda con ofertas del día, uso de ítems
     estado/    partida del jugador y guardado (interfaz Almacen)
   data/        TODO el contenido y el balance: criaturas, habilidades, tipos, balance, sobres, economia, items
   esquemas/    Validación de cada JSON y de la partida guardada
-  escenas/     Arranque, Menu, Sobres, Tienda, BolsaEscena, Equipo (Mis criaturas), Bestiario, Combate, Premio
+  escenas/     Arranque, Menu, Sobres, Tienda, BolsaEscena, Equipo (Mis criaturas), Bestiario, Combate, Premio, Minijuegos, Misiones
+  escenas/minijuegos/  Base común y los 3 minijuegos (Bayas, Eco, Golpe)
   ui/          Texto, ventanas, fondos pintados por código, efectos de ataque, panel de guardado
   audio/       Efectos sintetizados con Web Audio
   i18n/        Textos en español (un archivo por idioma)
