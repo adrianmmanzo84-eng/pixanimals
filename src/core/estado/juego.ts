@@ -5,7 +5,7 @@ import { crearCombatiente, type Combatiente } from '../combate/motor';
 /** Todo el progreso del jugador. Es un objeto plano y serializable: se guarda tal cual. */
 export function estadoNuevo(datos: Datos, ahora: number): EstadoJuego {
   return {
-    version: 4,
+    version: 5,
     monedas: datos.economia.monedasIniciales,
     esencia: 0,
     criaturas: [],
@@ -14,7 +14,7 @@ export function estadoNuevo(datos: Datos, ahora: number): EstadoJuego {
     pity: { rara: 0, epica: 0 },
     gratis: { acumulados: 1, desde: ahora },
     bienvenida: false,
-    estadisticas: { combates: 0, victorias: 0, sobres: 0 },
+    estadisticas: { combates: 0, victorias: 0, sobres: 0, impecables: 0, fusiones: 0, expediciones: 0 },
     inventario: {},
     incienso: { hasta: 0, mult: 1 },
     diario: { ultimoDia: -1, racha: 0 },
@@ -23,6 +23,12 @@ export function estadoNuevo(datos: Datos, ahora: number): EstadoJuego {
     sobresRegalo: {},
     torre: { piso: 1, mejor: 0 },
     entrenador: { diaCobrado: -1 },
+    copias: {},
+    registro: [],
+    album: { cobrados: [] },
+    medallas: { cobradas: [] },
+    expediciones: [],
+    semanal: { semanaCobrada: -1 },
   };
 }
 

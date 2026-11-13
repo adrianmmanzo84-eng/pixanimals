@@ -6,7 +6,7 @@ import { elegirAccion, elegirReemplazo, NIVELES_IA } from '../src/core/combate/i
 import { generarRival } from '../src/core/combate/rival';
 import { criaturaDe, estadoNuevo, nuevaCriatura, ponerAlFrente } from '../src/core/estado/juego';
 import { deserializar, exportarCodigo, importarCodigo, serializar } from '../src/core/estado/guardado';
-import { abrirSobre, costoDe, sobreBienvenida, sobresGratis, type Carta } from '../src/core/sobres/sobres';
+import { abrirSobre, costoDe, precioSobre, sobreBienvenida, sobresGratis, type Carta } from '../src/core/sobres/sobres';
 import { aplicarRecompensa, darXp, xpParaSubir } from '../src/core/progresion/experiencia';
 
 const HORA = 3_600_000;
@@ -156,7 +156,8 @@ describe('sobres', () => {
   it('cobra monedas, y sin monedas no abre', () => {
     const e = estadoNuevo(DATOS, 0);
     e.gratis.acumulados = 0;
-    e.monedas = 250;
+    // El precio puede tener el descuento de la semana temática.
+    e.monedas = precioSobre(DATOS, DATOS.sobres.sobres.find((x) => x.id === 'brasa')!, 0);
     expect(Array.isArray(abrirSobre(DATOS, e, 'brasa', new Rng(1), 0))).toBe(true);
     expect(e.monedas).toBe(0);
     expect(abrirSobre(DATOS, e, 'basico', new Rng(1), 0)).toBe('monedas');

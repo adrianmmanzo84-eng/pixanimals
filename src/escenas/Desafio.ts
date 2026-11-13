@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { equipoSemanal, nivelSemanal, semanalCobrado, tipoDeLaSemana } from '../core/modos/semanal';
 import { DATOS } from '../core/datos';
 import { equipoDe } from '../core/estado/juego';
 import { datosPiso, premioPiso } from '../core/modos/torre';
@@ -14,7 +15,7 @@ import { fondo } from '../ui/fondos';
 import { Texto } from '../ui/texto';
 
 export interface DatosDesafio {
-  modo: 'torre' | 'entrenador';
+  modo: 'torre' | 'entrenador' | 'semanal';
 }
 
 /** Antesala de la Torre o del Entrenador del día: quién es el rival, qué nivel tiene y qué premio da. */
@@ -35,7 +36,7 @@ export class Desafio extends Phaser.Scene {
     const estado = juego.estado;
     const mios = equipoDe(estado);
     const torre = this.modo === 'torre';
-    this.add.image(0, 0, fondo(this, torre ? 'volcan' : 'bosque')).setOrigin(0, 0).setScale(0.25);
+    this.add.image(0, 0, fondo(this, torre || this.modo === 'semanal' ? 'volcan' : 'bosque')).setOrigin(0, 0).setScale(0.25);
     this.add.graphics().fillStyle(0x141830, 0.45).fillRect(0, 0, 240, 160);
     const g = this.add.graphics();
     ventana(g, 10, 6, 220, 148);
@@ -55,6 +56,17 @@ export class Desafio extends Phaser.Scene {
       ia = p.ia;
       const pr = premioPiso(DATOS, p.piso);
       premio = p.piso > estado.torre.mejor ? (pr.sobre ? t('des.premioSobre', { n: pr.monedas, s: this.sobre(pr.sobre) }) : t('des.premio', { n: pr.monedas })) : t('des.sinPremio');
+    } else if (this.modo === 'semanal') {
+      const ahora = Date.now();
+      const tipo = tipoDeLaSemana(DATOS, ahora);
+      titulo = t('des.semanal', { t: DATOS.tipos.get(tipo)!.nombre });
+      subtitulo = t('des.semanalSub');
+      especies = equipoSemanal(DATOS, ahora, mios).map((c) => c.especie.id);
+      nivel = nivelSemanal(DATOS, mios);
+      ia = 'experta';
+      const pr = DATOS.economia.semanal.premio;
+      premio = semanalCobrado(estado, ahora) ? t('des.yaGanasteSemana') : t('des.premioSobre', { n: pr.monedas ?? 0, s: this.sobre(pr.sobre ?? '') });
+      g.fillStyle(COLOR_TIPO[tipo] ?? 0x888888, 1).fillRoundedRect(18, 30, 4, 10, 1);
     } else {
       const e = entrenadorDelDia(DATOS, Date.now());
       titulo = t('des.entrenador', { n: e.nombre });
@@ -83,7 +95,7 @@ export class Desafio extends Phaser.Scene {
       if (a === 'a') {
         if (!mios.length) return sonido.tocar('negado');
         sonido.tocar('aceptar');
-        this.scene.start('Combate', torre ? { ia, modo: 'torre', piso: estado.torre.piso } : { ia, modo: 'entrenador' });
+        this.scene.start('Combate', torre ? { ia, modo: 'torre', piso: estado.torre.piso } : { ia, modo: this.modo });
       } else if (a === 'b') {
         sonido.tocar('cancelar');
         this.scene.start('Menu', { submenu: 'combates' });

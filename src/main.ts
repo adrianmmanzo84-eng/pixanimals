@@ -12,6 +12,8 @@ import { Combate } from './escenas/Combate';
 import { Tienda } from './escenas/Tienda';
 import { BolsaEscena } from './escenas/BolsaEscena';
 import { Premio } from './escenas/Premio';
+import { Coleccion } from './escenas/Coleccion';
+import { Expediciones } from './escenas/Expediciones';
 import { Desafio } from './escenas/Desafio';
 import { ajustes, cambiarAjustes } from './ajustes';
 import './audio/musica';
@@ -87,7 +89,7 @@ async function iniciar(): Promise<void> {
     banner: false,
     audio: { noAudio: true },
     scale: { mode: Phaser.Scale.NONE },
-    scene: [Arranque, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, Misiones, Desafio],
+    scene: [Arranque, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, Misiones, Desafio, Coleccion, Expediciones],
   });
   ajustarEscala(juego.canvas);
   // Solo en desarrollo: acceso desde la consola para pruebas visuales.

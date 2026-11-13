@@ -64,6 +64,8 @@ export function aplicarRecompensa(datos: Datos, estado: EstadoJuego, bat: Batall
   estado.monedas += monedas;
   estado.estadisticas.combates++;
   if (victoria) estado.estadisticas.victorias++;
+  // Victoria de equipo sin perder a nadie: cuenta para la medalla «Impecable».
+  if (victoria && bat.equipos[0].miembros.length >= 3 && bat.equipos[0].miembros.every((m) => m.ps > 0)) estado.estadisticas.impecables++;
   if (!retirada) registrar(datos, estado, 'combate');
   if (victoria) registrar(datos, estado, 'victoria');
   return { victoria, monedas, xpPorCriatura, subidas, entrenamiento, listas };

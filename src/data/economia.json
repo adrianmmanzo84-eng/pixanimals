@@ -221,5 +221,167 @@
       "Luna",
       "Mateo"
     ]
+  },
+  "album": {
+    "familia": {
+      "esencia": 150,
+      "sobre": "raro"
+    },
+    "eclipse": {
+      "esencia": 300
+    },
+    "tipo": {
+      "monedas": 500,
+      "sobre": "legendario"
+    },
+    "coleccion": [
+      {
+        "meta": 10,
+        "premio": {
+          "monedas": 200
+        }
+      },
+      {
+        "meta": 25,
+        "premio": {
+          "monedas": 500,
+          "sobre": "raro"
+        }
+      },
+      {
+        "meta": 45,
+        "premio": {
+          "monedas": 1000,
+          "sobre": "legendario"
+        }
+      },
+      {
+        "meta": 65,
+        "premio": {
+          "monedas": 2000,
+          "esencia": 1000,
+          "sobre": "legendario"
+        }
+      }
+    ]
+  },
+  "medallas": [
+    {
+      "id": "victorias",
+      "metas": [
+        10,
+        50,
+        200
+      ]
+    },
+    {
+      "id": "especies",
+      "metas": [
+        15,
+        35,
+        65
+      ]
+    },
+    {
+      "id": "sobres",
+      "metas": [
+        10,
+        50,
+        150
+      ]
+    },
+    {
+      "id": "torre",
+      "metas": [
+        10,
+        25,
+        50
+      ]
+    },
+    {
+      "id": "brillantes",
+      "metas": [
+        1,
+        3,
+        8
+      ]
+    },
+    {
+      "id": "expediciones",
+      "metas": [
+        5,
+        25,
+        100
+      ]
+    },
+    {
+      "id": "fusiones",
+      "metas": [
+        1,
+        5,
+        20
+      ]
+    },
+    {
+      "id": "impecables",
+      "metas": [
+        5,
+        20,
+        50
+      ]
+    }
+  ],
+  "premiosMedalla": [
+    {
+      "monedas": 100
+    },
+    {
+      "monedas": 300,
+      "esencia": 100
+    },
+    {
+      "monedas": 800,
+      "sobre": "raro"
+    }
+  ],
+  "expediciones": {
+    "lugares": 3,
+    "duraciones": [
+      {
+        "horas": 1,
+        "monedas": 40,
+        "xp": 80,
+        "probItem": 30,
+        "sobre": "basico",
+        "probSobre": 0
+      },
+      {
+        "horas": 4,
+        "monedas": 140,
+        "xp": 300,
+        "probItem": 70,
+        "sobre": "basico",
+        "probSobre": 15
+      },
+      {
+        "horas": 8,
+        "monedas": 260,
+        "xp": 650,
+        "probItem": 100,
+        "sobre": "raro",
+        "probSobre": 20
+      }
+    ]
+  },
+  "fusion": {
+    "copias": 3
+  },
+  "semanal": {
+    "descuento": 40,
+    "nivelExtra": 5,
+    "premio": {
+      "monedas": 300,
+      "sobre": "legendario"
+    }
   }
 }

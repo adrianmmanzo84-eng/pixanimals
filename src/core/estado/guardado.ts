@@ -49,6 +49,7 @@ export function serializar(estado: EstadoJuego): string {
  * v1 → v2 (Fase 3): Bolsa, incienso, vitaminas y barra de Entrenamiento.
  * v2 → v3 (Fase 4): premio diario, minijuegos, misiones y sobres regalados.
  * v3 → v4 (Fase 5): Torre de Desafíos, Entrenador del día y amuletos.
+ * v4 → v5: copias para fusionar, Álbum, Medallas, Expediciones y Jefe de la semana.
  */
 export function migrar(obj: unknown): unknown {
   if (!obj || typeof obj !== 'object') return obj;
@@ -71,6 +72,16 @@ export function migrar(obj: unknown): unknown {
     o.torre = { piso: 1, mejor: 0 };
     o.entrenador = { diaCobrado: -1 };
     if (Array.isArray(o.criaturas)) for (const c of o.criaturas as Record<string, unknown>[]) c.amuleto = null;
+  }
+  if (o.version === 4) {
+    o.version = 5;
+    o.copias = {};
+    o.registro = [];
+    o.album = { cobrados: [] };
+    o.medallas = { cobradas: [] };
+    o.expediciones = [];
+    o.semanal = { semanaCobrada: -1 };
+    o.estadisticas = { impecables: 0, fusiones: 0, expediciones: 0, ...(o.estadisticas as object) };
   }
   return o;
 }

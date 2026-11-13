@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { tipoDeLaSemana } from '../core/modos/semanal';
 import { Puntero } from '../ui/puntero';
 import { iconoItem } from '../ui/iconos';
 import type { SobreDef } from '../esquemas/esquemas';
@@ -142,7 +143,7 @@ export class Sobres extends Phaser.Scene {
       const pago = costoDe(DATOS, estado, s.id, ahora);
       const color = i === this.sel ? C.resalte : pago.puede ? C.tinta : C.apagado;
       this.nombres[k]!.poner(s.nombre, color);
-      this.costos[k]!.poner(pago.gratis ? t('sobres.gratis', { n: gratis.disponibles }) : String(s.costo), color);
+      this.costos[k]!.poner(pago.gratis ? t('sobres.gratis', { n: gratis.disponibles }) : (pago.costo < s.costo ? '★' : '') + String(pago.costo), color);
       // Muestra del color del sobre.
       this.colores.fillStyle(colorSobre(s), 1).fillRoundedRect(15, 26 + k * 11, 5, 7, 1);
     }
@@ -174,7 +175,9 @@ export class Sobres extends Phaser.Scene {
         : gratis.disponibles > 0
           ? t('sobres.gratisListo', { n: gratis.disponibles })
           : t('sobres.proximo', { t: duracion(gratis.faltaMs) });
-    this.pie.poner([contenido, reloj, t('sobres.ayuda')].join('\n'), C.tinta);
+    const tipoSemana = tipoDeLaSemana(DATOS, ahora);
+    const semana = t('sobres.semana', { t: DATOS.tipos.get(tipoSemana)!.nombre, d: DATOS.economia.semanal.descuento });
+    this.pie.poner([contenido, def.tipo === tipoSemana ? semana : reloj, t('sobres.ayuda')].join('\n'), C.tinta);
   }
 
   private esperarA(): Promise<void> {

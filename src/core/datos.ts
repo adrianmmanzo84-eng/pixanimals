@@ -77,6 +77,18 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
   if (new Set(economia.misiones.lista.map((m) => m.id)).size !== economia.misiones.lista.length) errores.push('Hay ids de misión repetidos.');
   if (economia.misiones.lista.length < economia.misiones.porDia) errores.push('Hay menos misiones que misiones por día.');
   if (!sobres.sobres.some((s) => s.id === sobres.gratis.sobre)) errores.push(`El sobre gratis (${sobres.gratis.sobre}) no existe.`);
+  // Sobres de las metas, medallas, expediciones y semana temática.
+  const premiosMeta = [
+    economia.album.familia,
+    economia.album.eclipse,
+    economia.album.tipo,
+    ...economia.album.coleccion.map((c) => c.premio),
+    ...economia.premiosMedalla,
+    economia.semanal.premio,
+  ];
+  for (const p of premiosMeta) if (p.sobre && !sobres.sobres.some((s) => s.id === p.sobre)) errores.push(`Premio de meta: el sobre ${p.sobre} no existe.`);
+  for (const d of economia.expediciones.duraciones) if (!sobres.sobres.some((s) => s.id === d.sobre)) errores.push(`Expedición de ${d.horas} h: el sobre ${d.sobre} no existe.`);
+  for (const c of criaturas) if (c.id.endsWith('_eclipse') !== (c.etapa === 4 && c.evoluciona.length === 0 && criaturas.some((o) => o.evoluciona.some((e) => e.a === c.id && e.item)))) errores.push(`${c.id}: las formas Eclipse deben terminar en _eclipse (y solo ellas).`);
   return { datos: { tipos: mTipos, balance, habilidades: mHab, criaturas: mCri, sobres, economia, items: mItems, reglasItems }, errores };
 }
 

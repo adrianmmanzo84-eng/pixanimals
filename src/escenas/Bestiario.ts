@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { familiaCompleta } from '../core/progresion/coleccion';
 import { Puntero } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import type { Criatura } from '../esquemas/esquemas';
@@ -80,6 +81,11 @@ export class Bestiario extends Phaser.Scene {
     ventana(g, 4, 132, 232, 24);
 
     const puntero = new Puntero(this);
+    // Marco dorado en las familias completas del Álbum.
+    this.filas.slice(this.scroll, this.scroll + VISIBLES).forEach((fila, k) => {
+      const c = fila.find((x) => x);
+      if (c && familiaCompleta(DATOS, estado, c.familia)) g.lineStyle(1.2, 0xf5c542, 1).strokeRoundedRect(7, 21 + k * 29, 118, 30, 4);
+    });
     this.filas.slice(this.scroll, this.scroll + VISIBLES).forEach((fila, k) =>
       fila.forEach((c, j) => {
         if (!c) return;

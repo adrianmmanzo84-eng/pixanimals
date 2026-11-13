@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { equipoSemanal, resultadoSemanal, tipoDeLaSemana } from '../core/modos/semanal';
 import { Puntero } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import { Rng } from '../core/rng';
@@ -26,8 +27,8 @@ import { partir, Texto } from '../ui/texto';
 
 export interface ConfigCombate {
   ia: NivelIA;
-  /** rapido: rival parejo al azar; torre: el piso `piso`; entrenador: el Entrenador del día. */
-  modo?: 'rapido' | 'torre' | 'entrenador';
+  /** rapido: rival parejo al azar; torre: el piso `piso`; entrenador: el Entrenador del día; semanal: el Jefe de la semana. */
+  modo?: 'rapido' | 'torre' | 'entrenador' | 'semanal';
   piso?: number;
 }
 
@@ -142,11 +143,13 @@ export class Combate extends Phaser.Scene {
         ? equipoPiso(DATOS, datosPiso(DATOS, this.cfg.piso ?? juego.estado.torre.piso, mios.length))
         : modo === 'entrenador'
           ? equipoEntrenador(DATOS, entrenadorDelDia(DATOS, Date.now()), mios)
-          : generarRival(DATOS, mios, rng);
+          : modo === 'semanal'
+            ? equipoSemanal(DATOS, Date.now(), mios)
+            : generarRival(DATOS, mios, rng);
     this.bat = new Batalla(DATOS, [mios.map((c) => combatienteDe(DATOS, c)), rival], rng);
     // Ataque Definitivo: siempre para ti; entre los rivales, solo jefes de la Torre y el Entrenador del día, que lo cargan avisando.
     const jefe = modo === 'torre' && datosPiso(DATOS, this.cfg.piso ?? 1, 1).jefe;
-    this.bat.definitivoPermitido = [true, modo === 'entrenador' || jefe];
+    this.bat.definitivoPermitido = [true, modo === 'entrenador' || modo === 'semanal' || jefe];
     this.bat.definitivoConCarga = [false, true];
     musica.tocar(modo === 'torre' && datosPiso(DATOS, this.cfg.piso ?? 1, 1).jefe ? 'jefe' : modo === 'rapido' ? 'combate' : 'jefe');
     this.verRival();
@@ -219,6 +222,7 @@ export class Combate extends Phaser.Scene {
       this.tween({ targets: this.sprites[1], x: this.pos(1).x, duration: 550, ease: 'Cubic.easeOut' }),
     ]);
     if (this.cfg.modo === 'entrenador') await this.decir(t('c.entrenador', { n: entrenadorDelDia(DATOS, Date.now()).nombre }));
+    if (this.cfg.modo === 'semanal') await this.decir(t('c.semanal', { t: DATOS.tipos.get(tipoDeLaSemana(DATOS, Date.now()))!.nombre }));
     if (this.cfg.modo === 'torre') {
       const p = datosPiso(DATOS, this.cfg.piso ?? 1, 1);
       await this.decir(t(p.jefe ? 'c.torreJefe' : 'c.torre', { n: p.piso }));
@@ -401,6 +405,10 @@ export class Combate extends Phaser.Scene {
       const p = resultadoTorre(DATOS, juego.estado, this.cfg.piso ?? 1, r.victoria);
       if (r.victoria) extra.push(p.nuevo ? t('fin.piso', { n: this.cfg.piso ?? 1, m: p.monedas }) : t('fin.pisoRepetido'));
       if (p.sobre) extra.push(t('fin.sobre', { s: nombreSobre(p.sobre) }));
+    }
+    if (modo === 'semanal' && !retirada) {
+      const p = resultadoSemanal(DATOS, juego.estado, r.victoria, Date.now());
+      if (p) extra.push(t('fin.semanal', { n: p.monedas ?? 0, s: p.sobre ? nombreSobre(p.sobre) : '' }));
     }
     if (modo === 'entrenador' && !retirada) {
       const p = resultadoEntrenador(DATOS, juego.estado, r.victoria, Date.now());

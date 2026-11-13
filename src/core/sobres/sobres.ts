@@ -4,6 +4,7 @@ import type { Rng } from '../rng';
 import { criaturaDe, marcarVista, nuevaCriatura } from '../estado/juego';
 import { registrar } from '../progresion/misiones';
 import { agregar } from '../items/items';
+import { tipoDeLaSemana } from '../modos/semanal';
 
 /** Reglas de los sobres: tiradas de rareza, pity, sobre gratis y qué pasa con las repetidas. */
 
@@ -61,6 +62,7 @@ export function recibir(datos: Datos, estado: EstadoJuego, especie: string, rare
   const mia = criaturaDe(estado, especie);
   if (!mia) {
     estado.criaturas.push(nuevaCriatura(especie, nivel, rareza, brillante));
+    if (!estado.registro.includes(especie)) estado.registro.push(especie);
     if (estado.equipo.length < datos.economia.tamanoEquipo) estado.equipo.push(especie);
     return { clase: 'criatura', especie, rareza, brillante, resultado: 'nueva', esencia: 0, ganaBrillo: false };
   }
@@ -75,6 +77,8 @@ export function recibir(datos: Datos, estado: EstadoJuego, especie: string, rare
   }
   const esencia = esenciaDe(rareza);
   estado.esencia += esencia;
+  // Además de la Esencia, la repetida queda como copia para la Fusión.
+  estado.copias[especie] = (estado.copias[especie] ?? 0) + 1;
   return { clase: 'criatura', especie, rareza, brillante, resultado: 'repetida', esencia, ganaBrillo };
 }
 
@@ -92,6 +96,11 @@ export function probConIncienso(prob: SobreDef['prob'], estado: EstadoJuego, aho
 
 export type MotivoSobre = 'inexistente' | 'monedas';
 
+/** Precio en monedas: el sobre del tipo de la semana tiene descuento. */
+export function precioSobre(datos: Datos, def: SobreDef, ahora: number): number {
+  return def.tipo && def.tipo === tipoDeLaSemana(datos, ahora) ? Math.round((def.costo * (100 - datos.economia.semanal.descuento)) / 100) : def.costo;
+}
+
 /** ¿Se puede abrir este sobre ahora? Devuelve cómo se pagaría. */
 export function costoDe(datos: Datos, estado: EstadoJuego, idSobre: string, ahora: number): { gratis: boolean; regalo: boolean; costo: number; puede: boolean } {
   const def = datos.sobres.sobres.find((s) => s.id === idSobre);
@@ -99,7 +108,8 @@ export function costoDe(datos: Datos, estado: EstadoJuego, idSobre: string, ahor
   // Primero se usan los sobres regalados (premio diario), después el gratis por tiempo.
   const regalo = (estado.sobresRegalo[idSobre] ?? 0) > 0;
   const gratis = regalo || (datos.sobres.gratis.sobre === idSobre && sobresGratis(datos, estado, ahora).disponibles > 0);
-  return { gratis, regalo, costo: gratis ? 0 : def.costo, puede: gratis || estado.monedas >= def.costo };
+  const costo = gratis ? 0 : precioSobre(datos, def, ahora);
+  return { gratis, regalo, costo, puede: gratis || estado.monedas >= costo };
 }
 
 /** Abre un sobre: cobra (o gasta el gratis), tira las cartas, aplica el pity y actualiza la colección. */
@@ -115,7 +125,7 @@ export function abrirSobre(datos: Datos, estado: EstadoJuego, idSobre: string, r
     if (disponibles >= datos.sobres.gratis.maxAcumulados) estado.gratis.desde = ahora;
     else estado.gratis.desde += (disponibles - estado.gratis.acumulados) * datos.sobres.gratis.cadaHoras * MS_HORA;
     estado.gratis.acumulados = disponibles - 1;
-  } else estado.monedas -= def.costo;
+  } else estado.monedas -= pago.costo;
 
   const prob = probConIncienso(def.prob, estado, ahora);
   const rarezas: RarezaId[] = Array.from({ length: datos.sobres.cartasPorSobre }, () => tirarRareza(prob, rng));

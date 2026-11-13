@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { bloqueoFusion, enExpedicion, fusionar } from '../core/progresion/coleccion';
 import { Puntero, saltito } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import { bonusStats, criaturaDe, potencialDe } from '../core/estado/juego';
@@ -16,7 +17,7 @@ import { C, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { partir, Texto } from '../ui/texto';
 
-type Accion = { id: 'frente' | 'sacar' | 'sumar' | 'entrenar' | 'amuleto' } | { id: 'evo'; op: OpcionEvolucion };
+type Accion = { id: 'frente' | 'sacar' | 'sumar' | 'entrenar' | 'amuleto' | 'fusionar' } | { id: 'evo'; op: OpcionEvolucion };
 
 /**
  * Mis criaturas: toda la colección (primero el equipo, en orden), con experiencia, barra de Entrenamiento
@@ -94,7 +95,7 @@ export class Equipo extends Phaser.Scene {
       new Texto(this, 82, y + 12, 70, 10, COLOR_RAREZA[c.rareza], 'izq', { tam: 6.6 }).poner(estrellas(c.rareza));
       const puesto = estado.equipo.indexOf(c.especie);
       new Texto(this, 150, y + 2, 76, 10, puesto >= 0 ? C.tinta : C.tintaSuave, 'der').poner(
-        `${t('nv', { n: c.nivel })} · ${puesto >= 0 ? t('mc.equipo', { n: puesto + 1 }) : t('mc.reserva')}`,
+        `${t('nv', { n: c.nivel })} · ${puesto >= 0 ? t('mc.equipo', { n: puesto + 1 }) : enExpedicion(estado, c.especie) ? t('mc.expedicion') : t('mc.reserva')}`,
       );
       // Barra de experiencia.
       const max = c.nivel >= DATOS.balance.nivelMax;
@@ -136,6 +137,7 @@ export class Equipo extends Phaser.Scene {
     res.push({ id: enEquipo ? 'sacar' : 'sumar' });
     if (tieneEvolucion(DATOS, c)) res.push({ id: 'entrenar' });
     if (c.amuleto || this.amuletosEnBolsa().length) res.push({ id: 'amuleto' });
+    if ((juego.estado.copias[c.especie] ?? 0) > 0) res.push({ id: 'fusionar' });
     for (const op of opcionesEvolucion(DATOS, juego.estado, c)) res.push({ id: 'evo', op });
     return res;
   }
@@ -166,7 +168,16 @@ export class Equipo extends Phaser.Scene {
       case 'sacar':
         return e.equipo.length <= 1 ? { texto: t('mc.d.ultima'), puede: false } : { texto: t('mc.d.sacar'), puede: true };
       case 'sumar':
+        if (enExpedicion(e, c.especie)) return { texto: t('mc.d.expedicion'), puede: false };
         return e.equipo.length >= max ? { texto: t('mc.d.lleno'), puede: false } : { texto: t('mc.d.sumar', { n: max }), puede: true };
+      case 'fusionar': {
+        const m = bloqueoFusion(DATOS, e, c.especie);
+        const copias = e.copias[c.especie] ?? 0;
+        const necesita = DATOS.economia.fusion.copias;
+        if (m === 'maxima') return { texto: t('mc.d.fusionMax', { c: copias }), puede: false };
+        if (m === 'pocas_copias') return { texto: t('mc.d.fusionPocas', { c: copias, n: necesita }), puede: false };
+        return { texto: t('mc.d.fusion', { c: copias, n: necesita }), puede: true };
+      }
       case 'amuleto': {
         const sig = this.siguienteAmuleto(c);
         const lleva = c.amuleto ? t('mc.d.lleva', { a: DATOS.items.get(c.amuleto)!.nombre }) : t('mc.d.sinAmuleto');
@@ -278,6 +289,14 @@ export class Equipo extends Phaser.Scene {
       sonido.tocar('aceptar');
       const nombre = DATOS.criaturas.get(c.especie)!.nombre;
       this.scene.restart({ sel: this.sel, acciones: true, accion: this.accion, aviso: sig ? t('mc.ok.amuleto', { n: nombre, a: DATOS.items.get(sig)!.nombre }) : t('mc.ok.sinAmuleto', { n: nombre }) });
+    } else if (ac.id === 'fusionar') {
+      const nueva = fusionar(DATOS, e, c.especie);
+      juego.guardar();
+      sonido.tocar('victoria');
+      this.cameras.main.flash(200, 255, 240, 180);
+      const nombre = DATOS.criaturas.get(c.especie)!.nombre;
+      const rz = DATOS.sobres.rarezas.find((x) => x.id === nueva)!.nombre;
+      this.scene.restart({ sel: this.sel, acciones: true, accion: this.accion, aviso: t('mc.ok.fusion', { n: nombre, r: rz }) });
     } else if (ac.id === 'entrenar') {
       const p = infundirEsencia(DATOS, e, c.especie);
       juego.guardar();

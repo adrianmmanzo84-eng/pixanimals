@@ -51,6 +51,7 @@ export function evolucionar(datos: Datos, estado: EstadoJuego, especie: string, 
   c.entrenamiento = 0;
   estado.equipo = estado.equipo.map((e) => (e === especie ? destino : e));
   marcarVista(estado, destino);
+  if (!estado.registro.includes(destino)) estado.registro.push(destino);
   return true;
 }
 

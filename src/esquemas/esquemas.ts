@@ -144,6 +144,10 @@ export const MisionZ = z.object({
   premio: z.object({ tipo: z.enum(['monedas', 'esencia']), cantidad: z.number().int().min(1) }),
 });
 
+/** Premio de una meta: monedas, Esencia y/o un sobre de regalo. */
+export const PremioMetaZ = z.object({ monedas: z.number().int().min(0).default(0), esencia: z.number().int().min(0).default(0), sobre: z.string().optional() });
+export type PremioMeta = z.infer<typeof PremioMetaZ>;
+
 export const EconomiaZ = z.object({
   monedasIniciales: z.number().int(),
   tamanoEquipo: z.number().int().min(1).max(6),
@@ -183,6 +187,39 @@ export const EconomiaZ = z.object({
     nivelExtra: z.number().int().min(0),
     nombres: z.array(z.string().min(1)).min(1),
   }),
+  /** Recompensas del Álbum (completar familias, tipos y la colección). */
+  album: z.object({
+    familia: PremioMetaZ,
+    eclipse: PremioMetaZ,
+    tipo: PremioMetaZ,
+    coleccion: z.array(z.object({ meta: z.number().int().min(1), premio: PremioMetaZ })),
+  }),
+  /** Medallas: objetivos largos con 3 niveles (bronce, plata, oro). */
+  medallas: z.array(
+    z.object({
+      id: z.enum(['victorias', 'especies', 'sobres', 'torre', 'brillantes', 'expediciones', 'fusiones', 'impecables']),
+      metas: z.tuple([z.number().int().min(1), z.number().int().min(1), z.number().int().min(1)]),
+    }),
+  ),
+  premiosMedalla: z.tuple([PremioMetaZ, PremioMetaZ, PremioMetaZ]),
+  /** Expediciones: criaturas fuera del equipo exploran unas horas y vuelven con premios. */
+  expediciones: z.object({
+    lugares: z.number().int().min(1),
+    duraciones: z.array(
+      z.object({
+        horas: z.number().int().min(1),
+        monedas: z.number().int().min(0),
+        xp: z.number().int().min(0),
+        probItem: z.number().min(0).max(100),
+        sobre: z.string(),
+        probSobre: z.number().min(0).max(100),
+      }),
+    ),
+  }),
+  /** Fusión: cuántas copias repetidas hacen subir una rareza. */
+  fusion: z.object({ copias: z.number().int().min(2) }),
+  /** Semana temática: un tipo protagonista, su sobre más barato y un Jefe Eclipse. */
+  semanal: z.object({ descuento: z.number().int().min(0).max(90), nivelExtra: z.number().int().min(0), premio: PremioMetaZ }),
 });
 
 export const StatVitaminaZ = z.enum(['ps', 'atq', 'def', 'ate', 'dfe', 'vel']);
@@ -248,7 +285,7 @@ export const CriaturaJugadorZ = z.object({
   amuleto: z.string().nullable(),
 });
 export const EstadoJuegoZ = z.object({
-  version: z.literal(4),
+  version: z.literal(5),
   monedas: z.number().int().min(0),
   esencia: z.number().int().min(0),
   criaturas: z.array(CriaturaJugadorZ),
@@ -257,7 +294,15 @@ export const EstadoJuegoZ = z.object({
   pity: z.object({ rara: z.number().int().min(0), epica: z.number().int().min(0) }),
   gratis: z.object({ acumulados: z.number().int().min(0), desde: z.number() }),
   bienvenida: z.boolean(),
-  estadisticas: z.object({ combates: z.number().int(), victorias: z.number().int(), sobres: z.number().int() }),
+  estadisticas: z.object({
+    combates: z.number().int(),
+    victorias: z.number().int(),
+    sobres: z.number().int(),
+    /** Victorias de equipo (3 o más) sin perder ninguna criatura. */
+    impecables: z.number().int().min(0),
+    fusiones: z.number().int().min(0),
+    expediciones: z.number().int().min(0),
+  }),
   /** Cantidad de cada ítem en la Bolsa. */
   inventario: z.record(z.string(), z.number().int().min(0)),
   /** Hasta cuándo (ms) dura el incienso activo, y con qué multiplicador. */
@@ -277,6 +322,17 @@ export const EstadoJuegoZ = z.object({
   torre: z.object({ piso: z.number().int().min(1), mejor: z.number().int().min(0) }),
   /** Último día en que se cobró el premio del Entrenador del día. */
   entrenador: z.object({ diaCobrado: z.number().int() }),
+  /** Especies que alguna vez fueron tuyas (para el Álbum; evolucionar no las borra). */
+  registro: z.array(z.string()),
+  /** Copias repetidas guardadas por especie (3 se funden para subir una rareza). */
+  copias: z.record(z.string(), z.number().int().min(0)),
+  /** Metas del Álbum y Medallas ya cobradas (ids). */
+  album: z.object({ cobrados: z.array(z.string()) }),
+  medallas: z.object({ cobradas: z.array(z.string()) }),
+  /** Expediciones en curso. */
+  expediciones: z.array(z.object({ especie: z.string(), desde: z.number(), horas: z.number().int().min(1) })),
+  /** Última semana en que se cobró el premio del Jefe de la semana. */
+  semanal: z.object({ semanaCobrada: z.number().int() }),
 });
 
 export type RarezaId = z.infer<typeof RarezaIdZ>;

@@ -1,4 +1,6 @@
 import Phaser from 'phaser';
+import { faltaExpedicion, metasPorCobrar } from '../core/progresion/coleccion';
+import { semanalCobrado, tipoDeLaSemana } from '../core/modos/semanal';
 import { DATOS } from '../core/datos';
 import { NIVELES_IA } from '../core/combate/ia';
 import { equipoDe } from '../core/estado/juego';
@@ -20,12 +22,15 @@ import { abrirGuardado } from '../ui/guardadoDom';
 import { Puntero } from '../ui/puntero';
 import { Texto } from '../ui/texto';
 
-const OPCIONES = ['menu.combatir', 'menu.minijuegos', 'menu.misiones', 'menu.sobres', 'menu.tienda', 'menu.bolsaP', 'menu.equipoP', 'menu.bestiario', 'menu.guardado'];
-const DESTINOS = ['', 'Minijuegos', 'Misiones', 'Sobres', 'Tienda', 'BolsaEscena', 'Equipo', 'Bestiario', ''];
+const OPCIONES = [
+  'menu.combatir', 'menu.minijuegos', 'menu.misiones', 'menu.expediciones', 'menu.sobres', 'menu.tienda',
+  'menu.bolsaP', 'menu.equipoP', 'menu.coleccion', 'menu.bestiario', 'menu.guardado',
+];
+const DESTINOS = ['', 'Minijuegos', 'Misiones', 'Expediciones', 'Sobres', 'Tienda', 'BolsaEscena', 'Equipo', 'Coleccion', 'Bestiario', ''];
 const GUARDADO = OPCIONES.length - 1;
-const ALTO_FILA = 11;
-/** Dos columnas de hasta 5 opciones. */
-const POR_COLUMNA = 5;
+const ALTO_FILA = 10;
+/** Dos columnas de hasta 6 opciones. */
+const POR_COLUMNA = 6;
 const COL_X = [40, 126];
 
 /** Menú principal: desde aquí se entra a todo lo demás. */
@@ -70,10 +75,10 @@ export class Menu extends Phaser.Scene {
       `${t('rec.monedas', { n: estado.monedas })}   ·   ${t('rec.esencia', { n: estado.esencia })}`,
     );
 
-    ventana(g, 26, 29, 188, 63);
+    ventana(g, 26, 29, 188, 66);
     for (let i = 0; i < OPCIONES.length; i++) {
       const col = Math.floor(i / POR_COLUMNA);
-      this.filas.push(new Texto(this, COL_X[col]! + 8, 33 + (i % POR_COLUMNA) * ALTO_FILA, 80, 10));
+      this.filas.push(new Texto(this, COL_X[col]! + 8, 32 + (i % POR_COLUMNA) * ALTO_FILA, 80, 10));
     }
     this.cursor = this.add.graphics();
     const puntero = new Puntero(this);
@@ -115,15 +120,20 @@ export class Menu extends Phaser.Scene {
         t('menu.rapido'),
         t(esJefe(DATOS, piso) ? 'menu.torreJefe' : 'menu.torre', { n: piso }),
         t(entrenadorCobrado(juego.estado, Date.now()) ? 'menu.entrenadorHecho' : 'menu.entrenador'),
+        t(semanalCobrado(juego.estado, Date.now()) ? 'menu.semanalHecho' : 'menu.semanal', { t: DATOS.tipos.get(tipoDeLaSemana(DATOS, Date.now()))!.nombre }),
       ];
     }
     const hayGratis = sobresGratis(DATOS, juego.estado, Date.now()).disponibles > 0;
     const hayEvolucion = juego.estado.criaturas.some((c) => puedeEvolucionar(DATOS, juego.estado, c));
     const porCobrar = misionesPorCobrar(DATOS, juego.estado);
+    const metas = metasPorCobrar(DATOS, juego.estado);
+    const volvieron = juego.estado.expediciones.filter((x) => faltaExpedicion(x, Date.now()) === 0).length;
     return OPCIONES.map((c) => {
       if (c === 'menu.sobres' && (hayGratis || Object.values(juego.estado.sobresRegalo).some((v) => v > 0))) return t('menu.sobres.gratis');
       if (c === 'menu.equipoP' && hayEvolucion) return t('menu.equipoEvo');
       if (c === 'menu.misiones' && porCobrar) return t('menu.misionesN', { n: porCobrar });
+      if (c === 'menu.coleccion' && metas) return t('menu.coleccionN', { n: metas });
+      if (c === 'menu.expediciones' && volvieron) return t('menu.expedicionesN', { n: volvieron });
       return t(c);
     });
   }
@@ -132,7 +142,7 @@ export class Menu extends Phaser.Scene {
     const ops = this.opciones();
     this.filas.forEach((f, i) => f.poner(ops[i] ?? '', i === this.sel ? C.resalte : C.tinta));
     const col = Math.floor(this.sel / POR_COLUMNA);
-    const y = 34 + (this.sel % POR_COLUMNA) * ALTO_FILA;
+    const y = 33 + (this.sel % POR_COLUMNA) * ALTO_FILA;
     const x = COL_X[col]!;
     this.cursor.clear().fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3);
     this.puntero?.marcar(`${this.modo}:${this.sel}`, this.filas[this.sel]?.imagen);
@@ -221,7 +231,7 @@ export class Menu extends Phaser.Scene {
           this.modo = 'dificultad';
           this.sel = 1;
         } else {
-          this.scene.start('Desafio', { modo: this.sel === 1 ? 'torre' : 'entrenador' });
+          this.scene.start('Desafio', { modo: this.sel === 1 ? 'torre' : this.sel === 2 ? 'entrenador' : 'semanal' });
           return;
         }
         this.pintar();
