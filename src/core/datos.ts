@@ -87,6 +87,12 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
     economia.semanal.premio,
   ];
   for (const p of premiosMeta) if (p.sobre && !sobres.sobres.some((s) => s.id === p.sobre)) errores.push(`Premio de meta: el sobre ${p.sobre} no existe.`);
+  for (const [i, seg] of economia.ruleta.segmentos.entries()) {
+    const p = seg.premio;
+    if (p.sobre && !sobres.sobres.some((x) => x.id === p.sobre)) errores.push(`Ruleta, casilla ${i + 1}: el sobre ${p.sobre} no existe.`);
+    if (p.item && !mItems.has(p.item)) errores.push(`Ruleta, casilla ${i + 1}: el ítem ${p.item} no existe.`);
+    if (!p.monedas && !p.esencia && !p.sobre && !p.item) errores.push(`Ruleta, casilla ${i + 1}: no da nada.`);
+  }
   for (const d of economia.expediciones.duraciones) if (!sobres.sobres.some((s) => s.id === d.sobre)) errores.push(`Expedición de ${d.horas} h: el sobre ${d.sobre} no existe.`);
   for (const c of criaturas) if (c.id.endsWith('_eclipse') !== (c.etapa === 4 && c.evoluciona.length === 0 && criaturas.some((o) => o.evoluciona.some((e) => e.a === c.id && e.item)))) errores.push(`${c.id}: las formas Eclipse deben terminar en _eclipse (y solo ellas).`);
   return { datos: { tipos: mTipos, balance, habilidades: mHab, criaturas: mCri, sobres, economia, items: mItems, reglasItems }, errores };

@@ -29,7 +29,7 @@ describe('partidas guardadas', () => {
     const v2 = { ...estadoNuevo(DATOS, 0), version: 2, monedas: 321 } as Record<string, unknown>;
     for (const k of ['diario', 'minijuegos', 'misiones', 'sobresRegalo']) delete v2[k];
     const e = deserializar(JSON.stringify(v2))!;
-    expect(e.version).toBe(5);
+    expect(e.version).toBe(6);
     expect(e.monedas).toBe(321);
     expect(e.diario).toEqual({ ultimoDia: -1, racha: 0 });
     expect(e.sobresRegalo).toEqual({});

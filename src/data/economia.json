@@ -383,5 +383,68 @@
       "monedas": 300,
       "sobre": "legendario"
     }
+  },
+  "ruleta": {
+    "segmentos": [
+      {
+        "premio": {
+          "monedas": 50
+        },
+        "peso": 24,
+        "color": "#f5c542"
+      },
+      {
+        "premio": {
+          "item": "pocion",
+          "cantidad": 2
+        },
+        "peso": 14,
+        "color": "#e05a6a"
+      },
+      {
+        "premio": {
+          "monedas": 100
+        },
+        "peso": 16,
+        "color": "#5aa9f0"
+      },
+      {
+        "premio": {
+          "esencia": 60
+        },
+        "peso": 12,
+        "color": "#9a5ae0"
+      },
+      {
+        "premio": {
+          "sobre": "basico"
+        },
+        "peso": 13,
+        "color": "#4caf7a"
+      },
+      {
+        "premio": {
+          "item": "caramelo_m"
+        },
+        "peso": 12,
+        "color": "#f08a3c"
+      },
+      {
+        "premio": {
+          "monedas": 250
+        },
+        "peso": 6,
+        "color": "#2b3a78"
+      },
+      {
+        "premio": {
+          "monedas": 300,
+          "sobre": "raro"
+        },
+        "peso": 3,
+        "color": "#e0a020",
+        "especial": true
+      }
+    ]
   }
 }

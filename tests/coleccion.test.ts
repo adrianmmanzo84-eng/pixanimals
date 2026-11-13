@@ -123,10 +123,10 @@ describe('guardado v5', () => {
   it('una partida v4 se migra sin perder nada', () => {
     const e = estadoNuevo(DATOS, 0) as unknown as Record<string, unknown>;
     e.version = 4;
-    for (const k of ['copias', 'registro', 'album', 'medallas', 'expediciones', 'semanal']) delete e[k];
+    for (const k of ['copias', 'registro', 'album', 'medallas', 'expediciones', 'semanal', 'ruleta']) delete e[k];
     e.estadisticas = { combates: 3, victorias: 2, sobres: 1 };
     const m = deserializar(JSON.stringify(e))!;
-    expect(m.version).toBe(5);
+    expect(m.version).toBe(6);
     expect(m.estadisticas).toMatchObject({ combates: 3, victorias: 2, fusiones: 0 });
     expect(m.expediciones).toEqual([]);
   });

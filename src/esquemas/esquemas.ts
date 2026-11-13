@@ -148,6 +148,10 @@ export const MisionZ = z.object({
 export const PremioMetaZ = z.object({ monedas: z.number().int().min(0).default(0), esencia: z.number().int().min(0).default(0), sobre: z.string().optional() });
 export type PremioMeta = z.infer<typeof PremioMetaZ>;
 
+/** Premio de la ruleta: lo mismo que una meta, más un ítem opcional (con cantidad). Sin criaturas. */
+export const PremioRuletaZ = PremioMetaZ.extend({ item: z.string().optional(), cantidad: z.number().int().min(1).default(1) });
+export type PremioRuleta = z.infer<typeof PremioRuletaZ>;
+
 export const EconomiaZ = z.object({
   monedasIniciales: z.number().int(),
   tamanoEquipo: z.number().int().min(1).max(6),
@@ -220,6 +224,13 @@ export const EconomiaZ = z.object({
   fusion: z.object({ copias: z.number().int().min(2) }),
   /** Semana temática: un tipo protagonista, su sobre más barato y un Jefe Eclipse. */
   semanal: z.object({ descuento: z.number().int().min(0).max(90), nivelExtra: z.number().int().min(0), premio: PremioMetaZ }),
+  /** Ruleta diaria: un giro gratis por día. Cada casilla tiene un premio (nunca criaturas) y un peso. */
+  ruleta: z.object({
+    segmentos: z
+      .array(z.object({ premio: PremioRuletaZ, peso: z.number().int().min(1), color: z.string(), especial: z.boolean().default(false) }))
+      .min(4)
+      .max(12),
+  }),
 });
 
 export const StatVitaminaZ = z.enum(['ps', 'atq', 'def', 'ate', 'dfe', 'vel']);
@@ -285,7 +296,7 @@ export const CriaturaJugadorZ = z.object({
   amuleto: z.string().nullable(),
 });
 export const EstadoJuegoZ = z.object({
-  version: z.literal(5),
+  version: z.literal(6),
   monedas: z.number().int().min(0),
   esencia: z.number().int().min(0),
   criaturas: z.array(CriaturaJugadorZ),
@@ -333,6 +344,8 @@ export const EstadoJuegoZ = z.object({
   expediciones: z.array(z.object({ especie: z.string(), desde: z.number(), horas: z.number().int().min(1) })),
   /** Última semana en que se cobró el premio del Jefe de la semana. */
   semanal: z.object({ semanaCobrada: z.number().int() }),
+  /** Último día en que se giró la ruleta diaria. */
+  ruleta: z.object({ ultimoDia: z.number().int() }),
 });
 
 export type RarezaId = z.infer<typeof RarezaIdZ>;

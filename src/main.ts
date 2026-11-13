@@ -19,6 +19,7 @@ import { ajustes, cambiarAjustes } from './ajustes';
 import './audio/musica';
 import { Minijuegos } from './escenas/Minijuegos';
 import { Misiones } from './escenas/Misiones';
+import { Ruleta } from './escenas/Ruleta';
 import { MiniBayas } from './escenas/minijuegos/Bayas';
 import { MiniEco } from './escenas/minijuegos/Eco';
 import { MiniGolpe } from './escenas/minijuegos/Golpe';
@@ -89,7 +90,7 @@ async function iniciar(): Promise<void> {
     banner: false,
     audio: { noAudio: true },
     scale: { mode: Phaser.Scale.NONE },
-    scene: [Arranque, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, Misiones, Desafio, Coleccion, Expediciones],
+    scene: [Arranque, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, Misiones, Desafio, Coleccion, Expediciones, Ruleta],
   });
   ajustarEscala(juego.canvas);
   // Solo en desarrollo: acceso desde la consola para pruebas visuales.

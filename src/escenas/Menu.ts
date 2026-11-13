@@ -7,6 +7,7 @@ import { equipoDe } from '../core/estado/juego';
 import { sobresGratis } from '../core/sobres/sobres';
 import { puedeEvolucionar } from '../core/progresion/evolucion';
 import { cobrarDiario, diarioDisponible, premioDeHoy } from '../core/progresion/diario';
+import { ruletaDisponible } from '../core/progresion/ruleta';
 import { misionesPorCobrar } from '../core/progresion/misiones';
 import { entrenadorCobrado } from '../core/modos/entrenador';
 import { musica } from '../audio/musica';
@@ -24,9 +25,9 @@ import { Texto } from '../ui/texto';
 
 const OPCIONES = [
   'menu.combatir', 'menu.minijuegos', 'menu.misiones', 'menu.expediciones', 'menu.sobres', 'menu.tienda',
-  'menu.bolsaP', 'menu.equipoP', 'menu.coleccion', 'menu.bestiario', 'menu.guardado',
+  'menu.bolsaP', 'menu.equipoP', 'menu.coleccion', 'menu.bestiario', 'menu.ruleta', 'menu.guardado',
 ];
-const DESTINOS = ['', 'Minijuegos', 'Misiones', 'Expediciones', 'Sobres', 'Tienda', 'BolsaEscena', 'Equipo', 'Coleccion', 'Bestiario', ''];
+const DESTINOS = ['', 'Minijuegos', 'Misiones', 'Expediciones', 'Sobres', 'Tienda', 'BolsaEscena', 'Equipo', 'Coleccion', 'Bestiario', 'Ruleta', ''];
 const GUARDADO = OPCIONES.length - 1;
 const ALTO_FILA = 10;
 /** Dos columnas de hasta 6 opciones. */
@@ -134,6 +135,7 @@ export class Menu extends Phaser.Scene {
       if (c === 'menu.misiones' && porCobrar) return t('menu.misionesN', { n: porCobrar });
       if (c === 'menu.coleccion' && metas) return t('menu.coleccionN', { n: metas });
       if (c === 'menu.expediciones' && volvieron) return t('menu.expedicionesN', { n: volvieron });
+      if (c === 'menu.ruleta' && ruletaDisponible(juego.estado, Date.now())) return t('menu.ruletaHoy');
       return t(c);
     });
   }

@@ -412,5 +412,19 @@
   "exp.botin": "+{m} monedas · +{x} XP · ítem {i} % · {so} {s} %",
   "exp.confirma": "Mientras explora no puede combatir.",
   "exp.enviada": "¡{n} salió a explorar {h} h!",
-  "exp.cobro": "{n} trajo +{m} monedas y +{x} XP"
+  "exp.cobro": "{n} trajo +{m} monedas y +{x} XP",
+  "menu.ruleta": "Ruleta",
+  "menu.ruletaHoy": "Ruleta ★",
+  "rul.titulo": "Ruleta diaria",
+  "rul.libre": "¡Tienes un giro\ngratis hoy!",
+  "rul.vuelve": "Próximo giro en\n{h} h {m} min",
+  "rul.girar": "Girar",
+  "rul.volver": "Volver",
+  "rul.puedes": "Puedes ganar:",
+  "rul.gano": "¡Ganaste!\n{p}",
+  "rul.ayuda": "A o toque: girar · B: volver",
+  "rul.monedas": "{n} monedas",
+  "rul.esencia": "{n} Esencia",
+  "rul.item": "Ítem",
+  "rul.sobre": "Sobre"
 }

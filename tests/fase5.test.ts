@@ -20,7 +20,7 @@ describe('partida v4', () => {
     delete v3.entrenador;
     v3.criaturas = [{ especie: 'lumbrito', nivel: 5, xp: 0, rareza: 'comun', brillante: false, vitaminas: {}, entrenamiento: 0 }];
     const e = deserializar(JSON.stringify(v3))!;
-    expect(e.version).toBe(5);
+    expect(e.version).toBe(6);
     expect(e.monedas).toBe(77);
     expect(e.torre).toEqual({ piso: 1, mejor: 0 });
     expect(e.criaturas[0]!.amuleto).toBeNull();

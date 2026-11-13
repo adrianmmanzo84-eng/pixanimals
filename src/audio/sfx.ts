@@ -15,6 +15,7 @@ const EFECTOS: Record<string, Nota[]> = {
   cuenta: [{ onda: 'square', f: 440, dur: 0.08, vol: 0.25 }],
   ya: [{ onda: 'square', f: 880, dur: 0.16, vol: 0.3 }],
   cursor: [{ onda: 'square', f: 880, dur: 0.04, vol: 0.25 }],
+  tic: [{ onda: 'square', f: 1400, dur: 0.018, vol: 0.14 }],
   aceptar: [{ onda: 'square', f: 660, dur: 0.05 }, { onda: 'square', f: 990, dur: 0.07, t: 0.05 }],
   cancelar: [{ onda: 'square', f: 440, f2: 300, dur: 0.09 }],
   negado: [{ onda: 'square', f: 160, dur: 0.12 }],

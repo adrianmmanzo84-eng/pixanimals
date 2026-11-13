@@ -459,3 +459,20 @@ Stats de etapa 1 (PS / Atq / Def / AtE / DfE / Vel) y porcentaje de victorias en
 | Mapachín → Onixor | Roca | Astucia (ultimo_rescoldo) | 52 / 60 / 57 / 34 / 49 / 48 | 53 % | 46 % |
 
 Con ventaja de tipo se gana el 83 % de los cruces en la etapa 1 y el 81 % en la final. Las Eclipse nuevas le ganan a su forma normal entre el 50 % y el 64 %. Contra las 13 originales, las etapas 2 y 3 de las familias nuevas quedan entre el 40 % y el 65 %.
+
+## Ruleta diaria
+
+Un giro gratis por día (`economia.json` → `ruleta.segmentos`; cada casilla tiene premio, peso y color). Sin criaturas.
+
+| Casilla | Peso (%) | Valor aprox. en monedas |
+|---|---|---|
+| 50 monedas | 24 | 50 |
+| Poción ×2 | 14 | 60 (precio de tienda) |
+| 100 monedas | 16 | 100 |
+| 60 Esencia | 12 | — |
+| Sobre Básico | 13 | 100 |
+| Piedra XP mediana | 12 | 120 (precio de tienda) |
+| 250 monedas | 6 | 250 |
+| 300 monedas + Sobre Raro | 3 | 900 (el sobre cuesta 600) |
+
+Valor medio: unas 105 monedas por día (más 7 de Esencia), lo que dan 3 o 4 combates ganados en dificultad Táctica. Se ajusta cambiando los pesos sin tocar código.
