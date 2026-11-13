@@ -186,7 +186,7 @@ export class Combate extends Phaser.Scene {
     this.paneles = [this.crearPanel(PANEL[0].x, PANEL[0].y), this.crearPanel(PANEL[1].x, PANEL[1].y)];
     this.refrescarPanel(0);
     this.refrescarPanel(1);
-    this.turnoTxt = new Texto(this, 4, 30, 60, 10, '#ffffff', 'izq', { borde: '#2b3a78' });
+    this.turnoTxt = new Texto(this, 4, 30, 116, 10, '#ffffff', 'izq', { borde: '#2b3a78' });
 
     this.gVentanas = this.add.graphics();
     this.msg = new Texto(this, 10, 118, 220, 30, C.tinta);
