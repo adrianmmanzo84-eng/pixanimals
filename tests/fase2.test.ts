@@ -6,7 +6,7 @@ import { elegirAccion, elegirReemplazo, NIVELES_IA } from '../src/core/combate/i
 import { generarRival } from '../src/core/combate/rival';
 import { criaturaDe, estadoNuevo, nuevaCriatura, ponerAlFrente } from '../src/core/estado/juego';
 import { deserializar, exportarCodigo, importarCodigo, serializar } from '../src/core/estado/guardado';
-import { abrirSobre, costoDe, sobreBienvenida, sobresGratis } from '../src/core/sobres/sobres';
+import { abrirSobre, costoDe, sobreBienvenida, sobresGratis, type Carta } from '../src/core/sobres/sobres';
 import { aplicarRecompensa, darXp, xpParaSubir } from '../src/core/progresion/experiencia';
 
 const HORA = 3_600_000;
@@ -162,16 +162,23 @@ describe('sobres', () => {
     expect(abrirSobre(DATOS, e, 'basico', new Rng(1), 0)).toBe('monedas');
     expect(e.estadisticas.sobres).toBe(1);
   });
-  it('el Sobre Elemental solo da su tipo y solo salen etapas 1', () => {
+  it('el Sobre Elemental solo da criaturas de su tipo, de etapa 1 o 2 (y también ítems)', () => {
     const e = estadoNuevo(DATOS, 0);
     e.monedas = 100000;
-    for (let s = 0; s < 60; s++)
-      for (const c of abrirSobre(DATOS, e, 'marea', new Rng(s), 0) as { especie: string }[]) {
+    const etapas = new Set<number>();
+    let items = 0;
+    for (let s = 0; s < 80; s++)
+      for (const c of abrirSobre(DATOS, e, 'marea', new Rng(s), 0) as Carta[]) {
+        if (c.clase === 'item') {
+          items++;
+          expect(DATOS.items.get(c.item)!.rareza).toBeTruthy();
+          continue;
+        }
         expect(DATOS.criaturas.get(c.especie)!.tipo).toBe('marea');
-        expect(DATOS.criaturas.get(c.especie)!.etapa).toBe(1);
+        etapas.add(DATOS.criaturas.get(c.especie)!.etapa);
       }
-    for (let s = 0; s < 60; s++)
-      for (const c of abrirSobre(DATOS, e, 'raro', new Rng(s), 0) as { especie: string }[]) expect(DATOS.criaturas.get(c.especie)!.etapa).toBe(1);
+    expect([...etapas].sort()).toEqual([1, 2]);
+    expect(items).toBeGreaterThan(0);
   });
   it('sobre gratis: 1 al empezar, otro cada 4 horas, máximo 2 acumulados', () => {
     const e = estadoNuevo(DATOS, 0);
@@ -199,6 +206,10 @@ describe('sobres', () => {
     expect(e.vistas).toHaveLength(3);
   });
   it('repetidas: una rareza mejor mejora la tuya; una igual o peor se vuelve Esencia', () => {
+    // Solo criaturas de etapa 1 para este caso.
+    const def = DATOS.sobres.sobres.find((x) => x.id === 'brasa')!;
+    const antes = { probItem: def.probItem, probEtapa2: def.probEtapa2 };
+    Object.assign(def, { probItem: 0, probEtapa2: 0 });
     const e = estadoNuevo(DATOS, 0);
     sobreBienvenida(DATOS, e, new Rng(5));
     e.monedas = 100000;
@@ -222,6 +233,7 @@ describe('sobres', () => {
     expect(vistoMejora && vistoRepetida).toBe(true);
     expect(mia.nivel).toBe(9);
     expect(e.criaturas.filter((c) => c.especie === 'aletin')).toHaveLength(1);
+    Object.assign(def, antes);
   });
 });
 

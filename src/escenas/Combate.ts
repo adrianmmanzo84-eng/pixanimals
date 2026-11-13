@@ -360,6 +360,13 @@ export class Combate extends Phaser.Scene {
           }
           await this.decir(t('c.item', { i: e.item.nombre, n: this.nom(e.lado) }));
           break;
+        case 'revive': {
+          sonido.tocar('cura');
+          this.pintarPuntos(e.lado);
+          const m = this.bat.equipos[e.lado].miembros[e.indice]!;
+          await this.decir(t('c.revive', { n: m.nombre, ps: e.ps }));
+          break;
+        }
         case 'usos':
           sonido.tocar('cura');
           await Promise.all([this.fx.curar(this.centro(e.lado)), this.decir(t('c.usos', { n: this.nom(e.lado) }))]);
@@ -469,7 +476,7 @@ export class Combate extends Phaser.Scene {
               this.alPulsar = null;
               resolver('retirada');
             } else {
-              if (!this.itemsDeCombate().some((i) => cantidad(juego.estado, i.id) > 0)) {
+              if (!this.itemsDeCombate().length) {
                 sonido.tocar('negado');
                 this.msg.poner(partir(t('bolsa.vacia'), 124).join('\n'));
                 return;
@@ -483,7 +490,8 @@ export class Combate extends Phaser.Scene {
           pintar();
         };
       };
-      const menuHabilidades = () => {
+      /** `fin`: a quién entregar la habilidad elegida (el Reloj de Arena pide dos); sin `fin`, termina el turno. */
+      const menuHabilidades = (fin?: (a: Accion) => void) => {
         let sel = this.ultimaHabilidad;
         // Si la última habilidad usada ya no está disponible, el cursor va a la primera que sí lo esté.
         if (this.bat.bloqueo(0, sel) !== null) sel = Math.max(0, [0, 1, 2, 3].findIndex((i) => this.bat.bloqueo(0, i) === null));
@@ -509,7 +517,7 @@ export class Combate extends Phaser.Scene {
             menuPrincipal();
             return;
           } else if (a === 'a' && sel === 4) {
-            if (this.bat.bloqueoDefinitivo(0) !== null) {
+            if (fin || this.bat.bloqueoDefinitivo(0) !== null) {
               sonido.tocar('negado');
               return;
             }
@@ -525,7 +533,7 @@ export class Combate extends Phaser.Scene {
             sonido.tocar('aceptar');
             this.ultimaHabilidad = sel;
             this.alPulsar = null;
-            resolver({ tipo: 'habilidad', indice: sel });
+            (fin ?? resolver)({ tipo: 'habilidad', indice: sel });
             return;
           }
           sonido.tocar('cursor');
@@ -534,10 +542,9 @@ export class Combate extends Phaser.Scene {
       };
       const menuBolsa = () => {
         const items = this.itemsDeCombate();
-        const usable = (i: Item) => cantidad(juego.estado, i.id) > 0 && this.bat.bloqueoItem(0, i) === null;
-        // El cursor empieza en el primer ítem que se pueda usar ahora (o, si no hay, en el primero que tengas).
-        let sel = items.findIndex(usable);
-        if (sel < 0) sel = Math.max(0, items.findIndex((i) => cantidad(juego.estado, i.id) > 0));
+        const usable = (i: Item) => this.bat.bloqueoItem(0, i) === null;
+        // El cursor empieza en el primer ítem que se pueda usar ahora.
+        let sel = Math.max(0, items.findIndex(usable));
         this.modoBolsa(items, sel);
         this.alApuntar = (i) => {
           if (i === sel || i >= items.length) return;
@@ -546,22 +553,30 @@ export class Combate extends Phaser.Scene {
           this.modoBolsa(items, sel);
         };
         this.alPulsar = (a) => {
-          if (a === 'izquierda' || a === 'derecha') sel = Math.min(items.length - 1, sel ^ 1);
-          else if (a === 'arriba' || a === 'abajo') sel = Math.min(items.length - 1, sel ^ 2);
-          else if (a === 'b') {
+          const total = items.length;
+          if (a === 'izquierda' || a === 'derecha') {
+            if ((sel ^ 1) >= total) return;
+            sel ^= 1;
+          } else if (a === 'arriba' || a === 'abajo') {
+            // De a dos (una fila); al pasar el borde cambia de página.
+            const filas = Math.ceil(total / 2);
+            const fila = (Math.floor(sel / 2) + (a === 'abajo' ? 1 : filas - 1)) % filas;
+            sel = Math.min(total - 1, fila * 2 + (sel % 2));
+          } else if (a === 'b') {
             sonido.tocar('cancelar');
             menuPrincipal();
             return;
           } else if (a === 'a') {
             const item = items[sel]!;
-            if (cantidad(juego.estado, item.id) < 1 || this.bat.bloqueoItem(0, item) !== null) {
+            if (this.bat.bloqueoItem(0, item) !== null) {
               sonido.tocar('negado');
               return;
             }
             sonido.tocar('aceptar');
+            this.alPulsar = null;
+            if (item.efecto.tipo === 'doble') return void relojDeArena(item);
             // El ítem se gasta al elegirlo; la partida se guarda al final del combate.
             quitar(juego.estado, item.id);
-            this.alPulsar = null;
             resolver({ tipo: 'item', item });
             return;
           } else return;
@@ -569,13 +584,27 @@ export class Combate extends Phaser.Scene {
           this.modoBolsa(items, sel);
         };
       };
+      /** Reloj de Arena: se eligen dos ataques seguidos. Con B se vuelve al menú sin gastarlo. */
+      const relojDeArena = (item: Item) => {
+        const listo = (primera: Accion, segunda: Accion) => {
+          this.turnoTxt.poner(`Turno ${this.bat.turno + 1}`);
+          quitar(juego.estado, item.id);
+          resolver({ tipo: 'doble', item, primera, segunda });
+        };
+        if (this.bat.accionesValidas(0)[0]!.tipo === 'empujon') return listo({ tipo: 'empujon' }, { tipo: 'empujon' });
+        this.turnoTxt.poner(t('c.reloj1'));
+        menuHabilidades((primera) => {
+          this.turnoTxt.poner(t('c.reloj2'));
+          menuHabilidades((segunda) => listo(primera, segunda));
+        });
+      };
       menuPrincipal();
     });
   }
 
-  /** Ítems de combate en el orden de los datos (hasta 4, una celda cada uno). */
+  /** Ítems de combate que tienes, en el orden de los datos (se muestran de a 4 por página). */
   private itemsDeCombate(): Item[] {
-    return [...DATOS.items.values()].filter((i) => i.uso === 'combate').slice(0, 4);
+    return [...DATOS.items.values()].filter((i) => i.uso === 'combate' && cantidad(juego.estado, i.id) > 0);
   }
 
   private modoBolsa(items: Item[], sel: number): void {
@@ -584,22 +613,27 @@ export class Combate extends Phaser.Scene {
     this.gVentanas.clear();
     ventana(this.gVentanas, 2, 112, 236, 46);
     this.gVentanas.fillStyle(n(C.papelSombra), 1).fillRect(8, 135, 224, 1);
-    items.forEach((it, i) => {
+    const pagina = Math.floor(sel / 4);
+    const paginas = Math.ceil(items.length / 4);
+    items.slice(pagina * 4, pagina * 4 + 4).forEach((it, k) => {
+      const i = pagina * 4 + k;
       const n0 = cantidad(juego.estado, it.id);
-      const bloqueado = n0 < 1 || this.bat.bloqueoItem(0, it) !== null;
+      const bloqueado = this.bat.bloqueoItem(0, it) !== null;
       const color = bloqueado ? C.apagado : i === sel ? C.resalte : C.tinta;
-      this.celdas[i]!.nombre.poner(it.nombre, color).visible(true);
-      this.celdas[i]!.usos.poner(`×${n0}`, color).visible(true);
+      this.celdas[k]!.nombre.poner(it.nombre, color).visible(true);
+      this.celdas[k]!.usos.poner(`×${n0}`, color).visible(true);
+      this.zonaMenu(6 + (k % 2) * 110, 115 + Math.floor(k / 2) * 9, 110, 9, i);
     });
-    const x = 8 + (sel % 2) * 110;
-    const y = 117 + Math.floor(sel / 2) * 9;
+    const k = sel % 4;
+    const x = 8 + (k % 2) * 110;
+    const y = 117 + Math.floor(k / 2) * 9;
     this.cursor.fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3);
-    items.forEach((_, i) => this.zonaMenu(6 + (i % 2) * 110, 115 + Math.floor(i / 2) * 9, 110, 9, i));
-    this.puntero.marcar(`b${sel}`, this.celdas[sel]?.nombre.imagen);
+    this.puntero.marcar(`b${sel}`, this.celdas[k]?.nombre.imagen);
     const it = items[sel]!;
-    const motivo = cantidad(juego.estado, it.id) < 1 ? 'sin_unidades' : this.bat.bloqueoItem(0, it);
+    const motivo = this.bat.bloqueoItem(0, it);
     this.info1.imagen.setX(10);
-    this.info1.poner(t('bolsa.restan', { n: this.bat.itemsUsados[0], max: DATOS.reglasItems.maxPorCombate })).visible(true);
+    const restan = t('bolsa.restan', { n: this.bat.itemsUsados[0], max: DATOS.reglasItems.maxPorCombate });
+    this.info1.poner(paginas > 1 ? `${restan} · ${t('bolsa.pagina', { p: pagina + 1, n: paginas })}` : restan).visible(true);
     this.info2
       .poner(motivo ? t(`bolsa.${motivo}`, { n: DATOS.reglasItems.maxPorCombate }) : it.descripcion, motivo ? C.resalte : C.tinta)
       .visible(true);

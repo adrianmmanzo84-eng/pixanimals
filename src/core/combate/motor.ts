@@ -55,13 +55,15 @@ export type Accion =
   /** Ataque Definitivo de la criatura activa. */
   | { tipo: 'definitivo' }
   /** Gasta el turno en cargar el Definitivo (los lados que lo necesitan, avisando al rival). */
-  | { tipo: 'cargar' };
+  | { tipo: 'cargar' }
+  /** Reloj de Arena: dos ataques seguidos este turno. */
+  | { tipo: 'doble'; item: Item; primera: Accion; segunda: Accion };
 
 /** Por qué no se puede usar el Definitivo ahora. */
 export type MotivoDefinitivo = 'no_tiene' | 'no_permitido' | 'usado' | 'turno' | 'sin_cargar';
 
 /** Por qué no se puede usar un ítem ahora. */
-export type MotivoItem = 'limite' | 'no_es_de_combate' | 'ps_llenos' | 'sin_estado' | 'usos_llenos';
+export type MotivoItem = 'limite' | 'no_es_de_combate' | 'ps_llenos' | 'sin_estado' | 'usos_llenos' | 'sin_caidas' | 'tope' | 'rival_con_estado';
 
 export type MotivoBloqueo = 'usos' | 'enfriamiento' | 'turno' | 'repetir';
 
@@ -83,6 +85,7 @@ export type Evento =
   | { t: 'etapa_tope'; lado: Lado; stat: StatId; delta: number }
   | { t: 'cura'; lado: Lado; cantidad: number; ps: number; origen: 'habilidad' | 'pasiva' | 'item' }
   | { t: 'item'; lado: Lado; item: Item }
+  | { t: 'revive'; lado: Lado; indice: number; ps: number }
   | { t: 'usos'; lado: Lado; cantidad: number }
   | { t: 'cansancio'; lado: Lado; cantidad: number; ps: number }
   | { t: 'carga'; lado: Lado }
@@ -211,6 +214,13 @@ export class Batalla {
     if (e.tipo === 'cura' && c.ps >= c.stats.ps) return 'ps_llenos';
     if (e.tipo === 'antidoto' && !c.estado) return 'sin_estado';
     if (e.tipo === 'tonico' && c.habilidades.every((h) => h.usos >= h.def.usos)) return 'usos_llenos';
+    if (e.tipo === 'revivir' && !this.equipos[lado].miembros.some((m) => m.ps <= 0)) return 'sin_caidas';
+    if (e.tipo === 'etapa' && c.etapas[e.stat] >= this.datos.balance.etapas.max) return 'tope';
+    if (e.tipo === 'encanto') {
+      const rival = this.act((1 - lado) as Lado);
+      if (e.estado && rival.estado) return 'rival_con_estado';
+      if (e.stat && rival.etapas[e.stat] <= -this.datos.balance.etapas.max) return 'tope';
+    }
     return null;
   }
 
@@ -251,6 +261,13 @@ export class Batalla {
           this.hacerCambio(lado, a.indice, false, ev);
         }
       } else if (a.tipo === 'item') this.usarItem(lado, a.item, ev);
+      else if (a.tipo === 'doble') {
+        // Reloj de Arena: dos ataques seguidos; el segundo solo si los dos siguen en pie.
+        this.itemsUsados[lado]++;
+        ev.push({ t: 'item', lado, item: a.item });
+        this.actuar(lado, a.primera, ev);
+        if (!this.terminado && this.act(lado).ps > 0 && this.act((1 - lado) as Lado).ps > 0) this.actuar(lado, a.segunda, ev);
+      }
       else if (a.tipo === 'cargar') {
         if (this.puedeCargar(lado)) {
           this.definitivoCargado[lado] = true;
@@ -312,6 +329,32 @@ export class Batalla {
     } else if (e.tipo === 'escudo') {
       c.guardia = { tipo: 'guardia', modo: 'reduce', reduccion: e.reduccion };
       ev.push({ t: 'guardia', lado, modo: 'reduce' });
+    } else if (e.tipo === 'revivir') {
+      const indice = this.equipos[lado].miembros.findIndex((m) => m.ps <= 0);
+      if (indice < 0) return void ev.push({ t: 'sin_efecto', lado });
+      const m = this.equipos[lado].miembros[indice]!;
+      m.ps = Math.max(1, Math.floor((m.stats.ps * e.porcentaje) / 100));
+      m.estado = null;
+      ev.push({ t: 'revive', lado, indice, ps: m.ps });
+    } else if (e.tipo === 'etapa') {
+      this.cambiarEtapa(lado, e.stat, e.cantidad, ev);
+    } else if (e.tipo === 'encanto') {
+      const rival = (1 - lado) as Lado;
+      if (e.estado) this.aplicarEstado(rival, e.estado, ev, true);
+      if (e.stat) this.cambiarEtapa(rival, e.stat, -(e.cantidad ?? 1), ev);
+    } else ev.push({ t: 'sin_efecto', lado });
+  }
+
+  /** Sube o baja un stat respetando el tope (avisa si ya estaba al tope). */
+  private cambiarEtapa(lado: Lado, stat: Exclude<StatId, 'ps'>, delta: number, ev: Evento[]): void {
+    const c = this.act(lado);
+    const max = this.datos.balance.etapas.max;
+    const antes = c.etapas[stat];
+    const despues = Math.max(-max, Math.min(max, antes + delta));
+    if (despues === antes) ev.push({ t: 'etapa_tope', lado, stat, delta });
+    else {
+      c.etapas[stat] = despues;
+      ev.push({ t: 'etapa', lado, stat, delta: despues - antes });
     }
   }
 
@@ -331,6 +374,7 @@ export class Batalla {
 
   private prioridad(lado: Lado, a: Accion): number {
     if (a.tipo === 'cambio' || a.tipo === 'item') return 5;
+    if (a.tipo === 'doble') return this.prioridad(lado, a.primera);
     return a.tipo === 'habilidad' ? (this.act(lado).habilidades[a.indice]?.def.prioridad ?? 0) : 0;
   }
 

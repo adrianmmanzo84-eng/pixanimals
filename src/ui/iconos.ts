@@ -1,4 +1,4 @@
-import type Phaser from 'phaser';
+import Phaser from 'phaser';
 import type { Item } from '../esquemas/esquemas';
 import { n } from './estilo';
 
@@ -12,14 +12,42 @@ export function iconoItem(g: Phaser.GameObjects.Graphics, item: Item, x: number,
   const borde = 0x1f2340;
   const luz = 0xffffff;
   switch (item.efecto.tipo) {
-    case 'xp': // caramelo envuelto
-      g.fillStyle(borde, 1).fillTriangle(x - 6 * k, y - 3 * k, x - 6 * k, y + 3 * k, x - 2 * k, y);
-      g.fillStyle(borde, 1).fillTriangle(x + 6 * k, y - 3 * k, x + 6 * k, y + 3 * k, x + 2 * k, y);
-      g.fillStyle(c, 1).fillTriangle(x - 5 * k, y - 2 * k, x - 5 * k, y + 2 * k, x - 2 * k, y);
-      g.fillStyle(c, 1).fillTriangle(x + 5 * k, y - 2 * k, x + 5 * k, y + 2 * k, x + 2 * k, y);
-      g.fillStyle(borde, 1).fillCircle(x, y, 3.6 * k);
-      g.fillStyle(c, 1).fillCircle(x, y, 2.8 * k);
-      g.fillStyle(luz, 0.8).fillCircle(x - 1 * k, y - 1 * k, 0.9 * k);
+    case 'xp': // piedra de experiencia: gema redonda con brillo
+      g.fillStyle(borde, 1).fillCircle(x, y, 5 * k);
+      g.fillStyle(c, 1).fillCircle(x, y, 4.1 * k);
+      g.fillStyle(0xffffff, 0.35).fillCircle(x - 1 * k, y - 1 * k, 2.6 * k);
+      g.fillStyle(luz, 0.9).fillRect(x - 2.4 * k, y - 2.6 * k, 1.4 * k, 1.4 * k);
+      g.fillStyle(borde, 0.5).fillRect(x - 1.5 * k, y + 1.4 * k, 3 * k, 0.8 * k);
+      break;
+    case 'revivir': // estrella dorada
+      for (const [r, col] of [[5.6, borde], [4.4, c]] as [number, number][]) {
+        const pts: Phaser.Math.Vector2[] = [];
+        for (let i = 0; i < 10; i++) {
+          const ang = -Math.PI / 2 + (i * Math.PI) / 5;
+          const rr = i % 2 ? r * 0.45 : r;
+          pts.push(new Phaser.Math.Vector2(x + Math.cos(ang) * rr * k, y + 0.5 * k + Math.sin(ang) * rr * k));
+        }
+        g.fillStyle(col, 1).fillPoints(pts, true);
+      }
+      g.fillStyle(luz, 0.8).fillRect(x - 1 * k, y - 1 * k, 1.2 * k, 1.2 * k);
+      break;
+    case 'doble': // reloj de arena
+      g.fillStyle(borde, 1).fillRect(x - 4.5 * k, y - 6 * k, 9 * k, 1.6 * k).fillRect(x - 4.5 * k, y + 4.4 * k, 9 * k, 1.6 * k);
+      g.fillStyle(0xe8f0f8, 1).fillTriangle(x - 3.5 * k, y - 4.4 * k, x + 3.5 * k, y - 4.4 * k, x, y).fillTriangle(x - 3.5 * k, y + 4.4 * k, x + 3.5 * k, y + 4.4 * k, x, y);
+      g.fillStyle(c, 1).fillTriangle(x - 2 * k, y - 3 * k, x + 2 * k, y - 3 * k, x, y - 0.6 * k).fillTriangle(x - 3 * k, y + 4.4 * k, x + 3 * k, y + 4.4 * k, x, y + 1.6 * k);
+      break;
+    case 'etapa': // carta con flecha hacia arriba
+    case 'encanto': // carta con espiral (flecha hacia abajo si baja un stat)
+      g.fillStyle(borde, 1).fillRoundedRect(x - 4 * k, y - 5.5 * k, 8 * k, 11 * k, 1.5 * k);
+      g.fillStyle(c, 1).fillRoundedRect(x - 3 * k, y - 4.5 * k, 6 * k, 9 * k, 1 * k);
+      if (item.efecto.tipo === 'etapa') {
+        g.fillStyle(luz, 1).fillTriangle(x - 2.2 * k, y, x + 2.2 * k, y, x, y - 3 * k).fillRect(x - 0.8 * k, y, 1.6 * k, 2.6 * k);
+      } else if (item.efecto.estado) {
+        g.lineStyle(1 * k, luz, 1).strokeCircle(x, y, 2.2 * k);
+        g.fillStyle(luz, 1).fillCircle(x, y, 0.8 * k);
+      } else {
+        g.fillStyle(luz, 1).fillTriangle(x - 2.2 * k, y, x + 2.2 * k, y, x, y + 3 * k).fillRect(x - 0.8 * k, y - 2.6 * k, 1.6 * k, 2.6 * k);
+      }
       break;
     case 'vitamina': // cápsula
       g.fillStyle(borde, 1).fillRoundedRect(x - 5.5 * k, y - 3 * k, 11 * k, 6 * k, 3 * k);

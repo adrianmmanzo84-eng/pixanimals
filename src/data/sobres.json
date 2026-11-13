@@ -52,7 +52,10 @@
         "poco_comun": 22,
         "rara": 7,
         "epica": 1
-      }
+      },
+      "probItem": 35,
+      "probEtapa2": 15,
+      "color": "#5aa9f0"
     },
     {
       "id": "brasa",
@@ -64,7 +67,9 @@
         "poco_comun": 22,
         "rara": 7,
         "epica": 1
-      }
+      },
+      "probItem": 25,
+      "probEtapa2": 20
     },
     {
       "id": "marea",
@@ -76,7 +81,9 @@
         "poco_comun": 22,
         "rara": 7,
         "epica": 1
-      }
+      },
+      "probItem": 25,
+      "probEtapa2": 20
     },
     {
       "id": "brote",
@@ -88,7 +95,99 @@
         "poco_comun": 22,
         "rara": 7,
         "epica": 1
-      }
+      },
+      "probItem": 25,
+      "probEtapa2": 20
+    },
+    {
+      "id": "rayo",
+      "nombre": "Sobre Rayo",
+      "costo": 250,
+      "tipo": "rayo",
+      "prob": {
+        "comun": 70,
+        "poco_comun": 22,
+        "rara": 7,
+        "epica": 1
+      },
+      "probItem": 25,
+      "probEtapa2": 20
+    },
+    {
+      "id": "roca",
+      "nombre": "Sobre Roca",
+      "costo": 250,
+      "tipo": "roca",
+      "prob": {
+        "comun": 70,
+        "poco_comun": 22,
+        "rara": 7,
+        "epica": 1
+      },
+      "probItem": 25,
+      "probEtapa2": 20
+    },
+    {
+      "id": "cielo",
+      "nombre": "Sobre Cielo",
+      "costo": 250,
+      "tipo": "cielo",
+      "prob": {
+        "comun": 70,
+        "poco_comun": 22,
+        "rara": 7,
+        "epica": 1
+      },
+      "probItem": 25,
+      "probEtapa2": 20
+    },
+    {
+      "id": "sombra",
+      "nombre": "Sobre Sombra",
+      "costo": 250,
+      "tipo": "sombra",
+      "prob": {
+        "comun": 70,
+        "poco_comun": 22,
+        "rara": 7,
+        "epica": 1
+      },
+      "probItem": 25,
+      "probEtapa2": 20
+    },
+    {
+      "id": "botiquin",
+      "nombre": "Sobre Botiquín",
+      "costo": 200,
+      "tipo": null,
+      "prob": {
+        "comun": 45,
+        "poco_comun": 35,
+        "rara": 16,
+        "epica": 4
+      },
+      "probItem": 100,
+      "probEtapa2": 0,
+      "items": [
+        "pocion",
+        "superpocion",
+        "pocion_max",
+        "revivir",
+        "antidoto",
+        "tonico",
+        "carta_escudo",
+        "carta_furia",
+        "carta_muralla",
+        "carta_mente",
+        "carta_calma",
+        "carta_rafaga",
+        "encanto_sueno",
+        "encanto_veneno",
+        "encanto_lento",
+        "encanto_debil",
+        "reloj_arena"
+      ],
+      "color": "#e05a6a"
     },
     {
       "id": "raro",
@@ -100,7 +199,25 @@
         "poco_comun": 35,
         "rara": 20,
         "epica": 5
-      }
+      },
+      "probItem": 35,
+      "probEtapa2": 30,
+      "color": "#8a45c8"
+    },
+    {
+      "id": "legendario",
+      "nombre": "Sobre Legendario",
+      "costo": 1500,
+      "tipo": null,
+      "prob": {
+        "comun": 10,
+        "poco_comun": 40,
+        "rara": 35,
+        "epica": 15
+      },
+      "probItem": 30,
+      "probEtapa2": 50,
+      "color": "#e0a020"
     }
   ],
   "bienvenida": [

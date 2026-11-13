@@ -1,5 +1,8 @@
 import Phaser from 'phaser';
 import { Puntero } from '../ui/puntero';
+import { iconoItem } from '../ui/iconos';
+import type { SobreDef } from '../esquemas/esquemas';
+import { cantidad } from '../core/items/items';
 import { DATOS } from '../core/datos';
 import { Rng } from '../core/rng';
 import { abrirSobre, cartaInicial, costoDe, ORDEN_RAREZA, probConIncienso, sobresGratis, type Carta } from '../core/sobres/sobres';
@@ -18,6 +21,13 @@ function duracion(ms: number): string {
 }
 
 /** Tienda y apertura de sobres. Las probabilidades y el pity se muestran siempre. */
+const FILAS = 8;
+
+/** Color del sobre: el suyo, o el de su tipo. */
+function colorSobre(s: SobreDef): number {
+  return s.color ? n(s.color) : s.tipo ? (COLOR_TIPO[s.tipo] ?? 0x5aa9f0) : 0x5aa9f0;
+}
+
 export class Sobres extends Phaser.Scene {
   private sel = 0;
   private nombres: Texto[] = [];
@@ -28,6 +38,9 @@ export class Sobres extends Phaser.Scene {
   private cursor!: Phaser.GameObjects.Graphics;
   private alPulsar: ((a: AccionEntrada) => void) | null = null;
   private bienvenida = false;
+  private scroll = 0;
+  private fijarScroll = false;
+  private colores!: Phaser.GameObjects.Graphics;
   private puntero: Puntero | null = null;
 
   constructor() {
@@ -60,23 +73,26 @@ export class Sobres extends Phaser.Scene {
     ventana(g, 4, 20, 122, 92);
     ventana(g, 130, 20, 106, 92);
     ventana(g, 4, 116, 232, 40);
-    DATOS.sobres.sobres.forEach((_, i) => {
-      this.nombres.push(new Texto(this, 18, 27 + i * 16, 70, 10));
-      this.costos.push(new Texto(this, 78, 27 + i * 16, 42, 10, C.tinta, 'der'));
-    });
+    // Lista con desplazamiento: FILAS sobres a la vista.
+    this.colores = this.add.graphics();
+    for (let k = 0; k < FILAS; k++) {
+      this.nombres.push(new Texto(this, 22, 25 + k * 11, 70, 10));
+      this.costos.push(new Texto(this, 78, 25 + k * 11, 42, 10, C.tinta, 'der'));
+    }
     new Texto(this, 136, 25, 96, 10, C.tintaSuave).poner(t('sobres.prob'));
-    for (let i = 0; i < 7; i++) this.probs.push(new Texto(this, 136, 36 + i * 10, 96, 10));
+    for (let i = 0; i < 8; i++) this.probs.push(new Texto(this, 136, 35 + i * 9.5, 96, 10));
     this.pie = new Texto(this, 10, 121, 220, 30);
     this.cursor = this.add.graphics();
     this.puntero = new Puntero(this);
-    DATOS.sobres.sobres.forEach((_, i) =>
-      this.puntero!.zona(8, 26 + i * 16, 116, 14, () => {
-        if (this.alPulsar !== this.enLista || i === this.sel) return;
+    for (let k = 0; k < FILAS; k++)
+      this.puntero.zona(8, 24 + k * 11, 116, 11, () => {
+        const i = this.scroll + k;
+        if (this.alPulsar !== this.enLista || i === this.sel || i >= DATOS.sobres.sobres.length) return;
         this.sel = i;
+        this.fijarScroll = true;
         sonido.tocar('cursor');
         this.pintar();
-      }),
-    );
+      });
     this.time.addEvent({ delay: 1000, loop: true, callback: () => this.alPulsar === this.enLista && this.pintar() });
     this.alPulsar = this.enLista;
     this.pintar();
@@ -102,7 +118,7 @@ export class Sobres extends Phaser.Scene {
       juego.guardar();
       sonido.tocar('aceptar');
       this.alPulsar = null;
-      void this.animar(cartas, def.tipo ? COLOR_TIPO[def.tipo]! : def.id === 'raro' ? 0x8a45c8 : 0x5aa9f0, def.nombre).then(() => this.scene.restart({}));
+      void this.animar(cartas, colorSobre(def), def.nombre).then(() => this.scene.restart({}));
     }
   };
 
@@ -110,16 +126,31 @@ export class Sobres extends Phaser.Scene {
     const estado = juego.estado;
     const ahora = Date.now();
     const gratis = sobresGratis(DATOS, estado, ahora);
+    const lista = DATOS.sobres.sobres;
+    if (!this.fijarScroll) this.scroll = Math.max(0, Math.min(this.sel - Math.floor(FILAS / 2), lista.length - FILAS));
+    this.fijarScroll = false;
     this.recursos.poner(`${t('rec.monedas', { n: estado.monedas })} · ${t('rec.esencia', { n: estado.esencia })}`);
-    DATOS.sobres.sobres.forEach((s, i) => {
+    this.colores.clear();
+    for (let k = 0; k < FILAS; k++) {
+      const i = this.scroll + k;
+      const s = lista[i];
+      if (!s) {
+        this.nombres[k]!.poner('');
+        this.costos[k]!.poner('');
+        continue;
+      }
       const pago = costoDe(DATOS, estado, s.id, ahora);
       const color = i === this.sel ? C.resalte : pago.puede ? C.tinta : C.apagado;
-      this.nombres[i]!.poner(s.nombre, color);
-      this.costos[i]!.poner(pago.gratis ? t('sobres.gratis', { n: gratis.disponibles }) : String(s.costo), color);
-    });
-    const y = 28 + this.sel * 16;
-    this.cursor.clear().fillStyle(n(C.resalte), 1).fillTriangle(10, y, 10, y + 6, 14, y + 3);
-    this.puntero?.marcar(this.sel, this.nombres[this.sel]?.imagen);
+      this.nombres[k]!.poner(s.nombre, color);
+      this.costos[k]!.poner(pago.gratis ? t('sobres.gratis', { n: gratis.disponibles }) : String(s.costo), color);
+      // Muestra del color del sobre.
+      this.colores.fillStyle(colorSobre(s), 1).fillRoundedRect(15, 26 + k * 11, 5, 7, 1);
+    }
+    if (this.scroll > 0) this.colores.fillStyle(n(C.tintaSuave), 1).fillTriangle(62, 23, 66, 23, 64, 21);
+    if (this.scroll + FILAS < lista.length) this.colores.fillStyle(n(C.tintaSuave), 1).fillTriangle(62, 109, 66, 109, 64, 111);
+    const y = 27 + (this.sel - this.scroll) * 11;
+    this.cursor.clear().fillStyle(n(C.resalte), 1).fillTriangle(9, y, 9, y + 6, 13, y + 3);
+    this.puntero?.marcar(this.sel, this.nombres[this.sel - this.scroll]?.imagen);
 
     const def = DATOS.sobres.sobres[this.sel]!;
     const prob = probConIncienso(def.prob, estado, ahora);
@@ -128,8 +159,14 @@ export class Sobres extends Phaser.Scene {
     this.probs[4]!.poner(t('sobres.brillante', { n: DATOS.sobres.brillanteUnoEn }), C.tintaSuave);
     this.probs[5]!.poner(t('sobres.pity.rara', { n: Math.max(1, DATOS.sobres.pity.rara - estado.pity.rara + 1) }), C.tintaSuave);
     this.probs[6]!.poner(t('sobres.pity.epica', { n: Math.max(1, DATOS.sobres.pity.epica - estado.pity.epica + 1) }), C.tintaSuave);
+    this.probs[7]!.poner(
+      def.probItem >= 100 ? t('sobres.soloItems') : t('sobres.mezcla', { i: def.probItem, e: def.probEtapa2 }),
+      '#257179',
+    );
 
-    const contenido = t('sobres.contenido', { extra: def.tipo ? t('sobres.soloTipo', { tipo: DATOS.tipos.get(def.tipo)!.nombre }) : t('sobres.cualquiera') });
+    const contenido = t('sobres.contenido', {
+      extra: def.probItem >= 100 ? t('sobres.botiquin') : def.tipo ? t('sobres.soloTipo', { tipo: DATOS.tipos.get(def.tipo)!.nombre }) : t('sobres.cualquiera'),
+    });
     const incienso = Math.ceil((estado.incienso.hasta - ahora) / 60_000);
     const reloj =
       incienso > 0
@@ -199,8 +236,8 @@ export class Sobres extends Phaser.Scene {
       await this.tw({ targets: cont, scaleX: 0, duration: 110 });
       cont.removeAll(true);
       this.cara(cont, carta);
-      const buena = carta.rareza === 'rara' || carta.rareza === 'epica' || carta.brillante;
-      sonido.tocar(buena ? 'victoria' : carta.resultado === 'repetida' ? 'cursor' : 'sube');
+      const buena = carta.rareza === 'rara' || carta.rareza === 'epica' || (carta.clase === 'criatura' && carta.brillante);
+      sonido.tocar(buena ? 'victoria' : carta.clase === 'criatura' && carta.resultado === 'repetida' ? 'cursor' : 'sube');
       if (buena) this.cameras.main.flash(180, 255, 240, 180);
       await this.tw({ targets: cont, scaleX: 1, duration: 130 });
       if (buena) await this.tw({ targets: cont, scaleX: 1.08, scaleY: 1.08, duration: 110, yoyo: true });
@@ -222,8 +259,9 @@ export class Sobres extends Phaser.Scene {
     return gr;
   }
 
-  /** Dibuja la cara de una carta de criatura dentro del contenedor. */
+  /** Dibuja la cara de una carta (criatura o ítem) dentro del contenedor. */
   private cara(cont: Phaser.GameObjects.Container, carta: Carta): void {
+    if (carta.clase === 'item') return this.caraItem(cont, carta.item, carta.rareza);
     const especie = DATOS.criaturas.get(carta.especie)!;
     const cara = this.add.graphics();
     cara.fillStyle(0x10142c, 1).fillRoundedRect(-31, -46, 62, 92, 5);
@@ -240,6 +278,23 @@ export class Sobres extends Phaser.Scene {
       new Texto(this, -31, 33, 62, 10, '#b07a00', 'centro', { tam: 6.6, peso: 600 }).poner(carta.brillante ? t('carta.brillante') : ''),
     ];
     cont.add([cara, sprite, ...lineas.map((l) => l.imagen)]);
+  }
+
+  /** Carta de ítem: marco de su rareza, el icono grande, nombre y «a la Bolsa». */
+  private caraItem(cont: Phaser.GameObjects.Container, id: string, rareza: Carta['rareza']): void {
+    const it = DATOS.items.get(id)!;
+    const cara = this.add.graphics();
+    cara.fillStyle(0x10142c, 1).fillRoundedRect(-31, -46, 62, 92, 5);
+    cara.fillStyle(n(COLOR_RAREZA[rareza]), 1).fillRoundedRect(-29, -44, 58, 88, 4);
+    cara.fillStyle(n(C.papel), 1).fillRoundedRect(-26.5, -41.5, 53, 83, 3);
+    cara.fillStyle(n(it.color), 0.22).fillRoundedRect(-24, -39, 48, 44, 3);
+    iconoItem(cara, it, 0, -17, 2.4);
+    const lineas = [
+      new Texto(this, -31, 6, 62, 10, C.tinta, 'centro', { peso: 600, tam: it.nombre.length > 12 ? 6.4 : 7.4 }).poner(it.nombre),
+      new Texto(this, -31, 15, 62, 10, COLOR_RAREZA[rareza], 'centro', { tam: 5.8 }).poner(estrellas(rareza)),
+      new Texto(this, -31, 24, 62, 10, C.resalte, 'centro', { tam: 6.6 }).poner(t('carta.item', { n: cantidad(juego.estado, id) })),
+    ];
+    cont.add([cara, ...lineas.map((l) => l.imagen)]);
   }
 
   /**

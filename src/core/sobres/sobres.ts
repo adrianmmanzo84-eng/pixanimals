@@ -3,6 +3,7 @@ import type { Datos } from '../datos';
 import type { Rng } from '../rng';
 import { criaturaDe, marcarVista, nuevaCriatura } from '../estado/juego';
 import { registrar } from '../progresion/misiones';
+import { agregar } from '../items/items';
 
 /** Reglas de los sobres: tiradas de rareza, pity, sobre gratis y qué pasa con las repetidas. */
 
@@ -11,7 +12,8 @@ const rango = (r: RarezaId) => ORDEN_RAREZA.indexOf(r);
 
 export type ResultadoCarta = 'nueva' | 'mejora' | 'repetida';
 
-export interface Carta {
+export interface CartaCriatura {
+  clase: 'criatura';
   especie: string;
   rareza: RarezaId;
   brillante: boolean;
@@ -21,6 +23,15 @@ export interface Carta {
   /** La tuya pasa a ser brillante gracias a esta carta. */
   ganaBrillo: boolean;
 }
+
+/** Carta de ítem: va directo a la Bolsa. */
+export interface CartaItem {
+  clase: 'item';
+  item: string;
+  rareza: RarezaId;
+}
+
+export type Carta = CartaCriatura | CartaItem;
 
 const MS_HORA = 3_600_000;
 
@@ -44,14 +55,14 @@ export function tirarRareza(prob: SobreDef['prob'], rng: Rng): RarezaId {
 }
 
 /** Guarda una carta en la colección y dice qué pasó con ella. */
-export function recibir(datos: Datos, estado: EstadoJuego, especie: string, rareza: RarezaId, brillante: boolean): Carta {
+export function recibir(datos: Datos, estado: EstadoJuego, especie: string, rareza: RarezaId, brillante: boolean, nivel = datos.sobres.nivelInicial): CartaCriatura {
   const esenciaDe = (r: RarezaId) => datos.sobres.rarezas.find((x) => x.id === r)!.esencia;
   marcarVista(estado, especie);
   const mia = criaturaDe(estado, especie);
   if (!mia) {
-    estado.criaturas.push(nuevaCriatura(especie, datos.sobres.nivelInicial, rareza, brillante));
+    estado.criaturas.push(nuevaCriatura(especie, nivel, rareza, brillante));
     if (estado.equipo.length < datos.economia.tamanoEquipo) estado.equipo.push(especie);
-    return { especie, rareza, brillante, resultado: 'nueva', esencia: 0, ganaBrillo: false };
+    return { clase: 'criatura', especie, rareza, brillante, resultado: 'nueva', esencia: 0, ganaBrillo: false };
   }
   const ganaBrillo = brillante && !mia.brillante;
   if (ganaBrillo) mia.brillante = true;
@@ -60,11 +71,11 @@ export function recibir(datos: Datos, estado: EstadoJuego, especie: string, rare
     const esencia = esenciaDe(mia.rareza);
     mia.rareza = rareza;
     estado.esencia += esencia;
-    return { especie, rareza, brillante, resultado: 'mejora', esencia, ganaBrillo };
+    return { clase: 'criatura', especie, rareza, brillante, resultado: 'mejora', esencia, ganaBrillo };
   }
   const esencia = esenciaDe(rareza);
   estado.esencia += esencia;
-  return { especie, rareza, brillante, resultado: 'repetida', esencia, ganaBrillo };
+  return { clase: 'criatura', especie, rareza, brillante, resultado: 'repetida', esencia, ganaBrillo };
 }
 
 /** Con incienso activo, Rara y Épica se multiplican y la diferencia se le quita a Común (y si no alcanza, a Poco común). */
@@ -106,7 +117,6 @@ export function abrirSobre(datos: Datos, estado: EstadoJuego, idSobre: string, r
     estado.gratis.acumulados = disponibles - 1;
   } else estado.monedas -= def.costo;
 
-  const candidatas = [...datos.criaturas.values()].filter((c) => c.etapa === 1 && (!def.tipo || c.tipo === def.tipo));
   const prob = probConIncienso(def.prob, estado, ahora);
   const rarezas: RarezaId[] = Array.from({ length: datos.sobres.cartasPorSobre }, () => tirarRareza(prob, rng));
   // Pity: tras N sobres sin Rara (o sin Épica), la primera carta de este sobre la garantiza.
@@ -118,7 +128,41 @@ export function abrirSobre(datos: Datos, estado: EstadoJuego, idSobre: string, r
   estado.estadisticas.sobres++;
   registrar(datos, estado, 'sobre', 1, ahora);
 
-  return rarezas.map((rareza) => recibir(datos, estado, rng.elegir(candidatas).id, rareza, rng.prob(100 / datos.sobres.brillanteUnoEn)));
+  return rarezas.map((rareza) => tirarCarta(datos, estado, def, rareza, rng));
+}
+
+/** Nivel con el que llega una criatura de etapa 2: el nivel en que evoluciona su etapa anterior. */
+export function nivelDeLlegada(datos: Datos, especie: string): number {
+  for (const c of datos.criaturas.values()) {
+    const ev = c.evoluciona.find((e) => e.a === especie && !e.item);
+    if (ev) return ev.nivel;
+  }
+  return datos.sobres.nivelInicial;
+}
+
+/** Ítem al azar de una rareza (si no hay de esa rareza en el sobre, baja hasta encontrar). */
+export function itemDeRareza(datos: Datos, def: SobreDef, rareza: RarezaId, rng: Rng): string | null {
+  const todos = [...datos.items.values()].filter((i) => i.rareza && (!def.items || def.items.includes(i.id)));
+  for (let r = rango(rareza); r >= 0; r--) {
+    const de = todos.filter((i) => i.rareza === ORDEN_RAREZA[r]);
+    if (de.length) return rng.elegir(de).id;
+  }
+  return todos.length ? rng.elegir(todos).id : null;
+}
+
+/** Una carta del sobre: ítem (según `probItem`) o criatura de etapa 1 o 2 (según `probEtapa2`). */
+function tirarCarta(datos: Datos, estado: EstadoJuego, def: SobreDef, rareza: RarezaId, rng: Rng): Carta {
+  if (rng.prob(def.probItem)) {
+    const item = itemDeRareza(datos, def, rareza, rng);
+    if (item) {
+      agregar(estado, item);
+      return { clase: 'item', item, rareza };
+    }
+  }
+  const etapa = rng.prob(def.probEtapa2) ? 2 : 1;
+  const candidatas = [...datos.criaturas.values()].filter((c) => c.etapa === etapa && (!def.tipo || c.tipo === def.tipo));
+  const especie = rng.elegir(candidatas).id;
+  return recibir(datos, estado, especie, rareza, rng.prob(100 / datos.sobres.brillanteUnoEn), etapa === 2 ? nivelDeLlegada(datos, especie) : datos.sobres.nivelInicial);
 }
 
 /**
@@ -126,14 +170,14 @@ export function abrirSobre(datos: Datos, estado: EstadoJuego, idSobre: string, r
  * de cualquier familia (las que se agreguen entran solas). Todos los iniciales llegan Poco comunes,
  * para que ninguno empiece en desventaja por la rareza.
  */
-export function cartaInicial(datos: Datos, estado: EstadoJuego, rng: Rng): Carta {
+export function cartaInicial(datos: Datos, estado: EstadoJuego, rng: Rng): CartaCriatura {
   const iniciales = [...datos.criaturas.values()].filter((c) => c.etapa === 1);
   estado.bienvenida = true;
   return recibir(datos, estado, rng.elegir(iniciales).id, 'poco_comun', false);
 }
 
 /** Sobre de bienvenida (versión anterior, se usa en pruebas): las criaturas de `sobres.bienvenida` (una de cada familia original), para empezar con equipo completo. */
-export function sobreBienvenida(datos: Datos, estado: EstadoJuego, rng: Rng): Carta[] {
+export function sobreBienvenida(datos: Datos, estado: EstadoJuego, rng: Rng): CartaCriatura[] {
   const basico = datos.sobres.sobres.find((s) => s.id === datos.sobres.gratis.sobre)!;
   estado.bienvenida = true;
   return datos.sobres.bienvenida.map((id) => recibir(datos, estado, id, tirarRareza(basico.prob, rng), false));

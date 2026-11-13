@@ -11,7 +11,7 @@
   "items": [
     {
       "id": "caramelo_s",
-      "nombre": "Caramelo chico",
+      "nombre": "Piedra XP chica",
       "descripcion": "Da 60 de experiencia a una criatura.",
       "uso": "fuera",
       "efecto": {
@@ -21,11 +21,12 @@
       "precio": {
         "monedas": 40
       },
-      "color": "#f4a6c8"
+      "color": "#f4a6c8",
+      "rareza": "comun"
     },
     {
       "id": "caramelo_m",
-      "nombre": "Caramelo mediano",
+      "nombre": "Piedra XP mediana",
       "descripcion": "Da 200 de experiencia a una criatura.",
       "uso": "fuera",
       "efecto": {
@@ -35,11 +36,12 @@
       "precio": {
         "monedas": 120
       },
-      "color": "#e070a8"
+      "color": "#e070a8",
+      "rareza": "poco_comun"
     },
     {
       "id": "caramelo_l",
-      "nombre": "Caramelo grande",
+      "nombre": "Piedra XP grande",
       "descripcion": "Da 600 de experiencia a una criatura.",
       "uso": "fuera",
       "efecto": {
@@ -49,7 +51,8 @@
       "precio": {
         "monedas": 320
       },
-      "color": "#b8408a"
+      "color": "#b8408a",
+      "rareza": "rara"
     },
     {
       "id": "vit_ps",
@@ -64,7 +67,8 @@
       "precio": {
         "esencia": 40
       },
-      "color": "#5cc85c"
+      "color": "#5cc85c",
+      "rareza": "poco_comun"
     },
     {
       "id": "vit_atq",
@@ -79,7 +83,8 @@
       "precio": {
         "esencia": 40
       },
-      "color": "#e85a3a"
+      "color": "#e85a3a",
+      "rareza": "poco_comun"
     },
     {
       "id": "vit_def",
@@ -94,7 +99,8 @@
       "precio": {
         "esencia": 40
       },
-      "color": "#d8a040"
+      "color": "#d8a040",
+      "rareza": "poco_comun"
     },
     {
       "id": "vit_ate",
@@ -109,7 +115,8 @@
       "precio": {
         "esencia": 40
       },
-      "color": "#9a5ae0"
+      "color": "#9a5ae0",
+      "rareza": "poco_comun"
     },
     {
       "id": "vit_dfe",
@@ -124,7 +131,8 @@
       "precio": {
         "esencia": 40
       },
-      "color": "#4aa0e0"
+      "color": "#4aa0e0",
+      "rareza": "poco_comun"
     },
     {
       "id": "vit_vel",
@@ -139,7 +147,8 @@
       "precio": {
         "esencia": 40
       },
-      "color": "#60d8d0"
+      "color": "#60d8d0",
+      "rareza": "poco_comun"
     },
     {
       "id": "incienso",
@@ -154,7 +163,8 @@
       "precio": {
         "monedas": 150
       },
-      "color": "#c890e8"
+      "color": "#c890e8",
+      "rareza": "rara"
     },
     {
       "id": "pocion",
@@ -168,7 +178,8 @@
       "precio": {
         "monedas": 30
       },
-      "color": "#e04848"
+      "color": "#e04848",
+      "rareza": "comun"
     },
     {
       "id": "antidoto",
@@ -181,7 +192,8 @@
       "precio": {
         "monedas": 20
       },
-      "color": "#70c070"
+      "color": "#70c070",
+      "rareza": "comun"
     },
     {
       "id": "tonico",
@@ -195,7 +207,8 @@
       "precio": {
         "monedas": 40
       },
-      "color": "#f0c040"
+      "color": "#f0c040",
+      "rareza": "poco_comun"
     },
     {
       "id": "carta_escudo",
@@ -209,7 +222,207 @@
       "precio": {
         "monedas": 35
       },
-      "color": "#5aa9f0"
+      "color": "#5aa9f0",
+      "rareza": "poco_comun"
+    },
+    {
+      "id": "superpocion",
+      "nombre": "Superpoción",
+      "descripcion": "En combate: recupera el 75 % de los PS.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "cura",
+        "porcentaje": 75
+      },
+      "precio": {
+        "monedas": 80
+      },
+      "color": "#e8508a",
+      "rareza": "poco_comun"
+    },
+    {
+      "id": "pocion_max",
+      "nombre": "Poción Máx",
+      "descripcion": "En combate: recupera todos los PS.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "cura",
+        "porcentaje": 100
+      },
+      "precio": {
+        "monedas": 200
+      },
+      "color": "#b03ad0",
+      "rareza": "rara"
+    },
+    {
+      "id": "revivir",
+      "nombre": "Revivir",
+      "descripcion": "En combate: levanta a una criatura caída del equipo con 50 % de PS.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "revivir",
+        "porcentaje": 50
+      },
+      "precio": {
+        "monedas": 180
+      },
+      "color": "#f5d76e",
+      "rareza": "rara"
+    },
+    {
+      "id": "reloj_arena",
+      "nombre": "Reloj de Arena",
+      "descripcion": "En combate: este turno atacas dos veces seguidas.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "doble"
+      },
+      "precio": null,
+      "color": "#d8a85a",
+      "rareza": "epica"
+    },
+    {
+      "id": "carta_furia",
+      "nombre": "Carta Furia",
+      "descripcion": "En combate: Ataque +2 mientras siga en el campo.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "etapa",
+        "stat": "atq",
+        "cantidad": 2
+      },
+      "precio": {
+        "monedas": 60
+      },
+      "color": "#e85a3a",
+      "rareza": "comun"
+    },
+    {
+      "id": "carta_muralla",
+      "nombre": "Carta Muralla",
+      "descripcion": "En combate: Defensa +2 mientras siga en el campo.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "etapa",
+        "stat": "def",
+        "cantidad": 2
+      },
+      "precio": {
+        "monedas": 60
+      },
+      "color": "#d8a040",
+      "rareza": "comun"
+    },
+    {
+      "id": "carta_mente",
+      "nombre": "Carta Mente",
+      "descripcion": "En combate: At. Especial +2 mientras siga en el campo.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "etapa",
+        "stat": "ate",
+        "cantidad": 2
+      },
+      "precio": {
+        "monedas": 60
+      },
+      "color": "#9a5ae0",
+      "rareza": "comun"
+    },
+    {
+      "id": "carta_calma",
+      "nombre": "Carta Calma",
+      "descripcion": "En combate: Def. Especial +2 mientras siga en el campo.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "etapa",
+        "stat": "dfe",
+        "cantidad": 2
+      },
+      "precio": {
+        "monedas": 60
+      },
+      "color": "#4aa0e0",
+      "rareza": "comun"
+    },
+    {
+      "id": "carta_rafaga",
+      "nombre": "Carta Ráfaga",
+      "descripcion": "En combate: Velocidad +2 mientras siga en el campo.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "etapa",
+        "stat": "vel",
+        "cantidad": 2
+      },
+      "precio": {
+        "monedas": 60
+      },
+      "color": "#60d8d0",
+      "rareza": "comun"
+    },
+    {
+      "id": "encanto_sueno",
+      "nombre": "Encanto Sueño",
+      "descripcion": "En combate: duerme al rival.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "encanto",
+        "estado": "sueno"
+      },
+      "precio": {
+        "monedas": 120
+      },
+      "color": "#8a7ad8",
+      "rareza": "poco_comun"
+    },
+    {
+      "id": "encanto_veneno",
+      "nombre": "Encanto Veneno",
+      "descripcion": "En combate: envenena al rival.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "encanto",
+        "estado": "veneno"
+      },
+      "precio": {
+        "monedas": 90
+      },
+      "color": "#9a4ab0",
+      "rareza": "poco_comun"
+    },
+    {
+      "id": "encanto_lento",
+      "nombre": "Encanto Lentitud",
+      "descripcion": "En combate: Velocidad del rival −2.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "encanto",
+        "stat": "vel",
+        "cantidad": 2
+      },
+      "precio": {
+        "monedas": 90
+      },
+      "color": "#5a8aa0",
+      "rareza": "poco_comun"
+    },
+    {
+      "id": "encanto_debil",
+      "nombre": "Encanto Debilidad",
+      "descripcion": "En combate: Ataque del rival −2.",
+      "uso": "combate",
+      "efecto": {
+        "tipo": "encanto",
+        "stat": "atq",
+        "cantidad": 2
+      },
+      "precio": {
+        "monedas": 90
+      },
+      "color": "#a0605a",
+      "rareza": "poco_comun"
     },
     {
       "id": "piedra_eclipse",
@@ -222,7 +435,8 @@
       "precio": {
         "monedas": 400
       },
-      "color": "#5a3a9a"
+      "color": "#5a3a9a",
+      "rareza": "epica"
     },
     {
       "id": "amuleto_vigor",
@@ -237,7 +451,8 @@
       "precio": {
         "monedas": 300
       },
-      "color": "#5cc85c"
+      "color": "#5cc85c",
+      "rareza": "epica"
     },
     {
       "id": "amuleto_fuerza",
@@ -252,7 +467,8 @@
       "precio": {
         "monedas": 300
       },
-      "color": "#e0604a"
+      "color": "#e0604a",
+      "rareza": "epica"
     },
     {
       "id": "amuleto_coraza",
@@ -267,7 +483,8 @@
       "precio": {
         "monedas": 300
       },
-      "color": "#c89a4a"
+      "color": "#c89a4a",
+      "rareza": "epica"
     },
     {
       "id": "amuleto_mente",
@@ -282,7 +499,8 @@
       "precio": {
         "monedas": 300
       },
-      "color": "#a070e0"
+      "color": "#a070e0",
+      "rareza": "epica"
     },
     {
       "id": "amuleto_calma",
@@ -297,7 +515,8 @@
       "precio": {
         "monedas": 300
       },
-      "color": "#4aa0e0"
+      "color": "#4aa0e0",
+      "rareza": "epica"
     },
     {
       "id": "amuleto_pluma",
@@ -312,7 +531,8 @@
       "precio": {
         "monedas": 300
       },
-      "color": "#60d0d0"
+      "color": "#60d0d0",
+      "rareza": "epica"
     }
   ]
 }

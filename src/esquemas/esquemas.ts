@@ -110,7 +110,23 @@ export const SobresZ = z.object({
   /** Criaturas del sobre de bienvenida. */
   bienvenida: z.array(z.string()).min(1),
   gratis: z.object({ sobre: z.string(), cadaHoras: z.number(), maxAcumulados: z.number().int() }),
-  sobres: z.array(z.object({ id: z.string(), nombre: z.string(), costo: z.number().int(), tipo: z.string().nullable(), prob: ProbRarezasZ })),
+  sobres: z.array(
+    z.object({
+      id: z.string(),
+      nombre: z.string(),
+      costo: z.number().int(),
+      tipo: z.string().nullable(),
+      prob: ProbRarezasZ,
+      /** % de cartas que son ítems (el resto, criaturas). 100: solo ítems. */
+      probItem: z.number().min(0).max(100).default(35),
+      /** % de las cartas de criatura que salen en su etapa 2 (el resto, etapa 1). */
+      probEtapa2: z.number().min(0).max(100).default(20),
+      /** Si está, los ítems salen solo de esta lista. */
+      items: z.array(z.string()).optional(),
+      /** Color del sobre (#rrggbb). */
+      color: z.string().regex(/^#[0-9a-f]{6}$/i).optional(),
+    }),
+  ),
 });
 const PremioZ = z.discriminatedUnion('tipo', [
   z.object({ tipo: z.literal('monedas'), min: z.number().int().min(1), max: z.number().int().min(1), peso: z.number().positive() }),
@@ -180,6 +196,19 @@ export const EfectoItemZ = z.discriminatedUnion('tipo', [
   z.object({ tipo: z.literal('antidoto') }),
   z.object({ tipo: z.literal('tonico'), usos: z.number().int().min(1) }),
   z.object({ tipo: z.literal('escudo'), reduccion: z.number().min(0.05).max(1) }),
+  /** Revive a la primera criatura caída del equipo con este % de sus PS. */
+  z.object({ tipo: z.literal('revivir'), porcentaje: z.number().min(1).max(100) }),
+  /** Reloj de Arena: este turno actúas dos veces seguidas (dos ataques). */
+  z.object({ tipo: z.literal('doble') }),
+  /** Carta de poder: sube un stat de tu criatura activa (dura mientras siga en el campo). */
+  z.object({ tipo: z.literal('etapa'), stat: z.enum(['atq', 'def', 'ate', 'dfe', 'vel']), cantidad: z.number().int().min(1).max(6) }),
+  /** Encanto: un estado o una bajada de stat al rival activo. */
+  z.object({
+    tipo: z.literal('encanto'),
+    estado: z.enum(['quemadura', 'veneno', 'paralisis', 'sueno']).optional(),
+    stat: z.enum(['atq', 'def', 'ate', 'dfe', 'vel']).optional(),
+    cantidad: z.number().int().min(1).max(6).optional(),
+  }),
   /** Amuleto: se equipa (uno por criatura) y suma un % a un stat mientras lo lleva. */
   z.object({ tipo: z.literal('amuleto'), stat: StatVitaminaZ, porcentaje: z.number().min(1).max(30) }),
 ]);
@@ -194,6 +223,8 @@ export const ItemZ = z.object({
   precio: PrecioZ.nullable(),
   /** Icono de 16x16 (public/items/<id>.png). Si falta, se dibuja uno por código. */
   color: z.string().regex(/^#[0-9a-f]{6}$/i),
+  /** Rareza con la que sale en los sobres. Sin rareza: no sale en sobres. */
+  rareza: RarezaIdZ.optional(),
 });
 export const ItemsZ = z.object({
   items: z.array(ItemZ),

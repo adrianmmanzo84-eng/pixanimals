@@ -2,7 +2,7 @@ import type { EstadoJuego, Premio } from '../../esquemas/esquemas';
 import type { Datos } from '../datos';
 import type { Rng } from '../rng';
 import { agregar } from '../items/items';
-import { recibir, tirarRareza, type Carta } from '../sobres/sobres';
+import { recibir, tirarRareza, type CartaCriatura } from '../sobres/sobres';
 
 /** Carta premio: al ganar, se reparten varias cartas boca abajo y el jugador se queda con una. */
 
@@ -10,7 +10,7 @@ export type PremioTirado =
   | { tipo: 'monedas'; cantidad: number }
   | { tipo: 'esencia'; cantidad: number }
   | { tipo: 'item'; item: string; cantidad: number }
-  | { tipo: 'criatura'; especie: string; rareza: Carta['rareza']; brillante: boolean };
+  | { tipo: 'criatura'; especie: string; rareza: CartaCriatura['rareza']; brillante: boolean };
 
 function tirarUno(datos: Datos, rng: Rng): PremioTirado {
   const ops = datos.economia.premio.opciones;
@@ -37,7 +37,7 @@ export function repartirPremios(datos: Datos, rng: Rng): PremioTirado[] {
 }
 
 /** Entrega el premio elegido. Si es una criatura, devuelve la carta (nueva, mejora o repetida). */
-export function cobrarPremio(datos: Datos, estado: EstadoJuego, p: PremioTirado): Carta | null {
+export function cobrarPremio(datos: Datos, estado: EstadoJuego, p: PremioTirado): CartaCriatura | null {
   if (p.tipo === 'monedas') estado.monedas += p.cantidad;
   else if (p.tipo === 'esencia') estado.esencia += p.cantidad;
   else if (p.tipo === 'item') agregar(estado, p.item, p.cantidad);

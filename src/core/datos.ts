@@ -63,6 +63,9 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
     const suma = s.prob.comun + s.prob.poco_comun + s.prob.rara + s.prob.epica;
     if (Math.abs(suma - 100) > 0.001) errores.push(`Sobre ${s.id}: las probabilidades suman ${suma}, deben sumar 100.`);
     if (s.tipo && !criaturas.some((c) => c.etapa === 1 && c.tipo === s.tipo)) errores.push(`Sobre ${s.id}: no hay criaturas de etapa 1 del tipo ${s.tipo}.`);
+    if (s.tipo && s.probEtapa2 > 0 && !criaturas.some((c) => c.etapa === 2 && c.tipo === s.tipo)) errores.push(`Sobre ${s.id}: no hay criaturas de etapa 2 del tipo ${s.tipo}.`);
+    for (const id of s.items ?? []) if (!mItems.get(id)?.rareza) errores.push(`Sobre ${s.id}: el ítem ${id} no existe o no tiene rareza (no sale en sobres).`);
+    if (s.probItem > 0 && !items.some((i) => i.rareza && (!s.items || s.items.includes(i.id)))) errores.push(`Sobre ${s.id}: da ítems pero ninguno puede salir.`);
   }
   for (const p of economia.premio.opciones) {
     if (p.tipo === 'item' && !mItems.has(p.item)) errores.push(`Premio: ítem inexistente (${p.item}).`);
