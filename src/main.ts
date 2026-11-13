@@ -40,7 +40,7 @@ async function iniciar(): Promise<void> {
   Entrada.iniciar();
   Entrada.alPrimerGesto(() => sonido.activar());
 
-  // Barra de ajustes: velocidad del combate, volumen de música y de efectos (0 a 3) y silencio general.
+  // Barra de ajustes: velocidad del combate, cámara, volumen de música y de efectos (0 a 3) y silencio general.
   const boton = (id: string) => document.getElementById(id) as HTMLButtonElement;
   const nivel = (n: number) => (n === 0 ? 'no' : '■'.repeat(n) + '□'.repeat(3 - n));
   const pintar = () => {
@@ -48,6 +48,8 @@ async function iniciar(): Promise<void> {
     boton('silencio').setAttribute('aria-pressed', String(sonido.silenciado));
     boton('velocidad').textContent = `Velocidad ×${ajustes.velocidad}`;
     boton('velocidad').setAttribute('aria-pressed', String(ajustes.velocidad === 2));
+    boton('camara').textContent = `Cámara: ${ajustes.camara ? 'sí' : 'no'}`;
+    boton('camara').setAttribute('aria-pressed', String(ajustes.camara));
     boton('vol-musica').textContent = `Música ${nivel(ajustes.musica)}`;
     boton('vol-efectos').textContent = `Efectos ${nivel(ajustes.efectos)}`;
   };
@@ -61,6 +63,7 @@ async function iniciar(): Promise<void> {
     });
   alClic('silencio', () => sonido.alternar());
   alClic('velocidad', () => cambiarAjustes({ velocidad: ajustes.velocidad === 2 ? 1 : 2 }));
+  alClic('camara', () => cambiarAjustes({ camara: !ajustes.camara }));
   alClic('vol-musica', () => cambiarAjustes({ musica: (ajustes.musica + 1) % 4 }));
   alClic('vol-efectos', () => {
     cambiarAjustes({ efectos: (ajustes.efectos + 1) % 4 });

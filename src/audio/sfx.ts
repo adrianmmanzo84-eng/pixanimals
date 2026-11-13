@@ -28,6 +28,7 @@ const EFECTOS: Record<string, Nota[]> = {
   cura: [{ onda: 'triangle', f: 523, dur: 0.08 }, { onda: 'triangle', f: 784, dur: 0.08, t: 0.08 }, { onda: 'triangle', f: 1047, dur: 0.14, t: 0.16 }],
   estado: [{ onda: 'square', f: 500, f2: 250, dur: 0.1 }, { onda: 'square', f: 500, f2: 250, dur: 0.1, t: 0.12 }],
   escudo: [{ onda: 'triangle', f: 700, f2: 1000, dur: 0.15 }],
+  giro: [{ onda: 'ruido', f: 0, dur: 0.22, vol: 0.22 }, { onda: 'triangle', f: 260, f2: 620, dur: 0.2, vol: 0.12 }],
   falla: [{ onda: 'triangle', f: 400, f2: 200, dur: 0.15, vol: 0.3 }],
   debilitado: [{ onda: 'square', f: 400, f2: 60, dur: 0.5 }],
   victoria: [0, 1, 2, 3, 4, 5].map((i) => ({ onda: 'square' as const, f: [523, 659, 784, 1047, 784, 1047][i]!, dur: i === 5 ? 0.3 : 0.1, t: i * 0.1 })),

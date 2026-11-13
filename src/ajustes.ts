@@ -1,5 +1,5 @@
 /**
- * Ajustes del dispositivo (no son parte de la partida): velocidad del combate y volúmenes.
+ * Ajustes del dispositivo (no son parte de la partida): velocidad del combate, cámara y volúmenes.
  * Se guardan en localStorage aparte de la partida.
  */
 export interface Ajustes {
@@ -8,19 +8,22 @@ export interface Ajustes {
   /** 0 (apagado) a 3. */
   musica: number;
   efectos: number;
+  /** Cámara viva en combate (deriva, acercamientos y giro de perspectiva). Se puede apagar si marea. */
+  camara: boolean;
 }
 
 const CLAVE = 'pixanimals.ajustes';
 const oyentes = new Set<(a: Ajustes) => void>();
 
 function leer(): Ajustes {
-  const base: Ajustes = { velocidad: 1, musica: 2, efectos: 3 };
+  const base: Ajustes = { velocidad: 1, musica: 2, efectos: 3, camara: true };
   try {
     const g = JSON.parse(localStorage.getItem(CLAVE) ?? '{}') as Partial<Ajustes>;
     return {
       velocidad: g.velocidad === 2 ? 2 : 1,
       musica: typeof g.musica === 'number' ? Math.max(0, Math.min(3, g.musica)) : base.musica,
       efectos: typeof g.efectos === 'number' ? Math.max(0, Math.min(3, g.efectos)) : base.efectos,
+      camara: g.camara !== false,
     };
   } catch {
     return base;

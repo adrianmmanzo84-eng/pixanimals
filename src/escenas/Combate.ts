@@ -74,6 +74,17 @@ export class Combate extends Phaser.Scene {
   private paneles!: [Panel, Panel];
   private turnoTxt!: Texto;
   private fx!: Efectos;
+  /** Todo lo que «filma» la cámara: fondo, criaturas y efectos. La interfaz queda fuera y no se mueve. */
+  private mundo!: Phaser.GameObjects.Container;
+  private capaFx!: Phaser.GameObjects.Container;
+  /**
+   * Desde dónde se mira el combate. 'jugador': tu criatura de espaldas abajo a la izquierda (lo clásico).
+   * 'rival': la cámara gira y quien queda de espaldas es el rival, para ver su ataque desde atrás.
+   */
+  private vista: 'jugador' | 'rival' = 'jugador';
+  /** Cámara simulada sobre `mundo`: acercamiento, punto que mira y giro (1 normal, 0 de canto). */
+  private cam = { zoom: 1.04, fx: 120, fy: 80, giro: 1 };
+  private reloj = 0;
 
   private gVentanas!: Phaser.GameObjects.Graphics;
   private msg!: Texto;
@@ -102,6 +113,9 @@ export class Combate extends Phaser.Scene {
     this.alPulsar = null;
     this.ultimoMenu = 0;
     this.ultimaHabilidad = 0;
+    this.vista = 'jugador';
+    this.cam = { zoom: 1.04, fx: 120, fy: 80, giro: 1 };
+    this.reloj = 0;
   }
 
   create(): void {
@@ -136,13 +150,17 @@ export class Combate extends Phaser.Scene {
     const [yo, el] = this.bat.lados;
     // El escenario depende del tipo del primer rival; uno de cada cuatro combates ocurre en la pradera.
     const arena = rng.prob(25) ? 'pradera' : (FONDO_POR_TIPO[el.especie.tipo] ?? 'pradera');
-    this.add.image(0, 0, fondo(this, arena)).setOrigin(0, 0).setScale(0.25);
-    this.add.graphics().fillStyle(n(C.tinta), 1).fillRect(0, 110, 240, 50);
+    this.mundo = this.add.container(0, 0);
+    this.mundo.add(this.add.image(0, 0, fondo(this, arena)).setOrigin(0, 0).setScale(0.25));
     this.sprites = [
       this.add.image(POS[0].x - 120, POS[0].y, textura(yo.especie.id, 'espalda', yo.brillante)).setOrigin(0.5, ORIGEN_Y),
       this.add.image(POS[1].x + 120, POS[1].y, textura(el.especie.id, 'frente', el.brillante)).setOrigin(0.5, ORIGEN_Y),
     ];
-    this.fx = new Efectos(this, this.add.layer());
+    this.mundo.add(this.sprites);
+    this.capaFx = this.add.container(0, 0);
+    this.mundo.add(this.capaFx);
+    this.fx = new Efectos(this, this.capaFx);
+    this.add.graphics().fillStyle(n(C.tinta), 1).fillRect(0, 110, 240, 50);
     this.paneles = [this.crearPanel(PANEL[0].x, PANEL[0].y), this.crearPanel(PANEL[1].x, PANEL[1].y)];
     this.refrescarPanel(0);
     this.refrescarPanel(1);
@@ -177,8 +195,8 @@ export class Combate extends Phaser.Scene {
   private async correr(): Promise<void> {
     this.modoMensaje();
     await Promise.all([
-      this.tween({ targets: this.sprites[0], x: POS[0].x, duration: 550, ease: 'Cubic.easeOut' }),
-      this.tween({ targets: this.sprites[1], x: POS[1].x, duration: 550, ease: 'Cubic.easeOut' }),
+      this.tween({ targets: this.sprites[0], x: this.pos(0).x, duration: 550, ease: 'Cubic.easeOut' }),
+      this.tween({ targets: this.sprites[1], x: this.pos(1).x, duration: 550, ease: 'Cubic.easeOut' }),
     ]);
     if (this.cfg.modo === 'entrenador') await this.decir(t('c.entrenador', { n: entrenadorDelDia(DATOS, Date.now()).nombre }));
     if (this.cfg.modo === 'torre') {
@@ -190,6 +208,7 @@ export class Combate extends Phaser.Scene {
 
     while (this.vivo && !this.bat.terminado) {
       this.turnoTxt.poner(`Turno ${this.bat.turno + 1}`);
+      await this.girar('jugador');
       const accion = await this.elegirAccion();
       if (!this.vivo) return;
       if (accion === 'retirada') {
@@ -204,6 +223,7 @@ export class Combate extends Phaser.Scene {
       // Quien perdió a su criatura activa elige reemplazo antes del turno siguiente.
       while (this.vivo && this.bat.pendientes.length) {
         const lado = this.bat.pendientes[0]!;
+        if (lado === 0) await this.girar('jugador');
         const indice = lado === 0 ? await this.menuEquipo(true) : elegirReemplazo(this.bat, 1, this.cfg.ia, this.rngIA);
         if (!this.vivo || indice === null) return;
         this.modoMensaje();
@@ -228,6 +248,7 @@ export class Combate extends Phaser.Scene {
           break;
         case 'usa':
           ultima = { lado: e.lado, h: e.habilidad };
+          await this.girarHacia(e.lado);
           await this.decir(e.habilidad ? t('c.usa', { n: this.nom(e.lado), h: e.habilidad.nombre }) : t('c.empujon', { n: this.nom(e.lado) }));
           if (e.habilidad && e.habilidad.potencia === 0 && e.habilidad.rol !== 'definitivo') await this.animApoyo(e.lado, e.habilidad);
           break;
@@ -236,6 +257,7 @@ export class Combate extends Phaser.Scene {
           await this.decir(t('c.falla'));
           break;
         case 'carga':
+          await this.girarHacia(e.lado);
           await this.animCarga(e.lado);
           break;
         case 'definitivo':
@@ -249,10 +271,14 @@ export class Combate extends Phaser.Scene {
         case 'dano': {
           const atacante = (1 - e.lado) as Lado;
           // El Definitivo ya tuvo su propia animación.
-          if (ultima?.h?.rol !== 'definitivo') await this.animAtaque(atacante, ultima?.h ?? null);
+          if (ultima?.h?.rol !== 'definitivo') {
+            this.enfocar(e.lado, ultima?.h?.rol === 'final' ? 1.16 : 1.1);
+            await this.animAtaque(atacante, ultima?.h ?? null);
+          }
           sonido.tocar(e.efectividad === 'ventaja' || e.critico ? 'golpe_fuerte' : e.efectividad === 'desventaja' || e.reducido ? 'golpe_debil' : 'golpe');
           if (ultima?.h?.rol === 'final') this.cameras.main.shake(180, 0.01);
           await this.animGolpe(e.lado);
+          this.soltar();
           await this.animarPs(e.lado, e.ps);
           if (e.critico) await this.decir(t('c.critico'));
           if (e.efectividad === 'ventaja' && e.lado === 1) registrar(DATOS, juego.estado, 'eficaz');
@@ -307,6 +333,7 @@ export class Combate extends Phaser.Scene {
           await this.decir(t(e.origen === 'pasiva' ? `c.curaPasiva.${this.bat.act(e.lado).especie.pasiva}` : 'c.cura', { n: this.nom(e.lado) }));
           break;
         case 'item':
+          await this.girarHacia(e.lado);
           if (e.lado === 0) {
             sonido.tocar('aceptar');
             registrar(DATOS, juego.estado, 'item');
@@ -323,7 +350,7 @@ export class Combate extends Phaser.Scene {
           break;
         case 'debilitado':
           sonido.tocar('debilitado');
-          await this.tween({ targets: this.sprites[e.lado], y: POS[e.lado].y + 30, alpha: 0, duration: 450 });
+          await this.tween({ targets: this.sprites[e.lado], y: this.pos(e.lado).y + 30, alpha: 0, duration: 450 });
           this.pintarPuntos(e.lado);
           await this.decir(t('c.debilitado', { n: this.nom(e.lado) }));
           break;
@@ -773,11 +800,97 @@ export class Combate extends Phaser.Scene {
 
   /** Centro del cuerpo visible de la criatura activa (los sprites se apoyan en la base de su lienzo). */
   private centro(lado: Lado): { x: number; y: number; base: number } {
-    return { x: POS[lado].x, y: POS[lado].y + 32 - altoVisible(this.bat.act(lado).especie.id) / 2, base: POS[lado].y + 32 };
+    const p = this.pos(lado);
+    return { x: p.x, y: p.y + 32 - altoVisible(this.bat.act(lado).especie.id) / 2, base: p.y + 32 };
+  }
+
+  /** Lugar en pantalla de cada lado: 0 = de espaldas abajo a la izquierda, 1 = de frente arriba a la derecha. */
+  private hueco(lado: Lado): 0 | 1 {
+    return this.vista === 'rival' ? ((1 - lado) as 0 | 1) : lado;
+  }
+
+  private pos(lado: Lado): { x: number; y: number } {
+    return POS[this.hueco(lado)];
   }
 
   private texturaDe(lado: Lado, c: Combatiente): string {
-    return textura(c.especie.id, lado === 0 ? 'espalda' : 'frente', c.brillante);
+    return textura(c.especie.id, this.hueco(lado) === 0 ? 'espalda' : 'frente', c.brillante);
+  }
+
+  // ------------------------------------------------------------ cámara
+
+  /**
+   * Cada cuadro: la cámara deriva despacio, se acerca a lo que pasa y las criaturas respiran.
+   * La cámara no es la de Phaser (movería también la interfaz): se transforma el contenedor `mundo`.
+   */
+  override update(_t: number, dt: number): void {
+    if (!this.mundo) return;
+    this.reloj += dt / 1000;
+    const viva = ajustes.camara;
+    const c = this.cam;
+    const z = viva ? c.zoom : 1;
+    // Deriva lenta, como cámara en mano; el punto que mira se limita para no ver los bordes del fondo.
+    let fx = viva ? c.fx + Math.sin(this.reloj * 0.45) * 2.4 : 120;
+    let fy = viva ? c.fy + Math.sin(this.reloj * 0.31 + 1.3) * 1.4 : 80;
+    fx = Phaser.Math.Clamp(fx, 120 / z, 240 - 120 / z);
+    fy = Phaser.Math.Clamp(fy, 80 / z, 160 - 80 / z);
+    const sx = z * (viva ? c.giro : 1);
+    this.mundo.setScale(sx, z);
+    this.mundo.setPosition(120 - fx * sx, 80 - fy * z);
+    // Respiración: se estiran y aplastan un poco desde los pies, cada una a su ritmo, y se mecen apenas.
+    this.sprites.forEach((s, i) => {
+      if (this.tweens.isTweening(s) || s.alpha === 0) return;
+      const f = this.reloj * (i ? 2.1 : 2.4) + i * 1.7;
+      const r = Math.sin(f);
+      s.setScale(1 - 0.014 * r, 1 + 0.032 * r);
+      s.setAngle(Math.sin(this.reloj * 0.9 + i * 2.2) * 1.1);
+    });
+  }
+
+  /** La cámara se arrima a la criatura que recibe el golpe (no espera: corre junto a la animación). */
+  private enfocar(objetivo: Lado, zoom: number): void {
+    if (!ajustes.camara) return;
+    const a = this.centro((1 - objetivo) as Lado);
+    const b = this.centro(objetivo);
+    this.tweens.killTweensOf(this.cam);
+    this.tweens.add({ targets: this.cam, zoom, fx: a.x * 0.3 + b.x * 0.7, fy: a.y * 0.3 + b.y * 0.7, duration: 260, ease: 'Sine.easeOut' });
+  }
+
+  /** Vuelve al plano general. */
+  private soltar(): void {
+    this.tweens.killTweensOf(this.cam);
+    this.tweens.add({ targets: this.cam, zoom: 1.04, fx: 120, fy: 80, giro: 1, duration: 500, ease: 'Sine.easeInOut' });
+  }
+
+  /** Gira la cámara para que quien actúa quede de espaldas, mirando a su rival. */
+  private girarHacia(lado: Lado): Promise<void> {
+    return this.girar(lado === 0 ? 'jugador' : 'rival');
+  }
+
+  /**
+   * Giro de perspectiva: el escenario se pliega como una carta, las criaturas cambian de lugar
+   * (y de cara: frente ↔ espalda) y se despliega. Con la cámara apagada siempre se mira desde tu lado.
+   */
+  private async girar(v: 'jugador' | 'rival'): Promise<void> {
+    const quiere = ajustes.camara ? v : 'jugador';
+    if (this.vista === quiere || !this.vivo) return;
+    const animado = ajustes.camara;
+    this.tweens.killTweensOf(this.cam);
+    if (animado) {
+      sonido.tocar('giro');
+      await this.tween({ targets: this.cam, giro: 0, zoom: 1.12, fx: 120, fy: 80, duration: 170, ease: 'Sine.easeIn' });
+    }
+    this.vista = quiere;
+    for (const lado of [0, 1] as Lado[]) {
+      const s = this.sprites[lado];
+      const p = this.pos(lado);
+      s.setTexture(this.texturaDe(lado, this.bat.act(lado))).setPosition(p.x, s.alpha === 0 ? p.y + 30 : p.y);
+    }
+    // El de atrás (más cerca de la cámara) se dibuja encima.
+    this.mundo.bringToTop(this.sprites[this.vista === 'rival' ? 1 : 0]);
+    this.mundo.bringToTop(this.capaFx);
+    if (animado) await this.tween({ targets: this.cam, giro: 1, zoom: 1.04, duration: 200, ease: 'Sine.easeOut' });
+    else this.cam.giro = 1;
   }
 
   // ------------------------------------------------------------ animación
@@ -785,30 +898,30 @@ export class Combate extends Phaser.Scene {
   /** Sale una criatura (si no había caído) y entra la nueva activa. */
   private async animCambio(lado: Lado, forzado: boolean, nombreSale: string): Promise<void> {
     const s = this.sprites[lado];
-    const fuera = POS[lado].x + (lado === 0 ? -120 : 120);
+    const fuera = this.pos(lado).x + (this.hueco(lado) === 0 ? -120 : 120);
     if (!forzado) {
       await this.decir(lado === 0 ? t('c.vuelve', { n: nombreSale }) : t('c.rivalRetira', { n: nombreSale }));
       await this.tween({ targets: s, x: fuera, duration: 260, ease: 'Cubic.easeIn' });
     }
     const entra = this.bat.act(lado);
-    s.setTexture(this.texturaDe(lado, entra)).setPosition(fuera, POS[lado].y).setAlpha(1);
+    s.setTexture(this.texturaDe(lado, entra)).setPosition(fuera, this.pos(lado).y).setAlpha(1);
     this.refrescarPanel(lado);
     if (lado === 1) this.verRival();
     sonido.tocar('aceptar');
-    await this.tween({ targets: s, x: POS[lado].x, duration: 320, ease: 'Cubic.easeOut' });
+    await this.tween({ targets: s, x: this.pos(lado).x, duration: 320, ease: 'Cubic.easeOut' });
     await this.decir(lado === 0 ? t('c.adelante', { n: entra.nombre }) : t('c.rivalEnvia', { n: entra.nombre }));
   }
 
   /** Ataque con daño: embestida si es físico y, después, el efecto propio de la habilidad. */
   private async animAtaque(lado: Lado, h: Habilidad | null): Promise<void> {
     const s = this.sprites[lado];
-    const dir = lado === 0 ? 1 : -1;
+    const dir = this.hueco(lado) === 0 ? 1 : -1;
     const fisica = !h || h.categoria === 'fisica';
     if (h?.rol === 'final') {
       sonido.tocar('final');
       this.cameras.main.flash(160, 255, 255, 255);
     } else if (!fisica) sonido.tocar('especial');
-    if (fisica) await this.tween({ targets: s, x: POS[lado].x + 16 * dir, y: POS[lado].y - 6 * dir, duration: 90, yoyo: true });
+    if (fisica) await this.tween({ targets: s, x: this.pos(lado).x + 16 * dir, y: this.pos(lado).y - 6 * dir, duration: 90, yoyo: true });
     await this.fx.reproducir(h?.animacion ?? (fisica ? (h ? 'zarpazo' : 'impacto') : 'proyectil'), this.centro(lado), this.centro((1 - lado) as Lado), h?.tipo ?? 'neutro');
   }
 
@@ -833,10 +946,17 @@ export class Combate extends Phaser.Scene {
     const yo = this.bat.act(lado);
     const color = COLOR_TIPO[yo.especie.tipo] ?? 0xffffff;
     await this.decir(t('c.definitivo', { n: this.nom(lado) }));
-    const velo = this.add.graphics().fillStyle(0x05060f, 1).fillRect(0, 0, 240, 160).setDepth(50).setAlpha(0);
     const s = this.sprites[lado];
-    const profundidad = s.depth;
-    s.setDepth(51);
+    // El velo va dentro del mundo, justo debajo del atacante: el resto del escenario (y el rival) se oscurece.
+    const velo = this.add.graphics().fillStyle(0x05060f, 1).fillRect(-20, -20, 280, 200).setAlpha(0);
+    this.mundo.bringToTop(s);
+    this.mundo.addAt(velo, this.mundo.getIndex(s));
+    this.mundo.bringToTop(this.capaFx);
+    if (ajustes.camara) {
+      this.tweens.killTweensOf(this.cam);
+      const c = this.centro(lado);
+      this.tweens.add({ targets: this.cam, zoom: 1.22, fx: c.x, fy: c.y, duration: 600, ease: 'Sine.easeOut' });
+    }
     await this.tween({ targets: velo, alpha: 0.85, duration: 350 });
     sonido.tocar('final');
     s.setTint(color);
@@ -845,11 +965,13 @@ export class Combate extends Phaser.Scene {
     const anim = h?.animacion ?? 'proyectil';
     const desde = this.centro(lado);
     const hasta = this.centro((1 - lado) as Lado);
+    this.enfocar((1 - lado) as Lado, 1.14);
     await this.fx.reproducir(anim, desde, hasta, yo.especie.tipo);
     sonido.tocar('golpe_fuerte');
     await this.fx.reproducir(anim, desde, hasta, yo.especie.tipo);
     // Estallido
-    const onda = this.add.graphics().setDepth(52);
+    const onda = this.add.graphics();
+    this.capaFx.add(onda);
     const estado = { r: 4, a: 1 };
     sonido.tocar('final');
     this.cameras.main.flash(450, 255, 255, 255);
@@ -867,7 +989,7 @@ export class Combate extends Phaser.Scene {
       },
     });
     onda.destroy();
-    s.setDepth(profundidad);
+    this.soltar();
     await this.tween({ targets: velo, alpha: 0, duration: 350 });
     velo.destroy();
   }
@@ -885,12 +1007,12 @@ export class Combate extends Phaser.Scene {
     const s = this.sprites[lado];
     for (let i = 0; i < 3 && this.vivo; i++) {
       s.setAlpha(0.15);
-      s.x = POS[lado].x + (i % 2 ? -2 : 2);
+      s.x = this.pos(lado).x + (i % 2 ? -2 : 2);
       await this.esperar(55);
       s.setAlpha(1);
       await this.esperar(55);
     }
-    s.x = POS[lado].x;
+    s.x = this.pos(lado).x;
   }
 
   private animarPs(lado: Lado, hasta: number): Promise<void> {

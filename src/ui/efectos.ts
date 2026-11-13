@@ -92,7 +92,7 @@ const al = (a: number, b: number) => a + Math.random() * (b - a);
 export class Efectos {
   constructor(
     private readonly s: Phaser.Scene,
-    private readonly capa: Phaser.GameObjects.Layer,
+    private readonly capa: Phaser.GameObjects.Layer | Phaser.GameObjects.Container,
   ) {}
 
   // ---------------------------------------------------------------- piezas
