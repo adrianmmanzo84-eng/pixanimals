@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
-import type { Animacion, EstadoId } from '../esquemas/esquemas';
+import type { Animacion, EstadoId, Habilidad } from '../esquemas/esquemas';
+import EFECTOS_ATAQUE from './efectos-ataques.json';
 
 /**
  * Efectos de ataque en pixel art. Cada partícula es un mini-sprite dibujado por código
@@ -19,8 +20,23 @@ export const EFECTOS_ILUSTRADOS = [
   'llamarada', 'mirada', 'ola', 'polen', 'raices', 'sol', 'zarpazo', 'zarpazo_brote',
 ] as const;
 
+/**
+ * Efectos propios de cada ataque (public/efectos/ataques/<id>.png), generados por
+ * scripts/importar_efectos_ataques.py. Los Definitivos traen además una composición de pantalla.
+ * Tienen prioridad sobre el efecto compartido de su `animacion`.
+ */
+const ATAQUES = EFECTOS_ATAQUE as Record<string, { impacto?: number[]; pantalla?: number[] }>;
+
+export function tieneEfectoPropio(id: string): boolean {
+  return !!ATAQUES[id]?.impacto;
+}
+
 export function cargarEfectosIlustrados(escena: Phaser.Scene): void {
   for (const n of EFECTOS_ILUSTRADOS) escena.load.image(`fximg_${n}`, `efectos/${n}.png`);
+  for (const [id, e] of Object.entries(ATAQUES)) {
+    if (e.impacto) escena.load.image(`fxat_${id}`, `efectos/ataques/${id}.png`);
+    if (e.pantalla) escena.load.image(`fxat_${id}_pantalla`, `efectos/ataques/${id}_pantalla.png`);
+  }
 }
 
 const PALETA: Record<string, string> = {
@@ -70,6 +86,11 @@ const COLOR_GARRA: Record<string, [number, number]> = {
 export function crearTexturasEfectos(escena: Phaser.Scene): void {
   for (const n of EFECTOS_ILUSTRADOS) {
     if (escena.textures.exists(`fximg_${n}`)) escena.textures.get(`fximg_${n}`).setFilter(Phaser.Textures.FilterMode.NEAREST);
+  }
+  for (const id of Object.keys(ATAQUES)) {
+    for (const clave of [`fxat_${id}`, `fxat_${id}_pantalla`]) {
+      if (escena.textures.exists(clave)) escena.textures.get(clave).setFilter(Phaser.Textures.FilterMode.NEAREST);
+    }
   }
   for (const [nombre, filas] of Object.entries(MAPAS)) {
     const clave = `fx_${nombre}`;
@@ -208,6 +229,125 @@ export class Efectos {
         });
       }),
     );
+  }
+
+  // ---------------------------------------------------------------- efectos propios de cada ataque
+
+  /**
+   * Reproduce el efecto propio de la habilidad, si lo tiene (devuelve false si no).
+   * Cómo se mueve depende de la habilidad: los de apoyo aparecen sobre quien la usa (o sobre el rival
+   * si lo afectan), los físicos golpean sobre el rival, los especiales viajan hasta él y los finales
+   * crecen sobre él con temblor. Los dibujos van de abajo a la izquierda hacia arriba a la derecha:
+   * se reflejan cuando el ataque va hacia la izquierda.
+   */
+  async ataque(h: Habilidad, yo: Punto, el: Punto): Promise<boolean> {
+    if (!this.s.textures.exists(`fxat_${h.id}`)) return false;
+    try {
+      await this.moverAtaque(h, yo, el);
+    } catch (e) {
+      console.warn('Efecto fallido:', h.id, e);
+    }
+    return true;
+  }
+
+  private async moverAtaque(h: Habilidad, yo: Punto, el: Punto): Promise<void> {
+    const dir = Math.sign(el.x - yo.x) || 1;
+    const clave = `fxat_${h.id}`;
+    const nuevo = (x: number, y: number) => {
+      const i = this.s.add.image(x, y, clave).setFlipX(dir < 0);
+      this.capa.add(i);
+      return i;
+    };
+    const part = PARTICULA_TIPO[h.tipo] ?? 'chispa';
+    const cam = this.s.cameras.main;
+    if (h.potencia === 0) {
+      // Apoyo, defensa o estado: sobre quien lo usa, o sobre el rival si es a él a quien afecta.
+      const alRival = h.efectos.some((e) => (e.tipo === 'estado' || e.tipo === 'etapa') && e.objetivo === 'rival');
+      const en = alRival ? el : yo;
+      const i = nuevo(en.x, en.y).setAlpha(0).setScale(0.6);
+      await this.tw({ targets: i, alpha: 1, scale: 1, duration: 200, ease: 'Back.easeOut' });
+      void this.subir(part, en, 4, 420, 16);
+      await this.avance(380, (t) => i.setScale(1 + 0.05 * Math.sin(t * Math.PI * 4)));
+      await this.desvanecer(i, 240, 0.15);
+      return;
+    }
+    if (h.rol === 'final') {
+      const i = nuevo(el.x, el.y).setScale(0.2).setAlpha(0.9);
+      await this.tw({ targets: i, scale: 1.05, alpha: 1, duration: 230, ease: 'Back.easeOut' });
+      cam.shake(280, 0.012);
+      void this.estallido(part, el, 12, 42, 460, 1.4);
+      await this.avance(420, (t) => i.setScale(1.05 + 0.05 * Math.sin(t * 28)));
+      await this.desvanecer(i, 280, 0.25);
+      return;
+    }
+    if (h.categoria === 'especial') {
+      // Sale de la boca, viaja pequeño y se abre sobre el rival.
+      const i = nuevo(yo.x + 16 * dir, yo.y - 4).setScale(0.4);
+      await this.tw({ targets: i, x: el.x, y: el.y, duration: 250, ease: 'Quad.easeIn' });
+      await this.tw({ targets: i, scale: 1, duration: 120, ease: 'Back.easeOut' });
+      cam.shake(120, 0.005);
+      void this.estallido(part, el, 8, 26, 320);
+      await this.espera(160);
+      await this.desvanecer(i, 220, 0.2);
+      return;
+    }
+    // Físico: aparece de golpe sobre el rival, un poco desde el lado del atacante.
+    const i = nuevo(el.x - 10 * dir, el.y + 4).setScale(0.55).setAlpha(0);
+    await this.tw({ targets: i, x: el.x, y: el.y, scale: 1, alpha: 1, duration: 130, ease: 'Back.easeOut' });
+    cam.shake(120, 0.006);
+    void this.estallido(part, el, 7, 24, 300);
+    await this.espera(170);
+    await this.desvanecer(i, 220, 0.2);
+  }
+
+  /**
+   * Ataque Definitivo con dibujo propio: la composición de pantalla cubre el escenario un instante
+   * y luego el impacto estalla grande sobre el rival. Devuelve false si no hay dibujo.
+   */
+  async definitivo(h: Habilidad, yo: Punto, el: Punto, color: number): Promise<boolean> {
+    if (!this.s.textures.exists(`fxat_${h.id}`)) return false;
+    const dir = Math.sign(el.x - yo.x) || 1;
+    const cam = this.s.cameras.main;
+    try {
+      if (this.s.textures.exists(`fxat_${h.id}_pantalla`)) {
+        const p = this.s.add.image(120, 80, `fxat_${h.id}_pantalla`).setFlipX(dir < 0).setAlpha(0);
+        this.capa.add(p);
+        const cubre = Math.max(250 / p.width, 168 / p.height);
+        p.setScale(cubre * 0.9);
+        cam.shake(900, 0.008);
+        await this.tw({ targets: p, alpha: 1, scale: cubre, duration: 320, ease: 'Cubic.easeOut' });
+        await this.tw({ targets: p, scale: cubre * 1.08, duration: 700, ease: 'Sine.easeInOut' });
+        await this.tw({ targets: p, alpha: 0, scale: cubre * 1.15, duration: 260 });
+        p.destroy();
+      }
+      const i = this.s.add.image(el.x, el.y, `fxat_${h.id}`).setFlipX(dir < 0).setScale(0.2);
+      this.capa.add(i);
+      await this.tw({ targets: i, scale: 1.25, duration: 260, ease: 'Back.easeOut' });
+      cam.flash(400, 255, 255, 255);
+      cam.shake(800, 0.03);
+      const onda = this.graf();
+      const e = { r: 4, a: 1 };
+      await Promise.all([
+        this.tw({
+          targets: e,
+          r: 190,
+          a: 0,
+          duration: 700,
+          ease: 'Cubic.easeOut',
+          onUpdate: () => {
+            onda.clear();
+            onda.fillStyle(color, e.a * 0.6).fillCircle(el.x, el.y, e.r);
+            onda.fillStyle(0xffffff, e.a * 0.8).fillCircle(el.x, el.y, e.r * 0.4);
+          },
+        }),
+        this.avance(700, (t) => i.setScale(1.25 + 0.06 * Math.sin(t * 30))),
+      ]);
+      onda.destroy();
+      await this.desvanecer(i, 300, 0.3);
+    } catch (err) {
+      console.warn('Efecto fallido:', h.id, err);
+    }
+    return true;
   }
 
   // ---------------------------------------------------------------- efectos

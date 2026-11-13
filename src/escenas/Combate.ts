@@ -950,6 +950,7 @@ export class Combate extends Phaser.Scene {
       this.cameras.main.flash(160, 255, 255, 255);
     } else if (!fisica) sonido.tocar('especial');
     if (fisica) await this.tween({ targets: s, x: this.pos(lado).x + 16 * dir, y: this.pos(lado).y - 6 * dir, duration: 90, yoyo: true });
+    if (h && (await this.fx.ataque(h, this.centro(lado), this.centro((1 - lado) as Lado)))) return;
     await this.fx.reproducir(h?.animacion ?? (fisica ? (h ? 'zarpazo' : 'impacto') : 'proyectil'), this.centro(lado), this.centro((1 - lado) as Lado), h?.tipo ?? 'neutro');
   }
 
@@ -990,33 +991,39 @@ export class Combate extends Phaser.Scene {
     s.setTint(color);
     await this.tween({ targets: s, scaleX: 1.2, scaleY: 1.2, duration: 260, yoyo: true });
     s.clearTint();
-    const anim = h?.animacion ?? 'proyectil';
     const desde = this.centro(lado);
     const hasta = this.centro((1 - lado) as Lado);
     this.enfocar((1 - lado) as Lado, 1.14);
-    await this.fx.reproducir(anim, desde, hasta, yo.especie.tipo);
     sonido.tocar('golpe_fuerte');
-    await this.fx.reproducir(anim, desde, hasta, yo.especie.tipo);
-    // Estallido
-    const onda = this.add.graphics();
-    this.capaFx.add(onda);
-    const estado = { r: 4, a: 1 };
-    sonido.tocar('final');
-    this.cameras.main.flash(450, 255, 255, 255);
-    this.cameras.main.shake(800, 0.03);
-    await this.tween({
-      targets: estado,
-      r: 190,
-      a: 0,
-      duration: 700,
-      ease: 'Cubic.easeOut',
-      onUpdate: () => {
-        onda.clear();
-        onda.fillStyle(color, estado.a * 0.7).fillCircle(hasta.x, hasta.y, estado.r);
-        onda.fillStyle(0xffffff, estado.a).fillCircle(hasta.x, hasta.y, estado.r * 0.45);
-      },
-    });
-    onda.destroy();
+    // Con dibujo propio: corte de pantalla y gran impacto. Si no, el ataque final dos veces y un estallido.
+    if (h && (await this.fx.definitivo(h, desde, hasta, color))) {
+      sonido.tocar('final');
+    } else {
+      const anim = h?.animacion ?? 'proyectil';
+      await this.fx.reproducir(anim, desde, hasta, yo.especie.tipo);
+      sonido.tocar('golpe_fuerte');
+      await this.fx.reproducir(anim, desde, hasta, yo.especie.tipo);
+      // Estallido
+      const onda = this.add.graphics();
+      this.capaFx.add(onda);
+      const estado = { r: 4, a: 1 };
+      sonido.tocar('final');
+      this.cameras.main.flash(450, 255, 255, 255);
+      this.cameras.main.shake(800, 0.03);
+      await this.tween({
+        targets: estado,
+        r: 190,
+        a: 0,
+        duration: 700,
+        ease: 'Cubic.easeOut',
+        onUpdate: () => {
+          onda.clear();
+          onda.fillStyle(color, estado.a * 0.7).fillCircle(hasta.x, hasta.y, estado.r);
+          onda.fillStyle(0xffffff, estado.a).fillCircle(hasta.x, hasta.y, estado.r * 0.45);
+        },
+      });
+      onda.destroy();
+    }
     this.soltar();
     await this.tween({ targets: velo, alpha: 0, duration: 350 });
     velo.destroy();
@@ -1027,7 +1034,9 @@ export class Combate extends Phaser.Scene {
     const apuntaAlRival = h.efectos.some((e) => (e.tipo === 'estado' || e.tipo === 'etapa') && e.objetivo === 'rival');
     await Promise.all([
       this.tween({ targets: this.sprites[lado], scaleX: 1.12, scaleY: 1.12, duration: 120, yoyo: true }),
-      this.fx.reproducir(h.animacion ?? (apuntaAlRival ? 'proyectil' : 'brillo'), this.centro(lado), this.centro((1 - lado) as Lado), h.tipo),
+      this.fx.ataque(h, this.centro(lado), this.centro((1 - lado) as Lado)).then(
+        (hecho): Promise<void> | void => (hecho ? undefined : this.fx.reproducir(h.animacion ?? (apuntaAlRival ? 'proyectil' : 'brillo'), this.centro(lado), this.centro((1 - lado) as Lado), h.tipo)),
+      ),
     ]);
   }
 
