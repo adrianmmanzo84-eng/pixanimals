@@ -47,7 +47,7 @@ for (const c of datos.criaturas.values()) {
 
 // Arte de interfaz: cada ítem, sobre y medalla nuevos necesitan su dibujo (si falta, el juego dibuja uno por código: es aviso).
 const arteUI = JSON.parse(readFileSync(new URL('../src/ui/arte-ui.json', import.meta.url), 'utf8')) as Record<string, { ruta: string }>;
-for (const [clave, p] of Object.entries(arteUI)) if (!existsSync(new URL(`../public/${p.ruta}`, import.meta.url).pathname)) errores.push(`Falta el archivo de interfaz ${p.ruta}.`);
+for (const p of Object.values(arteUI)) if (!existsSync(new URL(`../public/${p.ruta}`, import.meta.url).pathname)) errores.push(`Falta el archivo de interfaz ${p.ruta}.`);
 for (const id of datos.items.keys()) if (!arteUI[`item_${id}`]) avisos.push(`El ítem ${id} no tiene dibujo (item_${id}.png): se dibuja por código.`);
 for (const s of datos.sobres.sobres) if (!arteUI[`sobre_${s.id}`]) avisos.push(`El sobre ${s.id} no tiene dibujo (sobre_${s.id}.png).`);
 for (const m of datos.economia.medallas) for (const n of ['1', '2', '3', 'bloqueada']) if (!arteUI[`medalla_${m.id}_${n}`]) avisos.push(`Falta medalla_${m.id}_${n}.png.`);
