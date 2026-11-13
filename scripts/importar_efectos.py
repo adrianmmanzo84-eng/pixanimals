@@ -27,6 +27,7 @@ TAMANOS = {
     'llamarada': 96, 'ola': 96, 'hojas': 96,   # ataques finales
     'mirada': 112,                             # rayo que cruza buena parte del campo
     'grito': 48, 'empujon': 48, 'polen': 56,
+    'debilitado_estallido': 96, 'debilitado_carta': 32,   # al debilitarse (blancos: se tiñen por tipo)
 }
 
 

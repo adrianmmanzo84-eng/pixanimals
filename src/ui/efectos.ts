@@ -18,6 +18,7 @@ export interface Punto {
 export const EFECTOS_ILUSTRADOS = [
   'anillo_fuego', 'arrullo', 'burbujas', 'corriente', 'corteza', 'dentellada', 'empujon', 'grito', 'hojas',
   'llamarada', 'mirada', 'ola', 'polen', 'raices', 'sol', 'zarpazo', 'zarpazo_brote',
+  'debilitado_estallido', 'debilitado_carta',
 ] as const;
 
 /**
@@ -234,6 +235,77 @@ export class Efectos {
         });
       }),
     );
+  }
+
+  // ---------------------------------------------------------------- debilitado
+
+  /** Píxeles del color del tipo que suben desde una línea horizontal (la criatura se deshace en luz). */
+  chispasDesde(x: number, y: number, ancho: number, color: number, cant: number): void {
+    for (let k = 0; k < cant; k++) {
+      const g = this.graf();
+      const lado = Math.random() < 0.3 ? 2 : 1;
+      g.fillStyle(Math.random() < 0.35 ? 0xffffff : color, 1).fillRect(0, 0, lado, lado);
+      g.setPosition(x + al(-ancho / 2, ancho / 2), y + al(-2, 1));
+      void this.tw({ targets: g, y: g.y - al(14, 32), x: g.x + al(-5, 5), alpha: 0, duration: al(380, 620), ease: 'Sine.easeOut' }).then(() => g.destroy());
+    }
+  }
+
+  /**
+   * Final del debilitado: estalla una luz del color del tipo y sale una cartita que gira y sube
+   * (la criatura vuelve a su carta). Los dibujos son blancos y se tiñen.
+   */
+  async debilitar(en: Punto, color: number): Promise<void> {
+    const claro = Phaser.Display.Color.Interpolate.ColorWithColor(
+      Phaser.Display.Color.ValueToColor(color),
+      Phaser.Display.Color.ValueToColor(0xffffff),
+      100,
+      45,
+    );
+    const tinteCarta = Phaser.Display.Color.GetColor(claro.r, claro.g, claro.b);
+    const luz = this.dib('debilitado_estallido', en.x, en.y);
+    // Un núcleo blanco más chico encima, para que el centro siga brillando y no quede una mancha de color.
+    const nucleo = this.dib('debilitado_estallido', en.x, en.y);
+    const carta = this.dib('debilitado_carta', en.x, en.y);
+    const tareas: Promise<void>[] = [];
+    if (luz) {
+      luz.setTint(color).setScale(0.25).setAlpha(1);
+      tareas.push(
+        this.tw({ targets: luz, scale: 1.15, duration: 260, ease: 'Cubic.easeOut' }).then(() =>
+          this.tw({ targets: luz, alpha: 0, scale: 1.35, duration: 340 }).then(() => luz.destroy()),
+        ),
+      );
+    }
+    if (nucleo) {
+      nucleo.setTint(tinteCarta).setScale(0.15);
+      tareas.push(
+        this.tw({ targets: nucleo, scale: 0.7, duration: 240, ease: 'Cubic.easeOut' }).then(() =>
+          this.tw({ targets: nucleo, alpha: 0, scale: 0.85, duration: 300 }).then(() => nucleo.destroy()),
+        ),
+      );
+    }
+    if (carta) {
+      carta.setTint(tinteCarta).setAlpha(0);
+      // Gira sobre su eje (el ancho va y vuelve) mientras sube: sin rotar el píxel.
+      const p = { t: 0 };
+      tareas.push(
+        this.espera(160).then(() =>
+          this.tw({
+            targets: p,
+            t: 1,
+            duration: 950,
+            ease: 'Sine.easeIn',
+            onUpdate: () => {
+              carta.setAlpha(Math.min(1, p.t * 6) * (p.t > 0.82 ? (1 - p.t) / 0.18 : 1));
+              carta.setPosition(en.x, en.y - 4 - p.t * 72);
+              const esc = 1.2 + p.t * 0.3;
+              carta.setScale(Math.cos(p.t * Math.PI * 4) * esc, esc);
+            },
+          }).then(() => carta.destroy()),
+        ),
+      );
+    }
+    void this.estallido('brillo', en, 8, 26, 420);
+    await Promise.all(tareas);
   }
 
   // ---------------------------------------------------------------- efectos propios de cada ataque

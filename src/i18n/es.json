@@ -338,5 +338,8 @@
   "def.info": "Elimina de un golpe. Si se cubre, lo resiste.",
   "c.carga": "¡{n} acumula una energía terrible!",
   "c.definitivo": "¡{n} desata su Ataque Definitivo!",
-  "c.definitivoBloqueado": "¡{n} se cubrió y resistió el golpe definitivo!"
+  "c.definitivoBloqueado": "¡{n} se cubrió y resistió el golpe definitivo!",
+  "inicio.titulo": "Elige tu primera carta",
+  "inicio.ayuda": "← → para mirar · A o toca una carta para elegirla",
+  "inicio.tuyo": "¡{n} es tu primer Pixanimal!"
 }

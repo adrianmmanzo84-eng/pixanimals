@@ -365,7 +365,7 @@ export class Combate extends Phaser.Scene {
           break;
         case 'debilitado':
           sonido.tocar('debilitado');
-          await this.tween({ targets: this.sprites[e.lado], y: this.pos(e.lado).y + 30, alpha: 0, duration: 450 });
+          await this.animDebilitado(e.lado);
           this.pintarPuntos(e.lado);
           await this.decir(t('c.debilitado', { n: this.nom(e.lado) }));
           break;
@@ -1054,6 +1054,43 @@ export class Combate extends Phaser.Scene {
     await this.tween({ targets: velo, alpha: 0, duration: 350 });
     this.temblorLibre = false;
     velo.destroy();
+  }
+
+  /**
+   * Debilitado: destello blanco y pausa, la criatura se deshace en luz del color de su tipo desde los pies,
+   * estalla un destello y su cartita sube girando (vuelve a su carta). ~1,3 s (la mitad a ×2).
+   */
+  private async animDebilitado(lado: Lado): Promise<void> {
+    const s = this.sprites[lado];
+    const c = this.bat.act(lado);
+    const color = COLOR_TIPO[c.especie.tipo] ?? 0xffffff;
+    const alto = altoVisible(c.especie.id);
+    const centro = this.centro(lado);
+    sonido.tocar('debilitado');
+    s.setTint(0xffffff).setTintMode(Phaser.TintModes.FILL);
+    this.temblor(160, 0.008);
+    await this.esperar(150);
+    s.setTint(color);
+    // Se borra de abajo hacia arriba (el lienzo es de 96 px y los pies están en su borde inferior).
+    const prog = { t: 0 };
+    let chispa = 0;
+    await this.tween({
+      targets: prog,
+      t: 1,
+      duration: 520,
+      ease: 'Sine.easeIn',
+      onUpdate: () => {
+        const corte = LIENZO - alto * prog.t;
+        s.setCrop(0, 0, LIENZO, Math.max(0, corte));
+        if (prog.t - chispa > 0.06) {
+          chispa = prog.t;
+          this.fx.chispasDesde(s.x, s.y + (corte - LIENZO * ORIGEN_Y), Math.max(18, alto * 0.6), color, 6);
+        }
+      },
+    });
+    s.setAlpha(0).setCrop().clearTint().setTintMode(Phaser.TintModes.MULTIPLY);
+    s.y = this.pos(lado).y + 30;
+    await this.fx.debilitar(centro, color);
   }
 
   /** Habilidad sin daño: la criatura se hincha un instante y aparece su efecto. */

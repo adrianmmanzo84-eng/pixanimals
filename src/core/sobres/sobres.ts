@@ -121,7 +121,18 @@ export function abrirSobre(datos: Datos, estado: EstadoJuego, idSobre: string, r
   return rarezas.map((rareza) => recibir(datos, estado, rng.elegir(candidatas).id, rareza, rng.prob(100 / datos.sobres.brillanteUnoEn)));
 }
 
-/** Sobre de bienvenida: las criaturas de `sobres.bienvenida` (una de cada familia original), para empezar con equipo completo. */
+/**
+ * Carta inicial: el jugador elige una de tres cartas boca abajo y recibe un Pixanimal de etapa 1 al azar,
+ * de cualquier familia (las que se agreguen entran solas). Todos los iniciales llegan Poco comunes,
+ * para que ninguno empiece en desventaja por la rareza.
+ */
+export function cartaInicial(datos: Datos, estado: EstadoJuego, rng: Rng): Carta {
+  const iniciales = [...datos.criaturas.values()].filter((c) => c.etapa === 1);
+  estado.bienvenida = true;
+  return recibir(datos, estado, rng.elegir(iniciales).id, 'poco_comun', false);
+}
+
+/** Sobre de bienvenida (versión anterior, se usa en pruebas): las criaturas de `sobres.bienvenida` (una de cada familia original), para empezar con equipo completo. */
 export function sobreBienvenida(datos: Datos, estado: EstadoJuego, rng: Rng): Carta[] {
   const basico = datos.sobres.sobres.find((s) => s.id === datos.sobres.gratis.sobre)!;
   estado.bienvenida = true;

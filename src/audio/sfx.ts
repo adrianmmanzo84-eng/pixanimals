@@ -30,7 +30,14 @@ const EFECTOS: Record<string, Nota[]> = {
   escudo: [{ onda: 'triangle', f: 700, f2: 1000, dur: 0.15 }],
   giro: [{ onda: 'ruido', f: 0, dur: 0.22, vol: 0.22 }, { onda: 'triangle', f: 260, f2: 620, dur: 0.2, vol: 0.12 }],
   falla: [{ onda: 'triangle', f: 400, f2: 200, dur: 0.15, vol: 0.3 }],
-  debilitado: [{ onda: 'square', f: 400, f2: 60, dur: 0.5 }],
+  // Al debilitarse: «puf», una nota que baja (se deshace en luz) y tres que suben (vuelve a su carta).
+  debilitado: [
+    { onda: 'ruido', f: 0, dur: 0.1, vol: 0.4 },
+    { onda: 'square', f: 520, f2: 150, dur: 0.38, vol: 0.22, t: 0.06 },
+    { onda: 'triangle', f: 660, dur: 0.09, vol: 0.28, t: 0.48 },
+    { onda: 'triangle', f: 880, dur: 0.09, vol: 0.28, t: 0.57 },
+    { onda: 'triangle', f: 1320, dur: 0.2, vol: 0.28, t: 0.66 },
+  ],
   victoria: [0, 1, 2, 3, 4, 5].map((i) => ({ onda: 'square' as const, f: [523, 659, 784, 1047, 784, 1047][i]!, dur: i === 5 ? 0.3 : 0.1, t: i * 0.1 })),
   derrota: [0, 1, 2, 3].map((i) => ({ onda: 'triangle' as const, f: [392, 330, 262, 196][i]!, dur: i === 3 ? 0.4 : 0.16, t: i * 0.16 })),
 };

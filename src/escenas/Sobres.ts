@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { DATOS } from '../core/datos';
 import { Rng } from '../core/rng';
-import { abrirSobre, costoDe, ORDEN_RAREZA, probConIncienso, sobreBienvenida, sobresGratis, type Carta } from '../core/sobres/sobres';
+import { abrirSobre, cartaInicial, costoDe, ORDEN_RAREZA, probConIncienso, sobresGratis, type Carta } from '../core/sobres/sobres';
 import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
@@ -48,9 +48,7 @@ export class Sobres extends Phaser.Scene {
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => Entrada.escuchar(null));
 
     if (this.bienvenida) {
-      const cartas = sobreBienvenida(DATOS, juego.estado, new Rng(Date.now() >>> 0));
-      juego.guardar();
-      void this.animar(cartas, 0x5aa9f0, t('sobres.bienvenida')).then(() => this.scene.start('Menu'));
+      void this.elegirInicial().then(() => this.scene.start('Menu'));
       return;
     }
 
@@ -186,24 +184,9 @@ export class Sobres extends Phaser.Scene {
       await this.esperarA();
       const carta = cartas[i]!;
       const cont = mazo[i]!;
-      const especie = DATOS.criaturas.get(carta.especie)!;
       await this.tw({ targets: cont, scaleX: 0, duration: 110 });
       cont.removeAll(true);
-      const cara = this.add.graphics();
-      cara.fillStyle(0x10142c, 1).fillRoundedRect(-31, -46, 62, 92, 5);
-      cara.fillStyle(n(COLOR_RAREZA[carta.rareza]), 1).fillRoundedRect(-29, -44, 58, 88, 4);
-      cara.fillStyle(n(C.papel), 1).fillRoundedRect(-26.5, -41.5, 53, 83, 3);
-      cara.fillStyle(COLOR_TIPO[especie.tipo]!, 0.25).fillRoundedRect(-24, -39, 48, 44, 3);
-      const sprite = miniatura(this.add.image(0, -17, textura(carta.especie, 'frente', carta.brillante)), carta.especie, 40, 0.75);
-      const lineas = [
-        new Texto(this, -31, 6, 62, 10, C.tinta, 'centro', { peso: 600 }).poner(especie.nombre),
-        new Texto(this, -31, 15, 62, 10, COLOR_RAREZA[carta.rareza], 'centro', { tam: 6.6 }).poner(estrellas(carta.rareza)),
-        new Texto(this, -31, 24, 62, 10, carta.resultado === 'repetida' ? C.tintaSuave : C.resalte, 'centro', { tam: 6.6 }).poner(
-          carta.resultado === 'nueva' ? t('carta.nueva') : carta.resultado === 'mejora' ? t('carta.mejora') : t('carta.repetida', { n: carta.esencia }),
-        ),
-        new Texto(this, -31, 33, 62, 10, '#b07a00', 'centro', { tam: 6.6, peso: 600 }).poner(carta.brillante ? t('carta.brillante') : ''),
-      ];
-      cont.add([cara, sprite, ...lineas.map((l) => l.imagen)]);
+      this.cara(cont, carta);
       const buena = carta.rareza === 'rara' || carta.rareza === 'epica' || carta.brillante;
       sonido.tocar(buena ? 'victoria' : carta.resultado === 'repetida' ? 'cursor' : 'sube');
       if (buena) this.cameras.main.flash(180, 255, 240, 180);
@@ -211,6 +194,124 @@ export class Sobres extends Phaser.Scene {
       if (buena) await this.tw({ targets: cont, scaleX: 1.08, scaleY: 1.08, duration: 110, yoyo: true });
     }
     rotulo.poner(titulo);
+    pie.poner(t('sobres.continuar'));
+    await this.esperarA();
+  }
+
+  /** Dorso de carta (la ilustración, o uno dibujado si falta). */
+  private dorso(): Phaser.GameObjects.GameObject {
+    if (this.textures.exists('carta_dorso')) return this.add.image(0, 0, 'carta_dorso');
+    const gr = this.add.graphics();
+    gr.fillStyle(0x10142c, 1).fillRoundedRect(-31, -46, 62, 92, 5);
+    gr.fillStyle(n(C.marco), 1).fillRoundedRect(-29, -44, 58, 88, 4);
+    gr.fillStyle(n(C.marcoClaro), 1).fillRoundedRect(-23, -38, 46, 76, 3);
+    gr.fillStyle(n(C.marco), 1).fillCircle(0, 0, 12);
+    gr.fillStyle(0xffffff, 1).fillCircle(0, 0, 6);
+    return gr;
+  }
+
+  /** Dibuja la cara de una carta de criatura dentro del contenedor. */
+  private cara(cont: Phaser.GameObjects.Container, carta: Carta): void {
+    const especie = DATOS.criaturas.get(carta.especie)!;
+    const cara = this.add.graphics();
+    cara.fillStyle(0x10142c, 1).fillRoundedRect(-31, -46, 62, 92, 5);
+    cara.fillStyle(n(COLOR_RAREZA[carta.rareza]), 1).fillRoundedRect(-29, -44, 58, 88, 4);
+    cara.fillStyle(n(C.papel), 1).fillRoundedRect(-26.5, -41.5, 53, 83, 3);
+    cara.fillStyle(COLOR_TIPO[especie.tipo]!, 0.25).fillRoundedRect(-24, -39, 48, 44, 3);
+    const sprite = miniatura(this.add.image(0, -17, textura(carta.especie, 'frente', carta.brillante)), carta.especie, 40, 0.75);
+    const lineas = [
+      new Texto(this, -31, 6, 62, 10, C.tinta, 'centro', { peso: 600 }).poner(especie.nombre),
+      new Texto(this, -31, 15, 62, 10, COLOR_RAREZA[carta.rareza], 'centro', { tam: 5.8 }).poner(estrellas(carta.rareza)),
+      new Texto(this, -31, 24, 62, 10, carta.resultado === 'repetida' ? C.tintaSuave : C.resalte, 'centro', { tam: 6.6 }).poner(
+        carta.resultado === 'nueva' ? t('carta.nueva') : carta.resultado === 'mejora' ? t('carta.mejora') : t('carta.repetida', { n: carta.esencia }),
+      ),
+      new Texto(this, -31, 33, 62, 10, '#b07a00', 'centro', { tam: 6.6, peso: 600 }).poner(carta.brillante ? t('carta.brillante') : ''),
+    ];
+    cont.add([cara, sprite, ...lineas.map((l) => l.imagen)]);
+  }
+
+  /**
+   * Comienzo de la partida: tres cartas boca abajo flotan esperando. Se elige una con ←/→ y A
+   * (o tocándola); se da vuelta y revela un Pixanimal al azar. Las otras se desvanecen sin mostrarse.
+   */
+  private async elegirInicial(): Promise<void> {
+    this.add.graphics().fillStyle(0x141830, 0.82).fillRect(0, 0, 240, 160);
+    const rotulo = new Texto(this, 0, 6, 240, 14, '#ffffff', 'centro', { tam: 11, peso: 600 }).poner(t('inicio.titulo'));
+    const pie = new Texto(this, 0, 143, 240, 12, '#ffffff', 'centro').poner(t('inicio.ayuda'));
+    const XS = [46, 120, 194];
+    const Y = 80;
+    const brillos = XS.map((x) => this.add.graphics().setPosition(x, Y));
+    const cartas = XS.map((x, i) => {
+      const c = this.add.container(x, 200);
+      c.add(this.dorso());
+      c.setSize(62, 92).setInteractive({ useHandCursor: true });
+      c.on('pointerover', () => elegir(i));
+      c.on('pointerdown', () => elegir(i));
+      return c;
+    });
+    let sel = 1;
+    let listo = false;
+    const elegir = (i: number) => {
+      if (!listo || sel === i) return;
+      sel = i;
+      sonido.tocar('cursor');
+    };
+    await Promise.all(cartas.map((c, i) => this.tw({ targets: c, y: Y, duration: 320, delay: i * 110, ease: 'Back.easeOut' })));
+    listo = true;
+    // Flotan a ritmos distintos; la elegida sube un poco más, crece y brilla.
+    const reloj = { t: 0 };
+    const flotar = this.tweens.add({
+      targets: reloj,
+      t: 1000,
+      duration: 1_000_000,
+      onUpdate: () => {
+        const s = this.time.now / 1000;
+        cartas.forEach((c, i) => {
+          const elegida = i === sel && listo;
+          const objetivo = elegida ? 1.08 : 1;
+          c.y = Y + Math.sin(s * (1.6 + i * 0.27) + i * 2.1) * 3 - (elegida ? 5 : 0);
+          c.setScale(c.scaleX + (objetivo - c.scaleX) * 0.2);
+          const g = brillos[i]!;
+          g.clear().setPosition(c.x, c.y);
+          const pulso = 0.5 + 0.5 * Math.sin(s * 3 + i);
+          if (elegida) {
+            g.fillStyle(0xffe070, 0.12 + 0.12 * pulso).fillRoundedRect(-37, -52, 74, 104, 8);
+            g.lineStyle(1.5, 0xffe070, 0.6 + 0.4 * pulso).strokeRoundedRect(-35, -50, 70, 100, 7);
+          }
+        });
+      },
+    });
+    await new Promise<void>((r) => {
+      this.alPulsar = (a) => {
+        if (a === 'izquierda' || a === 'derecha') {
+          sel = (sel + (a === 'derecha' ? 1 : 2)) % 3;
+          sonido.tocar('cursor');
+        } else if (a === 'a') {
+          this.alPulsar = null;
+          r();
+        }
+      };
+    });
+    listo = false;
+    flotar.remove();
+    brillos.forEach((g) => g.destroy());
+    const carta = cartaInicial(DATOS, juego.estado, new Rng((Date.now() ^ (Math.random() * 0x7fffffff)) >>> 0));
+    juego.guardar();
+    sonido.tocar('aceptar');
+    const elegida = cartas[sel]!;
+    await Promise.all([
+      ...cartas.filter((c) => c !== elegida).map((c) => this.tw({ targets: c, alpha: 0, y: c.y + 20, duration: 300 })),
+      this.tw({ targets: elegida, x: 120, y: 78, scaleX: 1.15, scaleY: 1.15, duration: 380, ease: 'Cubic.easeOut' }),
+    ]);
+    pie.poner('');
+    sonido.tocar('final');
+    await this.tw({ targets: elegida, scaleX: 0, duration: 140 });
+    elegida.removeAll(true);
+    this.cara(elegida, carta);
+    this.cameras.main.flash(220, 255, 255, 255);
+    sonido.tocar('victoria');
+    await this.tw({ targets: elegida, scaleX: 1.15, duration: 160 });
+    rotulo.poner(t('inicio.tuyo', { n: DATOS.criaturas.get(carta.especie)!.nombre }));
     pie.poner(t('sobres.continuar'));
     await this.esperarA();
   }
