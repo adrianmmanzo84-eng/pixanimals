@@ -761,8 +761,8 @@ export class Combate extends Phaser.Scene {
       const estado = m === null ? t('def.listo') : m === 'usado' ? t('def.usado') : m === 'turno' ? t('def.turno', { n: DATOS.balance.definitivo.turnoMinimo }) : '';
       this.defTxt.poner(`★ ${def.nombre} · ${estado}`, m === null ? (sel === 4 ? C.resalte : '#b8860b') : C.apagado).visible(true);
       this.gVentanas.fillStyle(n(C.papelSombra), 1).fillRect(8, 134, 224, 1);
-      this.info1.imagen.setY(143);
-      this.info2.imagen.setY(151);
+      this.info1.imagen.setY(141);
+      this.info2.imagen.setY(148.5);
     }
     const x = sel === 4 ? 60 : 8 + (sel % 2) * 110;
     const y = sel === 4 ? 136 : 117 + Math.floor(sel / 2) * 9;
@@ -781,7 +781,7 @@ export class Combate extends Phaser.Scene {
     let linea1 = `${tipo.nombre} · ${t(`cat.${h.def.categoria}`)}`;
     if (h.def.potencia > 0) linea1 += ' · ' + t('info.potencia', { p: h.def.potencia, a: h.def.precision ?? 100 });
     else if (h.def.precision !== null) linea1 += ` · Prec. ${h.def.precision}`;
-    this.gVentanas.fillStyle(COLOR_TIPO[h.def.tipo] ?? 0x566c86, 1).fillRect(10, def ? 144 : 138, 5, 5);
+    this.gVentanas.fillStyle(COLOR_TIPO[h.def.tipo] ?? 0x566c86, 1).fillRect(10, def ? 142.5 : 138, 5, 5);
     this.info1.imagen.setX(18);
     this.info1.poner(linea1).visible(true);
     const motivo = this.bat.bloqueo(0, sel);

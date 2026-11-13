@@ -1,0 +1,66 @@
+{
+  "herramienta": "Generador integrado de imágenes",
+  "instrucciones": "PIXANIMALS: create ONE original creature evolutionary PIXEL ART sprite design sheet, NOT smooth illustration. Exactly EIGHT complete sprites in 4 columns x2 rows, on transparent background. Four columns BASE / FIRST EVOLUTION / SECOND EVOLUTION / MYTHICAL. Top row FRONT three-quarter view facing viewer left; bottom matching BACK three-quarter view away upper right of SAME four designs. Consistent markings and anatomy front/back. Each stage gradually larger and more powerful: base very cute and harmless, first agile, second fierce, mythical breathtaking massive new silhouette. Base conceals future ferocity, but three identity traits connect all stages. Authentic low resolution chunky pixel art like 1990s handheld RPG sprites at 48-64 logical pixels high enlarged nearest-neighbor 6x: VERY LARGE uniform square pixels, hard stepped dark outlines, broad flat pixel clusters, maximum16 colors, only 3 flat shades per material, simple expressive 1-2pixel eyes. No antialiasing, smooth gradients, blur, painterly texture, tiny detailed ornament, glow or soft shadow. Strong iconic silhouettes, not detail density. Size progression 25,36,48,60 logical pixels. Leave WIDE transparent margins on all four canvas edges, all wing crest tail tips fully visible with at least 8 percent outer border. Clear gaps between cells, aligned row baselines. No cropping overlap, text, labels, panel, UI, scenery, floor, aura, shadows, watermark or logo. These are ordinary four-stage families, NOT Eclipse variants. ",
+  "familias": [
+    {
+      "archivo": "01_brasa_fenec.png",
+      "clase": "Brasa",
+      "nombre": "Fénec de vidrio solar",
+      "concepto": "A FIRE FENNEC FOX family. BASE tiny adorable sandy-orange fennec cub with floppy oversized rounded ears, cream muzzle and belly, a tiny amber oval forehead dot and short fluffy tail, innocent gentle eyes, no flames or claws. EVO1 agile fennec with upright ears and orange glasslike tail tip. EVO2 fierce athletic desert fox with obsidian ankle plates, long ears whose inner shapes resemble flame petals and amber glass dorsal crest. MYTHICAL majestic feral solar fennec with two enormous flame-shaped ears, flowing double-layer amber glass tail, black obsidian foreleg guards, ivory muzzle and blazing orange geometric mane. Preserve long fennec ears, amber forehead motif, cream muzzle and orange tail through all stages. Distinct from a lion, no crown or humanoid body."
+    },
+    {
+      "archivo": "02_brasa_escarabajo.png",
+      "clase": "Brasa",
+      "nombre": "Escarabajo fragua",
+      "concepto": "A FIRE FORGE BEETLE family. BASE tiny round cute rust-red beetle with soft-looking cream cheek mask, two little curved antennae and a single yellow dot on closed wing cases, short stubby six legs, innocent eyes, no horn or sharp mandibles. EVO1 stronger beetle with a small shovel-shaped head crest and warm orange wing case seams. EVO2 fierce heavy six-legged rhinoceros beetle with angular black-red armor, large forked forge horn and amber abdominal bands, wings slightly opening. MYTHICAL massive volcanic forge beetle with spectacular twin-pronged anvil-shaped horn, black iron carapace with orange seams, broad red-gold wing cases spread to reveal two dark translucent-looking flight wings rendered flat pixels. Preserve red carapace, cream cheek mask, twin antennae and yellow core dot. Mythical can FLY, real insect anatomy, no machine or robot."
+    },
+    {
+      "archivo": "03_marea_nutria.png",
+      "clase": "Marea",
+      "nombre": "Nutria arrecife",
+      "concepto": "A WATER REEF OTTER family. BASE tiny round cocoa otter pup lying on belly, cream muzzle, turquoise teardrop cheek spots, small soft tail and one pale coral pebble hugged in paws, completely innocent. EVO1 upright playful otter with longer paddle tail and small coral wrist growths. EVO2 powerful semiaquatic otter with muscular shoulders, broad cyan fin tail and layered coral forearm bracers. MYTHICAL imposing four-legged tidal otter guardian with dark teal/cocoa coat, cream face and chest, branching coral shoulder armor, enormous blue paddle tail edged in white and aquamarine central coral stone. Preserve otter muzzle, cheek teardrops, coral pebble motif and broad tail. No shell, no shark features, no humanoid clothing."
+    },
+    {
+      "archivo": "04_marea_caballito.png",
+      "clase": "Marea",
+      "nombre": "Caballito abisal",
+      "concepto": "A WATER SEAHORSE family. BASE tiny adorable pale turquoise seahorse with round head, very short soft snout, peach cheek dot, tiny dorsal fin and little curled tail, innocent eyes and no spines. EVO1 slender blue seahorse with larger fan fin and small pearl forehead mark. EVO2 fierce armored sea dragon seahorse with long snout, angular fin frills, strong curled tail and cobalt segmented belly. MYTHICAL huge regal abyssal seahorse with extravagant crescent-shaped blue/ivory fin fans, pearl forehead gem, spiny silver-blue dorsal crest and powerful coiled tail. Preserve seahorse snout, peach cheek dot, pearl motif and coiled tail. NO legs, no horse hooves, no real wings, stays aquatic."
+    },
+    {
+      "archivo": "05_brote_tapir.png",
+      "clase": "Brote",
+      "nombre": "Tapir micelio",
+      "concepto": "A PLANT TAPIR MYCELIUM family. BASE tiny pudgy brown tapir calf with short rounded trunk, cream baby stripes, tiny moss tuft on back and gentle eyes, absolutely no horns mushrooms or aggression. EVO1 sturdy tapir with growing green moss mantle and small mushroom buds at shoulders. EVO2 powerful forest tapir with muscular legs, barklike shoulder plates, longer expressive trunk and layered mushroom fans on back. MYTHICAL imposing ancient forest tapir colossus, deep brown skin, cream stripe motifs, great emerald moss mantle with amber shelf-mushroom armor and a fanlike fungal dorsal crest, broad powerful paws. Preserve short tapir trunk, rounded ears, cream baby-stripe motifs and moss back. No bear deer anatomy, no humanoid body."
+    },
+    {
+      "archivo": "06_brote_mantis.png",
+      "clase": "Brote",
+      "nombre": "Mantis orquídea",
+      "concepto": "A PLANT ORCHID MANTIS family, flying final. BASE tiny cute round pale green mantis nymph, small round petal cheeks, tiny folded forelegs, two soft pink antennae and a magenta diamond belly spot, innocent eyes, no blade claws or wings. EVO1 slender friendly orchid mantis with petal shoulder pads and small folded wings. EVO2 fierce elegant green/pink mantis with large curved leaf forearms, petal armor and opening wings. MYTHICAL spectacular orchid mantis sovereign with huge magenta/cream petal wing fans, emerald segmented body, powerful leaf-shaped forearm blades and crownlike orchid head petals. Preserve twin pink antennae, petal cheek shape and magenta diamond belly mark. Real insect six-limb anatomy, no humanoid person, no clothing."
+    },
+    {
+      "archivo": "07_luz_chinchilla.png",
+      "clase": "Luz",
+      "nombre": "Chinchilla prisma",
+      "concepto": "A LIGHT CHINCHILLA family. BASE tiny fluffy round pearl-white chinchilla baby, large rounded ears, peach nose, tiny pale-gold forehead speck, stubby paws and short fluffy tail, innocent dot eyes, no armor or magic effects. EVO1 silver-cream chinchilla with larger ear rims of pale gold and tiny faceted quartz wrist accents. EVO2 proud powerful chinchilla beast with sweeping featherlike crystal fur clusters, gold shoulder plates and longer luminous-looking tail represented with flat colors. MYTHICAL magnificent radiant chinchilla guardian, ivory body with gold quartz mane and large fanlike crystal tail, long rounded ears with prism edges, fierce noble eyes and gold forehead diamond. Preserve peach nose, chinchilla ears, pearl-white face and forehead speck. No aura background, no crown, no rabbit antlers."
+    },
+    {
+      "archivo": "08_luz_golondrina.png",
+      "clase": "Luz",
+      "nombre": "Golondrina alba",
+      "concepto": "A LIGHT DAWN SWALLOW family, flying. BASE tiny round cream swallow chick with a peach chest patch, little gold beak, tiny folded pale-blue wings and soft short forked tail, sweet eyes, no crest armor or claws. EVO1 agile white swallow with longer forked tail and small golden feather forehead mark. EVO2 powerful sky swallow with broad silver-blue wings edged in gold and angular sunray tail feathers. MYTHICAL breathtaking radiant swallow with enormous swept ivory/gold wings, long twin-ribbon swallow tail, sapphire-blue inner feathers and a three-point gold feather crest, fierce noble face. Preserve peach chest patch, gold beak, small gold forehead mark and forked swallow tail. No lion/griffin body, no detached halo, no background aura."
+    },
+    {
+      "archivo": "09_oscuridad_murcielago.png",
+      "clase": "Oscuridad",
+      "nombre": "Murciélago terciopelo",
+      "concepto": "A DARKNESS VELVET BAT family, flying. BASE tiny adorable round charcoal bat pup wrapped snugly in short folded wings, big rounded ears, lavender muzzle, tiny silver crescent forehead spot, gentle innocent eyes, no fangs or horns. EVO1 small bat with unfolded violet membranes and longer ears. EVO2 fierce agile bat with broad angular navy wings, silver ear edge armor and dark magenta chest markings. MYTHICAL imposing nocturnal bat sovereign with huge serrated deep-violet wing membranes, silver-black chest armor, tall split ear crest and a long forked membrane tail, bright amethyst eyes. Preserve lavender muzzle, tall bat ears, crescent forehead mark and membrane wings. No humanoid vampire, no clothing, no skull, no background aura."
+    },
+    {
+      "archivo": "10_oscuridad_mapache.png",
+      "clase": "Oscuridad",
+      "nombre": "Mapache ónice",
+      "concepto": "A DARKNESS ONYX RACCOON family. BASE tiny round grey raccoon pup, soft black eye mask, cream muzzle, two pale lavender tail rings, little pink nose and a small smooth black pebble held in paws, innocent eyes, no claws or armor. EVO1 agile raccoon with longer ringed tail and black stone wrist cuff. EVO2 fierce low quadruped raccoon with powerful shoulders, layered onyx forearm plates and violet tail markings. MYTHICAL massive stealthy shadow raccoon guardian, charcoal/cream fur, recognizable black mask, enormous black/lavender ringed tail split into two interwoven sweeping fur plumes, sharp obsidian shoulder mane and purple onyx chest stone, fierce bright violet eyes and strong paws. Preserve black eye mask, pink nose, tail rings and black pebble motif. No fox ears, no humanoid rogue, no weapon or clothing."
+    }
+  ]
+}

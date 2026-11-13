@@ -104,6 +104,10 @@ if __name__ == '__main__':
         por_lamina.setdefault(os.path.basename(f['lamina']), []).append(f)
     lista = {}
     for lam, fs in sorted(por_lamina.items()):
+        if not os.path.exists(os.path.join(ORIG, lam)):
+            # Láminas pedidas que todavía no llegaron: sus ataques siguen con el efecto compartido.
+            print(f'· falta {lam}: {len(fs)} piezas con efecto compartido por ahora')
+            continue
         img = Image.open(os.path.join(ORIG, lam)).convert('RGBA')
         alfa = np.array(img)[:, :, 3].astype(float) / 255
         ataques = 'ataques' in lam

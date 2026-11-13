@@ -2000,6 +2000,2946 @@
       "evoluciona": [],
       "sprites": "pulpo_4b",
       "definitivo": "tinta_del_vacio"
+    },
+    {
+      "id": "fenequin",
+      "nombre": "Fenequín",
+      "tipo": "brasa",
+      "familia": "fenec",
+      "etapa": 1,
+      "pasiva": "espejismo",
+      "base": {
+        "ps": 47,
+        "atq": 41,
+        "def": 39,
+        "ate": 62,
+        "dfe": 47,
+        "vel": 64
+      },
+      "habilidades": [
+        "chispa_de_arena",
+        "velo_de_calor",
+        "orejas_al_sol",
+        "rayo_de_vidrio"
+      ],
+      "descripcion": "Sus orejas caídas se calientan cuando está contento.",
+      "evoluciona": [
+        {
+          "a": "dunafen",
+          "nivel": 16
+        }
+      ],
+      "sprites": "fenec_1"
+    },
+    {
+      "id": "dunafen",
+      "nombre": "Dunafén",
+      "tipo": "brasa",
+      "familia": "fenec",
+      "etapa": 2,
+      "pasiva": "espejismo",
+      "base": {
+        "ps": 59,
+        "atq": 51,
+        "def": 51,
+        "ate": 78,
+        "dfe": 59,
+        "vel": 82
+      },
+      "habilidades": [
+        "destello_ardiente",
+        "velo_de_calor",
+        "orejas_al_sol",
+        "rayo_de_vidrio"
+      ],
+      "descripcion": "Corre por las dunas sin dejar huellas en la arena.",
+      "evoluciona": [
+        {
+          "a": "vitrifen",
+          "nivel": 28
+        }
+      ],
+      "sprites": "fenec_2"
+    },
+    {
+      "id": "vitrifen",
+      "nombre": "Vitrifén",
+      "tipo": "brasa",
+      "familia": "fenec",
+      "etapa": 3,
+      "pasiva": "espejismo",
+      "base": {
+        "ps": 71,
+        "atq": 60,
+        "def": 59,
+        "ate": 92,
+        "dfe": 71,
+        "vel": 97
+      },
+      "habilidades": [
+        "destello_ardiente",
+        "velo_de_calor",
+        "danza_del_desierto",
+        "rayo_de_vidrio"
+      ],
+      "descripcion": "Su cola es de vidrio solar y brilla como un farol.",
+      "evoluciona": [
+        {
+          "a": "vitreon",
+          "nivel": 40
+        },
+        {
+          "a": "vitreon_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "fenec_3"
+    },
+    {
+      "id": "vitreon",
+      "nombre": "Vitreón",
+      "tipo": "brasa",
+      "familia": "fenec",
+      "etapa": 4,
+      "pasiva": "espejismo",
+      "base": {
+        "ps": 81,
+        "atq": 70,
+        "def": 69,
+        "ate": 107,
+        "dfe": 81,
+        "vel": 112
+      },
+      "habilidades": [
+        "destello_ardiente",
+        "velo_de_calor",
+        "danza_del_desierto",
+        "lente_solar"
+      ],
+      "descripcion": "Concentra la luz del desierto en sus orejas de cristal.",
+      "evoluciona": [],
+      "sprites": "fenec_4",
+      "definitivo": "sol_de_cristal"
+    },
+    {
+      "id": "vitreon_eclipse",
+      "nombre": "Vitreón Eclipse",
+      "tipo": "brasa",
+      "familia": "fenec",
+      "etapa": 4,
+      "pasiva": "espejismo",
+      "base": {
+        "ps": 79,
+        "atq": 68,
+        "def": 61,
+        "ate": 123,
+        "dfe": 73,
+        "vel": 116
+      },
+      "habilidades": [
+        "destello_ardiente",
+        "velo_de_calor",
+        "danza_del_desierto",
+        "vidrio_fundido"
+      ],
+      "descripcion": "Su vidrio se volvió obsidiana; arde sin dar luz.",
+      "evoluciona": [],
+      "sprites": "fenec_4b",
+      "definitivo": "tormenta_de_vidrio"
+    },
+    {
+      "id": "escarlito",
+      "nombre": "Escarlito",
+      "tipo": "brasa",
+      "familia": "escarabajo",
+      "etapa": 1,
+      "pasiva": "fragua_viva",
+      "base": {
+        "ps": 45,
+        "atq": 75,
+        "def": 48,
+        "ate": 43,
+        "dfe": 42,
+        "vel": 47
+      },
+      "habilidades": [
+        "cornada_tibia",
+        "caparazon_forjado",
+        "templar",
+        "martillo_de_forja"
+      ],
+      "descripcion": "Rueda como una brasa cuando se asusta.",
+      "evoluciona": [
+        {
+          "a": "yunquero",
+          "nivel": 16
+        }
+      ],
+      "sprites": "escarabajo_1"
+    },
+    {
+      "id": "yunquero",
+      "nombre": "Yunquero",
+      "tipo": "brasa",
+      "familia": "escarabajo",
+      "etapa": 2,
+      "pasiva": "fragua_viva",
+      "base": {
+        "ps": 57,
+        "atq": 95,
+        "def": 60,
+        "ate": 55,
+        "dfe": 54,
+        "vel": 59
+      },
+      "habilidades": [
+        "cornada_ignea",
+        "caparazon_forjado",
+        "templar",
+        "martillo_de_forja"
+      ],
+      "descripcion": "Su caparazón suena como un yunque al chocar.",
+      "evoluciona": [
+        {
+          "a": "cornifragua",
+          "nivel": 28
+        }
+      ],
+      "sprites": "escarabajo_2"
+    },
+    {
+      "id": "cornifragua",
+      "nombre": "Cornifragua",
+      "tipo": "brasa",
+      "familia": "escarabajo",
+      "etapa": 3,
+      "pasiva": "fragua_viva",
+      "base": {
+        "ps": 68,
+        "atq": 111,
+        "def": 70,
+        "ate": 66,
+        "dfe": 65,
+        "vel": 70
+      },
+      "habilidades": [
+        "cornada_ignea",
+        "caparazon_forjado",
+        "fuelle",
+        "martillo_de_forja"
+      ],
+      "descripcion": "Forja su cuerno al rojo vivo cada amanecer.",
+      "evoluciona": [
+        {
+          "a": "fundaris",
+          "nivel": 40
+        },
+        {
+          "a": "fundaris_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "escarabajo_3"
+    },
+    {
+      "id": "fundaris",
+      "nombre": "Fundaris",
+      "tipo": "brasa",
+      "familia": "escarabajo",
+      "etapa": 4,
+      "pasiva": "fragua_viva",
+      "base": {
+        "ps": 78,
+        "atq": 130,
+        "def": 82,
+        "ate": 75,
+        "dfe": 74,
+        "vel": 81
+      },
+      "habilidades": [
+        "cornada_ignea",
+        "caparazon_forjado",
+        "fuelle",
+        "yunque_ardiente"
+      ],
+      "descripcion": "Su armadura es una fragua que nunca se apaga.",
+      "evoluciona": [],
+      "sprites": "escarabajo_4",
+      "definitivo": "gran_fundicion"
+    },
+    {
+      "id": "fundaris_eclipse",
+      "nombre": "Fundaris Eclipse",
+      "tipo": "brasa",
+      "familia": "escarabajo",
+      "etapa": 4,
+      "pasiva": "fragua_viva",
+      "base": {
+        "ps": 86,
+        "atq": 133,
+        "def": 84,
+        "ate": 65,
+        "dfe": 76,
+        "vel": 76
+      },
+      "habilidades": [
+        "cornada_ignea",
+        "caparazon_forjado",
+        "fuelle",
+        "cuerno_de_magma"
+      ],
+      "descripcion": "Sus alas de humo esconden un horno de magma.",
+      "evoluciona": [],
+      "sprites": "escarabajo_4b",
+      "definitivo": "forja_del_ocaso"
+    },
+    {
+      "id": "carbunin",
+      "nombre": "Carbunín",
+      "tipo": "brasa",
+      "familia": "puercoespin",
+      "etapa": 1,
+      "pasiva": "puas_ardientes",
+      "base": {
+        "ps": 45,
+        "atq": 74,
+        "def": 54,
+        "ate": 44,
+        "dfe": 40,
+        "vel": 43
+      },
+      "habilidades": [
+        "pua_candente",
+        "erizar_puas",
+        "afilar_puas",
+        "lluvia_de_puas"
+      ],
+      "descripcion": "Sus púas son tibias como brasas recién apagadas.",
+      "evoluciona": [
+        {
+          "a": "ascuespin",
+          "nivel": 16
+        }
+      ],
+      "sprites": "puercoespin_1"
+    },
+    {
+      "id": "ascuespin",
+      "nombre": "Ascuespín",
+      "tipo": "brasa",
+      "familia": "puercoespin",
+      "etapa": 2,
+      "pasiva": "puas_ardientes",
+      "base": {
+        "ps": 57,
+        "atq": 94,
+        "def": 68,
+        "ate": 56,
+        "dfe": 51,
+        "vel": 54
+      },
+      "habilidades": [
+        "rodada_ignea",
+        "erizar_puas",
+        "afilar_puas",
+        "lluvia_de_puas"
+      ],
+      "descripcion": "Se hace bola y rueda echando chispas.",
+      "evoluciona": [
+        {
+          "a": "pirapuas",
+          "nivel": 28
+        }
+      ],
+      "sprites": "puercoespin_2"
+    },
+    {
+      "id": "pirapuas",
+      "nombre": "Pirapúas",
+      "tipo": "brasa",
+      "familia": "puercoespin",
+      "etapa": 3,
+      "pasiva": "puas_ardientes",
+      "base": {
+        "ps": 67,
+        "atq": 112,
+        "def": 81,
+        "ate": 65,
+        "dfe": 60,
+        "vel": 65
+      },
+      "habilidades": [
+        "rodada_ignea",
+        "erizar_puas",
+        "rescoldo_interno",
+        "lluvia_de_puas"
+      ],
+      "descripcion": "Cada púa guarda un carbón encendido.",
+      "evoluciona": [
+        {
+          "a": "carbunco",
+          "nivel": 40
+        },
+        {
+          "a": "carbunco_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "puercoespin_3"
+    },
+    {
+      "id": "carbunco",
+      "nombre": "Carbunco",
+      "tipo": "brasa",
+      "familia": "puercoespin",
+      "etapa": 4,
+      "pasiva": "puas_ardientes",
+      "base": {
+        "ps": 78,
+        "atq": 129,
+        "def": 93,
+        "ate": 75,
+        "dfe": 70,
+        "vel": 75
+      },
+      "habilidades": [
+        "rodada_ignea",
+        "erizar_puas",
+        "rescoldo_interno",
+        "tormenta_de_puas"
+      ],
+      "descripcion": "Su abanico de púas brilla como un volcán dormido.",
+      "evoluciona": [],
+      "sprites": "puercoespin_4",
+      "definitivo": "corona_carbunculo"
+    },
+    {
+      "id": "carbunco_eclipse",
+      "nombre": "Carbunco Eclipse",
+      "tipo": "brasa",
+      "familia": "puercoespin",
+      "etapa": 4,
+      "pasiva": "puas_ardientes",
+      "base": {
+        "ps": 68,
+        "atq": 159,
+        "def": 76,
+        "ate": 77,
+        "dfe": 57,
+        "vel": 83
+      },
+      "habilidades": [
+        "rodada_ignea",
+        "erizar_puas",
+        "rescoldo_interno",
+        "pua_de_obsidiana"
+      ],
+      "descripcion": "Sus púas de obsidiana cortan el aire con calor.",
+      "evoluciona": [],
+      "sprites": "puercoespin_4b",
+      "definitivo": "abanico_del_ocaso"
+    },
+    {
+      "id": "chispollo",
+      "nombre": "Chispollo",
+      "tipo": "brasa",
+      "familia": "gallo",
+      "etapa": 1,
+      "pasiva": "canto_del_alba",
+      "base": {
+        "ps": 45,
+        "atq": 63,
+        "def": 39,
+        "ate": 43,
+        "dfe": 42,
+        "vel": 68
+      },
+      "habilidades": [
+        "picotazo_igneo",
+        "alas_de_ceniza",
+        "canto_matutino",
+        "espolon_cometa"
+      ],
+      "descripcion": "Pía con fuerza para que salga el sol.",
+      "evoluciona": [
+        {
+          "a": "gallarete",
+          "nivel": 16
+        }
+      ],
+      "sprites": "gallo_1"
+    },
+    {
+      "id": "gallarete",
+      "nombre": "Gallarete",
+      "tipo": "brasa",
+      "familia": "gallo",
+      "etapa": 2,
+      "pasiva": "canto_del_alba",
+      "base": {
+        "ps": 57,
+        "atq": 79,
+        "def": 49,
+        "ate": 55,
+        "dfe": 54,
+        "vel": 86
+      },
+      "habilidades": [
+        "picotazo_solar",
+        "alas_de_ceniza",
+        "canto_matutino",
+        "espolon_cometa"
+      ],
+      "descripcion": "Su cresta echa chispas cuando canta.",
+      "evoluciona": [
+        {
+          "a": "crestallama",
+          "nivel": 28
+        }
+      ],
+      "sprites": "gallo_2"
+    },
+    {
+      "id": "crestallama",
+      "nombre": "Crestallama",
+      "tipo": "brasa",
+      "familia": "gallo",
+      "etapa": 3,
+      "pasiva": "canto_del_alba",
+      "base": {
+        "ps": 67,
+        "atq": 95,
+        "def": 59,
+        "ate": 65,
+        "dfe": 63,
+        "vel": 101
+      },
+      "habilidades": [
+        "picotazo_solar",
+        "alas_de_ceniza",
+        "clarin_del_alba",
+        "espolon_cometa"
+      ],
+      "descripcion": "Sus plumas de la cola arden como antorchas.",
+      "evoluciona": [
+        {
+          "a": "cometon",
+          "nivel": 40
+        },
+        {
+          "a": "cometon_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "gallo_3"
+    },
+    {
+      "id": "cometon",
+      "nombre": "Cometón",
+      "tipo": "brasa",
+      "familia": "gallo",
+      "etapa": 4,
+      "pasiva": "canto_del_alba",
+      "base": {
+        "ps": 78,
+        "atq": 109,
+        "def": 68,
+        "ate": 76,
+        "dfe": 72,
+        "vel": 117
+      },
+      "habilidades": [
+        "picotazo_solar",
+        "alas_de_ceniza",
+        "clarin_del_alba",
+        "caida_del_cometa"
+      ],
+      "descripcion": "Cruza el cielo dejando una estela de cometa.",
+      "evoluciona": [],
+      "sprites": "gallo_4",
+      "definitivo": "lluvia_de_cometas"
+    },
+    {
+      "id": "cometon_eclipse",
+      "nombre": "Cometón Eclipse",
+      "tipo": "brasa",
+      "familia": "gallo",
+      "etapa": 4,
+      "pasiva": "canto_del_alba",
+      "base": {
+        "ps": 47,
+        "atq": 155,
+        "def": 38,
+        "ate": 89,
+        "dfe": 41,
+        "vel": 150
+      },
+      "habilidades": [
+        "picotazo_solar",
+        "alas_de_ceniza",
+        "clarin_del_alba",
+        "cola_de_meteoro"
+      ],
+      "descripcion": "Su estela es roja y negra, como un cometa de noche.",
+      "evoluciona": [],
+      "sprites": "gallo_4b",
+      "definitivo": "cometa_negro"
+    },
+    {
+      "id": "nutrin",
+      "nombre": "Nutrín",
+      "tipo": "marea",
+      "familia": "nutria",
+      "etapa": 1,
+      "pasiva": "piedra_coralina",
+      "base": {
+        "ps": 46,
+        "atq": 68,
+        "def": 42,
+        "ate": 47,
+        "dfe": 42,
+        "vel": 55
+      },
+      "habilidades": [
+        "coletazo_marino",
+        "escudo_de_coral",
+        "siesta_flotante",
+        "ola_coralina"
+      ],
+      "descripcion": "Nunca suelta su piedra coralina favorita.",
+      "evoluciona": [
+        {
+          "a": "coralutra",
+          "nivel": 16
+        }
+      ],
+      "sprites": "nutria_1"
+    },
+    {
+      "id": "coralutra",
+      "nombre": "Coralutra",
+      "tipo": "marea",
+      "familia": "nutria",
+      "etapa": 2,
+      "pasiva": "piedra_coralina",
+      "base": {
+        "ps": 59,
+        "atq": 85,
+        "def": 53,
+        "ate": 60,
+        "dfe": 53,
+        "vel": 70
+      },
+      "habilidades": [
+        "mordisco_de_coral",
+        "escudo_de_coral",
+        "siesta_flotante",
+        "ola_coralina"
+      ],
+      "descripcion": "Duerme flotando panza arriba entre los corales.",
+      "evoluciona": [
+        {
+          "a": "arrecifa",
+          "nivel": 28
+        }
+      ],
+      "sprites": "nutria_2"
+    },
+    {
+      "id": "arrecifa",
+      "nombre": "Arrecifa",
+      "tipo": "marea",
+      "familia": "nutria",
+      "etapa": 3,
+      "pasiva": "piedra_coralina",
+      "base": {
+        "ps": 70,
+        "atq": 100,
+        "def": 64,
+        "ate": 70,
+        "dfe": 63,
+        "vel": 83
+      },
+      "habilidades": [
+        "mordisco_de_coral",
+        "escudo_de_coral",
+        "marea_de_coral",
+        "ola_coralina"
+      ],
+      "descripcion": "Cuida el arrecife y conoce a cada pez.",
+      "evoluciona": [
+        {
+          "a": "nutrarca",
+          "nivel": 40
+        },
+        {
+          "a": "nutrarca_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "nutria_3"
+    },
+    {
+      "id": "nutrarca",
+      "nombre": "Nutrarca",
+      "tipo": "marea",
+      "familia": "nutria",
+      "etapa": 4,
+      "pasiva": "piedra_coralina",
+      "base": {
+        "ps": 80,
+        "atq": 117,
+        "def": 74,
+        "ate": 80,
+        "dfe": 73,
+        "vel": 96
+      },
+      "habilidades": [
+        "mordisco_de_coral",
+        "escudo_de_coral",
+        "marea_de_coral",
+        "arrecife_furioso"
+      ],
+      "descripcion": "Su cola de coral protege a todo el arrecife.",
+      "evoluciona": [],
+      "sprites": "nutria_4",
+      "definitivo": "gran_barrera"
+    },
+    {
+      "id": "nutrarca_eclipse",
+      "nombre": "Nutrarca Eclipse",
+      "tipo": "marea",
+      "familia": "nutria",
+      "etapa": 4,
+      "pasiva": "piedra_coralina",
+      "base": {
+        "ps": 113,
+        "atq": 94,
+        "def": 94,
+        "ate": 55,
+        "dfe": 94,
+        "vel": 70
+      },
+      "habilidades": [
+        "mordisco_de_coral",
+        "escudo_de_coral",
+        "marea_de_coral",
+        "coral_carmesi"
+      ],
+      "descripcion": "El coral de su armadura se volvió carmesí.",
+      "evoluciona": [],
+      "sprites": "nutria_4b",
+      "definitivo": "arrecife_sombrio"
+    },
+    {
+      "id": "hipin",
+      "nombre": "Hipín",
+      "tipo": "marea",
+      "familia": "caballito",
+      "etapa": 1,
+      "pasiva": "corriente_abisal",
+      "base": {
+        "ps": 36,
+        "atq": 36,
+        "def": 34,
+        "ate": 79,
+        "dfe": 45,
+        "vel": 70
+      },
+      "habilidades": [
+        "burbujas_veloces",
+        "remolino_protector",
+        "danza_espiral",
+        "chorro_abisal"
+      ],
+      "descripcion": "Se agarra de las algas con la cola para no irse.",
+      "evoluciona": [
+        {
+          "a": "hipalet",
+          "nivel": 16
+        }
+      ],
+      "sprites": "caballito_1"
+    },
+    {
+      "id": "hipalet",
+      "nombre": "Hipalet",
+      "tipo": "marea",
+      "familia": "caballito",
+      "etapa": 2,
+      "pasiva": "corriente_abisal",
+      "base": {
+        "ps": 46,
+        "atq": 45,
+        "def": 43,
+        "ate": 101,
+        "dfe": 56,
+        "vel": 89
+      },
+      "habilidades": [
+        "hidroespiral",
+        "remolino_protector",
+        "danza_espiral",
+        "chorro_abisal"
+      ],
+      "descripcion": "Nada en espiral y deja burbujas plateadas.",
+      "evoluciona": [
+        {
+          "a": "crestamar",
+          "nivel": 28
+        }
+      ],
+      "sprites": "caballito_2"
+    },
+    {
+      "id": "crestamar",
+      "nombre": "Crestamar",
+      "tipo": "marea",
+      "familia": "caballito",
+      "etapa": 3,
+      "pasiva": "corriente_abisal",
+      "base": {
+        "ps": 54,
+        "atq": 53,
+        "def": 52,
+        "ate": 119,
+        "dfe": 67,
+        "vel": 105
+      },
+      "habilidades": [
+        "hidroespiral",
+        "remolino_protector",
+        "corriente_plateada",
+        "chorro_abisal"
+      ],
+      "descripcion": "Su cresta plateada brilla en el agua oscura.",
+      "evoluciona": [
+        {
+          "a": "abisalio",
+          "nivel": 40
+        },
+        {
+          "a": "abisalio_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "caballito_3"
+    },
+    {
+      "id": "abisalio",
+      "nombre": "Abisalio",
+      "tipo": "marea",
+      "familia": "caballito",
+      "etapa": 4,
+      "pasiva": "corriente_abisal",
+      "base": {
+        "ps": 63,
+        "atq": 61,
+        "def": 59,
+        "ate": 137,
+        "dfe": 77,
+        "vel": 123
+      },
+      "habilidades": [
+        "hidroespiral",
+        "remolino_protector",
+        "corriente_plateada",
+        "torbellino_abisal"
+      ],
+      "descripcion": "Sus aletas en abanico mueven corrientes enteras.",
+      "evoluciona": [],
+      "sprites": "caballito_4",
+      "definitivo": "abismo_plateado"
+    },
+    {
+      "id": "abisalio_eclipse",
+      "nombre": "Abisalio Eclipse",
+      "tipo": "marea",
+      "familia": "caballito",
+      "etapa": 4,
+      "pasiva": "corriente_abisal",
+      "base": {
+        "ps": 72,
+        "atq": 52,
+        "def": 61,
+        "ate": 141,
+        "dfe": 82,
+        "vel": 112
+      },
+      "habilidades": [
+        "hidroespiral",
+        "remolino_protector",
+        "corriente_plateada",
+        "espiral_violeta"
+      ],
+      "descripcion": "Sus aletas son cuchillas violetas del abismo.",
+      "evoluciona": [],
+      "sprites": "caballito_4b",
+      "definitivo": "vortice_eterno"
+    },
+    {
+      "id": "medusin",
+      "nombre": "Medusín",
+      "tipo": "marea",
+      "familia": "medusa",
+      "etapa": 1,
+      "pasiva": "campana_serena",
+      "base": {
+        "ps": 46,
+        "atq": 30,
+        "def": 39,
+        "ate": 73,
+        "dfe": 62,
+        "vel": 50
+      },
+      "habilidades": [
+        "toque_urticante",
+        "velo_de_medusa",
+        "pulso_calmo",
+        "lluvia_de_perlas"
+      ],
+      "descripcion": "Flota tranquila y brilla si alguien la saluda.",
+      "evoluciona": [
+        {
+          "a": "campanela",
+          "nivel": 16
+        }
+      ],
+      "sprites": "medusa_1"
+    },
+    {
+      "id": "campanela",
+      "nombre": "Campanela",
+      "tipo": "marea",
+      "familia": "medusa",
+      "etapa": 2,
+      "pasiva": "campana_serena",
+      "base": {
+        "ps": 58,
+        "atq": 37,
+        "def": 50,
+        "ate": 93,
+        "dfe": 78,
+        "vel": 64
+      },
+      "habilidades": [
+        "latigazo_perlado",
+        "velo_de_medusa",
+        "pulso_calmo",
+        "lluvia_de_perlas"
+      ],
+      "descripcion": "Su campana suena suave cuando sube una ola.",
+      "evoluciona": [
+        {
+          "a": "medusperla",
+          "nivel": 28
+        }
+      ],
+      "sprites": "medusa_2"
+    },
+    {
+      "id": "medusperla",
+      "nombre": "Medusperla",
+      "tipo": "marea",
+      "familia": "medusa",
+      "etapa": 3,
+      "pasiva": "campana_serena",
+      "base": {
+        "ps": 69,
+        "atq": 44,
+        "def": 59,
+        "ate": 110,
+        "dfe": 93,
+        "vel": 75
+      },
+      "habilidades": [
+        "latigazo_perlado",
+        "velo_de_medusa",
+        "campana_lunar",
+        "lluvia_de_perlas"
+      ],
+      "descripcion": "Las perlas de sus tentáculos dan cosquillas.",
+      "evoluciona": [
+        {
+          "a": "carillon",
+          "nivel": 40
+        },
+        {
+          "a": "carillon_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "medusa_3"
+    },
+    {
+      "id": "carillon",
+      "nombre": "Carillón",
+      "tipo": "marea",
+      "familia": "medusa",
+      "etapa": 4,
+      "pasiva": "campana_serena",
+      "base": {
+        "ps": 80,
+        "atq": 51,
+        "def": 68,
+        "ate": 127,
+        "dfe": 108,
+        "vel": 86
+      },
+      "habilidades": [
+        "latigazo_perlado",
+        "velo_de_medusa",
+        "campana_lunar",
+        "gran_campanada"
+      ],
+      "descripcion": "Su campanada calma las tormentas del mar.",
+      "evoluciona": [],
+      "sprites": "medusa_4",
+      "definitivo": "sinfonia_abisal"
+    },
+    {
+      "id": "carillon_eclipse",
+      "nombre": "Carillón Eclipse",
+      "tipo": "marea",
+      "familia": "medusa",
+      "etapa": 4,
+      "pasiva": "campana_serena",
+      "base": {
+        "ps": 88,
+        "atq": 43,
+        "def": 70,
+        "ate": 129,
+        "dfe": 111,
+        "vel": 79
+      },
+      "habilidades": [
+        "latigazo_perlado",
+        "velo_de_medusa",
+        "campana_lunar",
+        "tentaculo_violeta"
+      ],
+      "descripcion": "Su campana suena grave y hace temblar el agua.",
+      "evoluciona": [],
+      "sprites": "medusa_4b",
+      "definitivo": "campana_del_vacio"
+    },
+    {
+      "id": "narvalin",
+      "nombre": "Narvalín",
+      "tipo": "marea",
+      "familia": "narval",
+      "etapa": 1,
+      "pasiva": "hielo_artico",
+      "base": {
+        "ps": 50,
+        "atq": 68,
+        "def": 45,
+        "ate": 37,
+        "dfe": 40,
+        "vel": 60
+      },
+      "habilidades": [
+        "embestida_helada",
+        "tempano",
+        "afilar_colmillo",
+        "lanza_de_hielo"
+      ],
+      "descripcion": "Su colmillo todavía es un botoncito de hielo.",
+      "evoluciona": [
+        {
+          "a": "colmillar",
+          "nivel": 16
+        }
+      ],
+      "sprites": "narval_1"
+    },
+    {
+      "id": "colmillar",
+      "nombre": "Colmillar",
+      "tipo": "marea",
+      "familia": "narval",
+      "etapa": 2,
+      "pasiva": "hielo_artico",
+      "base": {
+        "ps": 63,
+        "atq": 86,
+        "def": 57,
+        "ate": 47,
+        "dfe": 51,
+        "vel": 76
+      },
+      "habilidades": [
+        "colmillo_glacial",
+        "tempano",
+        "afilar_colmillo",
+        "lanza_de_hielo"
+      ],
+      "descripcion": "Rompe la escarcha con la punta del colmillo.",
+      "evoluciona": [
+        {
+          "a": "glaciarval",
+          "nivel": 28
+        }
+      ],
+      "sprites": "narval_2"
+    },
+    {
+      "id": "glaciarval",
+      "nombre": "Glaciarval",
+      "tipo": "marea",
+      "familia": "narval",
+      "etapa": 3,
+      "pasiva": "hielo_artico",
+      "base": {
+        "ps": 75,
+        "atq": 101,
+        "def": 68,
+        "ate": 56,
+        "dfe": 60,
+        "vel": 90
+      },
+      "habilidades": [
+        "colmillo_glacial",
+        "tempano",
+        "aguas_gelidas",
+        "lanza_de_hielo"
+      ],
+      "descripcion": "Su armadura glacial nunca se derrite.",
+      "evoluciona": [
+        {
+          "a": "glacior",
+          "nivel": 40
+        },
+        {
+          "a": "glacior_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "narval_3"
+    },
+    {
+      "id": "glacior",
+      "nombre": "Glacior",
+      "tipo": "marea",
+      "familia": "narval",
+      "etapa": 4,
+      "pasiva": "hielo_artico",
+      "base": {
+        "ps": 87,
+        "atq": 117,
+        "def": 78,
+        "ate": 65,
+        "dfe": 69,
+        "vel": 104
+      },
+      "habilidades": [
+        "colmillo_glacial",
+        "tempano",
+        "aguas_gelidas",
+        "avalancha_marina"
+      ],
+      "descripcion": "Abre caminos entre icebergs con su gran colmillo.",
+      "evoluciona": [],
+      "sprites": "narval_4",
+      "definitivo": "era_glacial"
+    },
+    {
+      "id": "glacior_eclipse",
+      "nombre": "Glacior Eclipse",
+      "tipo": "marea",
+      "familia": "narval",
+      "etapa": 4,
+      "pasiva": "hielo_artico",
+      "base": {
+        "ps": 100,
+        "atq": 116,
+        "def": 83,
+        "ate": 54,
+        "dfe": 74,
+        "vel": 93
+      },
+      "habilidades": [
+        "colmillo_glacial",
+        "tempano",
+        "aguas_gelidas",
+        "lanza_del_ocaso"
+      ],
+      "descripcion": "Su colmillo es hielo negro que no refleja la luz.",
+      "evoluciona": [],
+      "sprites": "narval_4b",
+      "definitivo": "glaciar_eterno"
+    },
+    {
+      "id": "tapirin",
+      "nombre": "Tapirín",
+      "tipo": "brote",
+      "familia": "tapir",
+      "etapa": 1,
+      "pasiva": "micelio",
+      "base": {
+        "ps": 52,
+        "atq": 69,
+        "def": 50,
+        "ate": 46,
+        "dfe": 43,
+        "vel": 40
+      },
+      "habilidades": [
+        "trompazo",
+        "manto_de_musgo",
+        "esporas_curativas",
+        "estampida_verde"
+      ],
+      "descripcion": "Sus rayas lo esconden entre el musgo.",
+      "evoluciona": [
+        {
+          "a": "musgapir",
+          "nivel": 16
+        }
+      ],
+      "sprites": "tapir_1"
+    },
+    {
+      "id": "musgapir",
+      "nombre": "Musgapir",
+      "tipo": "brote",
+      "familia": "tapir",
+      "etapa": 2,
+      "pasiva": "micelio",
+      "base": {
+        "ps": 66,
+        "atq": 88,
+        "def": 62,
+        "ate": 59,
+        "dfe": 54,
+        "vel": 51
+      },
+      "habilidades": [
+        "trompa_fungica",
+        "manto_de_musgo",
+        "esporas_curativas",
+        "estampida_verde"
+      ],
+      "descripcion": "Le crecen hongos en el lomo cuando llueve.",
+      "evoluciona": [
+        {
+          "a": "hongotapir",
+          "nivel": 28
+        }
+      ],
+      "sprites": "tapir_2"
+    },
+    {
+      "id": "hongotapir",
+      "nombre": "Hongotapir",
+      "tipo": "brote",
+      "familia": "tapir",
+      "etapa": 3,
+      "pasiva": "micelio",
+      "base": {
+        "ps": 78,
+        "atq": 103,
+        "def": 75,
+        "ate": 70,
+        "dfe": 64,
+        "vel": 60
+      },
+      "habilidades": [
+        "trompa_fungica",
+        "manto_de_musgo",
+        "red_de_micelio",
+        "estampida_verde"
+      ],
+      "descripcion": "Sus hongos de repisa sirven de hogar a los insectos.",
+      "evoluciona": [
+        {
+          "a": "micelon",
+          "nivel": 40
+        },
+        {
+          "a": "micelon_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "tapir_3"
+    },
+    {
+      "id": "micelon",
+      "nombre": "Micelón",
+      "tipo": "brote",
+      "familia": "tapir",
+      "etapa": 4,
+      "pasiva": "micelio",
+      "base": {
+        "ps": 90,
+        "atq": 118,
+        "def": 86,
+        "ate": 82,
+        "dfe": 74,
+        "vel": 70
+      },
+      "habilidades": [
+        "trompa_fungica",
+        "manto_de_musgo",
+        "red_de_micelio",
+        "alud_de_hongos"
+      ],
+      "descripcion": "Un bosque entero vive sobre su espalda de corteza.",
+      "evoluciona": [],
+      "sprites": "tapir_4",
+      "definitivo": "bosque_fungico"
+    },
+    {
+      "id": "micelon_eclipse",
+      "nombre": "Micelón Eclipse",
+      "tipo": "brote",
+      "familia": "tapir",
+      "etapa": 4,
+      "pasiva": "micelio",
+      "base": {
+        "ps": 80,
+        "atq": 147,
+        "def": 71,
+        "ate": 84,
+        "dfe": 61,
+        "vel": 77
+      },
+      "habilidades": [
+        "trompa_fungica",
+        "manto_de_musgo",
+        "red_de_micelio",
+        "espora_sombria"
+      ],
+      "descripcion": "Sus hongos brillan violeta en la oscuridad.",
+      "evoluciona": [],
+      "sprites": "tapir_4b",
+      "definitivo": "micelio_del_ocaso"
+    },
+    {
+      "id": "ninfin",
+      "nombre": "Ninfín",
+      "tipo": "brote",
+      "familia": "mantis",
+      "etapa": 1,
+      "pasiva": "petalo_filoso",
+      "base": {
+        "ps": 42,
+        "atq": 68,
+        "def": 42,
+        "ate": 41,
+        "dfe": 39,
+        "vel": 68
+      },
+      "habilidades": [
+        "tajo_de_petalo",
+        "camuflaje_floral",
+        "afilar_guadanas",
+        "guadana_floral"
+      ],
+      "descripcion": "Se queda quieta como una flor para jugar a esconderse.",
+      "evoluciona": [
+        {
+          "a": "orquiman",
+          "nivel": 16
+        }
+      ],
+      "sprites": "mantis_1"
+    },
+    {
+      "id": "orquiman",
+      "nombre": "Orquimán",
+      "tipo": "brote",
+      "familia": "mantis",
+      "etapa": 2,
+      "pasiva": "petalo_filoso",
+      "base": {
+        "ps": 54,
+        "atq": 86,
+        "def": 53,
+        "ate": 52,
+        "dfe": 49,
+        "vel": 86
+      },
+      "habilidades": [
+        "doble_tajo",
+        "camuflaje_floral",
+        "afilar_guadanas",
+        "guadana_floral"
+      ],
+      "descripcion": "Sus brazos parecen pétalos, pero cortan hojas.",
+      "evoluciona": [
+        {
+          "a": "orquimantis",
+          "nivel": 28
+        }
+      ],
+      "sprites": "mantis_2"
+    },
+    {
+      "id": "orquimantis",
+      "nombre": "Orquimantis",
+      "tipo": "brote",
+      "familia": "mantis",
+      "etapa": 3,
+      "pasiva": "petalo_filoso",
+      "base": {
+        "ps": 63,
+        "atq": 102,
+        "def": 63,
+        "ate": 62,
+        "dfe": 59,
+        "vel": 101
+      },
+      "habilidades": [
+        "doble_tajo",
+        "camuflaje_floral",
+        "danza_de_orquidea",
+        "guadana_floral"
+      ],
+      "descripcion": "Baila entre las flores sin que nadie la note.",
+      "evoluciona": [
+        {
+          "a": "orquira",
+          "nivel": 40
+        },
+        {
+          "a": "orquira_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "mantis_3"
+    },
+    {
+      "id": "orquira",
+      "nombre": "Orquira",
+      "tipo": "brote",
+      "familia": "mantis",
+      "etapa": 4,
+      "pasiva": "petalo_filoso",
+      "base": {
+        "ps": 74,
+        "atq": 117,
+        "def": 72,
+        "ate": 72,
+        "dfe": 68,
+        "vel": 117
+      },
+      "habilidades": [
+        "doble_tajo",
+        "camuflaje_floral",
+        "danza_de_orquidea",
+        "ciclon_de_guadanas"
+      ],
+      "descripcion": "Sus alas de pétalos se abren como una orquídea gigante.",
+      "evoluciona": [],
+      "sprites": "mantis_4",
+      "definitivo": "jardin_de_cuchillas"
+    },
+    {
+      "id": "orquira_eclipse",
+      "nombre": "Orquira Eclipse",
+      "tipo": "brote",
+      "familia": "mantis",
+      "etapa": 4,
+      "pasiva": "petalo_filoso",
+      "base": {
+        "ps": 81,
+        "atq": 122,
+        "def": 75,
+        "ate": 62,
+        "dfe": 71,
+        "vel": 109
+      },
+      "habilidades": [
+        "doble_tajo",
+        "camuflaje_floral",
+        "danza_de_orquidea",
+        "guadana_carmesi"
+      ],
+      "descripcion": "Sus pétalos carmesí cortan como guadañas.",
+      "evoluciona": [],
+      "sprites": "mantis_4b",
+      "definitivo": "floracion_oscura"
+    },
+    {
+      "id": "capibin",
+      "nombre": "Capibín",
+      "tipo": "brote",
+      "familia": "capibara",
+      "etapa": 1,
+      "pasiva": "calma_manglar",
+      "base": {
+        "ps": 66,
+        "atq": 50,
+        "def": 54,
+        "ate": 50,
+        "dfe": 56,
+        "vel": 24
+      },
+      "habilidades": [
+        "cabezazo_manso",
+        "escudo_de_raices",
+        "bano_tranquilo",
+        "raiz_aplastante"
+      ],
+      "descripcion": "Se lleva bien con todos, hasta con los cocodrilos.",
+      "evoluciona": [
+        {
+          "a": "raicibara",
+          "nivel": 16
+        }
+      ],
+      "sprites": "capibara_1"
+    },
+    {
+      "id": "raicibara",
+      "nombre": "Raicibara",
+      "tipo": "brote",
+      "familia": "capibara",
+      "etapa": 2,
+      "pasiva": "calma_manglar",
+      "base": {
+        "ps": 84,
+        "atq": 63,
+        "def": 68,
+        "ate": 63,
+        "dfe": 71,
+        "vel": 31
+      },
+      "habilidades": [
+        "latigo_de_mangle",
+        "escudo_de_raices",
+        "bano_tranquilo",
+        "raiz_aplastante"
+      ],
+      "descripcion": "Una plantita le crece en la cabeza y la cuida mucho.",
+      "evoluciona": [
+        {
+          "a": "manglaron",
+          "nivel": 28
+        }
+      ],
+      "sprites": "capibara_2"
+    },
+    {
+      "id": "manglaron",
+      "nombre": "Manglarón",
+      "tipo": "brote",
+      "familia": "capibara",
+      "etapa": 3,
+      "pasiva": "calma_manglar",
+      "base": {
+        "ps": 99,
+        "atq": 75,
+        "def": 81,
+        "ate": 74,
+        "dfe": 84,
+        "vel": 37
+      },
+      "habilidades": [
+        "latigo_de_mangle",
+        "escudo_de_raices",
+        "paz_del_manglar",
+        "raiz_aplastante"
+      ],
+      "descripcion": "Sus raíces la anclan al agua del manglar.",
+      "evoluciona": [
+        {
+          "a": "raigon",
+          "nivel": 40
+        },
+        {
+          "a": "raigon_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "capibara_3"
+    },
+    {
+      "id": "raigon",
+      "nombre": "Raigón",
+      "tipo": "brote",
+      "familia": "capibara",
+      "etapa": 4,
+      "pasiva": "calma_manglar",
+      "base": {
+        "ps": 113,
+        "atq": 86,
+        "def": 94,
+        "ate": 86,
+        "dfe": 98,
+        "vel": 43
+      },
+      "habilidades": [
+        "latigo_de_mangle",
+        "escudo_de_raices",
+        "paz_del_manglar",
+        "marea_de_raices"
+      ],
+      "descripcion": "Guarda el manglar con raíces más viejas que el río.",
+      "evoluciona": [],
+      "sprites": "capibara_4",
+      "definitivo": "gran_manglar"
+    },
+    {
+      "id": "raigon_eclipse",
+      "nombre": "Raigón Eclipse",
+      "tipo": "brote",
+      "familia": "capibara",
+      "etapa": 4,
+      "pasiva": "calma_manglar",
+      "base": {
+        "ps": 103,
+        "atq": 113,
+        "def": 78,
+        "ate": 94,
+        "dfe": 81,
+        "vel": 51
+      },
+      "habilidades": [
+        "latigo_de_mangle",
+        "escudo_de_raices",
+        "paz_del_manglar",
+        "raiz_del_ocaso"
+      ],
+      "descripcion": "Sus raíces se volvieron negras como el fondo del pantano.",
+      "evoluciona": [],
+      "sprites": "capibara_4b",
+      "definitivo": "pantano_eterno"
+    },
+    {
+      "id": "ramitin",
+      "nombre": "Ramitín",
+      "tipo": "brote",
+      "familia": "fasmido",
+      "etapa": 1,
+      "pasiva": "rama_quieta",
+      "base": {
+        "ps": 38,
+        "atq": 46,
+        "def": 44,
+        "ate": 73,
+        "dfe": 39,
+        "vel": 60
+      },
+      "habilidades": [
+        "lluvia_de_hojas",
+        "quedarse_quieto",
+        "brote_nuevo",
+        "lanza_de_bambu"
+      ],
+      "descripcion": "Parece una ramita; nadie sabe cuántos hay en un árbol.",
+      "evoluciona": [
+        {
+          "a": "bambulito",
+          "nivel": 16
+        }
+      ],
+      "sprites": "fasmido_1"
+    },
+    {
+      "id": "bambulito",
+      "nombre": "Bambulito",
+      "tipo": "brote",
+      "familia": "fasmido",
+      "etapa": 2,
+      "pasiva": "rama_quieta",
+      "base": {
+        "ps": 48,
+        "atq": 59,
+        "def": 56,
+        "ate": 91,
+        "dfe": 50,
+        "vel": 76
+      },
+      "habilidades": [
+        "hoja_cortante",
+        "quedarse_quieto",
+        "brote_nuevo",
+        "lanza_de_bambu"
+      ],
+      "descripcion": "Su cuerpo de bambú suena hueco si lo golpeás.",
+      "evoluciona": [
+        {
+          "a": "bambucan",
+          "nivel": 28
+        }
+      ],
+      "sprites": "fasmido_2"
+    },
+    {
+      "id": "bambucan",
+      "nombre": "Bambucán",
+      "tipo": "brote",
+      "familia": "fasmido",
+      "etapa": 3,
+      "pasiva": "rama_quieta",
+      "base": {
+        "ps": 56,
+        "atq": 69,
+        "def": 66,
+        "ate": 109,
+        "dfe": 59,
+        "vel": 91
+      },
+      "habilidades": [
+        "hoja_cortante",
+        "quedarse_quieto",
+        "bosque_de_bambu",
+        "lanza_de_bambu"
+      ],
+      "descripcion": "Le crecen hojas de bambú en la espalda.",
+      "evoluciona": [
+        {
+          "a": "bambuzal",
+          "nivel": 40
+        },
+        {
+          "a": "bambuzal_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "fasmido_3"
+    },
+    {
+      "id": "bambuzal",
+      "nombre": "Bambuzal",
+      "tipo": "brote",
+      "familia": "fasmido",
+      "etapa": 4,
+      "pasiva": "rama_quieta",
+      "base": {
+        "ps": 65,
+        "atq": 81,
+        "def": 76,
+        "ate": 125,
+        "dfe": 68,
+        "vel": 105
+      },
+      "habilidades": [
+        "hoja_cortante",
+        "quedarse_quieto",
+        "bosque_de_bambu",
+        "ciclon_de_hojas"
+      ],
+      "descripcion": "Sus alas de hojas levantan tormentas en el bosque.",
+      "evoluciona": [],
+      "sprites": "fasmido_4",
+      "definitivo": "selva_de_bambu"
+    },
+    {
+      "id": "bambuzal_eclipse",
+      "nombre": "Bambuzal Eclipse",
+      "tipo": "brote",
+      "familia": "fasmido",
+      "etapa": 4,
+      "pasiva": "rama_quieta",
+      "base": {
+        "ps": 79,
+        "atq": 65,
+        "def": 85,
+        "ate": 122,
+        "dfe": 77,
+        "vel": 92
+      },
+      "habilidades": [
+        "hoja_cortante",
+        "quedarse_quieto",
+        "bosque_de_bambu",
+        "hoja_sombria"
+      ],
+      "descripcion": "Su bambú se volvió negro y sus hojas, filosas.",
+      "evoluciona": [],
+      "sprites": "fasmido_4b",
+      "definitivo": "bambu_del_ocaso"
+    },
+    {
+      "id": "pavito",
+      "nombre": "Pavito",
+      "tipo": "rayo",
+      "familia": "pavoreal",
+      "etapa": 1,
+      "pasiva": "abanico_solar",
+      "base": {
+        "ps": 42,
+        "atq": 43,
+        "def": 38,
+        "ate": 73,
+        "dfe": 44,
+        "vel": 60
+      },
+      "habilidades": [
+        "destello",
+        "abanico_escudo",
+        "desplegar_plumas",
+        "ojos_del_abanico"
+      ],
+      "descripcion": "Todavía no tiene cola, pero ya camina orgulloso.",
+      "evoluciona": [
+        {
+          "a": "plumasol",
+          "nivel": 16
+        }
+      ],
+      "sprites": "pavoreal_1"
+    },
+    {
+      "id": "plumasol",
+      "nombre": "Plumasol",
+      "tipo": "rayo",
+      "familia": "pavoreal",
+      "etapa": 2,
+      "pasiva": "abanico_solar",
+      "base": {
+        "ps": 53,
+        "atq": 54,
+        "def": 47,
+        "ate": 93,
+        "dfe": 56,
+        "vel": 77
+      },
+      "habilidades": [
+        "pluma_electrica",
+        "abanico_escudo",
+        "desplegar_plumas",
+        "ojos_del_abanico"
+      ],
+      "descripcion": "Sus primeras plumas tienen ojitos dorados.",
+      "evoluciona": [
+        {
+          "a": "abanicor",
+          "nivel": 28
+        }
+      ],
+      "sprites": "pavoreal_2"
+    },
+    {
+      "id": "abanicor",
+      "nombre": "Abanicor",
+      "tipo": "rayo",
+      "familia": "pavoreal",
+      "etapa": 3,
+      "pasiva": "abanico_solar",
+      "base": {
+        "ps": 63,
+        "atq": 64,
+        "def": 56,
+        "ate": 110,
+        "dfe": 66,
+        "vel": 91
+      },
+      "habilidades": [
+        "pluma_electrica",
+        "abanico_escudo",
+        "pavoneo",
+        "ojos_del_abanico"
+      ],
+      "descripcion": "Abre su abanico y las plumas chispean.",
+      "evoluciona": [
+        {
+          "a": "heliavo",
+          "nivel": 40
+        },
+        {
+          "a": "heliavo_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "pavoreal_3"
+    },
+    {
+      "id": "heliavo",
+      "nombre": "Heliavo",
+      "tipo": "rayo",
+      "familia": "pavoreal",
+      "etapa": 4,
+      "pasiva": "abanico_solar",
+      "base": {
+        "ps": 73,
+        "atq": 74,
+        "def": 66,
+        "ate": 126,
+        "dfe": 76,
+        "vel": 105
+      },
+      "habilidades": [
+        "pluma_electrica",
+        "abanico_escudo",
+        "pavoneo",
+        "rayo_helianto"
+      ],
+      "descripcion": "Su abanico de marfil y oro brilla como el sol.",
+      "evoluciona": [],
+      "sprites": "pavoreal_4",
+      "definitivo": "mil_ojos_solares"
+    },
+    {
+      "id": "heliavo_eclipse",
+      "nombre": "Heliavo Eclipse",
+      "tipo": "rayo",
+      "familia": "pavoreal",
+      "etapa": 4,
+      "pasiva": "abanico_solar",
+      "base": {
+        "ps": 86,
+        "atq": 60,
+        "def": 72,
+        "ate": 125,
+        "dfe": 83,
+        "vel": 94
+      },
+      "habilidades": [
+        "pluma_electrica",
+        "abanico_escudo",
+        "pavoneo",
+        "abanico_violeta"
+      ],
+      "descripcion": "Los ojos de su abanico miran con luz violeta.",
+      "evoluciona": [],
+      "sprites": "pavoreal_4b",
+      "definitivo": "eclipse_de_plumas"
+    },
+    {
+      "id": "carpin",
+      "nombre": "Carpín",
+      "tipo": "rayo",
+      "familia": "carpa",
+      "etapa": 1,
+      "pasiva": "farol_interior",
+      "base": {
+        "ps": 39,
+        "atq": 31,
+        "def": 35,
+        "ate": 77,
+        "dfe": 44,
+        "vel": 74
+      },
+      "habilidades": [
+        "chispa_de_farol",
+        "aleta_brillante",
+        "encender_farol",
+        "relampago_dorado"
+      ],
+      "descripcion": "Brilla un poquito cuando nada hacia la superficie.",
+      "evoluciona": [
+        {
+          "a": "farolin",
+          "nivel": 16
+        }
+      ],
+      "sprites": "carpa_1"
+    },
+    {
+      "id": "farolin",
+      "nombre": "Farolín",
+      "tipo": "rayo",
+      "familia": "carpa",
+      "etapa": 2,
+      "pasiva": "farol_interior",
+      "base": {
+        "ps": 50,
+        "atq": 39,
+        "def": 44,
+        "ate": 98,
+        "dfe": 55,
+        "vel": 94
+      },
+      "habilidades": [
+        "bigote_electrico",
+        "aleta_brillante",
+        "encender_farol",
+        "relampago_dorado"
+      ],
+      "descripcion": "Lleva una lucecita en la frente para no perderse.",
+      "evoluciona": [
+        {
+          "a": "lucicarpa",
+          "nivel": 28
+        }
+      ],
+      "sprites": "carpa_2"
+    },
+    {
+      "id": "lucicarpa",
+      "nombre": "Lucicarpa",
+      "tipo": "rayo",
+      "familia": "carpa",
+      "etapa": 3,
+      "pasiva": "farol_interior",
+      "base": {
+        "ps": 59,
+        "atq": 46,
+        "def": 52,
+        "ate": 116,
+        "dfe": 65,
+        "vel": 112
+      },
+      "habilidades": [
+        "bigote_electrico",
+        "aleta_brillante",
+        "nado_luminoso",
+        "relampago_dorado"
+      ],
+      "descripcion": "Sus aletas de cinta dejan rastros de luz.",
+      "evoluciona": [
+        {
+          "a": "faroluz",
+          "nivel": 40
+        },
+        {
+          "a": "faroluz_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "carpa_3"
+    },
+    {
+      "id": "faroluz",
+      "nombre": "Faroluz",
+      "tipo": "rayo",
+      "familia": "carpa",
+      "etapa": 4,
+      "pasiva": "farol_interior",
+      "base": {
+        "ps": 68,
+        "atq": 53,
+        "def": 60,
+        "ate": 134,
+        "dfe": 76,
+        "vel": 129
+      },
+      "habilidades": [
+        "bigote_electrico",
+        "aleta_brillante",
+        "nado_luminoso",
+        "farol_celeste"
+      ],
+      "descripcion": "Sus bigotes dorados guían a los barcos de noche.",
+      "evoluciona": [],
+      "sprites": "carpa_4",
+      "definitivo": "mil_faroles"
+    },
+    {
+      "id": "faroluz_eclipse",
+      "nombre": "Faroluz Eclipse",
+      "tipo": "rayo",
+      "familia": "carpa",
+      "etapa": 4,
+      "pasiva": "farol_interior",
+      "base": {
+        "ps": 81,
+        "atq": 43,
+        "def": 68,
+        "ate": 130,
+        "dfe": 85,
+        "vel": 113
+      },
+      "habilidades": [
+        "bigote_electrico",
+        "aleta_brillante",
+        "nado_luminoso",
+        "farol_sombrio"
+      ],
+      "descripcion": "Su farol se volvió violeta y zumba de electricidad.",
+      "evoluciona": [],
+      "sprites": "carpa_4b",
+      "definitivo": "linterna_del_ocaso"
+    },
+    {
+      "id": "chinchin",
+      "nombre": "Chinchín",
+      "tipo": "rayo",
+      "familia": "chinchilla",
+      "etapa": 1,
+      "pasiva": "pelaje_estatico",
+      "base": {
+        "ps": 51,
+        "atq": 58,
+        "def": 49,
+        "ate": 36,
+        "dfe": 46,
+        "vel": 60
+      },
+      "habilidades": [
+        "zarpa_estatica",
+        "pelaje_esponjoso",
+        "frotar_pelaje",
+        "salto_prisma"
+      ],
+      "descripcion": "Su pelo es tan suave que da chispazos al tocarlo.",
+      "evoluciona": [
+        {
+          "a": "prismilla",
+          "nivel": 16
+        }
+      ],
+      "sprites": "chinchilla_1"
+    },
+    {
+      "id": "prismilla",
+      "nombre": "Prismilla",
+      "tipo": "rayo",
+      "familia": "chinchilla",
+      "etapa": 2,
+      "pasiva": "pelaje_estatico",
+      "base": {
+        "ps": 65,
+        "atq": 73,
+        "def": 62,
+        "ate": 46,
+        "dfe": 58,
+        "vel": 76
+      },
+      "habilidades": [
+        "cola_de_cuarzo",
+        "pelaje_esponjoso",
+        "frotar_pelaje",
+        "salto_prisma"
+      ],
+      "descripcion": "Rueda por el polvo para cargar su pelaje.",
+      "evoluciona": [
+        {
+          "a": "cuarzilla",
+          "nivel": 28
+        }
+      ],
+      "sprites": "chinchilla_2"
+    },
+    {
+      "id": "cuarzilla",
+      "nombre": "Cuarzilla",
+      "tipo": "rayo",
+      "familia": "chinchilla",
+      "etapa": 3,
+      "pasiva": "pelaje_estatico",
+      "base": {
+        "ps": 78,
+        "atq": 87,
+        "def": 73,
+        "ate": 54,
+        "dfe": 68,
+        "vel": 90
+      },
+      "habilidades": [
+        "cola_de_cuarzo",
+        "pelaje_esponjoso",
+        "brillo_de_cuarzo",
+        "salto_prisma"
+      ],
+      "descripcion": "Le crecen cristales de cuarzo en la cola.",
+      "evoluciona": [
+        {
+          "a": "prismora",
+          "nivel": 40
+        },
+        {
+          "a": "prismora_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "chinchilla_3"
+    },
+    {
+      "id": "prismora",
+      "nombre": "Prismora",
+      "tipo": "rayo",
+      "familia": "chinchilla",
+      "etapa": 4,
+      "pasiva": "pelaje_estatico",
+      "base": {
+        "ps": 89,
+        "atq": 101,
+        "def": 84,
+        "ate": 62,
+        "dfe": 79,
+        "vel": 105
+      },
+      "habilidades": [
+        "cola_de_cuarzo",
+        "pelaje_esponjoso",
+        "brillo_de_cuarzo",
+        "embestida_prisma"
+      ],
+      "descripcion": "Sus cristales parten la luz en mil colores.",
+      "evoluciona": [],
+      "sprites": "chinchilla_4",
+      "definitivo": "prisma_relampago"
+    },
+    {
+      "id": "prismora_eclipse",
+      "nombre": "Prismora Eclipse",
+      "tipo": "rayo",
+      "familia": "chinchilla",
+      "etapa": 4,
+      "pasiva": "pelaje_estatico",
+      "base": {
+        "ps": 85,
+        "atq": 119,
+        "def": 73,
+        "ate": 62,
+        "dfe": 69,
+        "vel": 112
+      },
+      "habilidades": [
+        "cola_de_cuarzo",
+        "pelaje_esponjoso",
+        "brillo_de_cuarzo",
+        "cuarzo_violeta"
+      ],
+      "descripcion": "Sus cuarzos se volvieron violeta y chisporrotean.",
+      "evoluciona": [],
+      "sprites": "chinchilla_4b",
+      "definitivo": "prisma_del_ocaso"
+    },
+    {
+      "id": "golondrin",
+      "nombre": "Golondrín",
+      "tipo": "cielo",
+      "familia": "golondrina",
+      "etapa": 1,
+      "pasiva": "vuelo_rasante",
+      "base": {
+        "ps": 48,
+        "atq": 68,
+        "def": 42,
+        "ate": 40,
+        "dfe": 42,
+        "vel": 60
+      },
+      "habilidades": [
+        "ala_rapida",
+        "vuelo_esquivo",
+        "aire_de_alba",
+        "picado_del_alba"
+      ],
+      "descripcion": "Aprende a volar saltando de rama en rama.",
+      "evoluciona": [
+        {
+          "a": "albavuelo",
+          "nivel": 16
+        }
+      ],
+      "sprites": "golondrina_1"
+    },
+    {
+      "id": "albavuelo",
+      "nombre": "Albavuelo",
+      "tipo": "cielo",
+      "familia": "golondrina",
+      "etapa": 2,
+      "pasiva": "vuelo_rasante",
+      "base": {
+        "ps": 60,
+        "atq": 85,
+        "def": 54,
+        "ate": 51,
+        "dfe": 54,
+        "vel": 76
+      },
+      "habilidades": [
+        "cola_tijera",
+        "vuelo_esquivo",
+        "aire_de_alba",
+        "picado_del_alba"
+      ],
+      "descripcion": "Vuela al ras del agua sin mojarse las alas.",
+      "evoluciona": [
+        {
+          "a": "rasalba",
+          "nivel": 28
+        }
+      ],
+      "sprites": "golondrina_2"
+    },
+    {
+      "id": "rasalba",
+      "nombre": "Rasalba",
+      "tipo": "cielo",
+      "familia": "golondrina",
+      "etapa": 3,
+      "pasiva": "vuelo_rasante",
+      "base": {
+        "ps": 71,
+        "atq": 101,
+        "def": 64,
+        "ate": 60,
+        "dfe": 64,
+        "vel": 90
+      },
+      "habilidades": [
+        "cola_tijera",
+        "vuelo_esquivo",
+        "corriente_alba",
+        "picado_del_alba"
+      ],
+      "descripcion": "Anuncia la primavera con su cola de tijera.",
+      "evoluciona": [
+        {
+          "a": "albalis",
+          "nivel": 40
+        },
+        {
+          "a": "albalis_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "golondrina_3"
+    },
+    {
+      "id": "albalis",
+      "nombre": "Albalis",
+      "tipo": "cielo",
+      "familia": "golondrina",
+      "etapa": 4,
+      "pasiva": "vuelo_rasante",
+      "base": {
+        "ps": 82,
+        "atq": 117,
+        "def": 74,
+        "ate": 69,
+        "dfe": 74,
+        "vel": 104
+      },
+      "habilidades": [
+        "cola_tijera",
+        "vuelo_esquivo",
+        "corriente_alba",
+        "vendaval_alba"
+      ],
+      "descripcion": "Sus alas radiantes traen el primer rayo del día.",
+      "evoluciona": [],
+      "sprites": "golondrina_4",
+      "definitivo": "amanecer_eterno"
+    },
+    {
+      "id": "albalis_eclipse",
+      "nombre": "Albalis Eclipse",
+      "tipo": "cielo",
+      "familia": "golondrina",
+      "etapa": 4,
+      "pasiva": "vuelo_rasante",
+      "base": {
+        "ps": 91,
+        "atq": 122,
+        "def": 75,
+        "ate": 60,
+        "dfe": 74,
+        "vel": 98
+      },
+      "habilidades": [
+        "cola_tijera",
+        "vuelo_esquivo",
+        "corriente_alba",
+        "tijera_del_ocaso"
+      ],
+      "descripcion": "Vuela tan rápido que deja una estela de noche.",
+      "evoluciona": [],
+      "sprites": "golondrina_4b",
+      "definitivo": "alba_negra"
+    },
+    {
+      "id": "buhito",
+      "nombre": "Buhíto",
+      "tipo": "cielo",
+      "familia": "buho",
+      "etapa": 1,
+      "pasiva": "ojos_nocturnos",
+      "base": {
+        "ps": 42,
+        "atq": 40,
+        "def": 37,
+        "ate": 75,
+        "dfe": 46,
+        "vel": 60
+      },
+      "habilidades": [
+        "rafaga_nocturna",
+        "plumaje_denso",
+        "mirada_atenta",
+        "hipnosis_lunar"
+      ],
+      "descripcion": "Duerme todo el día y abre un ojo si oye ruido.",
+      "evoluciona": [
+        {
+          "a": "ululin",
+          "nivel": 16
+        }
+      ],
+      "sprites": "buho_1"
+    },
+    {
+      "id": "ululin",
+      "nombre": "Ululín",
+      "tipo": "cielo",
+      "familia": "buho",
+      "etapa": 2,
+      "pasiva": "ojos_nocturnos",
+      "base": {
+        "ps": 53,
+        "atq": 50,
+        "def": 47,
+        "ate": 96,
+        "dfe": 58,
+        "vel": 76
+      },
+      "habilidades": [
+        "ala_umbral",
+        "plumaje_denso",
+        "mirada_atenta",
+        "hipnosis_lunar"
+      ],
+      "descripcion": "Gira la cabeza para mirar a todos lados.",
+      "evoluciona": [
+        {
+          "a": "umbralon",
+          "nivel": 28
+        }
+      ],
+      "sprites": "buho_2"
+    },
+    {
+      "id": "umbralon",
+      "nombre": "Umbralón",
+      "tipo": "cielo",
+      "familia": "buho",
+      "etapa": 3,
+      "pasiva": "ojos_nocturnos",
+      "base": {
+        "ps": 62,
+        "atq": 59,
+        "def": 56,
+        "ate": 114,
+        "dfe": 69,
+        "vel": 90
+      },
+      "habilidades": [
+        "ala_umbral",
+        "plumaje_denso",
+        "vigilia",
+        "hipnosis_lunar"
+      ],
+      "descripcion": "Vigila el bosque desde la rama más alta.",
+      "evoluciona": [
+        {
+          "a": "umbrus",
+          "nivel": 40
+        },
+        {
+          "a": "umbrus_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "buho_3"
+    },
+    {
+      "id": "umbrus",
+      "nombre": "Umbrus",
+      "tipo": "cielo",
+      "familia": "buho",
+      "etapa": 4,
+      "pasiva": "ojos_nocturnos",
+      "base": {
+        "ps": 72,
+        "atq": 68,
+        "def": 65,
+        "ate": 131,
+        "dfe": 80,
+        "vel": 104
+      },
+      "habilidades": [
+        "ala_umbral",
+        "plumaje_denso",
+        "vigilia",
+        "tempestad_nocturna"
+      ],
+      "descripcion": "Sus alas enormes no hacen ningún ruido al volar.",
+      "evoluciona": [],
+      "sprites": "buho_4",
+      "definitivo": "noche_de_mil_ojos"
+    },
+    {
+      "id": "umbrus_eclipse",
+      "nombre": "Umbrus Eclipse",
+      "tipo": "cielo",
+      "familia": "buho",
+      "etapa": 4,
+      "pasiva": "ojos_nocturnos",
+      "base": {
+        "ps": 94,
+        "atq": 50,
+        "def": 78,
+        "ate": 117,
+        "dfe": 97,
+        "vel": 84
+      },
+      "habilidades": [
+        "ala_umbral",
+        "plumaje_denso",
+        "vigilia",
+        "mirada_del_umbral"
+      ],
+      "descripcion": "Sus ojos brillan como dos lunas violetas.",
+      "evoluciona": [],
+      "sprites": "buho_4b",
+      "definitivo": "umbral_eterno"
+    },
+    {
+      "id": "murcito",
+      "nombre": "Murcito",
+      "tipo": "sombra",
+      "familia": "murcielago",
+      "etapa": 1,
+      "pasiva": "eco_nocturno",
+      "base": {
+        "ps": 53,
+        "atq": 56,
+        "def": 48,
+        "ate": 39,
+        "dfe": 51,
+        "vel": 53
+      },
+      "habilidades": [
+        "mordisco_sombrio",
+        "envoltura_de_alas",
+        "ecolocacion",
+        "picado_nocturno"
+      ],
+      "descripcion": "Se envuelve en sus alas como en una manta.",
+      "evoluciona": [
+        {
+          "a": "velurci",
+          "nivel": 16
+        }
+      ],
+      "sprites": "murcielago_1"
+    },
+    {
+      "id": "velurci",
+      "nombre": "Velurci",
+      "tipo": "sombra",
+      "familia": "murcielago",
+      "etapa": 2,
+      "pasiva": "eco_nocturno",
+      "base": {
+        "ps": 68,
+        "atq": 70,
+        "def": 61,
+        "ate": 49,
+        "dfe": 64,
+        "vel": 68
+      },
+      "habilidades": [
+        "colmillo_velado",
+        "envoltura_de_alas",
+        "ecolocacion",
+        "picado_nocturno"
+      ],
+      "descripcion": "Sus alas de terciopelo son suavecitas.",
+      "evoluciona": [
+        {
+          "a": "alanoche",
+          "nivel": 28
+        }
+      ],
+      "sprites": "murcielago_2"
+    },
+    {
+      "id": "alanoche",
+      "nombre": "Alanoche",
+      "tipo": "sombra",
+      "familia": "murcielago",
+      "etapa": 3,
+      "pasiva": "eco_nocturno",
+      "base": {
+        "ps": 81,
+        "atq": 83,
+        "def": 71,
+        "ate": 58,
+        "dfe": 76,
+        "vel": 81
+      },
+      "habilidades": [
+        "colmillo_velado",
+        "envoltura_de_alas",
+        "vuelo_nocturno",
+        "picado_nocturno"
+      ],
+      "descripcion": "Encuentra el camino en la oscuridad con su eco.",
+      "evoluciona": [
+        {
+          "a": "vespero",
+          "nivel": 40
+        },
+        {
+          "a": "vespero_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "murcielago_3"
+    },
+    {
+      "id": "vespero",
+      "nombre": "Véspero",
+      "tipo": "sombra",
+      "familia": "murcielago",
+      "etapa": 4,
+      "pasiva": "eco_nocturno",
+      "base": {
+        "ps": 93,
+        "atq": 97,
+        "def": 82,
+        "ate": 67,
+        "dfe": 88,
+        "vel": 93
+      },
+      "habilidades": [
+        "colmillo_velado",
+        "envoltura_de_alas",
+        "vuelo_nocturno",
+        "alas_de_medianoche"
+      ],
+      "descripcion": "Reina en la noche con sus grandes alas violetas.",
+      "evoluciona": [],
+      "sprites": "murcielago_4",
+      "definitivo": "noche_sin_luna"
+    },
+    {
+      "id": "vespero_eclipse",
+      "nombre": "Véspero Eclipse",
+      "tipo": "sombra",
+      "familia": "murcielago",
+      "etapa": 4,
+      "pasiva": "eco_nocturno",
+      "base": {
+        "ps": 102,
+        "atq": 101,
+        "def": 84,
+        "ate": 58,
+        "dfe": 88,
+        "vel": 87
+      },
+      "habilidades": [
+        "colmillo_velado",
+        "envoltura_de_alas",
+        "vuelo_nocturno",
+        "ala_terciopelo"
+      ],
+      "descripcion": "Su eco suena como un trueno en la cueva.",
+      "evoluciona": [],
+      "sprites": "murcielago_4b",
+      "definitivo": "eco_del_vacio"
+    },
+    {
+      "id": "topin",
+      "nombre": "Topín",
+      "tipo": "roca",
+      "familia": "topo",
+      "etapa": 1,
+      "pasiva": "geoda_viva",
+      "base": {
+        "ps": 52,
+        "atq": 77,
+        "def": 51,
+        "ate": 38,
+        "dfe": 44,
+        "vel": 38
+      },
+      "habilidades": [
+        "garra_excavadora",
+        "madriguera",
+        "pulir_garras",
+        "lluvia_de_geodas"
+      ],
+      "descripcion": "Su nariz de estrella huele piedras preciosas.",
+      "evoluciona": [
+        {
+          "a": "excavito",
+          "nivel": 16
+        }
+      ],
+      "sprites": "topo_1"
+    },
+    {
+      "id": "excavito",
+      "nombre": "Excavito",
+      "tipo": "roca",
+      "familia": "topo",
+      "etapa": 2,
+      "pasiva": "geoda_viva",
+      "base": {
+        "ps": 65,
+        "atq": 97,
+        "def": 64,
+        "ate": 49,
+        "dfe": 56,
+        "vel": 49
+      },
+      "habilidades": [
+        "garra_de_amatista",
+        "madriguera",
+        "pulir_garras",
+        "lluvia_de_geodas"
+      ],
+      "descripcion": "Cava túneles más rápido de lo que caminás.",
+      "evoluciona": [
+        {
+          "a": "amatopo",
+          "nivel": 28
+        }
+      ],
+      "sprites": "topo_2"
+    },
+    {
+      "id": "amatopo",
+      "nombre": "Amatopo",
+      "tipo": "roca",
+      "familia": "topo",
+      "etapa": 3,
+      "pasiva": "geoda_viva",
+      "base": {
+        "ps": 77,
+        "atq": 115,
+        "def": 76,
+        "ate": 58,
+        "dfe": 66,
+        "vel": 58
+      },
+      "habilidades": [
+        "garra_de_amatista",
+        "madriguera",
+        "coraza_de_geoda",
+        "lluvia_de_geodas"
+      ],
+      "descripcion": "Le crecen amatistas en el lomo al excavar.",
+      "evoluciona": [
+        {
+          "a": "geodon",
+          "nivel": 40
+        },
+        {
+          "a": "geodon_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "topo_3"
+    },
+    {
+      "id": "geodon",
+      "nombre": "Geodón",
+      "tipo": "roca",
+      "familia": "topo",
+      "etapa": 4,
+      "pasiva": "geoda_viva",
+      "base": {
+        "ps": 89,
+        "atq": 134,
+        "def": 89,
+        "ate": 66,
+        "dfe": 76,
+        "vel": 66
+      },
+      "habilidades": [
+        "garra_de_amatista",
+        "madriguera",
+        "coraza_de_geoda",
+        "sismo_cristalino"
+      ],
+      "descripcion": "Su coraza es una geoda gigante llena de cristales.",
+      "evoluciona": [],
+      "sprites": "topo_4",
+      "definitivo": "corazon_de_geoda"
+    },
+    {
+      "id": "geodon_eclipse",
+      "nombre": "Geodón Eclipse",
+      "tipo": "roca",
+      "familia": "topo",
+      "etapa": 4,
+      "pasiva": "geoda_viva",
+      "base": {
+        "ps": 110,
+        "atq": 118,
+        "def": 102,
+        "ate": 49,
+        "dfe": 88,
+        "vel": 53
+      },
+      "habilidades": [
+        "garra_de_amatista",
+        "madriguera",
+        "coraza_de_geoda",
+        "amatista_negra"
+      ],
+      "descripcion": "Sus amatistas se oscurecieron como el centro de la tierra.",
+      "evoluciona": [],
+      "sprites": "topo_4b",
+      "definitivo": "geoda_del_vacio"
+    },
+    {
+      "id": "mapachin",
+      "nombre": "Mapachín",
+      "tipo": "roca",
+      "familia": "mapache",
+      "etapa": 1,
+      "pasiva": "astucia",
+      "base": {
+        "ps": 52,
+        "atq": 60,
+        "def": 57,
+        "ate": 34,
+        "dfe": 49,
+        "vel": 48
+      },
+      "habilidades": [
+        "guijarrazo",
+        "cola_anillada",
+        "picardia",
+        "lluvia_de_onice"
+      ],
+      "descripcion": "Siempre lleva un guijarro brillante en las patas.",
+      "evoluciona": [
+        {
+          "a": "onixito",
+          "nivel": 16
+        }
+      ],
+      "sprites": "mapache_1"
+    },
+    {
+      "id": "onixito",
+      "nombre": "Onixito",
+      "tipo": "roca",
+      "familia": "mapache",
+      "etapa": 2,
+      "pasiva": "astucia",
+      "base": {
+        "ps": 67,
+        "atq": 76,
+        "def": 73,
+        "ate": 42,
+        "dfe": 62,
+        "vel": 60
+      },
+      "habilidades": [
+        "zarpa_de_onice",
+        "cola_anillada",
+        "picardia",
+        "lluvia_de_onice"
+      ],
+      "descripcion": "Esconde tesoros en huecos de las rocas.",
+      "evoluciona": [
+        {
+          "a": "anillonix",
+          "nivel": 28
+        }
+      ],
+      "sprites": "mapache_2"
+    },
+    {
+      "id": "anillonix",
+      "nombre": "Anillónix",
+      "tipo": "roca",
+      "familia": "mapache",
+      "etapa": 3,
+      "pasiva": "astucia",
+      "base": {
+        "ps": 78,
+        "atq": 90,
+        "def": 86,
+        "ate": 50,
+        "dfe": 74,
+        "vel": 72
+      },
+      "habilidades": [
+        "zarpa_de_onice",
+        "cola_anillada",
+        "esconder_tesoro",
+        "lluvia_de_onice"
+      ],
+      "descripcion": "Su cola anillada tiene vetas de ónice.",
+      "evoluciona": [
+        {
+          "a": "onixor",
+          "nivel": 40
+        },
+        {
+          "a": "onixor_eclipse",
+          "nivel": 40,
+          "item": "piedra_eclipse"
+        }
+      ],
+      "sprites": "mapache_3"
+    },
+    {
+      "id": "onixor",
+      "nombre": "Onixor",
+      "tipo": "roca",
+      "familia": "mapache",
+      "etapa": 4,
+      "pasiva": "astucia",
+      "base": {
+        "ps": 90,
+        "atq": 104,
+        "def": 99,
+        "ate": 59,
+        "dfe": 85,
+        "vel": 83
+      },
+      "habilidades": [
+        "zarpa_de_onice",
+        "cola_anillada",
+        "esconder_tesoro",
+        "coletazo_anillado"
+      ],
+      "descripcion": "Guarda una cueva llena de piedras pulidas.",
+      "evoluciona": [],
+      "sprites": "mapache_4",
+      "definitivo": "tesoro_de_onice"
+    },
+    {
+      "id": "onixor_eclipse",
+      "nombre": "Onixor Eclipse",
+      "tipo": "roca",
+      "familia": "mapache",
+      "etapa": 4,
+      "pasiva": "astucia",
+      "base": {
+        "ps": 75,
+        "atq": 139,
+        "def": 76,
+        "ate": 65,
+        "dfe": 65,
+        "vel": 100
+      },
+      "habilidades": [
+        "zarpa_de_onice",
+        "cola_anillada",
+        "esconder_tesoro",
+        "onice_sombrio"
+      ],
+      "descripcion": "Su ónice se volvió negro y su mirada, violeta.",
+      "evoluciona": [],
+      "sprites": "mapache_4b",
+      "definitivo": "guarida_del_vacio"
     }
   ]
 }

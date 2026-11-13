@@ -2275,6 +2275,3324 @@
       "precision": null,
       "usos": 1,
       "efectos": []
+    },
+    {
+      "id": "chispa_de_arena",
+      "animacion": "proyectil",
+      "nombre": "Chispa de Arena",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 45,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "quemadura",
+          "prob": 10,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "velo_de_calor",
+      "animacion": "anillo_fuego",
+      "nombre": "Velo de Calor",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "orejas_al_sol",
+      "animacion": "sol",
+      "nombre": "Orejas al Sol",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "rayo_de_vidrio",
+      "animacion": "sol",
+      "nombre": "Rayo de Vidrio",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "destello_ardiente",
+      "animacion": "llamarada",
+      "nombre": "Destello Ardiente",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "quemadura",
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "danza_del_desierto",
+      "animacion": "anillo_fuego",
+      "nombre": "Danza del Desierto",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "lente_solar",
+      "animacion": "sol",
+      "nombre": "Lente Solar",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "sol_de_cristal",
+      "animacion": "sol",
+      "nombre": "Sol de Cristal",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "vidrio_fundido",
+      "animacion": "llamarada",
+      "nombre": "Vidrio Fundido",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "tormenta_de_vidrio",
+      "animacion": "llamarada",
+      "nombre": "Tormenta de Vidrio",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "cornada_tibia",
+      "animacion": "impacto",
+      "nombre": "Cornada Tibia",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "caparazon_forjado",
+      "animacion": "corteza",
+      "nombre": "Caparazón Forjado",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "templar",
+      "animacion": "anillo_fuego",
+      "nombre": "Templar",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "martillo_de_forja",
+      "animacion": "impacto",
+      "nombre": "Martillo de Forja",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "cornada_ignea",
+      "animacion": "impacto",
+      "nombre": "Cornada Ígnea",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "quemadura",
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "fuelle",
+      "animacion": "anillo_fuego",
+      "nombre": "Fuelle",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "yunque_ardiente",
+      "animacion": "impacto",
+      "nombre": "Yunque Ardiente",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "gran_fundicion",
+      "animacion": "llamarada",
+      "nombre": "Gran Fundición",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "cuerno_de_magma",
+      "animacion": "impacto",
+      "nombre": "Cuerno de Magma",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "forja_del_ocaso",
+      "animacion": "llamarada",
+      "nombre": "Forja del Ocaso",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "pua_candente",
+      "animacion": "proyectil",
+      "nombre": "Púa Candente",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 45,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "quemadura",
+          "prob": 10,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "erizar_puas",
+      "animacion": "anillo_fuego",
+      "nombre": "Erizar Púas",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "afilar_puas",
+      "animacion": "brillo",
+      "nombre": "Afilar Púas",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "lluvia_de_puas",
+      "animacion": "proyectil",
+      "nombre": "Lluvia de Púas",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "rodada_ignea",
+      "animacion": "impacto",
+      "nombre": "Rodada Ígnea",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "quemadura",
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "rescoldo_interno",
+      "animacion": "anillo_fuego",
+      "nombre": "Rescoldo Interno",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 4,
+      "noRepetir": true,
+      "efectos": [
+        {
+          "tipo": "cura",
+          "porcentaje": 35
+        }
+      ]
+    },
+    {
+      "id": "tormenta_de_puas",
+      "animacion": "proyectil",
+      "nombre": "Tormenta de Púas",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "corona_carbunculo",
+      "animacion": "llamarada",
+      "nombre": "Corona Carbúnculo",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "pua_de_obsidiana",
+      "animacion": "proyectil",
+      "nombre": "Púa de Obsidiana",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "abanico_del_ocaso",
+      "animacion": "llamarada",
+      "nombre": "Abanico del Ocaso",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "picotazo_igneo",
+      "animacion": "impacto",
+      "nombre": "Picotazo Ígneo",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 45,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "quemadura",
+          "prob": 10,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "alas_de_ceniza",
+      "animacion": "corriente",
+      "nombre": "Alas de Ceniza",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "canto_matutino",
+      "animacion": "grito",
+      "nombre": "Canto Matutino",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "espolon_cometa",
+      "animacion": "impacto",
+      "nombre": "Espolón Cometa",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "picotazo_solar",
+      "animacion": "impacto",
+      "nombre": "Picotazo Solar",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "quemadura",
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "clarin_del_alba",
+      "animacion": "grito",
+      "nombre": "Clarín del Alba",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "caida_del_cometa",
+      "animacion": "llamarada",
+      "nombre": "Caída del Cometa",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "lluvia_de_cometas",
+      "animacion": "llamarada",
+      "nombre": "Lluvia de Cometas",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "cola_de_meteoro",
+      "animacion": "llamarada",
+      "nombre": "Cola de Meteoro",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "cometa_negro",
+      "animacion": "llamarada",
+      "nombre": "Cometa Negro",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "coletazo_marino",
+      "animacion": "zarpazo",
+      "nombre": "Coletazo Marino",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "escudo_de_coral",
+      "animacion": "corteza",
+      "nombre": "Escudo de Coral",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 8,
+      "prioridad": 1,
+      "noRepetir": true,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "bloquea"
+        }
+      ]
+    },
+    {
+      "id": "siesta_flotante",
+      "animacion": "burbujas",
+      "nombre": "Siesta Flotante",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "ola_coralina",
+      "animacion": "ola",
+      "nombre": "Ola Coralina",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "mordisco_de_coral",
+      "animacion": "dentellada",
+      "nombre": "Mordisco de Coral",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "marea_de_coral",
+      "animacion": "corriente",
+      "nombre": "Marea de Coral",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "arrecife_furioso",
+      "animacion": "ola",
+      "nombre": "Arrecife Furioso",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "gran_barrera",
+      "animacion": "ola",
+      "nombre": "Gran Barrera",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "coral_carmesi",
+      "animacion": "dentellada",
+      "nombre": "Coral Carmesí",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "arrecife_sombrio",
+      "animacion": "ola",
+      "nombre": "Arrecife Sombrío",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "burbujas_veloces",
+      "animacion": "burbujas",
+      "nombre": "Burbujas Veloces",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "remolino_protector",
+      "animacion": "corriente",
+      "nombre": "Remolino Protector",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "danza_espiral",
+      "animacion": "corriente",
+      "nombre": "Danza Espiral",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "chorro_abisal",
+      "animacion": "ola",
+      "nombre": "Chorro Abisal",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "hidroespiral",
+      "animacion": "corriente",
+      "nombre": "Hidroespiral",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "dfe",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "corriente_plateada",
+      "animacion": "corriente",
+      "nombre": "Corriente Plateada",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "torbellino_abisal",
+      "animacion": "ola",
+      "nombre": "Torbellino Abisal",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "abismo_plateado",
+      "animacion": "ola",
+      "nombre": "Abismo Plateado",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "espiral_violeta",
+      "animacion": "corriente",
+      "nombre": "Espiral Violeta",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "vortice_eterno",
+      "animacion": "ola",
+      "nombre": "Vórtice Eterno",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "toque_urticante",
+      "animacion": "burbujas",
+      "nombre": "Toque Urticante",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 45,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "paralisis",
+          "prob": 10,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "velo_de_medusa",
+      "animacion": "burbujas",
+      "nombre": "Velo de Medusa",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 8,
+      "prioridad": 1,
+      "noRepetir": true,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "bloquea"
+        }
+      ]
+    },
+    {
+      "id": "pulso_calmo",
+      "animacion": "brillo",
+      "nombre": "Pulso Calmo",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "dfe",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "lluvia_de_perlas",
+      "animacion": "burbujas",
+      "nombre": "Lluvia de Perlas",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "latigazo_perlado",
+      "animacion": "corriente",
+      "nombre": "Latigazo Perlado",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "paralisis",
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "campana_lunar",
+      "animacion": "brillo",
+      "nombre": "Campana Lunar",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 4,
+      "noRepetir": true,
+      "efectos": [
+        {
+          "tipo": "cura",
+          "porcentaje": 35
+        }
+      ]
+    },
+    {
+      "id": "gran_campanada",
+      "animacion": "ola",
+      "nombre": "Gran Campanada",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "sinfonia_abisal",
+      "animacion": "ola",
+      "nombre": "Sinfonía Abisal",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "tentaculo_violeta",
+      "animacion": "corriente",
+      "nombre": "Tentáculo Violeta",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "campana_del_vacio",
+      "animacion": "ola",
+      "nombre": "Campana del Vacío",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "embestida_helada",
+      "animacion": "impacto",
+      "nombre": "Embestida Helada",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "tempano",
+      "animacion": "corteza",
+      "nombre": "Témpano",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "afilar_colmillo",
+      "animacion": "brillo",
+      "nombre": "Afilar Colmillo",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "lanza_de_hielo",
+      "animacion": "proyectil",
+      "nombre": "Lanza de Hielo",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "colmillo_glacial",
+      "animacion": "dentellada",
+      "nombre": "Colmillo Glacial",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "aguas_gelidas",
+      "animacion": "corriente",
+      "nombre": "Aguas Gélidas",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "avalancha_marina",
+      "animacion": "ola",
+      "nombre": "Avalancha Marina",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "era_glacial",
+      "animacion": "ola",
+      "nombre": "Era Glacial",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "lanza_del_ocaso",
+      "animacion": "proyectil",
+      "nombre": "Lanza del Ocaso",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "glaciar_eterno",
+      "animacion": "ola",
+      "nombre": "Glaciar Eterno",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "trompazo",
+      "animacion": "impacto",
+      "nombre": "Trompazo",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "manto_de_musgo",
+      "animacion": "corteza",
+      "nombre": "Manto de Musgo",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "esporas_curativas",
+      "animacion": "polen",
+      "nombre": "Esporas Curativas",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "estampida_verde",
+      "animacion": "impacto",
+      "nombre": "Estampida Verde",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "trompa_fungica",
+      "animacion": "polen",
+      "nombre": "Trompa Fúngica",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "veneno",
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "red_de_micelio",
+      "animacion": "raices",
+      "nombre": "Red de Micelio",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 4,
+      "noRepetir": true,
+      "efectos": [
+        {
+          "tipo": "cura",
+          "porcentaje": 35
+        }
+      ]
+    },
+    {
+      "id": "alud_de_hongos",
+      "animacion": "impacto",
+      "nombre": "Alud de Hongos",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "bosque_fungico",
+      "animacion": "polen",
+      "nombre": "Bosque Fúngico",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "espora_sombria",
+      "animacion": "polen",
+      "nombre": "Espora Sombría",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "micelio_del_ocaso",
+      "animacion": "raices",
+      "nombre": "Micelio del Ocaso",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "tajo_de_petalo",
+      "animacion": "zarpazo",
+      "nombre": "Tajo de Pétalo",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "camuflaje_floral",
+      "animacion": "hojas",
+      "nombre": "Camuflaje Floral",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "afilar_guadanas",
+      "animacion": "brillo",
+      "nombre": "Afilar Guadañas",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "guadana_floral",
+      "animacion": "zarpazo",
+      "nombre": "Guadaña Floral",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "doble_tajo",
+      "animacion": "zarpazo",
+      "nombre": "Doble Tajo",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "danza_de_orquidea",
+      "animacion": "hojas",
+      "nombre": "Danza de Orquídea",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "ciclon_de_guadanas",
+      "animacion": "hojas",
+      "nombre": "Ciclón de Guadañas",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "jardin_de_cuchillas",
+      "animacion": "hojas",
+      "nombre": "Jardín de Cuchillas",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "guadana_carmesi",
+      "animacion": "zarpazo",
+      "nombre": "Guadaña Carmesí",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "floracion_oscura",
+      "animacion": "hojas",
+      "nombre": "Floración Oscura",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "cabezazo_manso",
+      "animacion": "impacto",
+      "nombre": "Cabezazo Manso",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "escudo_de_raices",
+      "animacion": "raices",
+      "nombre": "Escudo de Raíces",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 8,
+      "prioridad": 1,
+      "noRepetir": true,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "bloquea"
+        }
+      ]
+    },
+    {
+      "id": "bano_tranquilo",
+      "animacion": "burbujas",
+      "nombre": "Baño Tranquilo",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 3,
+      "noRepetir": true,
+      "efectos": [
+        {
+          "tipo": "cura",
+          "porcentaje": 25
+        }
+      ]
+    },
+    {
+      "id": "raiz_aplastante",
+      "animacion": "raices",
+      "nombre": "Raíz Aplastante",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "latigo_de_mangle",
+      "animacion": "raices",
+      "nombre": "Látigo de Mangle",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "paz_del_manglar",
+      "animacion": "hojas",
+      "nombre": "Paz del Manglar",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 4,
+      "noRepetir": true,
+      "efectos": [
+        {
+          "tipo": "cura",
+          "porcentaje": 35
+        }
+      ]
+    },
+    {
+      "id": "marea_de_raices",
+      "animacion": "raices",
+      "nombre": "Marea de Raíces",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "gran_manglar",
+      "animacion": "raices",
+      "nombre": "Gran Manglar",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "raiz_del_ocaso",
+      "animacion": "raices",
+      "nombre": "Raíz del Ocaso",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "pantano_eterno",
+      "animacion": "raices",
+      "nombre": "Pantano Eterno",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "lluvia_de_hojas",
+      "animacion": "hojas",
+      "nombre": "Lluvia de Hojas",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "dfe",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "quedarse_quieto",
+      "animacion": "hojas",
+      "nombre": "Quedarse Quieto",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "brote_nuevo",
+      "animacion": "polen",
+      "nombre": "Brote Nuevo",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "lanza_de_bambu",
+      "animacion": "proyectil",
+      "nombre": "Lanza de Bambú",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "hoja_cortante",
+      "animacion": "hojas",
+      "nombre": "Hoja Cortante",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "dfe",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "bosque_de_bambu",
+      "animacion": "raices",
+      "nombre": "Bosque de Bambú",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "ciclon_de_hojas",
+      "animacion": "hojas",
+      "nombre": "Ciclón de Hojas",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "selva_de_bambu",
+      "animacion": "hojas",
+      "nombre": "Selva de Bambú",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "hoja_sombria",
+      "animacion": "hojas",
+      "nombre": "Hoja Sombría",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "bambu_del_ocaso",
+      "animacion": "hojas",
+      "nombre": "Bambú del Ocaso",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "destello",
+      "animacion": "brillo",
+      "nombre": "Destello",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "dfe",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "abanico_escudo",
+      "animacion": "brillo",
+      "nombre": "Abanico Escudo",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "desplegar_plumas",
+      "animacion": "brillo",
+      "nombre": "Desplegar Plumas",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "ojos_del_abanico",
+      "animacion": "mirada",
+      "nombre": "Ojos del Abanico",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 90,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "pluma_electrica",
+      "animacion": "rayo",
+      "nombre": "Pluma Eléctrica",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "paralisis",
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "pavoneo",
+      "animacion": "brillo",
+      "nombre": "Pavoneo",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "dfe",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "rayo_helianto",
+      "animacion": "rayo",
+      "nombre": "Rayo Helianto",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "mil_ojos_solares",
+      "animacion": "sol",
+      "nombre": "Mil Ojos Solares",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "abanico_violeta",
+      "animacion": "rayo",
+      "nombre": "Abanico Violeta",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "eclipse_de_plumas",
+      "animacion": "rayo",
+      "nombre": "Eclipse de Plumas",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "chispa_de_farol",
+      "animacion": "rayo",
+      "nombre": "Chispa de Farol",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 45,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "paralisis",
+          "prob": 10,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "aleta_brillante",
+      "animacion": "brillo",
+      "nombre": "Aleta Brillante",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "encender_farol",
+      "animacion": "brillo",
+      "nombre": "Encender Farol",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "relampago_dorado",
+      "animacion": "rayo",
+      "nombre": "Relámpago Dorado",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "bigote_electrico",
+      "animacion": "rayo",
+      "nombre": "Bigote Eléctrico",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "paralisis",
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "nado_luminoso",
+      "animacion": "corriente",
+      "nombre": "Nado Luminoso",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "farol_celeste",
+      "animacion": "brillo",
+      "nombre": "Farol Celeste",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "mil_faroles",
+      "animacion": "brillo",
+      "nombre": "Mil Faroles",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "farol_sombrio",
+      "animacion": "rayo",
+      "nombre": "Farol Sombrío",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "linterna_del_ocaso",
+      "animacion": "rayo",
+      "nombre": "Linterna del Ocaso",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "zarpa_estatica",
+      "animacion": "zarpazo",
+      "nombre": "Zarpa Estática",
+      "tipo": "rayo",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 45,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "paralisis",
+          "prob": 10,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "pelaje_esponjoso",
+      "animacion": "brillo",
+      "nombre": "Pelaje Esponjoso",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "frotar_pelaje",
+      "animacion": "rayo",
+      "nombre": "Frotar Pelaje",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "salto_prisma",
+      "animacion": "impacto",
+      "nombre": "Salto Prisma",
+      "tipo": "rayo",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "cola_de_cuarzo",
+      "animacion": "zarpazo",
+      "nombre": "Cola de Cuarzo",
+      "tipo": "rayo",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "paralisis",
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "brillo_de_cuarzo",
+      "animacion": "brillo",
+      "nombre": "Brillo de Cuarzo",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "embestida_prisma",
+      "animacion": "rayo",
+      "nombre": "Embestida Prisma",
+      "tipo": "rayo",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "prisma_relampago",
+      "animacion": "rayo",
+      "nombre": "Prisma Relámpago",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "cuarzo_violeta",
+      "animacion": "rayo",
+      "nombre": "Cuarzo Violeta",
+      "tipo": "rayo",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "prisma_del_ocaso",
+      "animacion": "rayo",
+      "nombre": "Prisma del Ocaso",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "ala_rapida",
+      "animacion": "zarpazo",
+      "nombre": "Ala Rápida",
+      "tipo": "cielo",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "vuelo_esquivo",
+      "animacion": "corriente",
+      "nombre": "Vuelo Esquivo",
+      "tipo": "cielo",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "aire_de_alba",
+      "animacion": "corriente",
+      "nombre": "Aire de Alba",
+      "tipo": "cielo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "picado_del_alba",
+      "animacion": "impacto",
+      "nombre": "Picado del Alba",
+      "tipo": "cielo",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "cola_tijera",
+      "animacion": "zarpazo",
+      "nombre": "Cola Tijera",
+      "tipo": "cielo",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "corriente_alba",
+      "animacion": "corriente",
+      "nombre": "Corriente Alba",
+      "tipo": "cielo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "vendaval_alba",
+      "animacion": "corriente",
+      "nombre": "Vendaval Alba",
+      "tipo": "cielo",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "amanecer_eterno",
+      "animacion": "sol",
+      "nombre": "Amanecer Eterno",
+      "tipo": "cielo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "tijera_del_ocaso",
+      "animacion": "zarpazo",
+      "nombre": "Tijera del Ocaso",
+      "tipo": "cielo",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "alba_negra",
+      "animacion": "corriente",
+      "nombre": "Alba Negra",
+      "tipo": "cielo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "rafaga_nocturna",
+      "animacion": "corriente",
+      "nombre": "Ráfaga Nocturna",
+      "tipo": "cielo",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "dfe",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "plumaje_denso",
+      "animacion": "corriente",
+      "nombre": "Plumaje Denso",
+      "tipo": "cielo",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "mirada_atenta",
+      "animacion": "mirada",
+      "nombre": "Mirada Atenta",
+      "tipo": "cielo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "hipnosis_lunar",
+      "animacion": "mirada",
+      "nombre": "Hipnosis Lunar",
+      "tipo": "cielo",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "ala_umbral",
+      "animacion": "corriente",
+      "nombre": "Ala Umbral",
+      "tipo": "cielo",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "dfe",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "vigilia",
+      "animacion": "brillo",
+      "nombre": "Vigilia",
+      "tipo": "cielo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "dfe",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "tempestad_nocturna",
+      "animacion": "corriente",
+      "nombre": "Tempestad Nocturna",
+      "tipo": "cielo",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "noche_de_mil_ojos",
+      "animacion": "mirada",
+      "nombre": "Noche de Mil Ojos",
+      "tipo": "cielo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "mirada_del_umbral",
+      "animacion": "mirada",
+      "nombre": "Mirada del Umbral",
+      "tipo": "cielo",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "umbral_eterno",
+      "animacion": "corriente",
+      "nombre": "Umbral Eterno",
+      "tipo": "cielo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "mordisco_sombrio",
+      "animacion": "dentellada",
+      "nombre": "Mordisco Sombrío",
+      "tipo": "sombra",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "envoltura_de_alas",
+      "animacion": "corriente",
+      "nombre": "Envoltura de Alas",
+      "tipo": "sombra",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 8,
+      "prioridad": 1,
+      "noRepetir": true,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "bloquea"
+        }
+      ]
+    },
+    {
+      "id": "ecolocacion",
+      "animacion": "grito",
+      "nombre": "Ecolocación",
+      "tipo": "sombra",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "picado_nocturno",
+      "animacion": "impacto",
+      "nombre": "Picado Nocturno",
+      "tipo": "sombra",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "colmillo_velado",
+      "animacion": "dentellada",
+      "nombre": "Colmillo Velado",
+      "tipo": "sombra",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "vuelo_nocturno",
+      "animacion": "corriente",
+      "nombre": "Vuelo Nocturno",
+      "tipo": "sombra",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "alas_de_medianoche",
+      "animacion": "corriente",
+      "nombre": "Alas de Medianoche",
+      "tipo": "sombra",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "noche_sin_luna",
+      "animacion": "mirada",
+      "nombre": "Noche Sin Luna",
+      "tipo": "sombra",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "ala_terciopelo",
+      "animacion": "zarpazo",
+      "nombre": "Ala Terciopelo",
+      "tipo": "sombra",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "eco_del_vacio",
+      "animacion": "grito",
+      "nombre": "Eco del Vacío",
+      "tipo": "sombra",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "garra_excavadora",
+      "animacion": "zarpazo",
+      "nombre": "Garra Excavadora",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "madriguera",
+      "animacion": "corteza",
+      "nombre": "Madriguera",
+      "tipo": "roca",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "pulir_garras",
+      "animacion": "brillo",
+      "nombre": "Pulir Garras",
+      "tipo": "roca",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "lluvia_de_geodas",
+      "animacion": "impacto",
+      "nombre": "Lluvia de Geodas",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "garra_de_amatista",
+      "animacion": "zarpazo",
+      "nombre": "Garra de Amatista",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "coraza_de_geoda",
+      "animacion": "corteza",
+      "nombre": "Coraza de Geoda",
+      "tipo": "roca",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "dfe",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "sismo_cristalino",
+      "animacion": "impacto",
+      "nombre": "Sismo Cristalino",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "corazon_de_geoda",
+      "animacion": "brillo",
+      "nombre": "Corazón de Geoda",
+      "tipo": "roca",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "amatista_negra",
+      "animacion": "impacto",
+      "nombre": "Amatista Negra",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "geoda_del_vacio",
+      "animacion": "impacto",
+      "nombre": "Geoda del Vacío",
+      "tipo": "roca",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "guijarrazo",
+      "animacion": "proyectil",
+      "nombre": "Guijarrazo",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "cola_anillada",
+      "animacion": "corteza",
+      "nombre": "Cola Anillada",
+      "tipo": "roca",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6
+        }
+      ]
+    },
+    {
+      "id": "picardia",
+      "animacion": "mirada",
+      "nombre": "Picardía",
+      "tipo": "roca",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "lluvia_de_onice",
+      "animacion": "proyectil",
+      "nombre": "Lluvia de Ónice",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "zarpa_de_onice",
+      "animacion": "zarpazo",
+      "nombre": "Zarpa de Ónice",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "esconder_tesoro",
+      "animacion": "brillo",
+      "nombre": "Esconder Tesoro",
+      "tipo": "roca",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 4,
+      "noRepetir": true,
+      "efectos": [
+        {
+          "tipo": "cura",
+          "porcentaje": 35
+        }
+      ]
+    },
+    {
+      "id": "coletazo_anillado",
+      "animacion": "impacto",
+      "nombre": "Coletazo Anillado",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "tesoro_de_onice",
+      "animacion": "brillo",
+      "nombre": "Tesoro de Ónice",
+      "tipo": "roca",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "onice_sombrio",
+      "animacion": "impacto",
+      "nombre": "Ónice Sombrío",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 115,
+      "precision": 85,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "guarida_del_vacio",
+      "animacion": "impacto",
+      "nombre": "Guarida del Vacío",
+      "tipo": "roca",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
     }
   ]
 }

@@ -103,6 +103,86 @@
     "refugio": {
       "nombre": "Refugio",
       "mecanica": "raices"
+    },
+    "espejismo": {
+      "nombre": "Espejismo",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "fragua_viva": {
+      "nombre": "Fragua Viva",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "puas_ardientes": {
+      "nombre": "Púas Ardientes",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "canto_del_alba": {
+      "nombre": "Canto del Alba",
+      "mecanica": "oleaje"
+    },
+    "piedra_coralina": {
+      "nombre": "Piedra Coralina",
+      "mecanica": "raices"
+    },
+    "corriente_abisal": {
+      "nombre": "Corriente Abisal",
+      "mecanica": "oleaje"
+    },
+    "campana_serena": {
+      "nombre": "Campana Serena",
+      "mecanica": "raices"
+    },
+    "hielo_artico": {
+      "nombre": "Hielo Ártico",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "micelio": {
+      "nombre": "Micelio",
+      "mecanica": "raices"
+    },
+    "petalo_filoso": {
+      "nombre": "Pétalo Filoso",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "calma_manglar": {
+      "nombre": "Calma Manglar",
+      "mecanica": "raices"
+    },
+    "rama_quieta": {
+      "nombre": "Rama Quieta",
+      "mecanica": "oleaje"
+    },
+    "abanico_solar": {
+      "nombre": "Abanico Solar",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "farol_interior": {
+      "nombre": "Farol Interior",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "pelaje_estatico": {
+      "nombre": "Pelaje Estático",
+      "mecanica": "oleaje"
+    },
+    "vuelo_rasante": {
+      "nombre": "Vuelo Rasante",
+      "mecanica": "oleaje"
+    },
+    "ojos_nocturnos": {
+      "nombre": "Ojos Nocturnos",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "eco_nocturno": {
+      "nombre": "Eco Nocturno",
+      "mecanica": "oleaje"
+    },
+    "geoda_viva": {
+      "nombre": "Geoda Viva",
+      "mecanica": "raices"
+    },
+    "astucia": {
+      "nombre": "Astucia",
+      "mecanica": "ultimo_rescoldo"
     }
   },
   "definitivo": {

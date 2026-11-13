@@ -54,8 +54,8 @@ describe('familias nuevas', () => {
   it('el rival puede salir de cualquier familia', () => {
     const vistas = new Set<string>();
     const equipo = [nuevaCriatura('lumbrito', 10, 'comun', false), nuevaCriatura('aletin', 10, 'comun', false), nuevaCriatura('brotin', 10, 'comun', false)];
-    for (let s = 0; s < 200; s++) for (const c of generarRival(DATOS, equipo, new Rng(s))) vistas.add(c.especie.familia);
-    expect(vistas.size).toBe(13);
+    for (let s = 0; s < 800; s++) for (const c of generarRival(DATOS, equipo, new Rng(s))) vistas.add(c.especie.familia);
+    expect(vistas.size).toBe(33);
   });
 });
 

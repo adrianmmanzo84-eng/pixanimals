@@ -411,3 +411,51 @@ Stats de etapa 4 ajustados por simulación (Brote conserva los suyos). Resultado
 - Duración (mediana): 1 contra 1, 5 a 7 turnos; 3 contra 3, 16 a 20.
 - En 300 combates contra el jefe del piso 20 con Definitivos de los dos lados, un tercio de los Definitivos fue resistido con una guardia.
 
+## 33 familias (tercera tanda)
+
+20 familias nuevas, 4 por clase de los paquetes de arte, repartidas entre los 7 tipos (D133). Mismo molde de habilidades que las 13 anteriores (D135).
+
+### Tipos por familia
+
+| Tipo | Familias |
+|---|---|
+| Brasa | Brasa, Fénec, Escarabajo, Puercoespín, Gallo |
+| Marea | Marea, Cangrejo, Nutria, Caballito, Medusa, Narval |
+| Brote | Brote, Colibrí, Tapir, Mantis, Capibara, Fásmido |
+| Rayo | Ajolote, Pavo real, Carpa farol, Chinchilla |
+| Roca | Caracol, Pangolín, Topo, Mapache |
+| Cielo | Mantarraya, Gecko, Golondrina, Búho |
+| Sombra | Polilla, Liebre, Pulpo, Murciélago |
+
+### Cómo se ajustó
+
+`npm run ajustar-familias -- <familias>` mueve un solo valor por familia (hasta 16 % de los stats entre ataque y aguante, igual en las 4 etapas) hasta que la etapa 1 y la 4 queden cerca del 50 % contra las 13 familias originales. La Eclipse se ajusta aparte, para ganarle a su forma normal cerca del 58 %. Las familias que seguían fuertes con el ajuste al tope se corrigieron en el kit (D136).
+
+### Resultado (`npm run familias -- 300`, IA Experta, contra las 33 familias)
+
+Stats de etapa 1 (PS / Atq / Def / AtE / DfE / Vel) y porcentaje de victorias en la etapa 1 (nivel 12) y en la final (nivel 46):
+
+| Línea | Tipo | Pasiva | Etapa 1 | Gana E1 | Gana E4 |
+|---|---|---|---|---|---|
+| Fenequín → Vitreón | Brasa | Espejismo (ultimo_rescoldo) | 47 / 41 / 39 / 62 / 47 / 64 | 55 % | 48 % |
+| Escarlito → Fundaris | Brasa | Fragua Viva (ultimo_rescoldo) | 45 / 75 / 48 / 43 / 42 / 47 | 52 % | 60 % |
+| Carbunín → Carbunco | Brasa | Púas Ardientes (ultimo_rescoldo) | 45 / 74 / 54 / 44 / 40 / 43 | 54 % | 48 % |
+| Chispollo → Cometón | Brasa | Canto del Alba (oleaje) | 45 / 63 / 39 / 43 / 42 / 68 | 54 % | 44 % |
+| Nutrín → Nutrarca | Marea | Piedra Coralina (raices) | 46 / 68 / 42 / 47 / 42 / 55 | 45 % | 63 % |
+| Hipín → Abisalio | Marea | Corriente Abisal (oleaje) | 36 / 36 / 34 / 79 / 45 / 70 | 59 % | 46 % |
+| Medusín → Carillón | Marea | Campana Serena (raices) | 46 / 30 / 39 / 73 / 62 / 50 | 39 % | 45 % |
+| Narvalín → Glacior | Marea | Hielo Ártico (ultimo_rescoldo) | 50 / 68 / 45 / 37 / 40 / 60 | 52 % | 52 % |
+| Tapirín → Micelón | Brote | Micelio (raices) | 52 / 69 / 50 / 46 / 43 / 40 | 50 % | 57 % |
+| Ninfín → Orquira | Brote | Pétalo Filoso (ultimo_rescoldo) | 42 / 68 / 42 / 41 / 39 / 68 | 49 % | 47 % |
+| Capibín → Raigón | Brote | Calma Manglar (raices) | 66 / 50 / 54 / 50 / 56 / 24 | 46 % | 44 % |
+| Ramitín → Bambuzal | Brote | Rama Quieta (oleaje) | 38 / 46 / 44 / 73 / 39 / 60 | 49 % | 54 % |
+| Pavito → Heliavo | Rayo | Abanico Solar (ultimo_rescoldo) | 42 / 43 / 38 / 73 / 44 / 60 | 55 % | 53 % |
+| Carpín → Faroluz | Rayo | Farol Interior (ultimo_rescoldo) | 39 / 31 / 35 / 77 / 44 / 74 | 59 % | 49 % |
+| Chinchín → Prismora | Rayo | Pelaje Estático (oleaje) | 51 / 58 / 49 / 36 / 46 / 60 | 56 % | 52 % |
+| Golondrín → Albalis | Cielo | Vuelo Rasante (oleaje) | 48 / 68 / 42 / 40 / 42 / 60 | 56 % | 55 % |
+| Buhíto → Umbrus | Cielo | Ojos Nocturnos (ultimo_rescoldo) | 42 / 40 / 37 / 75 / 46 / 60 | 54 % | 54 % |
+| Murcito → Véspero | Sombra | Eco Nocturno (oleaje) | 53 / 56 / 48 / 39 / 51 / 53 | 50 % | 53 % |
+| Topín → Geodón | Roca | Geoda Viva (raices) | 52 / 77 / 51 / 38 / 44 / 38 | 50 % | 54 % |
+| Mapachín → Onixor | Roca | Astucia (ultimo_rescoldo) | 52 / 60 / 57 / 34 / 49 / 48 | 53 % | 46 % |
+
+Con ventaja de tipo se gana el 83 % de los cruces en la etapa 1 y el 81 % en la final. Las Eclipse nuevas le ganan a su forma normal entre el 50 % y el 64 %. Contra las 13 originales, las etapas 2 y 3 de las familias nuevas quedan entre el 40 % y el 65 %.

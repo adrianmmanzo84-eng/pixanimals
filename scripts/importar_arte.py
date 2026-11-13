@@ -53,6 +53,13 @@ def celdas(img):
     a = np.array(img)
     lleno = a[:, :, 3] > 128
     filas = [b for b in bandas(lleno.sum(axis=1), 4, 6) if b[1] - b[0] > 40]
+    if len(filas) == 1:
+        # Frente y espalda se tocan (alas largas): se corta por la fila más vacía del centro.
+        y0, y1 = filas[0]
+        perfil = lleno[y0:y1 + 1].sum(axis=1)
+        alto = y1 - y0
+        medio = alto // 3 + int(np.argmin(perfil[alto // 3: 2 * alto // 3]))
+        filas = [(y0, y0 + medio), (y0 + medio + 1, y1)]
     assert len(filas) == 2, f'se esperaban 2 filas y hay {len(filas)}'
     salida = []
     for y0, y1 in filas:
@@ -77,6 +84,13 @@ def rama(img):
         f, e = celdas(img)
         return f[0], e[0]
     cols = [b for b in bandas(lleno.sum(axis=0), 4, 20) if b[1] - b[0] > 40]
+    if len(cols) == 1:
+        # Las dos vistas se tocan (aletas o aura largas): se corta por la columna más vacía del centro.
+        x0, x1 = cols[0]
+        perfil = lleno[:, x0:x1 + 1].sum(axis=0)
+        ancho = x1 - x0
+        medio = ancho // 3 + int(np.argmin(perfil[ancho // 3: 2 * ancho // 3]))
+        cols = [(x0, x0 + medio), (x0 + medio + 1, x1)]
     assert len(cols) == 2, f'rama: se esperaban 2 vistas y hay {len(cols)}'
     vistas = []
     for x0, x1 in cols:

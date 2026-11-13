@@ -236,27 +236,27 @@
     },
     "coleccion": [
       {
-        "meta": 10,
+        "meta": 15,
         "premio": {
           "monedas": 200
         }
       },
       {
-        "meta": 25,
+        "meta": 50,
         "premio": {
           "monedas": 500,
           "sobre": "raro"
         }
       },
       {
-        "meta": 45,
+        "meta": 100,
         "premio": {
           "monedas": 1000,
           "sobre": "legendario"
         }
       },
       {
-        "meta": 65,
+        "meta": 165,
         "premio": {
           "monedas": 2000,
           "esencia": 1000,
@@ -277,9 +277,9 @@
     {
       "id": "especies",
       "metas": [
-        15,
-        35,
-        65
+        25,
+        80,
+        165
       ]
     },
     {

@@ -1,0 +1,147 @@
+{
+  "herramienta": "Generador de imagenes integrado",
+  "instruccion_comun": "Create an ECLIPSE ALTERNATE of ONLY the FINAL MYTHICAL evolution in the RIGHTMOST COLUMN of the attached PIXANIMALS creature reference. Reference role: creature identity only. Do NOT reproduce the four-stage lineup. Create exactly TWO full-body matching sprites SIDE-BY-SIDE, FRONT three-quarter on LEFT facing slightly viewer left, BACK three-quarter on RIGHT facing upper right. Same creature, exact matching anatomy markings armor and aura front/back. This is a much WILDER MORE AGGRESSIVE MORE IMPOSING alternate final form, not just recolor. Exaggerated muscular powerful anatomy, ferocious eyes, sharp confident battle pose, distinctive spectacular silhouette and element-specific aura. Preserve identifiable species and signature motifs from reference mythical stage. AUTHENTIC CHUNKY LOW-RESOLUTION PIXEL ART, as if two64-80logicalpixel battle sprites enlarged nearest-neighbor 8x. VERY LARGE UNIFORM SQUARE PIXEL BLOCKS, crisp staircase outlines, broad flat discrete color clusters, limited20-color palette, maximum3 flat shades per material. No smooth curves, fine illustration, painting, gradients, antialiasing, noisy dithering, blur, soft lighting or diffuse glow. Aura consists of sparse LARGE hard-edged angular pixel particles and arcs with transparent gaps, NEVER a solid fog or full filled circular backdrop. Creature body clearly readable against aura. Wide2:1 landscape image. Entire pair drawn SMALLER within canvas so body AND aura fit comfortably with at least10% EMPTY TRANSPARENT outer margin on all sides. Clear middle gap. All ear tips wing tips tails antlers claws and aura fully visible, no cropping. GENUINE TRANSPARENT BACKGROUND. No floor, cast shadow, scenery, text, labels, panels, extra creatures, watermark or logo. ",
+  "familias": [
+    {
+      "archivo": "14_01_brasa_fenec_eclipse.png",
+      "nombre": "Fénec de vidrio solar",
+      "clase": "Brasa",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v1\\01_brasa_fenec.png",
+      "concepto": "FENNEC ECLIPSE: preserve fennec fox quadruped, enormous pointed flame ears, cream muzzle, oval amber forehead gem and layered orange glass tail. Transform into a low muscular obsidian/amber desert predator, enormous serrated orange-gold glass ears, fierce molten amber eyes, black ankle armor and two sweeping blade-shaped glass tail layers, mane of crimson shard petals. Aura: sparse jagged amber glass fragments with red heat streaks, close to silhouette, no background sun."
+    },
+    {
+      "archivo": "15_02_brasa_escarabajo_eclipse.png",
+      "nombre": "Escarabajo fragua",
+      "clase": "Brasa",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v1\\02_brasa_escarabajo.png",
+      "concepto": "FORGE BEETLE ECLIPSE: preserve six insect legs, cream cheek mask, red-gold wing cases, forked anvil horn and central yellow core dot. Colossal black-iron beetle with huge branched serrated forge horn, aggressive bright eyes, thick broad forelegs, dark crimson/gold armored wing cases spread and smoky violet insect flight wings, orange magma seams. Aura: blocky orange furnace sparks and jagged ember arcs, NOT fog."
+    },
+    {
+      "archivo": "16_03_marea_nutria_eclipse.png",
+      "nombre": "Nutria arrecife",
+      "clase": "Marea",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v1\\03_marea_nutria.png",
+      "concepto": "REEF OTTER ECLIPSE: preserve cocoa/teal otter face, cream muzzle and chest, turquoise cheek teardrops, coral armor and broad fin tail. Powerful low muscular four-legged abyssal otter, dark navy coat, fierce cyan eyes, sharp branching black/coral shoulder armor, heavily armored huge forepaws and immense serrated turquoise paddle tail. Original coral pebble becomes a cyan chest core. Aura: compact cyan foam-blade arcs and coral red pressure streaks, no water scenery."
+    },
+    {
+      "archivo": "17_04_marea_caballito_eclipse.png",
+      "nombre": "Caballito abisal",
+      "clase": "Marea",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v1\\04_marea_caballito.png",
+      "concepto": "SEAHORSE ECLIPSE: preserve long seahorse snout, pearl forehead mark, peach cheek dot, curled tail, tiered blue/ivory fin fans and segmented upright fish body. Huge armored dark cobalt seahorse with fierce white-cyan eye, enormous jagged indigo/ivory crescent fin fans, serrated silver dorsal crest and powerful tightly curled tail with blade fringe. Aura: angular violet abyssal currents and cyan bubbles around silhouette. NO legs, hooves or actual horse head."
+    },
+    {
+      "archivo": "18_05_brote_tapir_eclipse.png",
+      "nombre": "Tapir micelio",
+      "clase": "Brote",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v1\\05_brote_tapir.png",
+      "concepto": "MYCELIUM TAPIR ECLIPSE: preserve short tapir trunk, rounded ears, cream stripe motifs, moss mantle and amber shelf mushroom back crest. Ferocious colossal black-brown tapir, powerful broad quadruped body, dark bark shoulder armor, huge layered violet/amber shelf fungi, intense acid-green eyes and muscular trunk muzzle, large ivory hooves. Aura: discrete lime spores, broken violet mycelium threads and angular root-energy curls, no full background trees."
+    },
+    {
+      "archivo": "19_06_brote_mantis_eclipse.png",
+      "nombre": "Mantis orquídea",
+      "clase": "Brote",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v1\\06_brote_mantis.png",
+      "concepto": "ORCHID MANTIS ECLIPSE: preserve pink antennae, petal cheeks, magenta belly diamond, emerald segmented body, leaf-blade forearms and orchid wing fans. Towering predatory six-limbed black-emerald mantis, serrated sickle leaf forearms, long jagged crimson-magenta orchid wings with ivory edges, fierce pale eyes and three sharp petal head crests. Aura: sparse angular magenta petal slashes and lime thorn motes. Real insect anatomy, no human."
+    },
+    {
+      "archivo": "20_07_luz_chinchilla_eclipse.png",
+      "nombre": "Chinchilla prisma",
+      "clase": "Luz",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v1\\07_luz_chinchilla.png",
+      "concepto": "PRISM CHINCHILLA ECLIPSE: preserve pearl-white chinchilla muzzle, peach nose, large round ears with gold/prism rims, gold forehead diamond and large fan crystal tail. Become a feral majestic ivory-gold beast, muscular crouched body, huge sharp gold/cyan quartz fur crest, gold crystal shoulder armor with obsidian joints, enormous jagged luminous-looking fan tail, intense gold eyes and powerful clawed paws. LIGHT class identity remains ivory/gold with charcoal accents. Aura: hard-edged broken pale-gold rays and sparse cyan crystal sparks, NO soft halo."
+    },
+    {
+      "archivo": "21_08_luz_golondrina_eclipse.png",
+      "nombre": "Golondrina alba",
+      "clase": "Luz",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v1\\08_luz_golondrina.png",
+      "concepto": "DAWN SWALLOW ECLIPSE: preserve swallow anatomy, peach chest patch, gold beak/forehead feather mark, white/sapphire wings and long forked ribbon tail. Huge fierce radiant sky swallow with two massive swept silver-ivory/gold serrated wings, dark sapphire internal feathers, three-point sharp golden feather crown, intense pale-gold eyes and muscular talons. Long twin-forked tail becomes blazing blade-feather ribbons. Aura: angular ivory-gold wind scythes with sparse sapphire sparks. No griffin body, no detached sun."
+    },
+    {
+      "archivo": "22_09_oscuridad_murcielago_eclipse.png",
+      "nombre": "Murciélago terciopelo",
+      "clase": "Oscuridad",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v1\\09_oscuridad_murcielago.png",
+      "concepto": "VELVET BAT ECLIPSE: preserve lavender bat muzzle, tall ears, silver crescent forehead spot, indigo/violet membranes and forked membrane tail. Enormous savage black-purple bat with muscular thorax, ivory-violet hooked forewing claws, vast heavily serrated membranes with magenta geometric marks, split silver/black ear crest, aggressive amethyst eyes and open fang jaw. Aura: compact sharp violet echo crescents and magenta square motes. No humanoid vampire, no clothing."
+    },
+    {
+      "archivo": "23_10_oscuridad_mapache_eclipse.png",
+      "nombre": "Mapache ónice",
+      "clase": "Oscuridad",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v1\\10_oscuridad_mapache.png",
+      "concepto": "ONYX RACCOON ECLIPSE: preserve unmistakable black raccoon eye mask, pink nose, cream muzzle, lavender tail rings, onyx chest stone and layered black shoulder mane. Massive low snarling charcoal raccoon with heavy onyx forearm plates, huge ivory claws, sharp swept obsidian mane, fierce violet eyes, and two interwoven enormous sweeping ringed fur-tail plumes. Aura: black/violet angular stone splinters with sharp lilac pressure arcs. Remains raccoon not fox/wolf/person."
+    },
+    {
+      "archivo": "24_01_brasa_puercoespin_eclipse.png",
+      "nombre": "Puercoespín carbúnculo",
+      "clase": "Brasa",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v2\\01_brasa_puercoespin.png",
+      "concepto": "CARBUNCLE PORCUPINE ECLIPSE: preserve cream porcupine muzzle, orange oval forehead mark, dark cinnamon body and quill fan. Huge ferocious low black/ember porcupine, muscular quadruped body, massive multi-layer serrated fan of long obsidian quills with white-hot amber tips, crimson magma seams, sharp ivory claws and pointed armored tail. Aura: sparse angular ember trails and gold square sparks shooting around quill fan. No whole background fire."
+    },
+    {
+      "archivo": "25_02_brasa_gallo_eclipse.png",
+      "nombre": "Gallo cometa",
+      "clase": "Brasa",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v2\\02_brasa_gallo.png",
+      "concepto": "COMET ROOSTER ECLIPSE: preserve actual rooster bird body, orange beak, peach cheek mark, red flame comb, broad crimson/gold wings and three long comet tail feathers. Massive fierce charcoal/crimson rooster with powerful hooked talons, long sharp golden beak, huge serrated red-gold flame feathers, spiked five-point comb and three long blade-shaped comet tail ribbons. Aura: compact jagged dark-red/amber comet arcs and white-gold sparks. No eagle, phoenix, dragon or human body."
+    },
+    {
+      "archivo": "26_03_marea_medusa_eclipse.png",
+      "nombre": "Medusa campana",
+      "clase": "Marea",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v2\\03_marea_medusa.png",
+      "concepto": "BELL JELLYFISH ECLIPSE: preserve tiered turquoise/indigo bell, lavender scalloped rim, central white diamond and eight long ribbon tentacles with pearl tips. Colossal ominous black-indigo jellyfish with massive jagged armored bell crown, huge cyan diamond forehead core, ferocious magenta eye slits and thick powerful eight tentacles edged with violet fins, pearl tips become sharp ivory teardrops. Aura: sparse angular cyan pressure ripples and dark violet electrical sea sparks. No full ocean, no humanoid."
+    },
+    {
+      "archivo": "27_04_marea_narval_eclipse.png",
+      "nombre": "Narval glacial",
+      "clase": "Marea",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v2\\04_marea_narval.png",
+      "concepto": "GLACIER NARWHAL ECLIPSE: preserve horizontal narwhal body, cream belly, navy cheek oval, enormous spiral ivory/cyan tusk and forked crescent fluke. Colossal savage dark-cobalt narwhal with huge jagged black-ice shoulder plates, long lethal-looking prismatic ivory tusk, fierce cyan eye, muscular fins and giant serrated silver-blue fluke. Aura: chunky cyan ice fracture shards and violet pressure curls, no background water. NO legs or wings."
+    },
+    {
+      "archivo": "28_05_brote_capibara_eclipse.png",
+      "nombre": "Capibara manglar",
+      "clase": "Brote",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v2\\05_brote_capibara.png",
+      "concepto": "MANGROVE CAPYBARA ECLIPSE: preserve capybara broad box muzzle, tiny round ears, three pale-green cheek freckles, head leaf, brown body and interwoven root/leaf armor. Massive low angry dark-brown capybara titan, huge twisted black mangrove root armor across shoulders/back, serrated dark emerald leaf mantle, broad powerful root paws, narrowed acid-green eyes and visible small sharp tusks. Aura: sparse angular lime root-energy with violet swamp spores. Clearly capybara, no tapir trunk or antlers."
+    },
+    {
+      "archivo": "29_06_brote_insecto_bambu_eclipse.png",
+      "nombre": "Fásmido bambú",
+      "clase": "Brote",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v2\\06_brote_insecto_bambu.png",
+      "concepto": "BAMBOO PHASMID ECLIPSE: preserve articulated bamboo body, six twig limbs, yellow antennae, coral chest node, emerald leaf flight wings and three bamboo head twigs. Towering fierce black-green bamboo stick insect, thick serrated jointed limbs, huge sharp dark emerald leaf wings with lime/gold vein blocks, crimson coral joint cores and chest node, pointed split bamboo head crest and predatory pale eyes. Aura: angular lime leaf fragments and dark violet wind strokes. No humanoid and no mantis sickle hands."
+    },
+    {
+      "archivo": "30_07_luz_pavo_real_eclipse.png",
+      "nombre": "Pavo real helianto",
+      "clase": "Luz",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v2\\07_luz_pavo_real.png",
+      "concepto": "SUNFLOWER PEACOCK ECLIPSE: preserve peacock bird body, gold beak/crest, ivory plumage and enormous symmetric tail fan with cyan/sapphire eye-spots. Huge fierce ivory/black-gold peacock, muscular bird legs and hooked talons, immense serrated fan like sharp black-gold sun petals with glowing-looking cyan eye motifs, strong spread white/gold wings, aggressive golden eyes and jagged tall feather crest. Aura: sparse gold/cyan radial rays and violet eclipse wisps, hard pixels only. Tail is actual peacock tail, not background halo."
+    },
+    {
+      "archivo": "31_08_luz_carpa_farol_eclipse.png",
+      "nombre": "Carpa farol",
+      "clase": "Luz",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v2\\08_luz_carpa_farol.png",
+      "concepto": "LANTERN KOI ECLIPSE: preserve koi fish mouth, pearl-white/gold scales, peach cheek patches, gold forehead diamond, two gold whiskers, layered cyan/ivory ribbon fins and split fan tail. Huge fierce armored celestial koi with black/antique-gold scale plates along spine, intense cyan eye, enormously exaggerated jagged ivory/gold/cyan ribbon fins and forked serrated fan tail, thick long gold whiskers. Aura: discrete white-gold pressure currents and dark cyan square motes. Keep fish anatomy, no legs or dragon head."
+    },
+    {
+      "archivo": "32_09_oscuridad_buho_eclipse.png",
+      "nombre": "Búho umbral",
+      "clase": "Oscuridad",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v2\\09_oscuridad_buho.png",
+      "concepto": "THRESHOLD OWL ECLIPSE: preserve cream heart-shaped owl facial disk, lavender beak, tall feather ear tufts, silver chest dot and dark indigo wings with silver crescents. Colossal feral black-indigo owl, hugely broadened serrated spread wings with ivory crescent feather marks, muscular talons, fierce amber-amethyst eyes, strong silver-black feather collar and tall sharp feather ear tufts. Aura: sparse violet echo arcs and icy silver star motes. No bat or detached moon, clearly owl."
+    },
+    {
+      "archivo": "33_10_oscuridad_topo_eclipse.png",
+      "nombre": "Topo geoda",
+      "clase": "Oscuridad",
+      "referencia": "C:\\Users\\amanzo\\Documents\\Codex\\2026-11-12\\necesito-crear-paisajes-para-este-tipo-2\\outputs\\pixanimals-cinco-clases-v2\\10_oscuridad_topo.png",
+      "concepto": "GEODE MOLE ECLIPSE: preserve pink star-shaped nose, tiny lavender eyes, violet forehead gem, cream giant digging paws and amethyst geode back shell. Colossal low vicious charcoal mole, extremely powerful forearms with enormous ivory claw sets, towering serrated black-amethyst fractured geode shoulder/back shell with bright lilac inner facets, intense small violet eyes and short armored tail. Aura: chunky violet/cyan geode splinters and dark pressure crack arcs. No humanoid or detached ground scenery."
+    }
+  ],
+  "nota": "Las tres ultimas variantes se generaron con una formulacion simplificada de estos mismos conceptos."
+}

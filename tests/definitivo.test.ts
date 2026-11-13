@@ -35,9 +35,9 @@ describe('ataques por evolución', () => {
   });
   it('solo las etapas finales y las Eclipse tienen Definitivo, y cada uno es distinto', () => {
     const conDef = criaturas.filter((c) => c.definitivo);
-    expect(conDef).toHaveLength(26);
+    expect(conDef).toHaveLength(66);
     expect(conDef.every((c) => c.etapa === 4)).toBe(true);
-    expect(new Set(conDef.map((c) => c.definitivo)).size).toBe(26);
+    expect(new Set(conDef.map((c) => c.definitivo)).size).toBe(66);
     expect(crearCombatiente(DATOS, 'lumbrito', 10).definitivo).toBeNull();
     expect(crearCombatiente(DATOS, 'solarion', 46).definitivo?.id).toBe('sol_supremo');
   });

@@ -61,7 +61,7 @@ Después ejecuta `python3 scripts/importar_efectos.py`. Recorta, reduce a 64 px 
 
 ### Efectos propios por ataque
 
-Un efecto por habilidad (tiene prioridad sobre el de su `animacion`). Se entregan en láminas por familia en `arte/originales/efectos_ataques/`, con `indice.csv` (archivo, lámina, fila, columna y tamaño). Para los Definitivos hay un impacto (`<id>.png`) y una composición de pantalla (`<id>_pantalla.png`). Ejecuta `python3 scripts/importar_efectos_ataques.py`: corta, reduce, cuantiza y escribe `public/efectos/ataques/` y `src/ui/efectos-ataques.json`. El movimiento lo decide el código según la habilidad (apoyo, físico, especial, final, Definitivo). Dibujar con dirección de abajo a la izquierda hacia arriba a la derecha.
+Un efecto por habilidad (tiene prioridad sobre el de su `animacion`). Se entregan en láminas por familia en `arte/originales/efectos_ataques/`, con `indice.csv` (archivo, lámina, fila, columna y tamaño). Para los Definitivos hay un impacto (`<id>.png`) y una composición de pantalla (`<id>_pantalla.png`). Ejecuta `python3 scripts/importar_efectos_ataques.py`: corta, reduce, cuantiza y escribe `public/efectos/ataques/` y `src/ui/efectos-ataques.json`. El movimiento lo decide el código según la habilidad (apoyo, físico, especial, final, Definitivo). Dibujar con dirección de abajo a la izquierda hacia arriba a la derecha. Las láminas 14 a 33 (familias nuevas) ya están en `indice.csv` y su pedido detallado en `PEDIDO_14_33.md`; si falta una lámina, el importador la saltea y esos ataques siguen con el efecto compartido.
 
 ## Nota de diseño
 

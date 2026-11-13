@@ -1,0 +1,66 @@
+{
+  "herramienta": "Generador integrado de imágenes",
+  "direccion_comun": "PIXANIMALS professional creature EVOLUTION DESIGN SHEET. Authentic CHUNKY LOW RESOLUTION PIXEL ART like a 1990s handheld game sprite sheet enlarged nearest-neighbor. Exactly EIGHT separate complete sprites in FOUR COLUMNS TWO ROWS. Columns left to right: BASE, FIRST EVOLUTION, SECOND EVOLUTION, MYTHICAL. Top row FRONT three-quarter facing slightly viewer left; bottom row matching BACK three-quarter away upper right. Matching anatomy and markings across front/back, same four designs. Visible square pixels, hard stair-step silhouettes, 1logicalpixel dark outline, 16-color palette, 3 flat shades per material, broad simple pixel clusters, NO smooth curves, painting, gradient, blur, antialiasing, fine fur texture, glowing aura or cast shadow. Sprite designs about32,40,50,62 logical pixels tall, uniformly enlarged. Base very innocent cuddly unthreatening, conceals later ferocity. Later stages grow larger more powerful, mythic spectacular through structural silhouette changes. Clear identity motifs connect all stages. Critical layout: entire grid drawn SMALLER within canvas with WIDE EMPTY TRANSPARENT OUTER BORDER at least8% on all four sides. All wing tips, tail fins, horns, ears and feet fully visible and NOT touching any canvas edge. Ample space between every sprite. Genuine transparent background, no floor, scenery, text, labels, frames, numbers, logo or watermark. Four normal stages only, NO Eclipse forms. ",
+  "familias": [
+    {
+      "archivo": "01_brasa_puercoespin.png",
+      "clase": "Brasa",
+      "nombre": "Puercoespín carbúnculo",
+      "concepto": "FIRE PORCUPINE family. Base a tiny round cinnamon baby porcupine with a cream round snout, small black bead eyes, a few short soft amber bristles folded down and a small orange oval forehead mark, stubby paws, completely innocent, no flames, no threatening spikes. Evolution1 sturdy young porcupine with a short rising fan of orange quills and stronger paws. Evolution2 imposing charcoal/cinnamon beast with a great angular copper quill fan, amber fissure markings and long armored tail. Mythical massive volcanic porcupine guardian, low powerful four-legged stance, spectacular layered fan of long obsidian quills tipped in orange-gold geometric flame shapes, cream muzzle, glowing-looking orange forehead oval and strong dark claws. Preserve porcupine snout, orange forehead oval and quill fan through all stages. Actual quadruped anatomy, no humanoid armor or crown. Flames are part of quill shapes, NO background fire or aura."
+    },
+    {
+      "archivo": "02_brasa_gallo.png",
+      "clase": "Brasa",
+      "nombre": "Gallo cometa",
+      "concepto": "FIRE ROOSTER family, final capable of short powerful fantasy flight. Base tiny round buttercream chick, peach cheek dots, tiny orange beak, one little rust-red head tuft, short folded wings, tiny legs, gentle eyes, harmless with NO flames. Evolution1 young reddish rooster with simple comb and short two-feather tail. Evolution2 proud muscular dark-red rooster with broad ember-gold wings and three sweeping cometlike tail feathers. Mythical magnificent powerful solar rooster, strong bird anatomy, black-red layered plumage, huge gold/crimson flame-shaped spread wings, a five-pronged natural flame comb, long forked streaming comet tail and sturdy talons. Preserve peach cheek patch, orange beak, rust-red head tuft/comb and three tail feather structure. Clearly ROOSTER not phoenix eagle or dragon, no background aura."
+    },
+    {
+      "archivo": "03_marea_medusa.png",
+      "clase": "Marea",
+      "nombre": "Medusa campana",
+      "concepto": "WATER JELLYFISH family. Base adorable little round pale cyan jelly bell, a simple soft lavender rim, two black gentle dot eyes on bell, exactly four tiny rounded dangling tentacles, tiny white diamond bell mark, no thorns or armor, harmless. Evolution1 bigger glassy-looking blue bell with layered scalloped rim and six gently curling tentacles represented with flat colors. Evolution2 powerful deep-blue jellyfish with angular silver-blue bell armor, bright cyan diamond mark and long muscular lavender tentacles. Mythical enormous majestic abyssal jellyfish, grand tiered turquoise/indigo bell shaped like an ornate natural lantern, scalloped ivory rim, strong central white diamond, eight long sweeping ribbon tentacles alternating cyan/lavender with pearl tips. Preserve bell shape, lavender rim and white diamond. No humanoid body, no whole underwater scene, no background glow or aura, true visible square pixel clusters."
+    },
+    {
+      "archivo": "04_marea_narval.png",
+      "clase": "Marea",
+      "nombre": "Narval glacial",
+      "concepto": "WATER NARWHAL family. Base tiny round pale blue narwhal calf, very short soft rounded ivory tusk bud, cream face/belly, navy oval cheek mark, two small fins and short fluke tail, gentle curious eyes, harmless. Evolution1 agile blue narwhal with a longer straight ivory tusk and clearer tail fins. Evolution2 powerful cobalt narwhal with angular icy dorsal shoulder plates and broad fluke. Mythical immense regal glacier narwhal, dark cobalt/white body, magnificent long spiral ivory/cyan tusk with geometric pixel facets, layered frozen-looking shoulder armor and huge split crescent fluke tail, fierce noble eyes. Preserve tusk, navy oval cheek mark and white belly. Horizontal swimming body, NO legs, no wings, no horse anatomy or scenery."
+    },
+    {
+      "archivo": "05_brote_capibara.png",
+      "clase": "Brote",
+      "nombre": "Capibara manglar",
+      "concepto": "PLANT CAPYBARA family. Base tiny plump warm-brown capybara pup, broad square cream muzzle, tiny rounded ears, three pale green cheek freckles and a single small leaf resting on head, short soft legs and gentle sleepy eyes, harmless, no roots or armor. Evolution1 sturdy capybara with a small leafy shoulder collar and little root ankle cuffs. Evolution2 large powerful wetland capybara with mangrove-root shoulder bracing, emerald moss back and cream muzzle. Mythical imposing ancient mangrove capybara guardian, massive low rectangular quadruped body, huge interwoven dark root shoulder/back plates, broad emerald leaf canopy following body silhouette and large bark paws, three green cheek freckles retained. Preserve capybara box muzzle, little round ears, three freckles and head leaf. NO antlers, no full tree on back, no bear or tapir snout, no scenery."
+    },
+    {
+      "archivo": "06_brote_insecto_bambu.png",
+      "clase": "Brote",
+      "nombre": "Fásmido bambú",
+      "concepto": "PLANT BAMBOO STICK INSECT family, advanced stages flying. Base tiny cute pale green twig nymph, round head, two short yellow antennae, six short rounded twig legs and one tiny coral node mark on chest, no blades no wings, innocent black dot eyes. Evolution1 slender bamboo insect with visible segmented mint/yellow body, six longer twig legs and small folded leaf wing cases. Evolution2 fierce angular bamboo guardian insect, strong jointed legs, broad leaflike wing cases and small coral joints. Mythical spectacular imperial bamboo phasmid, tall powerful articulated insect torso, six angular bamboo limbs, magnificent two large emerald leaf flight wings with simple gold vein clusters, crownlike cluster of three natural bamboo head twigs and coral chest node. Preserve bamboo segments, yellow antennae and coral chest node. Real insect anatomy not human or mantis, no sickle forelegs, no weapons, no scenery."
+    },
+    {
+      "archivo": "07_luz_pavo_real.png",
+      "clase": "Luz",
+      "nombre": "Pavo real helianto",
+      "concepto": "LIGHT PEACOCK family, advanced stages can fly. Base tiny round pearl-white peachick, small pale gold beak, one pale cyan eye-shaped dot on a very short folded tail, soft cream crest tuft and gentle black eyes, entirely harmless. Evolution1 white-gold young peacock with a small folded fan tail and three cyan eye-spots. Evolution2 proud powerful ivory bird with swept gold wings and a broad fan of sapphire/cyan eye-spots. Mythical breathtaking radiant peacock, immense symmetrical ivory/gold tail fan like geometric sun petals, large sapphire/cyan eye motifs, strong elegant white body, gold feather crest, spread wings and sturdy talons. Preserve crest tuft, golden beak, white body and cyan tail eyespots. NOT phoenix or rooster, no detached sun or halo, no aura; fan and wings stay inside generous cell margins."
+    },
+    {
+      "archivo": "08_luz_carpa_farol.png",
+      "clase": "Luz",
+      "nombre": "Carpa farol",
+      "concepto": "LIGHT LANTERN KOI family. Base adorable tiny round pearl-white koi fry, soft peach cheek patches, tiny golden forehead dot, little rounded fins and short wavy tail, innocent large eyes, NO armor horns or aggressive teeth. Evolution1 graceful koi with longer white/gold fins, red-peach cheek patch and gold forehead dot. Evolution2 powerful elegant radiant koi with layered gold scale patches, long split tail and broad pale cyan fins. Mythical magnificent immense celestial lantern koi, pearl-white/antique-gold scale clusters, grand layered ribbon fins of ivory/cyan, striking split fan tail, two elegant gold whiskers and gold forehead diamond, fierce noble eyes. Preserve koi mouth, peach cheek patches, gold forehead mark and fish anatomy. NO legs, no dragon head, no detached lantern or aura, no water background."
+    },
+    {
+      "archivo": "09_oscuridad_buho.png",
+      "clase": "Oscuridad",
+      "nombre": "Búho umbral",
+      "concepto": "DARKNESS OWL family, flying. Base tiny round charcoal owlet, enormous soft cream heart-shaped facial disk, tiny lavender beak, two short rounded ear tufts and little folded wings, gentle huge black eyes, one pale silver chest dot, harmless, NO fangs or armor. Evolution1 small elegant owl with longer ear tufts and violet wing tips. Evolution2 imposing nocturnal owl with broad angular indigo wings and silver-black feather collar. Mythical huge feral regal owl, black/indigo layered feather body, striking cream heart-shaped facial disk, amethyst eyes, enormous serrated spread wings with sparse silver crescent feather markings, tall pointed feather ear tufts and powerful talons. Preserve heart facial disk, lavender beak, ear tufts and chest silver dot. Clearly owl not bat, no horns/antlers, no detached moon or aura."
+    },
+    {
+      "archivo": "10_oscuridad_topo.png",
+      "clase": "Oscuridad",
+      "nombre": "Topo geoda",
+      "concepto": "DARKNESS MOLE family. Base tiny round velvety charcoal mole pup, soft pink star-shaped nose, tiny lavender dot eyes, small pale cream rounded digging paws, one little violet pebble forehead spot, harmless, NO sharp claws or armor. Evolution1 sturdy short mole with larger digging paws and small black stone shoulder plates. Evolution2 massive muscular low mole with broad powerful forearms, sharp ivory digging claws, dark-violet geode armor and tiny intense eyes. Mythical colossal deep-earth mole guardian, huge low charcoal body, enormous amethyst-black fractured geode shoulder/back shell, white clawed forepaws, pink star-shaped nose and violet forehead gem, intensely fierce small eyes. Preserve star nose, tiny eyes, cream digging paws and forehead pebble. NO humanoid body, no clothing, no detached crystals or scenery, no aura."
+    }
+  ]
+}

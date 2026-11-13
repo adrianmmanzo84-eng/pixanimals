@@ -2,7 +2,7 @@
 
 Juego web de colección y combate por turnos: criaturas y efectos en pixel art sobre fondos de estilo animado. Nombre de trabajo.
 
-**Estado: Fase 5 terminada + ataques por evolución y Ataque Definitivo – Torre de Desafíos, Entrenador del día, amuletos, música chiptune, velocidad ×2 y combates de equipo más cortos. Antes: minijuegos, premio diario, misiones, tienda, evolución, 13 familias (65 criaturas) y 7 tipos.**
+**Estado: Fase 5 terminada + ataques por evolución y Ataque Definitivo – Torre de Desafíos, Entrenador del día, amuletos, música chiptune, velocidad ×2 y combates de equipo más cortos. Antes: minijuegos, premio diario, misiones, tienda, evolución, 33 familias (165 criaturas) y 7 tipos.**
 
 ## Ejecutar
 
@@ -20,6 +20,7 @@ Abre la dirección que muestra la terminal (normalmente http://localhost:5173). 
 | `npm run simular -- 3000 experta etapas` | Balance de las etapas 2 a 4 y cuánto vale evolucionar |
 | `npm run ajustar` | Ventaja de tipo en cada etapa entre las 3 familias originales (para probar repartos de stats con la variable `AJUSTE`) |
 | `npm run familias` | Cada familia contra todas, en la etapa 1 y en la final, más cada Eclipse contra su forma normal |
+| `npm run ajustar-familias -- fenec,topo` | Ajusta por simulación los stats de las familias indicadas contra las 13 originales (imprime los stats en JSON) |
 | `npm run validar` | Revisa los JSON y que cada criatura tenga sus sprites correctos |
 | `npm run placeholders` | Regenera los sprites placeholder |
 | `npm run build` | Versión optimizada en `dist/`, lista para subir a un hosting estático |
