@@ -59,6 +59,10 @@ Dibújalos en dirección **de abajo a la izquierda hacia arriba a la derecha** (
 
 Después ejecuta `python3 scripts/importar_efectos.py`. Recorta, reduce a 64 px de lado mayor (96 para los finales, 112 para el rayo de Mirada, 48–56 para grito, empujón y polen), deja 16 colores y genera `public/efectos/<nombre>.png`. La animación (aparecer, viajar, cerrarse, crecer, temblar) está en `src/ui/efectos.ts`. Un efecto sin imagen usa el dibujado por código. Las partículas pequeñas (chispas, gotas, zetas) siguen dibujadas por código.
 
+### Efectos propios por ataque
+
+Un efecto por habilidad (tiene prioridad sobre el de su `animacion`). Se entregan en láminas por familia en `arte/originales/efectos_ataques/`, con `indice.csv` (archivo, lámina, fila, columna y tamaño). Para los Definitivos hay un impacto (`<id>.png`) y una composición de pantalla (`<id>_pantalla.png`). Ejecuta `python3 scripts/importar_efectos_ataques.py`: corta, reduce, cuantiza y escribe `public/efectos/ataques/` y `src/ui/efectos-ataques.json`. El movimiento lo decide el código según la habilidad (apoyo, físico, especial, final, Definitivo). Dibujar con dirección de abajo a la izquierda hacia arriba a la derecha.
+
 ## Nota de diseño
 
 Evita rasgos que sean la «firma» de personajes de otras franquicias. La llama en la punta de la cola de la familia Brasa es el punto a vigilar antes de publicar.
