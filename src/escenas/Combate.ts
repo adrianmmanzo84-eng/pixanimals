@@ -85,6 +85,9 @@ export class Combate extends Phaser.Scene {
   /** Cámara simulada sobre `mundo`: acercamiento, punto que mira y giro (1 normal, 0 de canto). */
   private cam = { zoom: 1.04, fx: 120, fy: 80, giro: 1 };
   private reloj = 0;
+  /** Desenfoque horizontal del mundo para el barrido de cámara (solo WebGL; si no hay, el barrido va sin él). */
+  private desenfoque: { strength: number } = { strength: 0 };
+  private filtroBlur: Phaser.Filters.Blur | null = null;
 
   private gVentanas!: Phaser.GameObjects.Graphics;
   private msg!: Texto;
@@ -160,6 +163,12 @@ export class Combate extends Phaser.Scene {
     this.capaFx = this.add.container(0, 0);
     this.mundo.add(this.capaFx);
     this.fx = new Efectos(this, this.capaFx);
+    this.desenfoque = { strength: 0 };
+    this.filtroBlur = null;
+    if (this.mundo.enableFilters && this.mundo.enableFilters().filters) {
+      this.filtroBlur = this.mundo.filters!.external.addBlur(1, 1, 0, 0, 0xffffff, 4);
+      this.filtroBlur.active = false;
+    }
     this.add.graphics().fillStyle(n(C.tinta), 1).fillRect(0, 110, 240, 50);
     this.paneles = [this.crearPanel(PANEL[0].x, PANEL[0].y), this.crearPanel(PANEL[1].x, PANEL[1].y)];
     this.refrescarPanel(0);
@@ -837,6 +846,10 @@ export class Combate extends Phaser.Scene {
     const sx = z * (viva ? c.giro : 1);
     this.mundo.setScale(sx, z);
     this.mundo.setPosition(120 - fx * sx, 80 - fy * z);
+    if (this.filtroBlur) {
+      this.filtroBlur.strength = this.desenfoque.strength;
+      this.filtroBlur.active = this.desenfoque.strength > 0.05;
+    }
     // Respiración: se estiran y aplastan un poco desde los pies, cada una a su ritmo, y se mecen apenas.
     this.sprites.forEach((s, i) => {
       if (this.tweens.isTweening(s) || s.alpha === 0) return;
@@ -868,17 +881,27 @@ export class Combate extends Phaser.Scene {
   }
 
   /**
-   * Giro de perspectiva: el escenario se pliega como una carta, las criaturas cambian de lugar
-   * (y de cara: frente ↔ espalda) y se despliega. Con la cámara apagada siempre se mira desde tu lado.
+   * Giro de perspectiva como un barrido de cámara: la cámara se acerca y barre hacia un costado
+   * desenfocándose; en lo más borroso las criaturas cambian de lugar (y de cara: frente ↔ espalda)
+   * y la cámara entra barriendo desde el otro costado hasta enfocar. Con la cámara apagada siempre
+   * se mira desde tu lado.
    */
   private async girar(v: 'jugador' | 'rival'): Promise<void> {
     const quiere = ajustes.camara ? v : 'jugador';
     if (this.vista === quiere || !this.vivo) return;
     const animado = ajustes.camara;
     this.tweens.killTweensOf(this.cam);
+    this.cam.giro = 1;
+    // Hacia la vista del rival barre a la derecha; al volver, a la izquierda.
+    const sentido = quiere === 'rival' ? 1 : -1;
+    const Z = 1.32;
+    const borde = 120 - 120 / Z;
     if (animado) {
       sonido.tocar('giro');
-      await this.tween({ targets: this.cam, giro: 0, zoom: 1.12, fx: 120, fy: 80, duration: 170, ease: 'Sine.easeIn' });
+      await Promise.all([
+        this.tween({ targets: this.cam, zoom: Z, fx: 120 + borde * sentido, fy: 80, duration: 160, ease: 'Quad.easeIn' }),
+        this.tween({ targets: this.desenfoque, strength: 5, duration: 160, ease: 'Quad.easeIn' }),
+      ]);
     }
     this.vista = quiere;
     for (const lado of [0, 1] as Lado[]) {
@@ -889,8 +912,13 @@ export class Combate extends Phaser.Scene {
     // El de atrás (más cerca de la cámara) se dibuja encima.
     this.mundo.bringToTop(this.sprites[this.vista === 'rival' ? 1 : 0]);
     this.mundo.bringToTop(this.capaFx);
-    if (animado) await this.tween({ targets: this.cam, giro: 1, zoom: 1.04, duration: 200, ease: 'Sine.easeOut' });
-    else this.cam.giro = 1;
+    if (animado) {
+      this.cam.fx = 120 - borde * sentido;
+      await Promise.all([
+        this.tween({ targets: this.cam, zoom: 1.04, fx: 120, duration: 240, ease: 'Quad.easeOut' }),
+        this.tween({ targets: this.desenfoque, strength: 0, duration: 240, ease: 'Quad.easeOut' }),
+      ]);
+    }
   }
 
   // ------------------------------------------------------------ animación
