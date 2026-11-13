@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { Puntero, saltito } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import { cantidad, catalogo, comprar, diaLocal, ofertasDelDia, precioDe } from '../core/items/items';
 import type { Item } from '../esquemas/esquemas';
@@ -24,9 +25,15 @@ export class Tienda extends Phaser.Scene {
     super('Tienda');
   }
 
-  init(d: { sel?: number; aviso?: string }): void {
+  /** Con el puntero no se desplaza la lista (si no, la fila se movería bajo el mouse). */
+  private scrollFijo: number | undefined;
+  private salto = false;
+
+  init(d: { sel?: number; aviso?: string; scroll?: number; salto?: boolean }): void {
     this.sel = d?.sel ?? 0;
     this.aviso = d?.aviso ?? '';
+    this.scrollFijo = d?.scroll;
+    this.salto = !!d?.salto;
   }
 
   create(): void {
@@ -36,7 +43,7 @@ export class Tienda extends Phaser.Scene {
     this.items = [...todos.filter((i) => ofertas.includes(i.id)), ...todos.filter((i) => !ofertas.includes(i.id))];
     this.sel = Math.min(this.sel, this.items.length - 1);
     // La lista se desplaza para que la fila elegida quede cerca del centro.
-    this.scroll = Math.max(0, Math.min(this.sel - Math.floor(FILAS / 2), this.items.length - FILAS));
+    this.scroll = this.scrollFijo ?? Math.max(0, Math.min(this.sel - Math.floor(FILAS / 2), this.items.length - FILAS));
 
     prepararCamara(this);
     this.add.image(0, 0, fondo(this, 'menu')).setOrigin(0, 0).setScale(0.25);
@@ -53,13 +60,20 @@ export class Tienda extends Phaser.Scene {
     ventana(g, 148, 20, 88, 100);
     ventana(g, 4, 124, 232, 32);
 
+    const puntero = new Puntero(this);
     this.items.slice(this.scroll, this.scroll + FILAS).forEach((it, k) => {
       const i = this.scroll + k;
       const y = 25 + k * 10.5;
       const p = precioDe(DATOS, it, dia)!;
       if (i === this.sel) g.fillStyle(0xfde9c8, 1).fillRoundedRect(8, y - 1, 132, 10, 2);
       iconoItem(g, it, 15, y + 4, 0.7);
-      new Texto(this, 22, y, 80, 10, i === this.sel ? C.resalte : C.tinta).poner(it.nombre);
+      const nombre = new Texto(this, 22, y, 80, 10, i === this.sel ? C.resalte : C.tinta).poner(it.nombre);
+      if (i === this.sel && this.salto) saltito(this, nombre.imagen);
+      puntero.zona(8, y - 1, 132, 10.5, () => {
+        if (i === this.sel) return;
+        sonido.tocar('cursor');
+        this.scene.restart({ sel: i, scroll: this.scroll, salto: true });
+      });
       new Texto(this, 98, y, 32, 10, p.oferta ? C.resalte : C.tinta, 'der', { peso: p.oferta ? 600 : 500 }).poner(String(p.valor));
       iconoMoneda(g, p.moneda, 135, y + 4.5);
     });
@@ -92,17 +106,17 @@ export class Tienda extends Phaser.Scene {
       this.scene.start('Menu');
     } else if (a === 'arriba' || a === 'abajo') {
       sonido.tocar('cursor');
-      this.scene.restart({ sel: (this.sel + (a === 'abajo' ? 1 : total - 1)) % total });
+      this.scene.restart({ sel: (this.sel + (a === 'abajo' ? 1 : total - 1)) % total, salto: true });
     } else if (a === 'a') {
       const it = this.items[this.sel]!;
       const r = comprar(DATOS, juego.estado, it.id, Date.now());
       if (r === true) {
         juego.guardar();
         sonido.tocar('sube');
-        this.scene.restart({ sel: this.sel, aviso: t('tienda.comprado', { i: it.nombre }) });
+        this.scene.restart({ sel: this.sel, scroll: this.scroll, aviso: t('tienda.comprado', { i: it.nombre }) });
       } else {
         sonido.tocar('negado');
-        this.scene.restart({ sel: this.sel, aviso: t(r === 'esencia' ? 'tienda.esencia' : 'tienda.monedas') });
+        this.scene.restart({ sel: this.sel, scroll: this.scroll, aviso: t(r === 'esencia' ? 'tienda.esencia' : 'tienda.monedas') });
       }
     }
   }

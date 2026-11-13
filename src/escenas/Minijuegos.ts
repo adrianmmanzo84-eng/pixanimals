@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { Puntero } from '../ui/puntero';
 import type { CriaturaJugador, MinijuegoId } from '../esquemas/esquemas';
 import { DATOS } from '../core/datos';
 import { equipoDe } from '../core/estado/juego';
@@ -67,8 +68,14 @@ export class Minijuegos extends Phaser.Scene {
     return [...todas.filter((c) => tieneEvolucion(DATOS, c)), ...todas.filter((c) => !tieneEvolucion(DATOS, c))];
   }
 
+  private puntero: Puntero | null = null;
+  private fijarScroll = false;
+
   private pintar(): void {
     this.capa.removeAll(true);
+    this.puntero ??= new Puntero(this);
+    this.puntero.limpiar();
+    const puntero = this.puntero;
     const g = this.add.graphics();
     this.capa.add(g);
     const txt = (x: number, y: number, w: number, h: number, color: string = C.tinta, al: 'izq' | 'der' | 'centro' = 'izq', op = {}) => {
@@ -82,7 +89,14 @@ export class Minijuegos extends Phaser.Scene {
         const y = 21 + i * 39;
         ventana(g, 8, y, 224, 36);
         if (i === this.sel) g.lineStyle(1.4, n(C.resalte), 1).strokeRoundedRect(8, y, 224, 36, 4);
-        txt(16, y + 4, 140, 10, i === this.sel ? C.resalte : C.tinta, 'izq', { peso: 600 }).poner(t(`mj.${id}`));
+        const nombre = txt(16, y + 4, 140, 10, i === this.sel ? C.resalte : C.tinta, 'izq', { peso: 600 }).poner(t(`mj.${id}`));
+        if (i === this.sel) puntero.marcar(`j${i}`, nombre.imagen);
+        puntero.zona(8, y, 224, 36, () => {
+          if (i === this.sel) return;
+          this.sel = i;
+          sonido.tocar('cursor');
+          this.pintar();
+        });
         txt(16, y + 14, 156, 20, C.tintaSuave, 'izq', { tam: 6.6 }).poner(partir(t(`mj.${id}.desc`), 156, 6.6).join('\n'));
         const quedan = partidasConPremio(DATOS, juego.estado, id, ahora);
         txt(130, y + 4, 96, 10, quedan ? '#2f7a48' : C.tintaSuave, 'der').poner(t('mj.premiosHoy', { n: quedan, m: DATOS.economia.minijuegos.conPremioPorDia }));
@@ -96,7 +110,8 @@ export class Minijuegos extends Phaser.Scene {
     const lista = this.criaturas();
     ventana(g, 8, 20, 224, 118);
     txt(14, 23, 212, 10, C.tinta, 'izq', { peso: 600 }).poner(t('mj.quien', { j: t(`mj.${DATOS.economia.minijuegos.lista[this.sel]}`) }));
-    this.scroll = Math.max(0, Math.min(this.selCriatura - 1, lista.length - VISIBLES));
+    if (!this.fijarScroll) this.scroll = Math.max(0, Math.min(this.selCriatura - 1, lista.length - VISIBLES));
+    this.fijarScroll = false;
     const emax = DATOS.economia.entrenamiento.max;
     lista.slice(this.scroll, this.scroll + VISIBLES).forEach((c, k) => {
       const i = this.scroll + k;
@@ -106,7 +121,15 @@ export class Minijuegos extends Phaser.Scene {
       if (activa) g.lineStyle(1.2, n(C.resalte), 1).strokeRoundedRect(14, y, 212, 23, 3);
       this.capa.add(miniatura(this.add.image(28, y + 11, textura(c.especie, 'frente', c.brillante)), c.especie, 20, 0.4));
       const esp = DATOS.criaturas.get(c.especie)!;
-      txt(44, y + 2, 100, 10, C.tinta, 'izq', { peso: 600 }).poner(esp.nombre + (c.brillante ? ' ✦' : ''));
+      const nombre = txt(44, y + 2, 100, 10, C.tinta, 'izq', { peso: 600 }).poner(esp.nombre + (c.brillante ? ' ✦' : ''));
+      if (activa) puntero.marcar(`c${c.especie}`, nombre.imagen);
+      puntero.zona(14, y, 212, 23, () => {
+        if (i === this.selCriatura) return;
+        this.selCriatura = i;
+        this.fijarScroll = true;
+        sonido.tocar('cursor');
+        this.pintar();
+      });
       txt(150, y + 2, 72, 10, C.tintaSuave, 'der').poner(t('nv', { n: c.nivel }));
       if (tieneEvolucion(DATOS, c)) {
         g.fillStyle(C.barraFondo, 1).fillRoundedRect(44, y + 15, 110, 3, 1.5);

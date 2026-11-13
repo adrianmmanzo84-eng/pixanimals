@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { Puntero, saltito } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import { cobrarMision, misionesDeHoy } from '../core/progresion/misiones';
 import { Entrada, type AccionEntrada } from '../entrada';
@@ -19,8 +20,11 @@ export class Misiones extends Phaser.Scene {
     super('Misiones');
   }
 
-  init(d: { sel?: number; aviso?: string }): void {
+  private salto = false;
+
+  init(d: { sel?: number; aviso?: string; salto?: boolean }): void {
     this.sel = d?.sel ?? 0;
+    this.salto = !!d?.salto;
     this.aviso = d?.aviso ?? '';
   }
 
@@ -32,11 +36,18 @@ export class Misiones extends Phaser.Scene {
     if (lista.length) this.sel = Math.min(this.sel, lista.length - 1);
     new Texto(this, 0, 3, 240, 14, '#ffffff', 'centro', { tam: 11, peso: 600, borde: '#2b3a78' }).poner(t('mis.titulo'));
     const g = this.add.graphics();
+    const puntero = new Puntero(this);
     lista.forEach((m, i) => {
       const y = 20 + i * 36;
       ventana(g, 8, y, 224, 32);
       if (i === this.sel) g.lineStyle(1.4, n(C.resalte), 1).strokeRoundedRect(8, y, 224, 32, 4);
-      new Texto(this, 16, y + 4, 150, 10, m.cobrada ? C.tintaSuave : C.tinta, 'izq', { peso: 600 }).poner(t(`mis.${m.def.evento}`, { n: m.def.meta }));
+      const nombre = new Texto(this, 16, y + 4, 150, 10, m.cobrada ? C.tintaSuave : C.tinta, 'izq', { peso: 600 }).poner(t(`mis.${m.def.evento}`, { n: m.def.meta }));
+      if (i === this.sel && this.salto) saltito(this, nombre.imagen);
+      puntero.zona(8, y, 224, 32, () => {
+        if (i === this.sel) return;
+        sonido.tocar('cursor');
+        this.scene.restart({ sel: i, salto: true });
+      });
       // Barra de progreso
       g.fillStyle(C.barraFondo, 1).fillRoundedRect(16, y + 19, 110, 4, 2);
       g.fillStyle(m.completa ? 0x3fbf6a : 0xf5a623, 1).fillRoundedRect(16, y + 19, Math.max(2, (110 * m.progreso) / m.def.meta), 4, 2);
@@ -62,7 +73,7 @@ export class Misiones extends Phaser.Scene {
     }
     if ((a === 'arriba' || a === 'abajo') && total) {
       sonido.tocar('cursor');
-      this.scene.restart({ sel: (this.sel + (a === 'abajo' ? 1 : total - 1)) % total });
+      this.scene.restart({ sel: (this.sel + (a === 'abajo' ? 1 : total - 1)) % total, salto: true });
       return;
     }
     if (a !== 'a') return;

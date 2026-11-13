@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { Puntero, saltito } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import { bonusStats, criaturaDe, potencialDe } from '../core/estado/juego';
 import { cantidad, equiparAmuleto } from '../core/items/items';
@@ -33,8 +34,14 @@ export class Equipo extends Phaser.Scene {
     super('Equipo');
   }
 
-  init(d: { sel?: number; aviso?: string; acciones?: boolean; accion?: number }): void {
+  private scrollFijo: number | undefined;
+  private salto = false;
+  private puntero!: Puntero;
+
+  init(d: { sel?: number; aviso?: string; acciones?: boolean; accion?: number; scroll?: number; salto?: boolean }): void {
     this.sel = d?.sel ?? 0;
+    this.scrollFijo = d?.scroll;
+    this.salto = !!d?.salto;
     this.aviso = d?.aviso ?? '';
     this.acciones = null;
     this.accion = d?.accion ?? 0;
@@ -57,7 +64,8 @@ export class Equipo extends Phaser.Scene {
     const elegida = this.lista[this.sel];
     if (this.acciones && elegida) this.acciones = this.armarAcciones(elegida);
     this.accion = Math.min(this.accion, Math.max(0, (this.acciones?.length ?? 1) - 1));
-    const scroll = Math.max(0, Math.min(this.sel - 1, this.lista.length - 3));
+    const scroll = this.scrollFijo ?? Math.max(0, Math.min(this.sel - 1, this.lista.length - 3));
+    this.puntero = new Puntero(this);
 
     prepararCamara(this);
     this.add.image(0, 0, fondo(this, 'menu')).setOrigin(0, 0).setScale(0.25);
@@ -73,7 +81,14 @@ export class Equipo extends Phaser.Scene {
       g.fillStyle(activa ? 0xfde9c8 : n(C.papelSombra), 1).fillRoundedRect(10, y, 220, 33, 4);
       if (activa) g.lineStyle(1.2, n(C.resalte), 1).strokeRoundedRect(10, y, 220, 33, 4);
       miniatura(this.add.image(28, y + 16, textura(c.especie, 'frente', c.brillante)), c.especie, 30, 0.6);
-      new Texto(this, 48, y + 2, 80, 10, C.tinta, 'izq', { peso: 600 }).poner(especie.nombre + (c.brillante ? ' ✦' : ''));
+      const nombre = new Texto(this, 48, y + 2, 80, 10, C.tinta, 'izq', { peso: 600 }).poner(especie.nombre + (c.brillante ? ' ✦' : ''));
+      if (activa && this.salto && !this.acciones) saltito(this, nombre.imagen);
+      if (!this.acciones)
+        this.puntero.zona(10, y, 220, 33, () => {
+          if (i === this.sel || this.ocupado) return;
+          sonido.tocar('cursor');
+          this.scene.restart({ sel: i, scroll, salto: true });
+        });
       g.fillStyle(COLOR_TIPO[especie.tipo] ?? 0x5b6a8c, 1).fillRoundedRect(48, y + 12, 30, 8, 3);
       new Texto(this, 48, y + 12, 30, 9, C.papel, 'centro', { tam: 6 }).poner(DATOS.tipos.get(especie.tipo)!.nombre.toUpperCase());
       new Texto(this, 82, y + 12, 70, 10, COLOR_RAREZA[c.rareza], 'izq', { tam: 6.6 }).poner(estrellas(c.rareza));
@@ -186,7 +201,13 @@ export class Equipo extends Phaser.Scene {
       const x = 14 + (i % 3) * 74;
       const y = 127 + Math.floor(i / 3) * 9;
       const d = this.descripcion(a, c);
-      new Texto(this, x, y, 70, 10, i === this.accion ? C.resalte : d.puede ? C.tinta : C.apagado).poner(this.etiqueta(a));
+      const tx = new Texto(this, x, y, 70, 10, i === this.accion ? C.resalte : d.puede ? C.tinta : C.apagado).poner(this.etiqueta(a));
+      if (i === this.accion && this.salto) saltito(this, tx.imagen);
+      this.puntero.zona(x - 6, y - 1, 74, 9, () => {
+        if (i === this.accion || this.ocupado) return;
+        sonido.tocar('cursor');
+        this.scene.restart({ sel: this.sel, acciones: true, accion: i, salto: true });
+      });
       if (i === this.accion) g.fillStyle(n(C.resalte), 1).fillTriangle(x - 5, y + 2, x - 5, y + 8, x - 1, y + 5);
     });
     const d = this.descripcion(acciones[this.accion]!, c);
@@ -204,7 +225,7 @@ export class Equipo extends Phaser.Scene {
       this.scene.start('Menu');
     } else if ((a === 'arriba' || a === 'abajo') && total) {
       sonido.tocar('cursor');
-      this.scene.restart({ sel: (this.sel + (a === 'abajo' ? 1 : total - 1)) % total });
+      this.scene.restart({ sel: (this.sel + (a === 'abajo' ? 1 : total - 1)) % total, salto: true });
     } else if (a === 'a' && total) {
       sonido.tocar('aceptar');
       this.scene.restart({ sel: this.sel, acciones: true });
@@ -224,7 +245,7 @@ export class Equipo extends Phaser.Scene {
       const sig = this.accion + paso;
       if (sig < 0 || sig >= acciones.length) return;
       sonido.tocar('cursor');
-      this.scene.restart({ sel: this.sel, acciones: true, accion: sig });
+      this.scene.restart({ sel: this.sel, acciones: true, accion: sig, salto: true });
       return;
     }
     if (a !== 'a') return;

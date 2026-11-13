@@ -49,6 +49,15 @@ export class Premio extends Phaser.Scene {
     this.premios.forEach((_, i) => {
       const cont = this.add.container(this.x(i), 200);
       cont.add(this.add.image(0, 0, 'carta_dorso'));
+      cont.setSize(62, 92).setInteractive({ useHandCursor: true });
+      const apuntar = () => {
+        if (!this.alPulsar || i === this.sel) return;
+        this.sel = i;
+        sonido.tocar('cursor');
+        this.pintarCursor();
+      };
+      cont.on('pointerover', apuntar);
+      cont.on('pointerdown', apuntar);
       this.cartas.push(cont);
       this.tweens.add({ targets: cont, y: 80, duration: 280, delay: i * 90, ease: 'Back.easeOut' });
     });

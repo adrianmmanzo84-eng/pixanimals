@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { Puntero } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import { Rng } from '../core/rng';
 import { abrirSobre, cartaInicial, costoDe, ORDEN_RAREZA, probConIncienso, sobresGratis, type Carta } from '../core/sobres/sobres';
@@ -27,6 +28,7 @@ export class Sobres extends Phaser.Scene {
   private cursor!: Phaser.GameObjects.Graphics;
   private alPulsar: ((a: AccionEntrada) => void) | null = null;
   private bienvenida = false;
+  private puntero: Puntero | null = null;
 
   constructor() {
     super('Sobres');
@@ -66,6 +68,15 @@ export class Sobres extends Phaser.Scene {
     for (let i = 0; i < 7; i++) this.probs.push(new Texto(this, 136, 36 + i * 10, 96, 10));
     this.pie = new Texto(this, 10, 121, 220, 30);
     this.cursor = this.add.graphics();
+    this.puntero = new Puntero(this);
+    DATOS.sobres.sobres.forEach((_, i) =>
+      this.puntero!.zona(8, 26 + i * 16, 116, 14, () => {
+        if (this.alPulsar !== this.enLista || i === this.sel) return;
+        this.sel = i;
+        sonido.tocar('cursor');
+        this.pintar();
+      }),
+    );
     this.time.addEvent({ delay: 1000, loop: true, callback: () => this.alPulsar === this.enLista && this.pintar() });
     this.alPulsar = this.enLista;
     this.pintar();
@@ -108,6 +119,7 @@ export class Sobres extends Phaser.Scene {
     });
     const y = 28 + this.sel * 16;
     this.cursor.clear().fillStyle(n(C.resalte), 1).fillTriangle(10, y, 10, y + 6, 14, y + 3);
+    this.puntero?.marcar(this.sel, this.nombres[this.sel]?.imagen);
 
     const def = DATOS.sobres.sobres[this.sel]!;
     const prob = probConIncienso(def.prob, estado, ahora);

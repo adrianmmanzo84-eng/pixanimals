@@ -17,6 +17,7 @@ import { textura } from '../ui/criaturas';
 import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { abrirGuardado } from '../ui/guardadoDom';
+import { Puntero } from '../ui/puntero';
 import { Texto } from '../ui/texto';
 
 const OPCIONES = ['menu.combatir', 'menu.minijuegos', 'menu.misiones', 'menu.sobres', 'menu.tienda', 'menu.bolsaP', 'menu.equipoP', 'menu.bestiario', 'menu.guardado'];
@@ -33,6 +34,7 @@ export class Menu extends Phaser.Scene {
   private cursor!: Phaser.GameObjects.Graphics;
   private ayuda!: Texto;
   private sel = 0;
+  private puntero: Puntero | null = null;
   private modo: 'principal' | 'combates' | 'dificultad' | 'diario' = 'principal';
   private submenu = false;
 
@@ -74,6 +76,16 @@ export class Menu extends Phaser.Scene {
       this.filas.push(new Texto(this, COL_X[col]! + 8, 33 + (i % POR_COLUMNA) * ALTO_FILA, 80, 10));
     }
     this.cursor = this.add.graphics();
+    const puntero = new Puntero(this);
+    this.puntero = puntero;
+    this.filas.forEach((f, i) =>
+      puntero.zona(f.imagen.x - 8, f.imagen.y - 1, 88, ALTO_FILA, () => {
+        if (this.modo === 'diario' || i >= this.opciones().length || i === this.sel) return;
+        this.sel = i;
+        sonido.tocar('cursor');
+        this.pintar();
+      }),
+    );
 
     // Equipo actual, con icono animado de dos cuadros.
     ventana(g, 4, 114, 232, 42);
@@ -123,6 +135,7 @@ export class Menu extends Phaser.Scene {
     const y = 34 + (this.sel % POR_COLUMNA) * ALTO_FILA;
     const x = COL_X[col]!;
     this.cursor.clear().fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3);
+    this.puntero?.marcar(`${this.modo}:${this.sel}`, this.filas[this.sel]?.imagen);
     this.ayuda.poner(t('menu.dificultad')).visible(false);
   }
 

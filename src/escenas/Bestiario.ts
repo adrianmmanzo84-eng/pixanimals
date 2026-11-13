@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { Puntero } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import type { Criatura } from '../esquemas/esquemas';
 import { criaturaDe } from '../core/estado/juego';
@@ -78,11 +79,20 @@ export class Bestiario extends Phaser.Scene {
     ventana(g, 132, 4, 104, 124);
     ventana(g, 4, 132, 232, 24);
 
+    const puntero = new Puntero(this);
     this.filas.slice(this.scroll, this.scroll + VISIBLES).forEach((fila, k) =>
       fila.forEach((c, j) => {
         if (!c) return;
         const x = 8 + j * 29 + 14;
         const y = 22 + k * 29 + 14;
+        // Con el puntero la cuadrícula no se desplaza: solo cambia la casilla elegida.
+        puntero.zona(x - 14, y - 14, 28, 28, () => {
+          if (this.fila === this.scroll + k && this.col === j) return;
+          this.fila = this.scroll + k;
+          this.col = j;
+          sonido.tocar('cursor');
+          this.pintar();
+        });
         g.fillStyle(n(C.papelSombra), 1).fillRoundedRect(x - 13, y - 13, 26, 26, 3);
         const mia = criaturaDe(estado, c.id);
         if (mia) miniatura(this.add.image(x, y, textura(c.id, 'frente', mia.brillante)), c.id, 24, 0.5);

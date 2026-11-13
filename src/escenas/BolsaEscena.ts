@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { Puntero, saltito } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import { criaturaDe } from '../core/estado/juego';
 import { cantidad, usarItem, vitaminasLibres } from '../core/items/items';
@@ -28,8 +29,13 @@ export class BolsaEscena extends Phaser.Scene {
     super('BolsaEscena');
   }
 
-  init(d: { sel?: number; aviso?: string; objetivo?: number | null }): void {
+  private scrollFijo: number | undefined;
+  private salto = false;
+
+  init(d: { sel?: number; aviso?: string; objetivo?: number | null; scroll?: number; salto?: boolean }): void {
     this.sel = d?.sel ?? 0;
+    this.scrollFijo = d?.scroll;
+    this.salto = !!d?.salto;
     this.aviso = d?.aviso ?? '';
     this.objetivo = d?.objetivo ?? null;
   }
@@ -38,7 +44,7 @@ export class BolsaEscena extends Phaser.Scene {
     const estado = juego.estado;
     this.items = [...DATOS.items.values()].filter((i) => cantidad(estado, i.id) > 0);
     this.sel = Math.max(0, Math.min(this.sel, this.items.length - 1));
-    const scroll = Math.max(0, Math.min(this.sel - Math.floor(FILAS / 2), this.items.length - FILAS));
+    const scroll = this.scrollFijo ?? Math.max(0, Math.min(this.sel - Math.floor(FILAS / 2), this.items.length - FILAS));
 
     prepararCamara(this);
     this.add.image(0, 0, fondo(this, 'menu')).setOrigin(0, 0).setScale(0.25);
@@ -54,13 +60,22 @@ export class BolsaEscena extends Phaser.Scene {
       new Texto(this, 10, 128, 220, 20).poner(partir(t('bolsaP.vacia'), 218).join('\n'));
       new Texto(this, 10, 146, 220, 10, C.tintaSuave).poner('B: volver');
     } else {
+      const puntero = new Puntero(this);
       this.items.slice(scroll, scroll + FILAS).forEach((it, k) => {
         const i = scroll + k;
         const y = 25 + k * 10.5;
         if (i === this.sel) g.fillStyle(0xfde9c8, 1).fillRoundedRect(8, y - 1, 132, 10, 2);
         iconoItem(g, it, 15, y + 4, 0.7);
         const usable = it.uso === 'fuera';
-        new Texto(this, 22, y, 90, 10, i === this.sel ? C.resalte : usable ? C.tinta : C.tintaSuave).poner(it.nombre);
+        const nombre = new Texto(this, 22, y, 90, 10, i === this.sel ? C.resalte : usable ? C.tinta : C.tintaSuave).poner(it.nombre);
+        if (i === this.sel && this.salto) saltito(this, nombre.imagen);
+        // Mientras se elige criatura para el ítem, el puntero no cambia de ítem.
+        if (this.objetivo === null)
+          puntero.zona(8, y - 1, 132, 10.5, () => {
+            if (i === this.sel) return;
+            sonido.tocar('cursor');
+            this.scene.restart({ sel: i, scroll, salto: true });
+          });
         new Texto(this, 108, y, 30, 10, C.tinta, 'der').poner(`×${cantidad(estado, it.id)}`);
       });
       if (scroll > 0) g.fillStyle(n(C.tintaSuave), 1).fillTriangle(70, 22, 74, 22, 72, 20);
@@ -120,7 +135,7 @@ export class BolsaEscena extends Phaser.Scene {
       this.scene.start('Menu');
     } else if ((a === 'arriba' || a === 'abajo') && this.items.length) {
       sonido.tocar('cursor');
-      this.scene.restart({ sel: (this.sel + (a === 'abajo' ? 1 : this.items.length - 1)) % this.items.length });
+      this.scene.restart({ sel: (this.sel + (a === 'abajo' ? 1 : this.items.length - 1)) % this.items.length, salto: true });
     } else if (a === 'a' && it) {
       if (it.uso !== 'fuera') {
         sonido.tocar('negado');

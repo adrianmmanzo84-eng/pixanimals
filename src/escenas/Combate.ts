@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { Puntero } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import { Rng } from '../core/rng';
 import { Batalla, type Accion, type Combatiente, type Evento, type Lado } from '../core/combate/motor';
@@ -104,6 +105,9 @@ export class Combate extends Phaser.Scene {
   private defTxt!: Texto;
   private cursor!: Phaser.GameObjects.Graphics;
   private alPulsar: ((a: AccionEntrada) => void) | null = null;
+  /** El menú abierto recibe aquí la opción que señala el puntero (mouse o dedo). */
+  private alApuntar: ((i: number) => void) | null = null;
+  private puntero!: Puntero;
   private ultimoMenu = 0;
   private ultimaHabilidad = 0;
 
@@ -196,6 +200,7 @@ export class Combate extends Phaser.Scene {
     this.info2 = new Texto(this, 10, 146, 220, 10, C.tinta).visible(false);
     this.defTxt = new Texto(this, 10, 134, 220, 10, '#b8860b', 'centro', { peso: 600 }).visible(false);
     this.cursor = this.add.graphics();
+    this.puntero = new Puntero(this);
 
     Entrada.escuchar((a) => this.alPulsar?.(a));
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
@@ -430,6 +435,12 @@ export class Combate extends Phaser.Scene {
           this.msg.poner(partir(t('menu.pregunta', { n: this.nom(0) }), 124).join('\n'));
         };
         pintar();
+        this.alApuntar = (i) => {
+          if (i === sel) return;
+          sel = i;
+          sonido.tocar('cursor');
+          pintar();
+        };
         this.alPulsar = (a) => {
           if (a === 'izquierda' || a === 'derecha') sel ^= 1;
           else if (a === 'arriba' || a === 'abajo') sel ^= 2;
@@ -479,6 +490,12 @@ export class Combate extends Phaser.Scene {
         this.modoHabilidades(sel);
         // Con Ataque Definitivo hay una quinta opción (4) debajo de la grilla.
         const conDef = !!this.bat.act(0).definitivo;
+        this.alApuntar = (i) => {
+          if (i === sel || (i === 4 && !conDef)) return;
+          sel = i;
+          sonido.tocar('cursor');
+          this.modoHabilidades(sel);
+        };
         this.alPulsar = (a) => {
           if (sel === 4) {
             if (a === 'arriba') sel = 2;
@@ -522,6 +539,12 @@ export class Combate extends Phaser.Scene {
         let sel = items.findIndex(usable);
         if (sel < 0) sel = Math.max(0, items.findIndex((i) => cantidad(juego.estado, i.id) > 0));
         this.modoBolsa(items, sel);
+        this.alApuntar = (i) => {
+          if (i === sel || i >= items.length) return;
+          sel = i;
+          sonido.tocar('cursor');
+          this.modoBolsa(items, sel);
+        };
         this.alPulsar = (a) => {
           if (a === 'izquierda' || a === 'derecha') sel = Math.min(items.length - 1, sel ^ 1);
           else if (a === 'arriba' || a === 'abajo') sel = Math.min(items.length - 1, sel ^ 2);
@@ -571,6 +594,8 @@ export class Combate extends Phaser.Scene {
     const x = 8 + (sel % 2) * 110;
     const y = 117 + Math.floor(sel / 2) * 9;
     this.cursor.fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3);
+    items.forEach((_, i) => this.zonaMenu(6 + (i % 2) * 110, 115 + Math.floor(i / 2) * 9, 110, 9, i));
+    this.puntero.marcar(`b${sel}`, this.celdas[sel]?.nombre.imagen);
     const it = items[sel]!;
     const motivo = cantidad(juego.estado, it.id) < 1 ? 'sin_unidades' : this.bat.bloqueoItem(0, it);
     this.info1.imagen.setX(10);
@@ -598,9 +623,17 @@ export class Combate extends Phaser.Scene {
         });
         const y = 118 + sel * 12;
         this.cursor.fillStyle(n(C.resalte), 1).fillTriangle(9, y, 9, y + 6, 13, y + 3);
+        equipo.miembros.forEach((_, i) => this.zonaMenu(6, 116 + i * 12, 228, 12, i));
+        this.puntero.marcar(`e${sel}`, this.filasEquipo[sel]?.imagen);
         if (equipo.miembros.length < 3) this.filasEquipo[2]!.poner(aviso || (forzado ? t('c.elige') : ''), C.tintaSuave).visible(true);
       };
       pintar();
+      this.alApuntar = (i) => {
+        if (i === sel) return;
+        sel = i;
+        sonido.tocar('cursor');
+        pintar();
+      };
       this.alPulsar = (a) => {
         const total = equipo.miembros.length;
         if (a === 'arriba' || a === 'abajo') {
@@ -637,7 +670,13 @@ export class Combate extends Phaser.Scene {
     this.info1.imagen.setY(137);
     this.info2.imagen.setY(146);
     this.cursor.clear();
+    this.puntero.limpiar();
     this.msg.visible(true);
+  }
+
+  /** Zona del puntero para la opción `i` del menú abierto. */
+  private zonaMenu(x: number, y: number, w: number, h: number, i: number): void {
+    this.puntero.zona(x, y, w, h, () => this.alApuntar?.(i));
   }
 
   private modoMensaje(): void {
@@ -656,6 +695,8 @@ export class Combate extends Phaser.Scene {
     const x = 148 + (sel % 2) * 40;
     const y = 121 + Math.floor(sel / 2) * 15;
     this.cursor.fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3);
+    for (let i = 0; i < 4; i++) this.zonaMenu(148 + (i % 2) * 40, 118 + Math.floor(i / 2) * 15, 40, 14, i);
+    this.puntero.marcar(`m${sel}`, this.opciones[sel]?.imagen);
   }
 
   private modoHabilidades(sel: number): void {
@@ -684,6 +725,9 @@ export class Combate extends Phaser.Scene {
     const x = sel === 4 ? 60 : 8 + (sel % 2) * 110;
     const y = sel === 4 ? 136 : 117 + Math.floor(sel / 2) * 9;
     this.cursor.fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3);
+    for (let i = 0; i < 4; i++) this.zonaMenu(6 + (i % 2) * 110, 115 + Math.floor(i / 2) * 9, 110, 9, i);
+    if (def) this.zonaMenu(10, 133, 220, 10, 4);
+    this.puntero.marcar(`h${sel}`, sel === 4 ? this.defTxt.imagen : this.celdas[sel]?.nombre.imagen);
     if (sel === 4 && def) {
       this.info1.imagen.setX(10);
       this.info1.poner(t('def.info'), C.tinta).visible(true);
