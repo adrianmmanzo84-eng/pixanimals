@@ -82,6 +82,8 @@ export class Combate extends Phaser.Scene {
   private filasEquipo: Texto[] = [];
   private info1!: Texto;
   private info2!: Texto;
+  /** Fila del Ataque Definitivo en el menú de ataques. */
+  private defTxt!: Texto;
   private cursor!: Phaser.GameObjects.Graphics;
   private alPulsar: ((a: AccionEntrada) => void) | null = null;
   private ultimoMenu = 0;
@@ -115,6 +117,10 @@ export class Combate extends Phaser.Scene {
           ? equipoEntrenador(DATOS, entrenadorDelDia(DATOS, Date.now()), mios)
           : generarRival(DATOS, mios, rng);
     this.bat = new Batalla(DATOS, [mios.map((c) => combatienteDe(DATOS, c)), rival], rng);
+    // Ataque Definitivo: siempre para ti; entre los rivales, solo jefes de la Torre y el Entrenador del día, que lo cargan avisando.
+    const jefe = modo === 'torre' && datosPiso(DATOS, this.cfg.piso ?? 1, 1).jefe;
+    this.bat.definitivoPermitido = [true, modo === 'entrenador' || jefe];
+    this.bat.definitivoConCarga = [false, true];
     musica.tocar(modo === 'torre' && datosPiso(DATOS, this.cfg.piso ?? 1, 1).jefe ? 'jefe' : modo === 'rapido' ? 'combate' : 'jefe');
     this.verRival();
 
@@ -155,6 +161,7 @@ export class Combate extends Phaser.Scene {
     for (let i = 0; i < 3; i++) this.filasEquipo.push(new Texto(this, 18, 117 + i * 12, 212, 10).visible(false));
     this.info1 = new Texto(this, 10, 137, 220, 10, C.tintaSuave).visible(false);
     this.info2 = new Texto(this, 10, 146, 220, 10, C.tinta).visible(false);
+    this.defTxt = new Texto(this, 10, 134, 220, 10, '#b8860b', 'centro', { peso: 600 }).visible(false);
     this.cursor = this.add.graphics();
 
     Entrada.escuchar((a) => this.alPulsar?.(a));
@@ -222,15 +229,27 @@ export class Combate extends Phaser.Scene {
         case 'usa':
           ultima = { lado: e.lado, h: e.habilidad };
           await this.decir(e.habilidad ? t('c.usa', { n: this.nom(e.lado), h: e.habilidad.nombre }) : t('c.empujon', { n: this.nom(e.lado) }));
-          if (e.habilidad && e.habilidad.potencia === 0) await this.animApoyo(e.lado, e.habilidad);
+          if (e.habilidad && e.habilidad.potencia === 0 && e.habilidad.rol !== 'definitivo') await this.animApoyo(e.lado, e.habilidad);
           break;
         case 'falla':
           sonido.tocar('falla');
           await this.decir(t('c.falla'));
           break;
+        case 'carga':
+          await this.animCarga(e.lado);
+          break;
+        case 'definitivo':
+          await this.animDefinitivo(e.lado, ultima?.h ?? null);
+          break;
+        case 'definitivo_bloqueado':
+          sonido.tocar('escudo');
+          this.cameras.main.shake(300, 0.012);
+          await this.decir(t('c.definitivoBloqueado', { n: this.nom(e.lado) }));
+          break;
         case 'dano': {
           const atacante = (1 - e.lado) as Lado;
-          await this.animAtaque(atacante, ultima?.h ?? null);
+          // El Definitivo ya tuvo su propia animación.
+          if (ultima?.h?.rol !== 'definitivo') await this.animAtaque(atacante, ultima?.h ?? null);
           sonido.tocar(e.efectividad === 'ventaja' || e.critico ? 'golpe_fuerte' : e.efectividad === 'desventaja' || e.reducido ? 'golpe_debil' : 'golpe');
           if (ultima?.h?.rol === 'final') this.cameras.main.shake(180, 0.01);
           await this.animGolpe(e.lado);
@@ -416,12 +435,28 @@ export class Combate extends Phaser.Scene {
         // Si la última habilidad usada ya no está disponible, el cursor va a la primera que sí lo esté.
         if (this.bat.bloqueo(0, sel) !== null) sel = Math.max(0, [0, 1, 2, 3].findIndex((i) => this.bat.bloqueo(0, i) === null));
         this.modoHabilidades(sel);
+        // Con Ataque Definitivo hay una quinta opción (4) debajo de la grilla.
+        const conDef = !!this.bat.act(0).definitivo;
         this.alPulsar = (a) => {
-          if (a === 'izquierda' || a === 'derecha') sel ^= 1;
+          if (sel === 4) {
+            if (a === 'arriba') sel = 2;
+            else if (a === 'abajo') sel = 0;
+          } else if (a === 'izquierda' || a === 'derecha') sel ^= 1;
+          else if (conDef && a === 'abajo' && sel >= 2) sel = 4;
+          else if (conDef && a === 'arriba' && sel < 2) sel = 4;
           else if (a === 'arriba' || a === 'abajo') sel ^= 2;
-          else if (a === 'b') {
+          if (a === 'b') {
             sonido.tocar('cancelar');
             menuPrincipal();
+            return;
+          } else if (a === 'a' && sel === 4) {
+            if (this.bat.bloqueoDefinitivo(0) !== null) {
+              sonido.tocar('negado');
+              return;
+            }
+            sonido.tocar('aceptar');
+            this.alPulsar = null;
+            resolver({ tipo: 'definitivo' });
             return;
           } else if (a === 'a') {
             if (this.bat.bloqueo(0, sel) !== null) {
@@ -556,6 +591,9 @@ export class Combate extends Phaser.Scene {
     this.filasEquipo.forEach((f) => f.visible(false));
     this.info1.visible(false);
     this.info2.visible(false);
+    this.defTxt.visible(false);
+    this.info1.imagen.setY(137);
+    this.info2.imagen.setY(146);
     this.cursor.clear();
     this.msg.visible(true);
   }
@@ -591,16 +629,31 @@ export class Combate extends Phaser.Scene {
       this.celdas[i]!.nombre.poner(h.def.nombre, color).visible(true);
       this.celdas[i]!.usos.poner(`${h.usos}/${h.def.usos}`, color).visible(true);
     });
-    const x = 8 + (sel % 2) * 110;
-    const y = 117 + Math.floor(sel / 2) * 9;
+    // Ataque Definitivo: fila dorada bajo la grilla; la información baja un poco.
+    const def = yo.definitivo;
+    if (def) {
+      const m = this.bat.bloqueoDefinitivo(0);
+      const estado = m === null ? t('def.listo') : m === 'usado' ? t('def.usado') : m === 'turno' ? t('def.turno', { n: DATOS.balance.definitivo.turnoMinimo }) : '';
+      this.defTxt.poner(`★ ${def.nombre} · ${estado}`, m === null ? (sel === 4 ? C.resalte : '#b8860b') : C.apagado).visible(true);
+      this.gVentanas.fillStyle(n(C.papelSombra), 1).fillRect(8, 134, 224, 1);
+      this.info1.imagen.setY(143);
+      this.info2.imagen.setY(151);
+    }
+    const x = sel === 4 ? 60 : 8 + (sel % 2) * 110;
+    const y = sel === 4 ? 136 : 117 + Math.floor(sel / 2) * 9;
     this.cursor.fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3);
+    if (sel === 4 && def) {
+      this.info1.imagen.setX(10);
+      this.info1.poner(t('def.info'), C.tinta).visible(true);
+      return;
+    }
 
     const h = yo.habilidades[sel]!;
     const tipo = DATOS.tipos.get(h.def.tipo)!;
     let linea1 = `${tipo.nombre} · ${t(`cat.${h.def.categoria}`)}`;
     if (h.def.potencia > 0) linea1 += ' · ' + t('info.potencia', { p: h.def.potencia, a: h.def.precision ?? 100 });
     else if (h.def.precision !== null) linea1 += ` · Prec. ${h.def.precision}`;
-    this.gVentanas.fillStyle(COLOR_TIPO[h.def.tipo] ?? 0x566c86, 1).fillRect(10, 138, 5, 5);
+    this.gVentanas.fillStyle(COLOR_TIPO[h.def.tipo] ?? 0x566c86, 1).fillRect(10, def ? 144 : 138, 5, 5);
     this.info1.imagen.setX(18);
     this.info1.poner(linea1).visible(true);
     const motivo = this.bat.bloqueo(0, sel);
@@ -757,6 +810,66 @@ export class Combate extends Phaser.Scene {
     } else if (!fisica) sonido.tocar('especial');
     if (fisica) await this.tween({ targets: s, x: POS[lado].x + 16 * dir, y: POS[lado].y - 6 * dir, duration: 90, yoyo: true });
     await this.fx.reproducir(h?.animacion ?? (fisica ? (h ? 'zarpazo' : 'impacto') : 'proyectil'), this.centro(lado), this.centro((1 - lado) as Lado), h?.tipo ?? 'neutro');
+  }
+
+  /** El rival carga su Definitivo: tiembla, brilla y avisa (así puedes cubrirte el turno siguiente). */
+  private async animCarga(lado: Lado): Promise<void> {
+    const s = this.sprites[lado];
+    sonido.tocar('final');
+    this.cameras.main.shake(400, 0.006);
+    const color = COLOR_TIPO[this.bat.act(lado).especie.tipo] ?? 0xffffff;
+    s.setTint(color);
+    await this.tween({ targets: s, scaleX: 1.08, scaleY: 1.08, duration: 180, yoyo: true, repeat: 2 });
+    s.clearTint();
+    await this.decir(t('c.carga', { n: this.nom(lado) }));
+  }
+
+  /**
+   * Ataque Definitivo: la pantalla se oscurece, el atacante brilla, su ataque final cruza dos veces,
+   * estalla un círculo del color de su tipo con destello blanco y temblor fuerte. ~3 s (la mitad a ×2).
+   * Cuando lleguen las ilustraciones de los Definitivos, se usarán aquí.
+   */
+  private async animDefinitivo(lado: Lado, h: Habilidad | null): Promise<void> {
+    const yo = this.bat.act(lado);
+    const color = COLOR_TIPO[yo.especie.tipo] ?? 0xffffff;
+    await this.decir(t('c.definitivo', { n: this.nom(lado) }));
+    const velo = this.add.graphics().fillStyle(0x05060f, 1).fillRect(0, 0, 240, 160).setDepth(50).setAlpha(0);
+    const s = this.sprites[lado];
+    const profundidad = s.depth;
+    s.setDepth(51);
+    await this.tween({ targets: velo, alpha: 0.85, duration: 350 });
+    sonido.tocar('final');
+    s.setTint(color);
+    await this.tween({ targets: s, scaleX: 1.2, scaleY: 1.2, duration: 260, yoyo: true });
+    s.clearTint();
+    const anim = h?.animacion ?? 'proyectil';
+    const desde = this.centro(lado);
+    const hasta = this.centro((1 - lado) as Lado);
+    await this.fx.reproducir(anim, desde, hasta, yo.especie.tipo);
+    sonido.tocar('golpe_fuerte');
+    await this.fx.reproducir(anim, desde, hasta, yo.especie.tipo);
+    // Estallido
+    const onda = this.add.graphics().setDepth(52);
+    const estado = { r: 4, a: 1 };
+    sonido.tocar('final');
+    this.cameras.main.flash(450, 255, 255, 255);
+    this.cameras.main.shake(800, 0.03);
+    await this.tween({
+      targets: estado,
+      r: 190,
+      a: 0,
+      duration: 700,
+      ease: 'Cubic.easeOut',
+      onUpdate: () => {
+        onda.clear();
+        onda.fillStyle(color, estado.a * 0.7).fillCircle(hasta.x, hasta.y, estado.r);
+        onda.fillStyle(0xffffff, estado.a).fillCircle(hasta.x, hasta.y, estado.r * 0.45);
+      },
+    });
+    onda.destroy();
+    s.setDepth(profundidad);
+    await this.tween({ targets: velo, alpha: 0, duration: 350 });
+    velo.destroy();
   }
 
   /** Habilidad sin daño: la criatura se hincha un instante y aparece su efecto. */

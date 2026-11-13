@@ -30,7 +30,8 @@ export const HabilidadZ = z.object({
   nombre: z.string().min(1).max(19),
   tipo: z.string(),
   categoria: z.enum(['fisica', 'especial', 'estado']),
-  rol: z.enum(['ofensiva', 'defensiva', 'soporte', 'estado', 'final']),
+  /** definitivo: elimina al rival de un golpe; no ocupa uno de los 4 lugares (ver criatura.definitivo). */
+  rol: z.enum(['ofensiva', 'defensiva', 'soporte', 'estado', 'final', 'definitivo']),
   potencia: z.number().int().min(0).max(200),
   /** null = no puede fallar (habilidades sobre uno mismo). */
   precision: z.number().min(1).max(100).nullable(),
@@ -54,6 +55,8 @@ export const CriaturaZ = z.object({
   base: z.object({ ps: BaseStatZ, atq: BaseStatZ, def: BaseStatZ, ate: BaseStatZ, dfe: BaseStatZ, vel: BaseStatZ }),
   habilidades: z.array(z.string()).length(4),
   habilidadesPrueba: z.array(z.string()).length(4).optional(),
+  /** Ataque Definitivo que aprende (solo las etapas finales y las formas Eclipse). */
+  definitivo: z.string().optional(),
   descripcion: z.string().max(90),
   /** Evoluciones posibles: a qué especie, desde qué nivel y, en las ramas, qué ítem hace falta. */
   evoluciona: z.array(z.object({ a: z.string(), nivel: z.number().int().min(2).max(100), item: z.string().optional() })).default([]),
@@ -76,6 +79,8 @@ export const BalanceZ = z.object({
   }),
   etapas: z.object({ paso: z.number(), max: z.number().int() }),
   final: z.object({ turnoMinimo: z.number().int() }),
+  /** Ataque Definitivo: se puede usar desde este turno, una vez por combate. */
+  definitivo: z.object({ turnoMinimo: z.number().int().min(1) }),
   estados: z.object({
     quemadura: z.object({ turnos: z.number().int(), danoDivisor: z.number(), multFisico: z.number(), inmunes: z.array(z.string()) }),
     veneno: z.object({ turnos: z.number().int(), danoDivisor: z.number(), inmunes: z.array(z.string()) }),

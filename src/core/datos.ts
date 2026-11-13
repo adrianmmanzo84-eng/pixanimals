@@ -42,12 +42,15 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
   for (const t of tipos) for (const v of t.vence) if (!mTipos.has(v)) errores.push(`Tipo ${t.id}: vence a un tipo inexistente (${v}).`);
   for (const h of habilidades) {
     if (!mTipos.has(h.tipo)) errores.push(`Habilidad ${h.id}: tipo inexistente (${h.tipo}).`);
-    if (h.categoria !== 'estado' && h.potencia === 0) errores.push(`Habilidad ${h.id}: es de daño pero su potencia es 0.`);
+    if (h.categoria !== 'estado' && h.potencia === 0 && h.rol !== 'definitivo') errores.push(`Habilidad ${h.id}: es de daño pero su potencia es 0.`);
     if (h.rol === 'final' && h.enfriamiento === 0) errores.push(`Habilidad ${h.id}: un movimiento final necesita enfriamiento.`);
   }
   for (const c of criaturas) {
     if (!mTipos.has(c.tipo)) errores.push(`Criatura ${c.id}: tipo inexistente (${c.tipo}).`);
     if (!(c.pasiva in balance.pasivas) && !(c.pasiva in balance.pasivasAlias)) errores.push(`Criatura ${c.id}: pasiva inexistente (${c.pasiva}).`);
+    if (c.definitivo && mHab.get(c.definitivo)?.rol !== 'definitivo') errores.push(`${c.id}: su Definitivo ${c.definitivo} no existe o no es un Definitivo.`);
+    for (const id of [...c.habilidades, ...(c.habilidadesPrueba ?? [])])
+      if (mHab.get(id)?.rol === 'definitivo') errores.push(`${c.id}: el Definitivo ${id} no va entre sus 4 habilidades.`);
     for (const id of [...c.habilidades, ...(c.habilidadesPrueba ?? [])])
       if (!mHab.has(id)) errores.push(`Criatura ${c.id}: habilidad inexistente (${id}).`);
     for (const ev of c.evoluciona) {

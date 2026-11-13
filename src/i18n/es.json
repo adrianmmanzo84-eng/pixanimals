@@ -331,5 +331,12 @@
   "fin.piso": "¡Piso {n} superado! +{m} monedas",
   "fin.pisoRepetido": "Piso ya superado: sin premio extra",
   "fin.sobre": "¡Ganaste un {s}! (en Sobres)",
-  "fin.entrenador": "Premio del Entrenador: +{n} monedas"
+  "fin.entrenador": "Premio del Entrenador: +{n} monedas",
+  "def.listo": "¡listo!",
+  "def.usado": "ya usado",
+  "def.turno": "desde el turno {n}",
+  "def.info": "Elimina de un golpe. Si se cubre, lo resiste.",
+  "c.carga": "¡{n} acumula una energía terrible!",
+  "c.definitivo": "¡{n} desata su Ataque Definitivo!",
+  "c.definitivoBloqueado": "¡{n} se cubrió y resistió el golpe definitivo!"
 }

@@ -52,13 +52,13 @@
         "vel": 58
       },
       "habilidades": [
-        "zarpazo_ardiente",
+        "colmillo_igneo",
         "pelaje_igneo",
         "grito_de_manada",
         "rugido_solar"
       ],
       "habilidadesPrueba": [
-        "zarpazo_ardiente",
+        "colmillo_igneo",
         "pelaje_igneo",
         "mirada_abrasadora",
         "rugido_solar"
@@ -88,13 +88,13 @@
         "vel": 69
       },
       "habilidades": [
-        "zarpazo_ardiente",
+        "colmillo_igneo",
         "pelaje_igneo",
-        "grito_de_manada",
+        "rugido_de_guerra",
         "rugido_solar"
       ],
       "habilidadesPrueba": [
-        "zarpazo_ardiente",
+        "colmillo_igneo",
         "pelaje_igneo",
         "mirada_abrasadora",
         "rugido_solar"
@@ -129,20 +129,21 @@
         "vel": 80
       },
       "habilidades": [
-        "zarpazo_ardiente",
+        "colmillo_igneo",
         "pelaje_igneo",
-        "grito_de_manada",
-        "rugido_solar"
+        "rugido_de_guerra",
+        "llamarada_real"
       ],
       "habilidadesPrueba": [
-        "zarpazo_ardiente",
+        "colmillo_igneo",
         "pelaje_igneo",
         "mirada_abrasadora",
-        "rugido_solar"
+        "llamarada_real"
       ],
       "descripcion": "Rey solar. Dicen que su corona de fuego nunca se ha apagado.",
       "sprites": "brasa_4",
-      "evoluciona": []
+      "evoluciona": [],
+      "definitivo": "sol_supremo"
     },
     {
       "id": "solarion_eclipse",
@@ -160,20 +161,21 @@
         "vel": 88
       },
       "habilidades": [
-        "zarpazo_ardiente",
+        "colmillo_igneo",
         "pelaje_igneo",
-        "grito_de_manada",
-        "rugido_solar"
+        "rugido_de_guerra",
+        "sol_carmesi"
       ],
       "habilidadesPrueba": [
-        "zarpazo_ardiente",
+        "colmillo_igneo",
         "pelaje_igneo",
         "mirada_abrasadora",
-        "rugido_solar"
+        "sol_carmesi"
       ],
       "descripcion": "Un sol eclipsado. Su melena arde en carmesí y ruge más fuerte que nunca.",
       "sprites": "brasa_4b",
-      "evoluciona": []
+      "evoluciona": [],
+      "definitivo": "corona_negra"
     },
     {
       "id": "aletin",
@@ -227,13 +229,13 @@
         "vel": 42
       },
       "habilidades": [
-        "dentellada_marina",
+        "mordisco_abisal",
         "escudo_de_burbujas",
         "corriente",
         "tsunami"
       ],
       "habilidadesPrueba": [
-        "dentellada_marina",
+        "mordisco_abisal",
         "escudo_de_burbujas",
         "arrullo_de_olas",
         "tsunami"
@@ -263,13 +265,13 @@
         "vel": 50
       },
       "habilidades": [
-        "dentellada_marina",
+        "mordisco_abisal",
         "escudo_de_burbujas",
-        "corriente",
+        "marea_viva",
         "tsunami"
       ],
       "habilidadesPrueba": [
-        "dentellada_marina",
+        "mordisco_abisal",
         "escudo_de_burbujas",
         "arrullo_de_olas",
         "tsunami"
@@ -296,28 +298,29 @@
       "etapa": 4,
       "pasiva": "oleaje",
       "base": {
-        "ps": 97,
+        "ps": 91,
         "atq": 62,
         "def": 114,
         "ate": 107,
         "dfe": 83,
-        "vel": 57
+        "vel": 63
       },
       "habilidades": [
-        "dentellada_marina",
+        "mordisco_abisal",
         "escudo_de_burbujas",
-        "corriente",
-        "tsunami"
+        "marea_viva",
+        "maremoto"
       ],
       "habilidadesPrueba": [
-        "dentellada_marina",
+        "mordisco_abisal",
         "escudo_de_burbujas",
         "arrullo_de_olas",
-        "tsunami"
+        "maremoto"
       ],
       "descripcion": "Coloso de coral y placas. Un remolino lo acompaña adonde vaya.",
       "sprites": "marea_4",
-      "evoluciona": []
+      "evoluciona": [],
+      "definitivo": "diluvio_abisal"
     },
     {
       "id": "leviatan_eclipse",
@@ -327,28 +330,29 @@
       "etapa": 4,
       "pasiva": "oleaje",
       "base": {
-        "ps": 91,
+        "ps": 86,
         "atq": 67,
         "def": 98,
-        "ate": 126,
+        "ate": 125,
         "dfe": 71,
-        "vel": 67
+        "vel": 73
       },
       "habilidades": [
-        "dentellada_marina",
+        "mordisco_abisal",
         "escudo_de_burbujas",
-        "corriente",
-        "tsunami"
+        "marea_viva",
+        "vortice_negro"
       ],
       "habilidadesPrueba": [
-        "dentellada_marina",
+        "mordisco_abisal",
         "escudo_de_burbujas",
         "arrullo_de_olas",
-        "tsunami"
+        "vortice_negro"
       ],
       "descripcion": "Viene del mar más hondo. Una corriente violeta gira a su alrededor.",
       "sprites": "marea_4b",
-      "evoluciona": []
+      "evoluciona": [],
+      "definitivo": "remolino_del_vacio"
     },
     {
       "id": "brotin",
@@ -402,13 +406,13 @@
         "vel": 53
       },
       "habilidades": [
-        "zarpazo_de_raiz",
+        "garra_de_espino",
         "armadura_de_corteza",
         "bano_de_sol",
         "furia_del_bosque"
       ],
       "habilidadesPrueba": [
-        "zarpazo_de_raiz",
+        "garra_de_espino",
         "polen_toxico",
         "abrazo_de_raices",
         "furia_del_bosque"
@@ -438,13 +442,13 @@
         "vel": 63
       },
       "habilidades": [
-        "zarpazo_de_raiz",
+        "garra_de_espino",
         "armadura_de_corteza",
-        "bano_de_sol",
+        "savia_vital",
         "furia_del_bosque"
       ],
       "habilidadesPrueba": [
-        "zarpazo_de_raiz",
+        "garra_de_espino",
         "polen_toxico",
         "abrazo_de_raices",
         "furia_del_bosque"
@@ -479,20 +483,21 @@
         "vel": 73
       },
       "habilidades": [
-        "zarpazo_de_raiz",
+        "garra_de_espino",
         "armadura_de_corteza",
-        "bano_de_sol",
-        "furia_del_bosque"
+        "savia_vital",
+        "ira_del_bosque"
       ],
       "habilidadesPrueba": [
-        "zarpazo_de_raiz",
+        "garra_de_espino",
         "polen_toxico",
         "abrazo_de_raices",
-        "furia_del_bosque"
+        "ira_del_bosque"
       ],
       "descripcion": "El bosque crece sobre su lomo. Sus astas florecen cada primavera.",
       "sprites": "brote_4",
-      "evoluciona": []
+      "evoluciona": [],
+      "definitivo": "bosque_primordial"
     },
     {
       "id": "titan_eclipse",
@@ -510,20 +515,21 @@
         "vel": 83
       },
       "habilidades": [
-        "zarpazo_de_raiz",
+        "garra_de_espino",
         "armadura_de_corteza",
-        "bano_de_sol",
-        "furia_del_bosque"
+        "savia_vital",
+        "raiz_nocturna"
       ],
       "habilidadesPrueba": [
-        "zarpazo_de_raiz",
+        "garra_de_espino",
         "polen_toxico",
         "abrazo_de_raices",
-        "furia_del_bosque"
+        "raiz_nocturna"
       ],
       "descripcion": "Guardián del bosque de noche. Sus astas retorcidas crecen en espinas.",
       "sprites": "brote_4b",
-      "evoluciona": []
+      "evoluciona": [],
+      "definitivo": "espinas_nocturnas"
     },
     {
       "id": "mantin",
@@ -571,7 +577,7 @@
         "vel": 94
       },
       "habilidades": [
-        "rafaga_celeste",
+        "viento_cortante",
         "manto_de_nubes",
         "viento_de_cola",
         "tormenta_estelar"
@@ -601,9 +607,9 @@
         "vel": 111
       },
       "habilidades": [
-        "rafaga_celeste",
+        "viento_cortante",
         "manto_de_nubes",
-        "viento_de_cola",
+        "corriente_celeste",
         "tormenta_estelar"
       ],
       "descripcion": "Sus alas de cielo nocturno brillan con pequeñas estrellas.",
@@ -629,21 +635,22 @@
       "pasiva": "viento_a_favor",
       "base": {
         "ps": 87,
-        "atq": 76,
-        "def": 62,
-        "ate": 94,
+        "atq": 67,
+        "def": 74,
+        "ate": 103,
         "dfe": 73,
-        "vel": 128
+        "vel": 116
       },
       "habilidades": [
-        "rafaga_celeste",
+        "viento_cortante",
         "manto_de_nubes",
-        "viento_de_cola",
-        "tormenta_estelar"
+        "corriente_celeste",
+        "cielo_desatado"
       ],
       "descripcion": "Reina del cielo alto. Sus colas de cinta dibujan auroras.",
       "evoluciona": [],
-      "sprites": "mantarraya_4"
+      "sprites": "mantarraya_4",
+      "definitivo": "supernova_celeste"
     },
     {
       "id": "soberaya_eclipse",
@@ -654,21 +661,22 @@
       "pasiva": "viento_a_favor",
       "base": {
         "ps": 82,
-        "atq": 80,
-        "def": 53,
-        "ate": 107,
+        "atq": 70,
+        "def": 64,
+        "ate": 117,
         "dfe": 63,
-        "vel": 135
+        "vel": 124
       },
       "habilidades": [
-        "rafaga_celeste",
+        "viento_cortante",
         "manto_de_nubes",
-        "viento_de_cola",
-        "tormenta_estelar"
+        "corriente_celeste",
+        "gravedad_oscura"
       ],
       "descripcion": "Sus alas de guadaña curvan la gravedad a su alrededor.",
       "evoluciona": [],
-      "sprites": "mantarraya_4b"
+      "sprites": "mantarraya_4b",
+      "definitivo": "guadana_estelar"
     },
     {
       "id": "larvin",
@@ -716,7 +724,7 @@
         "vel": 79
       },
       "habilidades": [
-        "polvo_oscuro",
+        "polvo_somnifero",
         "alas_de_obsidiana",
         "danza_lunar",
         "eclipse_total"
@@ -746,9 +754,9 @@
         "vel": 93
       },
       "habilidades": [
-        "polvo_oscuro",
+        "polvo_somnifero",
         "alas_de_obsidiana",
-        "danza_lunar",
+        "danza_nocturna",
         "eclipse_total"
       ],
       "descripcion": "Sus alas sueltan un polvo que da sueño a quien lo respira.",
@@ -781,14 +789,15 @@
         "vel": 107
       },
       "habilidades": [
-        "polvo_oscuro",
+        "polvo_somnifero",
         "alas_de_obsidiana",
-        "danza_lunar",
-        "eclipse_total"
+        "danza_nocturna",
+        "luna_negra"
       ],
       "descripcion": "Sus alas de obsidiana tapan la luna cuando vuela.",
       "evoluciona": [],
-      "sprites": "polilla_4"
+      "sprites": "polilla_4",
+      "definitivo": "noche_eterna"
     },
     {
       "id": "obsidia_eclipse",
@@ -806,14 +815,15 @@
         "vel": 116
       },
       "habilidades": [
-        "polvo_oscuro",
+        "polvo_somnifero",
         "alas_de_obsidiana",
-        "danza_lunar",
-        "eclipse_total"
+        "danza_nocturna",
+        "polvo_carmesi"
       ],
       "descripcion": "Alas dentadas y marcas carmesí. Su polvo apaga la luz.",
       "evoluciona": [],
-      "sprites": "polilla_4b"
+      "sprites": "polilla_4b",
+      "definitivo": "ala_carmesi"
     },
     {
       "id": "ajolin",
@@ -861,7 +871,7 @@
         "vel": 79
       },
       "habilidades": [
-        "chispazo",
+        "descarga",
         "piel_estatica",
         "carga_ionica",
         "tormenta_electrica"
@@ -891,9 +901,9 @@
         "vel": 93
       },
       "habilidades": [
-        "chispazo",
+        "descarga",
         "piel_estatica",
-        "carga_ionica",
+        "sobrecarga",
         "tormenta_electrica"
       ],
       "descripcion": "Cuando se enoja, el agua a su alrededor zumba.",
@@ -918,22 +928,23 @@
       "etapa": 4,
       "pasiva": "carga_estatica",
       "base": {
-        "ps": 90,
-        "atq": 76,
+        "ps": 102,
+        "atq": 64,
         "def": 52,
         "ate": 90,
         "dfe": 104,
         "vel": 108
       },
       "habilidades": [
-        "chispazo",
+        "descarga",
         "piel_estatica",
-        "carga_ionica",
-        "tormenta_electrica"
+        "sobrecarga",
+        "trueno_ancestral"
       ],
       "descripcion": "Guardián de las lagunas. Sus branquias son relámpagos.",
       "evoluciona": [],
-      "sprites": "ajolote_4"
+      "sprites": "ajolote_4",
+      "definitivo": "mil_relampagos"
     },
     {
       "id": "ajotron_eclipse",
@@ -943,22 +954,23 @@
       "etapa": 4,
       "pasiva": "carga_estatica",
       "base": {
-        "ps": 85,
-        "atq": 80,
+        "ps": 96,
+        "atq": 69,
         "def": 45,
         "ate": 105,
         "dfe": 89,
         "vel": 116
       },
       "habilidades": [
-        "chispazo",
+        "descarga",
         "piel_estatica",
-        "carga_ionica",
-        "tormenta_electrica"
+        "sobrecarga",
+        "rayo_violeta"
       ],
       "descripcion": "Su armadura violeta zumba con una tormenta encerrada.",
       "evoluciona": [],
-      "sprites": "ajolote_4b"
+      "sprites": "ajolote_4b",
+      "definitivo": "tormenta_violeta"
     },
     {
       "id": "caracolin",
@@ -1006,7 +1018,7 @@
         "vel": 38
       },
       "habilidades": [
-        "golpe_de_concha",
+        "embestida_rocosa",
         "refugio_de_piedra",
         "endurecer",
         "avalancha"
@@ -1036,9 +1048,9 @@
         "vel": 45
       },
       "habilidades": [
-        "golpe_de_concha",
+        "embestida_rocosa",
         "refugio_de_piedra",
-        "endurecer",
+        "coraza_de_granito",
         "avalancha"
       ],
       "descripcion": "Su caparazón de roca es tan duro como una muralla.",
@@ -1065,20 +1077,21 @@
       "base": {
         "ps": 87,
         "atq": 83,
-        "def": 135,
-        "ate": 59,
-        "dfe": 104,
+        "def": 129,
+        "ate": 71,
+        "dfe": 98,
         "vel": 52
       },
       "habilidades": [
-        "golpe_de_concha",
+        "embestida_rocosa",
         "refugio_de_piedra",
-        "endurecer",
-        "avalancha"
+        "coraza_de_granito",
+        "terremoto"
       ],
       "descripcion": "Una fortaleza que camina. Las grietas de su concha brillan.",
       "evoluciona": [],
-      "sprites": "caracol_4"
+      "sprites": "caracol_4",
+      "definitivo": "derrumbe_total"
     },
     {
       "id": "bastion_eclipse",
@@ -1089,21 +1102,22 @@
       "pasiva": "piedra_viva",
       "base": {
         "ps": 82,
-        "atq": 104,
-        "def": 116,
-        "ate": 65,
-        "dfe": 89,
-        "vel": 64
+        "atq": 103,
+        "def": 111,
+        "ate": 77,
+        "dfe": 84,
+        "vel": 63
       },
       "habilidades": [
-        "golpe_de_concha",
+        "embestida_rocosa",
         "refugio_de_piedra",
-        "endurecer",
-        "avalancha"
+        "coraza_de_granito",
+        "colmillo_de_basalto"
       ],
       "descripcion": "Caparazón de basalto afilado. Nada lo hace retroceder.",
       "evoluciona": [],
-      "sprites": "caracol_4b"
+      "sprites": "caracol_4b",
+      "definitivo": "erupcion_de_basalto"
     },
     {
       "id": "colibrin",
@@ -1151,7 +1165,7 @@
         "vel": 81
       },
       "habilidades": [
-        "pico_espina",
+        "pico_venenoso",
         "escudo_de_petalos",
         "nectar",
         "huracan_floral"
@@ -1181,9 +1195,9 @@
         "vel": 96
       },
       "habilidades": [
-        "pico_espina",
+        "pico_venenoso",
         "escudo_de_petalos",
-        "nectar",
+        "nectar_dorado",
         "huracan_floral"
       ],
       "descripcion": "Sus alas de hojas cortan el aire como cuchillas.",
@@ -1210,20 +1224,21 @@
       "base": {
         "ps": 87,
         "atq": 107,
-        "def": 94,
-        "ate": 62,
+        "def": 100,
+        "ate": 68,
         "dfe": 59,
-        "vel": 111
+        "vel": 99
       },
       "habilidades": [
-        "pico_espina",
+        "pico_venenoso",
         "escudo_de_petalos",
-        "nectar",
-        "huracan_floral"
+        "nectar_dorado",
+        "tormenta_de_petalos"
       ],
       "descripcion": "Ave floral con corona de pétalos. Poliniza bosques enteros.",
       "evoluciona": [],
-      "sprites": "colibri_4"
+      "sprites": "colibri_4",
+      "definitivo": "jardin_furioso"
     },
     {
       "id": "florarca_eclipse",
@@ -1234,21 +1249,22 @@
       "pasiva": "furia_espinosa",
       "base": {
         "ps": 82,
-        "atq": 121,
-        "def": 81,
-        "ate": 66,
+        "atq": 122,
+        "def": 86,
+        "ate": 72,
         "dfe": 51,
-        "vel": 119
+        "vel": 107
       },
       "habilidades": [
-        "pico_espina",
+        "pico_venenoso",
         "escudo_de_petalos",
-        "nectar",
-        "huracan_floral"
+        "nectar_dorado",
+        "ciclon_de_espinas"
       ],
       "descripcion": "Sus alas de hojas cortantes giran como un torbellino.",
       "evoluciona": [],
-      "sprites": "colibri_4b"
+      "sprites": "colibri_4b",
+      "definitivo": "torbellino_filoso"
     },
     {
       "id": "pangolito",
@@ -1296,7 +1312,7 @@
         "vel": 68
       },
       "habilidades": [
-        "escama_afilada",
+        "garra_de_cuarzo",
         "bola_de_cristal",
         "pulir_escamas",
         "lluvia_de_prismas"
@@ -1326,9 +1342,9 @@
         "vel": 81
       },
       "habilidades": [
-        "escama_afilada",
+        "garra_de_cuarzo",
         "bola_de_cristal",
-        "pulir_escamas",
+        "brillo_prismatico",
         "lluvia_de_prismas"
       ],
       "descripcion": "Cada escama es un prisma que descompone la luz.",
@@ -1353,22 +1369,23 @@
       "etapa": 4,
       "pasiva": "piedra_viva",
       "base": {
-        "ps": 76,
+        "ps": 88,
         "atq": 107,
         "def": 94,
-        "ate": 62,
+        "ate": 50,
         "dfe": 87,
         "vel": 94
       },
       "habilidades": [
-        "escama_afilada",
+        "garra_de_cuarzo",
         "bola_de_cristal",
-        "pulir_escamas",
-        "lluvia_de_prismas"
+        "brillo_prismatico",
+        "estallido_prisma"
       ],
       "descripcion": "Guardián de escamas cristalinas. Brilla como un arcoíris.",
       "evoluciona": [],
-      "sprites": "pangolin_4"
+      "sprites": "pangolin_4",
+      "definitivo": "prisma_absoluto"
     },
     {
       "id": "prismon_eclipse",
@@ -1378,22 +1395,23 @@
       "etapa": 4,
       "pasiva": "piedra_viva",
       "base": {
-        "ps": 71,
+        "ps": 83,
         "atq": 123,
         "def": 81,
-        "ate": 67,
+        "ate": 55,
         "dfe": 75,
         "vel": 103
       },
       "habilidades": [
-        "escama_afilada",
+        "garra_de_cuarzo",
         "bola_de_cristal",
-        "pulir_escamas",
-        "lluvia_de_prismas"
+        "brillo_prismatico",
+        "filo_de_obsidiana"
       ],
       "descripcion": "Escamas afiladas y una gran cola acorazada de cristal.",
       "evoluciona": [],
-      "sprites": "pangolin_4b"
+      "sprites": "pangolin_4b",
+      "definitivo": "cristal_quebrado"
     },
     {
       "id": "gequito",
@@ -1441,7 +1459,7 @@
         "vel": 74
       },
       "habilidades": [
-        "coletazo_aurora",
+        "latigazo_boreal",
         "planeo",
         "luz_de_aurora",
         "picado_celeste"
@@ -1471,9 +1489,9 @@
         "vel": 87
       },
       "habilidades": [
-        "coletazo_aurora",
+        "latigazo_boreal",
         "planeo",
-        "luz_de_aurora",
+        "velo_boreal",
         "picado_celeste"
       ],
       "descripcion": "Sus membranas violetas brillan como una aurora.",
@@ -1499,21 +1517,22 @@
       "pasiva": "viento_a_favor",
       "base": {
         "ps": 80,
-        "atq": 111,
-        "def": 103,
-        "ate": 59,
-        "dfe": 66,
-        "vel": 101
+        "atq": 123,
+        "def": 109,
+        "ate": 53,
+        "dfe": 60,
+        "vel": 95
       },
       "habilidades": [
-        "coletazo_aurora",
+        "latigazo_boreal",
         "planeo",
-        "luz_de_aurora",
-        "picado_celeste"
+        "velo_boreal",
+        "picado_aurora"
       ],
       "descripcion": "Gran planeador del cielo. Su cola dibuja la aurora boreal.",
       "evoluciona": [],
-      "sprites": "gecko_4"
+      "sprites": "gecko_4",
+      "definitivo": "aurora_final"
     },
     {
       "id": "auragon_eclipse",
@@ -1524,21 +1543,22 @@
       "pasiva": "viento_a_favor",
       "base": {
         "ps": 75,
-        "atq": 126,
-        "def": 89,
-        "ate": 64,
-        "dfe": 57,
-        "vel": 109
+        "atq": 138,
+        "def": 94,
+        "ate": 58,
+        "dfe": 52,
+        "vel": 103
       },
       "habilidades": [
-        "coletazo_aurora",
+        "latigazo_boreal",
         "planeo",
-        "luz_de_aurora",
-        "picado_celeste"
+        "velo_boreal",
+        "zarpa_magenta"
       ],
       "descripcion": "Sus membranas dentadas lanzan destellos cian y magenta.",
       "evoluciona": [],
-      "sprites": "gecko_4b"
+      "sprites": "gecko_4b",
+      "definitivo": "relampago_boreal"
     },
     {
       "id": "ermitin",
@@ -1586,7 +1606,7 @@
         "vel": 51
       },
       "habilidades": [
-        "pinza_marina",
+        "tenaza_dorada",
         "concha_sagrada",
         "coraza_de_sal",
         "pinza_de_asedio"
@@ -1616,9 +1636,9 @@
         "vel": 60
       },
       "habilidades": [
-        "pinza_marina",
+        "tenaza_dorada",
         "concha_sagrada",
-        "coraza_de_sal",
+        "coraza_real",
         "pinza_de_asedio"
       ],
       "descripcion": "Protege su concha como si fuera un cofre sagrado.",
@@ -1643,22 +1663,23 @@
       "etapa": 4,
       "pasiva": "refugio",
       "base": {
-        "ps": 107,
-        "atq": 104,
-        "def": 132,
-        "ate": 49,
-        "dfe": 59,
-        "vel": 69
+        "ps": 100,
+        "atq": 70,
+        "def": 108,
+        "ate": 72,
+        "dfe": 100,
+        "vel": 70
       },
       "habilidades": [
-        "pinza_marina",
+        "tenaza_dorada",
         "concha_sagrada",
-        "coraza_de_sal",
-        "pinza_de_asedio"
+        "coraza_real",
+        "pinza_sismica"
       ],
       "descripcion": "Guardián acorazado. Su gran pinza cubre a sus amigos.",
       "evoluciona": [],
-      "sprites": "cangrejo_4"
+      "sprites": "cangrejo_4",
+      "definitivo": "tenaza_colosal"
     },
     {
       "id": "relicon_eclipse",
@@ -1668,22 +1689,23 @@
       "etapa": 4,
       "pasiva": "refugio",
       "base": {
-        "ps": 101,
-        "atq": 122,
-        "def": 114,
-        "ate": 53,
-        "dfe": 51,
-        "vel": 79
+        "ps": 94,
+        "atq": 76,
+        "def": 93,
+        "ate": 91,
+        "dfe": 86,
+        "vel": 80
       },
       "habilidades": [
-        "pinza_marina",
+        "tenaza_dorada",
         "concha_sagrada",
-        "coraza_de_sal",
-        "pinza_de_asedio"
+        "coraza_real",
+        "pinza_del_abismo"
       ],
       "descripcion": "Su pinza de asedio parte las rocas de la costa.",
       "evoluciona": [],
-      "sprites": "cangrejo_4b"
+      "sprites": "cangrejo_4b",
+      "definitivo": "marea_de_asedio"
     },
     {
       "id": "orejin",
@@ -1731,7 +1753,7 @@
         "vel": 71
       },
       "habilidades": [
-        "patada_lunar",
+        "patada_creciente",
         "salto_nocturno",
         "luna_creciente",
         "embestida_astral"
@@ -1761,9 +1783,9 @@
         "vel": 84
       },
       "habilidades": [
-        "patada_lunar",
+        "patada_creciente",
         "salto_nocturno",
-        "luna_creciente",
+        "luna_plateada",
         "embestida_astral"
       ],
       "descripcion": "Las marcas de su lomo cambian con las fases de la luna.",
@@ -1790,20 +1812,21 @@
       "base": {
         "ps": 83,
         "atq": 118,
-        "def": 83,
-        "ate": 66,
+        "def": 92,
+        "ate": 57,
         "dfe": 73,
         "vel": 97
       },
       "habilidades": [
-        "patada_lunar",
+        "patada_creciente",
         "salto_nocturno",
-        "luna_creciente",
-        "embestida_astral"
+        "luna_plateada",
+        "cometa_lunar"
       ],
       "descripcion": "Liebre mítica con astas de luna. Corre por el cielo nocturno.",
       "evoluciona": [],
-      "sprites": "liebre_4"
+      "sprites": "liebre_4",
+      "definitivo": "luna_llena"
     },
     {
       "id": "astaluna_eclipse",
@@ -1815,20 +1838,21 @@
       "base": {
         "ps": 78,
         "atq": 133,
-        "def": 71,
-        "ate": 70,
+        "def": 79,
+        "ate": 62,
         "dfe": 63,
         "vel": 105
       },
       "habilidades": [
-        "patada_lunar",
+        "patada_creciente",
         "salto_nocturno",
-        "luna_creciente",
-        "embestida_astral"
+        "luna_plateada",
+        "garra_lunar"
       ],
       "descripcion": "Astas de espinas y grandes garras. Lunas violetas la rodean.",
       "evoluciona": [],
-      "sprites": "liebre_4b"
+      "sprites": "liebre_4b",
+      "definitivo": "lluvia_de_lunas"
     },
     {
       "id": "pulpin",
@@ -1876,7 +1900,7 @@
         "vel": 37
       },
       "habilidades": [
-        "chorro_de_tinta",
+        "tinta_abisal",
         "nube_de_tinta",
         "regenerar",
         "marea_negra"
@@ -1906,9 +1930,9 @@
         "vel": 45
       },
       "habilidades": [
-        "chorro_de_tinta",
+        "tinta_abisal",
         "nube_de_tinta",
-        "regenerar",
+        "regeneracion",
         "marea_negra"
       ],
       "descripcion": "Vive en el mar profundo, donde la luz no llega.",
@@ -1941,14 +1965,15 @@
         "vel": 52
       },
       "habilidades": [
-        "chorro_de_tinta",
+        "tinta_abisal",
         "nube_de_tinta",
-        "regenerar",
-        "marea_negra"
+        "regeneracion",
+        "abismo_profundo"
       ],
       "descripcion": "Soberano abisal. Su manto parece una corona.",
       "evoluciona": [],
-      "sprites": "pulpo_4"
+      "sprites": "pulpo_4",
+      "definitivo": "abrazo_del_abismo"
     },
     {
       "id": "regiopus_eclipse",
@@ -1966,14 +1991,15 @@
         "vel": 61
       },
       "habilidades": [
-        "chorro_de_tinta",
+        "tinta_abisal",
         "nube_de_tinta",
-        "regenerar",
-        "marea_negra"
+        "regeneracion",
+        "ojo_del_vacio"
       ],
       "descripcion": "Su tinta abisal oscurece el mar entero.",
       "evoluciona": [],
-      "sprites": "pulpo_4b"
+      "sprites": "pulpo_4b",
+      "definitivo": "tinta_del_vacio"
     }
   ]
 }

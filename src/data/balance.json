@@ -104,5 +104,8 @@
       "nombre": "Refugio",
       "mecanica": "raices"
     }
+  },
+  "definitivo": {
+    "turnoMinimo": 5
   }
 }

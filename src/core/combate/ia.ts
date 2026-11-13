@@ -12,6 +12,12 @@ export const NIVELES_IA: NivelIA[] = ['novata', 'tactica', 'experta'];
  *          y cambia de criatura cuando está en desventaja de tipo.
  */
 export function elegirAccion(b: Batalla, lado: Lado, nivel: NivelIA, rng: Rng): Accion {
+  // Ataque Definitivo (solo si este lado lo tiene habilitado): cargarlo, avisando, y usarlo en cuanto está listo.
+  if (b.bloqueoDefinitivo(lado) === null && (nivel !== 'novata' || rng.prob(50))) return { tipo: 'definitivo' };
+  if (b.puedeCargar(lado) && rng.prob(70)) return { tipo: 'cargar' };
+  const defensa = cubrirseDelDefinitivo(b, lado, nivel, rng);
+  if (defensa) return defensa;
+
   const validas = b.accionesValidas(lado);
   if (validas[0]!.tipo === 'empujon') return validas[0]!;
   if (nivel === 'novata') return rng.elegir(validas);
@@ -91,3 +97,21 @@ export function elegirReemplazo(b: Batalla, lado: Lado, nivel: NivelIA, rng: Rng
   if (nivel === 'novata') return rng.elegir(banca);
   return mejorReemplazo(b, lado)?.indice ?? banca[0]!;
 }
+
+/**
+ * Si el otro lado cargó su Definitivo (lo avisó), cubrirse casi siempre; si lo tiene listo sin avisar, a veces.
+ * Solo con una habilidad de guardia que se pueda usar ahora.
+ */
+function cubrirseDelDefinitivo(b: Batalla, lado: Lado, nivel: NivelIA, rng: Rng): Accion | null {
+  if (nivel === 'novata') return null;
+  const otro = (1 - lado) as Lado;
+  const avisado = b.definitivoCargado[otro];
+  const listo = b.bloqueoDefinitivo(otro) === null;
+  if (!avisado && !listo) return null;
+  const prob = avisado ? (nivel === 'experta' ? 85 : 50) : nivel === 'experta' ? 25 : 0;
+  if (!rng.prob(prob)) return null;
+  const yo = b.lados[lado];
+  const i = yo.habilidades.findIndex((h, k) => h.def.efectos.some((e) => e.tipo === 'guardia') && b.bloqueo(lado, k) === null);
+  return i >= 0 ? { tipo: 'habilidad', indice: i } : null;
+}
+

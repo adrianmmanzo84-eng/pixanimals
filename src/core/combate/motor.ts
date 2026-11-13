@@ -38,6 +38,8 @@ export interface Combatiente {
   oleaje: boolean;
   /** Entró alguna vez al campo (para repartir experiencia). */
   participo: boolean;
+  /** Ataque Definitivo que conoce, o null. */
+  definitivo: Habilidad | null;
 }
 
 export interface Equipo {
@@ -45,7 +47,18 @@ export interface Equipo {
   activo: number;
 }
 
-export type Accion = { tipo: 'habilidad'; indice: number } | { tipo: 'empujon' } | { tipo: 'cambio'; indice: number } | { tipo: 'item'; item: Item };
+export type Accion =
+  | { tipo: 'habilidad'; indice: number }
+  | { tipo: 'empujon' }
+  | { tipo: 'cambio'; indice: number }
+  | { tipo: 'item'; item: Item }
+  /** Ataque Definitivo de la criatura activa. */
+  | { tipo: 'definitivo' }
+  /** Gasta el turno en cargar el Definitivo (los lados que lo necesitan, avisando al rival). */
+  | { tipo: 'cargar' };
+
+/** Por qué no se puede usar el Definitivo ahora. */
+export type MotivoDefinitivo = 'no_tiene' | 'no_permitido' | 'usado' | 'turno' | 'sin_cargar';
 
 /** Por qué no se puede usar un ítem ahora. */
 export type MotivoItem = 'limite' | 'no_es_de_combate' | 'ps_llenos' | 'sin_estado' | 'usos_llenos';
@@ -72,6 +85,9 @@ export type Evento =
   | { t: 'item'; lado: Lado; item: Item }
   | { t: 'usos'; lado: Lado; cantidad: number }
   | { t: 'cansancio'; lado: Lado; cantidad: number; ps: number }
+  | { t: 'carga'; lado: Lado }
+  | { t: 'definitivo'; lado: Lado }
+  | { t: 'definitivo_bloqueado'; lado: Lado }
   | { t: 'debilitado'; lado: Lado }
   | { t: 'fin'; ganador: Lado | null };
 
@@ -103,6 +119,7 @@ export function crearCombatiente(datos: Datos, idEspecie: string, nivel: number,
     ultima: null,
     oleaje: false,
     participo: false,
+    definitivo: especie.definitivo ? (datos.habilidades.get(especie.definitivo) ?? null) : null,
   };
 }
 
@@ -118,6 +135,14 @@ export class Batalla {
   private turnoUltimaCaida = 0;
   /** Ítems usados por cada lado en este combate. */
   itemsUsados: [number, number] = [0, 0];
+  /**
+   * Ataque Definitivo: qué lados pueden usarlo (por defecto ninguno; la escena lo habilita),
+   * cuáles deben cargarlo un turno antes (avisa al otro lado), si ya lo cargaron y si ya lo usaron (una vez por combate).
+   */
+  definitivoPermitido: [boolean, boolean] = [false, false];
+  definitivoConCarga: [boolean, boolean] = [false, false];
+  definitivoCargado: [boolean, boolean] = [false, false];
+  definitivoUsado: [boolean, boolean] = [false, false];
 
   constructor(
     readonly datos: Datos,
@@ -159,6 +184,22 @@ export class Batalla {
       if (this.bloqueo(lado, i) === null) validas.push({ tipo: 'habilidad', indice: i });
     });
     return validas.length ? validas : [{ tipo: 'empujon' }];
+  }
+
+  /** null si el Definitivo se puede usar en el próximo turno; si no, el motivo. */
+  bloqueoDefinitivo(lado: Lado): MotivoDefinitivo | null {
+    if (!this.act(lado).definitivo) return 'no_tiene';
+    if (!this.definitivoPermitido[lado]) return 'no_permitido';
+    if (this.definitivoUsado[lado]) return 'usado';
+    if (this.turno + 1 < this.datos.balance.definitivo.turnoMinimo) return 'turno';
+    if (this.definitivoConCarga[lado] && !this.definitivoCargado[lado]) return 'sin_cargar';
+    return null;
+  }
+
+  /** ¿Puede cargar el Definitivo este turno? (lados con carga, antes de tenerlo listo) */
+  puedeCargar(lado: Lado): boolean {
+    const m = this.bloqueoDefinitivo(lado);
+    return this.definitivoConCarga[lado] && (m === 'sin_cargar' || (m === 'turno' && this.turno + 2 >= this.datos.balance.definitivo.turnoMinimo && !this.definitivoCargado[lado]));
   }
 
   /** null si el ítem se puede usar ahora sobre la criatura activa; si no, el motivo. */
@@ -210,6 +251,12 @@ export class Batalla {
           this.hacerCambio(lado, a.indice, false, ev);
         }
       } else if (a.tipo === 'item') this.usarItem(lado, a.item, ev);
+      else if (a.tipo === 'cargar') {
+        if (this.puedeCargar(lado)) {
+          this.definitivoCargado[lado] = true;
+          ev.push({ t: 'carga', lado });
+        } else this.actuar(lado, { tipo: 'empujon' }, ev);
+      } else if (a.tipo === 'definitivo') this.actuarDefinitivo(lado, ev);
       else this.actuar(lado, a, ev);
     }
     if (!this.terminado) this.finDeTurno(orden, ev);
@@ -275,6 +322,8 @@ export class Batalla {
     sale.guardia = null;
     sale.oleaje = false;
     sale.ultima = null;
+    // La carga del Definitivo es de la criatura que estaba en el campo.
+    this.definitivoCargado[lado] = false;
     this.equipos[lado].activo = indice;
     this.act(lado).participo = true;
     ev.push({ t: 'cambio', lado, indice, forzado });
@@ -340,26 +389,59 @@ export class Batalla {
     else if (!this.pendientes.includes(lado)) this.pendientes.push(lado);
   }
 
-  private actuar(lado: Lado, accion: Accion, ev: Evento[]): void {
+  /** Impide actuar por sueño o parálisis (como en `actuar`). Devuelve true si la criatura no actúa. */
+  private impedido(lado: Lado, ev: Evento[]): boolean {
     const yo = this.act(lado);
-    const ladoRival = (1 - lado) as Lado;
-    const rival = this.act(ladoRival);
     const b = this.datos.balance;
-    if (rival.ps <= 0) return; // el rival ya cayó este turno: no hay a quién atacar
-
     if (yo.estado?.id === 'sueno') {
       if (yo.estado.turnos > 0) {
         yo.estado.turnos--;
         ev.push({ t: 'estado_impide', lado, estado: 'sueno' });
-        return;
+        return true;
       }
       yo.estado = null;
       ev.push({ t: 'estado_fin', lado, estado: 'sueno' });
     }
     if (yo.estado?.id === 'paralisis' && this.rng.prob(b.estados.paralisis.probPerderTurno)) {
       ev.push({ t: 'estado_impide', lado, estado: 'paralisis' });
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Ataque Definitivo: deja al rival sin energía, sin importar vida, nivel ni tipo.
+   * Si el rival se cubrió este turno (cualquier guardia), lo resiste y el Definitivo se pierde.
+   */
+  private actuarDefinitivo(lado: Lado, ev: Evento[]): void {
+    const yo = this.act(lado);
+    const ladoRival = (1 - lado) as Lado;
+    const rival = this.act(ladoRival);
+    if (rival.ps <= 0) return;
+    if (this.bloqueoDefinitivo(lado) !== null || !yo.definitivo) return this.actuar(lado, { tipo: 'empujon' }, ev);
+    if (this.impedido(lado, ev)) return;
+    this.definitivoUsado[lado] = true;
+    this.definitivoCargado[lado] = false;
+    yo.ultima = yo.definitivo.id;
+    ev.push({ t: 'usa', lado, habilidad: yo.definitivo });
+    if (rival.guardia) {
+      ev.push({ t: 'definitivo_bloqueado', lado: ladoRival });
       return;
     }
+    ev.push({ t: 'definitivo', lado });
+    const cantidad = rival.ps;
+    rival.ps = 0;
+    ev.push({ t: 'dano', lado: ladoRival, cantidad, ps: 0, critico: false, efectividad: 'neutro', reducido: false });
+    this.trasCaida(ladoRival, ev);
+  }
+
+  private actuar(lado: Lado, accion: Accion, ev: Evento[]): void {
+    const yo = this.act(lado);
+    const ladoRival = (1 - lado) as Lado;
+    const rival = this.act(ladoRival);
+    const b = this.datos.balance;
+    if (rival.ps <= 0) return; // el rival ya cayó este turno: no hay a quién atacar
+    if (this.impedido(lado, ev)) return;
 
     // Si la acción elegida ya no es válida, se convierte en Empujón.
     const hc = accion.tipo === 'habilidad' && this.bloqueoEn(lado, accion.indice, this.turno) === null ? yo.habilidades[accion.indice]! : null;

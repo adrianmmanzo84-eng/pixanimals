@@ -2,7 +2,7 @@
 
 Juego web de colección y combate por turnos: criaturas y efectos en pixel art sobre fondos de estilo animado. Nombre de trabajo.
 
-**Estado: Fase 5 terminada – Torre de Desafíos, Entrenador del día, amuletos, música chiptune, velocidad ×2 y combates de equipo más cortos. Antes: minijuegos, premio diario, misiones, tienda, evolución, 13 familias (65 criaturas) y 7 tipos.**
+**Estado: Fase 5 terminada + ataques por evolución y Ataque Definitivo – Torre de Desafíos, Entrenador del día, amuletos, música chiptune, velocidad ×2 y combates de equipo más cortos. Antes: minijuegos, premio diario, misiones, tienda, evolución, 13 familias (65 criaturas) y 7 tipos.**
 
 ## Ejecutar
 

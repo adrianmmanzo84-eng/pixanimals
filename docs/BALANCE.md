@@ -393,3 +393,21 @@ Duración de 3 contra 3 (400 combates por nivel, IA experta contra táctica, equ
 
 El 1 contra 1 sigue en 6,5–9 turnos de mediana, dentro de lo que pide el GDD (6 a 12).
 
+## Ataques por evolución y Ataque Definitivo
+
+| Etapa | Cambia | Valor |
+|---|---|---|
+| 2 | Ofensivo | potencia 45 → 55, con 15–25 % de efecto |
+| 3 | Apoyo | +1 a dos stats, o cura 35 % |
+| 4 | Final | potencia 90 a 110 según la familia |
+| Eclipse | Final propio | potencia parecida a la normal, precisión 85, otro efecto |
+| 4 y Eclipse | Ataque Definitivo | elimina al rival activo; 1 vez por combate, desde el turno 5; una guardia lo bloquea |
+
+Stats de etapa 4 ajustados por simulación (Brote conserva los suyos). Resultado (`npm run familias -- 800`):
+
+- Etapa final, sin ventaja de tipo: de 41 a 59 % por familia; con ventaja de tipo, de 55 a 100 % (media 84 %).
+- Triángulo original en la etapa 4: Brasa > Brote 94 %, Brote > Marea 81 %, Marea > Brasa 92 %.
+- Eclipse contra su forma normal: de 45 a 67 %.
+- Duración (mediana): 1 contra 1, 5 a 7 turnos; 3 contra 3, 16 a 20.
+- En 300 combates contra el jefe del piso 20 con Definitivos de los dos lados, un tercio de los Definitivos fue resistido con una guardia.
+
