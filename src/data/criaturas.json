@@ -2607,7 +2607,7 @@
       "habilidades": [
         "coletazo_marino",
         "escudo_de_coral",
-        "siesta_flotante",
+        "partir_conchas",
         "ola_coralina"
       ],
       "descripcion": "Nunca suelta su piedra coralina favorita.",
@@ -2637,7 +2637,7 @@
       "habilidades": [
         "mordisco_de_coral",
         "escudo_de_coral",
-        "siesta_flotante",
+        "partir_conchas",
         "ola_coralina"
       ],
       "descripcion": "Duerme flotando panza arriba entre los corales.",
@@ -3195,7 +3195,7 @@
       "habilidades": [
         "trompazo",
         "manto_de_musgo",
-        "esporas_curativas",
+        "esporas_vigorosas",
         "estampida_verde"
       ],
       "descripcion": "Sus rayas lo esconden entre el musgo.",
@@ -3225,7 +3225,7 @@
       "habilidades": [
         "trompa_fungica",
         "manto_de_musgo",
-        "esporas_curativas",
+        "esporas_vigorosas",
         "estampida_verde"
       ],
       "descripcion": "Le crecen hongos en el lomo cuando llueve.",

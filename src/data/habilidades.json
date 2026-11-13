@@ -2976,9 +2976,9 @@
       ]
     },
     {
-      "id": "siesta_flotante",
+      "id": "partir_conchas",
       "animacion": "burbujas",
-      "nombre": "Siesta Flotante",
+      "nombre": "Partir Conchas",
       "tipo": "marea",
       "categoria": "estado",
       "rol": "soporte",
@@ -3641,9 +3641,9 @@
       ]
     },
     {
-      "id": "esporas_curativas",
+      "id": "esporas_vigorosas",
       "animacion": "polen",
-      "nombre": "Esporas Curativas",
+      "nombre": "Esporas Vigorosas",
       "tipo": "brote",
       "categoria": "estado",
       "rol": "soporte",
