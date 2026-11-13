@@ -5,7 +5,7 @@ import { crearCombatiente, type Combatiente } from '../combate/motor';
 /** Todo el progreso del jugador. Es un objeto plano y serializable: se guarda tal cual. */
 export function estadoNuevo(datos: Datos, ahora: number): EstadoJuego {
   return {
-    version: 3,
+    version: 4,
     monedas: datos.economia.monedasIniciales,
     esencia: 0,
     criaturas: [],
@@ -21,12 +21,14 @@ export function estadoNuevo(datos: Datos, ahora: number): EstadoJuego {
     minijuegos: { dia: -1, partidas: {}, records: {} },
     misiones: { dia: -1, lista: [] },
     sobresRegalo: {},
+    torre: { piso: 1, mejor: 0 },
+    entrenador: { diaCobrado: -1 },
   };
 }
 
 /** Un ejemplar recién obtenido. */
 export function nuevaCriatura(especie: string, nivel: number, rareza: RarezaId, brillante: boolean): CriaturaJugador {
-  return { especie, nivel, xp: 0, rareza, brillante, vitaminas: {}, entrenamiento: 0 };
+  return { especie, nivel, xp: 0, rareza, brillante, vitaminas: {}, entrenamiento: 0, amuleto: null };
 }
 
 export function criaturaDe(estado: EstadoJuego, especie: string): CriaturaJugador | undefined {
@@ -65,6 +67,14 @@ export function bonusVitaminas(datos: Datos, c: CriaturaJugador): Partial<Record
   return res;
 }
 
+/** % extra por stat: vitaminas más el amuleto equipado. */
+export function bonusStats(datos: Datos, c: CriaturaJugador): Partial<Record<StatVitamina, number>> {
+  const res = bonusVitaminas(datos, c);
+  const am = c.amuleto ? datos.items.get(c.amuleto)?.efecto : undefined;
+  if (am?.tipo === 'amuleto') res[am.stat] = (res[am.stat] ?? 0) + am.porcentaje;
+  return res;
+}
+
 export function combatienteDe(datos: Datos, c: CriaturaJugador): Combatiente {
-  return crearCombatiente(datos, c.especie, c.nivel, { potencial: potencialDe(datos, c.rareza), extra: bonusVitaminas(datos, c), brillante: c.brillante });
+  return crearCombatiente(datos, c.especie, c.nivel, { potencial: potencialDe(datos, c.rareza), extra: bonusStats(datos, c), brillante: c.brillante });
 }

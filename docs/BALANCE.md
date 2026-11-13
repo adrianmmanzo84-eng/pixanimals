@@ -371,3 +371,25 @@ Puntaje (de 0 a 1) de cada minijuego:
 
 Ritmo: con 3 minijuegos × 5 partidas, un buen jugador suma hasta 300 de Entrenamiento por día (3 barras llenas), además de 10 por victoria. Una barra (100) son unas 6 partidas buenas, unos 5 minutos.
 
+## Fase 5: modos, amuletos y ritmo de combate
+
+| Concepto | Valor |
+|---|---|
+| Combate rápido | 20 / 30 / 40 monedas según la IA (sin cambios) |
+| Torre: nivel del rival | 3 + 2×piso; jefes +2; tope 50 |
+| Torre: IA | novata (pisos 1–3), táctica (4–10), experta (11+); jefes al menos táctica |
+| Torre: premio (primera vez) | 30 + 5×piso monedas; jefe (cada 5): Sobre Básico; cada 10: Sobre Raro |
+| Entrenador del día | nivel de tu mejor criatura del equipo + 2, IA experta; 150 monedas + Sobre Elemental, una vez por día |
+| Amuletos | +10 % a un stat; 300 monedas; uno por criatura |
+| Daño en equipos | ×1,25 |
+
+Duración de 3 contra 3 (400 combates por nivel, IA experta contra táctica, equipos al azar):
+
+| Nivel | Antes (mediana, p10–p90) | Con daño ×1,25 |
+|---|---|---|
+| 10 | 20 (15–26) | 16 (13–22) |
+| 22 | 23 (18–31) | 19 (14–25) |
+| 46 | 29 (22–39) | 24 (19–32) |
+
+El 1 contra 1 sigue en 6,5–9 turnos de mediana, dentro de lo que pide el GDD (6 a 12).
+

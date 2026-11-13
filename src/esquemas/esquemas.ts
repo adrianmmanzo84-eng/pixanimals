@@ -71,6 +71,8 @@ export const BalanceZ = z.object({
   dano: z.object({
     factorBase: z.number(), factorNivel: z.number(), mismoTipo: z.number(), ventaja: z.number(), desventaja: z.number(),
     azarMin: z.number(), azarMax: z.number(), criticoProb: z.number(), criticoBonusVeloz: z.number(), criticoMult: z.number(),
+    /** Multiplicador de daño en combates de equipo (más de una criatura por lado), para que no se hagan largos. */
+    equipos: z.number().min(1),
   }),
   etapas: z.object({ paso: z.number(), max: z.number().int() }),
   final: z.object({ turnoMinimo: z.number().int() }),
@@ -140,6 +142,26 @@ export const EconomiaZ = z.object({
     lista: z.array(MinijuegoIdZ).min(1),
   }),
   misiones: z.object({ porDia: z.number().int().min(1), lista: z.array(MisionZ).min(1) }),
+  /** Torre de Desafíos: nivel del rival = nivelBase + nivelPorPiso × piso; jefe cada `jefeCada` pisos. */
+  torre: z.object({
+    monedasBase: z.number().int().min(0),
+    monedasPorPiso: z.number().int().min(0),
+    nivelBase: z.number().int().min(1),
+    nivelPorPiso: z.number().min(0),
+    jefeCada: z.number().int().min(2),
+    nivelExtraJefe: z.number().int().min(0),
+    sobreJefe: z.string(),
+    cadaSobreGrande: z.number().int().min(2),
+    sobreGrande: z.string(),
+    /** IA por piso: hasta `hasta` (inclusive) se usa `ia`. */
+    ia: z.array(z.object({ hasta: z.number().int().min(1), ia: z.enum(['novata', 'tactica', 'experta']) })).min(1),
+  }),
+  /** Rival con nombre y equipo temático que cambia cada día. */
+  entrenador: z.object({
+    monedas: z.number().int().min(0),
+    nivelExtra: z.number().int().min(0),
+    nombres: z.array(z.string().min(1)).min(1),
+  }),
 });
 
 export const StatVitaminaZ = z.enum(['ps', 'atq', 'def', 'ate', 'dfe', 'vel']);
@@ -153,13 +175,15 @@ export const EfectoItemZ = z.discriminatedUnion('tipo', [
   z.object({ tipo: z.literal('antidoto') }),
   z.object({ tipo: z.literal('tonico'), usos: z.number().int().min(1) }),
   z.object({ tipo: z.literal('escudo'), reduccion: z.number().min(0.05).max(1) }),
+  /** Amuleto: se equipa (uno por criatura) y suma un % a un stat mientras lo lleva. */
+  z.object({ tipo: z.literal('amuleto'), stat: StatVitaminaZ, porcentaje: z.number().min(1).max(30) }),
 ]);
 export const ItemZ = z.object({
   id: z.string().regex(/^[a-z0-9_]+$/),
   nombre: z.string().min(1).max(18),
   descripcion: z.string().min(1).max(70),
   /** Dónde se usa: fuera del combate, dentro, o al evolucionar (piedras). */
-  uso: z.enum(['fuera', 'combate', 'evolucion']),
+  uso: z.enum(['fuera', 'combate', 'evolucion', 'equipo']),
   efecto: EfectoItemZ,
   /** null: no se vende (solo se consigue como premio). */
   precio: PrecioZ.nullable(),
@@ -184,9 +208,11 @@ export const CriaturaJugadorZ = z.object({
   vitaminas: z.partialRecord(StatVitaminaZ, z.number().int().min(0)),
   /** Barra de Entrenamiento (0 a economia.entrenamiento.max). Se vacía al evolucionar. */
   entrenamiento: z.number().int().min(0),
+  /** Amuleto equipado (id de ítem) o null. */
+  amuleto: z.string().nullable(),
 });
 export const EstadoJuegoZ = z.object({
-  version: z.literal(3),
+  version: z.literal(4),
   monedas: z.number().int().min(0),
   esencia: z.number().int().min(0),
   criaturas: z.array(CriaturaJugadorZ),
@@ -211,6 +237,10 @@ export const EstadoJuegoZ = z.object({
   }),
   /** Sobres regalados que se abren gratis (id del sobre → cantidad). */
   sobresRegalo: z.record(z.string(), z.number().int().min(0)),
+  /** Torre de Desafíos: próximo piso a jugar y el más alto superado. */
+  torre: z.object({ piso: z.number().int().min(1), mejor: z.number().int().min(0) }),
+  /** Último día en que se cobró el premio del Entrenador del día. */
+  entrenador: z.object({ diaCobrado: z.number().int() }),
 });
 
 export type RarezaId = z.infer<typeof RarezaIdZ>;

@@ -16,7 +16,8 @@
     "azarMax": 1.0,
     "criticoProb": 5,
     "criticoBonusVeloz": 8,
-    "criticoMult": 1.5
+    "criticoMult": 1.5,
+    "equipos": 1.25
   },
   "etapas": {
     "paso": 0.5,

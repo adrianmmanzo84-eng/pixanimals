@@ -120,3 +120,18 @@ export function usarItem(datos: Datos, estado: EstadoJuego, id: string, ahora: n
   }
   return { ok: false, motivo: 'no_se_usa_aqui' };
 }
+
+/**
+ * Equipa un amuleto de la Bolsa a una criatura (o lo quita con `item` null). El que llevaba vuelve a la Bolsa.
+ * Devuelve false si no se puede (no tienes ese amuleto, o no es un amuleto).
+ */
+export function equiparAmuleto(datos: Datos, estado: EstadoJuego, especie: string, item: string | null): boolean {
+  const c = criaturaDe(estado, especie);
+  if (!c) return false;
+  if (item !== null && (datos.items.get(item)?.efecto.tipo !== 'amuleto' || cantidad(estado, item) < 1)) return false;
+  if (c.amuleto) agregar(estado, c.amuleto);
+  if (item) quitar(estado, item);
+  c.amuleto = item;
+  return true;
+}
+

@@ -66,6 +66,7 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
     if ((p.tipo === 'monedas' || p.tipo === 'esencia') && p.min > p.max) errores.push(`Premio de ${p.tipo}: min mayor que max.`);
   }
   for (const id of sobres.bienvenida) if (mCri.get(id)?.etapa !== 1) errores.push(`Sobre de bienvenida: ${id} no es una criatura de etapa 1.`);
+  for (const s of [economia.torre.sobreJefe, economia.torre.sobreGrande]) if (!sobres.sobres.some((x) => x.id === s)) errores.push(`Torre: el sobre ${s} no existe.`);
   if (!sobres.sobres.some((s) => s.id === economia.diario.sobreUltimoDia)) errores.push(`Premio diario: el sobre ${economia.diario.sobreUltimoDia} no existe.`);
   if (new Set(economia.misiones.lista.map((m) => m.id)).size !== economia.misiones.lista.length) errores.push('Hay ids de misión repetidos.');
   if (economia.misiones.lista.length < economia.misiones.porDia) errores.push('Hay menos misiones que misiones por día.');

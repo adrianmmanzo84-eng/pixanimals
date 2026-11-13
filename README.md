@@ -2,7 +2,7 @@
 
 Juego web de colección y combate por turnos: criaturas y efectos en pixel art sobre fondos de estilo animado. Nombre de trabajo.
 
-**Estado: Fase 4 terminada – 3 minijuegos que entrenan a tus criaturas, premio diario con racha y misiones del día. Antes: tienda, ítems, evolución, carta premio, 13 familias (65 criaturas) y 7 tipos.**
+**Estado: Fase 5 terminada – Torre de Desafíos, Entrenador del día, amuletos, música chiptune, velocidad ×2 y combates de equipo más cortos. Antes: minijuegos, premio diario, misiones, tienda, evolución, 13 familias (65 criaturas) y 7 tipos.**
 
 ## Ejecutar
 
@@ -28,7 +28,7 @@ Abre la dirección que muestra la terminal (normalmente http://localhost:5173). 
 
 - Teclado: flechas para moverse, **Z** o **Enter** para aceptar, **X** para volver.
 - Móvil: cruceta y botones A/B en pantalla. Tocar la pantalla del juego también avanza el texto.
-- Botón «Sonido» arriba a la derecha.
+- Barra de arriba a la derecha: velocidad de los combates (×1/×2), volumen de música y de efectos, y silencio.
 
 ## Cómo está organizado
 

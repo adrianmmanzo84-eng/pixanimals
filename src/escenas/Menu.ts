@@ -6,6 +6,9 @@ import { sobresGratis } from '../core/sobres/sobres';
 import { puedeEvolucionar } from '../core/progresion/evolucion';
 import { cobrarDiario, diarioDisponible, premioDeHoy } from '../core/progresion/diario';
 import { misionesPorCobrar } from '../core/progresion/misiones';
+import { entrenadorCobrado } from '../core/modos/entrenador';
+import { musica } from '../audio/musica';
+import { esJefe } from '../core/modos/torre';
 import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
@@ -30,10 +33,16 @@ export class Menu extends Phaser.Scene {
   private cursor!: Phaser.GameObjects.Graphics;
   private ayuda!: Texto;
   private sel = 0;
-  private modo: 'principal' | 'dificultad' | 'diario' = 'principal';
+  private modo: 'principal' | 'combates' | 'dificultad' | 'diario' = 'principal';
+  private submenu = false;
 
   constructor() {
     super('Menu');
+  }
+
+  /** `submenu: 'combates'` vuelve directo al submenú de combates (al terminar un combate). */
+  init(d: { submenu?: string }): void {
+    this.submenu = d?.submenu === 'combates';
   }
 
   create(): void {
@@ -43,8 +52,10 @@ export class Menu extends Phaser.Scene {
       this.scene.start('Sobres', { bienvenida: true });
       return;
     }
+    musica.tocar('menu');
     this.filas = [];
-    this.modo = 'principal';
+    this.modo = this.submenu ? 'combates' : 'principal';
+    this.sel = 0;
     prepararCamara(this);
     if (this.textures.exists('fondoimg_portada')) {
       // Ilustración de portada ajustada al ancho (sus criaturas están en los bordes); debajo, el panel del equipo.
@@ -86,6 +97,14 @@ export class Menu extends Phaser.Scene {
 
   private opciones(): string[] {
     if (this.modo === 'dificultad') return NIVELES_IA.map((ia) => t('menu.premio', { ia: t(`ia.${ia}`), n: DATOS.economia.recompensas[ia] }));
+    if (this.modo === 'combates') {
+      const piso = juego.estado.torre.piso;
+      return [
+        t('menu.rapido'),
+        t(esJefe(DATOS, piso) ? 'menu.torreJefe' : 'menu.torre', { n: piso }),
+        t(entrenadorCobrado(juego.estado, Date.now()) ? 'menu.entrenadorHecho' : 'menu.entrenador'),
+      ];
+    }
     const hayGratis = sobresGratis(DATOS, juego.estado, Date.now()).disponibles > 0;
     const hayEvolucion = juego.estado.criaturas.some((c) => puedeEvolucionar(DATOS, juego.estado, c));
     const porCobrar = misionesPorCobrar(DATOS, juego.estado);
@@ -155,7 +174,7 @@ export class Menu extends Phaser.Scene {
     }
     const total = this.opciones().length;
     if (a === 'arriba' || a === 'abajo') {
-      if (this.modo === 'dificultad') this.sel = (this.sel + (a === 'abajo' ? 1 : total - 1)) % total;
+      if (this.modo !== 'principal') this.sel = (this.sel + (a === 'abajo' ? 1 : total - 1)) % total;
       else {
         // Dentro de la columna.
         const col = Math.floor(this.sel / POR_COLUMNA);
@@ -170,13 +189,29 @@ export class Menu extends Phaser.Scene {
       this.sel = Math.min(total - 1, col * POR_COLUMNA + fila);
       sonido.tocar('cursor');
     } else if (a === 'b' && this.modo === 'dificultad') {
+      this.modo = 'combates';
+      this.sel = 0;
+      sonido.tocar('cancelar');
+    } else if (a === 'b' && this.modo === 'combates') {
       this.modo = 'principal';
       this.sel = 0;
       sonido.tocar('cancelar');
     } else if (a === 'a') {
       if (this.modo === 'dificultad') {
         sonido.tocar('aceptar');
-        this.scene.start('Combate', { ia: NIVELES_IA[this.sel] });
+        this.scene.start('Combate', { ia: NIVELES_IA[this.sel], modo: 'rapido' });
+        return;
+      }
+      if (this.modo === 'combates') {
+        sonido.tocar('aceptar');
+        if (this.sel === 0) {
+          this.modo = 'dificultad';
+          this.sel = 1;
+        } else {
+          this.scene.start('Desafio', { modo: this.sel === 1 ? 'torre' : 'entrenador' });
+          return;
+        }
+        this.pintar();
         return;
       }
       const destino = DESTINOS[this.sel]!;
@@ -185,8 +220,8 @@ export class Menu extends Phaser.Scene {
           sonido.tocar('negado');
           return;
         }
-        this.modo = 'dificultad';
-        this.sel = 1;
+        this.modo = 'combates';
+        this.sel = 0;
         sonido.tocar('aceptar');
       } else if (this.sel === GUARDADO) {
         sonido.tocar('aceptar');

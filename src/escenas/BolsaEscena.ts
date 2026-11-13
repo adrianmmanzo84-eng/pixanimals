@@ -70,7 +70,7 @@ export class BolsaEscena extends Phaser.Scene {
       iconoItem(g, it, 192, 36, 1.8);
       new Texto(this, 150, 48, 84, 10, C.tinta, 'centro', { peso: 600 }).poner(it.nombre);
       new Texto(this, 152, 59, 82, 40).poner(partir(it.descripcion, 80).join('\n'));
-      if (it.uso !== 'fuera') new Texto(this, 152, 92, 82, 26, C.tintaSuave).poner(partir(t(it.uso === 'combate' ? 'bolsaP.enCombate' : 'bolsaP.alEvolucionar'), 80).join('\n'));
+      if (it.uso !== 'fuera') new Texto(this, 152, 92, 82, 26, C.tintaSuave).poner(partir(t(it.uso === 'combate' ? 'bolsaP.enCombate' : it.uso === 'equipo' ? 'bolsaP.enEquipo' : 'bolsaP.alEvolucionar'), 80).join('\n'));
       this.pie(g, it);
     }
     Entrada.escuchar((a) => this.alPulsar(a));

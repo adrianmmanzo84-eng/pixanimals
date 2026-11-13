@@ -6,6 +6,7 @@ import { partidasConPremio } from '../core/minijuegos/minijuegos';
 import { puedeEvolucionar, tieneEvolucion } from '../core/progresion/evolucion';
 import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
+import { musica } from '../audio/musica';
 import { t } from '../i18n/i18n';
 import { juego } from '../juego';
 import { miniatura, textura } from '../ui/criaturas';
@@ -48,6 +49,7 @@ export class Minijuegos extends Phaser.Scene {
 
   create(): void {
     prepararCamara(this);
+    musica.tocar('minijuego');
     this.add.image(0, 0, fondo(this, 'menu')).setOrigin(0, 0).setScale(0.25);
     new Texto(this, 0, 3, 240, 14, '#ffffff', 'centro', { tam: 11, peso: 600, borde: '#2b3a78' }).poner(t('mj.titulo'));
     this.capa = this.add.container(0, 0);

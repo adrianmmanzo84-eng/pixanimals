@@ -305,6 +305,8 @@ export class Batalla {
     const rival = this.act((1 - lado) as Lado);
     const b = this.datos.balance;
     let otros = 1;
+    // En combates de equipo se pega más fuerte, para que 3 contra 3 no se haga largo.
+    if (this.equipos.some((e) => e.miembros.length > 1)) otros *= b.dano.equipos;
     if (this.mecanica(yo) === 'ultimo_rescoldo' && yo.ps / yo.stats.ps < b.pasivas.ultimo_rescoldo.umbralPs) otros *= b.pasivas.ultimo_rescoldo.mult;
     if (yo.oleaje) otros *= b.pasivas.oleaje.mult;
     if (yo.estado?.id === 'quemadura' && categoria === 'fisica') otros *= b.estados.quemadura.multFisico;

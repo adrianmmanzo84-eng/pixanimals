@@ -1,3 +1,4 @@
+import { ajustes } from '../ajustes';
 /**
  * Efectos de sonido sintetizados con Web Audio (ondas cuadradas, triangulares y ruido).
  * No hay ningún archivo de audio: cada efecto es una lista de notas.
@@ -34,7 +35,7 @@ const EFECTOS: Record<string, Nota[]> = {
 };
 
 class Sonido {
-  private ctx: AudioContext | null = null;
+  ctx: AudioContext | null = null;
   private ruido: AudioBuffer | null = null;
   silenciado = false;
   volumen = 0.5;
@@ -47,18 +48,26 @@ class Sonido {
     }
   }
 
+  /** Avisa cuando el audio quedó habilitado (tras el primer gesto). */
+  alActivar: (() => void) | null = null;
+
   /** Debe llamarse dentro de un gesto del usuario. */
   activar(): void {
     try {
       this.ctx ??= new AudioContext();
       void this.ctx.resume();
+      this.alActivar?.();
     } catch {
       this.ctx = null;
     }
   }
 
+  /** Avisa al cambiar el silencio (la música lo escucha). */
+  alSilenciar: ((silenciado: boolean) => void) | null = null;
+
   alternar(): boolean {
     this.silenciado = !this.silenciado;
+    this.alSilenciar?.(this.silenciado);
     try {
       localStorage.setItem('silencio', this.silenciado ? '1' : '0');
     } catch {
@@ -70,11 +79,11 @@ class Sonido {
   tocar(nombre: keyof typeof EFECTOS | string): void {
     const ctx = this.ctx;
     const notas = EFECTOS[nombre];
-    if (!ctx || this.silenciado || !notas) return;
+    if (!ctx || this.silenciado || !notas || ajustes.efectos === 0) return;
     for (const n of notas) {
       const t0 = ctx.currentTime + (n.t ?? 0);
       const gan = ctx.createGain();
-      const vol = (n.vol ?? 0.3) * this.volumen;
+      const vol = (n.vol ?? 0.3) * this.volumen * (ajustes.efectos / 3);
       gan.gain.setValueAtTime(vol, t0);
       gan.gain.exponentialRampToValueAtTime(0.001, t0 + n.dur);
       gan.connect(ctx.destination);

@@ -26,3 +26,18 @@ export function generarRival(datos: Datos, equipoJugador: CriaturaJugador[], rng
     return crearCombatiente(datos, especie.id, nivel);
   });
 }
+
+/**
+ * Evoluciona una criatura inicial siguiendo su línea principal hasta donde permite el nivel.
+ * Con `eclipse`, si llega a la etapa 3 y el nivel lo permite, toma la forma Eclipse en vez de la normal.
+ */
+export function formaParaNivel(datos: Datos, inicial: string, nivel: number, eclipse = false): string {
+  let especie = datos.criaturas.get(inicial)!;
+  for (;;) {
+    const opciones = especie.evoluciona.filter((e) => nivel >= e.nivel && (eclipse || !e.item));
+    const ev = (eclipse && opciones.find((e) => e.item)) || opciones.find((e) => !e.item);
+    if (!ev) return especie.id;
+    especie = datos.criaturas.get(ev.a)!;
+  }
+}
+

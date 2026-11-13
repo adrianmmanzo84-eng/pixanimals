@@ -9,13 +9,16 @@
     <style>
       * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
       html, body { margin: 0; height: 100%; background: #1a1c2c; color: #f4f4f4; font-family: system-ui, sans-serif; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
-      #app { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 8px; }
+      #app { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 52px 8px 8px; }
       #pantalla { position: relative; line-height: 0; border: 3px solid #333c57; border-radius: 8px; background: #000; }
       #pantalla canvas { display: block; border-radius: 4px; }
-      #silencio { position: absolute; bottom: 8px; right: 8px; z-index: 2; min-width: 44px; height: 36px; padding: 0 10px; border-radius: 8px; border: 2px solid #566c86; background: #29366f; color: #f4f4f4; font-size: 13px; font-weight: 600; }
+      #barra { position: absolute; top: 8px; right: 8px; z-index: 2; display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+      #barra button { min-width: 44px; height: 36px; padding: 0 10px; border-radius: 8px; border: 2px solid #566c86; background: #29366f; color: #f4f4f4; font-size: 13px; font-weight: 600; }
+      #barra button[aria-pressed="true"] { background: #41a6f6; color: #10142c; }
       #mando { display: none; width: 100%; max-width: 420px; justify-content: space-between; align-items: center; padding: 0 10px; }
       body.tactil #mando { display: flex; }
-      body.tactil #silencio { top: 8px; bottom: auto; }
+      body.tactil #barra { top: 8px; bottom: auto; left: 8px; right: 8px; justify-content: center; }
+      body.tactil #barra button { height: 34px; padding: 0 8px; font-size: 12px; }
       body.tactil #app { justify-content: flex-start; padding-top: 52px; gap: 22px; }
       #cruz { display: grid; grid-template-columns: repeat(3, 52px); grid-template-rows: repeat(3, 52px); }
       #botones { display: flex; gap: 14px; align-items: flex-end; }
@@ -39,7 +42,12 @@
     </style>
   </head>
   <body>
-    <button id="silencio" type="button" aria-pressed="false">Sonido: sí</button>
+    <div id="barra">
+      <button id="velocidad" type="button" aria-pressed="false" title="Velocidad de los combates">Velocidad ×1</button>
+      <button id="vol-musica" type="button" title="Volumen de la música">Música ■■□</button>
+      <button id="vol-efectos" type="button" title="Volumen de los efectos">Efectos ■■■</button>
+      <button id="silencio" type="button" aria-pressed="false">Sonido: sí</button>
+    </div>
     <div id="app">
       <div id="pantalla"></div>
       <div id="mando" aria-label="Controles táctiles">

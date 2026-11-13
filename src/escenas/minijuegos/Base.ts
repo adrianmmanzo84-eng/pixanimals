@@ -5,6 +5,7 @@ import { criaturaDe } from '../../core/estado/juego';
 import { terminarMinijuego, type ResultadoMinijuego } from '../../core/minijuegos/minijuegos';
 import { Entrada, type AccionEntrada } from '../../entrada';
 import { sonido } from '../../audio/sfx';
+import { musica } from '../../audio/musica';
 import { t } from '../../i18n/i18n';
 import { juego } from '../../juego';
 import { C, prepararCamara, ventana } from '../../ui/estilo';
@@ -46,6 +47,7 @@ export abstract class MinijuegoBase extends Phaser.Scene {
 
   create(): void {
     prepararCamara(this);
+    musica.tocar('minijuego');
     // El paisaje cubre toda la pantalla (los de combate son más apaisados): se amplía y se centra.
     const img = this.add.image(120, 0, fondo(this, this.arena)).setOrigin(0.5, 0);
     img.setScale(Math.max(240 / img.width, 160 / img.height));
@@ -102,7 +104,7 @@ export abstract class MinijuegoBase extends Phaser.Scene {
     this.info.poner('');
     const r = terminarMinijuego(DATOS, juego.estado, this.id, this.especie, puntaje, valor, Date.now());
     juego.guardar();
-    sonido.tocar(puntaje > 0 ? 'victoria' : 'derrota');
+    musica.tocar(puntaje > 0 ? 'victoria' : 'derrota');
     await this.esperar(500);
     this.mostrarResultado(r, textoValor);
   }

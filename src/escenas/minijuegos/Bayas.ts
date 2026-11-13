@@ -23,7 +23,18 @@ interface Cosa {
   vy: number;
 }
 
-/** Lluvia de Bayas: mueve a tu criatura con las flechas y atrapa bayas; las piedras te quitan dos. */
+interface Rodante {
+  img: Phaser.GameObjects.Image;
+  vx: number;
+}
+
+const GRAVEDAD = 560;
+const IMPULSO = 190;
+
+/**
+ * Lluvia de Bayas: mueve a tu criatura con las flechas y atrapa bayas; las piedras te quitan dos.
+ * Con A (o arriba) salta: alcanza bayas más altas y esquiva las piedras que ruedan por el suelo.
+ */
 export class MiniBayas extends MinijuegoBase {
   protected readonly id: MinijuegoId = 'bayas';
   protected readonly arena = 'pradera' as const;
@@ -33,6 +44,13 @@ export class MiniBayas extends MinijuegoBase {
   private proxima = 0;
   private puntos = 0;
   private aturdido = 0;
+  private rodantes: Rodante[] = [];
+  private proximaRodante = 0;
+  /** Altura del salto (0 = en el suelo) y velocidad vertical. */
+  private altura = 0;
+  private vy = 0;
+  /** Hacia dónde mira: los sprites miran a la izquierda; mirando a la derecha se espejan. */
+  private derecha = false;
 
   constructor() {
     super('MiniBayas');
@@ -56,6 +74,11 @@ export class MiniBayas extends MinijuegoBase {
     this.proxima = 0.4;
     this.puntos = 0;
     this.aturdido = 0;
+    this.rodantes = [];
+    this.proximaRodante = 5;
+    this.altura = 0;
+    this.vy = 0;
+    this.derecha = false;
     this.yo = this.add.sprite(120, SUELO, textura(this.especie, 'icono'), 0).setOrigin(0.5, 1);
     let cuadro = 0;
     this.time.addEvent({ delay: 300, loop: true, callback: () => this.yo.setFrame((cuadro ^= 1)) });
@@ -64,16 +87,53 @@ export class MiniBayas extends MinijuegoBase {
 
   protected empezar(): void {}
 
+  /** Piedras que ruedan por el suelo desde un costado: hay que saltarlas. */
+  private paseRodantes(dt: number, avance: number): void {
+    this.proximaRodante -= dt;
+    if (this.proximaRodante <= 0) {
+      this.proximaRodante = 3.5 + Math.random() * 2.5 - avance;
+      const desdeIzq = Math.random() < 0.5;
+      const img = this.add.image(desdeIzq ? -8 : 248, SUELO - 5, 'mj_piedra').setScale(1.6);
+      this.rodantes.push({ img, vx: (desdeIzq ? 1 : -1) * (70 + 45 * avance) });
+    }
+    for (const r of [...this.rodantes]) {
+      r.img.x += r.vx * dt;
+      r.img.rotation += (r.vx / 6) * dt;
+      const choca = this.aturdido <= 0 && this.altura < 10 && Math.abs(r.img.x - this.yo.x) < 12;
+      if (choca) {
+        this.puntos = Math.max(0, this.puntos - 2);
+        this.aturdido = 0.7;
+        this.cameras.main.shake(120, 0.01);
+        sonido.tocar('golpe');
+      }
+      if (choca || r.img.x < -20 || r.img.x > 260) {
+        r.img.destroy();
+        this.rodantes.splice(this.rodantes.indexOf(r), 1);
+      }
+    }
+  }
+
   private pintarMarcador(): void {
     const resta = Math.max(0, Math.ceil(DURACION - this.tiempo));
     this.marcador.poner(t('mj.bayas.marcador', { n: this.puntos, s: resta }));
   }
 
   protected tecla(a: AccionEntrada): void {
-    // Un toque mueve un poco (para el mando táctil); mantener apretado mueve seguido en `paso`.
     if (this.aturdido > 0) return;
-    if (a === 'izquierda') this.yo.x = Math.max(14, this.yo.x - 6);
-    if (a === 'derecha') this.yo.x = Math.min(226, this.yo.x + 6);
+    if ((a === 'a' || a === 'arriba') && this.altura === 0) {
+      this.vy = -IMPULSO;
+      sonido.tocar('cursor');
+      return;
+    }
+    // Un toque mueve un poco (para el mando táctil); mantener apretado mueve seguido en `paso`.
+    if (a === 'izquierda') this.mover(-6);
+    if (a === 'derecha') this.mover(6);
+  }
+
+  private mover(dx: number): void {
+    this.yo.x = Math.max(14, Math.min(226, this.yo.x + dx));
+    this.derecha = dx > 0;
+    this.yo.setFlipX(this.derecha);
   }
 
   protected override paso(dt: number): void {
@@ -85,10 +145,17 @@ export class MiniBayas extends MinijuegoBase {
       if (this.aturdido <= 0) this.yo.setAlpha(1);
     } else {
       const v = 120 * dt;
-      if (Entrada.apretada('izquierda')) this.yo.x = Math.max(14, this.yo.x - v);
-      if (Entrada.apretada('derecha')) this.yo.x = Math.min(226, this.yo.x + v);
-      this.yo.setFlipX(Entrada.apretada('derecha'));
+      if (Entrada.apretada('izquierda')) this.mover(-v);
+      else if (Entrada.apretada('derecha')) this.mover(v);
     }
+    // Salto
+    if (this.vy !== 0 || this.altura > 0) {
+      this.vy += GRAVEDAD * dt;
+      this.altura = Math.max(0, this.altura - this.vy * dt);
+      if (this.altura === 0) this.vy = 0;
+    }
+    this.yo.y = SUELO - this.altura;
+    this.paseRodantes(dt, avance);
 
     this.proxima -= dt;
     if (this.proxima <= 0) {
@@ -101,7 +168,7 @@ export class MiniBayas extends MinijuegoBase {
 
     for (const c of [...this.cosas]) {
       c.img.y += c.vy * dt;
-      const atrapada = c.img.y > SUELO - 26 && c.img.y < SUELO && Math.abs(c.img.x - this.yo.x) < 15 && this.aturdido <= 0;
+      const atrapada = c.img.y > this.yo.y - 26 && c.img.y < this.yo.y && Math.abs(c.img.x - this.yo.x) < 15 && this.aturdido <= 0;
       if (atrapada) {
         if (c.tipo === 'piedra') {
           this.puntos = Math.max(0, this.puntos - 2);
@@ -122,7 +189,9 @@ export class MiniBayas extends MinijuegoBase {
     this.pintarMarcador();
     if (this.tiempo >= DURACION) {
       for (const c of this.cosas) c.img.destroy();
+      for (const c of this.rodantes) c.img.destroy();
       this.cosas = [];
+      this.rodantes = [];
       void this.terminar(Math.min(1, this.puntos / META), this.puntos, t('mj.bayas.fin', { n: this.puntos }));
     }
   }

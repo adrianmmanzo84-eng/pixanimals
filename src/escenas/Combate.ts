@@ -7,6 +7,10 @@ import { generarRival } from '../core/combate/rival';
 import { combatienteDe, criaturaDe, equipoDe, marcarVista } from '../core/estado/juego';
 import { aplicarRecompensa, xpParaSubir } from '../core/progresion/experiencia';
 import { registrar } from '../core/progresion/misiones';
+import { datosPiso, equipoPiso, resultadoTorre } from '../core/modos/torre';
+import { entrenadorDelDia, equipoEntrenador, resultadoEntrenador } from '../core/modos/entrenador';
+import { musica } from '../audio/musica';
+import { ajustes, alCambiarAjustes } from '../ajustes';
 import type { Habilidad, Item } from '../esquemas/esquemas';
 import { cantidad, quitar } from '../core/items/items';
 import { Entrada, type AccionEntrada } from '../entrada';
@@ -21,6 +25,9 @@ import { partir, Texto } from '../ui/texto';
 
 export interface ConfigCombate {
   ia: NivelIA;
+  /** rapido: rival parejo al azar; torre: el piso `piso`; entrenador: el Entrenador del día. */
+  modo?: 'rapido' | 'torre' | 'entrenador';
+  piso?: number;
 }
 
 interface Panel {
@@ -100,10 +107,26 @@ export class Combate extends Phaser.Scene {
     const rng = new Rng(semilla);
     this.rngIA = new Rng(semilla ^ 0x9e3779b9);
     const mios = equipoDe(juego.estado);
-    this.bat = new Batalla(DATOS, [mios.map((c) => combatienteDe(DATOS, c)), generarRival(DATOS, mios, rng)], rng);
+    const modo = this.cfg.modo ?? 'rapido';
+    const rival =
+      modo === 'torre'
+        ? equipoPiso(DATOS, datosPiso(DATOS, this.cfg.piso ?? juego.estado.torre.piso, mios.length))
+        : modo === 'entrenador'
+          ? equipoEntrenador(DATOS, entrenadorDelDia(DATOS, Date.now()), mios)
+          : generarRival(DATOS, mios, rng);
+    this.bat = new Batalla(DATOS, [mios.map((c) => combatienteDe(DATOS, c)), rival], rng);
+    musica.tocar(modo === 'torre' && datosPiso(DATOS, this.cfg.piso ?? 1, 1).jefe ? 'jefe' : modo === 'rapido' ? 'combate' : 'jefe');
     this.verRival();
 
     prepararCamara(this);
+    // Velocidad ×2: todo el combate (esperas, textos y animaciones) corre sobre el reloj de la escena.
+    const velocidad = () => {
+      this.time.timeScale = ajustes.velocidad;
+      this.tweens.timeScale = ajustes.velocidad;
+    };
+    velocidad();
+    const dejar = alCambiarAjustes(velocidad);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, dejar);
     const [yo, el] = this.bat.lados;
     // El escenario depende del tipo del primer rival; uno de cada cuatro combates ocurre en la pradera.
     const arena = rng.prob(25) ? 'pradera' : (FONDO_POR_TIPO[el.especie.tipo] ?? 'pradera');
@@ -150,6 +173,11 @@ export class Combate extends Phaser.Scene {
       this.tween({ targets: this.sprites[0], x: POS[0].x, duration: 550, ease: 'Cubic.easeOut' }),
       this.tween({ targets: this.sprites[1], x: POS[1].x, duration: 550, ease: 'Cubic.easeOut' }),
     ]);
+    if (this.cfg.modo === 'entrenador') await this.decir(t('c.entrenador', { n: entrenadorDelDia(DATOS, Date.now()).nombre }));
+    if (this.cfg.modo === 'torre') {
+      const p = datosPiso(DATOS, this.cfg.piso ?? 1, 1);
+      await this.decir(t(p.jefe ? 'c.torreJefe' : 'c.torre', { n: p.piso }));
+    }
     await this.decir(t('c.aparece', { n: this.nom(1) }));
     await this.decir(t('c.adelante', { n: this.nom(0) }));
 
@@ -291,9 +319,24 @@ export class Combate extends Phaser.Scene {
 
   /** Reparte la recompensa, guarda la partida y muestra el resumen. */
   private async resultado(retirada: boolean): Promise<void> {
-    const r = aplicarRecompensa(DATOS, juego.estado, this.bat, this.cfg.ia, retirada);
+    const modo = this.cfg.modo ?? 'rapido';
+    // Torre y Entrenador pagan su propio premio en lugar de las monedas por dificultad.
+    const r = aplicarRecompensa(DATOS, juego.estado, this.bat, this.cfg.ia, retirada, modo === 'rapido' ? undefined : 0);
+    const extra: string[] = [];
+    const nombreSobre = (id: string) => DATOS.sobres.sobres.find((s) => s.id === id)?.nombre ?? id;
+    if (modo === 'torre' && !retirada) {
+      const p = resultadoTorre(DATOS, juego.estado, this.cfg.piso ?? 1, r.victoria);
+      if (r.victoria) extra.push(p.nuevo ? t('fin.piso', { n: this.cfg.piso ?? 1, m: p.monedas }) : t('fin.pisoRepetido'));
+      if (p.sobre) extra.push(t('fin.sobre', { s: nombreSobre(p.sobre) }));
+    }
+    if (modo === 'entrenador' && !retirada) {
+      const p = resultadoEntrenador(DATOS, juego.estado, r.victoria, Date.now());
+      if (p.monedas) extra.push(t('fin.entrenador', { n: p.monedas }));
+      if (p.sobre) extra.push(t('fin.sobre', { s: nombreSobre(p.sobre) }));
+    }
     juego.guardar();
-    const lineas = [t('fin.turnos', { n: this.bat.turno })];
+    musica.tocar(r.victoria ? 'victoria' : 'derrota');
+    const lineas = [t('fin.turnos', { n: this.bat.turno }), ...extra];
     if (r.monedas) lineas.push(t('fin.monedas', { n: r.monedas }));
     if (r.xpPorCriatura) lineas.push(t('fin.xp', { n: r.xpPorCriatura }));
     for (const s of r.subidas) lineas.push(t('fin.sube', { n: DATOS.criaturas.get(s.especie)!.nombre, nv: s.nivel }));
@@ -302,7 +345,6 @@ export class Combate extends Phaser.Scene {
     const alto = 34 + lineas.length * 9;
     const g = this.add.graphics();
     ventana(g, 44, 32, 152, alto);
-    sonido.tocar(r.victoria ? 'victoria' : 'derrota');
     new Texto(this, 44, 38, 152, 12, r.victoria ? '#257179' : C.resalte, 'centro', { tam: 9.5, peso: 600 }).poner(t(retirada ? 'fin.retirada' : r.victoria ? 'fin.victoria' : 'fin.derrota'));
     new Texto(this, 44, 51, 152, lineas.length * 9 + 4, C.tinta, 'centro').poner(lineas.join('\n'));
     new Texto(this, 44, 53 + lineas.length * 9, 152, 10, C.tintaSuave, 'centro').poner(t('fin.continuar'));
@@ -312,7 +354,7 @@ export class Combate extends Phaser.Scene {
       if (a !== 'a' && a !== 'b') return;
       sonido.tocar('aceptar');
       // Al ganar se elige una carta premio.
-      this.scene.start(r.victoria ? 'Premio' : 'Menu');
+      this.scene.start(r.victoria ? 'Premio' : 'Menu', { submenu: 'combates' });
     };
   }
 

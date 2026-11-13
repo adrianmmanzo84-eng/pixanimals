@@ -140,7 +140,7 @@ export class Premio extends Phaser.Scene {
     this.alPulsar = (a) => {
       if (a !== 'a' && a !== 'b') return;
       sonido.tocar('aceptar');
-      this.scene.start('Menu');
+      this.scene.start('Menu', { submenu: 'combates' });
     };
   }
 }

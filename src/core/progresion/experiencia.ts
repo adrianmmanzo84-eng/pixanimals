@@ -41,14 +41,15 @@ export interface Recompensa {
  * Victoria: monedas según la dificultad y XP por cada rival derrotado, repartida entre quienes participaron.
  * Derrota o retirada: una pequeña compensación en monedas y la mitad de la XP ganada hasta ese momento.
  */
-export function aplicarRecompensa(datos: Datos, estado: EstadoJuego, bat: Batalla, dificultad: NivelIA, retirada = false): Recompensa {
+/** `monedasVictoria`: si el modo paga su propio premio (Torre, Entrenador del día), las monedas por ganar se reemplazan por este valor. */
+export function aplicarRecompensa(datos: Datos, estado: EstadoJuego, bat: Batalla, dificultad: NivelIA, retirada = false, monedasVictoria?: number): Recompensa {
   const eco = datos.economia;
   const victoria = !retirada && bat.ganador === 0;
   const caidos = bat.equipos[1].miembros.filter((m) => m.ps <= 0);
   const xpTotal = caidos.reduce((s, m) => s + eco.xp.porVictoriaBase + eco.xp.porNivelRival * m.nivel, 0) * (victoria ? 1 : 0.5);
   const participantes = bat.equipos[0].miembros.filter((m) => m.participo);
   const xpPorCriatura = retirada ? 0 : Math.floor(xpTotal / Math.max(1, participantes.length));
-  const monedas = retirada ? 0 : victoria ? eco.recompensas[dificultad] : eco.recompensas.derrota;
+  const monedas = retirada ? 0 : victoria ? (monedasVictoria ?? eco.recompensas[dificultad]) : eco.recompensas.derrota;
   const subidas: Recompensa['subidas'] = [];
   const listas: string[] = [];
   const entrenamiento = victoria ? eco.entrenamiento.porVictoria : 0;

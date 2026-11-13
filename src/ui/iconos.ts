@@ -43,6 +43,13 @@ export function iconoItem(g: Phaser.GameObjects.Graphics, item: Item, x: number,
       g.fillStyle(c, 1).fillRect(x - 4 * k, y - 3 * k, 8 * k, 2 * k);
       g.fillStyle(luz, 0.7).fillRect(x - 2 * k, y - 3 * k, 2 * k, 1 * k);
       break;
+    case 'amuleto': // medallón con cordón
+      g.lineStyle(1 * k, 0x8a6a3a, 1).beginPath().arc(x, y - 3 * k, 3.5 * k, Math.PI, 0).strokePath();
+      g.fillStyle(borde, 1).fillCircle(x, y + 1.5 * k, 4.4 * k);
+      g.fillStyle(0xf5c542, 1).fillCircle(x, y + 1.5 * k, 3.6 * k);
+      g.fillStyle(c, 1).fillCircle(x, y + 1.5 * k, 2.4 * k);
+      g.fillStyle(luz, 0.8).fillCircle(x - 0.9 * k, y + 0.6 * k, 0.7 * k);
+      break;
     default: // frasco (poción, antídoto, tónico)
       g.fillStyle(borde, 1).fillRect(x - 1.5 * k, y - 6 * k, 3 * k, 3 * k);
       g.fillStyle(borde, 1).fillCircle(x, y + 1.5 * k, 4.6 * k);

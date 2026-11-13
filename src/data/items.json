@@ -223,6 +223,96 @@
         "monedas": 400
       },
       "color": "#5a3a9a"
+    },
+    {
+      "id": "amuleto_vigor",
+      "nombre": "Amuleto Vigor",
+      "descripcion": "PS +10 % mientras lo lleva. Se equipa en Mis criaturas.",
+      "uso": "equipo",
+      "efecto": {
+        "tipo": "amuleto",
+        "stat": "ps",
+        "porcentaje": 10
+      },
+      "precio": {
+        "monedas": 300
+      },
+      "color": "#5cc85c"
+    },
+    {
+      "id": "amuleto_fuerza",
+      "nombre": "Amuleto Fuerza",
+      "descripcion": "Ataque +10 % mientras lo lleva. Se equipa en Mis criaturas.",
+      "uso": "equipo",
+      "efecto": {
+        "tipo": "amuleto",
+        "stat": "atq",
+        "porcentaje": 10
+      },
+      "precio": {
+        "monedas": 300
+      },
+      "color": "#e0604a"
+    },
+    {
+      "id": "amuleto_coraza",
+      "nombre": "Amuleto Coraza",
+      "descripcion": "Defensa +10 % mientras lo lleva. Se equipa en Mis criaturas.",
+      "uso": "equipo",
+      "efecto": {
+        "tipo": "amuleto",
+        "stat": "def",
+        "porcentaje": 10
+      },
+      "precio": {
+        "monedas": 300
+      },
+      "color": "#c89a4a"
+    },
+    {
+      "id": "amuleto_mente",
+      "nombre": "Amuleto Mente",
+      "descripcion": "Ataque Especial +10 % mientras lo lleva. Se equipa en Mis criaturas.",
+      "uso": "equipo",
+      "efecto": {
+        "tipo": "amuleto",
+        "stat": "ate",
+        "porcentaje": 10
+      },
+      "precio": {
+        "monedas": 300
+      },
+      "color": "#a070e0"
+    },
+    {
+      "id": "amuleto_calma",
+      "nombre": "Amuleto Calma",
+      "descripcion": "Defensa Especial +10 % mientras lo lleva. Se equipa en Mis criaturas.",
+      "uso": "equipo",
+      "efecto": {
+        "tipo": "amuleto",
+        "stat": "dfe",
+        "porcentaje": 10
+      },
+      "precio": {
+        "monedas": 300
+      },
+      "color": "#4aa0e0"
+    },
+    {
+      "id": "amuleto_pluma",
+      "nombre": "Amuleto Pluma",
+      "descripcion": "Velocidad +10 % mientras lo lleva. Se equipa en Mis criaturas.",
+      "uso": "equipo",
+      "efecto": {
+        "tipo": "amuleto",
+        "stat": "vel",
+        "porcentaje": 10
+      },
+      "precio": {
+        "monedas": 300
+      },
+      "color": "#60d0d0"
     }
   ]
 }

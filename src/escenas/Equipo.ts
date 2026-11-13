@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { DATOS } from '../core/datos';
-import { bonusVitaminas, criaturaDe, potencialDe } from '../core/estado/juego';
+import { bonusStats, criaturaDe, potencialDe } from '../core/estado/juego';
+import { cantidad, equiparAmuleto } from '../core/items/items';
 import { calcularStats } from '../core/combate/formulas';
 import { costoLlenar, evolucionar, infundirEsencia, opcionesEvolucion, puedeEvolucionar, tieneEvolucion, type OpcionEvolucion } from '../core/progresion/evolucion';
 import { xpParaSubir } from '../core/progresion/experiencia';
@@ -14,7 +15,7 @@ import { C, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { partir, Texto } from '../ui/texto';
 
-type Accion = { id: 'frente' | 'sacar' | 'sumar' | 'entrenar' } | { id: 'evo'; op: OpcionEvolucion };
+type Accion = { id: 'frente' | 'sacar' | 'sumar' | 'entrenar' | 'amuleto' } | { id: 'evo'; op: OpcionEvolucion };
 
 /**
  * Mis criaturas: toda la colección (primero el equipo, en orden), con experiencia, barra de Entrenamiento
@@ -103,9 +104,10 @@ export class Equipo extends Phaser.Scene {
     if (!elegida) new Texto(this, 10, 128, 220, 10, C.tintaSuave).poner(t('menu.sinEquipo'));
     else if (this.acciones) this.pintarAcciones(g, elegida);
     else {
-      const s = calcularStats(DATOS.criaturas.get(elegida.especie)!, elegida.nivel, DATOS.balance, potencialDe(DATOS, elegida.rareza), bonusVitaminas(DATOS, elegida));
+      const s = calcularStats(DATOS.criaturas.get(elegida.especie)!, elegida.nivel, DATOS.balance, potencialDe(DATOS, elegida.rareza), bonusStats(DATOS, elegida));
       new Texto(this, 10, 128, 220, 10).poner(t('eq.stats', { ...s }));
-      new Texto(this, 10, 140, 220, 10, this.aviso ? C.resalte : C.tintaSuave).poner(this.aviso || t('mc.ayuda'));
+      const am = elegida.amuleto ? DATOS.items.get(elegida.amuleto)?.nombre : null;
+      new Texto(this, 10, 140, 220, 10, this.aviso ? C.resalte : C.tintaSuave).poner(this.aviso || (am ? t('mc.ayudaAmuleto', { a: am }) : t('mc.ayuda')));
     }
 
     Entrada.escuchar((a) => this.alPulsar(a));
@@ -118,8 +120,20 @@ export class Equipo extends Phaser.Scene {
     if (enEquipo && juego.estado.equipo[0] !== c.especie) res.push({ id: 'frente' });
     res.push({ id: enEquipo ? 'sacar' : 'sumar' });
     if (tieneEvolucion(DATOS, c)) res.push({ id: 'entrenar' });
+    if (c.amuleto || this.amuletosEnBolsa().length) res.push({ id: 'amuleto' });
     for (const op of opcionesEvolucion(DATOS, juego.estado, c)) res.push({ id: 'evo', op });
     return res;
+  }
+
+  private amuletosEnBolsa(): string[] {
+    return [...DATOS.items.values()].filter((i) => i.efecto.tipo === 'amuleto' && cantidad(juego.estado, i.id) > 0).map((i) => i.id);
+  }
+
+  /** Amuleto que se pone al pulsar: el siguiente de la Bolsa; después del último, ninguno. */
+  private siguienteAmuleto(c: CriaturaJugador): string | null {
+    const todos = [...DATOS.items.values()].filter((i) => i.efecto.tipo === 'amuleto').map((i) => i.id);
+    const desde = c.amuleto ? todos.indexOf(c.amuleto) + 1 : 0;
+    return todos.slice(desde).find((id) => cantidad(juego.estado, id) > 0) ?? null;
   }
 
   private etiqueta(a: Accion): string {
@@ -138,6 +152,11 @@ export class Equipo extends Phaser.Scene {
         return e.equipo.length <= 1 ? { texto: t('mc.d.ultima'), puede: false } : { texto: t('mc.d.sacar'), puede: true };
       case 'sumar':
         return e.equipo.length >= max ? { texto: t('mc.d.lleno'), puede: false } : { texto: t('mc.d.sumar', { n: max }), puede: true };
+      case 'amuleto': {
+        const sig = this.siguienteAmuleto(c);
+        const lleva = c.amuleto ? t('mc.d.lleva', { a: DATOS.items.get(c.amuleto)!.nombre }) : t('mc.d.sinAmuleto');
+        return { texto: `${lleva} ${sig ? t('mc.d.poner', { a: DATOS.items.get(sig)!.nombre }) : t('mc.d.quitar')}`, puede: true };
+      }
       case 'entrenar': {
         const costo = costoLlenar(DATOS, c);
         if (costo <= 0) return { texto: t('mc.d.entrenarLlena'), puede: false };
@@ -231,6 +250,13 @@ export class Equipo extends Phaser.Scene {
       juego.guardar();
       sonido.tocar('aceptar');
       volver('', e.equipo.length - 1);
+    } else if (ac.id === 'amuleto') {
+      const sig = this.siguienteAmuleto(c);
+      equiparAmuleto(DATOS, e, c.especie, sig);
+      juego.guardar();
+      sonido.tocar('aceptar');
+      const nombre = DATOS.criaturas.get(c.especie)!.nombre;
+      this.scene.restart({ sel: this.sel, acciones: true, accion: this.accion, aviso: sig ? t('mc.ok.amuleto', { n: nombre, a: DATOS.items.get(sig)!.nombre }) : t('mc.ok.sinAmuleto', { n: nombre }) });
     } else if (ac.id === 'entrenar') {
       const p = infundirEsencia(DATOS, e, c.especie);
       juego.guardar();

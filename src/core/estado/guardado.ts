@@ -48,6 +48,7 @@ export function serializar(estado: EstadoJuego): string {
  * Lleva una partida guardada con una versión anterior a la actual, sin perder nada.
  * v1 → v2 (Fase 3): Bolsa, incienso, vitaminas y barra de Entrenamiento.
  * v2 → v3 (Fase 4): premio diario, minijuegos, misiones y sobres regalados.
+ * v3 → v4 (Fase 5): Torre de Desafíos, Entrenador del día y amuletos.
  */
 export function migrar(obj: unknown): unknown {
   if (!obj || typeof obj !== 'object') return obj;
@@ -64,6 +65,12 @@ export function migrar(obj: unknown): unknown {
     o.minijuegos = { dia: -1, partidas: {}, records: {} };
     o.misiones = { dia: -1, lista: [] };
     o.sobresRegalo = {};
+  }
+  if (o.version === 3) {
+    o.version = 4;
+    o.torre = { piso: 1, mejor: 0 };
+    o.entrenador = { diaCobrado: -1 };
+    if (Array.isArray(o.criaturas)) for (const c of o.criaturas as Record<string, unknown>[]) c.amuleto = null;
   }
   return o;
 }

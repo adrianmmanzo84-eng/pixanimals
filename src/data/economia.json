@@ -176,5 +176,50 @@
         }
       }
     ]
+  },
+  "torre": {
+    "monedasBase": 30,
+    "monedasPorPiso": 5,
+    "nivelBase": 3,
+    "nivelPorPiso": 2,
+    "jefeCada": 5,
+    "nivelExtraJefe": 2,
+    "sobreJefe": "basico",
+    "cadaSobreGrande": 10,
+    "sobreGrande": "raro",
+    "ia": [
+      {
+        "hasta": 3,
+        "ia": "novata"
+      },
+      {
+        "hasta": 10,
+        "ia": "tactica"
+      },
+      {
+        "hasta": 999,
+        "ia": "experta"
+      }
+    ]
+  },
+  "entrenador": {
+    "monedas": 150,
+    "nivelExtra": 2,
+    "nombres": [
+      "Lía",
+      "Bruno",
+      "Maite",
+      "Tobías",
+      "Nerea",
+      "Ciro",
+      "Vera",
+      "Joaquín",
+      "Abril",
+      "Simón",
+      "Olivia",
+      "Dante",
+      "Luna",
+      "Mateo"
+    ]
   }
 }
