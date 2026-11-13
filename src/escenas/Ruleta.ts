@@ -9,6 +9,7 @@ import { t } from '../i18n/i18n';
 import { juego } from '../juego';
 import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
+import { claveSobre, pieza } from '../ui/arte';
 import { iconoItem, iconoMoneda } from '../ui/iconos';
 import { Puntero, saltito } from '../ui/puntero';
 import { Texto } from '../ui/texto';
@@ -119,19 +120,25 @@ export class Ruleta extends Phaser.Scene {
       const ico = this.add.graphics();
       ico.fillStyle(0xfdf6e3, 0.92).fillCircle(0, 0, 8);
       const p = s.premio;
-      if (p.sobre) {
+      ico.setPosition(ix, iy).setRotation(rad + Math.PI / 2);
+      this.rueda.add(ico);
+      // Arte del autor; si falta, el dibujo por código.
+      const giro = rad + Math.PI / 2;
+      const clave = p.sobre ? claveSobre(p.sobre) : p.item ? `item_${p.item}` : p.esencia ? 'esencia' : 'monedas';
+      const arte = pieza(this, clave, ix, iy, p.sobre ? 14 : 16, this.rueda);
+      if (arte) {
+        arte.setRotation(giro);
+        if (p.sobre && p.monedas) {
+          const mon = pieza(this, 'monedas', ix + Math.cos(rad) * 4 - Math.sin(rad) * 5, iy + Math.sin(rad) * 4 + Math.cos(rad) * 5, 8, this.rueda);
+          mon?.setRotation(giro);
+        }
+      } else if (p.sobre) {
         const sobre = DATOS.sobres.sobres.find((x) => x.id === p.sobre)!;
         ico.fillStyle(0x1f2340, 1).fillRoundedRect(-4.5, -6, 9, 12, 1.5);
         ico.fillStyle(n(sobre.color ?? '#5aa9f0'), 1).fillRoundedRect(-3.6, -5.1, 7.2, 10.2, 1);
         ico.fillStyle(0xffffff, 0.8).fillRect(-1.5, -1, 3, 2);
-        if (p.monedas) iconoMoneda(ico, 'monedas', 4, 4);
       } else if (p.item) iconoItem(ico, DATOS.items.get(p.item)!, 0, 0, 1);
-      else {
-        ico.setScale(1.5);
-        iconoMoneda(ico, p.esencia ? 'esencia' : 'monedas', 0, 0);
-      }
-      ico.setPosition(ix, iy).setRotation(rad + Math.PI / 2);
-      this.rueda.add(ico);
+      else iconoMoneda(ico, p.esencia ? 'esencia' : 'monedas', 0, 0);
       const txt = new Texto(this, 0, 0, 34, 9, '#ffffff', 'centro', { tam: s.especial ? 5.4 : 6.6, peso: 600, borde: '#1f2340' }).poner(etiqueta(p));
       txt.imagen.setOrigin(0.5, 0.5).setPosition(Math.cos(rad) * (R - 31), Math.sin(rad) * (R - 31)).setRotation(rad + Math.PI / 2);
       this.rueda.add(txt.imagen);

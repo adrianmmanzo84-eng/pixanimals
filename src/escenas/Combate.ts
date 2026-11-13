@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { claveCategoria, claveEstado, claveTipo, hayArte, pieza } from '../ui/arte';
 import { equipoSemanal, resultadoSemanal, tipoDeLaSemana } from '../core/modos/semanal';
 import { Puntero } from '../ui/puntero';
 import { DATOS } from '../core/datos';
@@ -42,6 +43,8 @@ interface Panel {
   puntos: Phaser.GameObjects.Graphics;
   estadoFondo: Phaser.GameObjects.Graphics;
   estado: Texto;
+  /** Ícono del estado (arte del autor), a la izquierda de su abreviatura. */
+  estadoIco: Phaser.GameObjects.Image | null;
   mostrado: number;
 }
 
@@ -100,6 +103,8 @@ export class Combate extends Phaser.Scene {
   private opciones: Texto[] = [];
   private celdas: { nombre: Texto; usos: Texto }[] = [];
   private filasEquipo: Texto[] = [];
+  private icoTipo: Phaser.GameObjects.Image | null = null;
+  private icoCat: Phaser.GameObjects.Image | null = null;
   private info1!: Texto;
   private info2!: Texto;
   /** Fila del Ataque Definitivo en el menú de ataques. */
@@ -200,6 +205,8 @@ export class Combate extends Phaser.Scene {
     }
     for (let i = 0; i < 3; i++) this.filasEquipo.push(new Texto(this, 18, 117 + i * 12, 212, 10).visible(false));
     this.info1 = new Texto(this, 10, 137, 220, 10, C.tintaSuave).visible(false);
+    this.icoTipo = pieza(this, 'tipo_brasa', 13, 142, 8)?.setVisible(false) ?? null;
+    this.icoCat = pieza(this, 'categoria_fisico', 22, 142, 8)?.setVisible(false) ?? null;
     this.info2 = new Texto(this, 10, 146, 220, 10, C.tinta).visible(false);
     this.defTxt = new Texto(this, 10, 134, 220, 10, '#b8860b', 'centro', { peso: 600 }).visible(false);
     this.cursor = this.add.graphics();
@@ -711,6 +718,8 @@ export class Combate extends Phaser.Scene {
     this.defTxt.visible(false);
     this.info1.imagen.setY(137);
     this.info2.imagen.setY(146);
+    this.icoTipo?.setVisible(false);
+    this.icoCat?.setVisible(false);
     this.cursor.clear();
     this.puntero.limpiar();
     this.msg.visible(true);
@@ -781,8 +790,16 @@ export class Combate extends Phaser.Scene {
     let linea1 = `${tipo.nombre} · ${t(`cat.${h.def.categoria}`)}`;
     if (h.def.potencia > 0) linea1 += ' · ' + t('info.potencia', { p: h.def.potencia, a: h.def.precision ?? 100 });
     else if (h.def.precision !== null) linea1 += ` · Prec. ${h.def.precision}`;
-    this.gVentanas.fillStyle(COLOR_TIPO[h.def.tipo] ?? 0x566c86, 1).fillRect(10, def ? 142.5 : 138, 5, 5);
-    this.info1.imagen.setX(18);
+    // Tipo y categoría con sus íconos (o el cuadrito de color del tipo si falta el arte).
+    const yIco = (def ? 141 : 137) + 4.8;
+    if (this.icoTipo && this.icoCat && hayArte(this, claveTipo(h.def.tipo))) {
+      this.icoTipo.setTexture(`ui_${claveTipo(h.def.tipo)}`).setPosition(13, yIco).setVisible(true);
+      this.icoCat.setTexture(`ui_${claveCategoria(h.def.categoria)}`).setPosition(22, yIco).setVisible(true);
+      this.info1.imagen.setX(28);
+    } else {
+      this.gVentanas.fillStyle(COLOR_TIPO[h.def.tipo] ?? 0x566c86, 1).fillRect(10, def ? 142.5 : 138, 5, 5);
+      this.info1.imagen.setX(18);
+    }
     this.info1.poner(linea1).visible(true);
     const motivo = this.bat.bloqueo(0, sel);
     const texto =
@@ -826,6 +843,7 @@ export class Combate extends Phaser.Scene {
       estadoFondo: this.add.graphics(),
       // El estado va fuera del panel, después de los puntos del equipo, para no tapar nombres largos.
       estado: new Texto(this, x === PANEL[0].x ? x - 52 : x + 142, y + 8, 20, 10, C.papel, 'centro'),
+      estadoIco: pieza(this, 'estado_quemadura', (x === PANEL[0].x ? x - 52 : x + 142) + 5, y + 11.5, 8)?.setVisible(false) ?? null,
       mostrado: 0,
     };
   }
@@ -883,9 +901,15 @@ export class Combate extends Phaser.Scene {
     p.estadoFondo.clear();
     if (!est) {
       p.estado.poner('');
+      p.estadoIco?.setVisible(false);
       return;
     }
-    p.estadoFondo.fillStyle(COLOR_ESTADO[est.id] ?? 0x566c86, 1).fillRoundedRect(p.x === PANEL[0].x ? p.x - 52 : p.x + 142, p.y + 7, 20, 9, 2);
+    const x = p.x === PANEL[0].x ? p.x - 52 : p.x + 142;
+    // Con ícono, la píldora se alarga a la izquierda para que entre junto a la abreviatura.
+    const ico = p.estadoIco && hayArte(this, claveEstado(est.id)) ? p.estadoIco : null;
+    p.estadoFondo.fillStyle(COLOR_ESTADO[est.id] ?? 0x566c86, 1).fillRoundedRect(ico ? x - 1 : x, p.y + 7, ico ? 28 : 20, 9, 2);
+    ico?.setTexture(`ui_${claveEstado(est.id)}`).setVisible(true);
+    p.estado.imagen.setX(ico ? x + 7 : x);
     p.estado.poner(t(`estado.abrev.${est.id}`));
   }
 

@@ -1,0 +1,968 @@
+{
+ "brillante": {
+  "ruta": "ui/album/brillante.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "candado_no_descubierta": {
+  "ruta": "ui/album/candado_no_descubierta.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "marco_comun": {
+  "ruta": "ui/album/marco_comun.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "marco_eclipse": {
+  "ruta": "ui/album/marco_eclipse.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "marco_epica": {
+  "ruta": "ui/album/marco_epica.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "marco_familia_completa": {
+  "ruta": "ui/album/marco_familia_completa.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "marco_poco_comun": {
+  "ruta": "ui/album/marco_poco_comun.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "marco_rara": {
+  "ruta": "ui/album/marco_rara.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sello_completado": {
+  "ruta": "ui/album/sello_completado.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "categoria_apoyo": {
+  "ruta": "ui/categorias/categoria_apoyo.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "categoria_definitivo": {
+  "ruta": "ui/categorias/categoria_definitivo.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "categoria_especial": {
+  "ruta": "ui/categorias/categoria_especial.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "categoria_fisico": {
+  "ruta": "ui/categorias/categoria_fisico.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "estado_debilidad": {
+  "ruta": "ui/estados/estado_debilidad.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "estado_lentitud": {
+  "ruta": "ui/estados/estado_lentitud.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "estado_paralisis": {
+  "ruta": "ui/estados/estado_paralisis.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "estado_quemadura": {
+  "ruta": "ui/estados/estado_quemadura.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "estado_sueno": {
+  "ruta": "ui/estados/estado_sueno.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "estado_veneno": {
+  "ruta": "ui/estados/estado_veneno.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "expedicion_bosque": {
+  "ruta": "ui/expediciones/expedicion_bosque.png",
+  "tam": [
+   160,
+   96
+  ]
+ },
+ "expedicion_playa": {
+  "ruta": "ui/expediciones/expedicion_playa.png",
+  "tam": [
+   160,
+   96
+  ]
+ },
+ "expedicion_volcan": {
+  "ruta": "ui/expediciones/expedicion_volcan.png",
+  "tam": [
+   160,
+   96
+  ]
+ },
+ "tiempo_expedicion": {
+  "ruta": "ui/expediciones/tiempo_expedicion.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_amuleto_calma": {
+  "ruta": "ui/items/item_amuleto_calma.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_amuleto_coraza": {
+  "ruta": "ui/items/item_amuleto_coraza.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_amuleto_fuerza": {
+  "ruta": "ui/items/item_amuleto_fuerza.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_amuleto_mente": {
+  "ruta": "ui/items/item_amuleto_mente.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_amuleto_pluma": {
+  "ruta": "ui/items/item_amuleto_pluma.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_amuleto_vigor": {
+  "ruta": "ui/items/item_amuleto_vigor.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_antidoto": {
+  "ruta": "ui/items/item_antidoto.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_caramelo_l": {
+  "ruta": "ui/items/item_caramelo_l.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_caramelo_m": {
+  "ruta": "ui/items/item_caramelo_m.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_caramelo_s": {
+  "ruta": "ui/items/item_caramelo_s.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_carta_calma": {
+  "ruta": "ui/items/item_carta_calma.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_carta_escudo": {
+  "ruta": "ui/items/item_carta_escudo.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_carta_furia": {
+  "ruta": "ui/items/item_carta_furia.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_carta_mente": {
+  "ruta": "ui/items/item_carta_mente.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_carta_muralla": {
+  "ruta": "ui/items/item_carta_muralla.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_carta_rafaga": {
+  "ruta": "ui/items/item_carta_rafaga.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_encanto_debil": {
+  "ruta": "ui/items/item_encanto_debil.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_encanto_lento": {
+  "ruta": "ui/items/item_encanto_lento.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_encanto_sueno": {
+  "ruta": "ui/items/item_encanto_sueno.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_encanto_veneno": {
+  "ruta": "ui/items/item_encanto_veneno.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_incienso": {
+  "ruta": "ui/items/item_incienso.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_piedra_eclipse": {
+  "ruta": "ui/items/item_piedra_eclipse.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_pocion": {
+  "ruta": "ui/items/item_pocion.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_pocion_max": {
+  "ruta": "ui/items/item_pocion_max.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_reloj_arena": {
+  "ruta": "ui/items/item_reloj_arena.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_revivir": {
+  "ruta": "ui/items/item_revivir.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_superpocion": {
+  "ruta": "ui/items/item_superpocion.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_tonico": {
+  "ruta": "ui/items/item_tonico.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_vit_ate": {
+  "ruta": "ui/items/item_vit_ate.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_vit_atq": {
+  "ruta": "ui/items/item_vit_atq.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_vit_def": {
+  "ruta": "ui/items/item_vit_def.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_vit_dfe": {
+  "ruta": "ui/items/item_vit_dfe.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_vit_ps": {
+  "ruta": "ui/items/item_vit_ps.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_vit_vel": {
+  "ruta": "ui/items/item_vit_vel.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_brillantes_1": {
+  "ruta": "ui/medallas/medalla_brillantes_1.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_brillantes_2": {
+  "ruta": "ui/medallas/medalla_brillantes_2.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_brillantes_3": {
+  "ruta": "ui/medallas/medalla_brillantes_3.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_brillantes_bloqueada": {
+  "ruta": "ui/medallas/medalla_brillantes_bloqueada.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_especies_1": {
+  "ruta": "ui/medallas/medalla_especies_1.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_especies_2": {
+  "ruta": "ui/medallas/medalla_especies_2.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_especies_3": {
+  "ruta": "ui/medallas/medalla_especies_3.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_especies_bloqueada": {
+  "ruta": "ui/medallas/medalla_especies_bloqueada.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_expediciones_1": {
+  "ruta": "ui/medallas/medalla_expediciones_1.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_expediciones_2": {
+  "ruta": "ui/medallas/medalla_expediciones_2.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_expediciones_3": {
+  "ruta": "ui/medallas/medalla_expediciones_3.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_expediciones_bloqueada": {
+  "ruta": "ui/medallas/medalla_expediciones_bloqueada.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_fusiones_1": {
+  "ruta": "ui/medallas/medalla_fusiones_1.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_fusiones_2": {
+  "ruta": "ui/medallas/medalla_fusiones_2.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_fusiones_3": {
+  "ruta": "ui/medallas/medalla_fusiones_3.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_fusiones_bloqueada": {
+  "ruta": "ui/medallas/medalla_fusiones_bloqueada.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_impecables_1": {
+  "ruta": "ui/medallas/medalla_impecables_1.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_impecables_2": {
+  "ruta": "ui/medallas/medalla_impecables_2.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_impecables_3": {
+  "ruta": "ui/medallas/medalla_impecables_3.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_impecables_bloqueada": {
+  "ruta": "ui/medallas/medalla_impecables_bloqueada.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_sobres_1": {
+  "ruta": "ui/medallas/medalla_sobres_1.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_sobres_2": {
+  "ruta": "ui/medallas/medalla_sobres_2.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_sobres_3": {
+  "ruta": "ui/medallas/medalla_sobres_3.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_sobres_bloqueada": {
+  "ruta": "ui/medallas/medalla_sobres_bloqueada.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_torre_1": {
+  "ruta": "ui/medallas/medalla_torre_1.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_torre_2": {
+  "ruta": "ui/medallas/medalla_torre_2.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_torre_3": {
+  "ruta": "ui/medallas/medalla_torre_3.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_torre_bloqueada": {
+  "ruta": "ui/medallas/medalla_torre_bloqueada.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_victorias_1": {
+  "ruta": "ui/medallas/medalla_victorias_1.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_victorias_2": {
+  "ruta": "ui/medallas/medalla_victorias_2.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_victorias_3": {
+  "ruta": "ui/medallas/medalla_victorias_3.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_victorias_bloqueada": {
+  "ruta": "ui/medallas/medalla_victorias_bloqueada.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "menu_bestiario": {
+  "ruta": "ui/menu/menu_bestiario.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "menu_bolsa": {
+  "ruta": "ui/menu/menu_bolsa.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "menu_coleccion": {
+  "ruta": "ui/menu/menu_coleccion.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "menu_combate": {
+  "ruta": "ui/menu/menu_combate.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "menu_equipo": {
+  "ruta": "ui/menu/menu_equipo.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "menu_expediciones": {
+  "ruta": "ui/menu/menu_expediciones.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "menu_guardado": {
+  "ruta": "ui/menu/menu_guardado.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "menu_minijuegos": {
+  "ruta": "ui/menu/menu_minijuegos.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "menu_misiones": {
+  "ruta": "ui/menu/menu_misiones.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "menu_sobres": {
+  "ruta": "ui/menu/menu_sobres.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "menu_tienda": {
+  "ruta": "ui/menu/menu_tienda.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "descuento_semana": {
+  "ruta": "ui/recursos/descuento_semana.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "esencia": {
+  "ruta": "ui/recursos/esencia.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "monedas": {
+  "ruta": "ui/recursos/monedas.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "sobre_basico": {
+  "ruta": "ui/sobres/sobre_basico.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_basico_mini": {
+  "ruta": "ui/sobres/sobre_basico_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_botiquin": {
+  "ruta": "ui/sobres/sobre_botiquin.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_botiquin_mini": {
+  "ruta": "ui/sobres/sobre_botiquin_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_brasa": {
+  "ruta": "ui/sobres/sobre_brasa.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_brasa_mini": {
+  "ruta": "ui/sobres/sobre_brasa_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_brote": {
+  "ruta": "ui/sobres/sobre_brote.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_brote_mini": {
+  "ruta": "ui/sobres/sobre_brote_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_cielo": {
+  "ruta": "ui/sobres/sobre_cielo.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_cielo_mini": {
+  "ruta": "ui/sobres/sobre_cielo_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_dorso_abierto": {
+  "ruta": "ui/sobres/sobre_dorso_abierto.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_dorso_abierto_mini": {
+  "ruta": "ui/sobres/sobre_dorso_abierto_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_dorso_cerrado": {
+  "ruta": "ui/sobres/sobre_dorso_cerrado.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_dorso_cerrado_mini": {
+  "ruta": "ui/sobres/sobre_dorso_cerrado_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_legendario": {
+  "ruta": "ui/sobres/sobre_legendario.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_legendario_mini": {
+  "ruta": "ui/sobres/sobre_legendario_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_marea": {
+  "ruta": "ui/sobres/sobre_marea.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_marea_mini": {
+  "ruta": "ui/sobres/sobre_marea_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_raro": {
+  "ruta": "ui/sobres/sobre_raro.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_raro_mini": {
+  "ruta": "ui/sobres/sobre_raro_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_rayo": {
+  "ruta": "ui/sobres/sobre_rayo.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_rayo_mini": {
+  "ruta": "ui/sobres/sobre_rayo_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_roca": {
+  "ruta": "ui/sobres/sobre_roca.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_roca_mini": {
+  "ruta": "ui/sobres/sobre_roca_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_semana": {
+  "ruta": "ui/sobres/sobre_semana.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_semana_mini": {
+  "ruta": "ui/sobres/sobre_semana_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "sobre_sombra": {
+  "ruta": "ui/sobres/sobre_sombra.png",
+  "tam": [
+   64,
+   88
+  ]
+ },
+ "sobre_sombra_mini": {
+  "ruta": "ui/sobres/sobre_sombra_mini.png",
+  "tam": [
+   32,
+   44
+  ]
+ },
+ "tipo_brasa": {
+  "ruta": "ui/tipos/tipo_brasa.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "tipo_brote": {
+  "ruta": "ui/tipos/tipo_brote.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "tipo_cielo": {
+  "ruta": "ui/tipos/tipo_cielo.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "tipo_marea": {
+  "ruta": "ui/tipos/tipo_marea.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "tipo_rayo": {
+  "ruta": "ui/tipos/tipo_rayo.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "tipo_roca": {
+  "ruta": "ui/tipos/tipo_roca.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "tipo_sombra": {
+  "ruta": "ui/tipos/tipo_sombra.png",
+  "tam": [
+   32,
+   32
+  ]
+ }
+}

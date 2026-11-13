@@ -10,6 +10,8 @@ import { juego } from '../juego';
 import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { Texto } from '../ui/texto';
+import { textura } from '../ui/criaturas';
+import { claveMedalla, claveTipo, pieza } from '../ui/arte';
 
 type Pestana = 'album' | 'medallas';
 const FILAS = 4;
@@ -81,12 +83,19 @@ export class Coleccion extends Phaser.Scene {
       if (i === this.sel) g.lineStyle(1.4, n(C.resalte), 1).strokeRoundedRect(6, y, 228, 25, 4);
       let x0 = 12;
       if (this.pestana === 'medallas') {
-        // Insignia: color del nivel que se está persiguiendo; con brillo si ya está completa.
+        // Insignia dibujada: el nivel que se persigue si ya se cumplió, si no el último ganado, o la silueta bloqueada.
         const nivel = Number(m.valores.nivel);
-        g.fillStyle(0x1f2340, 1).fillCircle(19, y + 12.5, 7.5);
-        g.fillStyle(COLOR_MEDALLA[nivel]!, m.completa || m.cobrada ? 1 : 0.35).fillCircle(19, y + 12.5, 6.2);
-        const ganadas = nivelMedalla(juego.estado, m.id.replace(/_\d$/, ''));
+        const base = m.id.replace(/_\d$/, '');
+        const ganadas = nivelMedalla(juego.estado, base);
+        const mostrar = m.completa || m.cobrada ? nivel + 1 : ganadas;
+        if (!pieza(this, claveMedalla(base, mostrar), 19, y + 11, 16)) {
+          g.fillStyle(0x1f2340, 1).fillCircle(19, y + 12.5, 7.5);
+          g.fillStyle(COLOR_MEDALLA[nivel]!, m.completa || m.cobrada ? 1 : 0.35).fillCircle(19, y + 12.5, 6.2);
+        }
         for (let s = 0; s < 3; s++) g.fillStyle(s < ganadas ? COLOR_MEDALLA[s]! : 0x39425e, 1).fillCircle(14 + s * 5, y + 22, 1.6);
+        x0 = 30;
+      } else if (this.iconoAlbum(m, 19, y + 12.5)) {
+        if (m.cobrada) pieza(this, 'sello_completado', 25, y + 18, 10);
         x0 = 30;
       }
       const titulo = new Texto(this, x0, y + 2, 168 - x0, 10, m.cobrada ? C.tintaSuave : C.tinta, 'izq', { peso: 600 }).poner(
@@ -140,5 +149,22 @@ export class Coleccion extends Phaser.Scene {
       this.cameras.main.flash(180, 255, 240, 180);
       this.scene.restart({ pestana: this.pestana, sel: this.sel, aviso: t('col.cobrado', { p: textoPremio(premio) }) });
     }
+  }
+
+  /** Ícono de una meta del Álbum: la criatura de la familia o Eclipse, el tipo o el ícono de colección. */
+  private iconoAlbum(m: Meta, x: number, y: number): boolean {
+    const [clase, ...resto] = m.id.split('_');
+    const valor = resto.join('_');
+    if (clase === 'tipo') return !!pieza(this, claveTipo(valor), x, y, 16);
+    if (clase === 'coleccion') return !!pieza(this, 'menu_coleccion', x, y, 16);
+    const especie =
+      clase === 'familia'
+        ? [...DATOS.criaturas.values()].find((c) => c.familia === valor && c.etapa === 4 && !c.id.endsWith('_eclipse'))
+        : DATOS.criaturas.get(valor);
+    if (!especie) return false;
+    // Sin ninguna vista todavía: candado, para no adelantar cómo es.
+    if (m.progreso === 0) return !!pieza(this, 'candado_no_descubierta', x, y, 16);
+    this.add.image(x, y, textura(especie.id, 'icono'), 0).setScale(0.5);
+    return true;
   }
 }

@@ -22,6 +22,7 @@ import { fondo } from '../ui/fondos';
 import { abrirGuardado } from '../ui/guardadoDom';
 import { Puntero } from '../ui/puntero';
 import { Texto } from '../ui/texto';
+import { hayArte, pieza } from '../ui/arte';
 
 const OPCIONES = [
   'menu.combatir', 'menu.minijuegos', 'menu.misiones', 'menu.expediciones', 'menu.sobres', 'menu.tienda',
@@ -29,6 +30,8 @@ const OPCIONES = [
 ];
 const DESTINOS = ['', 'Minijuegos', 'Misiones', 'Expediciones', 'Sobres', 'Tienda', 'BolsaEscena', 'Equipo', 'Coleccion', 'Bestiario', 'Ruleta', ''];
 const GUARDADO = OPCIONES.length - 1;
+/** Ícono de cada opción (arte del autor; la Ruleta se dibuja por código). */
+const ICONOS = ['menu_combate', 'menu_minijuegos', 'menu_misiones', 'menu_expediciones', 'menu_sobres', 'menu_tienda', 'menu_bolsa', 'menu_equipo', 'menu_coleccion', 'menu_bestiario', '', 'menu_guardado'];
 const ALTO_FILA = 10;
 /** Dos columnas de hasta 6 opciones. */
 const POR_COLUMNA = 6;
@@ -72,20 +75,33 @@ export class Menu extends Phaser.Scene {
     } else this.add.image(0, 0, fondo(this, 'menu')).setOrigin(0, 0).setScale(0.25);
     const g = this.add.graphics();
     new Texto(this, 0, 2, 240, 16, '#ffffff', 'centro', { tam: 13, peso: 600, borde: '#2b3a78' }).poner(t('titulo'));
-    new Texto(this, 0, 17, 240, 10, '#ffffff', 'centro', { borde: '#2b3a78' }).poner(
-      `${t('rec.monedas', { n: estado.monedas })}   ·   ${t('rec.esencia', { n: estado.esencia })}`,
-    );
+    // Recursos con sus íconos (o en texto si falta el arte).
+    if (hayArte(this, 'monedas')) {
+      pieza(this, 'monedas', 92, 22, 8);
+      new Texto(this, 98, 17, 40, 10, '#ffffff', 'izq', { borde: '#2b3a78' }).poner(String(estado.monedas));
+      pieza(this, 'esencia', 140, 22, 8);
+      new Texto(this, 146, 17, 40, 10, '#ffffff', 'izq', { borde: '#2b3a78' }).poner(String(estado.esencia));
+    } else
+      new Texto(this, 0, 17, 240, 10, '#ffffff', 'centro', { borde: '#2b3a78' }).poner(
+        `${t('rec.monedas', { n: estado.monedas })}   ·   ${t('rec.esencia', { n: estado.esencia })}`,
+      );
 
     ventana(g, 26, 29, 188, 66);
     for (let i = 0; i < OPCIONES.length; i++) {
       const col = Math.floor(i / POR_COLUMNA);
-      this.filas.push(new Texto(this, COL_X[col]! + 8, 32 + (i % POR_COLUMNA) * ALTO_FILA, 80, 10));
+      const yFila = 32 + (i % POR_COLUMNA) * ALTO_FILA;
+      const conIcono = hayArte(this, 'menu_combate');
+      if (conIcono) {
+        if (ICONOS[i]) pieza(this, ICONOS[i]!, COL_X[col]! + 11, yFila + 4.6, 8);
+        else ruedita(g, COL_X[col]! + 11, yFila + 4.6);
+      }
+      this.filas.push(new Texto(this, COL_X[col]! + (conIcono ? 17 : 8), yFila, conIcono ? 72 : 80, 10));
     }
     this.cursor = this.add.graphics();
     const puntero = new Puntero(this);
     this.puntero = puntero;
     this.filas.forEach((f, i) =>
-      puntero.zona(f.imagen.x - 8, f.imagen.y - 1, 88, ALTO_FILA, () => {
+      puntero.zona(COL_X[Math.floor(i / POR_COLUMNA)]!, f.imagen.y - 1, 88, ALTO_FILA, () => {
         if (this.modo === 'diario' || i >= this.opciones().length || i === this.sel) return;
         this.sel = i;
         sonido.tocar('cursor');
@@ -262,4 +278,13 @@ export class Menu extends Phaser.Scene {
     } else return;
     this.pintar();
   }
+}
+
+/** Ruedita de colores de 8 px para la opción Ruleta (no tiene dibujo propio). */
+function ruedita(g: Phaser.GameObjects.Graphics, x: number, y: number): void {
+  const colores = [0xf5c542, 0xe05a6a, 0x5aa9f0, 0x4caf7a];
+  g.fillStyle(0x1f2340, 1).fillCircle(x, y, 3.8);
+  colores.forEach((c, i) => g.fillStyle(c, 1).slice(x, y, 3.1, (i * Math.PI) / 2, ((i + 1) * Math.PI) / 2, false).fillPath());
+  g.fillStyle(0xfdf6e3, 1).fillCircle(x, y, 0.9);
+  g.fillStyle(0x1f2340, 1).fillTriangle(x - 1.2, y - 4.8, x + 1.2, y - 4.8, x, y - 2.8);
 }

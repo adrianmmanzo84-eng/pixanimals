@@ -1,12 +1,32 @@
 import Phaser from 'phaser';
 import type { Item } from '../esquemas/esquemas';
 import { n } from './estilo';
+import { claveItem, hayArte } from './arte';
 
 /**
- * Iconos de ítems y monedas dibujados por código (unos 10×10 px en el mundo de 240×160).
- * La forma depende del tipo de ítem y el color sale de items.json, así un ítem nuevo ya tiene icono.
+ * Pone la pieza de arte `clave` donde el Graphics `g` dibujaría su icono: hereda su posición, escala y giro,
+ * y queda justo encima (en su mismo contenedor si lo tiene). Devuelve false si no hay arte.
+ */
+export function arteSobre(g: Phaser.GameObjects.Graphics, clave: string, x: number, y: number, tam: number): boolean {
+  if (!hayArte(g.scene, clave)) return false;
+  const p = g.getLocalTransformMatrix().transformPoint(x, y);
+  const img = g.scene.add.image(p.x, p.y, `ui_${clave}`).setRotation(g.rotation).setScale((tam / 32) * g.scaleX);
+  const cont = g.parentContainer;
+  if (cont) cont.addAt(img, cont.getIndex(g) + 1);
+  else img.setDepth(g.depth);
+  return true;
+}
+
+/** Tamaño en el mundo de un icono dibujado a escala `k` (~10·k px), redondeado a múltiplos de 8 para que el píxel quede parejo. */
+const tamIcono = (k: number) => Math.max(8, Math.round((10 * k) / 8) * 8);
+
+/**
+ * Iconos de ítems y monedas. Si hay arte del autor (src/ui/arte.ts) se usa ese; si no, se dibujan por código
+ * (unos 10×10 px en el mundo de 240×160): la forma depende del tipo de ítem y el color sale de items.json,
+ * así un ítem nuevo ya tiene icono.
  */
 export function iconoItem(g: Phaser.GameObjects.Graphics, item: Item, x: number, y: number, escala = 1): void {
+  if (arteSobre(g, claveItem(item), x, y, tamIcono(escala))) return;
   const c = n(item.color);
   const k = escala;
   const borde = 0x1f2340;
@@ -90,6 +110,7 @@ export function iconoItem(g: Phaser.GameObjects.Graphics, item: Item, x: number,
 
 /** Moneda (dorada) o Esencia (gema violeta), para precios y recursos. */
 export function iconoMoneda(g: Phaser.GameObjects.Graphics, moneda: 'monedas' | 'esencia', x: number, y: number): void {
+  if (arteSobre(g, moneda, x, y, 8)) return;
   if (moneda === 'monedas') {
     g.fillStyle(0x8a5a00, 1).fillCircle(x, y, 3.2);
     g.fillStyle(0xf5c542, 1).fillCircle(x, y, 2.4);

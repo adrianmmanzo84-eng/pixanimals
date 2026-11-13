@@ -1,0 +1,1741 @@
+{
+  "count": 124,
+  "assets": [
+    {
+      "id": "item_caramelo_s",
+      "label": "Piedra XP pequeña",
+      "category": "items",
+      "rarity": "comun",
+      "path": "items/item_caramelo_s.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 11,
+      "source": "items_01",
+      "index": 0
+    },
+    {
+      "id": "item_caramelo_m",
+      "label": "Piedra XP mediana",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_caramelo_m.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "items_01",
+      "index": 1
+    },
+    {
+      "id": "item_caramelo_l",
+      "label": "Piedra XP grande",
+      "category": "items",
+      "rarity": "rara",
+      "path": "items/item_caramelo_l.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_01",
+      "index": 2
+    },
+    {
+      "id": "item_vit_ps",
+      "label": "Vitamina PS",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_vit_ps.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "items_01",
+      "index": 3
+    },
+    {
+      "id": "item_vit_atq",
+      "label": "Vitamina Ataque",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_vit_atq.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "items_01",
+      "index": 4
+    },
+    {
+      "id": "item_vit_def",
+      "label": "Vitamina Defensa",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_vit_def.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_01",
+      "index": 5
+    },
+    {
+      "id": "item_vit_ate",
+      "label": "Vitamina Ataque Especial",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_vit_ate.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_01",
+      "index": 6
+    },
+    {
+      "id": "item_vit_dfe",
+      "label": "Vitamina Defensa Especial",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_vit_dfe.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_01",
+      "index": 7
+    },
+    {
+      "id": "item_vit_vel",
+      "label": "Vitamina Velocidad",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_vit_vel.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_01",
+      "index": 8
+    },
+    {
+      "id": "item_incienso",
+      "label": "Incienso",
+      "category": "items",
+      "rarity": "rara",
+      "path": "items/item_incienso.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "items_01",
+      "index": 9
+    },
+    {
+      "id": "item_antidoto",
+      "label": "Antídoto",
+      "category": "items",
+      "rarity": "comun",
+      "path": "items/item_antidoto.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_01",
+      "index": 10
+    },
+    {
+      "id": "item_tonico",
+      "label": "Tónico",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_tonico.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "items_01",
+      "index": 11
+    },
+    {
+      "id": "item_pocion",
+      "label": "Poción",
+      "category": "items",
+      "rarity": "comun",
+      "path": "items/item_pocion.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 12,
+      "source": "items_02",
+      "index": 0
+    },
+    {
+      "id": "item_superpocion",
+      "label": "Superpoción",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_superpocion.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 13,
+      "source": "items_02",
+      "index": 1
+    },
+    {
+      "id": "item_pocion_max",
+      "label": "Poción Máxima",
+      "category": "items",
+      "rarity": "rara",
+      "path": "items/item_pocion_max.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_02",
+      "index": 2
+    },
+    {
+      "id": "item_carta_escudo",
+      "label": "Carta Escudo",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_carta_escudo.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_02",
+      "index": 3
+    },
+    {
+      "id": "item_revivir",
+      "label": "Revivir",
+      "category": "items",
+      "rarity": "rara",
+      "path": "items/item_revivir.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_02",
+      "index": 4
+    },
+    {
+      "id": "item_reloj_arena",
+      "label": "Reloj de Arena",
+      "category": "items",
+      "rarity": "epica",
+      "path": "items/item_reloj_arena.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 13,
+      "source": "items_02",
+      "index": 5
+    },
+    {
+      "id": "item_carta_furia",
+      "label": "Carta Furia",
+      "category": "items",
+      "rarity": "comun",
+      "path": "items/item_carta_furia.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "items_02",
+      "index": 6
+    },
+    {
+      "id": "item_carta_muralla",
+      "label": "Carta Muralla",
+      "category": "items",
+      "rarity": "comun",
+      "path": "items/item_carta_muralla.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "items_02",
+      "index": 7
+    },
+    {
+      "id": "item_carta_mente",
+      "label": "Carta Mente",
+      "category": "items",
+      "rarity": "comun",
+      "path": "items/item_carta_mente.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 13,
+      "source": "items_02",
+      "index": 8
+    },
+    {
+      "id": "item_carta_calma",
+      "label": "Carta Calma",
+      "category": "items",
+      "rarity": "comun",
+      "path": "items/item_carta_calma.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_02",
+      "index": 9
+    },
+    {
+      "id": "item_carta_rafaga",
+      "label": "Carta Ráfaga",
+      "category": "items",
+      "rarity": "comun",
+      "path": "items/item_carta_rafaga.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 13,
+      "source": "items_02",
+      "index": 10
+    },
+    {
+      "id": "item_piedra_eclipse",
+      "label": "Piedra Eclipse",
+      "category": "items",
+      "rarity": "epica",
+      "path": "items/item_piedra_eclipse.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "items_02",
+      "index": 11
+    },
+    {
+      "id": "item_encanto_sueno",
+      "label": "Encanto Sueño",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_encanto_sueno.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_03",
+      "index": 0
+    },
+    {
+      "id": "item_encanto_veneno",
+      "label": "Encanto Veneno",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_encanto_veneno.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "items_03",
+      "index": 1
+    },
+    {
+      "id": "item_encanto_lento",
+      "label": "Encanto Lentitud",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_encanto_lento.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_03",
+      "index": 2
+    },
+    {
+      "id": "item_encanto_debil",
+      "label": "Encanto Debilidad",
+      "category": "items",
+      "rarity": "poco_comun",
+      "path": "items/item_encanto_debil.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_03",
+      "index": 3
+    },
+    {
+      "id": "item_amuleto_vigor",
+      "label": "Amuleto Vigor",
+      "category": "items",
+      "rarity": "epica",
+      "path": "items/item_amuleto_vigor.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "items_03",
+      "index": 4
+    },
+    {
+      "id": "item_amuleto_fuerza",
+      "label": "Amuleto Fuerza",
+      "category": "items",
+      "rarity": "epica",
+      "path": "items/item_amuleto_fuerza.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "items_03",
+      "index": 5
+    },
+    {
+      "id": "item_amuleto_coraza",
+      "label": "Amuleto Coraza",
+      "category": "items",
+      "rarity": "epica",
+      "path": "items/item_amuleto_coraza.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "items_03",
+      "index": 6
+    },
+    {
+      "id": "item_amuleto_mente",
+      "label": "Amuleto Mente",
+      "category": "items",
+      "rarity": "epica",
+      "path": "items/item_amuleto_mente.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_03",
+      "index": 7
+    },
+    {
+      "id": "item_amuleto_calma",
+      "label": "Amuleto Calma",
+      "category": "items",
+      "rarity": "epica",
+      "path": "items/item_amuleto_calma.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 13,
+      "source": "items_03",
+      "index": 8
+    },
+    {
+      "id": "item_amuleto_pluma",
+      "label": "Amuleto Pluma",
+      "category": "items",
+      "rarity": "epica",
+      "path": "items/item_amuleto_pluma.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "items_03",
+      "index": 9
+    },
+    {
+      "id": "medalla_victorias_1",
+      "label": "Medalla Victorias bronze",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_victorias_1.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 6,
+      "source": "medallas_01",
+      "index": 0
+    },
+    {
+      "id": "medalla_victorias_2",
+      "label": "Medalla Victorias silver",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_victorias_2.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 6,
+      "source": "medallas_01",
+      "index": 1
+    },
+    {
+      "id": "medalla_victorias_3",
+      "label": "Medalla Victorias gold",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_victorias_3.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 6,
+      "source": "medallas_01",
+      "index": 2
+    },
+    {
+      "id": "medalla_victorias_bloqueada",
+      "label": "Medalla Victorias locked",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_victorias_bloqueada.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 2,
+      "source": "medallas_01",
+      "index": 3
+    },
+    {
+      "id": "medalla_especies_1",
+      "label": "Medalla Especies bronze",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_especies_1.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_01",
+      "index": 4
+    },
+    {
+      "id": "medalla_especies_2",
+      "label": "Medalla Especies silver",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_especies_2.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_01",
+      "index": 5
+    },
+    {
+      "id": "medalla_especies_3",
+      "label": "Medalla Especies gold",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_especies_3.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_01",
+      "index": 6
+    },
+    {
+      "id": "medalla_especies_bloqueada",
+      "label": "Medalla Especies locked",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_especies_bloqueada.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 2,
+      "source": "medallas_01",
+      "index": 7
+    },
+    {
+      "id": "medalla_sobres_1",
+      "label": "Medalla Sobres bronze",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_sobres_1.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 6,
+      "source": "medallas_01",
+      "index": 8
+    },
+    {
+      "id": "medalla_sobres_2",
+      "label": "Medalla Sobres silver",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_sobres_2.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 6,
+      "source": "medallas_01",
+      "index": 9
+    },
+    {
+      "id": "medalla_sobres_3",
+      "label": "Medalla Sobres gold",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_sobres_3.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 6,
+      "source": "medallas_01",
+      "index": 10
+    },
+    {
+      "id": "medalla_sobres_bloqueada",
+      "label": "Medalla Sobres locked",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_sobres_bloqueada.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 2,
+      "source": "medallas_01",
+      "index": 11
+    },
+    {
+      "id": "medalla_torre_1",
+      "label": "Medalla Torre bronze",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_torre_1.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 6,
+      "source": "medallas_01",
+      "index": 12
+    },
+    {
+      "id": "medalla_torre_2",
+      "label": "Medalla Torre silver",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_torre_2.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 6,
+      "source": "medallas_01",
+      "index": 13
+    },
+    {
+      "id": "medalla_torre_3",
+      "label": "Medalla Torre gold",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_torre_3.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 6,
+      "source": "medallas_01",
+      "index": 14
+    },
+    {
+      "id": "medalla_torre_bloqueada",
+      "label": "Medalla Torre locked",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_torre_bloqueada.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 2,
+      "source": "medallas_01",
+      "index": 15
+    },
+    {
+      "id": "medalla_brillantes_1",
+      "label": "Medalla Brillantes bronze",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_brillantes_1.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_02",
+      "index": 0
+    },
+    {
+      "id": "medalla_brillantes_2",
+      "label": "Medalla Brillantes silver",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_brillantes_2.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_02",
+      "index": 1
+    },
+    {
+      "id": "medalla_brillantes_3",
+      "label": "Medalla Brillantes gold",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_brillantes_3.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_02",
+      "index": 2
+    },
+    {
+      "id": "medalla_brillantes_bloqueada",
+      "label": "Medalla Brillantes locked",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_brillantes_bloqueada.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 2,
+      "source": "medallas_02",
+      "index": 3
+    },
+    {
+      "id": "medalla_expediciones_1",
+      "label": "Medalla Expediciones bronze",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_expediciones_1.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_02",
+      "index": 4
+    },
+    {
+      "id": "medalla_expediciones_2",
+      "label": "Medalla Expediciones silver",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_expediciones_2.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_02",
+      "index": 5
+    },
+    {
+      "id": "medalla_expediciones_3",
+      "label": "Medalla Expediciones gold",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_expediciones_3.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_02",
+      "index": 6
+    },
+    {
+      "id": "medalla_expediciones_bloqueada",
+      "label": "Medalla Expediciones locked",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_expediciones_bloqueada.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 2,
+      "source": "medallas_02",
+      "index": 7
+    },
+    {
+      "id": "medalla_fusiones_1",
+      "label": "Medalla Fusiones bronze",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_fusiones_1.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_02",
+      "index": 8
+    },
+    {
+      "id": "medalla_fusiones_2",
+      "label": "Medalla Fusiones silver",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_fusiones_2.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_02",
+      "index": 9
+    },
+    {
+      "id": "medalla_fusiones_3",
+      "label": "Medalla Fusiones gold",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_fusiones_3.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_02",
+      "index": 10
+    },
+    {
+      "id": "medalla_fusiones_bloqueada",
+      "label": "Medalla Fusiones locked",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_fusiones_bloqueada.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 2,
+      "source": "medallas_02",
+      "index": 11
+    },
+    {
+      "id": "medalla_impecables_1",
+      "label": "Medalla Impecables bronze",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_impecables_1.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_02",
+      "index": 12
+    },
+    {
+      "id": "medalla_impecables_2",
+      "label": "Medalla Impecables silver",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_impecables_2.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_02",
+      "index": 13
+    },
+    {
+      "id": "medalla_impecables_3",
+      "label": "Medalla Impecables gold",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_impecables_3.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 7,
+      "source": "medallas_02",
+      "index": 14
+    },
+    {
+      "id": "medalla_impecables_bloqueada",
+      "label": "Medalla Impecables locked",
+      "category": "medallas",
+      "rarity": "",
+      "path": "medallas/medalla_impecables_bloqueada.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 2,
+      "source": "medallas_02",
+      "index": 15
+    },
+    {
+      "id": "sobre_basico",
+      "label": "Sobre Básico",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_basico.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_01",
+      "index": 0
+    },
+    {
+      "id": "sobre_brasa",
+      "label": "Sobre Brasa",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_brasa.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_01",
+      "index": 1
+    },
+    {
+      "id": "sobre_marea",
+      "label": "Sobre Marea",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_marea.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_01",
+      "index": 2
+    },
+    {
+      "id": "sobre_brote",
+      "label": "Sobre Brote",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_brote.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_01",
+      "index": 3
+    },
+    {
+      "id": "sobre_rayo",
+      "label": "Sobre Rayo",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_rayo.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_01",
+      "index": 4
+    },
+    {
+      "id": "sobre_roca",
+      "label": "Sobre Roca",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_roca.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_01",
+      "index": 5
+    },
+    {
+      "id": "sobre_cielo",
+      "label": "Sobre Cielo",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_cielo.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_01",
+      "index": 6
+    },
+    {
+      "id": "sobre_sombra",
+      "label": "Sobre Sombra",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_sombra.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_01",
+      "index": 7
+    },
+    {
+      "id": "sobre_botiquin",
+      "label": "Sobre Botiquín",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_botiquin.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_02",
+      "index": 0
+    },
+    {
+      "id": "sobre_raro",
+      "label": "Sobre Raro",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_raro.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_02",
+      "index": 1
+    },
+    {
+      "id": "sobre_legendario",
+      "label": "Sobre Legendario",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_legendario.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_02",
+      "index": 2
+    },
+    {
+      "id": "sobre_dorso_cerrado",
+      "label": "Dorso Sobre Cerrado",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_dorso_cerrado.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_02",
+      "index": 3
+    },
+    {
+      "id": "sobre_dorso_abierto",
+      "label": "Dorso Sobre Abierto",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_dorso_abierto.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_02",
+      "index": 4
+    },
+    {
+      "id": "sobre_semana",
+      "label": "Sobre de la Semana",
+      "category": "sobres",
+      "rarity": "",
+      "path": "sobres/sobre_semana.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "sobres_02",
+      "index": 5
+    },
+    {
+      "id": "tipo_brasa",
+      "label": "Tipo Brasa",
+      "category": "tipos",
+      "rarity": "",
+      "path": "tipos/tipo_brasa.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "simbolos_01",
+      "index": 0
+    },
+    {
+      "id": "tipo_marea",
+      "label": "Tipo Marea",
+      "category": "tipos",
+      "rarity": "",
+      "path": "tipos/tipo_marea.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "simbolos_01",
+      "index": 1
+    },
+    {
+      "id": "tipo_brote",
+      "label": "Tipo Brote",
+      "category": "tipos",
+      "rarity": "",
+      "path": "tipos/tipo_brote.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "simbolos_01",
+      "index": 2
+    },
+    {
+      "id": "tipo_rayo",
+      "label": "Tipo Rayo",
+      "category": "tipos",
+      "rarity": "",
+      "path": "tipos/tipo_rayo.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 12,
+      "source": "simbolos_01",
+      "index": 3
+    },
+    {
+      "id": "tipo_roca",
+      "label": "Tipo Roca",
+      "category": "tipos",
+      "rarity": "",
+      "path": "tipos/tipo_roca.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "simbolos_01",
+      "index": 4
+    },
+    {
+      "id": "tipo_cielo",
+      "label": "Tipo Cielo",
+      "category": "tipos",
+      "rarity": "",
+      "path": "tipos/tipo_cielo.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "simbolos_01",
+      "index": 5
+    },
+    {
+      "id": "tipo_sombra",
+      "label": "Tipo Sombra",
+      "category": "tipos",
+      "rarity": "",
+      "path": "tipos/tipo_sombra.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "simbolos_01",
+      "index": 6
+    },
+    {
+      "id": "monedas",
+      "label": "Monedas",
+      "category": "recursos",
+      "rarity": "",
+      "path": "recursos/monedas.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "simbolos_01",
+      "index": 7
+    },
+    {
+      "id": "esencia",
+      "label": "Esencia",
+      "category": "recursos",
+      "rarity": "",
+      "path": "recursos/esencia.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "simbolos_01",
+      "index": 8
+    },
+    {
+      "id": "descuento_semana",
+      "label": "Descuento Semanal",
+      "category": "recursos",
+      "rarity": "",
+      "path": "recursos/descuento_semana.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "simbolos_01",
+      "index": 9
+    },
+    {
+      "id": "sello_completado",
+      "label": "Sello Completado",
+      "category": "album",
+      "rarity": "",
+      "path": "album/sello_completado.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "simbolos_01",
+      "index": 10
+    },
+    {
+      "id": "brillante",
+      "label": "Brillante",
+      "category": "album",
+      "rarity": "",
+      "path": "album/brillante.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 12,
+      "source": "simbolos_01",
+      "index": 11
+    },
+    {
+      "id": "estado_quemadura",
+      "label": "Quemadura",
+      "category": "estados",
+      "rarity": "",
+      "path": "estados/estado_quemadura.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "simbolos_02",
+      "index": 0
+    },
+    {
+      "id": "estado_veneno",
+      "label": "Veneno",
+      "category": "estados",
+      "rarity": "",
+      "path": "estados/estado_veneno.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "simbolos_02",
+      "index": 1
+    },
+    {
+      "id": "estado_paralisis",
+      "label": "Parálisis",
+      "category": "estados",
+      "rarity": "",
+      "path": "estados/estado_paralisis.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "simbolos_02",
+      "index": 2
+    },
+    {
+      "id": "estado_sueno",
+      "label": "Sueño",
+      "category": "estados",
+      "rarity": "",
+      "path": "estados/estado_sueno.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 13,
+      "source": "simbolos_02",
+      "index": 3
+    },
+    {
+      "id": "estado_lentitud",
+      "label": "Lentitud",
+      "category": "estados",
+      "rarity": "",
+      "path": "estados/estado_lentitud.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "simbolos_02",
+      "index": 4
+    },
+    {
+      "id": "estado_debilidad",
+      "label": "Debilidad",
+      "category": "estados",
+      "rarity": "",
+      "path": "estados/estado_debilidad.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 12,
+      "source": "simbolos_02",
+      "index": 5
+    },
+    {
+      "id": "categoria_fisico",
+      "label": "Ataque Físico",
+      "category": "categorias",
+      "rarity": "",
+      "path": "categorias/categoria_fisico.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "simbolos_02",
+      "index": 6
+    },
+    {
+      "id": "categoria_especial",
+      "label": "Ataque Especial",
+      "category": "categorias",
+      "rarity": "",
+      "path": "categorias/categoria_especial.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "simbolos_02",
+      "index": 7
+    },
+    {
+      "id": "categoria_apoyo",
+      "label": "Ataque Apoyo",
+      "category": "categorias",
+      "rarity": "",
+      "path": "categorias/categoria_apoyo.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "simbolos_02",
+      "index": 8
+    },
+    {
+      "id": "categoria_definitivo",
+      "label": "Ataque Definitivo",
+      "category": "categorias",
+      "rarity": "",
+      "path": "categorias/categoria_definitivo.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "simbolos_02",
+      "index": 9
+    },
+    {
+      "id": "candado_no_descubierta",
+      "label": "No Descubierta",
+      "category": "album",
+      "rarity": "",
+      "path": "album/candado_no_descubierta.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "simbolos_02",
+      "index": 10
+    },
+    {
+      "id": "tiempo_expedicion",
+      "label": "Tiempo de Expedición",
+      "category": "expediciones",
+      "rarity": "",
+      "path": "expediciones/tiempo_expedicion.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "simbolos_02",
+      "index": 11
+    },
+    {
+      "id": "menu_combate",
+      "label": "Combate",
+      "category": "menu",
+      "rarity": "",
+      "path": "menu/menu_combate.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "menu",
+      "index": 0
+    },
+    {
+      "id": "menu_sobres",
+      "label": "Sobres",
+      "category": "menu",
+      "rarity": "",
+      "path": "menu/menu_sobres.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "menu",
+      "index": 1
+    },
+    {
+      "id": "menu_coleccion",
+      "label": "Colección",
+      "category": "menu",
+      "rarity": "",
+      "path": "menu/menu_coleccion.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "menu",
+      "index": 2
+    },
+    {
+      "id": "menu_equipo",
+      "label": "Equipo",
+      "category": "menu",
+      "rarity": "",
+      "path": "menu/menu_equipo.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 13,
+      "source": "menu",
+      "index": 3
+    },
+    {
+      "id": "menu_expediciones",
+      "label": "Expediciones",
+      "category": "menu",
+      "rarity": "",
+      "path": "menu/menu_expediciones.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "menu",
+      "index": 4
+    },
+    {
+      "id": "menu_tienda",
+      "label": "Tienda",
+      "category": "menu",
+      "rarity": "",
+      "path": "menu/menu_tienda.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "menu",
+      "index": 5
+    },
+    {
+      "id": "menu_minijuegos",
+      "label": "Minijuegos",
+      "category": "menu",
+      "rarity": "",
+      "path": "menu/menu_minijuegos.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "menu",
+      "index": 6
+    },
+    {
+      "id": "menu_misiones",
+      "label": "Misiones",
+      "category": "menu",
+      "rarity": "",
+      "path": "menu/menu_misiones.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 14,
+      "source": "menu",
+      "index": 7
+    },
+    {
+      "id": "menu_bestiario",
+      "label": "Bestiario",
+      "category": "menu",
+      "rarity": "",
+      "path": "menu/menu_bestiario.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 13,
+      "source": "menu",
+      "index": 8
+    },
+    {
+      "id": "menu_bolsa",
+      "label": "Bolsa",
+      "category": "menu",
+      "rarity": "",
+      "path": "menu/menu_bolsa.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "menu",
+      "index": 9
+    },
+    {
+      "id": "menu_guardado",
+      "label": "Guardado",
+      "category": "menu",
+      "rarity": "",
+      "path": "menu/menu_guardado.png",
+      "size": [
+        32,
+        32
+      ],
+      "opaque_colors": 15,
+      "source": "menu",
+      "index": 10
+    },
+    {
+      "id": "marco_comun",
+      "label": "Marco Común",
+      "category": "album",
+      "rarity": "",
+      "path": "album/marco_comun.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "marcos",
+      "index": 0
+    },
+    {
+      "id": "marco_poco_comun",
+      "label": "Marco Poco Común",
+      "category": "album",
+      "rarity": "",
+      "path": "album/marco_poco_comun.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 14,
+      "source": "marcos",
+      "index": 1
+    },
+    {
+      "id": "marco_rara",
+      "label": "Marco Rara",
+      "category": "album",
+      "rarity": "",
+      "path": "album/marco_rara.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 14,
+      "source": "marcos",
+      "index": 2
+    },
+    {
+      "id": "marco_epica",
+      "label": "Marco Épica",
+      "category": "album",
+      "rarity": "",
+      "path": "album/marco_epica.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "marcos",
+      "index": 3
+    },
+    {
+      "id": "marco_familia_completa",
+      "label": "Marco Familia Completa",
+      "category": "album",
+      "rarity": "",
+      "path": "album/marco_familia_completa.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 14,
+      "source": "marcos",
+      "index": 4
+    },
+    {
+      "id": "marco_eclipse",
+      "label": "Marco Eclipse",
+      "category": "album",
+      "rarity": "",
+      "path": "album/marco_eclipse.png",
+      "size": [
+        64,
+        88
+      ],
+      "opaque_colors": 15,
+      "source": "marcos",
+      "index": 5
+    },
+    {
+      "id": "expedicion_playa",
+      "label": "Expedición Playa",
+      "category": "expediciones",
+      "rarity": "",
+      "path": "expediciones/expedicion_playa.png",
+      "size": [
+        160,
+        96
+      ],
+      "opaque_colors": 15,
+      "source": "expediciones",
+      "index": 0
+    },
+    {
+      "id": "expedicion_bosque",
+      "label": "Expedición Bosque",
+      "category": "expediciones",
+      "rarity": "",
+      "path": "expediciones/expedicion_bosque.png",
+      "size": [
+        160,
+        96
+      ],
+      "opaque_colors": 15,
+      "source": "expediciones",
+      "index": 1
+    },
+    {
+      "id": "expedicion_volcan",
+      "label": "Expedición Volcán",
+      "category": "expediciones",
+      "rarity": "",
+      "path": "expediciones/expedicion_volcan.png",
+      "size": [
+        160,
+        96
+      ],
+      "opaque_colors": 15,
+      "source": "expediciones",
+      "index": 2
+    }
+  ]
+}

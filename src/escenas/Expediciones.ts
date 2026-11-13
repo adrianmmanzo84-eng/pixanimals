@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { pieza } from '../ui/arte';
 import { Puntero } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import { Rng } from '../core/rng';
@@ -14,6 +15,8 @@ import { fondo } from '../ui/fondos';
 import { partir, Texto } from '../ui/texto';
 
 type Modo = 'lugares' | 'criatura' | 'duracion';
+/** Cada lugar de expedición tiene su ilustración (expedicion_<lugar>). */
+const LUGARES = ['playa', 'bosque', 'volcan'];
 const VISIBLES = 4;
 
 function duracion(ms: number): string {
@@ -87,16 +90,23 @@ export class Expediciones extends Phaser.Scene {
         ventana(g, 6, y, 228, 30);
         if (i === this.sel) g.lineStyle(1.4, n(C.resalte), 1).strokeRoundedRect(6, y, 228, 30, 4);
         const x = e.expediciones[i];
+        // Ilustración del lugar (160×96, a 1:1 en pantalla); la criatura que explora va encima.
+        const lugar = LUGARES[i];
+        const ilus = lugar ? pieza(this, `expedicion_${lugar}`, 30, y + 15, 40, this.capa) : null;
+        const x0 = ilus ? 56 : 42;
         if (!x) {
-          this.txt(14, y + 10, 210, 10, C.tintaSuave).poner(t('exp.libre'));
+          if (ilus) this.txt(x0, y + 4, 160, 10, C.tinta, 'izq', { peso: 600 }).poner(t(`exp.lugar.${lugar}`));
+          this.txt(ilus ? x0 : 14, ilus ? y + 15 : y + 10, 170, 10, C.tintaSuave).poner(t('exp.libre'));
         } else {
           const c = e.criaturas.find((cc) => cc.especie === x.especie);
-          this.capa.add(miniatura(this.add.image(24, y + 15, textura(x.especie, 'frente', c?.brillante)), x.especie, 26, 0.5));
-          this.txt(42, y + 3, 120, 10, C.tinta, 'izq', { peso: 600 }).poner(DATOS.criaturas.get(x.especie)!.nombre);
+          this.capa.add(miniatura(this.add.image(ilus ? 30 : 24, y + 15, textura(x.especie, 'frente', c?.brillante)), x.especie, 26, 0.5));
+          this.txt(x0, y + 3, 120, 10, C.tinta, 'izq', { peso: 600 }).poner(DATOS.criaturas.get(x.especie)!.nombre);
           const falta = faltaExpedicion(x, ahora);
           const total = x.horas * 3_600_000;
-          g.fillStyle(C.barraFondo, 1).fillRoundedRect(42, y + 17, 120, 4, 2);
-          g.fillStyle(falta ? 0x5aa9f0 : 0x3fbf6a, 1).fillRoundedRect(42, y + 17, Math.max(2, 120 * (1 - falta / total)), 4, 2);
+          const largo = ilus ? 100 : 120;
+          g.fillStyle(C.barraFondo, 1).fillRoundedRect(x0, y + 17, largo, 4, 2);
+          g.fillStyle(falta ? 0x5aa9f0 : 0x3fbf6a, 1).fillRoundedRect(x0, y + 17, Math.max(2, largo * (1 - falta / total)), 4, 2);
+          if (falta) pieza(this, 'tiempo_expedicion', x0 + largo + 7, y + 19, 8, this.capa);
           this.txt(150, y + 3, 76, 10, falta ? C.tintaSuave : C.resalte, 'der', { peso: falta ? 500 : 600 }).poner(
             falta ? t('exp.vuelve', { t: duracion(falta) }) : t('exp.volvio'),
           );

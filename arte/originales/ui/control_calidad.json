@@ -1,0 +1,1004 @@
+{
+  "recursos": 124,
+  "items": 34,
+  "medallas_ganadas": 24,
+  "medallas_bloqueadas": 8,
+  "sobres": 14,
+  "banners": 0,
+  "alfa_binario": true,
+  "max_colores_incluida_transparencia": 16,
+  "archivos": [
+    {
+      "archivo": "items/item_caramelo_s.png",
+      "sha256": "a015a850b8543741d34faa43896d0ceee1bf0a27e3d4d02157e35e9b7f263a91",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_caramelo_m.png",
+      "sha256": "45f7fb433df6aeaa7bc0a31ff35f3fc023ae0beef41c2260b44036046fa8f6ab",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_caramelo_l.png",
+      "sha256": "df91ff85f097fcd3a2879af9d5580b5657a07ced89ca96f510c30b262b9be296",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_vit_ps.png",
+      "sha256": "e6c69d8362e5160f23376182f20415ac28f1189b5d40884eb7f6eea3dc43d349",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_vit_atq.png",
+      "sha256": "e6d18f6e8750b6c339c0b5003fbe6bee1e5836694b9f2dd89fa6d8d6a4e045e3",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_vit_def.png",
+      "sha256": "721c0796efed5feefe0f29181c5ef18ec53513195d5b10a9233d641a1fb403ce",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_vit_ate.png",
+      "sha256": "2049c0e597c28acfd150220d1f178476cc6c68e196f9bc60b0d955d33cd64d49",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_vit_dfe.png",
+      "sha256": "ccc9483578fc5741b56d9ceec9018fe94a5303097e3a2e09c4e6dca363d8e383",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_vit_vel.png",
+      "sha256": "7dae7cd2a4cfa3b60139af2972cb8026a1ccbc77ca910e8761d234dd37c672a3",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_incienso.png",
+      "sha256": "c94fb6091b14c8ea23f5978bcc03af9ed1ea604134125f073204b7d0a398354a",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_antidoto.png",
+      "sha256": "2f9d8c177ed7d2c44f49b2e6a3763ac7722d59bf95d655ac1e41c34f948d7cb0",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_tonico.png",
+      "sha256": "7dc964cb18f89594d5eaf8677c1c13a686c094b0ce48c4511fe87aa04de3aab8",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_pocion.png",
+      "sha256": "8a32689e1687b5e3304b96715510c238ed2a6f5c747a9c99ef32c5feccd8bb9f",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_superpocion.png",
+      "sha256": "519845867fae88be6dc289637ecb3045e299642f1656864b4f671d7870eb2041",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_pocion_max.png",
+      "sha256": "e5fc154786af0dc69be249054afb6c87febbf42d4179af914b771d69feb3249c",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_carta_escudo.png",
+      "sha256": "3dec25b6879cb3604058046e134756057e75dd92738fd623673b3676ae5e2d2f",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_revivir.png",
+      "sha256": "f2654de6b2a5d29ed21e4cf6bd927c7a14cc947c31565ab44c11e5c383a114b9",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_reloj_arena.png",
+      "sha256": "8cd818c78ae4527088400505be247fb36bd46abc0076ac902faf0014390bc939",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_carta_furia.png",
+      "sha256": "8f82ca747627e07828848ab13b762e5839e3653b3df86eb691339807ea9a5d41",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_carta_muralla.png",
+      "sha256": "1b02a1abefcdf503065830389daba4e1e92ea41527baeb24c8e9fec7b34fa6d4",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_carta_mente.png",
+      "sha256": "4d962dd8c3f18c43925e5522b37932862db0e89ba233f2eda29bca23aebf04e6",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_carta_calma.png",
+      "sha256": "2daa02afb6b809cdca68286deac9b33b920f6122a4c1882ba650d50adedd22dd",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_carta_rafaga.png",
+      "sha256": "2b63ba4052d1c5d4e4adb29e64a42d4c8d79823c9026821e57050f3789689bd2",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_piedra_eclipse.png",
+      "sha256": "c3d2ceffdd2d2e6ffc8976c5502525450a62ef84f35184e4be843e6782184837",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_encanto_sueno.png",
+      "sha256": "7e252ff5b117f4858f40be076f3df12add49315ae6da73cfaeb37d46ddea87c5",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_encanto_veneno.png",
+      "sha256": "87322823e5543e29c1d7ab5a6a97bfc8cdf86239608bd2ff6365013dfd684224",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_encanto_lento.png",
+      "sha256": "11775351972f15271d3adc1a865cb0cb9ae3717c2d298bc7d936144256215d0b",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_encanto_debil.png",
+      "sha256": "32e09903b6c2f45cbc216f4fb59c011fa1ec23773fbe32ce9fc5233ee967fe30",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_amuleto_vigor.png",
+      "sha256": "46511688b7dbd5563f4435e0c93d355c832e335cf3fe4b2e4a753a0e71b01b68",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_amuleto_fuerza.png",
+      "sha256": "e2da0532b7c15c5f4b3909642b4c13d749284a1869e29e780220003fcbcc85b3",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_amuleto_coraza.png",
+      "sha256": "855847db452d1c46b15194f53f094fc3645c2ad624200243aaaca2803cac972f",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_amuleto_mente.png",
+      "sha256": "04fdbab48f2fae8c7629d194ec84becf956df83422569a84e15fd57a773d0ec4",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_amuleto_calma.png",
+      "sha256": "4e299d62e94c36e13181d7020b4478e886d0a5b2debaab29f39367231e3f9920",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "items/item_amuleto_pluma.png",
+      "sha256": "36600d3ce1f74528b55a60d58cc81b5228cc6b0446413821df7ce0c012d132c7",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_victorias_1.png",
+      "sha256": "a99aca310f272476eed26ce162f9232d6d03dce5685192816f878fa8f7e258b2",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_victorias_2.png",
+      "sha256": "1c0352a215fb7f35951c7ec56b477c13ae501593171760048d7f5cefad086830",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_victorias_3.png",
+      "sha256": "9ad2647d807f21224cb94c991b4dfceaad0defd41fad346fb6cbc556528f7efd",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_victorias_bloqueada.png",
+      "sha256": "59243907b16b38f5c59c672342038016e6abcf40d7d9109c602666f3dc792804",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_especies_1.png",
+      "sha256": "4b6ea121329411ea60daf289ec047cd2cbd9a84c68fd37bde4d2893850c1cd72",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_especies_2.png",
+      "sha256": "2a50e6ab76c50438726a81affe0f8394a33d3ddef4ea13157c024018323b252f",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_especies_3.png",
+      "sha256": "b7b5c1f860a2841b7f9d04c7171bbbf492318056ee65cf4d625d52ed6e59de59",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_especies_bloqueada.png",
+      "sha256": "71482d075b463d14671c99ec3778cd324eea12a65b9deb9151cf645f643dad33",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_sobres_1.png",
+      "sha256": "3e8ba44f654b07d305671adbac7f9dcf4491275cb9e5809c6000731f438be7d7",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_sobres_2.png",
+      "sha256": "29155b6632464db87216f563fe3fc037feb55036aab5bb450fb1c33fe1662fc5",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_sobres_3.png",
+      "sha256": "114f7a783f157b9c38fe09d798afd1cfefa5942066e580e3c235b256a47371fe",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_sobres_bloqueada.png",
+      "sha256": "4edf50c5d6c4aaabdf6ffdf029a7c42db113eef4601911221f2dd1624ca46df6",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_torre_1.png",
+      "sha256": "6c37134e85fe61fecd0e24480c1b37c0da32751ccea2e7850c8fd69c503316a1",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_torre_2.png",
+      "sha256": "604ccec7a937c9f968b4f9f6ee6037a01c3c3205855c05a5877d1dc4b4243106",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_torre_3.png",
+      "sha256": "47755b19deca385a08e25b4aed2a776e76dd0823bbaa716d570605274b300970",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_torre_bloqueada.png",
+      "sha256": "71482d075b463d14671c99ec3778cd324eea12a65b9deb9151cf645f643dad33",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_brillantes_1.png",
+      "sha256": "9c45dbc82b53a4262a9b7344d3746e6b119a3f53b40db738d7c4695faaccd91e",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_brillantes_2.png",
+      "sha256": "385a10d25e2632c855e4cbf864a5893c09969d4fbdb36c76bb31491dda604645",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_brillantes_3.png",
+      "sha256": "cbf7b5c5e870b2d5bfd482c69ae4ae9ce74b95bd8632386f7d7c0cddd503c8c8",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_brillantes_bloqueada.png",
+      "sha256": "4a46dd177f7e9908b384d46607875a2dcc8f9d0205621d3387da50018fb286ff",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_expediciones_1.png",
+      "sha256": "1b9b666c9000c7a78d5429a43babc7069c042caa2c6367d4ebd3dada64f564f9",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_expediciones_2.png",
+      "sha256": "3d9bd3a8fdb80c29dbc2ec504ba11c7684fe13f47a5af94fd9fa6ce1fa49b14e",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_expediciones_3.png",
+      "sha256": "1b36af170d38f7145c378224dd0f0e9c72986b98e8ef56fc6222433f2678e1e8",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_expediciones_bloqueada.png",
+      "sha256": "942a54f1f45a27da3a81174b822d37c996b214debf17d70b03bb7284a1e547c8",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_fusiones_1.png",
+      "sha256": "7efa4d3a2fef1b832ae7871afa914ee4d07a9edfd172371f7c5beed4efb95db0",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_fusiones_2.png",
+      "sha256": "1d45b5b0280f71fad90e8d3fc352c0cbaa021fb8ae7a454bab1b311b07b29f04",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_fusiones_3.png",
+      "sha256": "c2370c67da8f64c9c57de3ced512d847e33aff46cc0dc6ef1e9a7b0d3b660ff3",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_fusiones_bloqueada.png",
+      "sha256": "7b3a212bbd1a7bb96d63d969443952ee5ed941d657766dafa4e7891de3595439",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_impecables_1.png",
+      "sha256": "504f57ab4766965fb968114eabfff10bfc29117f17a71cfcf9d6e200afbc7701",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_impecables_2.png",
+      "sha256": "eb645c67220c86af03de6d84b015d1510ca3490d9f7860facfdbf60b494b2a39",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_impecables_3.png",
+      "sha256": "ea577e741f23f48197a2a9136c30703b4827933e97f97efebbfebf0236652c69",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_impecables_bloqueada.png",
+      "sha256": "ac102ebfaf68795ecbb60af901fba30504bbc09b0b8d3fdc2496f1a44f151c4c",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_basico.png",
+      "sha256": "afc622a8fe952d5326615a604f8f8d706348f8c697531d4101d2a2f9adb1d014",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_brasa.png",
+      "sha256": "0936517f9242af2cf86d202effe73403bc674efdff5051bebb016fd02f3f5f17",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_marea.png",
+      "sha256": "55b5674439a0bd111cf4e2f94be1b30b02a74a63b2d0ceafa4111faa4ff331ec",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_brote.png",
+      "sha256": "768b6ea24c7bc50cbb2bf4f6b0e1f93fe29fae90c9ff458f5dba60489bf1ac4a",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_rayo.png",
+      "sha256": "4d048bb030bfbb05430892cf90a78a0303b46f9633081fcd68cbd61e0c5f809e",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_roca.png",
+      "sha256": "fe988224735e820a67f56f7475392eccd9999e898520992b72823a026773f069",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_cielo.png",
+      "sha256": "7bc9384e376ba41d5221d6b6165b1b1e9aba9a65234976b9c7dd296236a14094",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_sombra.png",
+      "sha256": "47d7d7ded1f53bce753ae5e24fd74830eb0ee7e35315e4402ab2f32f566b3c0c",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_botiquin.png",
+      "sha256": "d2feecc7d87fb053c831c2fb82e2164b51df6052f2b93aa4b06e2d573786c67d",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_raro.png",
+      "sha256": "ab9ea6531ca27572d3ac6bcd86ddefc86da2513e7898a0aa6ec84e1be1dee67f",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_legendario.png",
+      "sha256": "861ff4b24fb58a974ace5a7ece5fd2fa8ff8b87a465fce1225efe522775fd4f2",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_dorso_cerrado.png",
+      "sha256": "103b1446b4b0001da1e001d4a9a7badfac0d7b213f4d888766d607bfca9266fd",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_dorso_abierto.png",
+      "sha256": "88854d2b795821b49cdb2b0189f36d47ba23a56faa9783c9a21d0bed6d8e8d42",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "sobres/sobre_semana.png",
+      "sha256": "2f1297e48aaeac4d5278d75b04d342fe69e75810c580b5135886fd1a401eec18",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "tipos/tipo_brasa.png",
+      "sha256": "e1d8bce70c45d755794c8b4ad87eccec756eb0b2ff97527a3f9997e10de27413",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "tipos/tipo_marea.png",
+      "sha256": "76f16e247ba80cf49f046ae61b8cfa7799b326749ddfda3c2f3be6e83912e672",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "tipos/tipo_brote.png",
+      "sha256": "3f3707599cdca7c3e2d8744eb1c367a92bd1fb377eccef8042190c16311f8163",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "tipos/tipo_rayo.png",
+      "sha256": "b4f1289eea75ceb2e3ce9ae1ed884766ef1f9be6da09f8471fa42e809ad37199",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "tipos/tipo_roca.png",
+      "sha256": "3339fdcc9c1361e84cdf09abf849ac56fc943a11ee35f5551e41533bbabc57dd",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "tipos/tipo_cielo.png",
+      "sha256": "2a3bbd838914d761fc1e5b0efa0411337f59b85ecfbcbe3358cbe7fd78dbc0d3",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "tipos/tipo_sombra.png",
+      "sha256": "f616009931b74a361bd8ba3a448e7a1e2a48a54dbfcf491802bd8d0bed0585cc",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "recursos/monedas.png",
+      "sha256": "59d88578a9140db866114b0eca0d2dd7bbaad038481c1bf2ecfdab96b0b2b5c9",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "recursos/esencia.png",
+      "sha256": "9e3232896d44f8e8acc8a23d1ca970289625fc709045d066b44753e827fe4564",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "recursos/descuento_semana.png",
+      "sha256": "cf6c8ae0a82407c0c796e55ab725dc7ab741d0c6d83b45f5fcd72849c8420900",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "album/sello_completado.png",
+      "sha256": "c7efbf1458e032dc781774a1e3978dd062794f5fbd7028fe7f08c38c5cf1b409",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "album/brillante.png",
+      "sha256": "d8f47d4f694337637645099d694e77456f3f4d7d99eabd0eac62bc0126dbb70a",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "estados/estado_quemadura.png",
+      "sha256": "23280d072a61314c04e2e41d31e218c901d71d5e2babdec462d9648ff03f33f0",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "estados/estado_veneno.png",
+      "sha256": "d147096846c134b5f277b2692c21137bd9dd83fecd48f120056af69b3009d86a",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "estados/estado_paralisis.png",
+      "sha256": "9bfad4f4ffded2d3560a5fadc51821d8e3dec7a28423b99292c71473b6ca6cdb",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "estados/estado_sueno.png",
+      "sha256": "9b30618b350a9f2cd886cc83380809bcf5bf89f11ebbb769e082c44f6b7a1e74",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "estados/estado_lentitud.png",
+      "sha256": "5704956fc0b9b017dc7258e30a5b72ab5185a4994e2a1ea13afd162ebf00ef7c",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "estados/estado_debilidad.png",
+      "sha256": "0221cd5edb082040a400c4c544900732d9e55a0493bf4d4715e3ce84faa0ebc9",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "categorias/categoria_fisico.png",
+      "sha256": "fa2d98040c6948e5e5dde70ffa36e23259c720d589ef126bebe6f9caf61746bf",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "categorias/categoria_especial.png",
+      "sha256": "6b136a39833076167696e4fd56c4c79190cb282c3a79a768018a9b677d4210bc",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "categorias/categoria_apoyo.png",
+      "sha256": "946f15043800920bd85330d36a265cc427004b3fb669651d39d5162996f7fc6c",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "categorias/categoria_definitivo.png",
+      "sha256": "3f3e13c7cfc9d511ac19c1151be06cc33fe6a99ae915c8b123dee1011af69f56",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "album/candado_no_descubierta.png",
+      "sha256": "cbca2ef85f505950cf027dd355e313c9622dc3049ea9e4fe5d06b602069a310b",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "expediciones/tiempo_expedicion.png",
+      "sha256": "cd3cf5f161bd899829d2dda9575c6d2063e6148fdb2aca949bd70ea0ac9133dd",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "menu/menu_combate.png",
+      "sha256": "83520974faf30c87d2d8ff80864133b7a55f51242db318d7811c185ffcf4903d",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "menu/menu_sobres.png",
+      "sha256": "28234b6a1c5a79a12c52e907ef0018052b628f8d60531351bd017cb4421665df",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "menu/menu_coleccion.png",
+      "sha256": "08b0f57139acfc5855070c819ee067859ed28278f3506c01b5d6b5da0676a730",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "menu/menu_equipo.png",
+      "sha256": "a56a9269f6d684c8d67cd2bd00eaf48f143dc7db714a9ed8194428223277c31e",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "menu/menu_expediciones.png",
+      "sha256": "1cb5bbace581e9154eca385c51d466be29e30c216b1577406d004d2ce2065812",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "menu/menu_tienda.png",
+      "sha256": "fc0f50974126fa0aab2762442cb42d3a7d0b608ffdc262b23e925199cf9de3d1",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "menu/menu_minijuegos.png",
+      "sha256": "db8e629a9c066c7c4080a07f687420464a4f305b85e87a5726d5a045d555c38f",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "menu/menu_misiones.png",
+      "sha256": "14f7c93a0ee1c7d91702b79cc85104c3042c770f7f787bd01501c136f9945e95",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "menu/menu_bestiario.png",
+      "sha256": "857112153abe1d2a2791fc906f7c33caf06c396e30c887e1e2285451e4dd5d6f",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "menu/menu_bolsa.png",
+      "sha256": "29857097ef5b26051a60aaec63355fcee8dccebab6763f77fccdcea271b45382",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "menu/menu_guardado.png",
+      "sha256": "b234c660ea0bb9167062050d2c83b326541047bd47e8f7e6b931d29016e353a4",
+      "dimensiones": [
+        32,
+        32
+      ]
+    },
+    {
+      "archivo": "album/marco_comun.png",
+      "sha256": "8baf844611423235f0a78942292a41b445cdec1ef914348474da7922edeb6962",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "album/marco_poco_comun.png",
+      "sha256": "d436cf5a266da9e4490177069f52b45ffc01c01b00f7da5bdee41a9047386c9a",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "album/marco_rara.png",
+      "sha256": "81de27e9792108cb1c8a685bcc945abf55d6b241dfa399e129261a706b438eeb",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "album/marco_epica.png",
+      "sha256": "eaf02b2252c9508046f7da9327c1322494cdd71399e0bfe2077c15ef68a2bd9c",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "album/marco_familia_completa.png",
+      "sha256": "a7c762683a48d86b4d6279804af31681a6769a276deab3a916ea54a6cba288d3",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "album/marco_eclipse.png",
+      "sha256": "aaa222396af8ab762e0e5cb427a6309cd7705fa4322bf297d2c4e02501583ddc",
+      "dimensiones": [
+        64,
+        88
+      ]
+    },
+    {
+      "archivo": "expediciones/expedicion_playa.png",
+      "sha256": "de56268db7a163b51a0dfd9f1870abd7ec6729efb8a72d4b69c588c1b407c319",
+      "dimensiones": [
+        160,
+        96
+      ]
+    },
+    {
+      "archivo": "expediciones/expedicion_bosque.png",
+      "sha256": "09c0cdf159d4d109789e717960f5dabe5a308de1d236bbcea29081a0a68e12c6",
+      "dimensiones": [
+        160,
+        96
+      ]
+    },
+    {
+      "archivo": "expediciones/expedicion_volcan.png",
+      "sha256": "75d6826bb735740d0c70c6e952904de44d1ee4f749ccf557bef62032368f2b54",
+      "dimensiones": [
+        160,
+        96
+      ]
+    }
+  ]
+}

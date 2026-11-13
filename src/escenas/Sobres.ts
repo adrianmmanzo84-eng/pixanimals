@@ -12,6 +12,7 @@ import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
 import { juego } from '../juego';
 import { COLOR_RAREZA, estrellas, miniatura, textura } from '../ui/criaturas';
+import { claveSobre, fondoCarta, hayArte, marcoCarta, pieza } from '../ui/arte';
 import { C, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { Texto } from '../ui/texto';
@@ -36,12 +37,16 @@ export class Sobres extends Phaser.Scene {
   private probs: Texto[] = [];
   private pie!: Texto;
   private recursos!: Texto;
+  private recMon: Texto | null = null;
+  private recEse: Texto | null = null;
   private cursor!: Phaser.GameObjects.Graphics;
   private alPulsar: ((a: AccionEntrada) => void) | null = null;
   private bienvenida = false;
   private scroll = 0;
   private fijarScroll = false;
   private colores!: Phaser.GameObjects.Graphics;
+  private minis: Phaser.GameObjects.Image[] = [];
+  private rebajas: Phaser.GameObjects.Image[] = [];
   private puntero: Puntero | null = null;
 
   constructor() {
@@ -71,12 +76,23 @@ export class Sobres extends Phaser.Scene {
     const g = this.add.graphics();
     new Texto(this, 6, 3, 100, 14, '#ffffff', 'izq', { tam: 11, peso: 600, borde: '#2b3a78' }).poner(t('sobres.titulo'));
     this.recursos = new Texto(this, 100, 6, 134, 10, '#ffffff', 'der', { borde: '#2b3a78' });
+    this.recMon = this.recEse = null;
+    if (pieza(this, 'monedas', 160, 11, 8) && pieza(this, 'esencia', 202, 11, 8)) {
+      this.recMon = new Texto(this, 166, 6, 34, 10, '#ffffff', 'izq', { borde: '#2b3a78' });
+      this.recEse = new Texto(this, 208, 6, 30, 10, '#ffffff', 'izq', { borde: '#2b3a78' });
+    }
     ventana(g, 4, 20, 122, 92);
     ventana(g, 130, 20, 106, 92);
     ventana(g, 4, 116, 232, 40);
     // Lista con desplazamiento: FILAS sobres a la vista.
     this.colores = this.add.graphics();
+    this.minis = [];
+    this.rebajas = [];
     for (let k = 0; k < FILAS; k++) {
+      // Miniatura del sobre (32×44 a 1:1 en pantalla) y la estrella de descuento semanal.
+      if (hayArte(this, 'sobre_basico_mini')) this.minis.push(this.add.image(17, 30.5 + k * 11, 'ui_sobre_basico_mini').setScale(0.25));
+      const rebaja = pieza(this, 'descuento_semana', 86, 30 + k * 11, 8);
+      if (rebaja) this.rebajas.push(rebaja.setVisible(false));
       this.nombres.push(new Texto(this, 22, 25 + k * 11, 70, 10));
       this.costos.push(new Texto(this, 78, 25 + k * 11, 42, 10, C.tinta, 'der'));
     }
@@ -119,7 +135,7 @@ export class Sobres extends Phaser.Scene {
       juego.guardar();
       sonido.tocar('aceptar');
       this.alPulsar = null;
-      void this.animar(cartas, colorSobre(def), def.nombre).then(() => this.scene.restart({}));
+      void this.animar(cartas, colorSobre(def), def.nombre, def.id).then(() => this.scene.restart({}));
     }
   };
 
@@ -130,7 +146,10 @@ export class Sobres extends Phaser.Scene {
     const lista = DATOS.sobres.sobres;
     if (!this.fijarScroll) this.scroll = Math.max(0, Math.min(this.sel - Math.floor(FILAS / 2), lista.length - FILAS));
     this.fijarScroll = false;
-    this.recursos.poner(`${t('rec.monedas', { n: estado.monedas })} · ${t('rec.esencia', { n: estado.esencia })}`);
+    if (this.recMon && this.recEse) {
+      this.recMon.poner(String(estado.monedas));
+      this.recEse.poner(String(estado.esencia));
+    } else this.recursos.poner(`${t('rec.monedas', { n: estado.monedas })} · ${t('rec.esencia', { n: estado.esencia })}`);
     this.colores.clear();
     for (let k = 0; k < FILAS; k++) {
       const i = this.scroll + k;
@@ -138,14 +157,20 @@ export class Sobres extends Phaser.Scene {
       if (!s) {
         this.nombres[k]!.poner('');
         this.costos[k]!.poner('');
+        this.minis[k]?.setVisible(false);
+        this.rebajas[k]?.setVisible(false);
         continue;
       }
       const pago = costoDe(DATOS, estado, s.id, ahora);
       const color = i === this.sel ? C.resalte : pago.puede ? C.tinta : C.apagado;
       this.nombres[k]!.poner(s.nombre, color);
-      this.costos[k]!.poner(pago.gratis ? t('sobres.gratis', { n: gratis.disponibles }) : (pago.costo < s.costo ? '★' : '') + String(pago.costo), color);
-      // Muestra del color del sobre.
-      this.colores.fillStyle(colorSobre(s), 1).fillRoundedRect(15, 26 + k * 11, 5, 7, 1);
+      const rebajado = !pago.gratis && pago.costo < s.costo;
+      this.costos[k]!.poner(pago.gratis ? t('sobres.gratis', { n: gratis.disponibles }) : (rebajado && !this.rebajas[k] ? '★' : '') + String(pago.costo), color);
+      this.rebajas[k]?.setVisible(rebajado);
+      // Miniatura del sobre, o una muestra de su color si falta el dibujo.
+      const mini = this.minis[k];
+      if (mini && hayArte(this, `${claveSobre(s.id)}_mini`)) mini.setTexture(`ui_${claveSobre(s.id)}_mini`).setVisible(true);
+      else this.colores.fillStyle(colorSobre(s), 1).fillRoundedRect(15, 26 + k * 11, 5, 7, 1);
     }
     if (this.scroll > 0) this.colores.fillStyle(n(C.tintaSuave), 1).fillTriangle(62, 23, 66, 23, 64, 21);
     if (this.scroll + FILAS < lista.length) this.colores.fillStyle(n(C.tintaSuave), 1).fillTriangle(62, 109, 66, 109, 64, 111);
@@ -195,17 +220,27 @@ export class Sobres extends Phaser.Scene {
   }
 
   /** Animación de apertura: el sobre tiembla, se abre y las 3 cartas se revelan una por una. */
-  private async animar(cartas: Carta[], color: number, titulo: string): Promise<void> {
+  private async animar(cartas: Carta[], color: number, titulo: string, id: string): Promise<void> {
     this.add.graphics().fillStyle(0x141830, 0.86).fillRect(0, 0, 240, 160);
     const rotulo = new Texto(this, 0, 6, 240, 14, '#ffffff', 'centro', { tam: 11, peso: 600 }).poner(titulo);
     const pie = new Texto(this, 0, 146, 240, 10, '#ffffff', 'centro');
 
-    const sobre = this.add.graphics().setPosition(120, 82);
-    sobre.fillStyle(0x10142c, 1).fillRoundedRect(-25, -35, 50, 70, 5);
-    sobre.fillStyle(color, 1).fillRoundedRect(-23, -33, 46, 66, 4);
-    sobre.fillStyle(0xffffff, 0.35).fillRoundedRect(-23, -33, 46, 16, 4);
-    sobre.fillStyle(0xffffff, 0.9).fillCircle(0, 4, 9);
-    sobre.fillStyle(color, 1).fillCircle(0, 4, 5);
+    // El sobre dibujado por el autor, a 3× (88 px de alto → 66 del mundo); si falta, uno por código.
+    const sobre: Phaser.GameObjects.Image | Phaser.GameObjects.Graphics =
+      pieza(this, claveSobre(id), 120, 82, 66) ??
+      this.add
+        .graphics()
+        .setPosition(120, 82)
+        .fillStyle(0x10142c, 1)
+        .fillRoundedRect(-25, -35, 50, 70, 5)
+        .fillStyle(color, 1)
+        .fillRoundedRect(-23, -33, 46, 66, 4)
+        .fillStyle(0xffffff, 0.35)
+        .fillRoundedRect(-23, -33, 46, 16, 4)
+        .fillStyle(0xffffff, 0.9)
+        .fillCircle(0, 4, 9)
+        .fillStyle(color, 1)
+        .fillCircle(0, 4, 5);
     sonido.tocar('estado');
     await this.tw({ targets: sobre, angle: { from: -7, to: 7 }, duration: 90, yoyo: true, repeat: 4 });
     sonido.tocar('final');
@@ -266,12 +301,10 @@ export class Sobres extends Phaser.Scene {
   private cara(cont: Phaser.GameObjects.Container, carta: Carta): void {
     if (carta.clase === 'item') return this.caraItem(cont, carta.item, carta.rareza);
     const especie = DATOS.criaturas.get(carta.especie)!;
-    const cara = this.add.graphics();
-    cara.fillStyle(0x10142c, 1).fillRoundedRect(-31, -46, 62, 92, 5);
-    cara.fillStyle(n(COLOR_RAREZA[carta.rareza]), 1).fillRoundedRect(-29, -44, 58, 88, 4);
-    cara.fillStyle(n(C.papel), 1).fillRoundedRect(-26.5, -41.5, 53, 83, 3);
+    const cara = fondoCarta(this, carta.rareza);
     cara.fillStyle(COLOR_TIPO[especie.tipo]!, 0.25).fillRoundedRect(-24, -39, 48, 44, 3);
     const sprite = miniatura(this.add.image(0, -17, textura(carta.especie, 'frente', carta.brillante)), carta.especie, 40, 0.75);
+    cont.add(cara);
     const lineas = [
       new Texto(this, -31, 6, 62, 10, C.tinta, 'centro', { peso: 600 }).poner(especie.nombre),
       new Texto(this, -31, 15, 62, 10, COLOR_RAREZA[carta.rareza], 'centro', { tam: 5.8 }).poner(estrellas(carta.rareza)),
@@ -280,24 +313,24 @@ export class Sobres extends Phaser.Scene {
       ),
       new Texto(this, -31, 33, 62, 10, '#b07a00', 'centro', { tam: 6.6, peso: 600 }).poner(carta.brillante ? t('carta.brillante') : ''),
     ];
-    cont.add([cara, sprite, ...lineas.map((l) => l.imagen)]);
+    cont.add([sprite, ...lineas.map((l) => l.imagen)]);
+    marcoCarta(this, cont, carta.rareza, carta.brillante);
   }
 
   /** Carta de ítem: marco de su rareza, el icono grande, nombre y «a la Bolsa». */
   private caraItem(cont: Phaser.GameObjects.Container, id: string, rareza: Carta['rareza']): void {
     const it = DATOS.items.get(id)!;
-    const cara = this.add.graphics();
-    cara.fillStyle(0x10142c, 1).fillRoundedRect(-31, -46, 62, 92, 5);
-    cara.fillStyle(n(COLOR_RAREZA[rareza]), 1).fillRoundedRect(-29, -44, 58, 88, 4);
-    cara.fillStyle(n(C.papel), 1).fillRoundedRect(-26.5, -41.5, 53, 83, 3);
+    const cara = fondoCarta(this, rareza);
     cara.fillStyle(n(it.color), 0.22).fillRoundedRect(-24, -39, 48, 44, 3);
+    cont.add(cara);
     iconoItem(cara, it, 0, -17, 2.4);
     const lineas = [
       new Texto(this, -31, 6, 62, 10, C.tinta, 'centro', { peso: 600, tam: it.nombre.length > 12 ? 6.4 : 7.4 }).poner(it.nombre),
       new Texto(this, -31, 15, 62, 10, COLOR_RAREZA[rareza], 'centro', { tam: 5.8 }).poner(estrellas(rareza)),
       new Texto(this, -31, 24, 62, 10, C.resalte, 'centro', { tam: 6.6 }).poner(t('carta.item', { n: cantidad(juego.estado, id) })),
     ];
-    cont.add([cara, ...lineas.map((l) => l.imagen)]);
+    cont.add(lineas.map((l) => l.imagen));
+    marcoCarta(this, cont, rareza, false);
   }
 
   /**

@@ -66,3 +66,7 @@ Un efecto por habilidad (tiene prioridad sobre el de su `animacion`). Se entrega
 ## Nota de diseño
 
 Evita rasgos que sean la «firma» de personajes de otras franquicias. La llama en la punta de la cola de la familia Brasa es el punto a vigilar antes de publicar.
+
+## Arte de interfaz
+
+Piezas sueltas en `arte/originales/ui/<carpeta>/<id>.png` (items, medallas, sobres, recursos, album, tipos, estados, categorias, expediciones, menu), con alfa binario y hasta 16 colores. Ejecuta `python3 scripts/importar_ui.py`: copia a `public/ui/`, hace las miniaturas de los sobres y escribe `src/ui/arte-ui.json`. Nombres: `item_<id>`, `sobre_<id>`, `medalla_<id>_<1|2|3|bloqueada>`, `tipo_<tipo>`, `estado_<estado>`, `categoria_<fisico|especial|apoyo|definitivo>`, `menu_<opción>`, `expedicion_<lugar>`, `marco_<rareza>`. Un ítem o sobre nuevo sin dibujo se dibuja por código y `npm run validar` avisa.

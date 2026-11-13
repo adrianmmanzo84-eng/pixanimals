@@ -398,7 +398,7 @@
   "med.fusiones": "Haz {n} fusiones",
   "med.impecables": "{n} victorias de equipo sin caídas",
   "exp.titulo": "Expediciones",
-  "exp.libre": "Lugar libre · A: mandar a alguien a explorar",
+  "exp.libre": "Lugar libre · A: mandar a explorar",
   "exp.vuelve": "Vuelve en {t}",
   "exp.volvio": "¡Volvió! A: cobrar",
   "exp.horas": "{n} h",
@@ -426,5 +426,8 @@
   "rul.monedas": "{n} monedas",
   "rul.esencia": "{n} Esencia",
   "rul.item": "Ítem",
-  "rul.sobre": "Sobre"
+  "rul.sobre": "Sobre",
+  "exp.lugar.playa": "Playa",
+  "exp.lugar.bosque": "Bosque",
+  "exp.lugar.volcan": "Volcán"
 }

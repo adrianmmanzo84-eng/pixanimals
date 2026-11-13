@@ -10,6 +10,7 @@ import { COLOR_RAREZA, estrellas, miniatura, textura } from '../ui/criaturas';
 import { C, n, prepararCamara } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { iconoItem, iconoMoneda } from '../ui/iconos';
+import { claveMarco, hayArte, marcoCarta } from '../ui/arte';
 import { Texto } from '../ui/texto';
 
 /** Tras ganar: varias cartas boca abajo; el jugador elige una y después se ven todas. */
@@ -101,13 +102,20 @@ export class Premio extends Phaser.Scene {
 
   /** Dibuja la cara de una carta según el premio. */
   private cara(cont: Phaser.GameObjects.Container, p: PremioTirado, apagada: boolean): void {
+    // Marco dibujado: el de la rareza (criatura o ítem), dorado para monedas y violeta para Esencia.
+    const marco = p.tipo === 'criatura' ? claveMarco(p.rareza) : p.tipo === 'item' ? claveMarco(DATOS.items.get(p.item)!.rareza ?? 'comun') : p.tipo === 'monedas' ? 'marco_familia_completa' : 'marco_epica';
     const g = this.add.graphics();
-    const color = p.tipo === 'criatura' ? n(COLOR_RAREZA[p.rareza]) : p.tipo === 'item' ? n(DATOS.items.get(p.item)!.color) : p.tipo === 'monedas' ? 0xf5c542 : 0x9a5ae0;
-    g.fillStyle(0x10142c, 1).fillRoundedRect(-31, -46, 62, 92, 5);
-    g.fillStyle(color, 1).fillRoundedRect(-29, -44, 58, 88, 4);
-    g.fillStyle(n(C.papel), 1).fillRoundedRect(-26.5, -41.5, 53, 83, 3);
+    if (hayArte(this, marco)) g.fillStyle(n(C.papel), 1).fillRoundedRect(-30, -42, 60, 84, 3);
+    else {
+      const color = p.tipo === 'criatura' ? n(COLOR_RAREZA[p.rareza]) : p.tipo === 'item' ? n(DATOS.items.get(p.item)!.color) : p.tipo === 'monedas' ? 0xf5c542 : 0x9a5ae0;
+      g.fillStyle(0x10142c, 1).fillRoundedRect(-31, -46, 62, 92, 5);
+      g.fillStyle(color, 1).fillRoundedRect(-29, -44, 58, 88, 4);
+      g.fillStyle(n(C.papel), 1).fillRoundedRect(-26.5, -41.5, 53, 83, 3);
+    }
     cont.add(g);
-    const linea = (y: number, texto: string) => cont.add(new Texto(this, -31, y, 62, 20, C.tinta, 'centro', { peso: 600 }).poner(texto).imagen);
+    // Nombres largos («Piedra XP chica ×1») con letra más chica para que no los corte el marco.
+    const linea = (y: number, texto: string) =>
+      cont.add(new Texto(this, -31, y, 62, 20, C.tinta, 'centro', { peso: 600, tam: Math.max(...texto.split('\n').map((l) => l.length)) > 12 ? 6.2 : 7.4 }).poner(texto).imagen);
     const icono = this.add.graphics();
     cont.add(icono);
     if (p.tipo === 'monedas' || p.tipo === 'esencia') {
@@ -122,6 +130,7 @@ export class Premio extends Phaser.Scene {
       linea(6, DATOS.criaturas.get(p.especie)!.nombre);
       cont.add(new Texto(this, -31, 16, 62, 10, COLOR_RAREZA[p.rareza], 'centro', { tam: 6.6 }).poner(estrellas(p.rareza)).imagen);
     }
+    marcoCarta(this, cont, '', p.tipo === 'criatura' && p.brillante, marco);
     if (apagada) {
       const velo = this.add.graphics().fillStyle(0x141830, 0.55).fillRoundedRect(-31, -46, 62, 92, 5);
       cont.add(velo);

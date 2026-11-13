@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { familiaCompleta } from '../core/progresion/coleccion';
+import { claveTipo, pieza } from '../ui/arte';
 import { Puntero } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import type { Criatura } from '../esquemas/esquemas';
@@ -23,6 +24,7 @@ export class Bestiario extends Phaser.Scene {
   private col = 0;
   private marco!: Phaser.GameObjects.Graphics;
   private tipoFondo!: Phaser.GameObjects.Graphics;
+  private tipoIco: Phaser.GameObjects.Image | null = null;
   private nombre!: Texto;
   private tipo!: Texto;
   private situacion!: Texto;
@@ -84,7 +86,10 @@ export class Bestiario extends Phaser.Scene {
     // Marco dorado en las familias completas del Álbum.
     this.filas.slice(this.scroll, this.scroll + VISIBLES).forEach((fila, k) => {
       const c = fila.find((x) => x);
-      if (c && familiaCompleta(DATOS, estado, c.familia)) g.lineStyle(1.2, 0xf5c542, 1).strokeRoundedRect(7, 21 + k * 29, 118, 30, 4);
+      if (c && familiaCompleta(DATOS, estado, c.familia)) {
+        g.lineStyle(1.2, 0xf5c542, 1).strokeRoundedRect(7, 21 + k * 29, 118, 30, 4);
+        pieza(this, 'sello_completado', 121, 25 + k * 29, 10);
+      }
     });
     this.filas.slice(this.scroll, this.scroll + VISIBLES).forEach((fila, k) =>
       fila.forEach((c, j) => {
@@ -101,9 +106,11 @@ export class Bestiario extends Phaser.Scene {
         });
         g.fillStyle(n(C.papelSombra), 1).fillRoundedRect(x - 13, y - 13, 26, 26, 3);
         const mia = criaturaDe(estado, c.id);
-        if (mia) miniatura(this.add.image(x, y, textura(c.id, 'frente', mia.brillante)), c.id, 24, 0.5);
-        else if (estado.vistas.includes(c.id)) miniatura(this.add.image(x, y, textura(c.id, 'silueta')), c.id, 24, 0.5);
-        else new Texto(this, x - 13, y - 7, 26, 14, C.apagado, 'centro', { tam: 11, peso: 600 }).poner('?');
+        if (mia) {
+          miniatura(this.add.image(x, y, textura(c.id, 'frente', mia.brillante)), c.id, 24, 0.5);
+          if (mia.brillante) pieza(this, 'brillante', x + 9, y - 9, 8);
+        } else if (estado.vistas.includes(c.id)) miniatura(this.add.image(x, y, textura(c.id, 'silueta')), c.id, 24, 0.5);
+        else if (!pieza(this, 'candado_no_descubierta', x, y, 16)) new Texto(this, x - 13, y - 7, 26, 14, C.apagado, 'centro', { tam: 11, peso: 600 }).poner('?');
       }),
     );
     if (this.scroll > 0) g.fillStyle(n(C.tintaSuave), 1).fillTriangle(64, 19, 68, 19, 66, 17);
@@ -111,7 +118,8 @@ export class Bestiario extends Phaser.Scene {
     this.marco = this.add.graphics();
     this.nombre = new Texto(this, 136, 10, 96, 12, C.tinta, 'centro', { tam: 8.6, peso: 600 });
     this.tipoFondo = this.add.graphics();
-    this.tipo = new Texto(this, 136, 23, 96, 10, C.papel, 'centro');
+    this.tipoIco = pieza(this, 'tipo_brasa', 163, 27, 8)?.setVisible(false) ?? null;
+    this.tipo = new Texto(this, this.tipoIco ? 168 : 136, 23, this.tipoIco ? 40 : 96, 10, C.papel, 'centro');
     this.situacion = new Texto(this, 138, 38, 92, 10, C.resalte);
     this.detalle = new Texto(this, 138, 49, 92, 20);
     this.descripcion = new Texto(this, 138, 72, 92, 54, C.tintaSuave);
@@ -158,13 +166,17 @@ export class Bestiario extends Phaser.Scene {
     if (!mia && !vista) {
       this.nombre.poner(t('best.desconocida'));
       this.tipo.poner('');
+      this.tipoIco?.setVisible(false);
       this.situacion.poner(t('best.noVista'), C.tintaSuave);
       this.detalle.poner('');
       this.descripcion.poner('');
       return;
     }
     this.nombre.poner(c.nombre);
-    this.tipoFondo.fillStyle(COLOR_TIPO[c.tipo] ?? 0x5b6a8c, 1).fillRoundedRect(162, 22, 44, 10, 3);
+    if (this.tipoIco) {
+      this.tipoFondo.fillStyle(COLOR_TIPO[c.tipo] ?? 0x5b6a8c, 1).fillRoundedRect(157, 22, 54, 10, 3);
+      this.tipoIco.setTexture(`ui_${claveTipo(c.tipo)}`).setVisible(true);
+    } else this.tipoFondo.fillStyle(COLOR_TIPO[c.tipo] ?? 0x5b6a8c, 1).fillRoundedRect(162, 22, 44, 10, 3);
     this.tipo.poner(DATOS.tipos.get(c.tipo)!.nombre.toUpperCase());
     this.situacion.poner(t(mia ? 'best.capturada' : 'best.vista'), mia ? '#2f7a48' : C.tintaSuave);
     this.detalle.poner(mia ? `${t('best.nivel', { n: mia.nivel })}${mia.brillante ? ' · ✦' : ''}\n${estrellas(mia.rareza)}` : '', mia ? COLOR_RAREZA[mia.rareza] : C.tinta);

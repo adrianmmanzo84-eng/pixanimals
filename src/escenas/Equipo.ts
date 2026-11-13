@@ -16,6 +16,7 @@ import { COLOR_RAREZA, estrellas, miniatura, textura } from '../ui/criaturas';
 import { C, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { partir, Texto } from '../ui/texto';
+import { claveTipo, hayArte, pieza } from '../ui/arte';
 
 type Accion = { id: 'frente' | 'sacar' | 'sumar' | 'entrenar' | 'amuleto' | 'fusionar' } | { id: 'evo'; op: OpcionEvolucion };
 
@@ -90,9 +91,12 @@ export class Equipo extends Phaser.Scene {
           sonido.tocar('cursor');
           this.scene.restart({ sel: i, scroll, salto: true });
         });
-      g.fillStyle(COLOR_TIPO[especie.tipo] ?? 0x5b6a8c, 1).fillRoundedRect(48, y + 12, 30, 8, 3);
-      new Texto(this, 48, y + 12, 30, 9, C.papel, 'centro', { tam: 6 }).poner(DATOS.tipos.get(especie.tipo)!.nombre.toUpperCase());
-      new Texto(this, 82, y + 12, 70, 10, COLOR_RAREZA[c.rareza], 'izq', { tam: 6.6 }).poner(estrellas(c.rareza));
+      // Píldora del tipo, con su ícono si hay arte.
+      const conIco = hayArte(this, claveTipo(especie.tipo));
+      g.fillStyle(COLOR_TIPO[especie.tipo] ?? 0x5b6a8c, 1).fillRoundedRect(48, y + 12, conIco ? 38 : 30, 8, 3);
+      if (conIco) pieza(this, claveTipo(especie.tipo), 52.5, y + 16, 8);
+      new Texto(this, conIco ? 56 : 48, y + 12, 30, 9, C.papel, 'centro', { tam: 6 }).poner(DATOS.tipos.get(especie.tipo)!.nombre.toUpperCase());
+      new Texto(this, conIco ? 90 : 82, y + 12, 70, 10, COLOR_RAREZA[c.rareza], 'izq', { tam: 6.6 }).poner(estrellas(c.rareza));
       const puesto = estado.equipo.indexOf(c.especie);
       new Texto(this, 150, y + 2, 76, 10, puesto >= 0 ? C.tinta : C.tintaSuave, 'der').poner(
         `${t('nv', { n: c.nivel })} · ${puesto >= 0 ? t('mc.equipo', { n: puesto + 1 }) : enExpedicion(estado, c.especie) ? t('mc.expedicion') : t('mc.reserva')}`,
