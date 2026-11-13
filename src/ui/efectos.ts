@@ -114,6 +114,11 @@ export class Efectos {
   constructor(
     private readonly s: Phaser.Scene,
     private readonly capa: Phaser.GameObjects.Layer | Phaser.GameObjects.Container,
+    /**
+     * Temblor (ms, fuerza con la escala de Phaser). El combate lo cambia por uno que mueve solo el
+     * escenario: el de la cámara de Phaser movía también la interfaz y dejaba franjas vacías en los bordes.
+     */
+    private readonly temblar: (ms: number, fuerza: number) => void = (ms, f) => s.cameras.main.shake(ms, f),
   ) {}
 
   // ---------------------------------------------------------------- piezas
@@ -259,7 +264,6 @@ export class Efectos {
       return i;
     };
     const part = PARTICULA_TIPO[h.tipo] ?? 'chispa';
-    const cam = this.s.cameras.main;
     if (h.potencia === 0) {
       // Apoyo, defensa o estado: sobre quien lo usa, o sobre el rival si es a él a quien afecta.
       const alRival = h.efectos.some((e) => (e.tipo === 'estado' || e.tipo === 'etapa') && e.objetivo === 'rival');
@@ -274,7 +278,7 @@ export class Efectos {
     if (h.rol === 'final') {
       const i = nuevo(el.x, el.y).setScale(0.2).setAlpha(0.9);
       await this.tw({ targets: i, scale: 1.05, alpha: 1, duration: 230, ease: 'Back.easeOut' });
-      cam.shake(280, 0.012);
+      this.temblar(280, 0.012);
       void this.estallido(part, el, 12, 42, 460, 1.4);
       await this.avance(420, (t) => i.setScale(1.05 + 0.05 * Math.sin(t * 28)));
       await this.desvanecer(i, 280, 0.25);
@@ -285,7 +289,7 @@ export class Efectos {
       const i = nuevo(yo.x + 16 * dir, yo.y - 4).setScale(0.4);
       await this.tw({ targets: i, x: el.x, y: el.y, duration: 250, ease: 'Quad.easeIn' });
       await this.tw({ targets: i, scale: 1, duration: 120, ease: 'Back.easeOut' });
-      cam.shake(120, 0.005);
+      this.temblar(120, 0.005);
       void this.estallido(part, el, 8, 26, 320);
       await this.espera(160);
       await this.desvanecer(i, 220, 0.2);
@@ -294,7 +298,7 @@ export class Efectos {
     // Físico: aparece de golpe sobre el rival, un poco desde el lado del atacante.
     const i = nuevo(el.x - 10 * dir, el.y + 4).setScale(0.55).setAlpha(0);
     await this.tw({ targets: i, x: el.x, y: el.y, scale: 1, alpha: 1, duration: 130, ease: 'Back.easeOut' });
-    cam.shake(120, 0.006);
+    this.temblar(120, 0.006);
     void this.estallido(part, el, 7, 24, 300);
     await this.espera(170);
     await this.desvanecer(i, 220, 0.2);
@@ -312,19 +316,20 @@ export class Efectos {
       if (this.s.textures.exists(`fxat_${h.id}_pantalla`)) {
         const p = this.s.add.image(120, 80, `fxat_${h.id}_pantalla`).setFlipX(dir < 0).setAlpha(0);
         this.capa.add(p);
-        const cubre = Math.max(250 / p.width, 168 / p.height);
-        p.setScale(cubre * 0.9);
-        cam.shake(900, 0.008);
-        await this.tw({ targets: p, alpha: 1, scale: cubre, duration: 320, ease: 'Cubic.easeOut' });
-        await this.tw({ targets: p, scale: cubre * 1.08, duration: 700, ease: 'Sine.easeInOut' });
-        await this.tw({ targets: p, alpha: 0, scale: cubre * 1.15, duration: 260 });
+        // Cubre todo el campo de combate (sobre el cuadro de texto) con margen para el temblor, sin acercar la cámara.
+        const cubre = Math.max(264 / p.width, 134 / p.height);
+        p.setPosition(120, 55).setScale(cubre);
+        this.temblar(1300, 0.035);
+        await this.tw({ targets: p, alpha: 1, duration: 200, ease: 'Cubic.easeOut' });
+        await this.espera(850);
+        await this.tw({ targets: p, alpha: 0, duration: 260 });
         p.destroy();
       }
       const i = this.s.add.image(el.x, el.y, `fxat_${h.id}`).setFlipX(dir < 0).setScale(0.2);
       this.capa.add(i);
       await this.tw({ targets: i, scale: 1.25, duration: 260, ease: 'Back.easeOut' });
       cam.flash(400, 255, 255, 255);
-      cam.shake(800, 0.03);
+      this.temblar(800, 0.03);
       const onda = this.graf();
       const e = { r: 4, a: 1 };
       await Promise.all([
@@ -536,7 +541,6 @@ export class Efectos {
     const espejo = dir < 0;
     const pieYo = yo.base ?? yo.y + 20;
     const pieEl = el.base ?? el.y + 20;
-    const cam = this.s.cameras.main;
     switch (n) {
       case 'zarpazo':
       case 'zarpazo_brote': {
@@ -565,7 +569,7 @@ export class Efectos {
           this.tw({ targets: arriba, y: el.y, alpha: 1, duration: 170, ease: 'Cubic.easeIn' }),
           this.tw({ targets: abajo, y: el.y, alpha: 1, duration: 170, ease: 'Cubic.easeIn' }),
         ]);
-        cam.shake(120, 0.006);
+        this.temblar(120, 0.006);
         void this.estallido('gota', el, 10, 28, 320);
         await this.espera(160);
         await Promise.all([this.desvanecer(arriba, 200), this.desvanecer(abajo, 200)]);
@@ -575,7 +579,7 @@ export class Efectos {
         await this.rafaga('llama', boca, el, 10, { dispersion: 8, dur: 240, escala: 1.4 });
         const i = this.dib(n, el.x, el.y)!.setScale(0.2);
         await this.tw({ targets: i, scale: 1, duration: 180, ease: 'Back.easeOut' });
-        cam.shake(260, 0.012);
+        this.temblar(260, 0.012);
         void this.estallido('llama', el, 12, 40, 460, 1.5);
         await this.avance(360, (t) => i.setScale(1 + 0.06 * Math.sin(t * 30)).setAngle(3 * Math.sin(t * 22)));
         await this.desvanecer(i, 260, 0.25);
@@ -592,7 +596,7 @@ export class Efectos {
           },
           'Sine.easeIn',
         );
-        cam.shake(280, 0.012);
+        this.temblar(280, 0.012);
         void this.estallido('gota', el, 14, 40, 440, 1.3);
         await this.espera(160);
         await this.desvanecer(i, 260, 0.1);
@@ -608,7 +612,7 @@ export class Efectos {
           },
           'Sine.easeInOut',
         );
-        cam.shake(240, 0.01);
+        this.temblar(240, 0.01);
         void this.estallido('hoja', el, 12, 40, 460, 1.3);
         await this.avance(320, (t) => i.setScale(1 + 0.12 * Math.sin(t * 28), 1).setAngle(4 * Math.sin(t * 18)));
         await this.desvanecer(i, 240, 0.15);
@@ -668,7 +672,7 @@ export class Efectos {
         const i = this.dib(n, el.x, pieEl + 4)!.setOrigin(0.5, 1);
         const { width: w, height: h } = i;
         await this.avance(280, (t) => i.setCrop(0, Math.floor(h * (1 - t)), w, Math.ceil(h * t)), 'Back.easeOut');
-        cam.shake(120, 0.005);
+        this.temblar(120, 0.005);
         await this.avance(300, (t) => i.setScale(1 + 0.04 * Math.sin(t * 25), 1));
         await this.desvanecer(i, 220);
         break;
@@ -722,7 +726,7 @@ export class Efectos {
           this.tw({ targets: izq, x: yo.x, alpha: 1, duration: 220, ease: 'Back.easeOut' }),
           this.tw({ targets: der, x: yo.x, alpha: 1, duration: 220, ease: 'Back.easeOut' }),
         ]);
-        cam.shake(90, 0.004);
+        this.temblar(90, 0.004);
         await this.espera(300);
         await Promise.all([this.desvanecer(izq, 220), this.desvanecer(der, 220)]);
         break;

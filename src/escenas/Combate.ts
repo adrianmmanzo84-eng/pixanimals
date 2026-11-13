@@ -85,6 +85,10 @@ export class Combate extends Phaser.Scene {
   /** Cámara simulada sobre `mundo`: acercamiento, punto que mira y giro (1 normal, 0 de canto). */
   private cam = { zoom: 1.04, fx: 120, fy: 80, giro: 1 };
   private reloj = 0;
+  /** Temblor del escenario en píxeles del mundo; baja a 0 solo. */
+  private sacudida = { px: 0 };
+  /** Durante el Definitivo el velo cubre los bordes: el temblor puede ser más fuerte. */
+  private temblorLibre = false;
   /** Desenfoque horizontal del mundo para el barrido de cámara (solo WebGL; si no hay, el barrido va sin él). */
   private desenfoque: { strength: number } = { strength: 0 };
   private filtroBlur: Phaser.Filters.Blur | null = null;
@@ -119,6 +123,8 @@ export class Combate extends Phaser.Scene {
     this.vista = 'jugador';
     this.cam = { zoom: 1.04, fx: 120, fy: 80, giro: 1 };
     this.reloj = 0;
+    this.sacudida = { px: 0 };
+    this.temblorLibre = false;
   }
 
   create(): void {
@@ -162,7 +168,7 @@ export class Combate extends Phaser.Scene {
     this.mundo.add(this.sprites);
     this.capaFx = this.add.container(0, 0);
     this.mundo.add(this.capaFx);
-    this.fx = new Efectos(this, this.capaFx);
+    this.fx = new Efectos(this, this.capaFx, (ms, f) => this.temblor(ms, f));
     this.desenfoque = { strength: 0 };
     this.filtroBlur = null;
     if (this.mundo.enableFilters && this.mundo.enableFilters().filters) {
@@ -274,7 +280,7 @@ export class Combate extends Phaser.Scene {
           break;
         case 'definitivo_bloqueado':
           sonido.tocar('escudo');
-          this.cameras.main.shake(300, 0.012);
+          this.temblor(300, 0.012);
           await this.decir(t('c.definitivoBloqueado', { n: this.nom(e.lado) }));
           break;
         case 'dano': {
@@ -285,7 +291,7 @@ export class Combate extends Phaser.Scene {
             await this.animAtaque(atacante, ultima?.h ?? null);
           }
           sonido.tocar(e.efectividad === 'ventaja' || e.critico ? 'golpe_fuerte' : e.efectividad === 'desventaja' || e.reducido ? 'golpe_debil' : 'golpe');
-          if (ultima?.h?.rol === 'final') this.cameras.main.shake(180, 0.01);
+          if (ultima?.h?.rol === 'final') this.temblor(180, 0.01);
           await this.animGolpe(e.lado);
           this.soltar();
           await this.animarPs(e.lado, e.ps);
@@ -845,7 +851,19 @@ export class Combate extends Phaser.Scene {
     fy = Phaser.Math.Clamp(fy, 80 / z, 160 - 80 / z);
     const sx = z * (viva ? c.giro : 1);
     this.mundo.setScale(sx, z);
-    this.mundo.setPosition(120 - fx * sx, 80 - fy * z);
+    let mx = 120 - fx * sx;
+    let my = 80 - fy * z;
+    if (this.sacudida.px > 0.05) {
+      const m = this.sacudida.px;
+      mx += (Math.random() * 2 - 1) * m;
+      my += (Math.random() * 2 - 1) * m * 0.75;
+      // Sin franjas vacías: el escenario nunca se despega de los bordes (salvo con el velo del Definitivo).
+      if (!this.temblorLibre) {
+        mx = Phaser.Math.Clamp(mx, 240 - 240 * sx, 0);
+        my = Phaser.Math.Clamp(my, 160 - 160 * z, 0);
+      }
+    }
+    this.mundo.setPosition(mx, my);
     if (this.filtroBlur) {
       this.filtroBlur.strength = this.desenfoque.strength;
       this.filtroBlur.active = this.desenfoque.strength > 0.05;
@@ -858,6 +876,18 @@ export class Combate extends Phaser.Scene {
       s.setScale(1 - 0.014 * r, 1 + 0.032 * r);
       s.setAngle(Math.sin(this.reloj * 0.9 + i * 2.2) * 1.1);
     });
+  }
+
+  /**
+   * Temblor del escenario (la interfaz queda quieta). `fuerza` usa la escala de Phaser (0,01 ≈ 3 px).
+   * Funciona aunque la cámara viva esté apagada: es parte del golpe, no del movimiento de cámara.
+   */
+  private temblor(ms: number, fuerza: number): void {
+    const px = Math.min(this.temblorLibre ? 12 : 6, fuerza * 300);
+    if (px < this.sacudida.px) return;
+    this.tweens.killTweensOf(this.sacudida);
+    this.sacudida.px = px;
+    this.tweens.add({ targets: this.sacudida, px: 0, duration: ms, ease: 'Quad.easeIn' });
   }
 
   /** La cámara se arrima a la criatura que recibe el golpe (no espera: corre junto a la animación). */
@@ -958,7 +988,7 @@ export class Combate extends Phaser.Scene {
   private async animCarga(lado: Lado): Promise<void> {
     const s = this.sprites[lado];
     sonido.tocar('final');
-    this.cameras.main.shake(400, 0.006);
+    this.temblor(400, 0.006);
     const color = COLOR_TIPO[this.bat.act(lado).especie.tipo] ?? 0xffffff;
     s.setTint(color);
     await this.tween({ targets: s, scaleX: 1.08, scaleY: 1.08, duration: 180, yoyo: true, repeat: 2 });
@@ -981,11 +1011,9 @@ export class Combate extends Phaser.Scene {
     this.mundo.bringToTop(s);
     this.mundo.addAt(velo, this.mundo.getIndex(s));
     this.mundo.bringToTop(this.capaFx);
-    if (ajustes.camara) {
-      this.tweens.killTweensOf(this.cam);
-      const c = this.centro(lado);
-      this.tweens.add({ targets: this.cam, zoom: 1.22, fx: c.x, fy: c.y, duration: 600, ease: 'Sine.easeOut' });
-    }
+    // Sin acercamiento: el Definitivo se ve en plano general y el golpe se siente con temblor fuerte.
+    this.soltar();
+    this.temblorLibre = true;
     await this.tween({ targets: velo, alpha: 0.85, duration: 350 });
     sonido.tocar('final');
     s.setTint(color);
@@ -993,7 +1021,6 @@ export class Combate extends Phaser.Scene {
     s.clearTint();
     const desde = this.centro(lado);
     const hasta = this.centro((1 - lado) as Lado);
-    this.enfocar((1 - lado) as Lado, 1.14);
     sonido.tocar('golpe_fuerte');
     // Con dibujo propio: corte de pantalla y gran impacto. Si no, el ataque final dos veces y un estallido.
     if (h && (await this.fx.definitivo(h, desde, hasta, color))) {
@@ -1009,7 +1036,7 @@ export class Combate extends Phaser.Scene {
       const estado = { r: 4, a: 1 };
       sonido.tocar('final');
       this.cameras.main.flash(450, 255, 255, 255);
-      this.cameras.main.shake(800, 0.03);
+      this.temblor(800, 0.03);
       await this.tween({
         targets: estado,
         r: 190,
@@ -1024,8 +1051,8 @@ export class Combate extends Phaser.Scene {
       });
       onda.destroy();
     }
-    this.soltar();
     await this.tween({ targets: velo, alpha: 0, duration: 350 });
+    this.temblorLibre = false;
     velo.destroy();
   }
 
