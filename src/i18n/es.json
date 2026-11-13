@@ -429,5 +429,7 @@
   "rul.sobre": "Sobre",
   "exp.lugar.playa": "Playa",
   "exp.lugar.bosque": "Bosque",
-  "exp.lugar.volcan": "Volcán"
+  "exp.lugar.volcan": "Volcán",
+  "stat.abrev.vel": "Vel",
+  "stat.abrev.atq": "Atq"
 }

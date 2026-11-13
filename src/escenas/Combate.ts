@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { claveCategoria, claveEstado, claveTipo, hayArte, pieza } from '../ui/arte';
+import { claveCategoria, claveEstado, claveTipo, ESTADO_DE_STAT, hayArte, pieza } from '../ui/arte';
 import { equipoSemanal, resultadoSemanal, tipoDeLaSemana } from '../core/modos/semanal';
 import { Puntero } from '../ui/puntero';
 import { DATOS } from '../core/datos';
@@ -45,6 +45,8 @@ interface Panel {
   estado: Texto;
   /** Ícono del estado (arte del autor), a la izquierda de su abreviatura. */
   estadoIco: Phaser.GameObjects.Image | null;
+  /** Bajas de Velocidad (Lentitud) y de Ataque (Debilidad), debajo del estado: ícono y cuántas etapas. */
+  bajas: { stat: 'vel' | 'atq'; ico: Phaser.GameObjects.Image | null; txt: Texto }[];
   mostrado: number;
 }
 
@@ -353,6 +355,7 @@ export class Combate extends Phaser.Scene {
           break;
         case 'etapa':
           sonido.tocar(e.delta > 0 ? 'sube' : 'baja');
+          this.pintarEstado(e.lado);
           await this.decir(t(e.delta > 0 ? 'c.etapa.sube' : 'c.etapa.baja', { stat: t(`stat.${e.stat}`), n: this.nom(e.lado) }));
           break;
         case 'etapa_tope':
@@ -844,6 +847,14 @@ export class Combate extends Phaser.Scene {
       // El estado va fuera del panel, después de los puntos del equipo, para no tapar nombres largos.
       estado: new Texto(this, x === PANEL[0].x ? x - 52 : x + 142, y + 8, 20, 10, C.papel, 'centro'),
       estadoIco: pieza(this, 'estado_quemadura', (x === PANEL[0].x ? x - 52 : x + 142) + 5, y + 11.5, 8)?.setVisible(false) ?? null,
+      bajas: (['vel', 'atq'] as const).map((stat, i) => {
+        const bx = (x === PANEL[0].x ? x - 52 : x + 142) + i * 15;
+        return {
+          stat,
+          ico: pieza(this, claveEstado(ESTADO_DE_STAT[stat]!), bx + 3.5, y + 22.5, 8)?.setVisible(false) ?? null,
+          txt: new Texto(this, bx + 7.5, y + 18, 9, 10, '#ffffff', 'izq', { tam: 5.8, peso: 600, borde: '#1f2340' }),
+        };
+      }),
       mostrado: 0,
     };
   }
@@ -899,6 +910,22 @@ export class Combate extends Phaser.Scene {
     const p = this.paneles[lado];
     const est = this.bat.act(lado).estado;
     p.estadoFondo.clear();
+    // Bajas de stats (por ejemplo, de un Encanto): ícono y número de etapas; sin arte, una flecha con la sigla.
+    const etapas = this.bat.act(lado).etapas;
+    const bx = p.x === PANEL[0].x ? p.x - 52 : p.x + 142;
+    let k = 0;
+    for (const b of p.bajas) {
+      const n = etapas[b.stat];
+      const baja = n < 0;
+      const x0 = bx + k * 15;
+      b.ico?.setVisible(baja).setPosition(x0 + 3.5, p.y + 22.5);
+      b.txt.imagen.setX(x0 + 7.5);
+      b.txt.poner(baja ? (b.ico ? `${n}` : `${t(`stat.abrev.${b.stat}`)}${n}`) : '');
+      if (baja) {
+        p.estadoFondo.fillStyle(0x1f2340, 0.7).fillRoundedRect(x0 - 1, p.y + 18, 15, 9, 2);
+        k++;
+      }
+    }
     if (!est) {
       p.estado.poner('');
       p.estadoIco?.setVisible(false);
