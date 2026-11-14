@@ -146,6 +146,8 @@ export class Batalla {
   definitivoConCarga: [boolean, boolean] = [false, false];
   definitivoCargado: [boolean, boolean] = [false, false];
   definitivoUsado: [boolean, boolean] = [false, false];
+  /** Multiplicador de daño de este turno por lado (golpe justo del jugador). La escena lo pone y lo vuelve a 1. */
+  potenciador: [number, number] = [1, 1];
 
   constructor(
     readonly datos: Datos,
@@ -403,6 +405,7 @@ export class Batalla {
     if (this.mecanica(yo) === 'ultimo_rescoldo' && yo.ps / yo.stats.ps < b.pasivas.ultimo_rescoldo.umbralPs) otros *= b.pasivas.ultimo_rescoldo.mult;
     if (yo.oleaje) otros *= b.pasivas.oleaje.mult;
     if (yo.estado?.id === 'quemadura' && categoria === 'fisica') otros *= b.estados.quemadura.multFisico;
+    otros *= this.potenciador[lado];
     if (consumir) yo.oleaje = false;
     return calcularDano(
       {

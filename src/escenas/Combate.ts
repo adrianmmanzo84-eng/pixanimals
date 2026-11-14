@@ -6,6 +6,7 @@ import { DATOS } from '../core/datos';
 import { Rng } from '../core/rng';
 import { Batalla, type Accion, type Combatiente, type Evento, type Lado } from '../core/combate/motor';
 import { elegirAccion, elegirReemplazo, type NivelIA } from '../core/combate/ia';
+import { accionConDano, calificarGolpe, GOLPE, posicionGolpe } from '../core/combate/golpe';
 import { generarRival } from '../core/combate/rival';
 import { combatienteDe, criaturaDe, equipoDe, marcarVista } from '../core/estado/juego';
 import { aplicarRecompensa, xpParaSubir } from '../core/progresion/experiencia';
@@ -257,9 +258,15 @@ export class Combate extends Phaser.Scene {
         await this.resultado(true);
         return;
       }
+      // Golpe justo: si el ataque hace daño, la barra decide cuánto más fuerte pega (solo para ti).
+      const mult = accionConDano(this.bat, 0, accion) ? await this.golpeJusto() : 1;
+      if (!this.vivo) return;
       const rival = elegirAccion(this.bat, 1, this.cfg.ia, this.rngIA);
       this.modoMensaje();
-      await this.reproducir(this.bat.ejecutarTurno(accion, rival));
+      this.bat.potenciador = [mult, 1];
+      const eventos = this.bat.ejecutarTurno(accion, rival);
+      this.bat.potenciador = [1, 1];
+      await this.reproducir(eventos);
       // Quien perdió a su criatura activa elige reemplazo antes del turno siguiente.
       while (this.vivo && this.bat.pendientes.length) {
         const lado = this.bat.pendientes[0]!;
@@ -1290,6 +1297,63 @@ export class Combate extends Phaser.Scene {
   // ------------------------------------------------------------ utilidades
 
   /** Escribe letra por letra. A o un toque completan el texto y luego lo avanzan. */
+  /**
+   * Golpe justo: una marca va y viene por una barra; A la frena. Centro dorado = «¡Perfecto!» (×1,25),
+   * franja verde = «¡Bien!» (×1,1), afuera o sin pulsar = sin bonificación. Corre con el tiempo real,
+   * así no se acelera con la velocidad ×2. En automático no aparece y cuenta como «Bien».
+   */
+  private golpeJusto(): Promise<number> {
+    if (ajustes.golpe === 'auto') return Promise.resolve(GOLPE.auto);
+    return new Promise((resolver) => {
+      this.modoMensaje();
+      this.msg.poner(t('c.golpe.ayuda'));
+      const X0 = 50;
+      const ANCHO = 140;
+      const Y = 140;
+      const g = this.add.graphics().setDepth(60);
+      const desde: 0 | 1 = Math.random() < 0.5 ? 0 : 1;
+      let seg = 0;
+      let listo = false;
+      const pintar = (pos: number) => {
+        g.clear();
+        g.fillStyle(0x141830, 0.9).fillRoundedRect(X0 - 3, Y - 7, ANCHO + 6, 14, 4);
+        g.fillStyle(C.barraFondo, 1).fillRect(X0, Y - 4, ANCHO, 8);
+        const bien = ANCHO * GOLPE.bien.distancia;
+        const perf = ANCHO * GOLPE.perfecto.distancia;
+        g.fillStyle(0x3fbf6a, 1).fillRect(X0 + ANCHO / 2 - bien, Y - 4, bien * 2, 8);
+        g.fillStyle(0xf5e070, 1).fillRect(X0 + ANCHO / 2 - perf, Y - 4, perf * 2, 8);
+        g.fillStyle(0xffffff, 1).fillRect(Math.round(X0 + pos * ANCHO) - 1, Y - 8, 3, 16);
+      };
+      const terminar = (pos: number | null) => {
+        if (listo) return;
+        listo = true;
+        this.events.off(Phaser.Scenes.Events.UPDATE, mover);
+        this.alPulsar = null;
+        const r = pos === null ? { nota: 'fallo' as const, mult: 1 } : calificarGolpe(pos);
+        if (pos !== null) pintar(pos);
+        this.msg.poner(t(`c.golpe.${r.nota}`), r.nota === 'perfecto' ? '#b8860b' : r.nota === 'bien' ? '#2f7a48' : C.tintaSuave);
+        sonido.tocar(r.nota === 'perfecto' ? 'chispa' : r.nota === 'bien' ? 'atrapa' : 'falla');
+        if (r.nota === 'perfecto') this.cameras.main.flash(90, 255, 240, 160);
+        // Pausa corta con reloj real para leer la nota.
+        window.setTimeout(() => {
+          g.destroy();
+          resolver(r.mult);
+        }, 520);
+      };
+      const mover = (_t: number, dt: number) => {
+        if (!this.vivo) return terminar(null);
+        seg += dt / 1000;
+        if (seg >= GOLPE.cruce * GOLPE.cruces) return terminar(null);
+        pintar(posicionGolpe(seg, desde));
+      };
+      pintar(desde);
+      this.events.on(Phaser.Scenes.Events.UPDATE, mover);
+      this.alPulsar = (a) => {
+        if (a === 'a') terminar(posicionGolpe(seg, desde));
+      };
+    });
+  }
+
   private decir(texto: string): Promise<void> {
     return new Promise((resolver) => {
       if (!this.vivo) return resolver();

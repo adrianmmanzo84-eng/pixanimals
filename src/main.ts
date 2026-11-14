@@ -53,6 +53,8 @@ async function iniciar(): Promise<void> {
     boton('velocidad').setAttribute('aria-pressed', String(ajustes.velocidad === 2));
     boton('camara').textContent = `Cámara: ${ajustes.camara ? 'sí' : 'no'}`;
     boton('camara').setAttribute('aria-pressed', String(ajustes.camara));
+    boton('golpe').textContent = `Golpe: ${ajustes.golpe === 'barra' ? 'barra' : 'auto'}`;
+    boton('golpe').setAttribute('aria-pressed', String(ajustes.golpe === 'barra'));
     boton('vol-musica').textContent = `Música ${nivel(ajustes.musica)}`;
     boton('vol-efectos').textContent = `Efectos ${nivel(ajustes.efectos)}`;
   };
@@ -67,6 +69,7 @@ async function iniciar(): Promise<void> {
   alClic('silencio', () => sonido.alternar());
   alClic('velocidad', () => cambiarAjustes({ velocidad: ajustes.velocidad === 2 ? 1 : 2 }));
   alClic('camara', () => cambiarAjustes({ camara: !ajustes.camara }));
+  alClic('golpe', () => cambiarAjustes({ golpe: ajustes.golpe === 'barra' ? 'auto' : 'barra' }));
   alClic('vol-musica', () => cambiarAjustes({ musica: (ajustes.musica + 1) % 4 }));
   alClic('vol-efectos', () => {
     cambiarAjustes({ efectos: (ajustes.efectos + 1) % 4 });
