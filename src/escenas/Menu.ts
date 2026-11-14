@@ -31,7 +31,7 @@ const OPCIONES = [
 const DESTINOS = ['', 'Minijuegos', 'Misiones', 'Expediciones', 'Sobres', 'Tienda', 'BolsaEscena', 'Equipo', 'Coleccion', 'Bestiario', 'Ruleta', ''];
 const GUARDADO = OPCIONES.length - 1;
 /** Ícono de cada opción (arte del autor; la Ruleta se dibuja por código). */
-const ICONOS = ['menu_combate', 'menu_minijuegos', 'menu_misiones', 'menu_expediciones', 'menu_sobres', 'menu_tienda', 'menu_bolsa', 'menu_equipo', 'menu_coleccion', 'menu_bestiario', '', 'menu_guardado'];
+const ICONOS = ['menu_combate', 'menu_minijuegos', 'menu_misiones', 'menu_expediciones', 'menu_sobres', 'menu_tienda', 'menu_bolsa', 'menu_equipo', 'menu_coleccion', 'menu_bestiario', 'menu_ruleta', 'menu_guardado'];
 const ALTO_FILA = 10;
 /** Dos columnas de hasta 6 opciones. */
 const POR_COLUMNA = 6;
@@ -97,10 +97,9 @@ export class Menu extends Phaser.Scene {
       const col = Math.floor(i / POR_COLUMNA);
       const yFila = 32 + (i % POR_COLUMNA) * ALTO_FILA;
       if (this.conIcono) {
-        if (ICONOS[i]) {
-          const ico = pieza(this, ICONOS[i]!, COL_X[col]! + 11, yFila + 4.6, 8);
-          if (ico) this.iconos.push(ico);
-        } else {
+        const ico = ICONOS[i] ? pieza(this, ICONOS[i]!, COL_X[col]! + 11, yFila + 4.6, 8) : null;
+        if (ico) this.iconos.push(ico);
+        else {
           ruedita(gRueda, COL_X[col]! + 11, yFila + 4.6);
           if (!this.iconos.includes(gRueda)) this.iconos.push(gRueda);
         }

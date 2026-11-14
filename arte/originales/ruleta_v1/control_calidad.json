@@ -1,0 +1,9 @@
+{
+  "archivos": 8,
+  "tamanos_correctos": true,
+  "alpha_binaria": true,
+  "maximo_colores": 16,
+  "aro_centro_transparente": true,
+  "botones_misma_silueta": true,
+  "aguja_hacia_abajo": true
+}

@@ -9,14 +9,15 @@ import { t } from '../i18n/i18n';
 import { juego } from '../juego';
 import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
-import { claveSobre, pieza } from '../ui/arte';
+import { claveSobre, hayArte, pieza } from '../ui/arte';
 import { iconoItem, iconoMoneda } from '../ui/iconos';
 import { Puntero, saltito } from '../ui/puntero';
 import { Texto } from '../ui/texto';
 
 const CX = 74;
 const CY = 86;
-const R = 56;
+/** Radio de las casillas: con el aro del autor (120 px, abertura de 100) quedan justo debajo de él. */
+const R = 51;
 
 /** Texto corto de un premio de la ruleta («100 monedas», «Poción ×2», «300 monedas + Sobre Raro»). */
 export function textoPremioRuleta(p: PremioRuleta): string {
@@ -49,6 +50,8 @@ export class Ruleta extends Phaser.Scene {
   /** Sobre ganado en este giro (se puede abrir en el momento). */
   private sobreGanado = '';
   private botonG!: Phaser.GameObjects.Graphics;
+  /** Botón dibujado por el autor (dorado listo / gris en espera); si falta, el de código. */
+  private botonImg: Phaser.GameObjects.Image | null = null;
   private girando = false;
   private terminado = false;
 
@@ -68,17 +71,24 @@ export class Ruleta extends Phaser.Scene {
     new Texto(this, 0, 3, 240, 14, '#ffffff', 'centro', { tam: 11, peso: 600, borde: '#2b3a78' }).poner(t('rul.titulo'));
 
     this.dibujarRueda();
-    // Aguja fija arriba.
-    const aguja = this.add.graphics();
-    aguja.fillStyle(0x1f2340, 1).fillTriangle(CX - 6, CY - R - 8, CX + 6, CY - R - 8, CX, CY - R + 5);
-    aguja.fillStyle(0xf5c542, 1).fillTriangle(CX - 4, CY - R - 7, CX + 4, CY - R - 7, CX, CY - R + 2);
+    // Aro, tapa del eje y aguja del autor (fijos: solo giran las casillas). Si faltan, el dibujo por código.
+    pieza(this, 'ruleta_aro', CX, CY, 120)?.setDepth(2);
+    pieza(this, 'ruleta_centro', CX, CY, 24)?.setDepth(3);
+    const agujaArte = pieza(this, 'ruleta_aguja', CX, CY - R + 4, 20);
+    if (agujaArte) agujaArte.setOrigin(0.5, 1).setDepth(4);
+    else {
+      const aguja = this.add.graphics().setDepth(4);
+      aguja.fillStyle(0x1f2340, 1).fillTriangle(CX - 6, CY - R - 8, CX + 6, CY - R - 8, CX, CY - R + 5);
+      aguja.fillStyle(0xf5c542, 1).fillTriangle(CX - 4, CY - R - 7, CX + 4, CY - R - 7, CX, CY - R + 2);
+    }
 
     // Panel derecho: estado, botón y premios posibles.
     const g = this.add.graphics();
     ventana(g, 138, 22, 98, 128);
     this.estadoTxt = new Texto(this, 141, 25, 92, 30, C.tinta, 'centro', { tam: 7, peso: 600 });
     this.botonG = this.add.graphics();
-    this.boton = new Texto(this, 154, 58, 66, 14, '#ffffff', 'centro', { tam: 9, peso: 600 });
+    this.botonImg = hayArte(this, 'ruleta_boton_listo') ? this.add.image(154, 58, 'ui_ruleta_boton_listo').setOrigin(0, 0) : null;
+    this.boton = new Texto(this, 154, 59, 66, 13, '#ffffff', 'centro', { tam: 8, peso: 600 });
     new Texto(this, 141, 78, 92, 10, C.tintaSuave, 'centro', { tam: 6.4 }).poner(t('rul.puedes'));
     const lista = new Texto(this, 143, 88, 92, 60, C.tinta, 'izq', { tam: 5.6 });
     lista.poner(DATOS.economia.ruleta.segmentos.map((s) => '· ' + textoPremioRuleta(s.premio)).join('\n'));
@@ -119,6 +129,9 @@ export class Ruleta extends Phaser.Scene {
       const rad = Phaser.Math.DegToRad(medio);
       const ix = Math.cos(rad) * (R - 15);
       const iy = Math.sin(rad) * (R - 15);
+      // El premio gordo lleva el marco con corona del autor (la corona hacia el aro).
+      const marcoGordo = s.especial ? pieza(this, 'ruleta_casilla_gorda', Math.cos(rad) * (R - 17), Math.sin(rad) * (R - 17), 30, this.rueda) : null;
+      marcoGordo?.setRotation(rad + Math.PI / 2);
       // Ícono del premio, en un círculo claro para que se lea sobre cualquier color.
       const ico = this.add.graphics();
       ico.fillStyle(0xfdf6e3, 0.92).fillCircle(0, 0, 8);
@@ -142,11 +155,14 @@ export class Ruleta extends Phaser.Scene {
         ico.fillStyle(0xffffff, 0.8).fillRect(-1.5, -1, 3, 2);
       } else if (p.item) iconoItem(ico, DATOS.items.get(p.item)!, 0, 0, 1);
       else iconoMoneda(ico, p.esencia ? 'esencia' : 'monedas', 0, 0);
+      // Con el marco de corona, el premio gordo no necesita etiqueta.
+      if (marcoGordo) return;
       const txt = new Texto(this, 0, 0, 34, 9, '#ffffff', 'centro', { tam: s.especial ? 5.4 : 6.6, peso: 600, borde: '#1f2340' }).poner(etiqueta(p));
       txt.imagen.setOrigin(0.5, 0.5).setPosition(Math.cos(rad) * (R - 31), Math.sin(rad) * (R - 31)).setRotation(rad + Math.PI / 2);
       this.rueda.add(txt.imagen);
     });
-    // Centro.
+    // Centro (si no hay tapa del autor).
+    if (hayArte(this, 'ruleta_centro')) return;
     const hub = this.add.graphics();
     hub.fillStyle(0x1f2340, 1).fillCircle(0, 0, 9);
     hub.fillStyle(0xf5c542, 1).fillCircle(0, 0, 7);
@@ -158,9 +174,15 @@ export class Ruleta extends Phaser.Scene {
     const libre = ruletaDisponible(juego.estado, Date.now());
     if (!this.terminado) this.estadoTxt.poner(libre ? t('rul.libre') : t('rul.vuelve', this.cuenta()), libre ? C.tinta : C.tintaSuave);
     const activo = (libre && !this.girando) || this.terminado;
+    const texto = this.terminado ? (this.sobreGanado ? t('rul.abrir') : t('rul.volver')) : t('rul.girar');
+    if (this.botonImg) {
+      this.botonImg.setTexture(activo ? 'ui_ruleta_boton_listo' : 'ui_ruleta_boton_espera');
+      this.boton.poner(texto, activo ? '#2b2140' : '#5b6178');
+      return;
+    }
     this.botonG.clear().fillStyle(0x1f2340, 1).fillRoundedRect(153, 57, 68, 16, 4);
     this.botonG.fillStyle(activo ? n(C.resalte) : 0x8a90a8, 1).fillRoundedRect(154, 58, 66, 14, 3.5);
-    this.boton.poner(this.terminado ? (this.sobreGanado ? t('rul.abrir') : t('rul.volver')) : t('rul.girar'));
+    this.boton.poner(texto);
   }
 
   private cuenta(): { h: number; m: number } {
@@ -219,6 +241,12 @@ export class Ruleta extends Phaser.Scene {
       }),
     );
     const seg = DATOS.economia.ruleta.segmentos[i]!;
+    // Esquinas y destellos del autor sobre la casilla ganadora, titilando.
+    const resalte = pieza(this, 'ruleta_resalte', CX, CY - R + 28, 56);
+    if (resalte) {
+      resalte.setDepth(3).setAlpha(0);
+      this.tweens.add({ targets: resalte, alpha: 1, duration: 200, yoyo: true, repeat: 5, hold: 120, onComplete: () => resalte.setAlpha(1) });
+    }
     // Brillo sobre la casilla ganadora (arriba, bajo la aguja).
     const brillo = this.add.graphics();
     const a0 = Phaser.Math.DegToRad(-90 - paso / 2);

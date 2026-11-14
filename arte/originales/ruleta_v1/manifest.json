@@ -1,0 +1,98 @@
+[
+  {
+    "id": "menu_ruleta",
+    "archivo": "ui/ruleta/menu_ruleta.png",
+    "ancho": 32,
+    "alto": 32,
+    "colores_incluida_transparencia": 15,
+    "alpha": [
+      0,
+      255
+    ],
+    "sha256": "c4debc678f574ae9618f01b16ea6c2ff9372669438c6271ca8782b0485f57f00"
+  },
+  {
+    "id": "ruleta_aro",
+    "archivo": "ui/ruleta/ruleta_aro.png",
+    "ancho": 120,
+    "alto": 120,
+    "colores_incluida_transparencia": 15,
+    "alpha": [
+      0,
+      255
+    ],
+    "sha256": "13febde27d6992b851df732cb368e79f5868567aac43bdb8a5d2e99364df9180"
+  },
+  {
+    "id": "ruleta_aguja",
+    "archivo": "ui/ruleta/ruleta_aguja.png",
+    "ancho": 16,
+    "alto": 20,
+    "colores_incluida_transparencia": 15,
+    "alpha": [
+      0,
+      255
+    ],
+    "sha256": "ea5dbf407feed87045aa992677514ef05f959668cbaf5f14250183adb39c14e1"
+  },
+  {
+    "id": "ruleta_centro",
+    "archivo": "ui/ruleta/ruleta_centro.png",
+    "ancho": 24,
+    "alto": 24,
+    "colores_incluida_transparencia": 15,
+    "alpha": [
+      0,
+      255
+    ],
+    "sha256": "399c687c82d30a8bd094755911e9efc8e57f912b965903567c1fc4c3cb911733"
+  },
+  {
+    "id": "ruleta_boton_listo",
+    "archivo": "ui/ruleta/ruleta_boton_listo.png",
+    "ancho": 66,
+    "alto": 14,
+    "colores_incluida_transparencia": 15,
+    "alpha": [
+      0,
+      255
+    ],
+    "sha256": "c6f45abb11c82eaa80e2392613360627ee5acecd5f49d8602ddb4eda65621d17"
+  },
+  {
+    "id": "ruleta_boton_espera",
+    "archivo": "ui/ruleta/ruleta_boton_espera.png",
+    "ancho": 66,
+    "alto": 14,
+    "colores_incluida_transparencia": 5,
+    "alpha": [
+      0,
+      255
+    ],
+    "sha256": "1c02ea2f385bbf8b8b3dc010182309efafa4e15ea83c41d71d915e4f3b4977fe"
+  },
+  {
+    "id": "ruleta_resalte",
+    "archivo": "ui/ruleta/ruleta_resalte.png",
+    "ancho": 40,
+    "alto": 56,
+    "colores_incluida_transparencia": 16,
+    "alpha": [
+      0,
+      255
+    ],
+    "sha256": "4b5d9995f837b4975e7633ee8cf1bc6b9402e29d5a0c44540e274980090fdec3"
+  },
+  {
+    "id": "ruleta_casilla_gorda",
+    "archivo": "ui/ruleta/ruleta_casilla_gorda.png",
+    "ancho": 24,
+    "alto": 30,
+    "colores_incluida_transparencia": 16,
+    "alpha": [
+      0,
+      255
+    ],
+    "sha256": "544491dc6eeaeecb812504efc8732faa2cbc9a374e6e64173604184ac2534a49"
+  }
+]

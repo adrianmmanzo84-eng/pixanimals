@@ -1,0 +1,9 @@
+﻿id,archivo,ancho,alto,colores_incluida_transparencia,alpha,sha256
+menu_ruleta,ui/ruleta/menu_ruleta.png,32,32,15,"[0, 255]",c4debc678f574ae9618f01b16ea6c2ff9372669438c6271ca8782b0485f57f00
+ruleta_aro,ui/ruleta/ruleta_aro.png,120,120,15,"[0, 255]",13febde27d6992b851df732cb368e79f5868567aac43bdb8a5d2e99364df9180
+ruleta_aguja,ui/ruleta/ruleta_aguja.png,16,20,15,"[0, 255]",ea5dbf407feed87045aa992677514ef05f959668cbaf5f14250183adb39c14e1
+ruleta_centro,ui/ruleta/ruleta_centro.png,24,24,15,"[0, 255]",399c687c82d30a8bd094755911e9efc8e57f912b965903567c1fc4c3cb911733
+ruleta_boton_listo,ui/ruleta/ruleta_boton_listo.png,66,14,15,"[0, 255]",c6f45abb11c82eaa80e2392613360627ee5acecd5f49d8602ddb4eda65621d17
+ruleta_boton_espera,ui/ruleta/ruleta_boton_espera.png,66,14,5,"[0, 255]",1c02ea2f385bbf8b8b3dc010182309efafa4e15ea83c41d71d915e4f3b4977fe
+ruleta_resalte,ui/ruleta/ruleta_resalte.png,40,56,16,"[0, 255]",4b5d9995f837b4975e7633ee8cf1bc6b9402e29d5a0c44540e274980090fdec3
+ruleta_casilla_gorda,ui/ruleta/ruleta_casilla_gorda.png,24,30,16,"[0, 255]",544491dc6eeaeecb812504efc8732faa2cbc9a374e6e64173604184ac2534a49
