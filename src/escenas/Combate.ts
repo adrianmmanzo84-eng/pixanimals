@@ -14,6 +14,8 @@ import { registrar } from '../core/progresion/misiones';
 import { datosPiso, equipoPiso, resultadoTorre } from '../core/modos/torre';
 import { progresoJefes, registrarJefe } from '../core/modos/jefes';
 import { entrenadorDelDia, equipoEntrenador, resultadoEntrenador } from '../core/modos/entrenador';
+import { desafioDelDia, empezarDesafio, equiposDesafio, terminarDesafio, textoCompartir } from '../core/modos/desafio';
+import { compartirTexto, urlJuego } from '../ui/compartir';
 import { musica } from '../audio/musica';
 import { ajustes, alCambiarAjustes } from '../ajustes';
 import type { Habilidad, Item } from '../esquemas/esquemas';
@@ -30,8 +32,8 @@ import { partir, Texto } from '../ui/texto';
 
 export interface ConfigCombate {
   ia: NivelIA;
-  /** rapido: rival parejo al azar; torre: el piso `piso`; entrenador: el Entrenador del día; semanal: el Jefe de la semana. */
-  modo?: 'rapido' | 'torre' | 'entrenador' | 'semanal';
+  /** rapido: rival parejo al azar; torre: el piso `piso`; entrenador: el Entrenador del día; semanal: el Jefe de la semana; desafio: el Desafío del día (equipo prestado, igual para todos). */
+  modo?: 'rapido' | 'torre' | 'entrenador' | 'semanal' | 'desafio';
   piso?: number;
 }
 
@@ -142,13 +144,21 @@ export class Combate extends Phaser.Scene {
   }
 
   create(): void {
-    const semilla = (Date.now() ^ (Math.random() * 0x7fffffff)) >>> 0;
+    const modo = this.cfg.modo ?? 'rapido';
+    // El Desafío del día usa la semilla de la fecha: mismo azar para todos. Gasta el intento al empezar.
+    const desafio = modo === 'desafio' ? desafioDelDia(DATOS, Date.now()) : null;
+    if (desafio) {
+      empezarDesafio(juego.estado, Date.now());
+      juego.guardar();
+    }
+    const semilla = desafio ? desafio.semilla : (Date.now() ^ (Math.random() * 0x7fffffff)) >>> 0;
     const rng = new Rng(semilla);
     this.rngIA = new Rng(semilla ^ 0x9e3779b9);
     const mios = equipoDe(juego.estado);
-    const modo = this.cfg.modo ?? 'rapido';
-    const rival =
-      modo === 'torre'
+    const prestados = desafio ? equiposDesafio(DATOS, desafio) : null;
+    const rival = prestados
+      ? prestados[1]
+      : modo === 'torre'
         ? equipoPiso(DATOS, datosPiso(DATOS, this.cfg.piso ?? juego.estado.torre.piso, mios.length))
         : modo === 'entrenador'
           ? equipoEntrenador(DATOS, entrenadorDelDia(DATOS, Date.now()), mios)
@@ -156,7 +166,7 @@ export class Combate extends Phaser.Scene {
             ? equipoSemanal(DATOS, Date.now(), mios)
             : generarRival(DATOS, mios, rng);
     this.rivalInicial = rival[0]!.especie.id;
-    this.bat = new Batalla(DATOS, [mios.map((c) => combatienteDe(DATOS, c)), rival], rng);
+    this.bat = new Batalla(DATOS, [prestados ? prestados[0] : mios.map((c) => combatienteDe(DATOS, c)), rival], rng);
     // Ataque Definitivo: siempre para ti; entre los rivales, solo jefes de la Torre y el Entrenador del día, que lo cargan avisando.
     const jefe = modo === 'torre' && datosPiso(DATOS, this.cfg.piso ?? 1, 1).jefe;
     this.bat.definitivoPermitido = [true, modo === 'entrenador' || modo === 'semanal' || jefe];
@@ -164,7 +174,7 @@ export class Combate extends Phaser.Scene {
     // Cada modo tiene su música; el combate rápido alterna entre tres canciones.
     const pisoTorre = modo === 'torre' ? datosPiso(DATOS, this.cfg.piso ?? 1, 1) : null;
     musica.tocar(
-      pisoTorre ? (pisoTorre.guardian ? 'guardian' : pisoTorre.jefe ? 'jefe' : 'torre') : modo === 'entrenador' ? 'entrenador' : modo === 'semanal' ? 'semanal' : ['combate', 'combate2', 'combate3'][Math.floor(Math.random() * 3)]!,
+      pisoTorre ? (pisoTorre.guardian ? 'guardian' : pisoTorre.jefe ? 'jefe' : 'torre') : modo === 'entrenador' ? 'entrenador' : modo === 'semanal' ? 'semanal' : modo === 'desafio' ? 'torre' : ['combate', 'combate2', 'combate3'][Math.floor(Math.random() * 3)]!,
     );
     this.verRival();
 
@@ -237,6 +247,7 @@ export class Combate extends Phaser.Scene {
       this.tween({ targets: this.sprites[0], x: this.pos(0).x, duration: 550, ease: 'Cubic.easeOut' }),
       this.tween({ targets: this.sprites[1], x: this.pos(1).x, duration: 550, ease: 'Cubic.easeOut' }),
     ]);
+    if (this.cfg.modo === 'desafio') await this.decir(t('c.desafio', { n: desafioDelDia(DATOS, Date.now()).numero }));
     if (this.cfg.modo === 'entrenador') await this.decir(t('c.entrenador', { n: entrenadorDelDia(DATOS, Date.now()).nombre }));
     if (this.cfg.modo === 'semanal') await this.decir(t('c.semanal', { n: this.nom(1), t: DATOS.tipos.get(tipoDeLaSemana(DATOS, Date.now()))!.nombre }));
     if (this.cfg.modo === 'torre') {
@@ -421,6 +432,7 @@ export class Combate extends Phaser.Scene {
   /** Reparte la recompensa, guarda la partida y muestra el resumen. */
   private async resultado(retirada: boolean): Promise<void> {
     const modo = this.cfg.modo ?? 'rapido';
+    if (modo === 'desafio') return this.resultadoDesafio();
     // Torre y Entrenador pagan su propio premio en lugar de las monedas por dificultad.
     const r = aplicarRecompensa(DATOS, juego.estado, this.bat, this.cfg.ia, retirada, modo === 'rapido' ? undefined : 0);
     const extra: string[] = [];
@@ -463,6 +475,55 @@ export class Combate extends Phaser.Scene {
       sonido.tocar('aceptar');
       // Al ganar se elige una carta premio.
       this.scene.start(r.victoria ? 'Premio' : 'Menu', { submenu: 'combates' });
+    };
+  }
+
+  /**
+   * Fin del Desafío del día: sin experiencia (el equipo es prestado), un premio chico y el botón Compartir,
+   * que copia o comparte el resultado en emojis. Retirarse cuenta como derrota.
+   */
+  private async resultadoDesafio(): Promise<void> {
+    const ahora = Date.now();
+    const d = desafioDelDia(DATOS, ahora);
+    const victoria = this.bat.ganador === 0;
+    const vidas = this.bat.equipos[0].miembros.map((m) => m.ps / m.stats.ps);
+    const r = { victoria, turnos: this.bat.turno, vidas };
+    const premio = terminarDesafio(DATOS, juego.estado, ahora, r);
+    // Cuenta para las misiones como cualquier combate (retirarse no).
+    if (this.bat.terminado) registrar(DATOS, juego.estado, 'combate');
+    if (victoria) registrar(DATOS, juego.estado, 'victoria');
+    juego.guardar();
+    musica.tocar(victoria ? 'victoria' : 'derrota');
+    const texto = textoCompartir(d.numero, r, juego.estado.desafio.racha, urlJuego());
+    // La segunda línea queda libre para los cuadritos de colores (dibujados abajo).
+    const lineas = [t('fin.turnos', { n: this.bat.turno }), ' '];
+    if (premio.monedas) lineas.push(t('fin.monedas', { n: premio.monedas }));
+    if (premio.esencia) lineas.push(t('fin.esencia', { n: premio.esencia }));
+    if (juego.estado.desafio.racha > 1) lineas.push(t('des.racha', { n: juego.estado.desafio.racha }));
+    const alto = 58 + lineas.length * 9;
+    const g = this.add.graphics();
+    ventana(g, 40, 22, 160, alto);
+    new Texto(this, 40, 31, 160, 12, victoria ? '#257179' : C.resalte, 'centro', { tam: 9.5, peso: 600 }).poner(t(victoria ? 'fin.victoria' : 'fin.derrota'));
+    new Texto(this, 40, 44, 160, 9, C.tintaSuave, 'centro', { tam: 6.4 }).poner(t('des.desafio', { n: d.numero }));
+    new Texto(this, 40, 54, 160, lineas.length * 9 + 4, C.tinta, 'centro').poner(lineas.join('\n'));
+    const yCuad = 54 + 9 + 1;
+    const gc = this.add.graphics();
+    vidas.forEach((v, i) => {
+      const x = 120 - (vidas.length * 10) / 2 + i * 10 + 1;
+      gc.fillStyle(v > 0.5 ? 0x3fbf6a : v > 0 ? 0xf5c542 : 0xd0425a, 1).fillRoundedRect(x, yCuad, 8, 8, 1.5);
+    });
+    const aviso = new Texto(this, 40, 54 + lineas.length * 9 + 4, 160, 9, '#2f7a48', 'centro', { tam: 6.4 });
+    new Texto(this, 40, 54 + lineas.length * 9 + 14, 160, 10, C.tintaSuave, 'centro').poner(t('des.compartirAyuda'));
+    this.msg.poner('');
+    await this.esperar(400);
+    this.alPulsar = (a) => {
+      if (a === 'a') {
+        sonido.tocar('aceptar');
+        void compartirTexto(texto).then((res) => aviso.poner(t(`des.${res}`)));
+      } else if (a === 'b') {
+        sonido.tocar('cancelar');
+        this.scene.start('Menu', { submenu: 'combates' });
+      }
     };
   }
 
@@ -901,7 +962,8 @@ export class Combate extends Phaser.Scene {
     p.barra.fillStyle(r > 0.5 ? C.psAlto : r > 0.2 ? C.psMedio : C.psBajo, 1).fillRect(p.x + 19, p.y + 16, ancho, 4);
     if (lado === 0) {
       // Barra fina de experiencia de tu criatura.
-      const mia = criaturaDe(juego.estado, c.especie.id);
+      // En el Desafío del día el equipo es prestado: sin barra de experiencia.
+      const mia = this.cfg.modo === 'desafio' ? null : criaturaDe(juego.estado, c.especie.id);
       const frac = mia && mia.nivel < DATOS.balance.nivelMax ? mia.xp / xpParaSubir(DATOS, mia.nivel) : 1;
       p.barra.fillStyle(C.barraFondo, 1).fillRect(p.x + 19, p.y + 21.6, 56, 1.2);
       p.barra.fillStyle(0x5aa9f0, 1).fillRect(p.x + 19, p.y + 21.6, 56 * frac, 1.2);

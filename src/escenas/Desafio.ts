@@ -12,10 +12,12 @@ import { juego } from '../juego';
 import { miniatura, textura } from '../ui/criaturas';
 import { C, COLOR_TIPO, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
-import { Texto } from '../ui/texto';
+import { partir, Texto } from '../ui/texto';
+import { desafioDelDia, desafioJugado, textoCompartir } from '../core/modos/desafio';
+import { compartirTexto, urlJuego } from '../ui/compartir';
 
 export interface DatosDesafio {
-  modo: 'torre' | 'entrenador' | 'semanal';
+  modo: 'torre' | 'entrenador' | 'semanal' | 'desafio';
 }
 
 /** Antesala de la Torre o del Entrenador del día: quién es el rival, qué nivel tiene y qué premio da. */
@@ -33,6 +35,7 @@ export class Desafio extends Phaser.Scene {
   create(): void {
     prepararCamara(this);
     musica.tocar('menu');
+    if (this.modo === 'desafio') return this.crearDesafio();
     const estado = juego.estado;
     const mios = equipoDe(estado);
     const torre = this.modo === 'torre';
@@ -96,6 +99,56 @@ export class Desafio extends Phaser.Scene {
         if (!mios.length) return sonido.tocar('negado');
         sonido.tocar('aceptar');
         this.scene.start('Combate', torre ? { ia, modo: 'torre', piso: estado.torre.piso } : { ia, modo: this.modo });
+      } else if (a === 'b') {
+        sonido.tocar('cancelar');
+        this.scene.start('Menu', { submenu: 'combates' });
+      }
+    });
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => Entrada.escuchar(null));
+  }
+
+  /**
+   * Antesala del Desafío del día: tu equipo prestado y el rival (iguales para todos), el premio y un solo intento.
+   * Si ya jugaste hoy, muestra tu resultado y A lo comparte.
+   */
+  private crearDesafio(): void {
+    const estado = juego.estado;
+    const ahora = Date.now();
+    const d = desafioDelDia(DATOS, ahora);
+    const jugado = desafioJugado(estado, ahora);
+    this.add.image(0, 0, fondo(this, 'costa')).setOrigin(0, 0).setScale(0.25);
+    this.add.graphics().fillStyle(0x141830, 0.45).fillRect(0, 0, 240, 160);
+    const g = this.add.graphics();
+    ventana(g, 10, 6, 220, 148);
+    new Texto(this, 18, 11, 204, 14, '#257179', 'izq', { tam: 10, peso: 600 }).poner(t('des.desafio', { n: d.numero }));
+    new Texto(this, 18, 25, 204, 10, C.tintaSuave).poner(t('des.desafioSub'));
+    const fila = (ids: string[], y: number, etiqueta: string) => {
+      new Texto(this, 18, y, 60, 30, C.tinta, 'izq', { tam: 6.4, peso: 600 }).poner(partir(etiqueta, 56).join('\n'));
+      ids.forEach((id, i) => {
+        const x = 104 + i * 46;
+        g.fillStyle(0xe8ecf4, 1).fillRoundedRect(x - 21, y - 3, 42, 36, 4);
+        miniatura(this.add.image(x, y + 11, textura(id, 'frente')), id, 26, 0.45);
+        new Texto(this, x - 22, y + 24, 44, 8, C.tinta, 'centro', { tam: 5.6 }).poner(DATOS.criaturas.get(id)!.nombre);
+      });
+    };
+    fila(d.equipo, 40, t('des.tuEquipo'));
+    fila(d.rival, 80, t('des.rivalDesafio'));
+    new Texto(this, 18, 118, 204, 10, C.tinta).poner(t('des.nivel', { n: d.nivel, ia: t('ia.tactica') }));
+    const e = DATOS.economia.desafio;
+    const r = estado.desafio;
+    const res = t(r.victoria ? 'des.resVictoria' : 'des.resDerrota', { n: r.turnos });
+    new Texto(this, 18, 128, 204, 10, C.resalte, 'izq', { peso: 600 }).poner(
+      jugado ? t('des.yaJugaste', { r: res }) : t('des.premioDesafio', { v: e.monedasVictoria, e: e.esenciaVictoria, d: e.monedasDerrota }),
+    );
+    const ayuda = new Texto(this, 18, 141, 204, 10, C.tintaSuave, 'centro').poner(t(jugado ? 'des.ayudaCompartir' : 'des.ayudaDesafio'));
+    Entrada.escuchar((a) => {
+      if (a === 'a' && !jugado) {
+        sonido.tocar('aceptar');
+        this.scene.start('Combate', { ia: 'tactica', modo: 'desafio' });
+      } else if (a === 'a') {
+        sonido.tocar('aceptar');
+        const texto = textoCompartir(d.numero, { victoria: r.victoria, turnos: r.turnos, vidas: r.vidas }, r.racha, urlJuego());
+        void compartirTexto(texto).then((x) => ayuda.poner(t(`des.${x}`), '#2f7a48'));
       } else if (a === 'b') {
         sonido.tocar('cancelar');
         this.scene.start('Menu', { submenu: 'combates' });

@@ -10,6 +10,7 @@ import { cobrarDiario, diarioDisponible, premioDeHoy } from '../core/progresion/
 import { ruletaDisponible } from '../core/progresion/ruleta';
 import { misionesPorCobrar } from '../core/progresion/misiones';
 import { entrenadorCobrado } from '../core/modos/entrenador';
+import { desafioJugado, numeroDesafio } from '../core/modos/desafio';
 import { musica } from '../audio/musica';
 import { esJefe, guardianDePiso } from '../core/modos/torre';
 import { Entrada, type AccionEntrada } from '../entrada';
@@ -145,6 +146,7 @@ export class Menu extends Phaser.Scene {
       const piso = juego.estado.torre.piso;
       return [
         t('menu.rapido'),
+        t(desafioJugado(juego.estado, Date.now()) ? 'menu.desafioHecho' : 'menu.desafio', { n: numeroDesafio(Date.now()) }),
         t(guardianDePiso(DATOS, piso) ? 'menu.torreGuardian' : esJefe(DATOS, piso) ? 'menu.torreJefe' : 'menu.torre', { n: piso }),
         t(entrenadorCobrado(juego.estado, Date.now()) ? 'menu.entrenadorHecho' : 'menu.entrenador'),
         t(semanalCobrado(juego.estado, Date.now()) ? 'menu.semanalHecho' : 'menu.semanal', { t: DATOS.tipos.get(tipoDeLaSemana(DATOS, Date.now()))!.nombre }),
@@ -156,6 +158,7 @@ export class Menu extends Phaser.Scene {
     const metas = metasPorCobrar(DATOS, juego.estado);
     const volvieron = juego.estado.expediciones.filter((x) => faltaExpedicion(x, Date.now()) === 0).length;
     return OPCIONES.map((c) => {
+      if (c === 'menu.combatir' && !desafioJugado(juego.estado, Date.now()) && juego.estado.equipo.length) return t('menu.combatirHoy');
       if (c === 'menu.sobres' && (hayGratis || Object.values(juego.estado.sobresRegalo).some((v) => v > 0))) return t('menu.sobres.gratis');
       if (c === 'menu.equipoP' && hayEvolucion) return t('menu.equipoEvo');
       if (c === 'menu.misiones' && porCobrar) return t('menu.misionesN', { n: porCobrar });
@@ -266,7 +269,7 @@ export class Menu extends Phaser.Scene {
           this.modo = 'dificultad';
           this.sel = 1;
         } else {
-          this.scene.start('Desafio', { modo: this.sel === 1 ? 'torre' : this.sel === 2 ? 'entrenador' : 'semanal' });
+          this.scene.start('Desafio', { modo: (['desafio', 'torre', 'entrenador', 'semanal'] as const)[this.sel - 1]! });
           return;
         }
         this.pintar();

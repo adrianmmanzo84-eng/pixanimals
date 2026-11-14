@@ -462,5 +462,11 @@
         "especial": true
       }
     ]
+  },
+  "desafio": {
+    "nivel": 35,
+    "monedasVictoria": 60,
+    "esenciaVictoria": 20,
+    "monedasDerrota": 15
   }
 }

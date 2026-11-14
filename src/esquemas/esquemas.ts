@@ -228,6 +228,8 @@ export const EconomiaZ = z.object({
   fusion: z.object({ copias: z.number().int().min(2) }),
   /** Semana temática: un tipo protagonista, su sobre más barato y un Jefe Eclipse. */
   semanal: z.object({ descuento: z.number().int().min(0).max(90), nivelExtra: z.number().int().min(0), premio: PremioMetaZ }),
+  /** Desafío del día: nivel de los dos equipos y premio (victoria o derrota). */
+  desafio: z.object({ nivel: z.number().int().min(1), monedasVictoria: z.number().int().min(0), esenciaVictoria: z.number().int().min(0), monedasDerrota: z.number().int().min(0) }),
   /** Ruleta diaria: un giro gratis por día. Cada casilla tiene un premio (nunca criaturas) y un peso. */
   ruleta: z.object({
     segmentos: z
@@ -300,7 +302,7 @@ export const CriaturaJugadorZ = z.object({
   amuleto: z.string().nullable(),
 });
 export const EstadoJuegoZ = z.object({
-  version: z.literal(7),
+  version: z.literal(8),
   monedas: z.number().int().min(0),
   esencia: z.number().int().min(0),
   criaturas: z.array(CriaturaJugadorZ),
@@ -352,6 +354,17 @@ export const EstadoJuegoZ = z.object({
   ruleta: z.object({ ultimoDia: z.number().int() }),
   /** Jefes (semanales y Guardianes) a los que ya les ganaste: cada uno es una insignia. */
   jefes: z.array(z.string()),
+  /** Desafío del día: último día jugado, su resultado, racha de días seguidos y victorias totales. */
+  desafio: z.object({
+    dia: z.number().int(),
+    terminado: z.boolean(),
+    victoria: z.boolean(),
+    turnos: z.number().int().min(0),
+    vidas: z.array(z.number().min(0).max(1)),
+    racha: z.number().int().min(0),
+    mejorRacha: z.number().int().min(0),
+    victorias: z.number().int().min(0),
+  }),
 });
 
 export type RarezaId = z.infer<typeof RarezaIdZ>;
