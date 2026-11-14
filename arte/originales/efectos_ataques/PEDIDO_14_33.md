@@ -1,5 +1,7 @@
 # Pedido de efectos: familias 14 a 33
 
+**Entregado e integrado (v0.13.0).**
+
 Cada familia lleva dos láminas con el mismo formato que las 13 anteriores: `NN_ataques.png` (4×2: ofensivos, defensivos y apoyos de 64, finales de 96) y `NN_definitivos.png` (2×2: impacto de 128 a la izquierda y pantalla de 240×160 a la derecha). `indice.csv` ya tiene sus filas, y al llegar se importan con `python3 scripts/importar_efectos_ataques.py`. Mientras falten, esos ataques usan el efecto compartido de su `animacion`.
 
 ### 14. Fenequín → Vitreón

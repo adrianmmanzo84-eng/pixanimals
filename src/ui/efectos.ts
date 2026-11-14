@@ -387,14 +387,26 @@ export class Efectos {
     try {
       if (this.s.textures.exists(`fxat_${h.id}_pantalla`)) {
         const p = this.s.add.image(120, 80, `fxat_${h.id}_pantalla`).setFlipX(dir < 0).setAlpha(0);
-        this.capa.add(p);
-        // Cubre todo el campo de combate (sobre el cuadro de texto) con margen para el temblor, sin acercar la cámara.
-        const cubre = Math.max(264 / p.width, 134 / p.height);
-        p.setPosition(120, 55).setScale(cubre);
-        this.temblar(1300, 0.035);
-        await this.tw({ targets: p, alpha: 1, duration: 200, ease: 'Cubic.easeOut' });
-        await this.espera(850);
-        await this.tw({ targets: p, alpha: 0, duration: 260 });
+        if (p.height >= 150) {
+          // Escena completa de 240×160 (familias 14 a 33): tapa toda la pantalla, interfaz incluida, un instante,
+          // con su propio temblor (está fuera del mundo que tiembla) y un poco de margen para que no se vean bordes.
+          p.setDepth(1000).setScale(1.06);
+          this.temblar(1300, 0.035);
+          const sacudir = this.avance(1310, (t) => p.setPosition(120 + (Math.random() - 0.5) * 6 * (1 - t), 80 + (Math.random() - 0.5) * 5 * (1 - t)));
+          await this.tw({ targets: p, alpha: 1, duration: 200, ease: 'Cubic.easeOut' });
+          await this.espera(850);
+          await this.tw({ targets: p, alpha: 0, duration: 260 });
+          await sacudir;
+        } else {
+          this.capa.add(p);
+          // Cubre todo el campo de combate (sobre el cuadro de texto) con margen para el temblor, sin acercar la cámara.
+          const cubre = Math.max(264 / p.width, 134 / p.height);
+          p.setPosition(120, 55).setScale(cubre);
+          this.temblar(1300, 0.035);
+          await this.tw({ targets: p, alpha: 1, duration: 200, ease: 'Cubic.easeOut' });
+          await this.espera(850);
+          await this.tw({ targets: p, alpha: 0, duration: 260 });
+        }
         p.destroy();
       }
       const i = this.s.add.image(el.x, el.y, `fxat_${h.id}`).setFlipX(dir < 0).setScale(0.2);

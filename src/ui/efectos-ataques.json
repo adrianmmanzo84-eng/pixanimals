@@ -1,4 +1,36 @@
 {
+ "abanico_del_ocaso": {
+  "impacto": [
+   118,
+   104
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "abanico_escudo": {
+  "impacto": [
+   58,
+   55
+  ]
+ },
+ "abanico_violeta": {
+  "impacto": [
+   89,
+   85
+  ]
+ },
+ "abismo_plateado": {
+  "impacto": [
+   118,
+   100
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "abismo_profundo": {
   "impacto": [
    96,
@@ -15,6 +47,36 @@
    133
   ]
  },
+ "afilar_colmillo": {
+  "impacto": [
+   54,
+   58
+  ]
+ },
+ "afilar_guadanas": {
+  "impacto": [
+   53,
+   58
+  ]
+ },
+ "afilar_puas": {
+  "impacto": [
+   58,
+   55
+  ]
+ },
+ "aguas_gelidas": {
+  "impacto": [
+   57,
+   58
+  ]
+ },
+ "aire_de_alba": {
+  "impacto": [
+   57,
+   58
+  ]
+ },
  "ala_carmesi": {
   "impacto": [
    128,
@@ -25,10 +87,94 @@
    128
   ]
  },
+ "ala_rapida": {
+  "impacto": [
+   58,
+   47
+  ]
+ },
+ "ala_terciopelo": {
+  "impacto": [
+   90,
+   90
+  ]
+ },
+ "ala_umbral": {
+  "impacto": [
+   58,
+   54
+  ]
+ },
+ "alas_de_ceniza": {
+  "impacto": [
+   58,
+   54
+  ]
+ },
+ "alas_de_medianoche": {
+  "impacto": [
+   90,
+   86
+  ]
+ },
  "alas_de_obsidiana": {
   "impacto": [
    64,
    54
+  ]
+ },
+ "alba_negra": {
+  "impacto": [
+   118,
+   99
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "aleta_brillante": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
+ "alud_de_hongos": {
+  "impacto": [
+   90,
+   82
+  ]
+ },
+ "amanecer_eterno": {
+  "impacto": [
+   118,
+   95
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "amatista_negra": {
+  "impacto": [
+   90,
+   90
+  ]
+ },
+ "arrecife_furioso": {
+  "impacto": [
+   90,
+   83
+  ]
+ },
+ "arrecife_sombrio": {
+  "impacto": [
+   118,
+   103
+  ],
+  "pantalla": [
+   240,
+   160
   ]
  },
  "aurora_final": {
@@ -47,10 +193,54 @@
    88
   ]
  },
+ "avalancha_marina": {
+  "impacto": [
+   89,
+   79
+  ]
+ },
+ "bambu_del_ocaso": {
+  "impacto": [
+   118,
+   115
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "bano_tranquilo": {
+  "impacto": [
+   48,
+   58
+  ]
+ },
+ "bigote_electrico": {
+  "impacto": [
+   55,
+   49
+  ]
+ },
  "bola_de_cristal": {
   "impacto": [
    64,
    63
+  ]
+ },
+ "bosque_de_bambu": {
+  "impacto": [
+   57,
+   58
+  ]
+ },
+ "bosque_fungico": {
+  "impacto": [
+   118,
+   110
+  ],
+  "pantalla": [
+   240,
+   160
   ]
  },
  "bosque_primordial": {
@@ -63,10 +253,74 @@
    119
   ]
  },
+ "brillo_de_cuarzo": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
  "brillo_prismatico": {
   "impacto": [
    64,
    55
+  ]
+ },
+ "brote_nuevo": {
+  "impacto": [
+   58,
+   57
+  ]
+ },
+ "burbujas_veloces": {
+  "impacto": [
+   58,
+   54
+  ]
+ },
+ "cabezazo_manso": {
+  "impacto": [
+   57,
+   55
+  ]
+ },
+ "caida_del_cometa": {
+  "impacto": [
+   90,
+   86
+  ]
+ },
+ "campana_del_vacio": {
+  "impacto": [
+   118,
+   114
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "campana_lunar": {
+  "impacto": [
+   48,
+   56
+  ]
+ },
+ "camuflaje_floral": {
+  "impacto": [
+   58,
+   50
+  ]
+ },
+ "canto_matutino": {
+  "impacto": [
+   57,
+   58
+  ]
+ },
+ "caparazon_forjado": {
+  "impacto": [
+   58,
+   56
   ]
  },
  "carga_ionica": {
@@ -75,10 +329,28 @@
    57
   ]
  },
+ "chispa_de_arena": {
+  "impacto": [
+   58,
+   45
+  ]
+ },
+ "chispa_de_farol": {
+  "impacto": [
+   57,
+   54
+  ]
+ },
  "chispazo": {
   "impacto": [
    64,
    61
+  ]
+ },
+ "chorro_abisal": {
+  "impacto": [
+   90,
+   79
   ]
  },
  "chorro_de_tinta": {
@@ -93,10 +365,58 @@
    96
   ]
  },
+ "ciclon_de_guadanas": {
+  "impacto": [
+   90,
+   85
+  ]
+ },
+ "ciclon_de_hojas": {
+  "impacto": [
+   90,
+   85
+  ]
+ },
  "cielo_desatado": {
   "impacto": [
    96,
    91
+  ]
+ },
+ "clarin_del_alba": {
+  "impacto": [
+   55,
+   57
+  ]
+ },
+ "cola_anillada": {
+  "impacto": [
+   58,
+   55
+  ]
+ },
+ "cola_de_cuarzo": {
+  "impacto": [
+   58,
+   51
+  ]
+ },
+ "cola_de_meteoro": {
+  "impacto": [
+   90,
+   83
+  ]
+ },
+ "cola_tijera": {
+  "impacto": [
+   58,
+   51
+  ]
+ },
+ "coletazo_anillado": {
+  "impacto": [
+   90,
+   88
   ]
  },
  "coletazo_aurora": {
@@ -105,10 +425,22 @@
    58
   ]
  },
+ "coletazo_marino": {
+  "impacto": [
+   57,
+   52
+  ]
+ },
  "colmillo_de_basalto": {
   "impacto": [
    96,
    94
+  ]
+ },
+ "colmillo_glacial": {
+  "impacto": [
+   58,
+   55
   ]
  },
  "colmillo_igneo": {
@@ -117,16 +449,44 @@
    58
   ]
  },
+ "colmillo_velado": {
+  "impacto": [
+   57,
+   57
+  ]
+ },
  "cometa_lunar": {
   "impacto": [
    96,
    89
   ]
  },
+ "cometa_negro": {
+  "impacto": [
+   118,
+   106
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "concha_sagrada": {
   "impacto": [
    64,
    54
+  ]
+ },
+ "coral_carmesi": {
+  "impacto": [
+   90,
+   86
+  ]
+ },
+ "coraza_de_geoda": {
+  "impacto": [
+   57,
+   58
   ]
  },
  "coraza_de_granito": {
@@ -147,6 +507,38 @@
    59
   ]
  },
+ "corazon_de_geoda": {
+  "impacto": [
+   118,
+   111
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "cornada_ignea": {
+  "impacto": [
+   58,
+   50
+  ]
+ },
+ "cornada_tibia": {
+  "impacto": [
+   57,
+   50
+  ]
+ },
+ "corona_carbunculo": {
+  "impacto": [
+   117,
+   100
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "corona_negra": {
   "impacto": [
    128,
@@ -157,10 +549,22 @@
    136
   ]
  },
+ "corriente_alba": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
  "corriente_celeste": {
   "impacto": [
    64,
    61
+  ]
+ },
+ "corriente_plateada": {
+  "impacto": [
+   55,
+   58
   ]
  },
  "cristal_quebrado": {
@@ -171,6 +575,36 @@
   "pantalla": [
    240,
    135
+  ]
+ },
+ "cuarzo_violeta": {
+  "impacto": [
+   88,
+   88
+  ]
+ },
+ "cuerno_de_magma": {
+  "impacto": [
+   90,
+   87
+  ]
+ },
+ "danza_de_orquidea": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
+ "danza_del_desierto": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
+ "danza_espiral": {
+  "impacto": [
+   57,
+   58
   ]
  },
  "danza_lunar": {
@@ -201,6 +635,24 @@
    59
   ]
  },
+ "desplegar_plumas": {
+  "impacto": [
+   53,
+   58
+  ]
+ },
+ "destello": {
+  "impacto": [
+   58,
+   49
+  ]
+ },
+ "destello_ardiente": {
+  "impacto": [
+   58,
+   54
+  ]
+ },
  "diluvio_abisal": {
   "impacto": [
    128,
@@ -211,10 +663,42 @@
    129
   ]
  },
+ "doble_tajo": {
+  "impacto": [
+   58,
+   54
+  ]
+ },
+ "eclipse_de_plumas": {
+  "impacto": [
+   118,
+   109
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "eclipse_total": {
   "impacto": [
    96,
    93
+  ]
+ },
+ "eco_del_vacio": {
+  "impacto": [
+   118,
+   104
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "ecolocacion": {
+  "impacto": [
+   58,
+   57
   ]
  },
  "embestida_astral": {
@@ -223,16 +707,56 @@
    89
   ]
  },
+ "embestida_helada": {
+  "impacto": [
+   57,
+   58
+  ]
+ },
+ "embestida_prisma": {
+  "impacto": [
+   89,
+   90
+  ]
+ },
  "embestida_rocosa": {
   "impacto": [
    64,
    51
   ]
  },
+ "encender_farol": {
+  "impacto": [
+   58,
+   55
+  ]
+ },
  "endurecer": {
   "impacto": [
    64,
    57
+  ]
+ },
+ "envoltura_de_alas": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
+ "era_glacial": {
+  "impacto": [
+   118,
+   102
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "erizar_puas": {
+  "impacto": [
+   58,
+   50
   ]
  },
  "erupcion_de_basalto": {
@@ -251,10 +775,28 @@
    59
   ]
  },
+ "esconder_tesoro": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
+ "escudo_de_coral": {
+  "impacto": [
+   58,
+   56
+  ]
+ },
  "escudo_de_petalos": {
   "impacto": [
    64,
    57
+  ]
+ },
+ "escudo_de_raices": {
+  "impacto": [
+   58,
+   55
   ]
  },
  "espinas_nocturnas": {
@@ -267,16 +809,96 @@
    120
   ]
  },
+ "espiral_violeta": {
+  "impacto": [
+   88,
+   86
+  ]
+ },
+ "espolon_cometa": {
+  "impacto": [
+   89,
+   90
+  ]
+ },
+ "espora_sombria": {
+  "impacto": [
+   90,
+   83
+  ]
+ },
+ "esporas_vigorosas": {
+  "impacto": [
+   57,
+   58
+  ]
+ },
  "estallido_prisma": {
   "impacto": [
    95,
    96
   ]
  },
+ "estampida_verde": {
+  "impacto": [
+   90,
+   88
+  ]
+ },
+ "farol_celeste": {
+  "impacto": [
+   89,
+   89
+  ]
+ },
+ "farol_sombrio": {
+  "impacto": [
+   90,
+   87
+  ]
+ },
  "filo_de_obsidiana": {
   "impacto": [
    95,
    96
+  ]
+ },
+ "floracion_oscura": {
+  "impacto": [
+   118,
+   115
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "forja_del_ocaso": {
+  "impacto": [
+   118,
+   102
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "frotar_pelaje": {
+  "impacto": [
+   55,
+   58
+  ]
+ },
+ "fuelle": {
+  "impacto": [
+   58,
+   52
+  ]
+ },
+ "garra_de_amatista": {
+  "impacto": [
+   58,
+   55
   ]
  },
  "garra_de_cuarzo": {
@@ -291,10 +913,36 @@
    60
   ]
  },
+ "garra_excavadora": {
+  "impacto": [
+   58,
+   51
+  ]
+ },
  "garra_lunar": {
   "impacto": [
    96,
    83
+  ]
+ },
+ "geoda_del_vacio": {
+  "impacto": [
+   118,
+   109
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "glaciar_eterno": {
+  "impacto": [
+   118,
+   101
+  ],
+  "pantalla": [
+   240,
+   160
   ]
  },
  "golpe_de_concha": {
@@ -303,10 +951,52 @@
    58
   ]
  },
+ "gran_barrera": {
+  "impacto": [
+   118,
+   104
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "gran_campanada": {
+  "impacto": [
+   90,
+   87
+  ]
+ },
+ "gran_fundicion": {
+  "impacto": [
+   118,
+   102
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "gran_manglar": {
+  "impacto": [
+   118,
+   114
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "gravedad_oscura": {
   "impacto": [
    96,
    96
+  ]
+ },
+ "guadana_carmesi": {
+  "impacto": [
+   89,
+   90
   ]
  },
  "guadana_estelar": {
@@ -317,6 +1007,52 @@
   "pantalla": [
    240,
    130
+  ]
+ },
+ "guadana_floral": {
+  "impacto": [
+   90,
+   88
+  ]
+ },
+ "guarida_del_vacio": {
+  "impacto": [
+   118,
+   103
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "guijarrazo": {
+  "impacto": [
+   58,
+   44
+  ]
+ },
+ "hidroespiral": {
+  "impacto": [
+   58,
+   56
+  ]
+ },
+ "hipnosis_lunar": {
+  "impacto": [
+   90,
+   78
+  ]
+ },
+ "hoja_cortante": {
+  "impacto": [
+   58,
+   53
+  ]
+ },
+ "hoja_sombria": {
+  "impacto": [
+   90,
+   84
   ]
  },
  "huracan_floral": {
@@ -331,6 +1067,16 @@
    96
   ]
  },
+ "jardin_de_cuchillas": {
+  "impacto": [
+   118,
+   114
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "jardin_furioso": {
   "impacto": [
    128,
@@ -341,16 +1087,84 @@
    128
   ]
  },
+ "lanza_de_bambu": {
+  "impacto": [
+   89,
+   76
+  ]
+ },
+ "lanza_de_hielo": {
+  "impacto": [
+   90,
+   84
+  ]
+ },
+ "lanza_del_ocaso": {
+  "impacto": [
+   90,
+   86
+  ]
+ },
  "latigazo_boreal": {
   "impacto": [
    64,
    60
   ]
  },
+ "latigazo_perlado": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
+ "latigo_de_mangle": {
+  "impacto": [
+   58,
+   53
+  ]
+ },
+ "lente_solar": {
+  "impacto": [
+   90,
+   89
+  ]
+ },
+ "linterna_del_ocaso": {
+  "impacto": [
+   118,
+   110
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "llamarada_real": {
   "impacto": [
    90,
    96
+  ]
+ },
+ "lluvia_de_cometas": {
+  "impacto": [
+   118,
+   103
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "lluvia_de_geodas": {
+  "impacto": [
+   90,
+   89
+  ]
+ },
+ "lluvia_de_hojas": {
+  "impacto": [
+   56,
+   56
   ]
  },
  "lluvia_de_lunas": {
@@ -363,10 +1177,28 @@
    128
   ]
  },
+ "lluvia_de_onice": {
+  "impacto": [
+   90,
+   87
+  ]
+ },
+ "lluvia_de_perlas": {
+  "impacto": [
+   89,
+   90
+  ]
+ },
  "lluvia_de_prismas": {
   "impacto": [
    96,
    96
+  ]
+ },
+ "lluvia_de_puas": {
+  "impacto": [
+   90,
+   85
   ]
  },
  "luna_creciente": {
@@ -403,6 +1235,18 @@
    60
   ]
  },
+ "madriguera": {
+  "impacto": [
+   58,
+   57
+  ]
+ },
+ "manto_de_musgo": {
+  "impacto": [
+   58,
+   51
+  ]
+ },
  "manto_de_nubes": {
   "impacto": [
    64,
@@ -417,6 +1261,18 @@
   "pantalla": [
    240,
    122
+  ]
+ },
+ "marea_de_coral": {
+  "impacto": [
+   58,
+   57
+  ]
+ },
+ "marea_de_raices": {
+  "impacto": [
+   90,
+   83
   ]
  },
  "marea_negra": {
@@ -437,6 +1293,42 @@
    95
   ]
  },
+ "martillo_de_forja": {
+  "impacto": [
+   90,
+   87
+  ]
+ },
+ "micelio_del_ocaso": {
+  "impacto": [
+   118,
+   110
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "mil_faroles": {
+  "impacto": [
+   118,
+   110
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "mil_ojos_solares": {
+  "impacto": [
+   117,
+   104
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "mil_relampagos": {
   "impacto": [
    128,
@@ -447,10 +1339,40 @@
    127
   ]
  },
+ "mirada_atenta": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
+ "mirada_del_umbral": {
+  "impacto": [
+   90,
+   75
+  ]
+ },
  "mordisco_abisal": {
   "impacto": [
    63,
    64
+  ]
+ },
+ "mordisco_de_coral": {
+  "impacto": [
+   58,
+   55
+  ]
+ },
+ "mordisco_sombrio": {
+  "impacto": [
+   51,
+   57
+  ]
+ },
+ "nado_luminoso": {
+  "impacto": [
+   57,
+   58
   ]
  },
  "nectar": {
@@ -465,6 +1387,16 @@
    64
   ]
  },
+ "noche_de_mil_ojos": {
+  "impacto": [
+   118,
+   104
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "noche_eterna": {
   "impacto": [
    128,
@@ -473,6 +1405,16 @@
   "pantalla": [
    240,
    129
+  ]
+ },
+ "noche_sin_luna": {
+  "impacto": [
+   118,
+   104
+  ],
+  "pantalla": [
+   240,
+   160
   ]
  },
  "nube_de_tinta": {
@@ -487,6 +1429,46 @@
    89
   ]
  },
+ "ojos_del_abanico": {
+  "impacto": [
+   90,
+   82
+  ]
+ },
+ "ola_coralina": {
+  "impacto": [
+   90,
+   85
+  ]
+ },
+ "onice_sombrio": {
+  "impacto": [
+   90,
+   90
+  ]
+ },
+ "orejas_al_sol": {
+  "impacto": [
+   52,
+   58
+  ]
+ },
+ "pantano_eterno": {
+  "impacto": [
+   118,
+   112
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "partir_conchas": {
+  "impacto": [
+   58,
+   54
+  ]
+ },
  "patada_creciente": {
   "impacto": [
    64,
@@ -497,6 +1479,24 @@
   "impacto": [
    64,
    60
+  ]
+ },
+ "pavoneo": {
+  "impacto": [
+   58,
+   57
+  ]
+ },
+ "paz_del_manglar": {
+  "impacto": [
+   56,
+   58
+  ]
+ },
+ "pelaje_esponjoso": {
+  "impacto": [
+   58,
+   57
   ]
  },
  "picado_aurora": {
@@ -511,6 +1511,24 @@
    92
   ]
  },
+ "picado_del_alba": {
+  "impacto": [
+   90,
+   87
+  ]
+ },
+ "picado_nocturno": {
+  "impacto": [
+   85,
+   88
+  ]
+ },
+ "picardia": {
+  "impacto": [
+   56,
+   58
+  ]
+ },
  "pico_espina": {
   "impacto": [
    64,
@@ -521,6 +1539,18 @@
   "impacto": [
    64,
    61
+  ]
+ },
+ "picotazo_igneo": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
+ "picotazo_solar": {
+  "impacto": [
+   56,
+   58
   ]
  },
  "piel_estatica": {
@@ -559,6 +1589,18 @@
    61
   ]
  },
+ "pluma_electrica": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
+ "plumaje_denso": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
  "polvo_carmesi": {
   "impacto": [
    96,
@@ -587,10 +1629,60 @@
    137
   ]
  },
+ "prisma_del_ocaso": {
+  "impacto": [
+   117,
+   97
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "prisma_relampago": {
+  "impacto": [
+   118,
+   95
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "pua_candente": {
+  "impacto": [
+   58,
+   39
+  ]
+ },
+ "pua_de_obsidiana": {
+  "impacto": [
+   90,
+   86
+  ]
+ },
  "pulir_escamas": {
   "impacto": [
    64,
    60
+  ]
+ },
+ "pulir_garras": {
+  "impacto": [
+   58,
+   56
+  ]
+ },
+ "pulso_calmo": {
+  "impacto": [
+   57,
+   58
+  ]
+ },
+ "quedarse_quieto": {
+  "impacto": [
+   58,
+   57
   ]
  },
  "rafaga_celeste": {
@@ -599,16 +1691,52 @@
    64
   ]
  },
+ "rafaga_nocturna": {
+  "impacto": [
+   58,
+   54
+  ]
+ },
+ "raiz_aplastante": {
+  "impacto": [
+   90,
+   85
+  ]
+ },
+ "raiz_del_ocaso": {
+  "impacto": [
+   90,
+   85
+  ]
+ },
  "raiz_nocturna": {
   "impacto": [
    96,
    96
   ]
  },
+ "rayo_de_vidrio": {
+  "impacto": [
+   89,
+   89
+  ]
+ },
+ "rayo_helianto": {
+  "impacto": [
+   89,
+   89
+  ]
+ },
  "rayo_violeta": {
   "impacto": [
    96,
    93
+  ]
+ },
+ "red_de_micelio": {
+  "impacto": [
+   58,
+   50
   ]
  },
  "refugio_de_piedra": {
@@ -639,6 +1767,12 @@
    123
   ]
  },
+ "relampago_dorado": {
+  "impacto": [
+   90,
+   86
+  ]
+ },
  "remolino_del_vacio": {
   "impacto": [
    128,
@@ -647,6 +1781,24 @@
   "pantalla": [
    240,
    130
+  ]
+ },
+ "remolino_protector": {
+  "impacto": [
+   56,
+   57
+  ]
+ },
+ "rescoldo_interno": {
+  "impacto": [
+   58,
+   54
+  ]
+ },
+ "rodada_ignea": {
+  "impacto": [
+   58,
+   53
   ]
  },
  "rugido_de_guerra": {
@@ -661,10 +1813,42 @@
    61
   ]
  },
+ "salto_prisma": {
+  "impacto": [
+   90,
+   84
+  ]
+ },
  "savia_vital": {
   "impacto": [
    55,
    64
+  ]
+ },
+ "selva_de_bambu": {
+  "impacto": [
+   110,
+   105
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "sinfonia_abisal": {
+  "impacto": [
+   115,
+   109
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "sismo_cristalino": {
+  "impacto": [
+   89,
+   90
   ]
  },
  "sobrecarga": {
@@ -677,6 +1861,16 @@
   "impacto": [
    91,
    96
+  ]
+ },
+ "sol_de_cristal": {
+  "impacto": [
+   118,
+   105
+  ],
+  "pantalla": [
+   240,
+   160
   ]
  },
  "sol_supremo": {
@@ -699,6 +1893,30 @@
    128
   ]
  },
+ "tajo_de_petalo": {
+  "impacto": [
+   57,
+   52
+  ]
+ },
+ "tempano": {
+  "impacto": [
+   58,
+   54
+  ]
+ },
+ "tempestad_nocturna": {
+  "impacto": [
+   90,
+   87
+  ]
+ },
+ "templar": {
+  "impacto": [
+   55,
+   58
+  ]
+ },
  "tenaza_colosal": {
   "impacto": [
    128,
@@ -715,10 +1933,32 @@
    53
   ]
  },
+ "tentaculo_violeta": {
+  "impacto": [
+   90,
+   89
+  ]
+ },
  "terremoto": {
   "impacto": [
    96,
    90
+  ]
+ },
+ "tesoro_de_onice": {
+  "impacto": [
+   118,
+   105
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "tijera_del_ocaso": {
+  "impacto": [
+   88,
+   83
   ]
  },
  "tinta_abisal": {
@@ -737,6 +1977,18 @@
    132
   ]
  },
+ "toque_urticante": {
+  "impacto": [
+   58,
+   57
+  ]
+ },
+ "torbellino_abisal": {
+  "impacto": [
+   90,
+   84
+  ]
+ },
  "torbellino_filoso": {
   "impacto": [
    128,
@@ -751,6 +2003,22 @@
   "impacto": [
    96,
    91
+  ]
+ },
+ "tormenta_de_puas": {
+  "impacto": [
+   88,
+   81
+  ]
+ },
+ "tormenta_de_vidrio": {
+  "impacto": [
+   118,
+   104
+  ],
+  "pantalla": [
+   240,
+   160
   ]
  },
  "tormenta_electrica": {
@@ -775,16 +2043,62 @@
    127
   ]
  },
+ "trompa_fungica": {
+  "impacto": [
+   58,
+   47
+  ]
+ },
+ "trompazo": {
+  "impacto": [
+   58,
+   48
+  ]
+ },
  "trueno_ancestral": {
   "impacto": [
    96,
    94
   ]
  },
+ "umbral_eterno": {
+  "impacto": [
+   118,
+   104
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "velo_boreal": {
   "impacto": [
    64,
    55
+  ]
+ },
+ "velo_de_calor": {
+  "impacto": [
+   58,
+   54
+  ]
+ },
+ "velo_de_medusa": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
+ "vendaval_alba": {
+  "impacto": [
+   90,
+   85
+  ]
+ },
+ "vidrio_fundido": {
+  "impacto": [
+   90,
+   87
   ]
  },
  "viento_cortante": {
@@ -799,10 +2113,56 @@
    64
   ]
  },
+ "vigilia": {
+  "impacto": [
+   58,
+   57
+  ]
+ },
+ "vortice_eterno": {
+  "impacto": [
+   118,
+   102
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "vortice_negro": {
   "impacto": [
    96,
    95
+  ]
+ },
+ "vuelo_esquivo": {
+  "impacto": [
+   58,
+   52
+  ]
+ },
+ "vuelo_nocturno": {
+  "impacto": [
+   56,
+   58
+  ]
+ },
+ "yunque_ardiente": {
+  "impacto": [
+   89,
+   84
+  ]
+ },
+ "zarpa_de_onice": {
+  "impacto": [
+   57,
+   54
+  ]
+ },
+ "zarpa_estatica": {
+  "impacto": [
+   58,
+   54
   ]
  },
  "zarpa_magenta": {

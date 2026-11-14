@@ -1,0 +1,2127 @@
+{
+  "completo": true,
+  "laminas": 40,
+  "piezas": 240,
+  "archivos": [
+    {
+      "archivo": "piezas/14_chispa_de_arena.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b96afe32365b988fd5fa01738948d9cfeac8d692908721bc20aba6b1277d0506"
+    },
+    {
+      "archivo": "piezas/14_velo_de_calor.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "416838d312e918a5eb24e7f47ceac9d6b4879bdc0339ac3a080d204af73401c2"
+    },
+    {
+      "archivo": "piezas/14_orejas_al_sol.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "d890be76764878e8918cab68ecae4eeb6ba96924cf10741969b54f96ae83367c"
+    },
+    {
+      "archivo": "piezas/14_rayo_de_vidrio.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a00bfb616048d28c2027021c016b1c4611d127c6a38042e1af193f87073d2cd1"
+    },
+    {
+      "archivo": "piezas/14_destello_ardiente.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b60850bc4579bc696592a7dac259005a2b2821edf2be9d3bae8dec70283bfe2c"
+    },
+    {
+      "archivo": "piezas/14_danza_del_desierto.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "00bd726a5db4c6b943f31fb6aaa2750c2bfa323a051d59207e53a8802acb9350"
+    },
+    {
+      "archivo": "piezas/14_lente_solar.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "9ee7d5bb39a385e5dba0fa0cfd72fb5f9c3a82b2de233d923ba718d38202c1c1"
+    },
+    {
+      "archivo": "piezas/14_vidrio_fundido.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "08ee8bb2a1c664a379e5a1e3272263bcd8a4d11ae101ba0922828abafdb7f6fa"
+    },
+    {
+      "archivo": "piezas/14_sol_de_cristal_impacto.png",
+      "colores": 32,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "501e14e2c392e56ff58bc8ffb4a51c6df0d7ff0bcf1b1977e3ad3ec8da13af83"
+    },
+    {
+      "archivo": "piezas/14_sol_de_cristal_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "030628df4d8544fc84f7872cac9cbce92f7ff035158c672ede0873d13b2cc5b5"
+    },
+    {
+      "archivo": "piezas/14_tormenta_de_vidrio_impacto.png",
+      "colores": 32,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "5bb244c035ae0ff9353d32f04f5c11e2f6e675215ac5d3cff00360b93a7acc37"
+    },
+    {
+      "archivo": "piezas/14_tormenta_de_vidrio_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "8bccb4c062453a08b7f002ab927b005f827a891ad76b5e647a4fc0753443773f"
+    },
+    {
+      "archivo": "piezas/15_cornada_tibia.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "463ff050cecf783e389ae1dd91a86aaec5d3952e897e744df7c1330fe658a92b"
+    },
+    {
+      "archivo": "piezas/15_caparazon_forjado.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "6ddfcb55a3500f1f06bcab35fabd4f0e4c94f83c334db4d9eba63e8b3ca636f6"
+    },
+    {
+      "archivo": "piezas/15_templar.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "f749431dd4385dcd7bc87a530fc521269a483594b29f9e9f4ef456efc089f1f3"
+    },
+    {
+      "archivo": "piezas/15_martillo_de_forja.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "3179f9fa9b6da5d27ae12e456c5539d920d41acaf0d8cb39bb8a592714985745"
+    },
+    {
+      "archivo": "piezas/15_cornada_ignea.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "615537e46ebc6d46ab454467a28bd57d35234a490b80bba66a56ca1a3beee040"
+    },
+    {
+      "archivo": "piezas/15_fuelle.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "988588c6b5aed6efc3d9e1066a8010e3727087230839b79a35aa839f69a9853a"
+    },
+    {
+      "archivo": "piezas/15_yunque_ardiente.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "6605543dcaa2096c8d28a65a8f8fe22c398a27a0a383657db6fd8e48f7c789d6"
+    },
+    {
+      "archivo": "piezas/15_cuerno_de_magma.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "c584e97ec249b0a1cddf03ab8820858ed0e9cceb476c95a10e7d74674b8c7627"
+    },
+    {
+      "archivo": "piezas/15_gran_fundicion_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "0478eb9190e94fa8927a4197d0c15d593f99c21f43bd837aaca3a4356c308f9d"
+    },
+    {
+      "archivo": "piezas/15_gran_fundicion_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "c7aa03a56182d3d8a65504fb3d97d0f5de85c8daf8ba5c39ea4c7b90ac825a80"
+    },
+    {
+      "archivo": "piezas/15_forja_del_ocaso_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "5c877ab0081511a08b02168476555cb651529bb4ffabf1d8deca86e4a2ae005e"
+    },
+    {
+      "archivo": "piezas/15_forja_del_ocaso_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "b38ac3f36733e3fdfd268f1d9d24e44e111edb491908daeb37685f1e6bc9862e"
+    },
+    {
+      "archivo": "piezas/16_coletazo_marino.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "032dd435e494df2cf14dbea0d0471878b4e8848218e5ec634f4e3b87433aabf8"
+    },
+    {
+      "archivo": "piezas/16_escudo_de_coral.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "fb99b6f5e54d7cdacb8905820ccd9a30d21fb786c047f5f3608e7fe8ccdcf9f2"
+    },
+    {
+      "archivo": "piezas/16_partir_conchas.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "26efc029ae888ec92fe1f49193b0aaf2ec797f91b5275ae2384eb7cdb11bed26"
+    },
+    {
+      "archivo": "piezas/16_ola_coralina.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "aea420808843be575ccefd11da6ab0cef103c0459e64ad2007fc861f5538e7f0"
+    },
+    {
+      "archivo": "piezas/16_mordisco_de_coral.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "7cfd668166dadcec1a0a087792f4d62f10f8a46c45a57a21d9c9a871273c1ef9"
+    },
+    {
+      "archivo": "piezas/16_marea_de_coral.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "efa9bae9d01d3e6caedb21bd3a2398f97dee1e36b23089b2aa3be7b7ea71e7b3"
+    },
+    {
+      "archivo": "piezas/16_arrecife_furioso.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "bc60689f4d0e535e94d61edcbb5c4bf6350eba73a94457a59d7f197bcfd21ac1"
+    },
+    {
+      "archivo": "piezas/16_coral_carmesi.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "bdb97a46cec932593655c7d252dd7360d702f07b26db6ffcbd703fe7f6d424bb"
+    },
+    {
+      "archivo": "piezas/16_gran_barrera_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "ef9455aa3a4462de874e75c7cc8257eb41aa2320bb68008bcb92a694c2e892e5"
+    },
+    {
+      "archivo": "piezas/16_gran_barrera_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "d2591e0819a7de83e92afd4eb224fa5013ea2b23a6e8730658d376845d67204e"
+    },
+    {
+      "archivo": "piezas/16_arrecife_sombrio_impacto.png",
+      "colores": 32,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "96fec528f49238f60c3c9d3e833c0ff82ce44e6a2045d2aed1f31fe2309b0796"
+    },
+    {
+      "archivo": "piezas/16_arrecife_sombrio_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "3ecb76377684644d950258413357e33c81b8ff86db38ff22233337b2105d42ee"
+    },
+    {
+      "archivo": "piezas/17_burbujas_veloces.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "61fea9fb91c3264f261128709e04d1596e1cd4c61cbff98fbdc8002b6ceedb7e"
+    },
+    {
+      "archivo": "piezas/17_remolino_protector.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "3975b02e03bac1c08d2c127072cd918684132e3de155ff7240415f709cedd1d7"
+    },
+    {
+      "archivo": "piezas/17_danza_espiral.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "731168f57fd8eecf0d4752067ec5efb06ee4c8cdcb06001c57540f2cfda89aa6"
+    },
+    {
+      "archivo": "piezas/17_chorro_abisal.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a5aada294d3b34d773ffafa05534cdedc545ee730f0ad29557ad1fb16bec6b3f"
+    },
+    {
+      "archivo": "piezas/17_hidroespiral.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "90b289b3760634d0583c59db9bc5a054627c38958c31735da2a7bf0a4d00672e"
+    },
+    {
+      "archivo": "piezas/17_corriente_plateada.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "cc1943bf9c359d298692714ef2853ea627332b324e4f097d853d2b78edc7dfc5"
+    },
+    {
+      "archivo": "piezas/17_torbellino_abisal.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "31c312e6b748ec386593411fbcec535d94c454a93105f23911b3709000e69c8c"
+    },
+    {
+      "archivo": "piezas/17_espiral_violeta.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "f5dc5289cf2759f16f87d8973559c1af1146c7339b34f10e7804937130322139"
+    },
+    {
+      "archivo": "piezas/17_abismo_plateado_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "47e5590d03fff5d9d5c3ed04f72b379693c60442bd915e0a25b7cc7313e78559"
+    },
+    {
+      "archivo": "piezas/17_abismo_plateado_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "baea45bcdbfb7e2acb9c97e6588fbec32fce23a18e54f884c52a86da9d630c89"
+    },
+    {
+      "archivo": "piezas/17_vortice_eterno_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "1b4937655fce2c8a05a0e68f01ac70ab04be932e5b4b54683e4dcd136729c3d7"
+    },
+    {
+      "archivo": "piezas/17_vortice_eterno_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "ff556ddb7f9f0cf8f51d834c7d7dbc3239aaea7020b9bff531a782cdd2175960"
+    },
+    {
+      "archivo": "piezas/18_trompazo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "d8a22a00e1b00848f3b81d0fb1450ca31123f4f409e12b0b860bb76119fd76ae"
+    },
+    {
+      "archivo": "piezas/18_manto_de_musgo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "8ab0a01ed3ce99d724e0b341923aa59ef811c8a471ff21709e51932c49c10d10"
+    },
+    {
+      "archivo": "piezas/18_esporas_vigorosas.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "aad9cf7010627ac9c111725dc1b7085f32e74df73d7dadb18f5bc7b40a821d95"
+    },
+    {
+      "archivo": "piezas/18_estampida_verde.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "4a86661ff69899d82a3de0739a8448f4b4f0f9e3a553b821b3891eccfa6c1662"
+    },
+    {
+      "archivo": "piezas/18_trompa_fungica.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "7810c52999154f7bb97f01bafb177f81b0f5baf5a792930f6f5ed8df5eb8f76c"
+    },
+    {
+      "archivo": "piezas/18_red_de_micelio.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a4e33926c97011b2c88aac3ad2b3efbc5b4ddf9478321d47425996ffe7672806"
+    },
+    {
+      "archivo": "piezas/18_alud_de_hongos.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "66686c1d19e40e571cabd51e3e9e512054a6d75d76a963b74bf96725524004af"
+    },
+    {
+      "archivo": "piezas/18_espora_sombria.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "01023b16c64c24b2e1aed251c0947a3ec0ca104d4ac7680a98ee2cd14ce62d71"
+    },
+    {
+      "archivo": "piezas/18_bosque_fungico_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "51f970937f2c943649642d4fbf842e638676b7a1957c059564a8bedf95fa89ab"
+    },
+    {
+      "archivo": "piezas/18_bosque_fungico_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "fec9ced4765624a1a86cd203dfc10be7a057d2d247edb80fff4aae9becb168e7"
+    },
+    {
+      "archivo": "piezas/18_micelio_del_ocaso_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "06ed8be43eace4ba5b4d19574cec09b8d8974e0b863ead7a190d3cb4d583350a"
+    },
+    {
+      "archivo": "piezas/18_micelio_del_ocaso_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "42d67ae3f7f144f6dab362a2b382f534dc2a0228a2001b3a617885c3c1b86f52"
+    },
+    {
+      "archivo": "piezas/19_tajo_de_petalo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "cc7a6ee82b729de522cc8fdc1b0724a45148a02e46c5188a4e61ace0c92efdde"
+    },
+    {
+      "archivo": "piezas/19_camuflaje_floral.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "51e4aa6082219920a5467435f23d37cf4282d6cff40c85f4d853f78d203a1e5e"
+    },
+    {
+      "archivo": "piezas/19_afilar_guadanas.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "8286d8135785190eebe0373c5fbf8c1ce90be7ac62a6467650d036c98150aaa0"
+    },
+    {
+      "archivo": "piezas/19_guadana_floral.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "caf437d57b973423380af73a802386da9b491b7f71d9f0b24bb5a016bee1c1ef"
+    },
+    {
+      "archivo": "piezas/19_doble_tajo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "c85cfbba79896809d5c7ceb9ac9d481078aa4f21ed9b9b0c384cf9da0e0d2ec1"
+    },
+    {
+      "archivo": "piezas/19_danza_de_orquidea.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "18a9791d8d9810ba0408f29d042852a0d48e230adc73804f7b751bf0df1a631c"
+    },
+    {
+      "archivo": "piezas/19_ciclon_de_guadanas.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a1075ea2bd5566e7a90770354e65908d5506556456707c1003cfab2dbeb1d2c1"
+    },
+    {
+      "archivo": "piezas/19_guadana_carmesi.png",
+      "colores": 16,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "9d5c7e41950c4af550e552c4963c5648bb419579430063b007ad08931a4d1438"
+    },
+    {
+      "archivo": "piezas/19_jardin_de_cuchillas_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "0e9f1d52d7b92433a9c04968a00c1d07a9cc916548a870ab6deb666773017f79"
+    },
+    {
+      "archivo": "piezas/19_jardin_de_cuchillas_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "829b808d5d4a3c0e1e7d11bdcaf0d3cd9b01870e2d9e825ab41be8ceef0ac696"
+    },
+    {
+      "archivo": "piezas/19_floracion_oscura_impacto.png",
+      "colores": 32,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "f8ffed4bda0fa9122a5feadd849c9d8d13e474f72fa73446bc6edd4b636fcd32"
+    },
+    {
+      "archivo": "piezas/19_floracion_oscura_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "ba0e2e830de61b03de3f0f2f2f627ca7ea81daf6c3d224e05bc3721908178cc9"
+    },
+    {
+      "archivo": "piezas/20_zarpa_estatica.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "f51d5f5e38578bb92c5330c1cb70522c76121bd3604498bf7d5c5fc3d1d25a02"
+    },
+    {
+      "archivo": "piezas/20_pelaje_esponjoso.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b8f15b21577c4275be8af40ea765c6e442c31bf06366a0c78a372929267e59ba"
+    },
+    {
+      "archivo": "piezas/20_frotar_pelaje.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "c034e62ce23f9a5708fa5759321089a88c6f380c9141ee270f787bd99cc54776"
+    },
+    {
+      "archivo": "piezas/20_salto_prisma.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "450402e26c7da10fa482d274d0fb3002991c327264cbe2d52fef2064c4350aca"
+    },
+    {
+      "archivo": "piezas/20_cola_de_cuarzo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "2a1f8569e61338b7792fd12aa27b9db195d3bcd160074ce151d8c698c3499a56"
+    },
+    {
+      "archivo": "piezas/20_brillo_de_cuarzo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "764baa30769fb42c933c100aedf2642f4a54291149de2dac5f6228ed12ba09e7"
+    },
+    {
+      "archivo": "piezas/20_embestida_prisma.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "533bfe80bf8614038c1297737d59e7960968df572cfa754a8e90c13555782f92"
+    },
+    {
+      "archivo": "piezas/20_cuarzo_violeta.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "c8e309abe99251d0bccf94758053b0cac961689b6604cefd2492dfde25feb5a3"
+    },
+    {
+      "archivo": "piezas/20_prisma_relampago_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "257b5b1fb34f621690c158cad9a20f4ab649f9eaa48deadec9d183b40a2b7f96"
+    },
+    {
+      "archivo": "piezas/20_prisma_relampago_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "7a3ca2d010cff18da18734561b41d156289045745cefdfd51aa5ee7a63e43335"
+    },
+    {
+      "archivo": "piezas/20_prisma_del_ocaso_impacto.png",
+      "colores": 32,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "8f377c49abc7d44c335cfcafdc1d39cfba8b5bd4f8217795077c403bb5577799"
+    },
+    {
+      "archivo": "piezas/20_prisma_del_ocaso_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "fa075b991f0f5678eb3d65e371a1fc23e5ca0587e3b139be6f220ffe4d6d16d0"
+    },
+    {
+      "archivo": "piezas/21_ala_rapida.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "c891c8ecd633db48b17e99f18b338aebd3836983f303c2f47162afdf2be3e4a3"
+    },
+    {
+      "archivo": "piezas/21_vuelo_esquivo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "44bb778931c533385b863b4eee00743bb4730f724ba93f1ae308826b59f59f33"
+    },
+    {
+      "archivo": "piezas/21_aire_de_alba.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "18f4ca30905deed8eb619c4011251932778d73d00fc475e269694cb55ce5488a"
+    },
+    {
+      "archivo": "piezas/21_picado_del_alba.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "7b5057380c7105698b7983cf6e9af4eb4c195fbd0e5470041bd5189fc9ce3cba"
+    },
+    {
+      "archivo": "piezas/21_cola_tijera.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "41796aed31ea0e8c02eb64e6c109c39107b594e99afdbc49281b0d0eba0f8b95"
+    },
+    {
+      "archivo": "piezas/21_corriente_alba.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "319e65da930857c60f2aeab18153778844f9f9d9de4eae210b5ba569ebe9f45c"
+    },
+    {
+      "archivo": "piezas/21_vendaval_alba.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b0d7aedfff1dc66cb51b4dafeb346461988170422023d2674d1c731daed66766"
+    },
+    {
+      "archivo": "piezas/21_tijera_del_ocaso.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a30d8014634ace57c49688065036d291c7259912c23c7dd293b1c312813f9a6d"
+    },
+    {
+      "archivo": "piezas/21_amanecer_eterno_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "728fbeaf403cf07a8a69fe19624b9fc259de4470c7aa2fd5535ff0f040cfe417"
+    },
+    {
+      "archivo": "piezas/21_amanecer_eterno_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "3e5c2ac7159a246dac6a50dc20eaa7f08e085f416f39c4266b643e55e82cae8a"
+    },
+    {
+      "archivo": "piezas/21_alba_negra_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "803a55ea5cf9f5fc742e6751d844307613bade62f3b94d33822e20dd396a181e"
+    },
+    {
+      "archivo": "piezas/21_alba_negra_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "0227cc365e1d06c06d4dbacaedfd6e8ab33910f6dae29625ce1426bd52e0f80f"
+    },
+    {
+      "archivo": "piezas/22_mordisco_sombrio.png",
+      "colores": 16,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "de895d33c2757c7d4e47368576db0bd264db6dd578fe9de794b965c26bdd824b"
+    },
+    {
+      "archivo": "piezas/22_envoltura_de_alas.png",
+      "colores": 16,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "38c609ac110043890ff1507c9a24ca2a9f46c8ef60ac090325789259ed1b7d49"
+    },
+    {
+      "archivo": "piezas/22_ecolocacion.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "0fea6eb3e923368d15eb6ec23ca925e05f11e71a285927d49703a818c07e98bd"
+    },
+    {
+      "archivo": "piezas/22_picado_nocturno.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "ddfb24434e8e93b89f3be0051f5b77dc7557fbc099ad1167490c445df36b47e8"
+    },
+    {
+      "archivo": "piezas/22_colmillo_velado.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "7a9da0f5617d1c748f3a948d10a1879659a505a67199e5bc415e74973d8ae47f"
+    },
+    {
+      "archivo": "piezas/22_vuelo_nocturno.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "403a8afbd45752b0a57d6270df1173462719418c0b6f9b564799e355fea04312"
+    },
+    {
+      "archivo": "piezas/22_alas_de_medianoche.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "0a188d1f322f66ca4877e80555e9f9a5ae8373e85ecc1d58a03a3747be38a3ae"
+    },
+    {
+      "archivo": "piezas/22_ala_terciopelo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "813d97cf9feda99ef1afbcb964df2ed917330d388509f3ac9db3440a4f8dc14d"
+    },
+    {
+      "archivo": "piezas/22_noche_sin_luna_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "ed58f16b1452b5d2664d1ede5141dde2149d4267b0493092cb57fb43e68f62cd"
+    },
+    {
+      "archivo": "piezas/22_noche_sin_luna_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "68aeeeae6ecedb122b47189cb1e805462b351fdcfa28a446bd93dd99392139b2"
+    },
+    {
+      "archivo": "piezas/22_eco_del_vacio_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "57c6045c56cfb7ccd74bfdbcd23e45b93b23d4befd6a98509982dedd55448d4c"
+    },
+    {
+      "archivo": "piezas/22_eco_del_vacio_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "cd7fab749d6dcff8ef5fb7c8cdf04a2a5e51a277d98dc311c0b14975a897d326"
+    },
+    {
+      "archivo": "piezas/23_guijarrazo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "47bc09af1917ab85c029d96f58f37610b9d6975ac33201fd4de131643e109827"
+    },
+    {
+      "archivo": "piezas/23_cola_anillada.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b443aa00ad72071ca487f0de47465f22d40b8f168ae8a138051a17a6f4ad349b"
+    },
+    {
+      "archivo": "piezas/23_picardia.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "d95059405fd68a5af48474422624f3cca99655ed6b2d6753381a38e855f883e8"
+    },
+    {
+      "archivo": "piezas/23_lluvia_de_onice.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "500b7a9335c2eaa7eab21c981de0afc11d74b9ad04f9d187fefcf18014c4da2e"
+    },
+    {
+      "archivo": "piezas/23_zarpa_de_onice.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "37190a7f7f01d81ab33427e7bf14813637afa1bd365143ae54013ebc74b03a4a"
+    },
+    {
+      "archivo": "piezas/23_esconder_tesoro.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "8fd88c131199a4f6160f8a26ea0dc3ed36941666c1c88f9dab9b3a685d679e5b"
+    },
+    {
+      "archivo": "piezas/23_coletazo_anillado.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "33b485a83b5aa7df506b248c09f0b8cc394331bd980e56e97a913b33df2562cb"
+    },
+    {
+      "archivo": "piezas/23_onice_sombrio.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "1e9abd0475ccaf471cd0ee7ae8cd12aa3f6f11981d10bad4df0a92a86f2e17d8"
+    },
+    {
+      "archivo": "piezas/23_tesoro_de_onice_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "0bcd42ecb4cb869898d5fc11fcb078fe17ffb94b592388d14c811d88b00bca45"
+    },
+    {
+      "archivo": "piezas/23_tesoro_de_onice_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "dcdfe83ca3757e39ffd5a538b10f6589a13cd937f31d60bb157d1885c79a7976"
+    },
+    {
+      "archivo": "piezas/23_guarida_del_vacio_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "6c3eff3fb97c38f87b9385cc79a17a5218021a93728e04512c997dfe05dd2b35"
+    },
+    {
+      "archivo": "piezas/23_guarida_del_vacio_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "9dc9d8e6dab8875309b784356bef2b50f6af7e7034bcc2a35d592324bd97811e"
+    },
+    {
+      "archivo": "piezas/24_pua_candente.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "ffb9f0a65f6e25994f55d0dbdfdff53edb511f5c31a68e2f780699e794aee23e"
+    },
+    {
+      "archivo": "piezas/24_erizar_puas.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "9fa7581f96e5b6f6d655c6512dc5b52cb5c1cfdb66effd39ba679dcdf55ad715"
+    },
+    {
+      "archivo": "piezas/24_afilar_puas.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "7b31266a7d5dc30cf267690fc1cbc12a5aee415256805e57f49f463d067199c1"
+    },
+    {
+      "archivo": "piezas/24_lluvia_de_puas.png",
+      "colores": 16,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "2343fe48abe0ffcfd3729691647752f2422672cd618d21c48ac6bf734de477b6"
+    },
+    {
+      "archivo": "piezas/24_rodada_ignea.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "86e5d75fcf8ad27d47fd607a200c4d2688cef4371d65e65fe57cb98e1a8faedd"
+    },
+    {
+      "archivo": "piezas/24_rescoldo_interno.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "8f2381502efe7d1312cfa8d4308469dba908464b4378624e7dbc7eba0dc50f08"
+    },
+    {
+      "archivo": "piezas/24_tormenta_de_puas.png",
+      "colores": 16,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "14b0b12a208cc553fd66261adf43c56aca22a6c222a00fbada73161243e1ce5b"
+    },
+    {
+      "archivo": "piezas/24_pua_de_obsidiana.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "f945bec5da863c633da9769d332bd7fa70ea25a72c781995f9f74277ed42a2d0"
+    },
+    {
+      "archivo": "piezas/24_corona_carbunculo_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "40222927766f24a899e620d8f461eba484d5c497dc853096f379b5aa9b1272ca"
+    },
+    {
+      "archivo": "piezas/24_corona_carbunculo_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "13bb7333bc11c30322c61691c660751335485ca7600118d60382cfeca4097afd"
+    },
+    {
+      "archivo": "piezas/24_abanico_del_ocaso_impacto.png",
+      "colores": 32,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "43c124de283555781f815495f6a14010fce785ea5daad172f8df031f2d6c04a2"
+    },
+    {
+      "archivo": "piezas/24_abanico_del_ocaso_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "e867e15104b0a66fb13d5f5702e5a4d85dd7b50b7e054a8fa5071a8db3448081"
+    },
+    {
+      "archivo": "piezas/25_picotazo_igneo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "eccff8695172e1ad7a3a36d66f062a09e34d296b4accc782e1c66478c8cd067b"
+    },
+    {
+      "archivo": "piezas/25_alas_de_ceniza.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "ec46bc957aa251ba76579fcde4bc6771decdea0523f453e3b4c68345ca6e056c"
+    },
+    {
+      "archivo": "piezas/25_canto_matutino.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "47716002b49f7978b11b80319fa50dfc81750d7e0dd8acfd37fcfc43b05ffc81"
+    },
+    {
+      "archivo": "piezas/25_espolon_cometa.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "d714706a140db8fbaca5657e8a96c21e52fa9199eea14bc0dfdd2376a94f5cba"
+    },
+    {
+      "archivo": "piezas/25_picotazo_solar.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "ba54e221852f81801ed9f43b2ee462b4ea4342227b4063365fdc8f423b3398be"
+    },
+    {
+      "archivo": "piezas/25_clarin_del_alba.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "8877e8d09734c06dd9eda106c5b27f9b7dd7e375da9e2a48dfb0ab868ba9a04b"
+    },
+    {
+      "archivo": "piezas/25_caida_del_cometa.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "ae2a09614856f7a67f35de00a11c712a251f72fbf560dc6f4ac220a5a641d772"
+    },
+    {
+      "archivo": "piezas/25_cola_de_meteoro.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "7925b0dbd9a83ad62cd93c63bac5aca49a30dbe939db0b1e0c00cc59dac118ef"
+    },
+    {
+      "archivo": "piezas/25_lluvia_de_cometas_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "09e6e87b8cc7d7e98f6e0ad3345364d3013d2930761d1fd2829f8f3b36369e50"
+    },
+    {
+      "archivo": "piezas/25_lluvia_de_cometas_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "d079df2321d858832c0fcf75e963124a4c23a6464aae31f1abc8bc21f2feadd2"
+    },
+    {
+      "archivo": "piezas/25_cometa_negro_impacto.png",
+      "colores": 32,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "47b50b20d3ca2fe5c771cc942eccbdd9c78a2a5b4cebff00895360726d233e04"
+    },
+    {
+      "archivo": "piezas/25_cometa_negro_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "2f852ed92870a103adcdb7944281f1da3eef8ef964fd890fceea00b84d4425dd"
+    },
+    {
+      "archivo": "piezas/26_toque_urticante.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "667dcd693e64569acf130b6b42a035e305e48a36f76e4fb77446f9261f3e3b7e"
+    },
+    {
+      "archivo": "piezas/26_velo_de_medusa.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "d28e66c4224db38ef9607dea5294b34c25c0fb5a21e80104c08b50d663df17bf"
+    },
+    {
+      "archivo": "piezas/26_pulso_calmo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "f654cd4f18b30b3f8d70de9e5c6de47ee04a46ce6776673a6fb2348da6bcca6c"
+    },
+    {
+      "archivo": "piezas/26_lluvia_de_perlas.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "6ceda6a9b6ec66852718cec4bd1e1bf762d4799dc704d677e8b63d97f9bb51dc"
+    },
+    {
+      "archivo": "piezas/26_latigazo_perlado.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "5d0a7b4da0c253b03707fbe859f36828ec007963e32b8439ce9687731e6f4ac0"
+    },
+    {
+      "archivo": "piezas/26_campana_lunar.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b4780163f6b62f3efdc0b20a3c9f5fdfc5ce44f82c0f42fe73be60455d4f0b08"
+    },
+    {
+      "archivo": "piezas/26_gran_campanada.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "fd3e29c87f55e3ceb1769288c76626c8bce2b07f112ee69ba38e4ed9921a061d"
+    },
+    {
+      "archivo": "piezas/26_tentaculo_violeta.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "771973785bc7d98ed424bed51b54e2cca896b9c06e62c0e780607bd33b77bca4"
+    },
+    {
+      "archivo": "piezas/26_sinfonia_abisal_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "d0216b823911fe897e0eb1bcd0a29de2e0bd8920e991d5c9d134c297850cf06b"
+    },
+    {
+      "archivo": "piezas/26_sinfonia_abisal_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "e6bb5adfa11607d820ecca589ec77ad9a3856f429c236447b4b797e13e2e9b51"
+    },
+    {
+      "archivo": "piezas/26_campana_del_vacio_impacto.png",
+      "colores": 32,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "9209898fa772fdcd65de64aabfee1a9618206dfc6beefd343822b3c4108134c4"
+    },
+    {
+      "archivo": "piezas/26_campana_del_vacio_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "241b0a9136df46148cd4df7a767ba582a8b5955324f9fbf2ab7419b98cd3b159"
+    },
+    {
+      "archivo": "piezas/27_embestida_helada.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "5dd1a30b54de5143ccb9b131ae9279e24437c0d9420fc46dbf12d6009dadb965"
+    },
+    {
+      "archivo": "piezas/27_tempano.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "96930b3d2f2e8a76e53b01c9c84165358f7e99557106ad575c9d5aa44573705d"
+    },
+    {
+      "archivo": "piezas/27_afilar_colmillo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "0681fcd620d83bbc85344614fefa5ae17da2c003d03a6d882333f802bb4845bc"
+    },
+    {
+      "archivo": "piezas/27_lanza_de_hielo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "2d60671e9354e6c604e4322fda3f585d2533ec30e69ed53016930f609345fc4c"
+    },
+    {
+      "archivo": "piezas/27_colmillo_glacial.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "e5d588a3db956fd61993e58fcf270858af4417ff5a7af212571f824d928ee0d1"
+    },
+    {
+      "archivo": "piezas/27_aguas_gelidas.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "662b82b9058e09f7b0064c9abcabe89f0a837510c9ff6e20aa537930ee9cd45e"
+    },
+    {
+      "archivo": "piezas/27_avalancha_marina.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "21eded8203c1736eebb5a34a76ebc7da519ce6ba8732ce11f4830cc249da434e"
+    },
+    {
+      "archivo": "piezas/27_lanza_del_ocaso.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b68a3d89d699b1e3dff696a4516b008c63a041dee76cf4e0031597498686a4a8"
+    },
+    {
+      "archivo": "piezas/27_era_glacial_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "1b027c563ee06dc40c46ac7942eedb3da13fdbb11a2abdcf72379bbaafe75486"
+    },
+    {
+      "archivo": "piezas/27_era_glacial_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "8f1ba4def8fe803929db61f1acc4e3f14059dc1015193295d60d1202c40d0283"
+    },
+    {
+      "archivo": "piezas/27_glaciar_eterno_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a782675a3f81668d99b9a22196b609735198da9aedc0b2657280df7fb95c79f8"
+    },
+    {
+      "archivo": "piezas/27_glaciar_eterno_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "58597ba8c0755aad2b7a77ecbf3fd92ddc95aaeae0dab56eed9018ea986fb2d0"
+    },
+    {
+      "archivo": "piezas/28_cabezazo_manso.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "77093146af5265c030024dd3eadf45074373b9929a591f63f2f0cc9344c7f128"
+    },
+    {
+      "archivo": "piezas/28_escudo_de_raices.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a11e0e38898e07faaaa371a63769711544168ba69df116cc9a0fbf124ab1b5f4"
+    },
+    {
+      "archivo": "piezas/28_bano_tranquilo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "872f024a8867936d481ddf6e9fa9c21a6d27a5261e62d81793dd470fcf4a4d3c"
+    },
+    {
+      "archivo": "piezas/28_raiz_aplastante.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "306f07c5ee4586ca11e9057d860f2aeb97267c0dd63dfb87041b3fcc0fb814ba"
+    },
+    {
+      "archivo": "piezas/28_latigo_de_mangle.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a3cbc607f0306852ba8e3da10663ded4eb7d59d0ff8fc65f213c719e9d398af2"
+    },
+    {
+      "archivo": "piezas/28_paz_del_manglar.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a666235c80779715587c5442b864d434dd57ff9e7f2db848096e69c3dac5df60"
+    },
+    {
+      "archivo": "piezas/28_marea_de_raices.png",
+      "colores": 16,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "4105ca71feb8d6fdec1c30dddc99b6bced2e8f606004980cd5d7be3370c4abc0"
+    },
+    {
+      "archivo": "piezas/28_raiz_del_ocaso.png",
+      "colores": 16,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "0cde7c12315fbaf1f89ef57e6e533fcf3348b24c4ae1d8337731d6004f211631"
+    },
+    {
+      "archivo": "piezas/28_gran_manglar_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "0a9e2aeb4af073e7b087dacb41b0f9817624b38685a5ef282691446d068fb51d"
+    },
+    {
+      "archivo": "piezas/28_gran_manglar_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "e92f5e606e349923ec52512ad19c4b9d8e880e578d2afca4488ebd4b77c23e69"
+    },
+    {
+      "archivo": "piezas/28_pantano_eterno_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "2cf2aecb980c3fee9468947dcb5c7bb26ddeb3e365dba5c671f5bb86ba2180b7"
+    },
+    {
+      "archivo": "piezas/28_pantano_eterno_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "5ae2165fee1f384fb3fa8843a47a5351db99bf26d536190f2d7ca02f31c89562"
+    },
+    {
+      "archivo": "piezas/29_lluvia_de_hojas.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "833dea46907c12bdae83ef77a137a5d13a0b29d03340d840edb41700c6493dd5"
+    },
+    {
+      "archivo": "piezas/29_quedarse_quieto.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "c33554530ee9a72c49ccef0debfc37be02e296d748c8a27c149d3b0428ccc656"
+    },
+    {
+      "archivo": "piezas/29_brote_nuevo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b69a0263d57712d79927a7ced26a2ce67ddedf31288ed2a1a30d6c05e280771a"
+    },
+    {
+      "archivo": "piezas/29_lanza_de_bambu.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "2f1a8ec1968ee856b1c928e239f7085842110cc7422236a398be6dc455a22398"
+    },
+    {
+      "archivo": "piezas/29_hoja_cortante.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "be435a95a1fecefb063fdf36ead66b4b3cc4db512226721e6fbf6b1f64b48a42"
+    },
+    {
+      "archivo": "piezas/29_bosque_de_bambu.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "dc7dd9bb5bf1d3748ef3592ea1fad825a8f78a2b45f5987a49bcaf5af82f296d"
+    },
+    {
+      "archivo": "piezas/29_ciclon_de_hojas.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "bc46f951b6c2276e3320498d61f6ac401d65bf6b41e47f7daf636256376a7555"
+    },
+    {
+      "archivo": "piezas/29_hoja_sombria.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "a94dfe55ea8e3466aec5a291fae02331efc85bf7b73fbeb3e7b22f5778a1880b"
+    },
+    {
+      "archivo": "piezas/29_selva_de_bambu_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b79bdb06b80aa6de60d4e5df55c887322e840af987ea2b0cdadfd6e026629cb5"
+    },
+    {
+      "archivo": "piezas/29_selva_de_bambu_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "dd443eb5aa96871ca236eb0c9cfed5c342b47727d9200fe1ece8eb7dd70166c6"
+    },
+    {
+      "archivo": "piezas/29_bambu_del_ocaso_impacto.png",
+      "colores": 32,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "8402be68edbb9e92c846651e423642bb28676dac3531ad56bfbeac112fa5fc5d"
+    },
+    {
+      "archivo": "piezas/29_bambu_del_ocaso_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "38289b9086dbbb9ebc9c2b85576e6c3e9f8f570bd73cca706afcf8d8ab26af26"
+    },
+    {
+      "archivo": "piezas/30_destello.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "be896955e22efde87f27630cca50cdbc35e261459f27fd372f6c60b2f4e07b77"
+    },
+    {
+      "archivo": "piezas/30_abanico_escudo.png",
+      "colores": 16,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "766bceac13bd88f930bc1e57767cc76f141cbf8f3e2a8748c5d35cfa903108c2"
+    },
+    {
+      "archivo": "piezas/30_desplegar_plumas.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b77d026973ff55c5961ebe951a2b5f2504aef49a5fecac7bfa773801f8fdd696"
+    },
+    {
+      "archivo": "piezas/30_ojos_del_abanico.png",
+      "colores": 16,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "5581b5f7d6deddd4f1d8c2883e29447f9d111ae888a6e196fb7285d0a39fc6ff"
+    },
+    {
+      "archivo": "piezas/30_pluma_electrica.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "2bfe8149ad382654caa989e1ee17f8b4a7c1f94a43dd51ad9313194ad12b567a"
+    },
+    {
+      "archivo": "piezas/30_pavoneo.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "0c351a3e6b2e936fa54c19e66c9a14279dc1ad21125db984f2b75ccfdcdc0365"
+    },
+    {
+      "archivo": "piezas/30_rayo_helianto.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "9969fb1ef6ebad31363bdca9e3afdb5e7f32b73325cf3b275c76bd86c3330d5b"
+    },
+    {
+      "archivo": "piezas/30_abanico_violeta.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "471112939b6add48721bf3dd443e2875151a18173da450de82c7129bfa149e72"
+    },
+    {
+      "archivo": "piezas/30_mil_ojos_solares_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "2f210e01afdb83558dabd7dd80100088945c1c24dc8eee50adce2b5231e03fba"
+    },
+    {
+      "archivo": "piezas/30_mil_ojos_solares_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "0d7aca6f95a5d87d02639eea7b539b5dcad7cc14895c3d0e92a1db61c94bd26f"
+    },
+    {
+      "archivo": "piezas/30_eclipse_de_plumas_impacto.png",
+      "colores": 32,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "90e937c5a4377aefd686de79e2b070f384c312306bb9072632e7811b6ba06094"
+    },
+    {
+      "archivo": "piezas/30_eclipse_de_plumas_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "20c55c57e0abb1b8fe2f532b785c2a2997cd16b4b23d500b1f6b27a57f3de46e"
+    },
+    {
+      "archivo": "piezas/31_chispa_de_farol.png",
+      "colores": 16,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "6ae4c9544695f08ccdc7002850669c9ace80c37c93f8e1b454c8f49ed8ece618"
+    },
+    {
+      "archivo": "piezas/31_aleta_brillante.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "3a79d5e9610f3abe0639a87ce90ae3996544c81def5047a92bc09c10626657e1"
+    },
+    {
+      "archivo": "piezas/31_encender_farol.png",
+      "colores": 16,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b199483828741a0f7baefc5bb2593705019ace4eb8b676bccbf7ce62ea067186"
+    },
+    {
+      "archivo": "piezas/31_relampago_dorado.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "d998a8f647dba86e09a0370a2be97f4f301d1ea5a73e511a019cca9dca470ffd"
+    },
+    {
+      "archivo": "piezas/31_bigote_electrico.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "dadf5bccdf197e90303415f0b233099cc2a559932b37999d40fe276deb67e413"
+    },
+    {
+      "archivo": "piezas/31_nado_luminoso.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "28a4b04c61ee1b7ed86c7b4cb0f99f91e8b90df6f2ea813fa33647855f271a83"
+    },
+    {
+      "archivo": "piezas/31_farol_celeste.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b729537a4008d04643e8a7c05e52c5651b91d0cab9f6f3140772e22003a6d163"
+    },
+    {
+      "archivo": "piezas/31_farol_sombrio.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "f55a6ea1037734fcee1bf7a819ba711576474c5540c96a09644faf3dbf03c3c3"
+    },
+    {
+      "archivo": "piezas/31_mil_faroles_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "6fc047f051feda408c58f4e806164b95e899c8b4ad3ebfd9a3e325622e555b19"
+    },
+    {
+      "archivo": "piezas/31_mil_faroles_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "52cdc75952fa785dc4104fdb9e522966efa7501016fac6526927199deca1849a"
+    },
+    {
+      "archivo": "piezas/31_linterna_del_ocaso_impacto.png",
+      "colores": 32,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "3d5dbd99f5450fdb667129a1388b0a4418b98e5ef4ef1598f3feea915f420cf1"
+    },
+    {
+      "archivo": "piezas/31_linterna_del_ocaso_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "7f1729a60ec13f1022bef63c110533833e56bbc656718337dc0cb9cdc6f446d7"
+    },
+    {
+      "archivo": "piezas/32_rafaga_nocturna.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "0e1e9beb2df95ddf6ad01c3dee502015ad81c03db1ec4a76d1cee6a8fd728e84"
+    },
+    {
+      "archivo": "piezas/32_plumaje_denso.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "e927e28dfbef8d97f279ce855a389589ed18c93c32c39ce096ea258b2024ee12"
+    },
+    {
+      "archivo": "piezas/32_mirada_atenta.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "7e266c8e442fa442b6d0e0bd401e3facca63eb6330d45c77e5a2be5d10beab75"
+    },
+    {
+      "archivo": "piezas/32_hipnosis_lunar.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "d236f20541bf6f7a4ba2f4cef0c7093a89c33043d33bed062487ed65c31e48b2"
+    },
+    {
+      "archivo": "piezas/32_ala_umbral.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "3e29d06d7e7126df2bbad5dcd7f65d9246249b05be762005cb16664b76e2e6b9"
+    },
+    {
+      "archivo": "piezas/32_vigilia.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "e2dc871df7faff6952c91af0c5772df7b4bca9927ea4f5f8715917500f682f3f"
+    },
+    {
+      "archivo": "piezas/32_tempestad_nocturna.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "ceecde59c4beb0a91c8c712d6483598ca79d380596b94319dcc1e3b9fc452681"
+    },
+    {
+      "archivo": "piezas/32_mirada_del_umbral.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "34f46dfd14cd2aee738fd24fae5a2442e44533ba5fc7c51a1d767def68a79cb5"
+    },
+    {
+      "archivo": "piezas/32_noche_de_mil_ojos_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "2c2be943a164abadeb186a673b8305a4f80d7ec913532f1b1ff0171dbf6a15b0"
+    },
+    {
+      "archivo": "piezas/32_noche_de_mil_ojos_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "f1f80fe67bd29036e6cfe7db139bef9c214a2c7f0207c077cfd73e533bbf28c6"
+    },
+    {
+      "archivo": "piezas/32_umbral_eterno_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "42e26d996d4ceff58990bdf9a07b208a8d92d37a67efeabeef8614fdf8d1a855"
+    },
+    {
+      "archivo": "piezas/32_umbral_eterno_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "c745685c24b91a8be193211a330eb31cd3d35be4e29b518952b01bfc1056022e"
+    },
+    {
+      "archivo": "piezas/33_garra_excavadora.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "b7ca329528f62658376cb7ed6a5aa67779420021e6cd76609a59a0a11d436677"
+    },
+    {
+      "archivo": "piezas/33_madriguera.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "eb4bd40ee80d81705b27ac38288a98f322405ac97abde759187ea244b8f54f37"
+    },
+    {
+      "archivo": "piezas/33_pulir_garras.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "f7eaef62a2ad5894ebf947b47079b0f4c75d6a89f771a7b78fb3ddcab69e2782"
+    },
+    {
+      "archivo": "piezas/33_lluvia_de_geodas.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "f0d74f73aa0922c9ad41eef649edec8ba06cb34b5519e63c3f324cf46cb0a8c9"
+    },
+    {
+      "archivo": "piezas/33_garra_de_amatista.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "d10aae4d68a2dec03cf5a04dace88a45d9149b5d1fdbc50ffed553f628bff4cf"
+    },
+    {
+      "archivo": "piezas/33_coraza_de_geoda.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "2d7f4a7dd9cdafd47395aaf9e3be20f4794cfddf9ae7889c39a384fa9c30c823"
+    },
+    {
+      "archivo": "piezas/33_sismo_cristalino.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "1e33696b95046754e5bcc488af214a2093dce63d367f789d98b24190cc8962da"
+    },
+    {
+      "archivo": "piezas/33_amatista_negra.png",
+      "colores": 15,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "37ef58c7b81a9f4ee401eed93452eff175a8f288507d0a325fa334c156d97fa1"
+    },
+    {
+      "archivo": "piezas/33_corazon_de_geoda_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "c66dee159cae1270081d8166692b2b88204c9bc3d59c372e211a491dfc5ffcf7"
+    },
+    {
+      "archivo": "piezas/33_corazon_de_geoda_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "3a0eb3045cdbf88916bedee0f74795ae6c4644fc205b00dcfd4f2086ecbf6ce4"
+    },
+    {
+      "archivo": "piezas/33_geoda_del_vacio_impacto.png",
+      "colores": 31,
+      "alpha": [
+        0,
+        255
+      ],
+      "sha256": "2db7ba90880a2bba49859e24fdf42f014b46c178ea3ba1a30720f0f791bf60e9"
+    },
+    {
+      "archivo": "piezas/33_geoda_del_vacio_pantalla.png",
+      "colores": 64,
+      "alpha": [
+        255
+      ],
+      "sha256": "e5b02d1d195596bce6db09b6ad5b208ca30ef26579edc2129726d230cf341372"
+    }
+  ]
+}

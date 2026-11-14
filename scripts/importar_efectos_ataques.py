@@ -10,6 +10,9 @@ caería la cuadrícula; cada mancha (componente conexo) va a la celda donde cae 
 así no se cortan los trazos que cruzan la línea. Luego se recorta al contenido, se reduce
 (lado mayor = tamaño de destino; las de pantalla, al ancho 240) y se cuantiza.
 
+Si en piezas/ están todas las piezas de una lámina con su nombre de destino (como las familias 14 a 33,
+entregadas ya a tamaño final), se usan esas: solo se recortan al contenido, sin reescalar ni cuantizar.
+
 Salida: public/efectos/ataques/<id>.png, <id>_pantalla.png y src/ui/efectos-ataques.json
 Uso:    python3 scripts/importar_efectos_ataques.py      (requiere Pillow, numpy y scipy)
 """
@@ -104,6 +107,21 @@ if __name__ == '__main__':
         por_lamina.setdefault(os.path.basename(f['lamina']), []).append(f)
     lista = {}
     for lam, fs in sorted(por_lamina.items()):
+        sueltas = [os.path.join(ORIG, 'piezas', f['archivo_objetivo']) for f in fs]
+        if all(os.path.exists(x) for x in sueltas):
+            # Piezas ya entregadas a su tamaño final (familias 14 a 33): se recortan al contenido y se copian
+            # sin reescalar ni cuantizar; las de pantalla son opacas y van enteras.
+            for f, ruta in zip(fs, sueltas):
+                res = Image.open(ruta).convert('RGBA')
+                if f['variante'] != 'pantalla' and res.getbbox():
+                    res = res.crop(res.getbbox())
+                nombre = f['archivo_objetivo'][:-4]
+                res.save(os.path.join(DESTINO, nombre + '.png'))
+                ident = nombre.removesuffix('_pantalla')
+                lista.setdefault(ident, {})
+                lista[ident]['pantalla' if f['variante'] == 'pantalla' else 'impacto'] = [res.width, res.height]
+            print(f'✓ {lam}: {len(fs)} piezas sueltas')
+            continue
         if not os.path.exists(os.path.join(ORIG, lam)):
             # Láminas pedidas que todavía no llegaron: sus ataques siguen con el efecto compartido.
             print(f'· falta {lam}: {len(fs)} piezas con efecto compartido por ahora')

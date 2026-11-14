@@ -1,0 +1,6008 @@
+[
+  {
+    "familia": 14,
+    "linea": "Fenequín → Vitreón",
+    "ataque": "Chispa de Arena",
+    "clase": "Ofensivo",
+    "uso": "Fenequín",
+    "mecanica": "Especial, potencia 45; 10 % de quemar.",
+    "pieza": "efecto",
+    "archivo": "piezas/14_chispa_de_arena.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/14_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 14,
+    "linea": "Fenequín → Vitreón",
+    "ataque": "Velo de Calor",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/14_velo_de_calor.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/14_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 14,
+    "linea": "Fenequín → Vitreón",
+    "ataque": "Orejas al Sol",
+    "clase": "Apoyo",
+    "uso": "Fenequín a Dunafén",
+    "mecanica": "Sube Ataque Especial.",
+    "pieza": "efecto",
+    "archivo": "piezas/14_orejas_al_sol.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/14_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 14,
+    "linea": "Fenequín → Vitreón",
+    "ataque": "Rayo de Vidrio",
+    "clase": "Final",
+    "uso": "Fenequín a Vitrifén",
+    "mecanica": "Especial, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/14_rayo_de_vidrio.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/14_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 14,
+    "linea": "Fenequín → Vitreón",
+    "ataque": "Destello Ardiente",
+    "clase": "Ofensivo",
+    "uso": "Dunafén a Vitreón y Eclipse",
+    "mecanica": "Especial, potencia 55; 20 % de quemar.",
+    "pieza": "efecto",
+    "archivo": "piezas/14_destello_ardiente.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/14_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 14,
+    "linea": "Fenequín → Vitreón",
+    "ataque": "Danza del Desierto",
+    "clase": "Apoyo",
+    "uso": "Vitrifén a Vitreón y Eclipse",
+    "mecanica": "Sube Ataque Especial; sube Velocidad.",
+    "pieza": "efecto",
+    "archivo": "piezas/14_danza_del_desierto.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/14_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 14,
+    "linea": "Fenequín → Vitreón",
+    "ataque": "Lente Solar",
+    "clase": "Final",
+    "uso": "Vitreón",
+    "mecanica": "Especial, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/14_lente_solar.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/14_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": {
+      "archivo": "fuentes/ajuste_14_lente_solar.png",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ]
+    }
+  },
+  {
+    "familia": 14,
+    "linea": "Fenequín → Vitreón",
+    "ataque": "Vidrio Fundido",
+    "clase": "Final",
+    "uso": "Vitreón Eclipse",
+    "mecanica": "Especial, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/14_vidrio_fundido.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/14_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 14,
+    "linea": "Fenequín → Vitreón",
+    "ataque": "Sol de Cristal",
+    "clase": "Definitivo",
+    "uso": "Vitreón",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/14_sol_de_cristal_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/14_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      592,
+      512
+    ]
+  },
+  {
+    "familia": 14,
+    "linea": "Fenequín → Vitreón",
+    "ataque": "Sol de Cristal",
+    "clase": "Definitivo",
+    "uso": "Vitreón",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/14_sol_de_cristal_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/14_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      592,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 14,
+    "linea": "Fenequín → Vitreón",
+    "ataque": "Tormenta de Vidrio",
+    "clase": "Definitivo",
+    "uso": "Vitreón Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/14_tormenta_de_vidrio_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/14_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      592,
+      1024
+    ]
+  },
+  {
+    "familia": 14,
+    "linea": "Fenequín → Vitreón",
+    "ataque": "Tormenta de Vidrio",
+    "clase": "Definitivo",
+    "uso": "Vitreón Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/14_tormenta_de_vidrio_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/14_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      592,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 15,
+    "linea": "Escarlito → Fundaris",
+    "ataque": "Cornada Tibia",
+    "clase": "Ofensivo",
+    "uso": "Escarlito",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Defensa rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/15_cornada_tibia.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/15_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 15,
+    "linea": "Escarlito → Fundaris",
+    "ataque": "Caparazón Forjado",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/15_caparazon_forjado.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/15_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 15,
+    "linea": "Escarlito → Fundaris",
+    "ataque": "Templar",
+    "clase": "Apoyo",
+    "uso": "Escarlito a Yunquero",
+    "mecanica": "Sube Ataque.",
+    "pieza": "efecto",
+    "archivo": "piezas/15_templar.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/15_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 15,
+    "linea": "Escarlito → Fundaris",
+    "ataque": "Martillo de Forja",
+    "clase": "Final",
+    "uso": "Escarlito a Cornifragua",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/15_martillo_de_forja.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/15_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 15,
+    "linea": "Escarlito → Fundaris",
+    "ataque": "Cornada Ígnea",
+    "clase": "Ofensivo",
+    "uso": "Yunquero a Fundaris y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de quemar.",
+    "pieza": "efecto",
+    "archivo": "piezas/15_cornada_ignea.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/15_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 15,
+    "linea": "Escarlito → Fundaris",
+    "ataque": "Fuelle",
+    "clase": "Apoyo",
+    "uso": "Cornifragua a Fundaris y Eclipse",
+    "mecanica": "Sube Ataque; sube Velocidad.",
+    "pieza": "efecto",
+    "archivo": "piezas/15_fuelle.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/15_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 15,
+    "linea": "Escarlito → Fundaris",
+    "ataque": "Yunque Ardiente",
+    "clase": "Final",
+    "uso": "Fundaris",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/15_yunque_ardiente.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/15_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 15,
+    "linea": "Escarlito → Fundaris",
+    "ataque": "Cuerno de Magma",
+    "clase": "Final",
+    "uso": "Fundaris Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/15_cuerno_de_magma.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/15_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 15,
+    "linea": "Escarlito → Fundaris",
+    "ataque": "Gran Fundición",
+    "clase": "Definitivo",
+    "uso": "Fundaris",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/15_gran_fundicion_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/15_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      591,
+      512
+    ]
+  },
+  {
+    "familia": 15,
+    "linea": "Escarlito → Fundaris",
+    "ataque": "Gran Fundición",
+    "clase": "Definitivo",
+    "uso": "Fundaris",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/15_gran_fundicion_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/15_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      591,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 15,
+    "linea": "Escarlito → Fundaris",
+    "ataque": "Forja del Ocaso",
+    "clase": "Definitivo",
+    "uso": "Fundaris Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/15_forja_del_ocaso_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/15_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      591,
+      1024
+    ]
+  },
+  {
+    "familia": 15,
+    "linea": "Escarlito → Fundaris",
+    "ataque": "Forja del Ocaso",
+    "clase": "Definitivo",
+    "uso": "Fundaris Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/15_forja_del_ocaso_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/15_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      591,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 16,
+    "linea": "Nutrín → Nutrarca",
+    "ataque": "Coletazo Marino",
+    "clase": "Ofensivo",
+    "uso": "Nutrín",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Ataque rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/16_coletazo_marino.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/16_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 16,
+    "linea": "Nutrín → Nutrarca",
+    "ataque": "Escudo de Coral",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Bloquea el golpe.",
+    "pieza": "efecto",
+    "archivo": "piezas/16_escudo_de_coral.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/16_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 16,
+    "linea": "Nutrín → Nutrarca",
+    "ataque": "Partir Conchas",
+    "clase": "Apoyo",
+    "uso": "Nutrín a Coralutra",
+    "mecanica": "Sube Ataque.",
+    "pieza": "efecto",
+    "archivo": "piezas/16_partir_conchas.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/16_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 16,
+    "linea": "Nutrín → Nutrarca",
+    "ataque": "Ola Coralina",
+    "clase": "Final",
+    "uso": "Nutrín a Arrecifa",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/16_ola_coralina.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/16_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 16,
+    "linea": "Nutrín → Nutrarca",
+    "ataque": "Mordisco de Coral",
+    "clase": "Ofensivo",
+    "uso": "Coralutra a Nutrarca y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Defensa rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/16_mordisco_de_coral.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/16_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 16,
+    "linea": "Nutrín → Nutrarca",
+    "ataque": "Marea de Coral",
+    "clase": "Apoyo",
+    "uso": "Arrecifa a Nutrarca y Eclipse",
+    "mecanica": "Sube Ataque; sube Defensa.",
+    "pieza": "efecto",
+    "archivo": "piezas/16_marea_de_coral.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/16_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 16,
+    "linea": "Nutrín → Nutrarca",
+    "ataque": "Arrecife Furioso",
+    "clase": "Final",
+    "uso": "Nutrarca",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/16_arrecife_furioso.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/16_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 16,
+    "linea": "Nutrín → Nutrarca",
+    "ataque": "Coral Carmesí",
+    "clase": "Final",
+    "uso": "Nutrarca Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/16_coral_carmesi.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/16_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 16,
+    "linea": "Nutrín → Nutrarca",
+    "ataque": "Gran Barrera",
+    "clase": "Definitivo",
+    "uso": "Nutrarca",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/16_gran_barrera_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/16_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      589,
+      512
+    ]
+  },
+  {
+    "familia": 16,
+    "linea": "Nutrín → Nutrarca",
+    "ataque": "Gran Barrera",
+    "clase": "Definitivo",
+    "uso": "Nutrarca",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/16_gran_barrera_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/16_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      589,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 16,
+    "linea": "Nutrín → Nutrarca",
+    "ataque": "Arrecife Sombrío",
+    "clase": "Definitivo",
+    "uso": "Nutrarca Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/16_arrecife_sombrio_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/16_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      589,
+      1024
+    ]
+  },
+  {
+    "familia": 16,
+    "linea": "Nutrín → Nutrarca",
+    "ataque": "Arrecife Sombrío",
+    "clase": "Definitivo",
+    "uso": "Nutrarca Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/16_arrecife_sombrio_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/16_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      589,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 17,
+    "linea": "Hipín → Abisalio",
+    "ataque": "Burbujas Veloces",
+    "clase": "Ofensivo",
+    "uso": "Hipín",
+    "mecanica": "Especial, potencia 40; 15 % de bajar Velocidad rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/17_burbujas_veloces.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/17_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 17,
+    "linea": "Hipín → Abisalio",
+    "ataque": "Remolino Protector",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/17_remolino_protector.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/17_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 17,
+    "linea": "Hipín → Abisalio",
+    "ataque": "Danza Espiral",
+    "clase": "Apoyo",
+    "uso": "Hipín a Hipalet",
+    "mecanica": "Sube Ataque Especial.",
+    "pieza": "efecto",
+    "archivo": "piezas/17_danza_espiral.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/17_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 17,
+    "linea": "Hipín → Abisalio",
+    "ataque": "Chorro Abisal",
+    "clase": "Final",
+    "uso": "Hipín a Crestamar",
+    "mecanica": "Especial, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/17_chorro_abisal.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/17_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 17,
+    "linea": "Hipín → Abisalio",
+    "ataque": "Hidroespiral",
+    "clase": "Ofensivo",
+    "uso": "Hipalet a Abisalio y Eclipse",
+    "mecanica": "Especial, potencia 55; 20 % de bajar Defensa Especial rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/17_hidroespiral.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/17_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 17,
+    "linea": "Hipín → Abisalio",
+    "ataque": "Corriente Plateada",
+    "clase": "Apoyo",
+    "uso": "Crestamar a Abisalio y Eclipse",
+    "mecanica": "Sube Ataque Especial; sube Velocidad.",
+    "pieza": "efecto",
+    "archivo": "piezas/17_corriente_plateada.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/17_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 17,
+    "linea": "Hipín → Abisalio",
+    "ataque": "Torbellino Abisal",
+    "clase": "Final",
+    "uso": "Abisalio",
+    "mecanica": "Especial, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/17_torbellino_abisal.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/17_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 17,
+    "linea": "Hipín → Abisalio",
+    "ataque": "Espiral Violeta",
+    "clase": "Final",
+    "uso": "Abisalio Eclipse",
+    "mecanica": "Especial, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/17_espiral_violeta.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/17_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 17,
+    "linea": "Hipín → Abisalio",
+    "ataque": "Abismo Plateado",
+    "clase": "Definitivo",
+    "uso": "Abisalio",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/17_abismo_plateado_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/17_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      598,
+      512
+    ]
+  },
+  {
+    "familia": 17,
+    "linea": "Hipín → Abisalio",
+    "ataque": "Abismo Plateado",
+    "clase": "Definitivo",
+    "uso": "Abisalio",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/17_abismo_plateado_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/17_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      598,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 17,
+    "linea": "Hipín → Abisalio",
+    "ataque": "Vórtice Eterno",
+    "clase": "Definitivo",
+    "uso": "Abisalio Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/17_vortice_eterno_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/17_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      598,
+      1024
+    ]
+  },
+  {
+    "familia": 17,
+    "linea": "Hipín → Abisalio",
+    "ataque": "Vórtice Eterno",
+    "clase": "Definitivo",
+    "uso": "Abisalio Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/17_vortice_eterno_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/17_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      598,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 18,
+    "linea": "Tapirín → Micelón",
+    "ataque": "Trompazo",
+    "clase": "Ofensivo",
+    "uso": "Tapirín",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Defensa rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/18_trompazo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/18_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 18,
+    "linea": "Tapirín → Micelón",
+    "ataque": "Manto de Musgo",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/18_manto_de_musgo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/18_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 18,
+    "linea": "Tapirín → Micelón",
+    "ataque": "Esporas Vigorosas",
+    "clase": "Apoyo",
+    "uso": "Tapirín a Musgapir",
+    "mecanica": "Sube Ataque.",
+    "pieza": "efecto",
+    "archivo": "piezas/18_esporas_vigorosas.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/18_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 18,
+    "linea": "Tapirín → Micelón",
+    "ataque": "Estampida Verde",
+    "clase": "Final",
+    "uso": "Tapirín a Hongotapir",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/18_estampida_verde.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/18_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 18,
+    "linea": "Tapirín → Micelón",
+    "ataque": "Trompa Fúngica",
+    "clase": "Ofensivo",
+    "uso": "Musgapir a Micelón y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de envenenar.",
+    "pieza": "efecto",
+    "archivo": "piezas/18_trompa_fungica.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/18_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 18,
+    "linea": "Tapirín → Micelón",
+    "ataque": "Red de Micelio",
+    "clase": "Apoyo",
+    "uso": "Hongotapir a Micelón y Eclipse",
+    "mecanica": "Cura 35 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/18_red_de_micelio.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/18_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 18,
+    "linea": "Tapirín → Micelón",
+    "ataque": "Alud de Hongos",
+    "clase": "Final",
+    "uso": "Micelón",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/18_alud_de_hongos.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/18_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 18,
+    "linea": "Tapirín → Micelón",
+    "ataque": "Espora Sombría",
+    "clase": "Final",
+    "uso": "Micelón Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/18_espora_sombria.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/18_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 18,
+    "linea": "Tapirín → Micelón",
+    "ataque": "Bosque Fúngico",
+    "clase": "Definitivo",
+    "uso": "Micelón",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/18_bosque_fungico_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/18_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      568,
+      512
+    ]
+  },
+  {
+    "familia": 18,
+    "linea": "Tapirín → Micelón",
+    "ataque": "Bosque Fúngico",
+    "clase": "Definitivo",
+    "uso": "Micelón",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/18_bosque_fungico_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/18_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      568,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 18,
+    "linea": "Tapirín → Micelón",
+    "ataque": "Micelio del Ocaso",
+    "clase": "Definitivo",
+    "uso": "Micelón Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/18_micelio_del_ocaso_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/18_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      568,
+      1024
+    ]
+  },
+  {
+    "familia": 18,
+    "linea": "Tapirín → Micelón",
+    "ataque": "Micelio del Ocaso",
+    "clase": "Definitivo",
+    "uso": "Micelón Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/18_micelio_del_ocaso_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/18_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      568,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 19,
+    "linea": "Ninfín → Orquira",
+    "ataque": "Tajo de Pétalo",
+    "clase": "Ofensivo",
+    "uso": "Ninfín",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Defensa rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/19_tajo_de_petalo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/19_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 19,
+    "linea": "Ninfín → Orquira",
+    "ataque": "Camuflaje Floral",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/19_camuflaje_floral.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/19_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 19,
+    "linea": "Ninfín → Orquira",
+    "ataque": "Afilar Guadañas",
+    "clase": "Apoyo",
+    "uso": "Ninfín a Orquimán",
+    "mecanica": "Sube Ataque.",
+    "pieza": "efecto",
+    "archivo": "piezas/19_afilar_guadanas.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/19_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 19,
+    "linea": "Ninfín → Orquira",
+    "ataque": "Guadaña Floral",
+    "clase": "Final",
+    "uso": "Ninfín a Orquimantis",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/19_guadana_floral.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/19_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 19,
+    "linea": "Ninfín → Orquira",
+    "ataque": "Doble Tajo",
+    "clase": "Ofensivo",
+    "uso": "Orquimán a Orquira y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Defensa rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/19_doble_tajo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/19_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 19,
+    "linea": "Ninfín → Orquira",
+    "ataque": "Danza de Orquídea",
+    "clase": "Apoyo",
+    "uso": "Orquimantis a Orquira y Eclipse",
+    "mecanica": "Sube Ataque; sube Velocidad.",
+    "pieza": "efecto",
+    "archivo": "piezas/19_danza_de_orquidea.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/19_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 19,
+    "linea": "Ninfín → Orquira",
+    "ataque": "Ciclón de Guadañas",
+    "clase": "Final",
+    "uso": "Orquira",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/19_ciclon_de_guadanas.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/19_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 19,
+    "linea": "Ninfín → Orquira",
+    "ataque": "Guadaña Carmesí",
+    "clase": "Final",
+    "uso": "Orquira Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/19_guadana_carmesi.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/19_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 19,
+    "linea": "Ninfín → Orquira",
+    "ataque": "Jardín de Cuchillas",
+    "clase": "Definitivo",
+    "uso": "Orquira",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/19_jardin_de_cuchillas_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/19_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      534,
+      512
+    ]
+  },
+  {
+    "familia": 19,
+    "linea": "Ninfín → Orquira",
+    "ataque": "Jardín de Cuchillas",
+    "clase": "Definitivo",
+    "uso": "Orquira",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/19_jardin_de_cuchillas_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/19_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      534,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 19,
+    "linea": "Ninfín → Orquira",
+    "ataque": "Floración Oscura",
+    "clase": "Definitivo",
+    "uso": "Orquira Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/19_floracion_oscura_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/19_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      534,
+      1024
+    ]
+  },
+  {
+    "familia": 19,
+    "linea": "Ninfín → Orquira",
+    "ataque": "Floración Oscura",
+    "clase": "Definitivo",
+    "uso": "Orquira Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/19_floracion_oscura_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/19_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      534,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 20,
+    "linea": "Chinchín → Prismora · Rayo",
+    "ataque": "Zarpa Estática",
+    "clase": "Ofensivo",
+    "uso": "Chinchín",
+    "mecanica": "Físico, potencia 45; 10 % de paralizar.",
+    "pieza": "efecto",
+    "archivo": "piezas/20_zarpa_estatica.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/20_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 20,
+    "linea": "Chinchín → Prismora · Rayo",
+    "ataque": "Pelaje Esponjoso",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/20_pelaje_esponjoso.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/20_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 20,
+    "linea": "Chinchín → Prismora · Rayo",
+    "ataque": "Frotar Pelaje",
+    "clase": "Apoyo",
+    "uso": "Chinchín a Prismilla",
+    "mecanica": "Sube Ataque.",
+    "pieza": "efecto",
+    "archivo": "piezas/20_frotar_pelaje.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/20_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 20,
+    "linea": "Chinchín → Prismora · Rayo",
+    "ataque": "Salto Prisma",
+    "clase": "Final",
+    "uso": "Chinchín a Cuarzilla",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/20_salto_prisma.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/20_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 20,
+    "linea": "Chinchín → Prismora · Rayo",
+    "ataque": "Cola de Cuarzo",
+    "clase": "Ofensivo",
+    "uso": "Prismilla a Prismora y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de paralizar.",
+    "pieza": "efecto",
+    "archivo": "piezas/20_cola_de_cuarzo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/20_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 20,
+    "linea": "Chinchín → Prismora · Rayo",
+    "ataque": "Brillo de Cuarzo",
+    "clase": "Apoyo",
+    "uso": "Cuarzilla a Prismora y Eclipse",
+    "mecanica": "Sube Ataque; sube Velocidad.",
+    "pieza": "efecto",
+    "archivo": "piezas/20_brillo_de_cuarzo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/20_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 20,
+    "linea": "Chinchín → Prismora · Rayo",
+    "ataque": "Embestida Prisma",
+    "clase": "Final",
+    "uso": "Prismora",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/20_embestida_prisma.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/20_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 20,
+    "linea": "Chinchín → Prismora · Rayo",
+    "ataque": "Cuarzo Violeta",
+    "clase": "Final",
+    "uso": "Prismora Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/20_cuarzo_violeta.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/20_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 20,
+    "linea": "Chinchín → Prismora · Rayo",
+    "ataque": "Prisma Relámpago",
+    "clase": "Definitivo",
+    "uso": "Prismora",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/20_prisma_relampago_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/20_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      644,
+      512
+    ]
+  },
+  {
+    "familia": 20,
+    "linea": "Chinchín → Prismora · Rayo",
+    "ataque": "Prisma Relámpago",
+    "clase": "Definitivo",
+    "uso": "Prismora",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/20_prisma_relampago_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/20_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      644,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 20,
+    "linea": "Chinchín → Prismora · Rayo",
+    "ataque": "Prisma del Ocaso",
+    "clase": "Definitivo",
+    "uso": "Prismora Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/20_prisma_del_ocaso_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/20_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      644,
+      1024
+    ]
+  },
+  {
+    "familia": 20,
+    "linea": "Chinchín → Prismora · Rayo",
+    "ataque": "Prisma del Ocaso",
+    "clase": "Definitivo",
+    "uso": "Prismora Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/20_prisma_del_ocaso_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/20_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      644,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 21,
+    "linea": "Golondrín → Albalis · Cielo",
+    "ataque": "Ala Rápida",
+    "clase": "Ofensivo",
+    "uso": "Golondrín",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Velocidad rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/21_ala_rapida.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/21_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 21,
+    "linea": "Golondrín → Albalis · Cielo",
+    "ataque": "Vuelo Esquivo",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/21_vuelo_esquivo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/21_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 21,
+    "linea": "Golondrín → Albalis · Cielo",
+    "ataque": "Aire de Alba",
+    "clase": "Apoyo",
+    "uso": "Golondrín a Albavuelo",
+    "mecanica": "Sube Ataque.",
+    "pieza": "efecto",
+    "archivo": "piezas/21_aire_de_alba.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/21_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 21,
+    "linea": "Golondrín → Albalis · Cielo",
+    "ataque": "Picado del Alba",
+    "clase": "Final",
+    "uso": "Golondrín a Rasalba",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/21_picado_del_alba.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/21_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 21,
+    "linea": "Golondrín → Albalis · Cielo",
+    "ataque": "Cola Tijera",
+    "clase": "Ofensivo",
+    "uso": "Albavuelo a Albalis y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Defensa rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/21_cola_tijera.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/21_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 21,
+    "linea": "Golondrín → Albalis · Cielo",
+    "ataque": "Corriente Alba",
+    "clase": "Apoyo",
+    "uso": "Rasalba a Albalis y Eclipse",
+    "mecanica": "Sube Ataque; sube Velocidad.",
+    "pieza": "efecto",
+    "archivo": "piezas/21_corriente_alba.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/21_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 21,
+    "linea": "Golondrín → Albalis · Cielo",
+    "ataque": "Vendaval Alba",
+    "clase": "Final",
+    "uso": "Albalis",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/21_vendaval_alba.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/21_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 21,
+    "linea": "Golondrín → Albalis · Cielo",
+    "ataque": "Tijera del Ocaso",
+    "clase": "Final",
+    "uso": "Albalis Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/21_tijera_del_ocaso.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/21_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 21,
+    "linea": "Golondrín → Albalis · Cielo",
+    "ataque": "Amanecer Eterno",
+    "clase": "Definitivo",
+    "uso": "Albalis",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/21_amanecer_eterno_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/21_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      629,
+      512
+    ]
+  },
+  {
+    "familia": 21,
+    "linea": "Golondrín → Albalis · Cielo",
+    "ataque": "Amanecer Eterno",
+    "clase": "Definitivo",
+    "uso": "Albalis",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/21_amanecer_eterno_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/21_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      629,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 21,
+    "linea": "Golondrín → Albalis · Cielo",
+    "ataque": "Alba Negra",
+    "clase": "Definitivo",
+    "uso": "Albalis Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/21_alba_negra_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/21_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      629,
+      1024
+    ]
+  },
+  {
+    "familia": 21,
+    "linea": "Golondrín → Albalis · Cielo",
+    "ataque": "Alba Negra",
+    "clase": "Definitivo",
+    "uso": "Albalis Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/21_alba_negra_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/21_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      629,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 22,
+    "linea": "Murcito → Véspero · Sombra",
+    "ataque": "Mordisco Sombrío",
+    "clase": "Ofensivo",
+    "uso": "Murcito",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Defensa rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/22_mordisco_sombrio.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/22_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 22,
+    "linea": "Murcito → Véspero · Sombra",
+    "ataque": "Envoltura de Alas",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Bloquea el golpe.",
+    "pieza": "efecto",
+    "archivo": "piezas/22_envoltura_de_alas.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/22_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 22,
+    "linea": "Murcito → Véspero · Sombra",
+    "ataque": "Ecolocación",
+    "clase": "Apoyo",
+    "uso": "Murcito a Velurci",
+    "mecanica": "Sube Ataque.",
+    "pieza": "efecto",
+    "archivo": "piezas/22_ecolocacion.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/22_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 22,
+    "linea": "Murcito → Véspero · Sombra",
+    "ataque": "Picado Nocturno",
+    "clase": "Final",
+    "uso": "Murcito a Alanoche",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/22_picado_nocturno.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/22_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 22,
+    "linea": "Murcito → Véspero · Sombra",
+    "ataque": "Colmillo Velado",
+    "clase": "Ofensivo",
+    "uso": "Velurci a Véspero y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Defensa rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/22_colmillo_velado.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/22_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 22,
+    "linea": "Murcito → Véspero · Sombra",
+    "ataque": "Vuelo Nocturno",
+    "clase": "Apoyo",
+    "uso": "Alanoche a Véspero y Eclipse",
+    "mecanica": "Sube Ataque; sube Velocidad.",
+    "pieza": "efecto",
+    "archivo": "piezas/22_vuelo_nocturno.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/22_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 22,
+    "linea": "Murcito → Véspero · Sombra",
+    "ataque": "Alas de Medianoche",
+    "clase": "Final",
+    "uso": "Véspero",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/22_alas_de_medianoche.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/22_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 22,
+    "linea": "Murcito → Véspero · Sombra",
+    "ataque": "Ala Terciopelo",
+    "clase": "Final",
+    "uso": "Véspero Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/22_ala_terciopelo.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/22_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 22,
+    "linea": "Murcito → Véspero · Sombra",
+    "ataque": "Noche Sin Luna",
+    "clase": "Definitivo",
+    "uso": "Véspero",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/22_noche_sin_luna_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/22_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      574,
+      512
+    ]
+  },
+  {
+    "familia": 22,
+    "linea": "Murcito → Véspero · Sombra",
+    "ataque": "Noche Sin Luna",
+    "clase": "Definitivo",
+    "uso": "Véspero",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/22_noche_sin_luna_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/22_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      574,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 22,
+    "linea": "Murcito → Véspero · Sombra",
+    "ataque": "Eco del Vacío",
+    "clase": "Definitivo",
+    "uso": "Véspero Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/22_eco_del_vacio_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/22_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      574,
+      1024
+    ]
+  },
+  {
+    "familia": 22,
+    "linea": "Murcito → Véspero · Sombra",
+    "ataque": "Eco del Vacío",
+    "clase": "Definitivo",
+    "uso": "Véspero Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/22_eco_del_vacio_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/22_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      574,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 23,
+    "linea": "Mapachín → Onixor · Roca",
+    "ataque": "Guijarrazo",
+    "clase": "Ofensivo",
+    "uso": "Mapachín",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Defensa rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/23_guijarrazo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/23_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 23,
+    "linea": "Mapachín → Onixor · Roca",
+    "ataque": "Cola Anillada",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/23_cola_anillada.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/23_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 23,
+    "linea": "Mapachín → Onixor · Roca",
+    "ataque": "Picardía",
+    "clase": "Apoyo",
+    "uso": "Mapachín a Onixito",
+    "mecanica": "Sube Ataque.",
+    "pieza": "efecto",
+    "archivo": "piezas/23_picardia.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/23_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 23,
+    "linea": "Mapachín → Onixor · Roca",
+    "ataque": "Lluvia de Ónice",
+    "clase": "Final",
+    "uso": "Mapachín a Anillónix",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/23_lluvia_de_onice.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/23_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 23,
+    "linea": "Mapachín → Onixor · Roca",
+    "ataque": "Zarpa de Ónice",
+    "clase": "Ofensivo",
+    "uso": "Onixito a Onixor y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Defensa rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/23_zarpa_de_onice.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/23_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 23,
+    "linea": "Mapachín → Onixor · Roca",
+    "ataque": "Esconder Tesoro",
+    "clase": "Apoyo",
+    "uso": "Anillónix a Onixor y Eclipse",
+    "mecanica": "Cura 35 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/23_esconder_tesoro.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/23_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 23,
+    "linea": "Mapachín → Onixor · Roca",
+    "ataque": "Coletazo Anillado",
+    "clase": "Final",
+    "uso": "Onixor",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/23_coletazo_anillado.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/23_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 23,
+    "linea": "Mapachín → Onixor · Roca",
+    "ataque": "Ónice Sombrío",
+    "clase": "Final",
+    "uso": "Onixor Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/23_onice_sombrio.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/23_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 23,
+    "linea": "Mapachín → Onixor · Roca",
+    "ataque": "Tesoro de Ónice",
+    "clase": "Definitivo",
+    "uso": "Onixor",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/23_tesoro_de_onice_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/23_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      576,
+      512
+    ]
+  },
+  {
+    "familia": 23,
+    "linea": "Mapachín → Onixor · Roca",
+    "ataque": "Tesoro de Ónice",
+    "clase": "Definitivo",
+    "uso": "Onixor",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/23_tesoro_de_onice_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/23_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      576,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 23,
+    "linea": "Mapachín → Onixor · Roca",
+    "ataque": "Guarida del Vacío",
+    "clase": "Definitivo",
+    "uso": "Onixor Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/23_guarida_del_vacio_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/23_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      576,
+      1024
+    ]
+  },
+  {
+    "familia": 23,
+    "linea": "Mapachín → Onixor · Roca",
+    "ataque": "Guarida del Vacío",
+    "clase": "Definitivo",
+    "uso": "Onixor Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/23_guarida_del_vacio_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/23_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      576,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 24,
+    "linea": "Carbunín → Carbunco",
+    "ataque": "Púa Candente",
+    "clase": "Ofensivo",
+    "uso": "Carbunín",
+    "mecanica": "Físico, potencia 45; 10 % de quemar.",
+    "pieza": "efecto",
+    "archivo": "piezas/24_pua_candente.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/24_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 24,
+    "linea": "Carbunín → Carbunco",
+    "ataque": "Erizar Púas",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/24_erizar_puas.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/24_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 24,
+    "linea": "Carbunín → Carbunco",
+    "ataque": "Afilar Púas",
+    "clase": "Apoyo",
+    "uso": "Carbunín a Ascuespín",
+    "mecanica": "Sube Ataque.",
+    "pieza": "efecto",
+    "archivo": "piezas/24_afilar_puas.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/24_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 24,
+    "linea": "Carbunín → Carbunco",
+    "ataque": "Lluvia de Púas",
+    "clase": "Final",
+    "uso": "Carbunín a Pirapúas",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/24_lluvia_de_puas.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/24_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 24,
+    "linea": "Carbunín → Carbunco",
+    "ataque": "Rodada Ígnea",
+    "clase": "Ofensivo",
+    "uso": "Ascuespín a Carbunco y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de quemar.",
+    "pieza": "efecto",
+    "archivo": "piezas/24_rodada_ignea.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/24_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 24,
+    "linea": "Carbunín → Carbunco",
+    "ataque": "Rescoldo Interno",
+    "clase": "Apoyo",
+    "uso": "Pirapúas a Carbunco y Eclipse",
+    "mecanica": "Cura 35 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/24_rescoldo_interno.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/24_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 24,
+    "linea": "Carbunín → Carbunco",
+    "ataque": "Tormenta de Púas",
+    "clase": "Final",
+    "uso": "Carbunco",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/24_tormenta_de_puas.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/24_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 24,
+    "linea": "Carbunín → Carbunco",
+    "ataque": "Púa de Obsidiana",
+    "clase": "Final",
+    "uso": "Carbunco Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/24_pua_de_obsidiana.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/24_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 24,
+    "linea": "Carbunín → Carbunco",
+    "ataque": "Corona Carbúnculo",
+    "clase": "Definitivo",
+    "uso": "Carbunco",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/24_corona_carbunculo_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/24_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      581,
+      512
+    ]
+  },
+  {
+    "familia": 24,
+    "linea": "Carbunín → Carbunco",
+    "ataque": "Corona Carbúnculo",
+    "clase": "Definitivo",
+    "uso": "Carbunco",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/24_corona_carbunculo_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/24_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      581,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 24,
+    "linea": "Carbunín → Carbunco",
+    "ataque": "Abanico del Ocaso",
+    "clase": "Definitivo",
+    "uso": "Carbunco Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/24_abanico_del_ocaso_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/24_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      581,
+      1024
+    ]
+  },
+  {
+    "familia": 24,
+    "linea": "Carbunín → Carbunco",
+    "ataque": "Abanico del Ocaso",
+    "clase": "Definitivo",
+    "uso": "Carbunco Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/24_abanico_del_ocaso_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/24_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      581,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 25,
+    "linea": "Chispollo → Cometón",
+    "ataque": "Picotazo Ígneo",
+    "clase": "Ofensivo",
+    "uso": "Chispollo",
+    "mecanica": "Físico, potencia 45; 10 % de quemar.",
+    "pieza": "efecto",
+    "archivo": "piezas/25_picotazo_igneo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/25_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 25,
+    "linea": "Chispollo → Cometón",
+    "ataque": "Alas de Ceniza",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/25_alas_de_ceniza.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/25_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 25,
+    "linea": "Chispollo → Cometón",
+    "ataque": "Canto Matutino",
+    "clase": "Apoyo",
+    "uso": "Chispollo a Gallarete",
+    "mecanica": "Sube Ataque.",
+    "pieza": "efecto",
+    "archivo": "piezas/25_canto_matutino.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/25_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 25,
+    "linea": "Chispollo → Cometón",
+    "ataque": "Espolón Cometa",
+    "clase": "Final",
+    "uso": "Chispollo a Crestallama",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/25_espolon_cometa.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/25_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 25,
+    "linea": "Chispollo → Cometón",
+    "ataque": "Picotazo Solar",
+    "clase": "Ofensivo",
+    "uso": "Gallarete a Cometón y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de quemar.",
+    "pieza": "efecto",
+    "archivo": "piezas/25_picotazo_solar.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/25_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 25,
+    "linea": "Chispollo → Cometón",
+    "ataque": "Clarín del Alba",
+    "clase": "Apoyo",
+    "uso": "Crestallama a Cometón y Eclipse",
+    "mecanica": "Sube Ataque; sube Velocidad.",
+    "pieza": "efecto",
+    "archivo": "piezas/25_clarin_del_alba.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/25_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 25,
+    "linea": "Chispollo → Cometón",
+    "ataque": "Caída del Cometa",
+    "clase": "Final",
+    "uso": "Cometón",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/25_caida_del_cometa.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/25_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 25,
+    "linea": "Chispollo → Cometón",
+    "ataque": "Cola de Meteoro",
+    "clase": "Final",
+    "uso": "Cometón Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/25_cola_de_meteoro.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/25_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 25,
+    "linea": "Chispollo → Cometón",
+    "ataque": "Lluvia de Cometas",
+    "clase": "Definitivo",
+    "uso": "Cometón",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/25_lluvia_de_cometas_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/25_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      574,
+      512
+    ]
+  },
+  {
+    "familia": 25,
+    "linea": "Chispollo → Cometón",
+    "ataque": "Lluvia de Cometas",
+    "clase": "Definitivo",
+    "uso": "Cometón",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/25_lluvia_de_cometas_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/25_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      574,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 25,
+    "linea": "Chispollo → Cometón",
+    "ataque": "Cometa Negro",
+    "clase": "Definitivo",
+    "uso": "Cometón Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/25_cometa_negro_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/25_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      574,
+      1024
+    ]
+  },
+  {
+    "familia": 25,
+    "linea": "Chispollo → Cometón",
+    "ataque": "Cometa Negro",
+    "clase": "Definitivo",
+    "uso": "Cometón Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/25_cometa_negro_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/25_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      574,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 26,
+    "linea": "Medusín → Carillón",
+    "ataque": "Toque Urticante",
+    "clase": "Ofensivo",
+    "uso": "Medusín",
+    "mecanica": "Especial, potencia 45; 10 % de paralizar.",
+    "pieza": "efecto",
+    "archivo": "piezas/26_toque_urticante.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/26_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 26,
+    "linea": "Medusín → Carillón",
+    "ataque": "Velo de Medusa",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Bloquea el golpe.",
+    "pieza": "efecto",
+    "archivo": "piezas/26_velo_de_medusa.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/26_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 26,
+    "linea": "Medusín → Carillón",
+    "ataque": "Pulso Calmo",
+    "clase": "Apoyo",
+    "uso": "Medusín a Campanela",
+    "mecanica": "Sube Defensa Especial.",
+    "pieza": "efecto",
+    "archivo": "piezas/26_pulso_calmo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/26_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 26,
+    "linea": "Medusín → Carillón",
+    "ataque": "Lluvia de Perlas",
+    "clase": "Final",
+    "uso": "Medusín a Medusperla",
+    "mecanica": "Especial, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/26_lluvia_de_perlas.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/26_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 26,
+    "linea": "Medusín → Carillón",
+    "ataque": "Latigazo Perlado",
+    "clase": "Ofensivo",
+    "uso": "Campanela a Carillón y Eclipse",
+    "mecanica": "Especial, potencia 55; 20 % de paralizar.",
+    "pieza": "efecto",
+    "archivo": "piezas/26_latigazo_perlado.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/26_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 26,
+    "linea": "Medusín → Carillón",
+    "ataque": "Campana Lunar",
+    "clase": "Apoyo",
+    "uso": "Medusperla a Carillón y Eclipse",
+    "mecanica": "Cura 35 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/26_campana_lunar.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/26_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 26,
+    "linea": "Medusín → Carillón",
+    "ataque": "Gran Campanada",
+    "clase": "Final",
+    "uso": "Carillón",
+    "mecanica": "Especial, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/26_gran_campanada.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/26_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 26,
+    "linea": "Medusín → Carillón",
+    "ataque": "Tentáculo Violeta",
+    "clase": "Final",
+    "uso": "Carillón Eclipse",
+    "mecanica": "Especial, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/26_tentaculo_violeta.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/26_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 26,
+    "linea": "Medusín → Carillón",
+    "ataque": "Sinfonía Abisal",
+    "clase": "Definitivo",
+    "uso": "Carillón",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/26_sinfonia_abisal_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/26_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      530,
+      512
+    ]
+  },
+  {
+    "familia": 26,
+    "linea": "Medusín → Carillón",
+    "ataque": "Sinfonía Abisal",
+    "clase": "Definitivo",
+    "uso": "Carillón",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/26_sinfonia_abisal_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/26_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      530,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 26,
+    "linea": "Medusín → Carillón",
+    "ataque": "Campana del Vacío",
+    "clase": "Definitivo",
+    "uso": "Carillón Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/26_campana_del_vacio_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/26_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      530,
+      1024
+    ]
+  },
+  {
+    "familia": 26,
+    "linea": "Medusín → Carillón",
+    "ataque": "Campana del Vacío",
+    "clase": "Definitivo",
+    "uso": "Carillón Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/26_campana_del_vacio_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/26_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      530,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 27,
+    "linea": "Narvalín → Glacior",
+    "ataque": "Embestida Helada",
+    "clase": "Ofensivo",
+    "uso": "Narvalín",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Velocidad rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/27_embestida_helada.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/27_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 27,
+    "linea": "Narvalín → Glacior",
+    "ataque": "Témpano",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/27_tempano.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/27_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 27,
+    "linea": "Narvalín → Glacior",
+    "ataque": "Afilar Colmillo",
+    "clase": "Apoyo",
+    "uso": "Narvalín a Colmillar",
+    "mecanica": "Sube Ataque.",
+    "pieza": "efecto",
+    "archivo": "piezas/27_afilar_colmillo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/27_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 27,
+    "linea": "Narvalín → Glacior",
+    "ataque": "Lanza de Hielo",
+    "clase": "Final",
+    "uso": "Narvalín a Glaciarval",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/27_lanza_de_hielo.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/27_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 27,
+    "linea": "Narvalín → Glacior",
+    "ataque": "Colmillo Glacial",
+    "clase": "Ofensivo",
+    "uso": "Colmillar a Glacior y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Velocidad rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/27_colmillo_glacial.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/27_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 27,
+    "linea": "Narvalín → Glacior",
+    "ataque": "Aguas Gélidas",
+    "clase": "Apoyo",
+    "uso": "Glaciarval a Glacior y Eclipse",
+    "mecanica": "Sube Ataque; sube Velocidad.",
+    "pieza": "efecto",
+    "archivo": "piezas/27_aguas_gelidas.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/27_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 27,
+    "linea": "Narvalín → Glacior",
+    "ataque": "Avalancha Marina",
+    "clase": "Final",
+    "uso": "Glacior",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/27_avalancha_marina.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/27_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": {
+      "archivo": "fuentes/ajuste_27_avalancha_marina.png",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ]
+    }
+  },
+  {
+    "familia": 27,
+    "linea": "Narvalín → Glacior",
+    "ataque": "Lanza del Ocaso",
+    "clase": "Final",
+    "uso": "Glacior Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/27_lanza_del_ocaso.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/27_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 27,
+    "linea": "Narvalín → Glacior",
+    "ataque": "Era Glacial",
+    "clase": "Definitivo",
+    "uso": "Glacior",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/27_era_glacial_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/27_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      585,
+      512
+    ]
+  },
+  {
+    "familia": 27,
+    "linea": "Narvalín → Glacior",
+    "ataque": "Era Glacial",
+    "clase": "Definitivo",
+    "uso": "Glacior",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/27_era_glacial_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/27_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      585,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 27,
+    "linea": "Narvalín → Glacior",
+    "ataque": "Glaciar Eterno",
+    "clase": "Definitivo",
+    "uso": "Glacior Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/27_glaciar_eterno_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/27_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      585,
+      1024
+    ]
+  },
+  {
+    "familia": 27,
+    "linea": "Narvalín → Glacior",
+    "ataque": "Glaciar Eterno",
+    "clase": "Definitivo",
+    "uso": "Glacior Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/27_glaciar_eterno_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/27_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      585,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 28,
+    "linea": "Capibín → Raigón",
+    "ataque": "Cabezazo Manso",
+    "clase": "Ofensivo",
+    "uso": "Capibín",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Ataque rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/28_cabezazo_manso.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/28_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 28,
+    "linea": "Capibín → Raigón",
+    "ataque": "Escudo de Raíces",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Bloquea el golpe.",
+    "pieza": "efecto",
+    "archivo": "piezas/28_escudo_de_raices.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/28_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 28,
+    "linea": "Capibín → Raigón",
+    "ataque": "Baño Tranquilo",
+    "clase": "Apoyo",
+    "uso": "Capibín a Raicibara",
+    "mecanica": "Cura 25 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/28_bano_tranquilo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/28_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 28,
+    "linea": "Capibín → Raigón",
+    "ataque": "Raíz Aplastante",
+    "clase": "Final",
+    "uso": "Capibín a Manglarón",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/28_raiz_aplastante.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/28_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 28,
+    "linea": "Capibín → Raigón",
+    "ataque": "Látigo de Mangle",
+    "clase": "Ofensivo",
+    "uso": "Raicibara a Raigón y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Velocidad rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/28_latigo_de_mangle.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/28_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 28,
+    "linea": "Capibín → Raigón",
+    "ataque": "Paz del Manglar",
+    "clase": "Apoyo",
+    "uso": "Manglarón a Raigón y Eclipse",
+    "mecanica": "Cura 35 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/28_paz_del_manglar.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/28_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 28,
+    "linea": "Capibín → Raigón",
+    "ataque": "Marea de Raíces",
+    "clase": "Final",
+    "uso": "Raigón",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/28_marea_de_raices.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/28_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 28,
+    "linea": "Capibín → Raigón",
+    "ataque": "Raíz del Ocaso",
+    "clase": "Final",
+    "uso": "Raigón Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/28_raiz_del_ocaso.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/28_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 28,
+    "linea": "Capibín → Raigón",
+    "ataque": "Gran Manglar",
+    "clase": "Definitivo",
+    "uso": "Raigón",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/28_gran_manglar_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/28_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      537,
+      512
+    ]
+  },
+  {
+    "familia": 28,
+    "linea": "Capibín → Raigón",
+    "ataque": "Gran Manglar",
+    "clase": "Definitivo",
+    "uso": "Raigón",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/28_gran_manglar_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/28_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      537,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 28,
+    "linea": "Capibín → Raigón",
+    "ataque": "Pantano Eterno",
+    "clase": "Definitivo",
+    "uso": "Raigón Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/28_pantano_eterno_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/28_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      537,
+      1024
+    ]
+  },
+  {
+    "familia": 28,
+    "linea": "Capibín → Raigón",
+    "ataque": "Pantano Eterno",
+    "clase": "Definitivo",
+    "uso": "Raigón Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/28_pantano_eterno_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/28_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      537,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 29,
+    "linea": "Ramitín → Bambuzal",
+    "ataque": "Lluvia de Hojas",
+    "clase": "Ofensivo",
+    "uso": "Ramitín",
+    "mecanica": "Especial, potencia 40; 15 % de bajar Defensa Especial rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/29_lluvia_de_hojas.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/29_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 29,
+    "linea": "Ramitín → Bambuzal",
+    "ataque": "Quedarse Quieto",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/29_quedarse_quieto.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/29_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 29,
+    "linea": "Ramitín → Bambuzal",
+    "ataque": "Brote Nuevo",
+    "clase": "Apoyo",
+    "uso": "Ramitín a Bambulito",
+    "mecanica": "Sube Ataque Especial.",
+    "pieza": "efecto",
+    "archivo": "piezas/29_brote_nuevo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/29_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 29,
+    "linea": "Ramitín → Bambuzal",
+    "ataque": "Lanza de Bambú",
+    "clase": "Final",
+    "uso": "Ramitín a Bambucán",
+    "mecanica": "Especial, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/29_lanza_de_bambu.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/29_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 29,
+    "linea": "Ramitín → Bambuzal",
+    "ataque": "Hoja Cortante",
+    "clase": "Ofensivo",
+    "uso": "Bambulito a Bambuzal y Eclipse",
+    "mecanica": "Especial, potencia 55; 20 % de bajar Defensa Especial rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/29_hoja_cortante.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/29_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 29,
+    "linea": "Ramitín → Bambuzal",
+    "ataque": "Bosque de Bambú",
+    "clase": "Apoyo",
+    "uso": "Bambucán a Bambuzal y Eclipse",
+    "mecanica": "Sube Ataque Especial; sube Defensa.",
+    "pieza": "efecto",
+    "archivo": "piezas/29_bosque_de_bambu.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/29_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 29,
+    "linea": "Ramitín → Bambuzal",
+    "ataque": "Ciclón de Hojas",
+    "clase": "Final",
+    "uso": "Bambuzal",
+    "mecanica": "Especial, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/29_ciclon_de_hojas.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/29_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 29,
+    "linea": "Ramitín → Bambuzal",
+    "ataque": "Hoja Sombría",
+    "clase": "Final",
+    "uso": "Bambuzal Eclipse",
+    "mecanica": "Especial, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/29_hoja_sombria.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/29_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 29,
+    "linea": "Ramitín → Bambuzal",
+    "ataque": "Selva de Bambú",
+    "clase": "Definitivo",
+    "uso": "Bambuzal",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/29_selva_de_bambu_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/29_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      532,
+      512
+    ]
+  },
+  {
+    "familia": 29,
+    "linea": "Ramitín → Bambuzal",
+    "ataque": "Selva de Bambú",
+    "clase": "Definitivo",
+    "uso": "Bambuzal",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/29_selva_de_bambu_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/29_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      532,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 29,
+    "linea": "Ramitín → Bambuzal",
+    "ataque": "Bambú del Ocaso",
+    "clase": "Definitivo",
+    "uso": "Bambuzal Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/29_bambu_del_ocaso_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/29_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      532,
+      1024
+    ]
+  },
+  {
+    "familia": 29,
+    "linea": "Ramitín → Bambuzal",
+    "ataque": "Bambú del Ocaso",
+    "clase": "Definitivo",
+    "uso": "Bambuzal Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/29_bambu_del_ocaso_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/29_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      532,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 30,
+    "linea": "Pavito → Heliavo · Rayo",
+    "ataque": "Destello",
+    "clase": "Ofensivo",
+    "uso": "Pavito",
+    "mecanica": "Especial, potencia 40; 15 % de bajar Defensa Especial rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/30_destello.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/30_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 30,
+    "linea": "Pavito → Heliavo · Rayo",
+    "ataque": "Abanico Escudo",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/30_abanico_escudo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/30_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 30,
+    "linea": "Pavito → Heliavo · Rayo",
+    "ataque": "Desplegar Plumas",
+    "clase": "Apoyo",
+    "uso": "Pavito a Plumasol",
+    "mecanica": "Sube Ataque Especial.",
+    "pieza": "efecto",
+    "archivo": "piezas/30_desplegar_plumas.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/30_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 30,
+    "linea": "Pavito → Heliavo · Rayo",
+    "ataque": "Ojos del Abanico",
+    "clase": "Final",
+    "uso": "Pavito a Abanicor",
+    "mecanica": "Especial, potencia 90.",
+    "pieza": "efecto",
+    "archivo": "piezas/30_ojos_del_abanico.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/30_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 30,
+    "linea": "Pavito → Heliavo · Rayo",
+    "ataque": "Pluma Eléctrica",
+    "clase": "Ofensivo",
+    "uso": "Plumasol a Heliavo y Eclipse",
+    "mecanica": "Especial, potencia 55; 20 % de paralizar.",
+    "pieza": "efecto",
+    "archivo": "piezas/30_pluma_electrica.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/30_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 30,
+    "linea": "Pavito → Heliavo · Rayo",
+    "ataque": "Pavoneo",
+    "clase": "Apoyo",
+    "uso": "Abanicor a Heliavo y Eclipse",
+    "mecanica": "Sube Ataque Especial; sube Defensa Especial.",
+    "pieza": "efecto",
+    "archivo": "piezas/30_pavoneo.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/30_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 30,
+    "linea": "Pavito → Heliavo · Rayo",
+    "ataque": "Rayo Helianto",
+    "clase": "Final",
+    "uso": "Heliavo",
+    "mecanica": "Especial, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/30_rayo_helianto.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/30_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 30,
+    "linea": "Pavito → Heliavo · Rayo",
+    "ataque": "Abanico Violeta",
+    "clase": "Final",
+    "uso": "Heliavo Eclipse",
+    "mecanica": "Especial, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/30_abanico_violeta.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/30_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 30,
+    "linea": "Pavito → Heliavo · Rayo",
+    "ataque": "Mil Ojos Solares",
+    "clase": "Definitivo",
+    "uso": "Heliavo",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/30_mil_ojos_solares_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/30_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      572,
+      512
+    ]
+  },
+  {
+    "familia": 30,
+    "linea": "Pavito → Heliavo · Rayo",
+    "ataque": "Mil Ojos Solares",
+    "clase": "Definitivo",
+    "uso": "Heliavo",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/30_mil_ojos_solares_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/30_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      572,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 30,
+    "linea": "Pavito → Heliavo · Rayo",
+    "ataque": "Eclipse de Plumas",
+    "clase": "Definitivo",
+    "uso": "Heliavo Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/30_eclipse_de_plumas_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/30_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      572,
+      1024
+    ]
+  },
+  {
+    "familia": 30,
+    "linea": "Pavito → Heliavo · Rayo",
+    "ataque": "Eclipse de Plumas",
+    "clase": "Definitivo",
+    "uso": "Heliavo Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/30_eclipse_de_plumas_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/30_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      572,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 31,
+    "linea": "Carpín → Faroluz · Rayo",
+    "ataque": "Chispa de Farol",
+    "clase": "Ofensivo",
+    "uso": "Carpín",
+    "mecanica": "Especial, potencia 45; 10 % de paralizar.",
+    "pieza": "efecto",
+    "archivo": "piezas/31_chispa_de_farol.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/31_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 31,
+    "linea": "Carpín → Faroluz · Rayo",
+    "ataque": "Aleta Brillante",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/31_aleta_brillante.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/31_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 31,
+    "linea": "Carpín → Faroluz · Rayo",
+    "ataque": "Encender Farol",
+    "clase": "Apoyo",
+    "uso": "Carpín a Farolín",
+    "mecanica": "Sube Ataque Especial.",
+    "pieza": "efecto",
+    "archivo": "piezas/31_encender_farol.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/31_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 31,
+    "linea": "Carpín → Faroluz · Rayo",
+    "ataque": "Relámpago Dorado",
+    "clase": "Final",
+    "uso": "Carpín a Lucicarpa",
+    "mecanica": "Especial, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/31_relampago_dorado.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/31_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 31,
+    "linea": "Carpín → Faroluz · Rayo",
+    "ataque": "Bigote Eléctrico",
+    "clase": "Ofensivo",
+    "uso": "Farolín a Faroluz y Eclipse",
+    "mecanica": "Especial, potencia 55; 20 % de paralizar.",
+    "pieza": "efecto",
+    "archivo": "piezas/31_bigote_electrico.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/31_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 31,
+    "linea": "Carpín → Faroluz · Rayo",
+    "ataque": "Nado Luminoso",
+    "clase": "Apoyo",
+    "uso": "Lucicarpa a Faroluz y Eclipse",
+    "mecanica": "Sube Ataque Especial; sube Velocidad.",
+    "pieza": "efecto",
+    "archivo": "piezas/31_nado_luminoso.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/31_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 31,
+    "linea": "Carpín → Faroluz · Rayo",
+    "ataque": "Farol Celeste",
+    "clase": "Final",
+    "uso": "Faroluz",
+    "mecanica": "Especial, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/31_farol_celeste.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/31_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 31,
+    "linea": "Carpín → Faroluz · Rayo",
+    "ataque": "Farol Sombrío",
+    "clase": "Final",
+    "uso": "Faroluz Eclipse",
+    "mecanica": "Especial, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/31_farol_sombrio.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/31_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 31,
+    "linea": "Carpín → Faroluz · Rayo",
+    "ataque": "Mil Faroles",
+    "clase": "Definitivo",
+    "uso": "Faroluz",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/31_mil_faroles_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/31_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      541,
+      512
+    ]
+  },
+  {
+    "familia": 31,
+    "linea": "Carpín → Faroluz · Rayo",
+    "ataque": "Mil Faroles",
+    "clase": "Definitivo",
+    "uso": "Faroluz",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/31_mil_faroles_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/31_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      541,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 31,
+    "linea": "Carpín → Faroluz · Rayo",
+    "ataque": "Linterna del Ocaso",
+    "clase": "Definitivo",
+    "uso": "Faroluz Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/31_linterna_del_ocaso_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/31_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      541,
+      1024
+    ]
+  },
+  {
+    "familia": 31,
+    "linea": "Carpín → Faroluz · Rayo",
+    "ataque": "Linterna del Ocaso",
+    "clase": "Definitivo",
+    "uso": "Faroluz Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/31_linterna_del_ocaso_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/31_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      541,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 32,
+    "linea": "Buhíto → Umbrus · Cielo",
+    "ataque": "Ráfaga Nocturna",
+    "clase": "Ofensivo",
+    "uso": "Buhíto",
+    "mecanica": "Especial, potencia 40; 15 % de bajar Defensa Especial rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/32_rafaga_nocturna.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/32_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 32,
+    "linea": "Buhíto → Umbrus · Cielo",
+    "ataque": "Plumaje Denso",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/32_plumaje_denso.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/32_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 32,
+    "linea": "Buhíto → Umbrus · Cielo",
+    "ataque": "Mirada Atenta",
+    "clase": "Apoyo",
+    "uso": "Buhíto a Ululín",
+    "mecanica": "Sube Ataque Especial.",
+    "pieza": "efecto",
+    "archivo": "piezas/32_mirada_atenta.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/32_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 32,
+    "linea": "Buhíto → Umbrus · Cielo",
+    "ataque": "Hipnosis Lunar",
+    "clase": "Final",
+    "uso": "Buhíto a Umbralón",
+    "mecanica": "Especial, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/32_hipnosis_lunar.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/32_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 32,
+    "linea": "Buhíto → Umbrus · Cielo",
+    "ataque": "Ala Umbral",
+    "clase": "Ofensivo",
+    "uso": "Ululín a Umbrus y Eclipse",
+    "mecanica": "Especial, potencia 55; 20 % de bajar Defensa Especial rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/32_ala_umbral.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/32_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 32,
+    "linea": "Buhíto → Umbrus · Cielo",
+    "ataque": "Vigilia",
+    "clase": "Apoyo",
+    "uso": "Umbralón a Umbrus y Eclipse",
+    "mecanica": "Sube Ataque Especial; sube Defensa Especial.",
+    "pieza": "efecto",
+    "archivo": "piezas/32_vigilia.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/32_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 32,
+    "linea": "Buhíto → Umbrus · Cielo",
+    "ataque": "Tempestad Nocturna",
+    "clase": "Final",
+    "uso": "Umbrus",
+    "mecanica": "Especial, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/32_tempestad_nocturna.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/32_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 32,
+    "linea": "Buhíto → Umbrus · Cielo",
+    "ataque": "Mirada del Umbral",
+    "clase": "Final",
+    "uso": "Umbrus Eclipse",
+    "mecanica": "Especial, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/32_mirada_del_umbral.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/32_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 32,
+    "linea": "Buhíto → Umbrus · Cielo",
+    "ataque": "Noche de Mil Ojos",
+    "clase": "Definitivo",
+    "uso": "Umbrus",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/32_noche_de_mil_ojos_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/32_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      580,
+      512
+    ]
+  },
+  {
+    "familia": 32,
+    "linea": "Buhíto → Umbrus · Cielo",
+    "ataque": "Noche de Mil Ojos",
+    "clase": "Definitivo",
+    "uso": "Umbrus",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/32_noche_de_mil_ojos_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/32_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      580,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 32,
+    "linea": "Buhíto → Umbrus · Cielo",
+    "ataque": "Umbral Eterno",
+    "clase": "Definitivo",
+    "uso": "Umbrus Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/32_umbral_eterno_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/32_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      580,
+      1024
+    ]
+  },
+  {
+    "familia": 32,
+    "linea": "Buhíto → Umbrus · Cielo",
+    "ataque": "Umbral Eterno",
+    "clase": "Definitivo",
+    "uso": "Umbrus Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/32_umbral_eterno_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/32_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      580,
+      512,
+      1536,
+      1024
+    ]
+  },
+  {
+    "familia": 33,
+    "linea": "Topín → Geodón · Roca",
+    "ataque": "Garra Excavadora",
+    "clase": "Ofensivo",
+    "uso": "Topín",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Defensa rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/33_garra_excavadora.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/33_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      0,
+      444,
+      444
+    ]
+  },
+  {
+    "familia": 33,
+    "linea": "Topín → Geodón · Roca",
+    "ataque": "Madriguera",
+    "clase": "Defensivo",
+    "uso": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %.",
+    "pieza": "efecto",
+    "archivo": "piezas/33_madriguera.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/33_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      0,
+      887,
+      444
+    ]
+  },
+  {
+    "familia": 33,
+    "linea": "Topín → Geodón · Roca",
+    "ataque": "Pulir Garras",
+    "clase": "Apoyo",
+    "uso": "Topín a Excavito",
+    "mecanica": "Sube Ataque.",
+    "pieza": "efecto",
+    "archivo": "piezas/33_pulir_garras.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/33_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ],
+    "origen": [
+      887,
+      0,
+      1330,
+      444
+    ]
+  },
+  {
+    "familia": 33,
+    "linea": "Topín → Geodón · Roca",
+    "ataque": "Lluvia de Geodas",
+    "clase": "Final",
+    "uso": "Topín a Amatopo",
+    "mecanica": "Físico, potencia 85.",
+    "pieza": "efecto",
+    "archivo": "piezas/33_lluvia_de_geodas.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/33_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      0,
+      1774,
+      444
+    ]
+  },
+  {
+    "familia": 33,
+    "linea": "Topín → Geodón · Roca",
+    "ataque": "Garra de Amatista",
+    "clase": "Ofensivo",
+    "uso": "Excavito a Geodón y Eclipse",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Defensa rival.",
+    "pieza": "efecto",
+    "archivo": "piezas/33_garra_de_amatista.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/33_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      0,
+      444,
+      444,
+      887
+    ]
+  },
+  {
+    "familia": 33,
+    "linea": "Topín → Geodón · Roca",
+    "ataque": "Coraza de Geoda",
+    "clase": "Apoyo",
+    "uso": "Amatopo a Geodón y Eclipse",
+    "mecanica": "Sube Defensa; sube Defensa Especial.",
+    "pieza": "efecto",
+    "archivo": "piezas/33_coraza_de_geoda.png",
+    "ancho": 64,
+    "alto": 64,
+    "lamina": "laminas/33_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ],
+    "origen": [
+      444,
+      444,
+      887,
+      887
+    ]
+  },
+  {
+    "familia": 33,
+    "linea": "Topín → Geodón · Roca",
+    "ataque": "Sismo Cristalino",
+    "clase": "Final",
+    "uso": "Geodón",
+    "mecanica": "Físico, potencia 110.",
+    "pieza": "efecto",
+    "archivo": "piezas/33_sismo_cristalino.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/33_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      887,
+      444,
+      1330,
+      887
+    ]
+  },
+  {
+    "familia": 33,
+    "linea": "Topín → Geodón · Roca",
+    "ataque": "Amatista Negra",
+    "clase": "Final",
+    "uso": "Geodón Eclipse",
+    "mecanica": "Físico, potencia 115.",
+    "pieza": "efecto",
+    "archivo": "piezas/33_amatista_negra.png",
+    "ancho": 96,
+    "alto": 96,
+    "lamina": "laminas/33_ataques.png",
+    "rect": [
+      288,
+      96,
+      96,
+      96
+    ],
+    "origen": [
+      1330,
+      444,
+      1774,
+      887
+    ]
+  },
+  {
+    "familia": 33,
+    "linea": "Topín → Geodón · Roca",
+    "ataque": "Corazón de Geoda",
+    "clase": "Definitivo",
+    "uso": "Geodón",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/33_corazon_de_geoda_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/33_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      0,
+      576,
+      512
+    ]
+  },
+  {
+    "familia": 33,
+    "linea": "Topín → Geodón · Roca",
+    "ataque": "Corazón de Geoda",
+    "clase": "Definitivo",
+    "uso": "Geodón",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/33_corazon_de_geoda_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/33_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ],
+    "origen": [
+      576,
+      0,
+      1536,
+      512
+    ]
+  },
+  {
+    "familia": 33,
+    "linea": "Topín → Geodón · Roca",
+    "ataque": "Geoda del Vacío",
+    "clase": "Definitivo",
+    "uso": "Geodón Eclipse",
+    "mecanica": "",
+    "pieza": "impacto",
+    "archivo": "piezas/33_geoda_del_vacio_impacto.png",
+    "ancho": 128,
+    "alto": 128,
+    "lamina": "laminas/33_definitivos.png",
+    "rect": [
+      56,
+      176,
+      128,
+      128
+    ],
+    "origen": [
+      0,
+      512,
+      576,
+      1024
+    ]
+  },
+  {
+    "familia": 33,
+    "linea": "Topín → Geodón · Roca",
+    "ataque": "Geoda del Vacío",
+    "clase": "Definitivo",
+    "uso": "Geodón Eclipse",
+    "mecanica": "",
+    "pieza": "pantalla",
+    "archivo": "piezas/33_geoda_del_vacio_pantalla.png",
+    "ancho": 240,
+    "alto": 160,
+    "lamina": "laminas/33_definitivos.png",
+    "rect": [
+      240,
+      160,
+      240,
+      160
+    ],
+    "origen": [
+      576,
+      512,
+      1536,
+      1024
+    ]
+  }
+]
