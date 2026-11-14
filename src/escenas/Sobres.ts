@@ -23,7 +23,10 @@ function duracion(ms: number): string {
 }
 
 /** Tienda y apertura de sobres. Las probabilidades y el pity se muestran siempre. */
-const FILAS = 8;
+/** Cada fila muestra el sobre a 16×22 (el dibujo 2×, píxeles parejos); caben 4 a la vista. */
+const FILAS = 4;
+const ALTO_FILA = 22;
+const Y0 = 22;
 
 /** Color del sobre: el suyo, o el de su tipo. */
 function colorSobre(s: SobreDef): number {
@@ -53,7 +56,11 @@ export class Sobres extends Phaser.Scene {
     super('Sobres');
   }
 
-  init(datos: { bienvenida?: boolean }): void {
+  private abrirId = '';
+
+  init(datos: { bienvenida?: boolean; abrir?: string }): void {
+    // Viene de la ruleta (u otro premio) con un sobre ya ganado: se abre al entrar.
+    this.abrirId = datos?.abrir ?? '';
     // El sobre de bienvenida solo existe una vez por partida, se pida como se pida.
     this.bienvenida = !!datos?.bienvenida && !juego.estado.bienvenida;
     this.nombres = [];
@@ -89,12 +96,13 @@ export class Sobres extends Phaser.Scene {
     this.minis = [];
     this.rebajas = [];
     for (let k = 0; k < FILAS; k++) {
-      // Miniatura del sobre (32×44 a 1:1 en pantalla) y la estrella de descuento semanal.
-      if (hayArte(this, 'sobre_basico_mini')) this.minis.push(this.add.image(17, 30.5 + k * 11, 'ui_sobre_basico_mini').setScale(0.25));
-      const rebaja = pieza(this, 'descuento_semana', 86, 30 + k * 11, 8);
+      const y = Y0 + k * ALTO_FILA;
+      // Miniatura del sobre (32×44 dibujados al doble: 16×22) y la estrella de descuento semanal.
+      if (hayArte(this, 'sobre_basico_mini')) this.minis.push(this.add.image(15, y + 11, 'ui_sobre_basico_mini').setScale(0.5));
+      const rebaja = pieza(this, 'descuento_semana', 113, y + 11, 9);
       if (rebaja) this.rebajas.push(rebaja.setVisible(false));
-      this.nombres.push(new Texto(this, 22, 25 + k * 11, 70, 10));
-      this.costos.push(new Texto(this, 78, 25 + k * 11, 42, 10, C.tinta, 'der'));
+      this.nombres.push(new Texto(this, 26, y + 3, 84, 10));
+      this.costos.push(new Texto(this, 26, y + 12, 84, 10, C.tinta, 'izq'));
     }
     new Texto(this, 136, 25, 96, 10, C.tintaSuave).poner(t('sobres.prob'));
     for (let i = 0; i < 8; i++) this.probs.push(new Texto(this, 136, 35 + i * 9.5, 96, 10));
@@ -102,7 +110,7 @@ export class Sobres extends Phaser.Scene {
     this.cursor = this.add.graphics();
     this.puntero = new Puntero(this);
     for (let k = 0; k < FILAS; k++)
-      this.puntero.zona(8, 24 + k * 11, 116, 11, () => {
+      this.puntero.zona(6, Y0 + k * ALTO_FILA, 116, ALTO_FILA, () => {
         const i = this.scroll + k;
         if (this.alPulsar !== this.enLista || i === this.sel || i >= DATOS.sobres.sobres.length) return;
         this.sel = i;
@@ -113,6 +121,13 @@ export class Sobres extends Phaser.Scene {
     this.time.addEvent({ delay: 1000, loop: true, callback: () => this.alPulsar === this.enLista && this.pintar() });
     this.alPulsar = this.enLista;
     this.pintar();
+    // Sobre ganado en otra pantalla (la ruleta): se abre en el momento.
+    const idx = this.abrirId ? DATOS.sobres.sobres.findIndex((x) => x.id === this.abrirId) : -1;
+    if (idx >= 0) {
+      this.sel = idx;
+      this.pintar();
+      this.enLista('a');
+    }
   }
 
   private readonly enLista = (a: AccionEntrada): void => {
@@ -151,6 +166,7 @@ export class Sobres extends Phaser.Scene {
       this.recEse.poner(String(estado.esencia));
     } else this.recursos.poner(`${t('rec.monedas', { n: estado.monedas })} · ${t('rec.esencia', { n: estado.esencia })}`);
     this.colores.clear();
+    this.colores.fillStyle(0xfde9c8, 1).fillRoundedRect(6, Y0 + (this.sel - this.scroll) * ALTO_FILA, 112, ALTO_FILA, 3);
     for (let k = 0; k < FILAS; k++) {
       const i = this.scroll + k;
       const s = lista[i];
@@ -170,12 +186,13 @@ export class Sobres extends Phaser.Scene {
       // Miniatura del sobre, o una muestra de su color si falta el dibujo.
       const mini = this.minis[k];
       if (mini && hayArte(this, `${claveSobre(s.id)}_mini`)) mini.setTexture(`ui_${claveSobre(s.id)}_mini`).setVisible(true);
-      else this.colores.fillStyle(colorSobre(s), 1).fillRoundedRect(15, 26 + k * 11, 5, 7, 1);
+      else this.colores.fillStyle(colorSobre(s), 1).fillRoundedRect(8, Y0 + k * ALTO_FILA + 3, 14, 16, 2);
     }
-    if (this.scroll > 0) this.colores.fillStyle(n(C.tintaSuave), 1).fillTriangle(62, 23, 66, 23, 64, 21);
-    if (this.scroll + FILAS < lista.length) this.colores.fillStyle(n(C.tintaSuave), 1).fillTriangle(62, 109, 66, 109, 64, 111);
-    const y = 27 + (this.sel - this.scroll) * 11;
-    this.cursor.clear().fillStyle(n(C.resalte), 1).fillTriangle(9, y, 9, y + 6, 13, y + 3);
+    if (this.scroll > 0) this.colores.fillStyle(n(C.tintaSuave), 1).fillTriangle(119, 24, 123, 24, 121, 21);
+    if (this.scroll + FILAS < lista.length) this.colores.fillStyle(n(C.tintaSuave), 1).fillTriangle(119, 108, 123, 108, 121, 111);
+    // La fila elegida lleva un marco dorado alrededor.
+    const ys = Y0 + (this.sel - this.scroll) * ALTO_FILA;
+    this.cursor.clear().lineStyle(1.4, n(C.resalte), 1).strokeRoundedRect(6, ys, 112, ALTO_FILA, 3);
     this.puntero?.marcar(this.sel, this.nombres[this.sel - this.scroll]?.imagen);
 
     const def = DATOS.sobres.sobres[this.sel]!;
@@ -225,27 +242,27 @@ export class Sobres extends Phaser.Scene {
     const rotulo = new Texto(this, 0, 6, 240, 14, '#ffffff', 'centro', { tam: 11, peso: 600 }).poner(titulo);
     const pie = new Texto(this, 0, 146, 240, 10, '#ffffff', 'centro');
 
-    // El sobre dibujado por el autor, a 3× (88 px de alto → 66 del mundo); si falta, uno por código.
+    // El sobre dibujado por el autor, a 5× en pantalla (88 px de alto → 110 del mundo); si falta, uno por código.
     const sobre: Phaser.GameObjects.Image | Phaser.GameObjects.Graphics =
-      pieza(this, claveSobre(id), 120, 82, 66) ??
+      pieza(this, claveSobre(id), 120, 82, 110) ??
       this.add
         .graphics()
         .setPosition(120, 82)
         .fillStyle(0x10142c, 1)
-        .fillRoundedRect(-25, -35, 50, 70, 5)
+        .fillRoundedRect(-40, -56, 80, 112, 7)
         .fillStyle(color, 1)
-        .fillRoundedRect(-23, -33, 46, 66, 4)
+        .fillRoundedRect(-37, -53, 74, 106, 6)
         .fillStyle(0xffffff, 0.35)
-        .fillRoundedRect(-23, -33, 46, 16, 4)
+        .fillRoundedRect(-37, -53, 74, 26, 6)
         .fillStyle(0xffffff, 0.9)
-        .fillCircle(0, 4, 9)
+        .fillCircle(0, 6, 14)
         .fillStyle(color, 1)
-        .fillCircle(0, 4, 5);
+        .fillCircle(0, 6, 8);
     sonido.tocar('estado');
     await this.tw({ targets: sobre, angle: { from: -7, to: 7 }, duration: 90, yoyo: true, repeat: 4 });
     sonido.tocar('final');
     this.cameras.main.flash(220, 255, 255, 255);
-    await this.tw({ targets: sobre, scaleX: 1.6, scaleY: 1.6, alpha: 0, duration: 200 });
+    await this.tw({ targets: sobre, scaleX: 1.35, scaleY: 1.35, alpha: 0, duration: 200 });
     sobre.destroy();
 
     const mazo = cartas.map((_, i) => {
@@ -275,14 +292,37 @@ export class Sobres extends Phaser.Scene {
       cont.removeAll(true);
       this.cara(cont, carta);
       const buena = carta.rareza === 'rara' || carta.rareza === 'epica' || (carta.clase === 'criatura' && carta.brillante);
-      sonido.tocar(buena ? 'victoria' : carta.clase === 'criatura' && carta.resultado === 'repetida' ? 'cursor' : 'sube');
-      if (buena) this.cameras.main.flash(180, 255, 240, 180);
+      this.avisoCarta(carta, buena);
       await this.tw({ targets: cont, scaleX: 1, duration: 130 });
       if (buena) await this.tw({ targets: cont, scaleX: 1.08, scaleY: 1.08, duration: 110, yoyo: true });
     }
     rotulo.poner(titulo);
     pie.poner(t('sobres.continuar'));
     await this.esperarA();
+  }
+
+  /**
+   * Flash y sonido al dar vuelta una carta: toda carta destella (más fuerte cuanto más rara) y suena distinto
+   * si es un ítem, una criatura nueva o repetida, o un hallazgo (Rara, Épica o brillante).
+   */
+  private avisoCarta(carta: Carta, buena: boolean): void {
+    const cam = this.cameras.main;
+    const repetida = carta.clase === 'criatura' && carta.resultado === 'repetida';
+    if (buena) {
+      sonido.tocar('tesoro');
+      if (carta.rareza === 'epica') cam.flash(380, 255, 225, 140);
+      else if (carta.clase === 'criatura' && carta.brillante) cam.flash(340, 255, 245, 190);
+      else cam.flash(260, 150, 205, 255);
+    } else if (carta.clase === 'item') {
+      sonido.tocar('objeto');
+      cam.flash(150, 255, 255, 255);
+    } else if (repetida) {
+      sonido.tocar('cursor');
+      cam.flash(90, 255, 255, 255);
+    } else {
+      sonido.tocar('revela');
+      cam.flash(170, 255, 255, 255);
+    }
   }
 
   /** Dorso de carta (la ilustración, o uno dibujado si falta). */

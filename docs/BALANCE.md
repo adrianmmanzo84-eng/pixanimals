@@ -89,7 +89,7 @@ Valores en `src/data/sobres.json` y `src/data/economia.json`.
 | --- | --- |
 | Cartas por sobre | 3 (solo etapas 1) |
 | Sobre Básico / Elemental / Raro | 100 / 250 / 600 monedas |
-| Sobre Básico gratis | 1 cada 4 horas, acumula hasta 2 |
+| Sobre Básico gratis | 1 cada 4 horas, no se acumula (máximo 1 guardado) |
 | Variante brillante | 1 de cada 64 cartas |
 | Pity | Rara garantizada tras 10 sobres sin Rara; Épica tras 40 sin Épica |
 | Monedas iniciales | 200 |

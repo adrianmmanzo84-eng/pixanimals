@@ -45,6 +45,9 @@ export class Ruleta extends Phaser.Scene {
   private rueda!: Phaser.GameObjects.Container;
   private estadoTxt!: Texto;
   private boton!: Texto;
+  private ayuda!: Texto;
+  /** Sobre ganado en este giro (se puede abrir en el momento). */
+  private sobreGanado = '';
   private botonG!: Phaser.GameObjects.Graphics;
   private girando = false;
   private terminado = false;
@@ -79,7 +82,7 @@ export class Ruleta extends Phaser.Scene {
     new Texto(this, 141, 78, 92, 10, C.tintaSuave, 'centro', { tam: 6.4 }).poner(t('rul.puedes'));
     const lista = new Texto(this, 143, 88, 92, 60, C.tinta, 'izq', { tam: 5.6 });
     lista.poner(DATOS.economia.ruleta.segmentos.map((s) => '· ' + textoPremioRuleta(s.premio)).join('\n'));
-    new Texto(this, 0, 150, 138, 10, '#ffffff', 'centro', { tam: 6.4, borde: '#2b3a78' }).poner(t('rul.ayuda'));
+    this.ayuda = new Texto(this, 0, 150, 138, 10, '#ffffff', 'centro', { tam: 6.4, borde: '#2b3a78' }).poner(t('rul.ayuda'));
 
     // Tocar la rueda o el botón confirma como A (la pantalla emite el toque); las zonas dan la mano de clic.
     const puntero = new Puntero(this);
@@ -157,7 +160,7 @@ export class Ruleta extends Phaser.Scene {
     const activo = (libre && !this.girando) || this.terminado;
     this.botonG.clear().fillStyle(0x1f2340, 1).fillRoundedRect(153, 57, 68, 16, 4);
     this.botonG.fillStyle(activo ? n(C.resalte) : 0x8a90a8, 1).fillRoundedRect(154, 58, 66, 14, 3.5);
-    this.boton.poner(this.terminado ? t('rul.volver') : t('rul.girar'));
+    this.boton.poner(this.terminado ? (this.sobreGanado ? t('rul.abrir') : t('rul.volver')) : t('rul.girar'));
   }
 
   private cuenta(): { h: number; m: number } {
@@ -167,6 +170,12 @@ export class Ruleta extends Phaser.Scene {
 
   private alPulsar(a: AccionEntrada): void {
     if (this.girando) return;
+    // Con un sobre ganado, A lo abre ahora mismo; B lo deja guardado (queda en Sobres para abrir gratis).
+    if (a === 'a' && this.terminado && this.sobreGanado) {
+      sonido.tocar('aceptar');
+      this.scene.start('Sobres', { abrir: this.sobreGanado });
+      return;
+    }
     if (a === 'b' || (a === 'a' && this.terminado)) {
       sonido.tocar('cancelar');
       this.scene.start('Menu', {});
@@ -223,6 +232,8 @@ export class Ruleta extends Phaser.Scene {
     this.terminado = true;
     this.estadoTxt.poner(t('rul.gano', { p: textoPremioRuleta(seg.premio).replace(' + ', ' +\n') }), C.resalte);
     saltito(this, this.estadoTxt.imagen);
+    this.sobreGanado = seg.premio.sobre ?? '';
+    if (this.sobreGanado) this.ayuda.poner(t('rul.ayudaSobre'));
     this.pintarEstado();
   }
 }

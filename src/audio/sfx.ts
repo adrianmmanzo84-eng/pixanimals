@@ -39,6 +39,13 @@ const EFECTOS: Record<string, Nota[]> = {
     { onda: 'triangle', f: 880, dur: 0.09, vol: 0.28, t: 0.57 },
     { onda: 'triangle', f: 1320, dur: 0.2, vol: 0.28, t: 0.66 },
   ],
+  // Sobres: cada carta que se da vuelta suena distinto según lo que sea.
+  revela: [{ onda: 'triangle', f: 660, f2: 1320, dur: 0.14, vol: 0.3 }, { onda: 'square', f: 1320, dur: 0.08, vol: 0.16, t: 0.1 }],
+  objeto: [{ onda: 'square', f: 988, dur: 0.05, vol: 0.24 }, { onda: 'square', f: 1319, dur: 0.14, vol: 0.24, t: 0.05 }],
+  tesoro: [
+    ...[0, 1, 2, 3, 4, 5, 6, 7].map((i) => ({ onda: 'square' as const, f: [523, 659, 784, 1047, 1319, 1568, 2093, 1568][i]!, dur: i === 7 ? 0.3 : 0.07, t: i * 0.07, vol: 0.26 })),
+    { onda: 'ruido' as const, f: 0, dur: 0.4, vol: 0.1, t: 0.2 },
+  ],
   victoria: [0, 1, 2, 3, 4, 5].map((i) => ({ onda: 'square' as const, f: [523, 659, 784, 1047, 784, 1047][i]!, dur: i === 5 ? 0.3 : 0.1, t: i * 0.1 })),
   derrota: [0, 1, 2, 3].map((i) => ({ onda: 'triangle' as const, f: [392, 330, 262, 196][i]!, dur: i === 3 ? 0.4 : 0.16, t: i * 0.16 })),
 };

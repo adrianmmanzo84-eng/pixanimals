@@ -181,21 +181,24 @@ describe('sobres', () => {
     expect([...etapas].sort()).toEqual([1, 2]);
     expect(items).toBeGreaterThan(0);
   });
-  it('sobre gratis: 1 al empezar, otro cada 4 horas, máximo 2 acumulados', () => {
+  it('sobre gratis: 1 al empezar, otro cada 4 horas y nunca más de 1 guardado', () => {
     const e = estadoNuevo(DATOS, 0);
     expect(sobresGratis(DATOS, e, 0).disponibles).toBe(1);
     expect(costoDe(DATOS, e, 'basico', 0)).toMatchObject({ gratis: true, costo: 0, puede: true });
     const monedas = e.monedas;
     abrirSobre(DATOS, e, 'basico', new Rng(1), 0);
     expect(e.monedas).toBe(monedas);
+    // Ya usado: no se puede volver a abrir gratis hasta que pasen las 4 horas.
+    expect(costoDe(DATOS, e, 'basico', 0).gratis).toBe(false);
     expect(sobresGratis(DATOS, e, HORA).disponibles).toBe(0);
     expect(sobresGratis(DATOS, e, HORA).faltaMs).toBe(3 * HORA);
     expect(sobresGratis(DATOS, e, 4 * HORA).disponibles).toBe(1);
-    expect(sobresGratis(DATOS, e, 100 * HORA).disponibles).toBe(2);
-    abrirSobre(DATOS, e, 'basico', new Rng(2), 100 * HORA);
+    // Aunque pase mucho tiempo, no se acumulan: sigue habiendo uno solo.
     expect(sobresGratis(DATOS, e, 100 * HORA).disponibles).toBe(1);
-    expect(sobresGratis(DATOS, e, 103 * HORA).disponibles).toBe(1);
-    expect(sobresGratis(DATOS, e, 104 * HORA).disponibles).toBe(2);
+    abrirSobre(DATOS, e, 'basico', new Rng(2), 100 * HORA);
+    expect(sobresGratis(DATOS, e, 100 * HORA).disponibles).toBe(0);
+    expect(sobresGratis(DATOS, e, 103 * HORA).disponibles).toBe(0);
+    expect(sobresGratis(DATOS, e, 104 * HORA).disponibles).toBe(1);
   });
   it('bienvenida: una de cada familia, todas nuevas y al equipo', () => {
     const e = estadoNuevo(DATOS, 0);

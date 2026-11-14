@@ -8,7 +8,7 @@ import { sonido } from '../../audio/sfx';
 import { musica } from '../../audio/musica';
 import { t } from '../../i18n/i18n';
 import { juego } from '../../juego';
-import { C, prepararCamara, ventana } from '../../ui/estilo';
+import { C, n, prepararCamara, ventana } from '../../ui/estilo';
 import { fondo, type FondoId } from '../../ui/fondos';
 import { partir, Texto } from '../../ui/texto';
 
@@ -27,6 +27,8 @@ export abstract class MinijuegoBase extends Phaser.Scene {
   protected marcador!: Texto;
   protected info!: Texto;
   private fin = false;
+  private pausado = false;
+  private capaPausa: Phaser.GameObjects.Container | null = null;
 
   protected abstract readonly id: MinijuegoId;
   protected abstract readonly arena: FondoId;
@@ -43,6 +45,8 @@ export abstract class MinijuegoBase extends Phaser.Scene {
     this.especie = d?.especie ?? juego.estado.equipo[0] ?? '';
     this.jugando = false;
     this.fin = false;
+    this.pausado = false;
+    this.capaPausa = null;
   }
 
   create(): void {
@@ -57,11 +61,9 @@ export abstract class MinijuegoBase extends Phaser.Scene {
     new Texto(this, 8, 5, 120, 10, C.tinta, 'izq', { peso: 600 }).poner(t(`mj.${this.id}`));
     this.marcador = new Texto(this, 120, 5, 112, 10, C.resalte, 'der', { peso: 600 });
     this.info = new Texto(this, 0, 146, 240, 10, '#ffffff', 'centro', { borde: '#2b3a78' });
+    new Texto(this, 4, 152, 70, 8, '#ffffff', 'izq', { tam: 5.6, borde: '#2b3a78' }).poner(t('mj.pausaAyuda'));
     this.preparar();
-    Entrada.escuchar((a) => {
-      if (this.jugando) this.tecla(a);
-      else if (!this.fin && a === 'b') this.salir();
-    });
+    this.escucharPartida();
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => Entrada.escuchar(null));
     void this.cuenta();
   }
@@ -134,6 +136,67 @@ export abstract class MinijuegoBase extends Phaser.Scene {
         sonido.tocar('aceptar');
         this.scene.restart({ especie: this.especie });
       } else if (a === 'b') this.salir();
+    });
+  }
+
+  /**
+   * Pausa: congela la escena (el tiempo, los tweens y `update`) y muestra Continuar / Salir.
+   * Arriba/abajo eligen, A acepta y B continúa.
+   */
+  private pausar(): void {
+    if (this.pausado || this.fin) return;
+    this.pausado = true;
+    sonido.tocar('aceptar');
+    const capa = this.add.container(0, 0).setDepth(1000);
+    this.capaPausa = capa;
+    const velo = this.add.graphics().fillStyle(0x141830, 0.7).fillRect(0, 0, 240, 160);
+    const marco = this.add.graphics();
+    ventana(marco, 50, 34, 140, 92);
+    const cursor = this.add.graphics();
+    capa.add([velo, marco, cursor]);
+    capa.add(new Texto(this, 50, 40, 140, 14, '#257179', 'centro', { tam: 10, peso: 600 }).poner(t('mj.pausa')).imagen);
+    const opciones = [t('mj.continuar'), t('mj.salir')];
+    const textos = opciones.map((o, i) => {
+      const tx = new Texto(this, 58, 62 + i * 22, 124, 12, C.tinta, 'centro', { tam: 8, peso: 600 }).poner(o);
+      capa.add(tx.imagen);
+      return tx;
+    });
+    capa.add(new Texto(this, 50, 108, 140, 10, C.tintaSuave, 'centro', { tam: 6 }).poner(t('mj.pausaNota')).imagen);
+    let sel = 0;
+    const pintar = () => {
+      cursor.clear().fillStyle(0xfde9c8, 1).fillRoundedRect(58, 59 + sel * 22, 124, 18, 4).lineStyle(1.4, n(C.resalte), 1).strokeRoundedRect(58, 59 + sel * 22, 124, 18, 4);
+      textos.forEach((tx, i) => tx.poner(opciones[i]!, i === sel ? C.resalte : C.tinta));
+    };
+    pintar();
+    const continuar = () => {
+      this.pausado = false;
+      this.capaPausa?.destroy(true);
+      this.capaPausa = null;
+      sonido.tocar('cancelar');
+      this.scene.resume();
+    };
+    Entrada.escuchar((a) => {
+      if (a === 'arriba' || a === 'abajo') {
+        sel = 1 - sel;
+        sonido.tocar('cursor');
+        pintar();
+      } else if (a === 'b' || (a === 'a' && sel === 0)) {
+        continuar();
+        this.escucharPartida();
+      } else if (a === 'a') {
+        this.scene.resume();
+        this.salir();
+      }
+    });
+    this.scene.pause();
+  }
+
+  /** Teclado de la partida: B (o Esc) abre la pausa, en la cuenta regresiva y jugando; el resto va al minijuego. */
+  private escucharPartida(): void {
+    Entrada.escuchar((a) => {
+      if (this.fin) return;
+      if (a === 'b') this.pausar();
+      else if (this.jugando) this.tecla(a);
     });
   }
 
