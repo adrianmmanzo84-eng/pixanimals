@@ -17,7 +17,7 @@ import { partir, Texto } from '../ui/texto';
 const VISIBLES = 3;
 type Fila = (Criatura | null)[];
 
-/** Bestiario: una fila por familia y una columna por etapa. Lo no visto es un signo de pregunta; lo visto, una silueta. Con más de 3 familias, se desplaza. */
+/** Bestiario: una fila por familia y una columna por etapa. Lo no visto es una silueta negra; lo visto, la criatura a medio color; lo capturado, a todo color. Con más de 3 familias, se desplaza. */
 export class Bestiario extends Phaser.Scene {
   /** Fila y columna elegidas en la cuadrícula completa. */
   private fila = 0;
@@ -109,8 +109,8 @@ export class Bestiario extends Phaser.Scene {
         if (mia) {
           miniatura(this.add.image(x, y, textura(c.id, 'frente', mia.brillante)), c.id, 24, 0.5);
           if (mia.brillante) pieza(this, 'brillante', x + 9, y - 9, 8);
-        } else if (estado.vistas.includes(c.id)) miniatura(this.add.image(x, y, textura(c.id, 'silueta')), c.id, 24, 0.5);
-        else if (!pieza(this, 'candado_no_descubierta', x, y, 16)) new Texto(this, x - 13, y - 7, 26, 14, C.apagado, 'centro', { tam: 11, peso: 600 }).poner('?');
+        } else if (estado.vistas.includes(c.id)) miniatura(this.add.image(x, y, textura(c.id, 'frente')), c.id, 24, 0.5).setAlpha(0.5);
+        else miniatura(this.add.image(x, y, textura(c.id, 'negra')), c.id, 24, 0.5);
       }),
     );
     if (this.scroll > 0) g.fillStyle(n(C.tintaSuave), 1).fillTriangle(64, 19, 68, 19, 66, 17);

@@ -26,6 +26,8 @@ export abstract class MinijuegoBase extends Phaser.Scene {
   protected jugando = false;
   protected marcador!: Texto;
   protected info!: Texto;
+  /** La criatura en pantalla (cada minijuego la crea); la usa el festejo final. */
+  protected yo: Phaser.GameObjects.Sprite | null = null;
   private fin = false;
   private pausado = false;
   private capaPausa: Phaser.GameObjects.Container | null = null;
@@ -47,6 +49,7 @@ export abstract class MinijuegoBase extends Phaser.Scene {
     this.fin = false;
     this.pausado = false;
     this.capaPausa = null;
+    this.yo = null;
   }
 
   create(): void {
@@ -107,8 +110,81 @@ export abstract class MinijuegoBase extends Phaser.Scene {
     const r = terminarMinijuego(DATOS, juego.estado, this.id, this.especie, puntaje, valor, Date.now());
     juego.guardar();
     musica.tocar(puntaje > 0 ? 'victoria' : 'derrota');
-    await this.esperar(500);
+    if (puntaje > 0) await this.festejar(puntaje, r.record);
+    else await this.lamentar();
     this.mostrarResultado(r, textoValor);
+  }
+
+  /** La criatura salta y grita; cuanto mejor el puntaje, más saltos y más papelitos. Con récord, además, un cartel. */
+  private async festejar(puntaje: number, record: boolean): Promise<void> {
+    sonido.tocar('festejo');
+    this.time.delayedCall(450, () => sonido.grito(this.especie));
+    this.confeti(Math.round(18 + 42 * puntaje));
+    this.cameras.main.flash(180, 255, 255, 255);
+    if (record) {
+      const r = new Texto(this, 0, 22, 240, 16, '#f5e070', 'centro', { tam: 11, peso: 600, borde: '#2b3a78' }).poner(t('mj.record'));
+      r.imagen.setDepth(600);
+      this.tweens.add({ targets: r.imagen, y: { from: 8, to: 22 }, alpha: { from: 0, to: 1 }, duration: 300, ease: 'Back.easeOut' });
+    }
+    const yo = this.yo;
+    if (yo) {
+      const y0 = yo.y;
+      const saltos = 1 + Math.round(puntaje * 2);
+      this.tweens.add({ targets: yo, y: y0 - 14, duration: 170, yoyo: true, repeat: saltos - 1, ease: 'Quad.easeOut', onRepeat: () => sonido.tocar('salto') });
+      sonido.tocar('salto');
+      this.destellos(yo.x, yo.y - yo.displayHeight * yo.originY + yo.displayHeight / 2);
+    }
+    await this.esperar(1300);
+  }
+
+  /** Sin puntos: la criatura se encoge, niega con la cabeza y suena una melodía que baja. */
+  private async lamentar(): Promise<void> {
+    sonido.tocar('pierde');
+    this.time.delayedCall(550, () => sonido.grito(this.especie, false));
+    const yo = this.yo;
+    if (yo) {
+      const x0 = yo.x;
+      this.tweens.add({ targets: yo, x: x0 + 3, duration: 70, yoyo: true, repeat: 3, onComplete: () => yo.setX(x0) });
+      this.tweens.add({ targets: yo, scaleY: yo.scaleY * 0.85, duration: 300, delay: 350, ease: 'Quad.easeOut' });
+      this.tweens.add({ targets: yo, alpha: 0.7, duration: 300, delay: 350 });
+    }
+    await this.esperar(1000);
+  }
+
+  /** Papelitos de colores que caen girando sobre toda la pantalla (también sobre el cartel del resultado). */
+  protected confeti(cantidad: number): void {
+    const colores = [0xd0425a, 0x3f9be8, 0x3fbf6a, 0xf5b942, 0xb46fe0, 0xffffff];
+    for (let i = 0; i < cantidad; i++) {
+      const x = Math.random() * 240;
+      const p = this.add.rectangle(x, -4 - Math.random() * 40, 2 + Math.round(Math.random()), 3, colores[i % colores.length]!).setDepth(700);
+      this.tweens.add({
+        targets: p,
+        y: 170,
+        x: x + (Math.random() - 0.5) * 50,
+        angle: (Math.random() - 0.5) * 720,
+        duration: 1400 + Math.random() * 1200,
+        delay: Math.random() * 500,
+        ease: 'Sine.easeIn',
+        onComplete: () => p.destroy(),
+      });
+    }
+  }
+
+  /** Estrellitas que salen disparadas alrededor de un punto. */
+  protected destellos(x: number, y: number, cantidad = 10): void {
+    for (let i = 0; i < cantidad; i++) {
+      const a = (i / cantidad) * Math.PI * 2;
+      const p = this.add.rectangle(x, y, 3, 3, i % 2 ? 0xf5e070 : 0xffffff).setDepth(650).setAngle(45);
+      this.tweens.add({ targets: p, x: x + Math.cos(a) * 26, y: y + Math.sin(a) * 22, alpha: 0, scale: 0.4, duration: 520, ease: 'Quad.easeOut', onComplete: () => p.destroy() });
+    }
+  }
+
+  /** Saltito con sonido (al acertar una ronda). */
+  protected saltito(alto = 10): void {
+    const yo = this.yo;
+    if (!yo || this.tweens.isTweening(yo)) return;
+    sonido.tocar('salto');
+    this.tweens.add({ targets: yo, y: yo.y - alto, duration: 130, yoyo: true, ease: 'Quad.easeOut' });
   }
 
   private mostrarResultado(r: ResultadoMinijuego, textoValor: string): void {

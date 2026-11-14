@@ -38,7 +38,6 @@ const IMPULSO = 190;
 export class MiniBayas extends MinijuegoBase {
   protected readonly id: MinijuegoId = 'bayas';
   protected readonly arena = 'pradera' as const;
-  private yo!: Phaser.GameObjects.Sprite;
   private cosas: Cosa[] = [];
   private tiempo = 0;
   private proxima = 0;
@@ -81,7 +80,7 @@ export class MiniBayas extends MinijuegoBase {
     this.derecha = false;
     this.yo = this.add.sprite(120, SUELO, textura(this.especie, 'icono'), 0).setOrigin(0.5, 1);
     let cuadro = 0;
-    this.time.addEvent({ delay: 300, loop: true, callback: () => this.yo.setFrame((cuadro ^= 1)) });
+    this.time.addEvent({ delay: 300, loop: true, callback: () => this.yo!.setFrame((cuadro ^= 1)) });
     this.pintarMarcador();
   }
 
@@ -99,7 +98,7 @@ export class MiniBayas extends MinijuegoBase {
     for (const r of [...this.rodantes]) {
       r.img.x += r.vx * dt;
       r.img.rotation += (r.vx / 6) * dt;
-      const choca = this.aturdido <= 0 && this.altura < 10 && Math.abs(r.img.x - this.yo.x) < 12;
+      const choca = this.aturdido <= 0 && this.altura < 10 && Math.abs(r.img.x - this.yo!.x) < 12;
       if (choca) {
         this.puntos = Math.max(0, this.puntos - 2);
         this.aturdido = 0.7;
@@ -131,9 +130,9 @@ export class MiniBayas extends MinijuegoBase {
   }
 
   private mover(dx: number): void {
-    this.yo.x = Math.max(14, Math.min(226, this.yo.x + dx));
+    this.yo!.x = Math.max(14, Math.min(226, this.yo!.x + dx));
     this.derecha = dx > 0;
-    this.yo.setFlipX(this.derecha);
+    this.yo!.setFlipX(this.derecha);
   }
 
   protected override paso(dt: number): void {
@@ -141,8 +140,8 @@ export class MiniBayas extends MinijuegoBase {
     const avance = Math.min(1, this.tiempo / DURACION);
     if (this.aturdido > 0) {
       this.aturdido -= dt;
-      this.yo.setAlpha(Math.floor(this.aturdido * 12) % 2 ? 0.4 : 1);
-      if (this.aturdido <= 0) this.yo.setAlpha(1);
+      this.yo!.setAlpha(Math.floor(this.aturdido * 12) % 2 ? 0.4 : 1);
+      if (this.aturdido <= 0) this.yo!.setAlpha(1);
     } else {
       const v = 120 * dt;
       if (Entrada.apretada('izquierda')) this.mover(-v);
@@ -154,7 +153,7 @@ export class MiniBayas extends MinijuegoBase {
       this.altura = Math.max(0, this.altura - this.vy * dt);
       if (this.altura === 0) this.vy = 0;
     }
-    this.yo.y = SUELO - this.altura;
+    this.yo!.y = SUELO - this.altura;
     this.paseRodantes(dt, avance);
 
     this.proxima -= dt;
@@ -168,7 +167,7 @@ export class MiniBayas extends MinijuegoBase {
 
     for (const c of [...this.cosas]) {
       c.img.y += c.vy * dt;
-      const atrapada = c.img.y > this.yo.y - 26 && c.img.y < this.yo.y && Math.abs(c.img.x - this.yo.x) < 15 && this.aturdido <= 0;
+      const atrapada = c.img.y > this.yo!.y - 26 && c.img.y < this.yo!.y && Math.abs(c.img.x - this.yo!.x) < 15 && this.aturdido <= 0;
       if (atrapada) {
         if (c.tipo === 'piedra') {
           this.puntos = Math.max(0, this.puntos - 2);
@@ -178,7 +177,7 @@ export class MiniBayas extends MinijuegoBase {
         } else {
           this.puntos += c.tipo === 'dorada' ? 3 : 1;
           sonido.tocar('atrapa');
-          this.tweens.add({ targets: this.yo, scaleY: 0.85, duration: 60, yoyo: true });
+          this.tweens.add({ targets: this.yo!, scaleY: 0.85, duration: 60, yoyo: true });
         }
       }
       if (atrapada || c.img.y > 150) {

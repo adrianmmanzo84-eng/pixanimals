@@ -40,7 +40,7 @@ export class MiniEco extends MinijuegoBase {
     this.secuencia = [];
     this.logrado = 0;
     this.escuchando = false;
-    this.add.sprite(120, 80, textura(this.especie, 'icono'), 0).setScale(0.75);
+    this.yo = this.add.sprite(120, 80, textura(this.especie, 'icono'), 0).setScale(0.75);
     this.pintar(-1);
     this.marcador.poner(t('mj.eco.marcador', { n: 0 }));
   }
@@ -105,6 +105,11 @@ export class MiniEco extends MinijuegoBase {
       this.escuchando = false;
       this.logrado = this.secuencia.length;
       this.marcador.poner(t('mj.eco.marcador', { n: this.logrado }));
+      // Ronda superada: la criatura salta y festeja con su grito.
+      this.saltito(12);
+      this.time.delayedCall(120, () => sonido.grito(this.especie));
+      this.destellos(120, 80, 8);
+      this.info.poner(t('mj.eco.bien'));
       if (this.logrado >= MAXIMO) {
         void this.terminar(1, this.logrado, t('mj.eco.fin', { n: this.logrado }));
         return;

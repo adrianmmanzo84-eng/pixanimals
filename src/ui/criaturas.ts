@@ -12,9 +12,10 @@ export function estrellas(rareza: RarezaId): string {
 }
 
 /** Clave de textura de una criatura. vista: frente | espalda | icono | silueta */
-export function textura(idEspecie: string, vista: 'frente' | 'espalda' | 'icono' | 'silueta' | 'blanca', brillante = false): string {
+export function textura(idEspecie: string, vista: 'frente' | 'espalda' | 'icono' | 'silueta' | 'negra' | 'blanca', brillante = false): string {
   const base = DATOS.criaturas.get(idEspecie)!.sprites;
   if (vista === 'silueta') return `${base}_frente_s`;
+  if (vista === 'negra') return `${base}_frente_n`;
   if (vista === 'blanca') return `${base}_frente_w`;
   return `${base}_${vista}${brillante && vista !== 'icono' ? '_b' : ''}`;
 }
@@ -115,6 +116,12 @@ export function prepararTexturasCriaturas(escena: Phaser.Scene): void {
       d[i] = 0x2b;
       d[i + 1] = 0x3a;
       d[i + 2] = 0x78;
+    });
+    // Silueta negra para lo que el Bestiario todavía no descubrió.
+    derivar(escena, `${c.sprites}_frente`, '_n', (d, i) => {
+      d[i] = 0x10;
+      d[i + 1] = 0x12;
+      d[i + 2] = 0x1c;
     });
     // Silueta blanca para el parpadeo de la evolución.
     derivar(escena, `${c.sprites}_frente`, '_w', (d, i) => {

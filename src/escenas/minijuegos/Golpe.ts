@@ -18,7 +18,6 @@ export class MiniGolpe extends MinijuegoBase {
   protected readonly id: MinijuegoId = 'golpe';
   protected readonly arena = 'volcan' as const;
   private g!: Phaser.GameObjects.Graphics;
-  private yo!: Phaser.GameObjects.Sprite;
   private aviso!: Texto;
   private ronda = 0;
   private puntos = 0;
@@ -82,7 +81,19 @@ export class MiniGolpe extends MinijuegoBase {
     this.puntos += pts;
     this.aviso.poner(t(pts === 2 ? 'mj.golpe.perfecto' : pts === 1 ? 'mj.golpe.bien' : 'mj.golpe.fallo'));
     sonido.tocar(pts === 2 ? 'sube' : pts === 1 ? 'atrapa' : 'negado');
-    if (pts > 0) this.tweens.add({ targets: this.yo, y: 60, duration: 120, yoyo: true, ease: 'Quad.easeOut' });
+    if (pts > 0) {
+      this.saltito(pts === 2 ? 14 : 8);
+      this.destellos(this.x, Y, pts === 2 ? 12 : 6);
+    }
+    if (pts === 2) {
+      this.time.delayedCall(110, () => sonido.tocar('chispa'));
+      this.time.delayedCall(200, () => sonido.grito(this.especie));
+      this.cameras.main.flash(90, 255, 240, 160);
+    }
+    if (pts === 0 && this.yo) {
+      const yo = this.yo;
+      this.tweens.add({ targets: yo, x: 123, duration: 60, yoyo: true, repeat: 2, onComplete: () => yo.setX(120) });
+    }
     this.marcador.poner(t('mj.golpe.marcador', { r: this.ronda, t: RONDAS, n: this.puntos }));
     this.time.delayedCall(650, () => {
       this.aviso.poner('');

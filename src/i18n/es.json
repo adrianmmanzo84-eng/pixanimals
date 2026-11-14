@@ -283,6 +283,7 @@
   "mj.eco.marcador": "Secuencia: {n}",
   "mj.eco.mira": "Mira…",
   "mj.eco.tu": "¡Tu turno!",
+  "mj.eco.bien": "¡Bien!",
   "mj.eco.fin": "Repetiste {n} flechas",
   "mj.golpe": "Golpe Justo",
   "mj.golpe.desc": "Frena el marcador con A dentro de la franja verde; el centro amarillo vale doble.",
