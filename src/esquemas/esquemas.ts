@@ -61,7 +61,9 @@ export const CriaturaZ = z.object({
   /** Evoluciones posibles: a qué especie, desde qué nivel y, en las ramas, qué ítem hace falta. */
   evoluciona: z.array(z.object({ a: z.string(), nivel: z.number().int().min(2).max(100), item: z.string().optional() })).default([]),
   /** Prefijo de archivo: <sprites>_frente.png, <sprites>_espalda.png, <sprites>_icono.png */
-  sprites: z.string().regex(/^[a-z]+_[0-9][a-z]?$/),
+  sprites: z.string().regex(/^[a-z]+_[0-9]+[a-z]?$/),
+  /** Jefes: no se capturan, no salen en sobres y no están en el Bestiario ni en el Álbum. `semanal` o `guardian` (Torre). */
+  jefe: z.enum(['semanal', 'guardian']).optional(),
 });
 
 export const TiposZ = z.object({
@@ -182,6 +184,8 @@ export const EconomiaZ = z.object({
     sobreJefe: z.string(),
     cadaSobreGrande: z.number().int().min(2),
     sobreGrande: z.string(),
+    /** Guardianes: piso → id del jefe de evento que reemplaza al jefe normal de ese piso. */
+    guardianes: z.record(z.string(), z.string()),
     /** IA por piso: hasta `hasta` (inclusive) se usa `ia`. */
     ia: z.array(z.object({ hasta: z.number().int().min(1), ia: z.enum(['novata', 'tactica', 'experta']) })).min(1),
   }),
@@ -201,7 +205,7 @@ export const EconomiaZ = z.object({
   /** Medallas: objetivos largos con 3 niveles (bronce, plata, oro). */
   medallas: z.array(
     z.object({
-      id: z.enum(['victorias', 'especies', 'sobres', 'torre', 'brillantes', 'expediciones', 'fusiones', 'impecables']),
+      id: z.enum(['victorias', 'especies', 'sobres', 'torre', 'brillantes', 'expediciones', 'fusiones', 'impecables', 'jefes']),
       metas: z.tuple([z.number().int().min(1), z.number().int().min(1), z.number().int().min(1)]),
     }),
   ),
@@ -296,7 +300,7 @@ export const CriaturaJugadorZ = z.object({
   amuleto: z.string().nullable(),
 });
 export const EstadoJuegoZ = z.object({
-  version: z.literal(6),
+  version: z.literal(7),
   monedas: z.number().int().min(0),
   esencia: z.number().int().min(0),
   criaturas: z.array(CriaturaJugadorZ),
@@ -346,6 +350,8 @@ export const EstadoJuegoZ = z.object({
   semanal: z.object({ semanaCobrada: z.number().int() }),
   /** Último día en que se giró la ruleta diaria. */
   ruleta: z.object({ ultimoDia: z.number().int() }),
+  /** Jefes (semanales y Guardianes) a los que ya les ganaste: cada uno es una insignia. */
+  jefes: z.array(z.string()),
 });
 
 export type RarezaId = z.infer<typeof RarezaIdZ>;

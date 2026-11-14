@@ -1,0 +1,544 @@
+{
+  "criaturas": [
+    {
+      "id": "caldrak",
+      "nombre": "Caldrak",
+      "tipo": "brasa",
+      "familia": "caldrak",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "ultimo_rescoldo",
+      "base": {
+        "ps": 87,
+        "atq": 176,
+        "def": 95,
+        "ate": 122,
+        "dfe": 66,
+        "vel": 94
+      },
+      "habilidades": [
+        "colmillo_igneo",
+        "cornada_ignea",
+        "rugido_de_guerra",
+        "yunque_ardiente"
+      ],
+      "definitivo": "sol_supremo",
+      "descripcion": "Cocodrilo de caldera. Sus escamas de basalto guardan ríos de lava.",
+      "evoluciona": [],
+      "sprites": "jefe_01"
+    },
+    {
+      "id": "ferrandra",
+      "nombre": "Ferrandra",
+      "tipo": "brasa",
+      "familia": "ferrandra",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "fragua_viva",
+      "base": {
+        "ps": 87,
+        "atq": 94,
+        "def": 79,
+        "ate": 154,
+        "dfe": 79,
+        "vel": 107
+      },
+      "habilidades": [
+        "destello_ardiente",
+        "chispa_de_arena",
+        "orejas_al_sol",
+        "vidrio_fundido"
+      ],
+      "definitivo": "corona_negra",
+      "descripcion": "Salamandra de fragua. Su cola enciende el aire como un fuelle.",
+      "evoluciona": [],
+      "sprites": "jefe_02"
+    },
+    {
+      "id": "talasor",
+      "nombre": "Talasor",
+      "tipo": "marea",
+      "familia": "talasor",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "oleaje",
+      "base": {
+        "ps": 96,
+        "atq": 74,
+        "def": 86,
+        "ate": 150,
+        "dfe": 96,
+        "vel": 138
+      },
+      "habilidades": [
+        "mordisco_abisal",
+        "hidroespiral",
+        "coraza_de_sal",
+        "torbellino_abisal"
+      ],
+      "definitivo": "diluvio_abisal",
+      "descripcion": "Morena abisal. Nada en espiral y muerde desde la oscuridad.",
+      "evoluciona": [],
+      "sprites": "jefe_03"
+    },
+    {
+      "id": "borealmo",
+      "nombre": "Borealmo",
+      "tipo": "marea",
+      "familia": "borealmo",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "hielo_artico",
+      "base": {
+        "ps": 91,
+        "atq": 116,
+        "def": 84,
+        "ate": 156,
+        "dfe": 77,
+        "vel": 116
+      },
+      "habilidades": [
+        "mordisco_abisal",
+        "hidroespiral",
+        "marea_viva",
+        "espiral_violeta"
+      ],
+      "definitivo": "remolino_del_vacio",
+      "descripcion": "Morsa glacial. Lenta como un iceberg y igual de difícil de mover.",
+      "evoluciona": [],
+      "sprites": "jefe_04"
+    },
+    {
+      "id": "zarzabal",
+      "nombre": "Zarzabal",
+      "tipo": "brote",
+      "familia": "zarzabal",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "raices",
+      "base": {
+        "ps": 94,
+        "atq": 146,
+        "def": 94,
+        "ate": 94,
+        "dfe": 68,
+        "vel": 104
+      },
+      "habilidades": [
+        "garra_de_espino",
+        "pico_venenoso",
+        "nectar",
+        "alud_de_hongos"
+      ],
+      "definitivo": "bosque_primordial",
+      "descripcion": "Jabalí de zarzas. Embiste sin frenar entre espinas y raíces.",
+      "evoluciona": [],
+      "sprites": "jefe_05"
+    },
+    {
+      "id": "micervido",
+      "nombre": "Micérvido",
+      "tipo": "brote",
+      "familia": "micervido",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "furia_espinosa",
+      "base": {
+        "ps": 77,
+        "atq": 78,
+        "def": 63,
+        "ate": 155,
+        "dfe": 90,
+        "vel": 117
+      },
+      "habilidades": [
+        "hoja_cortante",
+        "lluvia_de_hojas",
+        "savia_vital",
+        "hoja_sombria"
+      ],
+      "definitivo": "espinas_nocturnas",
+      "descripcion": "Ciervo de micelio. Esporas luminosas brotan de su cornamenta.",
+      "evoluciona": [],
+      "sprites": "jefe_06"
+    },
+    {
+      "id": "fulgarok",
+      "nombre": "Fulgarok",
+      "tipo": "rayo",
+      "familia": "fulgarok",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "carga_estatica",
+      "base": {
+        "ps": 110,
+        "atq": 129,
+        "def": 92,
+        "ate": 83,
+        "dfe": 73,
+        "vel": 73
+      },
+      "habilidades": [
+        "cola_de_cuarzo",
+        "zarpa_estatica",
+        "sobrecarga",
+        "embestida_prisma"
+      ],
+      "definitivo": "mil_relampagos",
+      "descripcion": "Bisonte de tormenta. Cada pisada deja un trueno atrás.",
+      "evoluciona": [],
+      "sprites": "jefe_07"
+    },
+    {
+      "id": "najasol",
+      "nombre": "Najasol",
+      "tipo": "rayo",
+      "familia": "najasol",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "pelaje_estatico",
+      "base": {
+        "ps": 81,
+        "atq": 58,
+        "def": 70,
+        "ate": 116,
+        "dfe": 91,
+        "vel": 124
+      },
+      "habilidades": [
+        "descarga",
+        "pluma_electrica",
+        "desplegar_plumas",
+        "rayo_violeta"
+      ],
+      "definitivo": "tormenta_violeta",
+      "descripcion": "Cobra prisma. Descompone la luz en rayos que no se pueden esquivar.",
+      "evoluciona": [],
+      "sprites": "jefe_08"
+    },
+    {
+      "id": "astracorno",
+      "nombre": "Astracorno",
+      "tipo": "roca",
+      "familia": "astracorno",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "piedra_viva",
+      "base": {
+        "ps": 83,
+        "atq": 149,
+        "def": 115,
+        "ate": 111,
+        "dfe": 83,
+        "vel": 99
+      },
+      "habilidades": [
+        "embestida_rocosa",
+        "garra_de_cuarzo",
+        "pulir_escamas",
+        "sismo_cristalino"
+      ],
+      "definitivo": "derrumbe_total",
+      "descripcion": "Íbice meteórico. Sus cuernos son restos de una estrella caída.",
+      "evoluciona": [],
+      "sprites": "jefe_09"
+    },
+    {
+      "id": "geodracnida",
+      "nombre": "Geodrácnida",
+      "tipo": "roca",
+      "familia": "geodracnida",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "geoda_viva",
+      "base": {
+        "ps": 80,
+        "atq": 128,
+        "def": 105,
+        "ate": 106,
+        "dfe": 87,
+        "vel": 74
+      },
+      "habilidades": [
+        "embestida_rocosa",
+        "garra_de_cuarzo",
+        "coraza_de_granito",
+        "amatista_negra"
+      ],
+      "definitivo": "erupcion_de_basalto",
+      "descripcion": "Araña de geoda. Teje redes de cristal dentro de su cueva.",
+      "evoluciona": [],
+      "sprites": "jefe_10"
+    },
+    {
+      "id": "tempestario",
+      "nombre": "Tempestario",
+      "tipo": "cielo",
+      "familia": "tempestario",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "viento_a_favor",
+      "base": {
+        "ps": 107,
+        "atq": 58,
+        "def": 95,
+        "ate": 126,
+        "dfe": 118,
+        "vel": 136
+      },
+      "habilidades": [
+        "viento_cortante",
+        "ala_umbral",
+        "luz_de_aurora",
+        "cielo_desatado"
+      ],
+      "definitivo": "supernova_celeste",
+      "descripcion": "Albatros de tormenta. Vuela sobre el ojo del huracán sin inmutarse.",
+      "evoluciona": [],
+      "sprites": "jefe_11"
+    },
+    {
+      "id": "cicloptero",
+      "nombre": "Ciclóptero",
+      "tipo": "cielo",
+      "familia": "cicloptero",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "vuelo_rasante",
+      "base": {
+        "ps": 87,
+        "atq": 101,
+        "def": 67,
+        "ate": 71,
+        "dfe": 76,
+        "vel": 118
+      },
+      "habilidades": [
+        "latigazo_boreal",
+        "cola_tijera",
+        "corriente_celeste",
+        "zarpa_magenta"
+      ],
+      "definitivo": "guadana_estelar",
+      "descripcion": "Pterosaurio de ciclón. Un solo aleteo arma un remolino.",
+      "evoluciona": [],
+      "sprites": "jefe_12"
+    },
+    {
+      "id": "umbrafauce",
+      "nombre": "Umbrafauce",
+      "tipo": "sombra",
+      "familia": "umbrafauce",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "luna_nueva",
+      "base": {
+        "ps": 94,
+        "atq": 118,
+        "def": 83,
+        "ate": 76,
+        "dfe": 83,
+        "vel": 126
+      },
+      "habilidades": [
+        "patada_creciente",
+        "colmillo_velado",
+        "luna_creciente",
+        "cometa_lunar"
+      ],
+      "definitivo": "noche_eterna",
+      "descripcion": "Pantera de colmillos de sable. Ataca desde la sombra, nunca de frente.",
+      "evoluciona": [],
+      "sprites": "jefe_13"
+    },
+    {
+      "id": "negralith",
+      "nombre": "Negralith",
+      "tipo": "sombra",
+      "familia": "negralith",
+      "etapa": 4,
+      "jefe": "semanal",
+      "pasiva": "tinta",
+      "base": {
+        "ps": 87,
+        "atq": 167,
+        "def": 111,
+        "ate": 116,
+        "dfe": 69,
+        "vel": 90
+      },
+      "habilidades": [
+        "patada_creciente",
+        "colmillo_velado",
+        "regenerar",
+        "garra_lunar"
+      ],
+      "definitivo": "ala_carmesi",
+      "descripcion": "Escorpión del vacío. Su aguijón apaga todo lo que toca.",
+      "evoluciona": [],
+      "sprites": "jefe_14"
+    },
+    {
+      "id": "bastion_de_ceniza",
+      "nombre": "Bastión Ceniza",
+      "tipo": "brasa",
+      "familia": "bastion_de_ceniza",
+      "etapa": 4,
+      "jefe": "guardian",
+      "pasiva": "ultimo_rescoldo",
+      "base": {
+        "ps": 91,
+        "atq": 118,
+        "def": 105,
+        "ate": 117,
+        "dfe": 84,
+        "vel": 105
+      },
+      "habilidades": [
+        "colmillo_igneo",
+        "cornada_ignea",
+        "danza_del_desierto",
+        "tormenta_de_puas"
+      ],
+      "definitivo": "sol_de_cristal",
+      "descripcion": "Guardián del volcán. Tortuga de basalto: nada atraviesa su caparazón.",
+      "evoluciona": [],
+      "sprites": "guardian_1"
+    },
+    {
+      "id": "custodio_de_las_mareas",
+      "nombre": "Custodio Mareas",
+      "tipo": "marea",
+      "familia": "custodio_de_las_mareas",
+      "etapa": 4,
+      "jefe": "guardian",
+      "pasiva": "oleaje",
+      "base": {
+        "ps": 88,
+        "atq": 68,
+        "def": 80,
+        "ate": 177,
+        "dfe": 102,
+        "vel": 95
+      },
+      "habilidades": [
+        "mordisco_abisal",
+        "hidroespiral",
+        "coraza_real",
+        "gran_campanada"
+      ],
+      "definitivo": "tenaza_colosal",
+      "descripcion": "Guardián del arrecife. Nautilo ancestral que manda sobre las mareas.",
+      "evoluciona": [],
+      "sprites": "guardian_2"
+    },
+    {
+      "id": "raiz_primordial",
+      "nombre": "Raíz Primordial",
+      "tipo": "brote",
+      "familia": "raiz_primordial",
+      "etapa": 4,
+      "jefe": "guardian",
+      "pasiva": "raices",
+      "base": {
+        "ps": 104,
+        "atq": 163,
+        "def": 88,
+        "ate": 123,
+        "dfe": 73,
+        "vel": 109
+      },
+      "habilidades": [
+        "garra_de_espino",
+        "pico_venenoso",
+        "nectar_dorado",
+        "ciclon_de_guadanas"
+      ],
+      "definitivo": "jardin_furioso",
+      "descripcion": "Guardián del bosque. Elefante cubierto de raíces más viejas que los árboles.",
+      "evoluciona": [],
+      "sprites": "guardian_3"
+    },
+    {
+      "id": "vigia_del_sol_sepulto",
+      "nombre": "Vigía del Sol",
+      "tipo": "rayo",
+      "familia": "vigia_del_sol_sepulto",
+      "etapa": 4,
+      "jefe": "guardian",
+      "pasiva": "carga_estatica",
+      "base": {
+        "ps": 114,
+        "atq": 134,
+        "def": 101,
+        "ate": 134,
+        "dfe": 101,
+        "vel": 146
+      },
+      "habilidades": [
+        "descarga",
+        "pluma_electrica",
+        "pavoneo",
+        "rayo_helianto"
+      ],
+      "definitivo": "mil_ojos_solares",
+      "descripcion": "Guardián del desierto. Chacal solar que custodia el sol enterrado.",
+      "evoluciona": [],
+      "sprites": "guardian_4"
+    },
+    {
+      "id": "centinela_del_ultimo_hielo",
+      "nombre": "Centinela Hielo",
+      "tipo": "cielo",
+      "familia": "centinela_del_ultimo_hielo",
+      "etapa": 4,
+      "jefe": "guardian",
+      "pasiva": "viento_a_favor",
+      "base": {
+        "ps": 102,
+        "atq": 179,
+        "def": 95,
+        "ate": 108,
+        "dfe": 72,
+        "vel": 84
+      },
+      "habilidades": [
+        "latigazo_boreal",
+        "cola_tijera",
+        "velo_boreal",
+        "vendaval_alba"
+      ],
+      "definitivo": "aurora_final",
+      "descripcion": "Guardián de la cumbre. Gorila glacial que vigila el último hielo.",
+      "evoluciona": [],
+      "sprites": "guardian_5"
+    },
+    {
+      "id": "custodio_del_umbral",
+      "nombre": "Custodio Umbral",
+      "tipo": "sombra",
+      "familia": "custodio_del_umbral",
+      "etapa": 4,
+      "jefe": "guardian",
+      "pasiva": "luna_nueva",
+      "base": {
+        "ps": 100,
+        "atq": 70,
+        "def": 90,
+        "ate": 150,
+        "dfe": 120,
+        "vel": 130
+      },
+      "habilidades": [
+        "polvo_somnifero",
+        "tinta_abisal",
+        "danza_nocturna",
+        "abismo_profundo"
+      ],
+      "definitivo": "luna_llena",
+      "descripcion": "Guardián de las ruinas. Garza ancestral frente a la puerta que no se abre.",
+      "evoluciona": [],
+      "sprites": "guardian_6"
+    }
+  ]
+}

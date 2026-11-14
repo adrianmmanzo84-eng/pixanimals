@@ -8,7 +8,7 @@ import { generarRival } from '../src/core/combate/rival';
 import { nuevaCriatura } from '../src/core/estado/juego';
 
 const hab = (i: number): Accion => ({ tipo: 'habilidad', indice: i });
-const criaturas = [...DATOS.criaturas.values()];
+const criaturas = DATOS.jugables;
 
 describe('tabla de tipos', () => {
   const elementales = [...DATOS.tipos.values()].filter((t) => t.id !== 'neutro');

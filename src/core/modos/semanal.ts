@@ -6,7 +6,7 @@ import { darPremio } from '../progresion/premios';
 
 /**
  * Semana temática: cada semana (de lunes a domingo) un tipo es protagonista. Su sobre sale más barato
- * y aparece el Jefe de la semana, una forma Eclipse de ese tipo, con premio la primera victoria.
+ * y aparece el Jefe de la semana, uno de los 2 jefes semanales de ese tipo (se turnan), con premio la primera victoria.
  */
 // ---------------------------------------------------------------- Semana temática
 
@@ -25,11 +25,10 @@ export function tipoDeLaSemana(datos: Datos, ahora: number): string {
   return tipos[semanaLocal(ahora) % tipos.length]!;
 }
 
-/** Jefe de la semana: una forma Eclipse del tipo protagonista (rota entre las familias de ese tipo). */
+/** Jefe de la semana: uno de los jefes semanales del tipo protagonista. Cada tipo vuelve cada 7 semanas y sus 2 jefes se turnan (cada uno, cada 14). */
 export function jefeDeLaSemana(datos: Datos, ahora: number): string {
   const tipo = tipoDeLaSemana(datos, ahora);
-  const eclipses = [...datos.criaturas.values()].filter((c) => c.tipo === tipo && c.id.endsWith('_eclipse'));
-  const lista = eclipses.length ? eclipses : [...datos.criaturas.values()].filter((c) => c.id.endsWith('_eclipse'));
+  const lista = [...datos.criaturas.values()].filter((c) => c.jefe === 'semanal' && c.tipo === tipo);
   return lista[Math.floor(semanaLocal(ahora) / 7) % lista.length]!.id;
 }
 
@@ -45,7 +44,7 @@ export function resultadoSemanal(datos: Datos, estado: EstadoJuego, victoria: bo
   return datos.economia.semanal.premio;
 }
 
-/** Equipo del Jefe de la semana: la forma Eclipse al frente y, si tu equipo es más grande, finales del mismo tipo. */
+/** Equipo del Jefe de la semana: el jefe al frente y, si tu equipo es más grande, formas de etapa 3 del mismo tipo. */
 export function equipoSemanal(datos: Datos, ahora: number, equipoJugador: CriaturaJugador[]): Combatiente[] {
   const nivel = nivelSemanal(datos, equipoJugador);
   const jefe = jefeDeLaSemana(datos, ahora);

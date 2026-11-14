@@ -51,7 +51,7 @@ export function metasAlbum(datos: Datos, estado: EstadoJuego): Meta[] {
   const reg = registradas(datos, estado);
   const cfg = datos.economia.album;
   const metas: Meta[] = [];
-  const todas = [...datos.criaturas.values()];
+  const todas = datos.jugables;
   const familias = [...new Set(todas.map((c) => c.familia))];
   const normales = (f: string) => todas.filter((c) => c.familia === f && !c.id.endsWith('_eclipse'));
   const meta = (id: string, texto: string, valores: Meta['valores'], progreso: number, total: number, premio: PremioMeta): Meta => ({
@@ -113,6 +113,8 @@ export function progresoMedalla(datos: Datos, estado: EstadoJuego, id: string): 
       return e.fusiones;
     case 'impecables':
       return e.impecables;
+    case 'jefes':
+      return estado.jefes.length;
     default:
       return 0;
   }

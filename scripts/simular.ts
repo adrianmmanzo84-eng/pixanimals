@@ -12,7 +12,7 @@ import { elegirAccion, elegirReemplazo, type NivelIA } from '../src/core/combate
 const N = Number(process.argv[2] ?? 10000);
 const ia = (process.argv[3] ?? 'experta') as NivelIA;
 const niveles = [5, 15, 30];
-const especies = [...DATOS.criaturas.values()].filter((c) => c.etapa === 1).map((c) => c.id);
+const especies = DATOS.jugables.filter((c) => c.etapa === 1).map((c) => c.id);
 
 export interface ResultadoCruce {
   a: string;

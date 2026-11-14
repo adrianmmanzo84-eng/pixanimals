@@ -5,7 +5,7 @@ import { Batalla, crearCombatiente, type Accion } from '../src/core/combate/moto
 import { elegirAccion } from '../src/core/combate/ia';
 
 const hab = (i: number): Accion => ({ tipo: 'habilidad', indice: i });
-const criaturas = [...DATOS.criaturas.values()];
+const criaturas = DATOS.jugables;
 /** Índice de la habilidad de guardia de la criatura activa del lado. */
 const guardia = (bat: Batalla, lado: 0 | 1) => bat.act(lado).habilidades.findIndex((h) => h.def.efectos.some((e) => e.tipo === 'guardia'));
 

@@ -52,6 +52,60 @@ export const CANCIONES: Record<string, Cancion> = {
     tri: [octavas('D2', 'D3'), octavas('A#1', 'A#2'), octavas('C2', 'C3'), octavas('A1', 'A2')].join(' | '),
     ruido: repetir('k:2 -:2 k:2 -:2 s:2 -:2 h:2 -:2', 3) + ' | k:2 -:2 k:2 -:2 s:2 s:2 s:2 s:2',
   },
+  // Combate (variante 2): Mi menor – Do – Re – Si, vivaz.
+  combate2: {
+    bpm: 148,
+    bucle: true,
+    p1: 'E5:2 G5:2 B5:4 A5:2 G5:2 E5:4 | C5:2 E5:2 G5:4 E5:2 C5:2 G4:4 | D5:2 F#5:2 A5:4 F#5:2 D5:2 A4:4 | B4:2 D#5:2 F#5:4 D#5:2 B4:2 F#5:4',
+    p2: [arp('E4', 'G4', 'B4'), arp('C4', 'E4', 'G4'), arp('D4', 'F#4', 'A4'), arp('B3', 'D#4', 'F#4')].join(' | '),
+    tri: [octavas('E2', 'E3'), octavas('C2', 'C3'), octavas('D2', 'D3'), octavas('B1', 'B2')].join(' | '),
+    ruido: repetir('k:2 -:2 h:2 h:2 s:2 -:2 h:2 k:2', 4),
+  },
+  // Combate (variante 3): Sol – Mi menor – Do – Re, más abierta y valiente.
+  combate3: {
+    bpm: 136,
+    bucle: true,
+    p1: 'G4:4 B4:2 D5:2 G5:4 D5:4 | E5:4 B4:2 G4:2 E5:4 B4:4 | C5:2 E5:2 G5:2 E5:2 C6:4 G5:4 | D5:2 F#5:2 A5:2 F#5:2 D5:4 A4:4',
+    p2: [arp('G4', 'B4', 'D5'), arp('E4', 'G4', 'B4'), arp('C4', 'E4', 'G4'), arp('D4', 'F#4', 'A4')].join(' | '),
+    tri: [bumChic('G2', 'D3'), bumChic('E2', 'B2'), bumChic('C3', 'G2'), bumChic('D3', 'A2')].join(' | '),
+    ruido: repetir('k:2 -:2 h:2 -:2 s:2 -:2 h:2 h:2', 4),
+  },
+  // Torre de Desafíos: Do menor – La bemol – Si bemol – Sol, seria y constante.
+  torre: {
+    bpm: 144,
+    bucle: true,
+    p1: 'C5:2 -:2 C5:2 D#5:2 G5:4 F5:2 D#5:2 | G#4:2 C5:2 D#5:4 D5:2 C5:2 G#4:4 | A#4:2 D5:2 F5:4 D#5:2 D5:2 A#4:4 | B4:4 D5:4 G5:4 F5:2 D5:2',
+    p2: [arp('C4', 'D#4', 'G4'), arp('G#3', 'C4', 'D#4'), arp('A#3', 'D4', 'F4'), arp('G3', 'B3', 'D4')].join(' | '),
+    tri: [octavas('C2', 'C3'), octavas('G#1', 'G#2'), octavas('A#1', 'A#2'), octavas('G1', 'G2')].join(' | '),
+    ruido: repetir('k:2 -:2 k:2 -:2 s:2 -:2 h:2 k:2', 4),
+  },
+  // Entrenador del día: Fa – Re menor – Si bemol – Do, alegre pero competitiva.
+  entrenador: {
+    bpm: 128,
+    bucle: true,
+    p1: 'F5:4 A4:2 C5:2 F5:2 E5:2 D5:2 C5:2 | D5:4 F5:2 A5:2 G5:2 F5:2 E5:2 D5:2 | A#4:2 D5:2 F5:4 D5:2 A#4:2 F5:4 | C5:2 E5:2 G5:2 E5:2 C6:4 B5:2 G5:2',
+    p2: [arp('F3', 'A3', 'C4'), arp('D4', 'F4', 'A4'), arp('A#3', 'D4', 'F4'), arp('C4', 'E4', 'G4')].join(' | '),
+    tri: [bumChic('F2', 'C3'), bumChic('D3', 'A2'), bumChic('A#2', 'F2'), bumChic('C3', 'G2')].join(' | '),
+    ruido: repetir('k:2 -:2 h:2 -:2 s:2 -:2 h:2 h:2', 4),
+  },
+  // Jefe de la semana: La menor – Fa – Mi – La menor, dramática y veloz.
+  semanal: {
+    bpm: 160,
+    bucle: true,
+    p1: 'A4:2 C5:2 E5:2 A5:2 G#5:2 E5:2 C5:2 A4:2 | F4:2 A4:2 C5:2 F5:2 E5:2 C5:2 A4:2 F4:2 | E4:2 G#4:2 B4:2 E5:2 D5:2 B4:2 G#4:2 B4:2 | A4:4 C5:4 E5:4 A5:4',
+    p2: [arp('A3', 'C4', 'E4'), arp('F3', 'A3', 'C4'), arp('E3', 'G#3', 'B3'), arp('A3', 'C4', 'E4')].join(' | '),
+    tri: [octavas('A2', 'A3'), octavas('F2', 'F3'), octavas('E2', 'E3'), octavas('A1', 'A2')].join(' | '),
+    ruido: repetir('k:2 k:2 h:2 -:2 s:2 -:2 k:2 h:2', 3) + ' | k:2 -:2 k:2 -:2 s:2 s:2 s:2 s:2',
+  },
+  // Guardianes: Re menor – Sol menor – La – Re menor, lenta y pesada, como un jefe final.
+  guardian: {
+    bpm: 120,
+    bucle: true,
+    p1: 'D5:6 F5:2 A5:4 G5:2 F5:2 | G5:6 A#5:2 G5:4 F5:2 D5:2 | E5:4 C#5:4 A4:4 E5:4 | D5:4 F5:4 A5:6 D5:2',
+    p2: [arp('D4', 'F4', 'A4'), arp('G3', 'A#3', 'D4'), arp('A3', 'C#4', 'E4'), arp('D4', 'F4', 'A4')].join(' | '),
+    tri: [bumChic('D2', 'A2'), bumChic('G2', 'D3'), bumChic('A2', 'E3'), bumChic('D2', 'A2')].join(' | '),
+    ruido: repetir('k:4 -:2 k:2 s:4 -:2 h:2', 4),
+  },
   // Minijuegos: Sol – Do – Re – Sol, saltarina.
   minijuego: {
     bpm: 132,

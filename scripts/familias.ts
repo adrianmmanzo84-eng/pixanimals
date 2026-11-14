@@ -8,8 +8,8 @@ import { DATOS } from '../src/core/datos';
 import { simularCruce } from './simular';
 
 const N = Number(process.argv[2] ?? 400);
-const familias = [...new Set([...DATOS.criaturas.values()].map((c) => c.familia))];
-const deEtapa = (f: string, e: number) => [...DATOS.criaturas.values()].find((c) => c.familia === f && c.etapa === e && !c.sprites.endsWith('b'))!;
+const familias = [...new Set(DATOS.jugables.map((c) => c.familia))];
+const deEtapa = (f: string, e: number) => DATOS.jugables.find((c) => c.familia === f && c.etapa === e && !c.sprites.endsWith('b'))!;
 const vence = (a: string, b: string) => DATOS.tipos.get(a)!.vence.includes(b);
 
 for (const [etapa, nivel] of [[1, 12], [4, 46]] as const) {
@@ -42,7 +42,7 @@ for (const [etapa, nivel] of [[1, 12], [4, 46]] as const) {
 console.log('\n== Eclipse contra su forma normal (nivel 46) ==');
 for (const f of familias) {
   const normal = deEtapa(f, 4);
-  const ec = [...DATOS.criaturas.values()].find((c) => c.familia === f && c.sprites.endsWith('_4b'))!;
+  const ec = DATOS.jugables.find((c) => c.familia === f && c.sprites.endsWith('_4b'))!;
   const r = simularCruce(ec.id, normal.id, 46, N, 'experta', 7);
   console.log(`${ec.nombre.padEnd(18)} ${r.victoriasA.toFixed(0).padStart(3)} %`);
 }

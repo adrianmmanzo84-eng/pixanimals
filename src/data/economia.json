@@ -200,7 +200,15 @@
         "hasta": 999,
         "ia": "experta"
       }
-    ]
+    ],
+    "guardianes": {
+      "30": "bastion_de_ceniza",
+      "40": "custodio_de_las_mareas",
+      "50": "raiz_primordial",
+      "60": "vigia_del_sol_sepulto",
+      "80": "centinela_del_ultimo_hielo",
+      "100": "custodio_del_umbral"
+    }
   },
   "entrenador": {
     "monedas": 150,
@@ -328,6 +336,14 @@
         5,
         20,
         50
+      ]
+    },
+    {
+      "id": "jefes",
+      "metas": [
+        3,
+        10,
+        20
       ]
     }
   ],

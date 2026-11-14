@@ -9,6 +9,7 @@ import type { NivelIA } from '../combate/ia';
  * Torre de Desafíos: pisos con rivales cada vez más fuertes. Cada piso tiene siempre el mismo equipo
  * (sale de una semilla del piso). Perder no quita progreso: se reintenta el mismo piso.
  * El primer triunfo en cada piso da monedas; los jefes, además, un sobre.
+ * En los pisos más altos (30, 40, 50, 60, 80 y 100) el jefe es un Guardián, que ocupa el primer lugar del equipo rival.
  */
 
 export interface PisoTorre {
@@ -18,6 +19,12 @@ export interface PisoTorre {
   ia: NivelIA;
   /** Especies del equipo rival, ya evolucionadas según el nivel. */
   especies: string[];
+  /** Guardián de este piso (va al frente de `especies`), si lo hay. */
+  guardian: string | null;
+}
+
+export function guardianDePiso(datos: Datos, piso: number): string | null {
+  return datos.economia.torre.guardianes[String(piso)] ?? null;
 }
 
 export function esJefe(datos: Datos, piso: number): boolean {
@@ -36,7 +43,9 @@ export function datosPiso(datos: Datos, piso: number, tamano: number): PisoTorre
     // Los jefes usan formas Eclipse cuando el nivel alcanza (la primera criatura del equipo).
     return formaParaNivel(datos, inicial, nivel, jefe && i === 0);
   });
-  return { piso, nivel, jefe, ia: jefe && ia === 'novata' ? 'tactica' : ia, especies };
+  const guardian = guardianDePiso(datos, piso);
+  if (guardian) especies[0] = guardian;
+  return { piso, nivel, jefe, ia: jefe && ia === 'novata' ? 'tactica' : ia, especies, guardian };
 }
 
 export function equipoPiso(datos: Datos, p: PisoTorre): Combatiente[] {

@@ -16,9 +16,9 @@ const tipos = (ev: Evento[]) => ev.map((e) => e.t);
 
 describe('datos de la fase 2', () => {
   it('165 criaturas: 33 familias × 4 etapas + 33 Eclipse, con totales 300 / 380 / 450 / 520 (Brote, algo menos desde la etapa 2)', () => {
-    expect(DATOS.criaturas.size).toBe(165);
-    expect(new Set([...DATOS.criaturas.values()].map((c) => c.familia)).size).toBe(33);
-    for (const c of DATOS.criaturas.values()) {
+    expect(DATOS.jugables.length).toBe(165);
+    expect(new Set(DATOS.jugables.map((c) => c.familia)).size).toBe(33);
+    for (const c of DATOS.jugables) {
       const total = Object.values(c.base).reduce((a, b) => a + b, 0);
       const meta = [300, 380, 450, 520][c.etapa - 1]!;
       // La familia Brote cambia total por curación y resistencia (ver docs/BALANCE.md).
@@ -28,7 +28,7 @@ describe('datos de la fase 2', () => {
     }
   });
   it('las cadenas de evolución suben de etapa dentro de la misma familia', () => {
-    for (const c of DATOS.criaturas.values()) {
+    for (const c of DATOS.jugables) {
       for (const ev of c.evoluciona) {
         const sig = DATOS.criaturas.get(ev.a)!;
         expect(sig.familia).toBe(c.familia);
@@ -221,7 +221,7 @@ describe('sobres', () => {
     mia.rareza = 'comun';
     mia.nivel = 9;
     // Las demás especies Brasa de etapa 1 ya están, en la rareza más alta: solo se repiten.
-    for (const c of DATOS.criaturas.values())
+    for (const c of DATOS.jugables)
       if (c.tipo === 'brasa' && c.etapa === 1 && c.id !== 'lumbrito') e.criaturas.push(nuevaCriatura(c.id, 5, 'epica', false));
     let vistoMejora = false;
     let vistoRepetida = false;

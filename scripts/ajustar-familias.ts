@@ -14,7 +14,7 @@ const N = Number(process.argv[3] ?? 160);
 const LIMITE = Number(process.env.LIMITE ?? 0.16);
 // La Eclipse puede moverse más: solo tiene que ganarle a su forma normal cerca del 58 %.
 const LIMITE_ECLIPSE = Number(process.env.LIMITE_ECLIPSE ?? 0.35);
-const todas = [...DATOS.criaturas.values()];
+const todas = DATOS.jugables;
 const familiasRef = [...new Set(todas.map((c) => c.familia))].filter((f) => !nuevas.includes(f));
 const STATS = ['ps', 'atq', 'def', 'ate', 'dfe', 'vel'] as const;
 const AGUANTE = new Set(['ps', 'def', 'dfe']);

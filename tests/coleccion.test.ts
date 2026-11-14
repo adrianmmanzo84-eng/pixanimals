@@ -103,13 +103,13 @@ describe('Semana temática', () => {
     expect(semanaLocal(4 * DIA, 0)).toBe(semanaLocal(10 * DIA, 0));
     expect(semanaLocal(11 * DIA, 0)).toBe(semanaLocal(10 * DIA, 0) + 1);
   });
-  it('el sobre del tipo de la semana cuesta menos y el jefe es una forma Eclipse de ese tipo', () => {
+  it('el sobre del tipo de la semana cuesta menos y el jefe es un jefe semanal de ese tipo', () => {
     const ahora = 10 * DIA;
     const tipo = tipoDeLaSemana(DATOS, ahora);
     const def = DATOS.sobres.sobres.find((s) => s.tipo === tipo)!;
     expect(precioSobre(DATOS, def, ahora)).toBeLessThan(def.costo);
     const jefe = DATOS.criaturas.get(jefeDeLaSemana(DATOS, ahora))!;
-    expect(jefe.id.endsWith('_eclipse')).toBe(true);
+    expect(jefe.jefe).toBe('semanal');
     expect(jefe.tipo).toBe(tipo);
   });
   it('el premio se cobra una vez por semana', () => {
@@ -126,7 +126,7 @@ describe('guardado v5', () => {
     for (const k of ['copias', 'registro', 'album', 'medallas', 'expediciones', 'semanal', 'ruleta']) delete e[k];
     e.estadisticas = { combates: 3, victorias: 2, sobres: 1 };
     const m = deserializar(JSON.stringify(e))!;
-    expect(m.version).toBe(6);
+    expect(m.version).toBe(7);
     expect(m.estadisticas).toMatchObject({ combates: 3, victorias: 2, fusiones: 0 });
     expect(m.expediciones).toEqual([]);
   });

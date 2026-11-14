@@ -49,7 +49,7 @@ export class Desafio extends Phaser.Scene {
     let ia: string;
     if (torre) {
       const p = datosPiso(DATOS, estado.torre.piso, mios.length);
-      titulo = t(p.jefe ? 'des.torreJefe' : 'des.torre', { n: p.piso });
+      titulo = t(p.guardian ? 'des.torreGuardian' : p.jefe ? 'des.torreJefe' : 'des.torre', { n: p.piso });
       subtitulo = t('des.mejor', { n: estado.torre.mejor });
       especies = p.especies;
       nivel = p.nivel;

@@ -2,6 +2,7 @@ import tiposJson from '../data/tipos.json';
 import balanceJson from '../data/balance.json';
 import habilidadesJson from '../data/habilidades.json';
 import criaturasJson from '../data/criaturas.json';
+import jefesJson from '../data/jefes.json';
 import sobresJson from '../data/sobres.json';
 import economiaJson from '../data/economia.json';
 import itemsJson from '../data/items.json';
@@ -12,7 +13,10 @@ export interface Datos {
   tipos: Map<string, TipoDef>;
   balance: Balance;
   habilidades: Map<string, Habilidad>;
+  /** Todas las criaturas: las del jugador y los jefes (los jefes llevan `jefe`). */
   criaturas: Map<string, Criatura>;
+  /** Solo las que se pueden obtener (sin los jefes): colección, Bestiario, Álbum y sobres. */
+  jugables: Criatura[];
   sobres: Sobres;
   economia: Economia;
   items: Map<string, Item>;
@@ -26,7 +30,11 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
   const tipos = TiposZ.parse(tiposJson).tipos;
   const balance = BalanceZ.parse(balanceJson);
   const habilidades = z.object({ habilidades: z.array(HabilidadZ) }).parse(habilidadesJson).habilidades;
-  const criaturas = z.object({ criaturas: z.array(CriaturaZ) }).parse(criaturasJson).criaturas;
+  const jugables = z.object({ criaturas: z.array(CriaturaZ) }).parse(criaturasJson).criaturas;
+  const jefes = z.object({ criaturas: z.array(CriaturaZ) }).parse(jefesJson).criaturas;
+  for (const j of jefes) if (!j.jefe) errores.push(`Jefe ${j.id}: le falta la marca "jefe".`);
+  for (const c of jugables) if (c.jefe) errores.push(`Criatura ${c.id}: solo los jefes llevan la marca "jefe".`);
+  const criaturas = [...jugables, ...jefes];
   const sobres = SobresZ.parse(sobresJson);
   const economia = EconomiaZ.parse(economiaJson);
   const { items, ...reglasItems } = ItemsZ.parse(itemsJson);
@@ -95,7 +103,16 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
   }
   for (const d of economia.expediciones.duraciones) if (!sobres.sobres.some((s) => s.id === d.sobre)) errores.push(`Expedición de ${d.horas} h: el sobre ${d.sobre} no existe.`);
   for (const c of criaturas) if (c.id.endsWith('_eclipse') !== (c.etapa === 4 && c.evoluciona.length === 0 && criaturas.some((o) => o.evoluciona.some((e) => e.a === c.id && e.item)))) errores.push(`${c.id}: las formas Eclipse deben terminar en _eclipse (y solo ellas).`);
-  return { datos: { tipos: mTipos, balance, habilidades: mHab, criaturas: mCri, sobres, economia, items: mItems, reglasItems }, errores };
+  // Jefes: cada tipo tiene al menos un jefe semanal, y los pisos de los Guardianes apuntan a Guardianes que existen y no se repiten.
+  for (const tipo of tipos.filter((t) => t.id !== 'neutro')) if (!jefes.some((j) => j.jefe === 'semanal' && j.tipo === tipo.id)) errores.push(`No hay jefe semanal del tipo ${tipo.id}.`);
+  const usados = new Set<string>();
+  for (const [piso, id] of Object.entries(economia.torre.guardianes)) {
+    if (mCri.get(id)?.jefe !== 'guardian') errores.push(`Torre: el piso ${piso} apunta a ${id}, que no es un Guardián.`);
+    if (usados.has(id)) errores.push(`Torre: el Guardián ${id} está en más de un piso.`);
+    usados.add(id);
+    if (Number(piso) % economia.torre.jefeCada !== 0) errores.push(`Torre: el piso ${piso} del Guardián ${id} no es un piso de jefe.`);
+  }
+  return { datos: { tipos: mTipos, balance, habilidades: mHab, criaturas: mCri, jugables, sobres, economia, items: mItems, reglasItems }, errores };
 }
 
 const cargado = cargarDatos();

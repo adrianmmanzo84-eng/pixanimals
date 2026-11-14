@@ -476,3 +476,14 @@ Un giro gratis por día (`economia.json` → `ruleta.segmentos`; cada casilla ti
 | 300 monedas + Sobre Raro | 3 | 900 (el sobre cuesta 600) |
 
 Valor medio: unas 105 monedas por día (más 7 de Esencia), lo que dan 3 o 4 combates ganados en dificultad Táctica. Se ajusta cambiando los pesos sin tocar código.
+
+## Jefes (v0.15.0)
+
+Medición: 1v1, nivel 50, IA experta, contra las 33 formas normales de etapa 4 (`scripts/simular-jefes.ts`). Ajuste: `scripts/ajustar-jefes.ts`.
+
+| Grupo | Objetivo | Resultado |
+|---|---|---|
+| Semanales (14) | ~62 % | 57–68 % |
+| Guardianes (6) | 68–95 % | ≈72 / 73 / 76 / 83 / 87 / 95 % (pisos 30 a 100) |
+
+Total de stats base: semanales ≥ 520, Guardianes ≥ 600 (lo vigila `tests/jefes.test.ts`).

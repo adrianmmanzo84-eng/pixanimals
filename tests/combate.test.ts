@@ -16,7 +16,7 @@ describe('datos', () => {
     expect(cargarDatos().errores).toEqual([]);
   });
   it('cada criatura tiene 4 habilidades y exactamente un movimiento final', () => {
-    for (const c of DATOS.criaturas.values()) {
+    for (const c of DATOS.jugables) {
       expect(c.habilidades).toHaveLength(4);
       expect(c.habilidades.filter((id) => DATOS.habilidades.get(id)!.rol === 'final')).toHaveLength(1);
     }

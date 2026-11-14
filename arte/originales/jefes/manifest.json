@@ -1,0 +1,542 @@
+[
+  {
+    "id": "jefe_semana_01",
+    "nombre_propuesto": "Caldrak",
+    "tipo": "Brasa",
+    "lamina": "jefe_semana_01.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_01.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_01_frente.png",
+    "espalda": "vistas_96/jefe_semana_01_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 908
+  },
+  {
+    "id": "jefe_semana_02",
+    "nombre_propuesto": "Ferrandra",
+    "tipo": "Brasa",
+    "lamina": "jefe_semana_02.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_02.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_02_frente.png",
+    "espalda": "vistas_96/jefe_semana_02_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 878
+  },
+  {
+    "id": "jefe_semana_03",
+    "nombre_propuesto": "Talasor",
+    "tipo": "Marea",
+    "lamina": "jefe_semana_03.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_03.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_03_frente.png",
+    "espalda": "vistas_96/jefe_semana_03_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 23,
+    "corte_fuente_x": 874
+  },
+  {
+    "id": "jefe_semana_04",
+    "nombre_propuesto": "Borealmo",
+    "tipo": "Marea",
+    "lamina": "jefe_semana_04.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_04.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_04_frente.png",
+    "espalda": "vistas_96/jefe_semana_04_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 23,
+    "corte_fuente_x": 886
+  },
+  {
+    "id": "jefe_semana_05",
+    "nombre_propuesto": "Zarzabal",
+    "tipo": "Brote",
+    "lamina": "jefe_semana_05.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_05.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_05_frente.png",
+    "espalda": "vistas_96/jefe_semana_05_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 914
+  },
+  {
+    "id": "jefe_semana_06",
+    "nombre_propuesto": "Micérvido",
+    "tipo": "Brote",
+    "lamina": "jefe_semana_06.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_06.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_06_frente.png",
+    "espalda": "vistas_96/jefe_semana_06_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 878
+  },
+  {
+    "id": "jefe_semana_07",
+    "nombre_propuesto": "Fulgarok",
+    "tipo": "Rayo",
+    "lamina": "jefe_semana_07.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_07.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_07_frente.png",
+    "espalda": "vistas_96/jefe_semana_07_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 888
+  },
+  {
+    "id": "jefe_semana_08",
+    "nombre_propuesto": "Najasol",
+    "tipo": "Rayo",
+    "lamina": "jefe_semana_08.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_08.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_08_frente.png",
+    "espalda": "vistas_96/jefe_semana_08_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 882
+  },
+  {
+    "id": "jefe_semana_09",
+    "nombre_propuesto": "Astracorno",
+    "tipo": "Roca",
+    "lamina": "jefe_semana_09.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_09.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_09_frente.png",
+    "espalda": "vistas_96/jefe_semana_09_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 23,
+    "corte_fuente_x": 876
+  },
+  {
+    "id": "jefe_semana_10",
+    "nombre_propuesto": "Geodrácnida",
+    "tipo": "Roca",
+    "lamina": "jefe_semana_10.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_10.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_10_frente.png",
+    "espalda": "vistas_96/jefe_semana_10_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 23,
+    "corte_fuente_x": 882
+  },
+  {
+    "id": "jefe_semana_11",
+    "nombre_propuesto": "Tempestario",
+    "tipo": "Cielo",
+    "lamina": "jefe_semana_11.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_11.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_11_frente.png",
+    "espalda": "vistas_96/jefe_semana_11_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 23,
+    "corte_fuente_x": 892
+  },
+  {
+    "id": "jefe_semana_12",
+    "nombre_propuesto": "Ciclóptero",
+    "tipo": "Cielo",
+    "lamina": "jefe_semana_12.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_12.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_12_frente.png",
+    "espalda": "vistas_96/jefe_semana_12_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 892
+  },
+  {
+    "id": "jefe_semana_13",
+    "nombre_propuesto": "Umbrafauce",
+    "tipo": "Sombra",
+    "lamina": "jefe_semana_13.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_13.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_13_frente.png",
+    "espalda": "vistas_96/jefe_semana_13_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 23,
+    "corte_fuente_x": 872
+  },
+  {
+    "id": "jefe_semana_14",
+    "nombre_propuesto": "Negralith",
+    "tipo": "Sombra",
+    "lamina": "jefe_semana_14.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_semana_14.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_semana_14_frente.png",
+    "espalda": "vistas_96/jefe_semana_14_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 876
+  },
+  {
+    "id": "jefe_evento_01",
+    "nombre_propuesto": "Bastión de Ceniza",
+    "tipo": "Guardián del volcán",
+    "lamina": "jefe_evento_01.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_evento_01.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_evento_01_frente.png",
+    "espalda": "vistas_96/jefe_evento_01_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 885
+  },
+  {
+    "id": "jefe_evento_02",
+    "nombre_propuesto": "Custodio de las Mareas",
+    "tipo": "Guardián del arrecife",
+    "lamina": "jefe_evento_02.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_evento_02.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_evento_02_frente.png",
+    "espalda": "vistas_96/jefe_evento_02_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 892
+  },
+  {
+    "id": "jefe_evento_03",
+    "nombre_propuesto": "Raíz Primordial",
+    "tipo": "Guardián del bosque",
+    "lamina": "jefe_evento_03.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_evento_03.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_evento_03_frente.png",
+    "espalda": "vistas_96/jefe_evento_03_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 898
+  },
+  {
+    "id": "jefe_evento_04",
+    "nombre_propuesto": "Vigía del Sol Sepulto",
+    "tipo": "Guardián del desierto",
+    "lamina": "jefe_evento_04.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_evento_04.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_evento_04_frente.png",
+    "espalda": "vistas_96/jefe_evento_04_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 23,
+    "corte_fuente_x": 884
+  },
+  {
+    "id": "jefe_evento_05",
+    "nombre_propuesto": "Centinela del Último Hielo",
+    "tipo": "Guardián de la cumbre",
+    "lamina": "jefe_evento_05.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_evento_05.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_evento_05_frente.png",
+    "espalda": "vistas_96/jefe_evento_05_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 870
+  },
+  {
+    "id": "jefe_evento_06",
+    "nombre_propuesto": "Custodio del Umbral",
+    "tipo": "Guardián de las ruinas",
+    "lamina": "jefe_evento_06.png",
+    "lamina_ancho": 1536,
+    "lamina_alto": 768,
+    "juego": "juego_96/jefe_evento_06.png",
+    "juego_ancho": 192,
+    "juego_alto": 96,
+    "frente": "vistas_96/jefe_evento_06_frente.png",
+    "espalda": "vistas_96/jefe_evento_06_espalda.png",
+    "rect_frente": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "rect_espalda": [
+      96,
+      0,
+      96,
+      96
+    ],
+    "colores": 24,
+    "corte_fuente_x": 888
+  }
+]

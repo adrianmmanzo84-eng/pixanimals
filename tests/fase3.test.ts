@@ -39,7 +39,7 @@ describe('partidas guardadas', () => {
       pity: { rara: 2, epica: 5 }, gratis: { acumulados: 1, desde: 0 }, estadisticas: { combates: 4, victorias: 3, sobres: 2 },
     };
     const e = deserializar(JSON.stringify(v1))!;
-    expect(e.version).toBe(6);
+    expect(e.version).toBe(7);
     expect(e.monedas).toBe(77);
     expect(e.inventario).toEqual({});
     expect(e.criaturas[0]).toMatchObject({ nivel: 9, rareza: 'rara', brillante: true, vitaminas: {}, entrenamiento: 0 });
@@ -269,10 +269,10 @@ describe('carta premio', () => {
 
 describe('formas Eclipse', () => {
   it('cada familia tiene una Eclipse: sale de la etapa 3 a nivel 40 con la Piedra Eclipse y suma lo mismo que la etapa 4', () => {
-    const eclipses = [...DATOS.criaturas.values()].filter((c) => c.sprites.endsWith('_4b'));
-    expect(eclipses).toHaveLength(new Set([...DATOS.criaturas.values()].map((c) => c.familia)).size);
+    const eclipses = DATOS.jugables.filter((c) => c.sprites.endsWith('_4b'));
+    expect(eclipses).toHaveLength(new Set(DATOS.jugables.map((c) => c.familia)).size);
     for (const ec of eclipses) {
-      const padre = [...DATOS.criaturas.values()].find((c) => c.evoluciona.some((e) => e.a === ec.id))!;
+      const padre = DATOS.jugables.find((c) => c.evoluciona.some((e) => e.a === ec.id))!;
       expect(padre.etapa).toBe(3);
       const ev = padre.evoluciona.find((e) => e.a === ec.id)!;
       expect([ev.nivel, ev.item]).toEqual([40, 'piedra_eclipse']);

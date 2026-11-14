@@ -51,6 +51,7 @@ export function serializar(estado: EstadoJuego): string {
  * v3 → v4 (Fase 5): Torre de Desafíos, Entrenador del día y amuletos.
  * v4 → v5: copias para fusionar, Álbum, Medallas, Expediciones y Jefe de la semana.
  * v5 → v6: ruleta diaria.
+ * v6 → v7: insignias de jefes.
  */
 export function migrar(obj: unknown): unknown {
   if (!obj || typeof obj !== 'object') return obj;
@@ -87,6 +88,10 @@ export function migrar(obj: unknown): unknown {
   if (o.version === 5) {
     o.version = 6;
     o.ruleta = { ultimoDia: -1 };
+  }
+  if (o.version === 6) {
+    o.version = 7;
+    o.jefes = [];
   }
   return o;
 }

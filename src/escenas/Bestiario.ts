@@ -47,9 +47,9 @@ export class Bestiario extends Phaser.Scene {
    * van en la fila de abajo, debajo de la forma a la que reemplazan; las casillas sin criatura quedan vacías.
    */
   private armarFilas(): Fila[] {
-    const ramas = new Set([...DATOS.criaturas.values()].flatMap((c) => c.evoluciona.filter((e) => e.item).map((e) => e.a)));
+    const ramas = new Set(DATOS.jugables.flatMap((c) => c.evoluciona.filter((e) => e.item).map((e) => e.a)));
     const familias = new Map<string, Criatura[]>();
-    for (const c of DATOS.criaturas.values()) familias.set(c.familia, [...(familias.get(c.familia) ?? []), c]);
+    for (const c of DATOS.jugables) familias.set(c.familia, [...(familias.get(c.familia) ?? []), c]);
     return [...familias.values()].flatMap((lista) => {
       const res: Fila[] = [];
       const orden = [...lista].sort((a, b) => Number(ramas.has(a.id)) - Number(ramas.has(b.id)) || a.etapa - b.etapa);
@@ -124,7 +124,7 @@ export class Bestiario extends Phaser.Scene {
     this.detalle = new Texto(this, 138, 49, 92, 20);
     this.descripcion = new Texto(this, 138, 72, 92, 54, C.tintaSuave);
 
-    const total = DATOS.criaturas.size;
+    const total = DATOS.jugables.length;
     const capturadas = [...DATOS.criaturas.keys()].filter((id) => criaturaDe(estado, id)).length;
     new Texto(this, 10, 139, 220, 10).poner(t('best.vistas', { v: estado.vistas.length, c: capturadas, t: total }));
     new Texto(this, 10, 139, 220, 10, C.tintaSuave, 'der').poner(t('best.ayuda'));

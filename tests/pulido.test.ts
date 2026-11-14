@@ -17,7 +17,7 @@ describe('carta inicial', () => {
       expect(c.rareza).toBe('poco_comun');
       vistas.add(c.especie);
     }
-    const familias = [...DATOS.criaturas.values()].filter((c) => c.etapa === 1).length;
+    const familias = DATOS.jugables.filter((c) => c.etapa === 1).length;
     expect(vistas.size).toBe(familias);
   });
 });

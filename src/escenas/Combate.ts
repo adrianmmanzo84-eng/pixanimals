@@ -11,6 +11,7 @@ import { combatienteDe, criaturaDe, equipoDe, marcarVista } from '../core/estado
 import { aplicarRecompensa, xpParaSubir } from '../core/progresion/experiencia';
 import { registrar } from '../core/progresion/misiones';
 import { datosPiso, equipoPiso, resultadoTorre } from '../core/modos/torre';
+import { progresoJefes, registrarJefe } from '../core/modos/jefes';
 import { entrenadorDelDia, equipoEntrenador, resultadoEntrenador } from '../core/modos/entrenador';
 import { musica } from '../audio/musica';
 import { ajustes, alCambiarAjustes } from '../ajustes';
@@ -153,12 +154,17 @@ export class Combate extends Phaser.Scene {
           : modo === 'semanal'
             ? equipoSemanal(DATOS, Date.now(), mios)
             : generarRival(DATOS, mios, rng);
+    this.rivalInicial = rival[0]!.especie.id;
     this.bat = new Batalla(DATOS, [mios.map((c) => combatienteDe(DATOS, c)), rival], rng);
     // Ataque Definitivo: siempre para ti; entre los rivales, solo jefes de la Torre y el Entrenador del día, que lo cargan avisando.
     const jefe = modo === 'torre' && datosPiso(DATOS, this.cfg.piso ?? 1, 1).jefe;
     this.bat.definitivoPermitido = [true, modo === 'entrenador' || modo === 'semanal' || jefe];
     this.bat.definitivoConCarga = [false, true];
-    musica.tocar(modo === 'torre' && datosPiso(DATOS, this.cfg.piso ?? 1, 1).jefe ? 'jefe' : modo === 'rapido' ? 'combate' : 'jefe');
+    // Cada modo tiene su música; el combate rápido alterna entre tres canciones.
+    const pisoTorre = modo === 'torre' ? datosPiso(DATOS, this.cfg.piso ?? 1, 1) : null;
+    musica.tocar(
+      pisoTorre ? (pisoTorre.guardian ? 'guardian' : pisoTorre.jefe ? 'jefe' : 'torre') : modo === 'entrenador' ? 'entrenador' : modo === 'semanal' ? 'semanal' : ['combate', 'combate2', 'combate3'][Math.floor(Math.random() * 3)]!,
+    );
     this.verRival();
 
     prepararCamara(this);
@@ -231,10 +237,11 @@ export class Combate extends Phaser.Scene {
       this.tween({ targets: this.sprites[1], x: this.pos(1).x, duration: 550, ease: 'Cubic.easeOut' }),
     ]);
     if (this.cfg.modo === 'entrenador') await this.decir(t('c.entrenador', { n: entrenadorDelDia(DATOS, Date.now()).nombre }));
-    if (this.cfg.modo === 'semanal') await this.decir(t('c.semanal', { t: DATOS.tipos.get(tipoDeLaSemana(DATOS, Date.now()))!.nombre }));
+    if (this.cfg.modo === 'semanal') await this.decir(t('c.semanal', { n: this.nom(1), t: DATOS.tipos.get(tipoDeLaSemana(DATOS, Date.now()))!.nombre }));
     if (this.cfg.modo === 'torre') {
       const p = datosPiso(DATOS, this.cfg.piso ?? 1, 1);
       await this.decir(t(p.jefe ? 'c.torreJefe' : 'c.torre', { n: p.piso }));
+      if (p.guardian) await this.decir(t('c.guardian', { n: this.nom(1) }));
     }
     await this.decir(t('c.aparece', { n: this.nom(1) }));
     await this.decir(t('c.adelante', { n: this.nom(0) }));
@@ -415,10 +422,13 @@ export class Combate extends Phaser.Scene {
       const p = resultadoTorre(DATOS, juego.estado, this.cfg.piso ?? 1, r.victoria);
       if (r.victoria) extra.push(p.nuevo ? t('fin.piso', { n: this.cfg.piso ?? 1, m: p.monedas }) : t('fin.pisoRepetido'));
       if (p.sobre) extra.push(t('fin.sobre', { s: nombreSobre(p.sobre) }));
+      const guardian = r.victoria ? datosPiso(DATOS, this.cfg.piso ?? 1, 1).guardian : null;
+      if (guardian) this.insignia(guardian, extra);
     }
     if (modo === 'semanal' && !retirada) {
       const p = resultadoSemanal(DATOS, juego.estado, r.victoria, Date.now());
       if (p) extra.push(t('fin.semanal', { n: p.monedas ?? 0, s: p.sobre ? nombreSobre(p.sobre) : '' }));
+      if (r.victoria) this.insignia(this.rivalInicial, extra);
     }
     if (modo === 'entrenador' && !retirada) {
       const p = resultadoEntrenador(DATOS, juego.estado, r.victoria, Date.now());
@@ -938,6 +948,16 @@ export class Combate extends Phaser.Scene {
     ico?.setTexture(`ui_${claveEstado(est.id)}`).setVisible(true);
     p.estado.imagen.setX(ico ? x + 7 : x);
     p.estado.poner(t(`estado.abrev.${est.id}`));
+  }
+
+  /** Primera criatura del rival al empezar (en los modos de jefe, el jefe). */
+  private rivalInicial = '';
+
+  /** La primera victoria contra un jefe lo suma a tus insignias. */
+  private insignia(id: string, extra: string[]): void {
+    if (!registrarJefe(DATOS, juego.estado, id)) return;
+    const p = progresoJefes(DATOS, juego.estado);
+    extra.push(t('fin.insignia', { n: DATOS.criaturas.get(id)!.nombre, m: p.vencidos, t: p.total }));
   }
 
   private nom(lado: Lado): string {

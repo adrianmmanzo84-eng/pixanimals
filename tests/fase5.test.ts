@@ -20,7 +20,7 @@ describe('partida v4', () => {
     delete v3.entrenador;
     v3.criaturas = [{ especie: 'lumbrito', nivel: 5, xp: 0, rareza: 'comun', brillante: false, vitaminas: {}, entrenamiento: 0 }];
     const e = deserializar(JSON.stringify(v3))!;
-    expect(e.version).toBe(6);
+    expect(e.version).toBe(7);
     expect(e.monedas).toBe(77);
     expect(e.torre).toEqual({ piso: 1, mejor: 0 });
     expect(e.criaturas[0]!.amuleto).toBeNull();
@@ -159,7 +159,7 @@ describe('música', () => {
   it('cada canción tiene sus 4 canales del mismo largo, en compases enteros y con notas válidas', async () => {
     const { CANCIONES } = await import('../src/audio/canciones');
     const { leerCanal } = await import('../src/audio/musica');
-    expect(Object.keys(CANCIONES)).toEqual(expect.arrayContaining(['menu', 'combate', 'jefe', 'minijuego', 'victoria', 'derrota']));
+    expect(Object.keys(CANCIONES)).toEqual(expect.arrayContaining(['menu', 'combate', 'combate2', 'combate3', 'jefe', 'torre', 'entrenador', 'semanal', 'guardian', 'minijuego', 'victoria', 'derrota']));
     for (const [id, c] of Object.entries(CANCIONES)) {
       const largos = (['p1', 'p2', 'tri', 'ruido'] as const).map((k) => leerCanal(c[k], k === 'ruido').largo);
       expect(new Set(largos).size, id).toBe(1);

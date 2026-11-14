@@ -40,7 +40,7 @@ for (const c of datos.criaturas.values()) {
     }
     if (!transparente) errores.push(`${nombre}: no tiene fondo transparente.`);
     // Las ramas (sprites con letra, como brasa_4b) llevan aura y admiten 24 colores.
-    const max = /_\d[a-z]$/.test(c.sprites) ? 24 : 15;
+    const max = /_\d[a-z]$/.test(c.sprites) || c.jefe ? 24 : 15;
     if (colores.size > max) errores.push(`${nombre}: usa ${colores.size} colores; el máximo es ${max} más transparencia.`);
   }
 }
@@ -59,6 +59,6 @@ if (errores.length) {
   for (const e of errores) console.error(' ✗ ' + e);
   process.exit(1);
 }
-console.log(`✓ Datos válidos: ${datos.criaturas.size} criaturas, ${datos.habilidades.size} habilidades, ${datos.tipos.size} tipos.`);
+console.log(`✓ Datos válidos: ${datos.jugables.length} criaturas y ${datos.criaturas.size - datos.jugables.length} jefes, ${datos.habilidades.size} habilidades, ${datos.tipos.size} tipos.`);
 console.log('✓ Sprites completos, con tamaño y paleta correctos.');
 console.log(`✓ Arte de interfaz: ${Object.keys(arteUI).length} piezas.`);

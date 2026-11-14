@@ -59,7 +59,7 @@ describe('ruleta diaria', () => {
     e.version = 5;
     delete e.ruleta;
     const m = deserializar(JSON.stringify(e))!;
-    expect(m.version).toBe(6);
+    expect(m.version).toBe(7);
     expect(ruletaDisponible(m, mediodia)).toBe(true);
   });
 });

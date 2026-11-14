@@ -11,7 +11,7 @@ import { ruletaDisponible } from '../core/progresion/ruleta';
 import { misionesPorCobrar } from '../core/progresion/misiones';
 import { entrenadorCobrado } from '../core/modos/entrenador';
 import { musica } from '../audio/musica';
-import { esJefe } from '../core/modos/torre';
+import { esJefe, guardianDePiso } from '../core/modos/torre';
 import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
@@ -40,6 +40,9 @@ const COL_X = [40, 126];
 /** Menú principal: desde aquí se entra a todo lo demás. */
 export class Menu extends Phaser.Scene {
   private filas: Texto[] = [];
+  /** Íconos del menú principal: solo se ven en él (los submenús no llevan íconos). */
+  private iconos: Phaser.GameObjects.GameObject[] = [];
+  private conIcono = false;
   private cursor!: Phaser.GameObjects.Graphics;
   private ayuda!: Texto;
   private sel = 0;
@@ -65,6 +68,7 @@ export class Menu extends Phaser.Scene {
     }
     musica.tocar('menu');
     this.filas = [];
+    this.iconos = [];
     this.modo = this.submenu ? 'combates' : 'principal';
     this.sel = 0;
     prepararCamara(this);
@@ -87,15 +91,22 @@ export class Menu extends Phaser.Scene {
       );
 
     ventana(g, 26, 29, 188, 66);
+    const gRueda = this.add.graphics();
+    this.conIcono = hayArte(this, 'menu_combate');
     for (let i = 0; i < OPCIONES.length; i++) {
       const col = Math.floor(i / POR_COLUMNA);
       const yFila = 32 + (i % POR_COLUMNA) * ALTO_FILA;
-      const conIcono = hayArte(this, 'menu_combate');
-      if (conIcono) {
-        if (ICONOS[i]) pieza(this, ICONOS[i]!, COL_X[col]! + 11, yFila + 4.6, 8);
-        else ruedita(g, COL_X[col]! + 11, yFila + 4.6);
+      if (this.conIcono) {
+        if (ICONOS[i]) {
+          const ico = pieza(this, ICONOS[i]!, COL_X[col]! + 11, yFila + 4.6, 8);
+          if (ico) this.iconos.push(ico);
+        } else {
+          ruedita(gRueda, COL_X[col]! + 11, yFila + 4.6);
+          if (!this.iconos.includes(gRueda)) this.iconos.push(gRueda);
+        }
       }
-      this.filas.push(new Texto(this, COL_X[col]! + (conIcono ? 17 : 8), yFila, conIcono ? 72 : 80, 10));
+      // La primera columna sirve también a los submenús (sin íconos, con textos más largos): más ancha.
+      this.filas.push(new Texto(this, COL_X[col]! + (this.conIcono ? 17 : 8), yFila, col === 0 ? 150 : this.conIcono ? 72 : 80, 10));
     }
     this.cursor = this.add.graphics();
     const puntero = new Puntero(this);
@@ -135,7 +146,7 @@ export class Menu extends Phaser.Scene {
       const piso = juego.estado.torre.piso;
       return [
         t('menu.rapido'),
-        t(esJefe(DATOS, piso) ? 'menu.torreJefe' : 'menu.torre', { n: piso }),
+        t(guardianDePiso(DATOS, piso) ? 'menu.torreGuardian' : esJefe(DATOS, piso) ? 'menu.torreJefe' : 'menu.torre', { n: piso }),
         t(entrenadorCobrado(juego.estado, Date.now()) ? 'menu.entrenadorHecho' : 'menu.entrenador'),
         t(semanalCobrado(juego.estado, Date.now()) ? 'menu.semanalHecho' : 'menu.semanal', { t: DATOS.tipos.get(tipoDeLaSemana(DATOS, Date.now()))!.nombre }),
       ];
@@ -159,6 +170,13 @@ export class Menu extends Phaser.Scene {
   private pintar(): void {
     const ops = this.opciones();
     this.filas.forEach((f, i) => f.poner(ops[i] ?? '', i === this.sel ? C.resalte : C.tinta));
+    // Los íconos son del menú principal: en Combate y en Dificultad no se ven, y el texto ocupa su lugar.
+    const principal = this.modo === 'principal';
+    this.iconos.forEach((o) => (o as Phaser.GameObjects.Image).setVisible(principal));
+    this.filas.forEach((f, i) => {
+      if (i < POR_COLUMNA) f.imagen.setX(COL_X[0]! + (principal && this.conIcono ? 17 : 8));
+      else f.imagen.setVisible(principal);
+    });
     const col = Math.floor(this.sel / POR_COLUMNA);
     const y = 33 + (this.sel % POR_COLUMNA) * ALTO_FILA;
     const x = COL_X[col]!;
