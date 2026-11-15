@@ -1,3 +1,4 @@
+import { cargarAnimMina } from '../ui/animMina';
 import Phaser from 'phaser';
 import { DATOS } from '../core/datos';
 import { cargarArteUI, prepararArteUI } from '../ui/arte';
@@ -22,6 +23,7 @@ export class Arranque extends Phaser.Scene {
       this.load.image(`mina_guarida${z}`, `mina/guarida${z}.jpg`);
     }
     for (const f of ['terin', 'plesin', 'triclin', 'tirin', 'dimlin']) this.load.image(`huevo_${f}`, `mina/huevo_${f}.png`);
+    cargarAnimMina(this.load);
     this.load.spritesheet('mina_bloques', 'mina/bloques.png', { frameWidth: 16, frameHeight: 16 });
     for (const c of DATOS.criaturas.values()) {
       this.load.image(`${c.sprites}_frente`, `sprites/${c.sprites}_frente.png`);

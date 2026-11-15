@@ -125,7 +125,8 @@ export class Minijuegos extends Phaser.Scene {
         const falta = Math.max(0, Math.min(...huevos.map((h) => h.eclosiona)) - ahora);
         txt(14, 128, 170, 8, '#2f7a48', 'izq', { tam: 6 }).poner(t('mina.huevos', { n: huevos.length, h: Math.floor(falta / 3_600_000), m: Math.ceil((falta % 3_600_000) / 60_000) }));
         huevos.slice(0, 5).forEach((h, i) => {
-          const clave = `huevo_${DATOS.criaturas.get(h.especie)?.familia}`;
+          const fam = `huevo_${DATOS.criaturas.get(h.especie)?.familia}`;
+          const clave = this.textures.exists(fam) ? fam : 'huevo';
           if (this.textures.exists(clave)) this.capa.add(this.add.image(222 - i * 9, 131, clave).setScale(0.25));
         });
       }

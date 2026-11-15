@@ -1,3 +1,4 @@
+import { crearAnimMina } from '../ui/animMina';
 import { abrirHuevo, huevosListos } from '../core/minijuegos/mina';
 import Phaser from 'phaser';
 import { expedicionLibre, faltaExpedicion, metasPorCobrar } from '../core/progresion/coleccion';
@@ -314,23 +315,47 @@ export class Menu extends Phaser.Scene {
       tx.imagen.setDepth(11);
   }
 
-  /** El huevo tiembla, se abre con un destello y aparece la cría. */
+  /** El huevo de la familia tiembla; luego se abre (animación del autor), destello y aparece la cría. */
   private eclosion(x: number, y: number, especie: string, familia: string): void {
-    const clave = `huevo_${familia}`;
+    crearAnimMina(this);
     const cria = this.add.image(x, y + 22, textura(especie, 'frente')).setOrigin(0.5, 1).setScale(0.5).setDepth(11).setAlpha(0);
-    if (!this.textures.exists(clave)) {
+    const clave = this.textures.exists(`huevo_${familia}`) ? `huevo_${familia}` : this.textures.exists('huevo') ? 'huevo' : '';
+    if (!clave) {
       cria.setAlpha(1);
       return;
     }
-    const huevo = this.add.image(x, y, clave).setDepth(11);
+    const huevo = this.add.image(x, y + 6, clave).setDepth(11);
+    const nacer = (): void => {
+      this.cameras.main.flash(220, 255, 255, 255);
+      sonido.tocar('sube');
+      this.tweens.add({ targets: cria, alpha: 1, scale: { from: 0.2, to: 0.5 }, duration: 260, ease: 'Back.easeOut' });
+      this.tweens.add({ targets: cria, y: y + 16, duration: 160, yoyo: true, repeat: 1, delay: 280 });
+    };
     this.tweens.add({
       targets: huevo, angle: { from: -12, to: 12 }, duration: 110, yoyo: true, repeat: 5, delay: 250,
       onComplete: () => {
-        this.cameras.main.flash(220, 255, 255, 255);
-        sonido.tocar('sube');
+        if (clave === 'huevo' && this.anims.exists('huevo_eclosion')) {
+          // Huevo genérico: su propia animación de apertura.
+          huevo.destroy();
+          const abre = this.add.sprite(x, y + 6, 'huevo_eclosion', 1).setDepth(12);
+          abre.play({ key: 'huevo_eclosion', startFrame: 1 });
+          this.time.delayedCall(280, nacer);
+          abre.once(Phaser.Animations.Events.ANIMATION_COMPLETE, () => this.tweens.add({ targets: abre, alpha: 0, duration: 300, onComplete: () => abre.destroy() }));
+          return;
+        }
+        // Huevo de la familia: se parte en dos mitades que se separan, con un destello.
+        const mitad = huevo.height / 2;
+        const arriba = this.add.image(x, y + 6, clave).setDepth(12).setCrop(0, 0, huevo.width, mitad);
+        const abajo = this.add.image(x, y + 6, clave).setDepth(12).setCrop(0, mitad, huevo.width, mitad);
         huevo.destroy();
-        this.tweens.add({ targets: cria, alpha: 1, scale: { from: 0.2, to: 0.5 }, duration: 260, ease: 'Back.easeOut' });
-        this.tweens.add({ targets: cria, y: y + 16, duration: 160, yoyo: true, repeat: 1, delay: 280 });
+        this.tweens.add({ targets: arriba, x: x - 12, y: y - 6, angle: -35, alpha: 0, duration: 420, ease: 'Quad.easeOut', onComplete: () => arriba.destroy() });
+        this.tweens.add({ targets: abajo, x: x + 10, y: y + 12, angle: 25, alpha: 0, duration: 420, ease: 'Quad.easeOut', onComplete: () => abajo.destroy() });
+        if (this.anims.exists('mina_destello')) {
+          const d = this.add.sprite(x, y - 8, 'mina_destello').setScale(2).setDepth(12);
+          d.play('mina_destello');
+          d.once(Phaser.Animations.Events.ANIMATION_COMPLETE, () => d.destroy());
+        }
+        nacer();
       },
     });
   }

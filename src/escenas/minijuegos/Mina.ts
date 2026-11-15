@@ -1,3 +1,4 @@
+import { crearAnimMina } from '../../ui/animMina';
 import Phaser from 'phaser';
 import { DATOS } from '../../core/datos';
 import { criaturaDe, nombreDe } from '../../core/estado/juego';
@@ -62,6 +63,7 @@ export class MiniMina extends MinijuegoBase {
   }
 
   override create(): void {
+    crearAnimMina(this);
     super.create();
     // Dos cámaras: la principal (zoom 2) mira la mina; otra encima (zoom 4) mira la interfaz.
     const camMina = this.cameras.main;
@@ -81,6 +83,8 @@ export class MiniMina extends MinijuegoBase {
         if (ev.length) void this.animar(ev);
       },
     });
+    // Los tesoros a la vista brillan cada tanto.
+    this.time.addEvent({ delay: 650, loop: true, callback: () => this.jugando && this.brilloTesoros() });
     // La criatura camina con su animación de dos cuadros.
     this.time.addEvent({ delay: 280, loop: true, callback: () => this.yo?.setFrame((this.cuadro ^= 1)) });
   }
@@ -251,6 +255,48 @@ export class MiniMina extends MinijuegoBase {
     }
   }
 
+  /** Reproduce una animación de la mina en coordenadas del mundo y la quita al terminar (las de bucle, a los `ms`). */
+  private efecto(clave: string, wx: number, wy: number, op: { angulo?: number; origen?: [number, number]; ms?: number; escala?: number } = {}): Phaser.GameObjects.Sprite | null {
+    if (!this.anims.exists(clave)) return null;
+    const s = this.add.sprite(wx, wy, clave).setScale(op.escala ?? 2).setAngle(op.angulo ?? 0);
+    if (op.origen) s.setOrigin(op.origen[0], op.origen[1]);
+    this.mundo.add(s);
+    s.play(clave);
+    if (op.ms) this.tweens.add({ targets: s, alpha: 0, delay: op.ms - 250, duration: 250, onComplete: () => s.destroy() });
+    else s.once(Phaser.Animations.Events.ANIMATION_COMPLETE, () => s.destroy());
+    return s;
+  }
+
+  /** El pico golpea desde la criatura hacia el bloque: apunta hacia abajo y se gira para los costados. */
+  private pico(x: number, y: number): void {
+    if (!this.yo) return;
+    const dx = x - this.mina.x;
+    const angulo = dx > 0 ? -90 : dx < 0 ? 90 : 0;
+    const ox = this.yo.x + dx * 8 + (dx === 0 ? 6 : 0);
+    const oy = this.yo.y + (dx === 0 ? 4 : 6);
+    const s = this.efecto('mina_pico', ox, oy, { angulo, origen: [5 / 16, 1 / 16] });
+    if (s && dx < 0) s.setFlipX(true);
+  }
+
+  /** Polvo bajo los pies de una celda. */
+  private polvo(x: number, y: number): void {
+    const p = this.pos(x, y);
+    this.efecto('mina_polvo', p.x, p.y + TAM / 2 - 8);
+  }
+
+  /** Cada tanto brilla un tesoro visible (moneda, gema o cofre). */
+  private brilloTesoros(): void {
+    const tesoros = [...this.celdas.keys()].filter((k) => {
+      const [x, y] = k.split(',').map(Number) as [number, number];
+      const b = this.mina.celda(x, y).b;
+      return b === 'moneda' || b === 'gema' || b === 'cofre';
+    });
+    if (!tesoros.length) return;
+    const [x, y] = Phaser.Utils.Array.GetRandom(tesoros).split(',').map(Number) as [number, number];
+    const p = this.pos(x, y);
+    this.efecto('mina_destello', p.x + Phaser.Math.Between(-9, 9), p.y + Phaser.Math.Between(-9, 9));
+  }
+
   private flotante(x: number, y: number, texto: string, color: string): void {
     // El texto flotante va en la capa de interfaz: se calcula dónde cae la celda en la pantalla.
     const cam = this.cameras.main;
@@ -263,7 +309,8 @@ export class MiniMina extends MinijuegoBase {
   }
 
   private async animar(ev: EventoMina[]): Promise<void> {
-    for (const e of ev) {
+    for (let i = 0; i < ev.length; i++) {
+      const e = ev[i]!;
       switch (e.t) {
         case 'mover':
           await this.mover(e.x, e.y, 90);
@@ -271,9 +318,11 @@ export class MiniMina extends MinijuegoBase {
         case 'caer':
           this.sincronizar();
           await this.mover(e.x, e.y, 55);
+          if (ev[i + 1]?.t !== 'caer') this.polvo(e.x, e.y);
           break;
         case 'golpe': {
           sonido.tocar('pico');
+          this.pico(e.x, e.y);
           this.sincronizar();
           const r = this.celdas.get(`${e.x},${e.y}`);
           if (r) this.tweens.add({ targets: r.img, x: r.img.x + 2, duration: 30, yoyo: true, repeat: 1 });
@@ -284,6 +333,10 @@ export class MiniMina extends MinijuegoBase {
         case 'romper':
           sonido.tocar('rompe');
           this.astillas(e.x, e.y, ASTILLA[e.b] ?? 0x888888, 10);
+          if (e.b === 'gas') {
+            const p = this.pos(e.x, e.y);
+            this.efecto('mina_gas', p.x, p.y, { ms: 1400 });
+          }
           this.sincronizar();
           await this.esperar(40);
           break;
@@ -299,6 +352,9 @@ export class MiniMina extends MinijuegoBase {
           } as const;
           const [txt, color] = textos[e.tipo];
           this.flotante(e.x, e.y, txt, color);
+          const pb = this.pos(e.x, e.y);
+          this.efecto('mina_destello', pb.x - 6, pb.y - 4);
+          this.efecto('mina_destello', pb.x + 7, pb.y + 3);
           break;
         }
         case 'dano':
@@ -312,17 +368,24 @@ export class MiniMina extends MinijuegoBase {
           sonido.tocar('explota');
           this.cameras.main.shake(260, 0.02);
           this.cameras.main.flash(180, 255, 220, 120);
-          for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) this.astillas(e.x + dx, e.y + dy, 0xff9a3a, 5);
+          {
+            const p = this.pos(e.x, e.y);
+            if (!this.efecto('mina_explosion', p.x, p.y)) for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) this.astillas(e.x + dx, e.y + dy, 0xff9a3a, 5);
+          }
           this.sincronizar();
           await this.esperar(160);
           break;
         case 'roca':
           sonido.tocar('roca');
           this.sincronizar();
+          this.polvo(e.x, e.hasta);
           break;
         case 'enfriar':
           sonido.tocar('rompe');
-          this.astillas(e.x, e.y, 0xffd04a, 8);
+          {
+            const p = this.pos(e.x, e.y);
+            if (!this.efecto('mina_vapor', p.x, p.y - 6)) this.astillas(e.x, e.y, 0xffd04a, 8);
+          }
           this.sincronizar();
           break;
         case 'zona':
