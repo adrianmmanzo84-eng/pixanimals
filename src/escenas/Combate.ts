@@ -102,7 +102,7 @@ export class Combate extends Phaser.Scene {
    */
   private vista: 'jugador' | 'rival' = 'jugador';
   /** Cámara simulada sobre `mundo`: acercamiento, punto que mira y giro (1 normal, 0 de canto). */
-  private cam = { zoom: 1.04, fx: 120, fy: 80, giro: 1 };
+  private cam = { zoom: 1, fx: 120, fy: 80, giro: 1 };
   private reloj = 0;
   /** Temblor del escenario en píxeles del mundo; baja a 0 solo. */
   private sacudida = { px: 0 };
@@ -145,7 +145,7 @@ export class Combate extends Phaser.Scene {
     this.ultimoMenu = 0;
     this.ultimaHabilidad = 0;
     this.vista = 'jugador';
-    this.cam = { zoom: 1.04, fx: 120, fy: 80, giro: 1 };
+    this.cam = { zoom: 1, fx: 120, fy: 80, giro: 1 };
     this.reloj = 0;
     this.sacudida = { px: 0 };
     this.temblorLibre = false;
@@ -1174,7 +1174,7 @@ export class Combate extends Phaser.Scene {
   /** Vuelve al plano general. */
   private soltar(): void {
     this.tweens.killTweensOf(this.cam);
-    this.tweens.add({ targets: this.cam, zoom: 1.04, fx: 120, fy: 80, giro: 1, duration: 500, ease: 'Sine.easeInOut' });
+    this.tweens.add({ targets: this.cam, zoom: 1, fx: 120, fy: 80, giro: 1, duration: 500, ease: 'Sine.easeInOut' });
   }
 
   /** Gira la cámara para que quien actúa quede de espaldas, mirando a su rival. */
@@ -1217,7 +1217,7 @@ export class Combate extends Phaser.Scene {
     if (animado) {
       this.cam.fx = 120 - borde * sentido;
       await Promise.all([
-        this.tween({ targets: this.cam, zoom: 1.04, fx: 120, duration: 240, ease: 'Quad.easeOut' }),
+        this.tween({ targets: this.cam, zoom: 1, fx: 120, duration: 240, ease: 'Quad.easeOut' }),
         this.tween({ targets: this.desenfoque, strength: 0, duration: 240, ease: 'Quad.easeOut' }),
       ]);
     }

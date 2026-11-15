@@ -9,6 +9,8 @@ import { FONDOS_ILUSTRADOS } from '../ui/fondos';
 /** Carga los sprites de todas las criaturas definidas en los datos. */
 /** Arte opcional de la Torre y los caminos ya entregado (se completa al integrarlo; así no hay pedidos 404). */
 const ARTE_MODOS: string[] = [];
+/** Fondos de minijuego a resolución exacta ya entregados (vacío: se usa el de combate ampliado). */
+const FONDOS_MINIJUEGO: string[] = [];
 
 export class Arranque extends Phaser.Scene {
   constructor() {
@@ -30,6 +32,8 @@ export class Arranque extends Phaser.Scene {
     // Arte opcional de la Torre y los caminos (si falta, se dibuja por código). Ver manifiesto en public/modos/.
     for (const c of ['torre_fondo', 'torre_piso', 'torre_piso_jefe', 'torre_cima', 'ruta_entrenador', 'ruta_semanal', 'ruta_nodo', 'ruta_vencido', 'ruta_jefe'])
       if (ARTE_MODOS.includes(c)) this.load.image(c, `modos/${c}.png`);
+    // Fondos propios de minijuego (960×640): pradera, bosque, volcan.
+    for (const a of FONDOS_MINIJUEGO) this.load.image(`mj_${a}`, `fondos/minijuego_${a}.png`);
     this.load.spritesheet('mina_bloques', 'mina/bloques.png', { frameWidth: 16, frameHeight: 16 });
     for (const c of DATOS.criaturas.values()) {
       this.load.image(`${c.sprites}_frente`, `sprites/${c.sprites}_frente.png`);

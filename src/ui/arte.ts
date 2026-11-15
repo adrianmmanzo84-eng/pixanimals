@@ -1,3 +1,4 @@
+import { escalaNitida } from './criaturas';
 import Phaser from 'phaser';
 import type { Item, StatId, EstadoId } from '../esquemas/esquemas';
 import { C, n } from './estilo';
@@ -31,8 +32,16 @@ export function hayArte(escena: Phaser.Scene, clave: string): boolean {
  */
 export function pieza(escena: Phaser.Scene, clave: string, x: number, y: number, tam: number, contenedor?: Phaser.GameObjects.Container): Phaser.GameObjects.Image | null {
   if (!hayArte(escena, clave)) return null;
-  const img = escena.add.image(x, y, `ui_${clave}`);
-  img.setScale(tam / Math.max(img.width, img.height));
+  // Si hay versión chica (`_mini`) y el tamaño pedido está más cerca de ella, se usa esa: menos reducción, más nitidez.
+  const mini = `${clave}_mini`;
+  let usar = clave;
+  if (hayArte(escena, mini)) {
+    const grande = escena.textures.getFrame(`ui_${clave}`);
+    const chica = escena.textures.getFrame(`ui_${mini}`);
+    if (Math.abs(Math.log((tam * 4) / Math.max(chica.width, chica.height))) < Math.abs(Math.log((tam * 4) / Math.max(grande.width, grande.height)))) usar = mini;
+  }
+  const img = escena.add.image(x, y, `ui_${usar}`);
+  img.setScale(escalaNitida(tam / Math.max(img.width, img.height), 1.25));
   contenedor?.add(img);
   return img;
 }

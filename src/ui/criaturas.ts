@@ -79,7 +79,21 @@ export function centrarVisible<T extends Phaser.GameObjects.Image>(img: T, idEsp
 export function miniatura<T extends Phaser.GameObjects.Image>(img: T, idEspecie: string, caja: number, maxEscala: number): T {
   const sprites = DATOS.criaturas.get(idEspecie)!.sprites;
   const lado = Math.max(altoVisible(idEspecie), anchos.get(sprites) ?? 48);
-  return centrarVisible(img, idEspecie).setScale(Math.min(maxEscala, caja / lado));
+  return centrarVisible(img, idEspecie).setScale(escalaNitida(Math.min(maxEscala, caja / lado), 1.12));
+}
+
+/**
+ * Escala del mundo que deja cada píxel del dibujo en un número entero de píxeles de pantalla (la cámara amplía ×4):
+ * el pixel art se ve nítido, sin píxeles de distinto tamaño. Redondea al más cercano si no se pasa de `tolerancia`
+ * sobre lo pedido; si no, hacia abajo. Por debajo de 1 píxel de pantalla usa 1/2, 1/3…
+ */
+export function escalaNitida(escala: number, tolerancia = 1.12, zoom = 4): number {
+  const pantalla = escala * zoom;
+  if (pantalla >= 1) {
+    const cerca = Math.round(pantalla);
+    return (cerca <= pantalla * tolerancia ? cerca : Math.max(1, Math.floor(pantalla))) / zoom;
+  }
+  return 1 / Math.ceil(1 / pantalla) / zoom;
 }
 
 /** Alto (desde la base del lienzo) y ancho de la parte visible de un sprite. */

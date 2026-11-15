@@ -59,8 +59,10 @@ export abstract class MinijuegoBase extends Phaser.Scene {
     musica.tocar('minijuego');
     // El paisaje cubre toda la pantalla (los de combate son más apaisados): se amplía y se centra.
     if (this.conFondo) {
-      const img = this.add.image(120, 0, fondo(this, this.arena)).setOrigin(0.5, 0);
-      img.setScale(Math.max(240 / img.width, 160 / img.height));
+      // Con fondo propio de minijuego (960×640) se ve a resolución exacta; si no, el de combate ampliado para cubrir.
+      const propio = `mj_${this.arena}`;
+      const img = this.textures.exists(propio) ? this.add.image(120, 0, propio).setOrigin(0.5, 0).setScale(0.25) : this.add.image(120, 0, fondo(this, this.arena)).setOrigin(0.5, 0);
+      if (!this.textures.exists(propio)) img.setScale(Math.max(240 / img.width, 160 / img.height));
       this.oscurecer();
     }
     const g = this.add.graphics();
