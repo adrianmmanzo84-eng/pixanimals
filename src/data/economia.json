@@ -393,6 +393,19 @@
   "fusion": {
     "copias": 3
   },
+  "rutas": {
+    "previas": 3,
+    "nivelesMenos": [
+      6,
+      4,
+      2
+    ],
+    "monedas": [
+      20,
+      30,
+      40
+    ]
+  },
   "semanal": {
     "descuento": 40,
     "nivelExtra": 5,

@@ -618,5 +618,19 @@
   "menu.ataque.titulo": "New move!",
   "menu.ataque.texto": "{n} leveled up and wants to learn {a}.",
   "menu.ataque.ayuda": "A: see · B: later",
-  "bolsaP.no.sin_ataques": "{n} already knows every move it can learn."
+  "bolsaP.no.sin_ataques": "{n} already knows every move it can learn.",
+  "torre.guardian": "Guardian at the top",
+  "torre.cima": "Boss · floor {n}",
+  "torre.ayuda": "A: fight · B: back",
+  "torre.tramo": "You cleared floor {n}!",
+  "ruta.estacion.entrenador": "Apprentice {n}",
+  "ruta.estacion.semanal": "Guard {n}",
+  "ruta.nivel": "Level {n}",
+  "ruta.vencida": "Cleared ✓ (no prize on repeat)",
+  "ruta.bloqueada": "Beat the previous stations first",
+  "ruta.ayuda": "◀ ▶: walk the path · A: fight · B: back",
+  "c.estacion.entrenador": "A trainer's apprentice challenges you! (station {n})",
+  "c.estacion.semanal": "A boss guard blocks the way! (station {n})",
+  "fin.estacion": "Station {n} cleared: +{m} coins.",
+  "fin.estacionRepetida": "Station already cleared (no prize)."
 }

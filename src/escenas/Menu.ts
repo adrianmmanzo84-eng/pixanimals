@@ -461,7 +461,10 @@ export class Menu extends Phaser.Scene {
           this.modo = 'dificultad';
           this.sel = 1;
         } else {
-          this.scene.start('Desafio', { modo: (['desafio', 'torre', 'entrenador', 'semanal'] as const)[this.sel - 1]! });
+          const modo = (['desafio', 'torre', 'entrenador', 'semanal'] as const)[this.sel - 1]!;
+          if (modo === 'torre') this.scene.start('Torre');
+          else if (modo === 'desafio') this.scene.start('Desafio', { modo });
+          else this.scene.start('Ruta', { modo });
           return;
         }
         this.pintar();

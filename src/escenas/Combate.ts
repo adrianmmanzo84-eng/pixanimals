@@ -1,3 +1,4 @@
+import { equipoEstacion, ganarEstacion, type ModoRuta } from '../core/modos/rutas';
 import { describirHabilidad } from '../ui/habilidadTexto';
 import Phaser from 'phaser';
 import { claveCategoria, claveEstado, claveTipo, ESTADO_DE_STAT, hayArte, pieza } from '../ui/arte';
@@ -40,6 +41,8 @@ export interface ConfigCombate {
   piso?: number;
   /** mina: zona de la guarida cuyo monstruo se enfrenta. */
   zona?: number;
+  /** entrenador o semanal: estación del camino (la última es el jefe). Sin dato: el jefe. */
+  estacion?: number;
 }
 
 interface Panel {
@@ -165,7 +168,9 @@ export class Combate extends Phaser.Scene {
       ? prestados[1]
       : modo === 'torre'
         ? equipoPiso(DATOS, datosPiso(DATOS, this.cfg.piso ?? juego.estado.torre.piso, mios.length))
-        : modo === 'entrenador'
+        : this.esPrevia()
+          ? equipoEstacion(DATOS, modo as ModoRuta, Date.now(), mios, this.cfg.estacion!)
+          : modo === 'entrenador'
           ? equipoEntrenador(DATOS, entrenadorDelDia(DATOS, Date.now()), mios)
           : modo === 'semanal'
             ? equipoSemanal(DATOS, Date.now(), mios)
@@ -176,7 +181,7 @@ export class Combate extends Phaser.Scene {
     this.bat = new Batalla(DATOS, [prestados ? prestados[0] : mios.map((c) => combatienteDe(DATOS, c)), rival], rng);
     // Ataque Definitivo: siempre para ti; entre los rivales, solo jefes de la Torre y el Entrenador del día, que lo cargan avisando.
     const jefe = modo === 'torre' && datosPiso(DATOS, this.cfg.piso ?? 1, 1).jefe;
-    this.bat.definitivoPermitido = [true, modo === 'entrenador' || modo === 'semanal' || modo === 'mina' || jefe];
+    this.bat.definitivoPermitido = [true, ((modo === 'entrenador' || modo === 'semanal') && !this.esPrevia()) || modo === 'mina' || jefe];
     this.bat.definitivoConCarga = [false, true];
     // Cada modo tiene su música; el combate rápido alterna entre tres canciones.
     const pisoTorre = modo === 'torre' ? datosPiso(DATOS, this.cfg.piso ?? 1, 1) : null;
@@ -257,8 +262,9 @@ export class Combate extends Phaser.Scene {
       this.tween({ targets: this.sprites[1], x: this.pos(1).x, duration: 550, ease: 'Cubic.easeOut' }),
     ]);
     if (this.cfg.modo === 'desafio') await this.decir(t('c.desafio', { n: desafioDelDia(DATOS, Date.now()).numero }));
-    if (this.cfg.modo === 'entrenador') await this.decir(t('c.entrenador', { n: entrenadorDelDia(DATOS, Date.now()).nombre }));
-    if (this.cfg.modo === 'semanal') await this.decir(t('c.semanal', { n: this.nom(1), t: DATOS.tipos.get(tipoDeLaSemana(DATOS, Date.now()))!.nombre }));
+    if (this.esPrevia()) await this.decir(t(`c.estacion.${this.cfg.modo}`, { n: this.cfg.estacion! + 1 }));
+    else if (this.cfg.modo === 'entrenador') await this.decir(t('c.entrenador', { n: entrenadorDelDia(DATOS, Date.now()).nombre }));
+    else if (this.cfg.modo === 'semanal') await this.decir(t('c.semanal', { n: this.nom(1), t: DATOS.tipos.get(tipoDeLaSemana(DATOS, Date.now()))!.nombre }));
     if (this.cfg.modo === 'torre') {
       const p = datosPiso(DATOS, this.cfg.piso ?? 1, 1);
       await this.decir(t(p.jefe ? 'c.torreJefe' : 'c.torre', { n: p.piso }));
@@ -438,6 +444,13 @@ export class Combate extends Phaser.Scene {
     this.pintarEstado(1);
   }
 
+  /** Combate contra una estación previa del camino (no el jefe). */
+  private esPrevia(): boolean {
+    const m = this.cfg.modo;
+    if ((m !== 'entrenador' && m !== 'semanal') || this.cfg.estacion === undefined) return false;
+    return this.cfg.estacion < DATOS.economia.rutas.previas;
+  }
+
   /** Reparte la recompensa, guarda la partida y muestra el resumen. */
   private async resultado(retirada: boolean): Promise<void> {
     const modo = this.cfg.modo ?? 'rapido';
@@ -453,7 +466,12 @@ export class Combate extends Phaser.Scene {
       const guardian = r.victoria ? datosPiso(DATOS, this.cfg.piso ?? 1, 1).guardian : null;
       if (guardian) this.insignia(guardian, extra);
     }
-    if (modo === 'semanal' && !retirada) {
+    const previa = this.esPrevia();
+    if (previa && !retirada && r.victoria) {
+      const m = ganarEstacion(DATOS, juego.estado, modo as ModoRuta, Date.now(), this.cfg.estacion!, equipoDe(juego.estado));
+      extra.push(m ? t('fin.estacion', { n: this.cfg.estacion! + 1, m }) : t('fin.estacionRepetida'));
+    }
+    if (modo === 'semanal' && !retirada && !previa) {
       const p = resultadoSemanal(DATOS, juego.estado, r.victoria, Date.now());
       if (p) extra.push(t('fin.semanal', { n: p.monedas ?? 0, s: p.sobre ? nombreSobre(p.sobre) : '' }));
       if (r.victoria) this.insignia(this.rivalInicial, extra);
@@ -464,7 +482,7 @@ export class Combate extends Phaser.Scene {
       else extra.push(t('fin.guaridaMonedas', { n: p.monedas }));
       this.insignia(this.rivalInicial, extra);
     }
-    if (modo === 'entrenador' && !retirada) {
+    if (modo === 'entrenador' && !retirada && !previa) {
       const p = resultadoEntrenador(DATOS, juego.estado, r.victoria, Date.now());
       if (p.monedas) extra.push(t('fin.entrenador', { n: p.monedas }));
       if (p.sobre) extra.push(t('fin.sobre', { s: nombreSobre(p.sobre) }));
@@ -500,8 +518,11 @@ export class Combate extends Phaser.Scene {
     this.alPulsar = (a) => {
       if (a !== 'a' && a !== 'b') return;
       sonido.tocar('aceptar');
-      // Al ganar se elige una carta premio.
-      this.scene.start(r.victoria ? 'Premio' : 'Menu', { submenu: 'combates' });
+      // Al ganar se elige una carta premio. La Torre y los caminos vuelven a su mapa.
+      const volver = modo === 'torre' ? { escena: 'Torre', datos: { subio: r.victoria } } : modo === 'entrenador' || modo === 'semanal' ? { escena: 'Ruta', datos: { modo, avanzo: r.victoria } } : null;
+      if (r.victoria) this.scene.start('Premio', volver ? { volver } : { submenu: 'combates' });
+      else if (volver) this.scene.start(volver.escena, volver.datos);
+      else this.scene.start('Menu', { submenu: 'combates' });
     };
   }
 
@@ -1118,13 +1139,14 @@ export class Combate extends Phaser.Scene {
       this.filtroBlur.strength = this.desenfoque.strength;
       this.filtroBlur.active = this.desenfoque.strength > 0.05;
     }
-    // Respiración: se estiran y aplastan un poco desde los pies, cada una a su ritmo, y se mecen apenas.
+    // Vaivén suave: cada criatura flota apenas de arriba abajo y se mece de lado, a su ritmo, sin deformar el dibujo.
+    // Se hace corriendo el punto de origen (solo cambia dónde se dibuja), así no interfiere con embestidas ni golpes.
     this.sprites.forEach((s, i) => {
-      if (this.tweens.isTweening(s) || s.alpha === 0) return;
-      const f = this.reloj * (i ? 2.1 : 2.4) + i * 1.7;
-      const r = Math.sin(f);
-      s.setScale(1 - 0.014 * r, 1 + 0.032 * r);
-      s.setAngle(Math.sin(this.reloj * 0.9 + i * 2.2) * 1.1);
+      if (!s.width) return;
+      const f = this.reloj * (i ? 1.5 : 1.7) + i * 1.9;
+      const dy = Math.round(Math.sin(f) * 1.6 * 4) / 4;
+      const dx = Math.round(Math.sin(f * 0.5 + 0.8) * 1.0 * 4) / 4;
+      s.setOrigin(0.5 - dx / s.width, ORIGEN_Y + dy / s.height);
     });
   }
 
@@ -1241,7 +1263,7 @@ export class Combate extends Phaser.Scene {
     this.temblor(400, 0.006);
     const color = COLOR_TIPO[this.bat.act(lado).especie.tipo] ?? 0xffffff;
     s.setTint(color);
-    await this.tween({ targets: s, scaleX: 1.08, scaleY: 1.08, duration: 180, yoyo: true, repeat: 2 });
+    await this.tween({ targets: s, y: s.y - 4, duration: 150, yoyo: true, repeat: 2, ease: 'Sine.easeOut' });
     s.clearTint();
     await this.decir(t('c.carga', { n: this.nom(lado) }));
   }
@@ -1267,7 +1289,7 @@ export class Combate extends Phaser.Scene {
     await this.tween({ targets: velo, alpha: 0.85, duration: 350 });
     sonido.tocar('final');
     s.setTint(color);
-    await this.tween({ targets: s, scaleX: 1.2, scaleY: 1.2, duration: 260, yoyo: true });
+    await this.tween({ targets: s, y: s.y - 8, duration: 240, yoyo: true, ease: 'Sine.easeOut' });
     s.clearTint();
     const desde = this.centro(lado);
     const hasta = this.centro((1 - lado) as Lado);
@@ -1347,7 +1369,7 @@ export class Combate extends Phaser.Scene {
   private async animApoyo(lado: Lado, h: Habilidad): Promise<void> {
     const apuntaAlRival = h.efectos.some((e) => (e.tipo === 'estado' || e.tipo === 'etapa') && e.objetivo === 'rival');
     await Promise.all([
-      this.tween({ targets: this.sprites[lado], scaleX: 1.12, scaleY: 1.12, duration: 120, yoyo: true }),
+      this.tween({ targets: this.sprites[lado], y: this.sprites[lado].y - 5, duration: 120, yoyo: true, ease: 'Sine.easeOut' }),
       this.fx.ataque(h, this.centro(lado), this.centro((1 - lado) as Lado)).then(
         (hecho): Promise<void> | void => (hecho ? undefined : this.fx.reproducir(h.animacion ?? (apuntaAlRival ? 'proyectil' : 'brillo'), this.centro(lado), this.centro((1 - lado) as Lado), h.tipo)),
       ),

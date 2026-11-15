@@ -618,5 +618,19 @@
   "menu.ataque.titulo": "¡Ataque nuevo!",
   "menu.ataque.texto": "{n} subió de nivel y quiere aprender {a}.",
   "menu.ataque.ayuda": "A: ver · B: más tarde",
-  "bolsaP.no.sin_ataques": "{n} ya sabe todos los ataques que puede aprender."
+  "bolsaP.no.sin_ataques": "{n} ya sabe todos los ataques que puede aprender.",
+  "torre.guardian": "Guardián en la cima",
+  "torre.cima": "Jefe · piso {n}",
+  "torre.ayuda": "A: pelear · B: volver",
+  "torre.tramo": "¡Superaste el piso {n}!",
+  "ruta.estacion.entrenador": "Aprendiz {n}",
+  "ruta.estacion.semanal": "Guardia {n}",
+  "ruta.nivel": "Nivel {n}",
+  "ruta.vencida": "Vencida ✓ (repetir no da premio)",
+  "ruta.bloqueada": "Vence las estaciones anteriores",
+  "ruta.ayuda": "◀ ▶: recorrer el camino · A: pelear · B: volver",
+  "c.estacion.entrenador": "¡Un aprendiz del entrenador te desafía! (estación {n})",
+  "c.estacion.semanal": "¡Un guardia del jefe te cierra el paso! (estación {n})",
+  "fin.estacion": "Estación {n} superada: +{m} monedas.",
+  "fin.estacionRepetida": "Estación ya superada (sin premio)."
 }

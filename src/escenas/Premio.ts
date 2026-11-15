@@ -25,9 +25,13 @@ export class Premio extends Phaser.Scene {
     super('Premio');
   }
 
-  init(): void {
+  /** Dónde seguir después de elegir la carta (la Torre o el camino del modo; si no, el menú de combates). */
+  private volver: { escena: string; datos?: object } | null = null;
+
+  init(d?: { volver?: { escena: string; datos?: object } }): void {
     this.cartas = [];
     this.alPulsar = null;
+    this.volver = d?.volver ?? null;
   }
 
   private x(i: number): number {
@@ -158,7 +162,8 @@ export class Premio extends Phaser.Scene {
     this.alPulsar = (a) => {
       if (a !== 'a' && a !== 'b') return;
       sonido.tocar('aceptar');
-      this.scene.start('Menu', { submenu: 'combates' });
+      if (this.volver) this.scene.start(this.volver.escena, this.volver.datos ?? {});
+      else this.scene.start('Menu', { submenu: 'combates' });
     };
   }
 }

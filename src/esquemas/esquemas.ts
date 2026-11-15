@@ -245,6 +245,8 @@ export const EconomiaZ = z.object({
   /** Fusión: cuántas copias repetidas hacen subir una rareza. */
   fusion: z.object({ copias: z.number().int().min(2) }),
   /** Semana temática: un tipo protagonista, su sobre más barato y un Jefe Eclipse. */
+  /** Caminos (Entrenador y Jefe de la semana): estaciones previas, niveles menos que el jefe y monedas de cada una. */
+  rutas: z.object({ previas: z.number().int().min(1).max(5), nivelesMenos: z.array(z.number().int().min(0)), monedas: z.array(z.number().int().min(0)) }),
   semanal: z.object({ descuento: z.number().int().min(0).max(90), nivelExtra: z.number().int().min(0), premio: PremioMetaZ }),
   /** Mina Pixel (ver src/core/minijuegos/mina.ts): tamaño, recursos, y por zona los pesos de cada bloque, el botín y su monstruo. */
   mina: z.object({
@@ -403,6 +405,13 @@ export const EstadoJuegoZ = z.object({
   torre: z.object({ piso: z.number().int().min(1), mejor: z.number().int().min(0) }),
   /** Último día en que se cobró el premio del Entrenador del día. */
   entrenador: z.object({ diaCobrado: z.number().int() }),
+  /** Caminos del Entrenador y del Jefe de la semana: estaciones previas vencidas en el día o semana (`ciclo`). */
+  rutas: z
+    .object({
+      entrenador: z.object({ ciclo: z.number().int(), vencidas: z.number().int().min(0) }).optional(),
+      semanal: z.object({ ciclo: z.number().int(), vencidas: z.number().int().min(0) }).optional(),
+    })
+    .optional(),
   /** Especies que alguna vez fueron tuyas (para el Álbum; evolucionar no las borra). */
   registro: z.array(z.string()),
   /** Copias repetidas guardadas por especie (3 se funden para subir una rareza). */
