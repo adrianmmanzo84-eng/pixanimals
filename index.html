@@ -66,6 +66,7 @@
   </head>
   <body>
     <div id="barra">
+      <button id="idioma" type="button" title="Idioma / Language">EN</button>
       <button id="instalar" type="button" hidden title="Instalar PIXANIMALS como app">Instalar</button>
       <button id="velocidad" type="button" aria-pressed="false" title="Velocidad de los combates">Velocidad ×1</button>
       <button id="camara" type="button" aria-pressed="true" title="Movimiento de cámara en los combates">Cámara: sí</button>
@@ -120,10 +121,10 @@
     <div id="ayuda-instalar" role="dialog" aria-modal="true" aria-labelledby="ayuda-instalar-titulo">
       <div class="caja">
         <h2 id="ayuda-instalar-titulo">Instalar en iPhone o iPad</h2>
-        <p>1. En Safari, toca el botón <b>Compartir</b> (el cuadrado con la flecha hacia arriba).</p>
-        <p>2. Elige <b>«Agregar a inicio»</b> y luego <b>Agregar</b>.</p>
-        <p>PIXANIMALS queda en tu pantalla de inicio como una app: abre a pantalla completa, funciona sin internet y tu partida queda más protegida.</p>
-        <button type="button">Entendido</button>
+        <p id="ios-paso1">1. En Safari, toca el botón <b>Compartir</b> (el cuadrado con la flecha hacia arriba).</p>
+        <p id="ios-paso2">2. Elige <b>«Agregar a inicio»</b> y luego <b>Agregar</b>.</p>
+        <p id="ios-nota">PIXANIMALS queda en tu pantalla de inicio como una app: abre a pantalla completa, funciona sin internet y tu partida queda más protegida.</p>
+        <button type="button" id="ios-ok">Entendido</button>
       </div>
     </div>
   </body>

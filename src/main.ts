@@ -1,4 +1,7 @@
 import Phaser from 'phaser';
+import { DATOS } from './core/datos';
+import { guardarIdioma, idioma, t } from './i18n/i18n';
+import { traducirDatos } from './i18n/datos';
 import { juego as partida } from './juego';
 import { iniciarPWA } from './pwa';
 import '@fontsource/fredoka/latin-500.css';
@@ -47,25 +50,47 @@ function ajustarEscala(canvas: HTMLCanvasElement): void {
   canvas.style.height = `${Math.floor(ancho / 1.5)}px`;
 }
 
+/** Textos fijos de index.html (ayuda de teclas, botón Instalar, instrucciones de iPhone) en el idioma elegido. */
+function textosDePagina(): void {
+  document.documentElement.lang = idioma();
+  const poner = (id: string, clave: string, html = false) => {
+    const el = document.getElementById(id);
+    if (el) el[html ? 'innerHTML' : 'textContent'] = t(clave);
+  };
+  poner('ayuda', 'pag.teclas');
+  poner('instalar', 'pag.instalar');
+  poner('ayuda-instalar-titulo', 'pag.ios.titulo');
+  poner('ios-paso1', 'pag.ios.paso1', true);
+  poner('ios-paso2', 'pag.ios.paso2', true);
+  poner('ios-nota', 'pag.ios.nota');
+  poner('ios-ok', 'pag.ios.ok');
+  document.getElementById('instalar')?.setAttribute('title', t('pag.instalarTitulo'));
+}
+
 async function iniciar(): Promise<void> {
+  // Idioma: nombres y descripciones de los datos, y los textos fijos de la página.
+  traducirDatos(DATOS);
+  textosDePagina();
   iniciarPWA();
   Entrada.iniciar();
   Entrada.alPrimerGesto(() => sonido.activar());
 
   // Barra de ajustes: velocidad del combate, cámara, volumen de música y de efectos (0 a 3) y silencio general.
   const boton = (id: string) => document.getElementById(id) as HTMLButtonElement;
-  const nivel = (n: number) => (n === 0 ? 'no' : '■'.repeat(n) + '□'.repeat(3 - n));
+  const nivel = (n: number) => (n === 0 ? t('bar.no') : '■'.repeat(n) + '□'.repeat(3 - n));
+  const siNo = (v: boolean) => t(v ? 'bar.si' : 'bar.no');
   const pintar = () => {
-    boton('silencio').textContent = sonido.silenciado ? 'Sonido: no' : 'Sonido: sí';
+    boton('idioma').textContent = idioma() === 'es' ? 'EN' : 'ES';
+    boton('silencio').textContent = t('bar.sonido', { v: siNo(!sonido.silenciado) });
     boton('silencio').setAttribute('aria-pressed', String(sonido.silenciado));
-    boton('velocidad').textContent = `Velocidad ×${ajustes.velocidad}`;
+    boton('velocidad').textContent = t('bar.velocidad', { v: ajustes.velocidad });
     boton('velocidad').setAttribute('aria-pressed', String(ajustes.velocidad === 2));
-    boton('camara').textContent = `Cámara: ${ajustes.camara ? 'sí' : 'no'}`;
+    boton('camara').textContent = t('bar.camara', { v: siNo(ajustes.camara) });
     boton('camara').setAttribute('aria-pressed', String(ajustes.camara));
-    boton('golpe').textContent = `Golpe: ${ajustes.golpe === 'barra' ? 'barra' : 'auto'}`;
+    boton('golpe').textContent = t('bar.golpe', { v: t(ajustes.golpe === 'barra' ? 'bar.barra' : 'bar.auto') });
     boton('golpe').setAttribute('aria-pressed', String(ajustes.golpe === 'barra'));
-    boton('vol-musica').textContent = `Música ${nivel(ajustes.musica)}`;
-    boton('vol-efectos').textContent = `Efectos ${nivel(ajustes.efectos)}`;
+    boton('vol-musica').textContent = t('bar.musica', { v: nivel(ajustes.musica) });
+    boton('vol-efectos').textContent = t('bar.efectos', { v: nivel(ajustes.efectos) });
   };
   pintar();
   const alClic = (id: string, f: () => void) =>
@@ -76,6 +101,11 @@ async function iniciar(): Promise<void> {
       boton(id).blur();
     });
   alClic('silencio', () => sonido.alternar());
+  // Cambiar de idioma recarga la página: los datos y todas las pantallas se vuelven a armar en el idioma nuevo.
+  boton('idioma').addEventListener('click', () => {
+    guardarIdioma(idioma() === 'es' ? 'en' : 'es');
+    location.reload();
+  });
   alClic('velocidad', () => cambiarAjustes({ velocidad: ajustes.velocidad === 2 ? 1 : 2 }));
   alClic('camara', () => cambiarAjustes({ camara: !ajustes.camara }));
   alClic('golpe', () => cambiarAjustes({ golpe: ajustes.golpe === 'barra' ? 'auto' : 'barra' }));

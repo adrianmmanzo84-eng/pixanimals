@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { Puntero, saltito } from '../ui/puntero';
 import { DATOS } from '../core/datos';
 import { cobrarMision, misionesDeHoy } from '../core/progresion/misiones';
+import { numeroDesafio } from '../core/modos/desafio';
 import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
@@ -15,6 +16,8 @@ import { Texto } from '../ui/texto';
 export class Misiones extends Phaser.Scene {
   private sel = 0;
   private aviso = '';
+  /** Se acaban de cobrar todas las misiones del día: la segunda línea anuncia lo de mañana. */
+  private todas = false;
 
   constructor() {
     super('Misiones');
@@ -22,7 +25,8 @@ export class Misiones extends Phaser.Scene {
 
   private salto = false;
 
-  init(d: { sel?: number; aviso?: string; salto?: boolean }): void {
+  init(d: { sel?: number; aviso?: string; salto?: boolean; todas?: boolean }): void {
+    this.todas = !!d?.todas;
     this.sel = d?.sel ?? 0;
     this.salto = !!d?.salto;
     this.aviso = d?.aviso ?? '';
@@ -60,7 +64,7 @@ export class Misiones extends Phaser.Scene {
     });
     ventana(g, 8, 130, 224, 26);
     new Texto(this, 14, 134, 212, 10, C.tinta).poner(this.aviso || t('mis.racha', { n: estado.diario.racha }));
-    new Texto(this, 14, 144, 212, 10, C.tintaSuave).poner(t('mis.ayuda'));
+    new Texto(this, 14, 144, 212, 10, this.todas ? C.resalte : C.tintaSuave, 'izq', this.todas ? { peso: 600 } : {}).poner(this.todas ? t('mis.todas', { n: numeroDesafio(Date.now()) + 1 }) : t('mis.ayuda'));
     Entrada.escuchar((a) => this.alPulsar(a, lista.length));
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => Entrada.escuchar(null));
   }
@@ -86,6 +90,13 @@ export class Misiones extends Phaser.Scene {
     }
     juego.guardar();
     sonido.tocar('cura');
-    this.scene.restart({ sel: this.sel, aviso: t('mis.cobrado', { n: premio.cantidad, r: t(premio.tipo === 'monedas' ? 'mis.monedas' : 'mis.esencia') }) });
+    const cobrado = t('mis.cobrado', { n: premio.cantidad, r: t(premio.tipo === 'monedas' ? 'mis.monedas' : 'mis.esencia') });
+    // Con la última del día, se siembra la visita de mañana.
+    const todas = misionesDeHoy(DATOS, juego.estado, Date.now()).every((x) => x.cobrada);
+    if (todas) {
+      sonido.tocar('tesoro');
+      this.cameras.main.flash(200, 255, 240, 180);
+    }
+    this.scene.restart({ sel: this.sel, aviso: cobrado, todas });
   }
 }

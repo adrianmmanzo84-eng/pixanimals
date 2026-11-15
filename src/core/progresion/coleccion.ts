@@ -216,6 +216,12 @@ export function faltaExpedicion(x: EstadoJuego['expediciones'][number], ahora: n
   return Math.max(0, x.desde + x.horas * MS_HORA - ahora);
 }
 
+/** ¿Hay un lugar de expedición libre y alguna criatura de reserva para mandar? (aviso del menú) */
+export function expedicionLibre(datos: Datos, estado: EstadoJuego): boolean {
+  if (estado.expediciones.length >= datos.economia.expediciones.lugares) return false;
+  return estado.criaturas.some((c) => !estado.equipo.includes(c.especie) && !enExpedicion(estado, c.especie));
+}
+
 export function enExpedicion(estado: EstadoJuego, especie: string): boolean {
   return estado.expediciones.some((x) => x.especie === especie);
 }

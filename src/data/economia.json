@@ -573,5 +573,9 @@
         "xpCombate": 1.5
       }
     }
-  ]
+  ],
+  "consuelo": {
+    "esencia": 8,
+    "porDia": 3
+  }
 }

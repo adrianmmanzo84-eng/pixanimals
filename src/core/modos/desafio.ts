@@ -3,6 +3,7 @@ import type { Datos } from '../datos';
 import { Rng } from '../rng';
 import { diaLocal } from '../items/items';
 import { crearCombatiente, type Combatiente } from '../combate/motor';
+import { t } from '../../i18n/i18n';
 
 /**
  * Desafío del día: la misma pelea para todo el mundo. Con la fecha como semilla salen un equipo prestado
@@ -94,9 +95,9 @@ export function cuadrito(vida: number): string {
 
 /** Texto para compartir: número, resultado, una fila de cuadritos y la racha. No nombra al rival. */
 export function textoCompartir(numero: number, r: ResultadoDesafio, racha: number, url: string): string {
-  const linea = r.victoria ? `🏆 Victoria en ${r.turnos} turnos` : `💥 Derrota en ${r.turnos} turnos`;
-  const filas = [`PIXANIMALS · Desafío #${numero}`, linea, r.vidas.map(cuadrito).join('')];
-  if (racha > 1) filas.push(`🔥 Racha: ${racha} días`);
+  const linea = `${r.victoria ? '🏆' : '💥'} ${t(r.victoria ? 'comp.victoria' : 'comp.derrota', { n: r.turnos })}`;
+  const filas = [t('comp.titulo', { n: numero }), linea, r.vidas.map(cuadrito).join('')];
+  if (racha > 1) filas.push(`🔥 ${t('comp.racha', { n: racha })}`);
   filas.push(url);
   return filas.join('\n');
 }

@@ -2,7 +2,7 @@
   "criaturas": [
     {
       "id": "lumbrito",
-      "nombre": "Lumbrito",
+      "nombre": "Leopix",
       "tipo": "brasa",
       "familia": "brasa",
       "etapa": 1,
@@ -38,7 +38,7 @@
     },
     {
       "id": "leobrasa",
-      "nombre": "Leobrasa",
+      "nombre": "Leopixel",
       "tipo": "brasa",
       "familia": "brasa",
       "etapa": 2,
@@ -74,7 +74,7 @@
     },
     {
       "id": "ignileon",
-      "nombre": "Ignileón",
+      "nombre": "Leomegapix",
       "tipo": "brasa",
       "familia": "brasa",
       "etapa": 3,
@@ -115,7 +115,7 @@
     },
     {
       "id": "solarion",
-      "nombre": "Solarión",
+      "nombre": "Leogigapix",
       "tipo": "brasa",
       "familia": "brasa",
       "etapa": 4,
@@ -147,7 +147,7 @@
     },
     {
       "id": "solarion_eclipse",
-      "nombre": "Solarión Eclipse",
+      "nombre": "Noxleopix",
       "tipo": "brasa",
       "familia": "brasa",
       "etapa": 4,
@@ -179,7 +179,7 @@
     },
     {
       "id": "aletin",
-      "nombre": "Aletín",
+      "nombre": "Pixtibu",
       "tipo": "marea",
       "familia": "marea",
       "etapa": 1,
@@ -215,7 +215,7 @@
     },
     {
       "id": "corsario",
-      "nombre": "Corsario",
+      "nombre": "Pixeltibu",
       "tipo": "marea",
       "familia": "marea",
       "etapa": 2,
@@ -251,7 +251,7 @@
     },
     {
       "id": "almirante",
-      "nombre": "Almirante",
+      "nombre": "Megapixtibu",
       "tipo": "marea",
       "familia": "marea",
       "etapa": 3,
@@ -292,7 +292,7 @@
     },
     {
       "id": "leviatan",
-      "nombre": "Leviatán",
+      "nombre": "Gigapixtibu",
       "tipo": "marea",
       "familia": "marea",
       "etapa": 4,
@@ -324,7 +324,7 @@
     },
     {
       "id": "leviatan_eclipse",
-      "nombre": "Leviatán Eclipse",
+      "nombre": "Noxpixtibu",
       "tipo": "marea",
       "familia": "marea",
       "etapa": 4,
@@ -356,7 +356,7 @@
     },
     {
       "id": "brotin",
-      "nombre": "Brotín",
+      "nombre": "Osopix",
       "tipo": "brote",
       "familia": "brote",
       "etapa": 1,
@@ -392,7 +392,7 @@
     },
     {
       "id": "robledo",
-      "nombre": "Robledo",
+      "nombre": "Osopixel",
       "tipo": "brote",
       "familia": "brote",
       "etapa": 2,
@@ -428,7 +428,7 @@
     },
     {
       "id": "guardabosque",
-      "nombre": "Guardabosque",
+      "nombre": "Osomegapix",
       "tipo": "brote",
       "familia": "brote",
       "etapa": 3,
@@ -469,7 +469,7 @@
     },
     {
       "id": "titan_ancestral",
-      "nombre": "Titán Ancestral",
+      "nombre": "Osogigapix",
       "tipo": "brote",
       "familia": "brote",
       "etapa": 4,
@@ -501,7 +501,7 @@
     },
     {
       "id": "titan_eclipse",
-      "nombre": "Titán Eclipse",
+      "nombre": "Noxosopix",
       "tipo": "brote",
       "familia": "brote",
       "etapa": 4,
@@ -533,7 +533,7 @@
     },
     {
       "id": "mantin",
-      "nombre": "Mantín",
+      "nombre": "Rayapix",
       "tipo": "cielo",
       "familia": "mantarraya",
       "etapa": 1,
@@ -563,7 +563,7 @@
     },
     {
       "id": "mantabrisa",
-      "nombre": "Mantabrisa",
+      "nombre": "Rayapixel",
       "tipo": "cielo",
       "familia": "mantarraya",
       "etapa": 2,
@@ -593,7 +593,7 @@
     },
     {
       "id": "nimbomanta",
-      "nombre": "Nimbomanta",
+      "nombre": "Rayamegapix",
       "tipo": "cielo",
       "familia": "mantarraya",
       "etapa": 3,
@@ -628,7 +628,7 @@
     },
     {
       "id": "soberaya",
-      "nombre": "Soberaya",
+      "nombre": "Rayagigapix",
       "tipo": "cielo",
       "familia": "mantarraya",
       "etapa": 4,
@@ -654,7 +654,7 @@
     },
     {
       "id": "soberaya_eclipse",
-      "nombre": "Soberaya Eclipse",
+      "nombre": "Noxrayapix",
       "tipo": "cielo",
       "familia": "mantarraya",
       "etapa": 4,
@@ -680,7 +680,7 @@
     },
     {
       "id": "larvin",
-      "nombre": "Larvín",
+      "nombre": "Pixpoli",
       "tipo": "sombra",
       "familia": "polilla",
       "etapa": 1,
@@ -710,7 +710,7 @@
     },
     {
       "id": "capullon",
-      "nombre": "Capullón",
+      "nombre": "Pixelpoli",
       "tipo": "sombra",
       "familia": "polilla",
       "etapa": 2,
@@ -740,7 +740,7 @@
     },
     {
       "id": "polinoche",
-      "nombre": "Polinoche",
+      "nombre": "Megapixpoli",
       "tipo": "sombra",
       "familia": "polilla",
       "etapa": 3,
@@ -775,7 +775,7 @@
     },
     {
       "id": "obsidia",
-      "nombre": "Obsidia",
+      "nombre": "Gigapixpoli",
       "tipo": "sombra",
       "familia": "polilla",
       "etapa": 4,
@@ -801,7 +801,7 @@
     },
     {
       "id": "obsidia_eclipse",
-      "nombre": "Obsidia Eclipse",
+      "nombre": "Noxpixpoli",
       "tipo": "sombra",
       "familia": "polilla",
       "etapa": 4,
@@ -827,7 +827,7 @@
     },
     {
       "id": "ajolin",
-      "nombre": "Ajolín",
+      "nombre": "Ajolopix",
       "tipo": "rayo",
       "familia": "ajolote",
       "etapa": 1,
@@ -857,7 +857,7 @@
     },
     {
       "id": "chispolote",
-      "nombre": "Chispolote",
+      "nombre": "Ajolopixel",
       "tipo": "rayo",
       "familia": "ajolote",
       "etapa": 2,
@@ -887,7 +887,7 @@
     },
     {
       "id": "truenolote",
-      "nombre": "Truenolote",
+      "nombre": "Ajolomegapix",
       "tipo": "rayo",
       "familia": "ajolote",
       "etapa": 3,
@@ -922,7 +922,7 @@
     },
     {
       "id": "ajotron",
-      "nombre": "Ajotrón",
+      "nombre": "Ajologigapix",
       "tipo": "rayo",
       "familia": "ajolote",
       "etapa": 4,
@@ -948,7 +948,7 @@
     },
     {
       "id": "ajotron_eclipse",
-      "nombre": "Ajotrón Eclipse",
+      "nombre": "Noxajolopix",
       "tipo": "rayo",
       "familia": "ajolote",
       "etapa": 4,
@@ -974,7 +974,7 @@
     },
     {
       "id": "caracolin",
-      "nombre": "Caracolín",
+      "nombre": "Caracopix",
       "tipo": "roca",
       "familia": "caracol",
       "etapa": 1,
@@ -1004,7 +1004,7 @@
     },
     {
       "id": "pedrecol",
-      "nombre": "Pedrecol",
+      "nombre": "Caracopixel",
       "tipo": "roca",
       "familia": "caracol",
       "etapa": 2,
@@ -1034,7 +1034,7 @@
     },
     {
       "id": "murallacol",
-      "nombre": "Murallacol",
+      "nombre": "Caracomegapix",
       "tipo": "roca",
       "familia": "caracol",
       "etapa": 3,
@@ -1069,7 +1069,7 @@
     },
     {
       "id": "bastion",
-      "nombre": "Bastión",
+      "nombre": "Caracogigapix",
       "tipo": "roca",
       "familia": "caracol",
       "etapa": 4,
@@ -1095,7 +1095,7 @@
     },
     {
       "id": "bastion_eclipse",
-      "nombre": "Bastión Eclipse",
+      "nombre": "Noxcaracopix",
       "tipo": "roca",
       "familia": "caracol",
       "etapa": 4,
@@ -1121,7 +1121,7 @@
     },
     {
       "id": "colibrin",
-      "nombre": "Colibrín",
+      "nombre": "Pixcoli",
       "tipo": "brote",
       "familia": "colibri",
       "etapa": 1,
@@ -1151,7 +1151,7 @@
     },
     {
       "id": "picoespina",
-      "nombre": "Picoespina",
+      "nombre": "Pixelcoli",
       "tipo": "brote",
       "familia": "colibri",
       "etapa": 2,
@@ -1181,7 +1181,7 @@
     },
     {
       "id": "espinaflor",
-      "nombre": "Espinaflor",
+      "nombre": "Megapixcoli",
       "tipo": "brote",
       "familia": "colibri",
       "etapa": 3,
@@ -1216,7 +1216,7 @@
     },
     {
       "id": "florarca",
-      "nombre": "Florarca",
+      "nombre": "Gigapixcoli",
       "tipo": "brote",
       "familia": "colibri",
       "etapa": 4,
@@ -1242,7 +1242,7 @@
     },
     {
       "id": "florarca_eclipse",
-      "nombre": "Florarca Eclipse",
+      "nombre": "Noxpixcoli",
       "tipo": "brote",
       "familia": "colibri",
       "etapa": 4,
@@ -1268,7 +1268,7 @@
     },
     {
       "id": "pangolito",
-      "nombre": "Pangolito",
+      "nombre": "Pangopix",
       "tipo": "roca",
       "familia": "pangolin",
       "etapa": 1,
@@ -1298,7 +1298,7 @@
     },
     {
       "id": "prismolin",
-      "nombre": "Prismolín",
+      "nombre": "Pangopixel",
       "tipo": "roca",
       "familia": "pangolin",
       "etapa": 2,
@@ -1328,7 +1328,7 @@
     },
     {
       "id": "cuarzolin",
-      "nombre": "Cuarzolín",
+      "nombre": "Pangomegapix",
       "tipo": "roca",
       "familia": "pangolin",
       "etapa": 3,
@@ -1363,7 +1363,7 @@
     },
     {
       "id": "prismon",
-      "nombre": "Prismón",
+      "nombre": "Pangogigapix",
       "tipo": "roca",
       "familia": "pangolin",
       "etapa": 4,
@@ -1389,7 +1389,7 @@
     },
     {
       "id": "prismon_eclipse",
-      "nombre": "Prismón Eclipse",
+      "nombre": "Noxpangopix",
       "tipo": "roca",
       "familia": "pangolin",
       "etapa": 4,
@@ -1415,7 +1415,7 @@
     },
     {
       "id": "gequito",
-      "nombre": "Gequito",
+      "nombre": "Pixgeco",
       "tipo": "cielo",
       "familia": "gecko",
       "etapa": 1,
@@ -1445,7 +1445,7 @@
     },
     {
       "id": "velogeco",
-      "nombre": "Velogeco",
+      "nombre": "Pixelgeco",
       "tipo": "cielo",
       "familia": "gecko",
       "etapa": 2,
@@ -1475,7 +1475,7 @@
     },
     {
       "id": "aurogeco",
-      "nombre": "Aurogeco",
+      "nombre": "Megapixgeco",
       "tipo": "cielo",
       "familia": "gecko",
       "etapa": 3,
@@ -1510,7 +1510,7 @@
     },
     {
       "id": "auragon",
-      "nombre": "Auragón",
+      "nombre": "Gigapixgeco",
       "tipo": "cielo",
       "familia": "gecko",
       "etapa": 4,
@@ -1536,7 +1536,7 @@
     },
     {
       "id": "auragon_eclipse",
-      "nombre": "Auragón Eclipse",
+      "nombre": "Noxpixgeco",
       "tipo": "cielo",
       "familia": "gecko",
       "etapa": 4,
@@ -1562,7 +1562,7 @@
     },
     {
       "id": "ermitin",
-      "nombre": "Ermitín",
+      "nombre": "Cangrepix",
       "tipo": "marea",
       "familia": "cangrejo",
       "etapa": 1,
@@ -1592,7 +1592,7 @@
     },
     {
       "id": "pinzacho",
-      "nombre": "Pinzacho",
+      "nombre": "Cangrepixel",
       "tipo": "marea",
       "familia": "cangrejo",
       "etapa": 2,
@@ -1622,7 +1622,7 @@
     },
     {
       "id": "relicario",
-      "nombre": "Relicario",
+      "nombre": "Cangremegapix",
       "tipo": "marea",
       "familia": "cangrejo",
       "etapa": 3,
@@ -1657,7 +1657,7 @@
     },
     {
       "id": "relicon",
-      "nombre": "Relicón",
+      "nombre": "Cangregigapix",
       "tipo": "marea",
       "familia": "cangrejo",
       "etapa": 4,
@@ -1683,7 +1683,7 @@
     },
     {
       "id": "relicon_eclipse",
-      "nombre": "Relicón Eclipse",
+      "nombre": "Noxcangrepix",
       "tipo": "marea",
       "familia": "cangrejo",
       "etapa": 4,
@@ -1709,7 +1709,7 @@
     },
     {
       "id": "orejin",
-      "nombre": "Orejín",
+      "nombre": "Pixliebre",
       "tipo": "sombra",
       "familia": "liebre",
       "etapa": 1,
@@ -1739,7 +1739,7 @@
     },
     {
       "id": "saltaluna",
-      "nombre": "Saltaluna",
+      "nombre": "Pixelliebre",
       "tipo": "sombra",
       "familia": "liebre",
       "etapa": 2,
@@ -1769,7 +1769,7 @@
     },
     {
       "id": "medialuna",
-      "nombre": "Medialuna",
+      "nombre": "Megapixliebre",
       "tipo": "sombra",
       "familia": "liebre",
       "etapa": 3,
@@ -1804,7 +1804,7 @@
     },
     {
       "id": "astaluna",
-      "nombre": "Astaluna",
+      "nombre": "Gigapixliebre",
       "tipo": "sombra",
       "familia": "liebre",
       "etapa": 4,
@@ -1830,7 +1830,7 @@
     },
     {
       "id": "astaluna_eclipse",
-      "nombre": "Astaluna Eclipse",
+      "nombre": "Noxpixliebre",
       "tipo": "sombra",
       "familia": "liebre",
       "etapa": 4,
@@ -1856,7 +1856,7 @@
     },
     {
       "id": "pulpin",
-      "nombre": "Pulpín",
+      "nombre": "Pixpulpo",
       "tipo": "sombra",
       "familia": "pulpo",
       "etapa": 1,
@@ -1886,7 +1886,7 @@
     },
     {
       "id": "tintapus",
-      "nombre": "Tintapus",
+      "nombre": "Pixelpulpo",
       "tipo": "sombra",
       "familia": "pulpo",
       "etapa": 2,
@@ -1916,7 +1916,7 @@
     },
     {
       "id": "abisopus",
-      "nombre": "Abisopus",
+      "nombre": "Megapixpulpo",
       "tipo": "sombra",
       "familia": "pulpo",
       "etapa": 3,
@@ -1951,7 +1951,7 @@
     },
     {
       "id": "regiopus",
-      "nombre": "Regiopus",
+      "nombre": "Gigapixpulpo",
       "tipo": "sombra",
       "familia": "pulpo",
       "etapa": 4,
@@ -1977,7 +1977,7 @@
     },
     {
       "id": "regiopus_eclipse",
-      "nombre": "Regiopus Eclipse",
+      "nombre": "Noxpixpulpo",
       "tipo": "sombra",
       "familia": "pulpo",
       "etapa": 4,
@@ -2003,7 +2003,7 @@
     },
     {
       "id": "fenequin",
-      "nombre": "Fenequín",
+      "nombre": "Fenepix",
       "tipo": "brasa",
       "familia": "fenec",
       "etapa": 1,
@@ -2033,7 +2033,7 @@
     },
     {
       "id": "dunafen",
-      "nombre": "Dunafén",
+      "nombre": "Fenepixel",
       "tipo": "brasa",
       "familia": "fenec",
       "etapa": 2,
@@ -2063,7 +2063,7 @@
     },
     {
       "id": "vitrifen",
-      "nombre": "Vitrifén",
+      "nombre": "Fenemegapix",
       "tipo": "brasa",
       "familia": "fenec",
       "etapa": 3,
@@ -2098,7 +2098,7 @@
     },
     {
       "id": "vitreon",
-      "nombre": "Vitreón",
+      "nombre": "Fenegigapix",
       "tipo": "brasa",
       "familia": "fenec",
       "etapa": 4,
@@ -2124,7 +2124,7 @@
     },
     {
       "id": "vitreon_eclipse",
-      "nombre": "Vitreón Eclipse",
+      "nombre": "Noxfenepix",
       "tipo": "brasa",
       "familia": "fenec",
       "etapa": 4,
@@ -2150,7 +2150,7 @@
     },
     {
       "id": "escarlito",
-      "nombre": "Escarlito",
+      "nombre": "Escarapix",
       "tipo": "brasa",
       "familia": "escarabajo",
       "etapa": 1,
@@ -2180,7 +2180,7 @@
     },
     {
       "id": "yunquero",
-      "nombre": "Yunquero",
+      "nombre": "Escarapixel",
       "tipo": "brasa",
       "familia": "escarabajo",
       "etapa": 2,
@@ -2210,7 +2210,7 @@
     },
     {
       "id": "cornifragua",
-      "nombre": "Cornifragua",
+      "nombre": "Escaramegapix",
       "tipo": "brasa",
       "familia": "escarabajo",
       "etapa": 3,
@@ -2245,7 +2245,7 @@
     },
     {
       "id": "fundaris",
-      "nombre": "Fundaris",
+      "nombre": "Escaragigapix",
       "tipo": "brasa",
       "familia": "escarabajo",
       "etapa": 4,
@@ -2271,7 +2271,7 @@
     },
     {
       "id": "fundaris_eclipse",
-      "nombre": "Fundaris Eclipse",
+      "nombre": "Noxescarapix",
       "tipo": "brasa",
       "familia": "escarabajo",
       "etapa": 4,
@@ -2297,7 +2297,7 @@
     },
     {
       "id": "carbunin",
-      "nombre": "Carbunín",
+      "nombre": "Pixespín",
       "tipo": "brasa",
       "familia": "puercoespin",
       "etapa": 1,
@@ -2327,7 +2327,7 @@
     },
     {
       "id": "ascuespin",
-      "nombre": "Ascuespín",
+      "nombre": "Pixelespín",
       "tipo": "brasa",
       "familia": "puercoespin",
       "etapa": 2,
@@ -2357,7 +2357,7 @@
     },
     {
       "id": "pirapuas",
-      "nombre": "Pirapúas",
+      "nombre": "Megapixespín",
       "tipo": "brasa",
       "familia": "puercoespin",
       "etapa": 3,
@@ -2392,7 +2392,7 @@
     },
     {
       "id": "carbunco",
-      "nombre": "Carbunco",
+      "nombre": "Gigapixespín",
       "tipo": "brasa",
       "familia": "puercoespin",
       "etapa": 4,
@@ -2418,7 +2418,7 @@
     },
     {
       "id": "carbunco_eclipse",
-      "nombre": "Carbunco Eclipse",
+      "nombre": "Noxpixespín",
       "tipo": "brasa",
       "familia": "puercoespin",
       "etapa": 4,
@@ -2444,7 +2444,7 @@
     },
     {
       "id": "chispollo",
-      "nombre": "Chispollo",
+      "nombre": "Gallopix",
       "tipo": "brasa",
       "familia": "gallo",
       "etapa": 1,
@@ -2474,7 +2474,7 @@
     },
     {
       "id": "gallarete",
-      "nombre": "Gallarete",
+      "nombre": "Gallopixel",
       "tipo": "brasa",
       "familia": "gallo",
       "etapa": 2,
@@ -2504,7 +2504,7 @@
     },
     {
       "id": "crestallama",
-      "nombre": "Crestallama",
+      "nombre": "Gallomegapix",
       "tipo": "brasa",
       "familia": "gallo",
       "etapa": 3,
@@ -2539,7 +2539,7 @@
     },
     {
       "id": "cometon",
-      "nombre": "Cometón",
+      "nombre": "Gallogigapix",
       "tipo": "brasa",
       "familia": "gallo",
       "etapa": 4,
@@ -2565,7 +2565,7 @@
     },
     {
       "id": "cometon_eclipse",
-      "nombre": "Cometón Eclipse",
+      "nombre": "Noxgallopix",
       "tipo": "brasa",
       "familia": "gallo",
       "etapa": 4,
@@ -2591,7 +2591,7 @@
     },
     {
       "id": "nutrin",
-      "nombre": "Nutrín",
+      "nombre": "Pixnutria",
       "tipo": "marea",
       "familia": "nutria",
       "etapa": 1,
@@ -2621,7 +2621,7 @@
     },
     {
       "id": "coralutra",
-      "nombre": "Coralutra",
+      "nombre": "Pixelnutria",
       "tipo": "marea",
       "familia": "nutria",
       "etapa": 2,
@@ -2651,7 +2651,7 @@
     },
     {
       "id": "arrecifa",
-      "nombre": "Arrecifa",
+      "nombre": "Megapixnutria",
       "tipo": "marea",
       "familia": "nutria",
       "etapa": 3,
@@ -2686,7 +2686,7 @@
     },
     {
       "id": "nutrarca",
-      "nombre": "Nutrarca",
+      "nombre": "Gigapixnutria",
       "tipo": "marea",
       "familia": "nutria",
       "etapa": 4,
@@ -2712,7 +2712,7 @@
     },
     {
       "id": "nutrarca_eclipse",
-      "nombre": "Nutrarca Eclipse",
+      "nombre": "Noxpixnutria",
       "tipo": "marea",
       "familia": "nutria",
       "etapa": 4,
@@ -2738,7 +2738,7 @@
     },
     {
       "id": "hipin",
-      "nombre": "Hipín",
+      "nombre": "Cabalipix",
       "tipo": "marea",
       "familia": "caballito",
       "etapa": 1,
@@ -2768,7 +2768,7 @@
     },
     {
       "id": "hipalet",
-      "nombre": "Hipalet",
+      "nombre": "Cabalipixel",
       "tipo": "marea",
       "familia": "caballito",
       "etapa": 2,
@@ -2798,7 +2798,7 @@
     },
     {
       "id": "crestamar",
-      "nombre": "Crestamar",
+      "nombre": "Cabalimegapix",
       "tipo": "marea",
       "familia": "caballito",
       "etapa": 3,
@@ -2833,7 +2833,7 @@
     },
     {
       "id": "abisalio",
-      "nombre": "Abisalio",
+      "nombre": "Cabaligigapix",
       "tipo": "marea",
       "familia": "caballito",
       "etapa": 4,
@@ -2859,7 +2859,7 @@
     },
     {
       "id": "abisalio_eclipse",
-      "nombre": "Abisalio Eclipse",
+      "nombre": "Noxcabalipix",
       "tipo": "marea",
       "familia": "caballito",
       "etapa": 4,
@@ -2885,7 +2885,7 @@
     },
     {
       "id": "medusin",
-      "nombre": "Medusín",
+      "nombre": "Pixmedusa",
       "tipo": "marea",
       "familia": "medusa",
       "etapa": 1,
@@ -2915,7 +2915,7 @@
     },
     {
       "id": "campanela",
-      "nombre": "Campanela",
+      "nombre": "Pixelmedusa",
       "tipo": "marea",
       "familia": "medusa",
       "etapa": 2,
@@ -2945,7 +2945,7 @@
     },
     {
       "id": "medusperla",
-      "nombre": "Medusperla",
+      "nombre": "Megapixmedusa",
       "tipo": "marea",
       "familia": "medusa",
       "etapa": 3,
@@ -2980,7 +2980,7 @@
     },
     {
       "id": "carillon",
-      "nombre": "Carillón",
+      "nombre": "Gigapixmedusa",
       "tipo": "marea",
       "familia": "medusa",
       "etapa": 4,
@@ -3006,7 +3006,7 @@
     },
     {
       "id": "carillon_eclipse",
-      "nombre": "Carillón Eclipse",
+      "nombre": "Noxpixmedusa",
       "tipo": "marea",
       "familia": "medusa",
       "etapa": 4,
@@ -3032,7 +3032,7 @@
     },
     {
       "id": "narvalin",
-      "nombre": "Narvalín",
+      "nombre": "Narvapix",
       "tipo": "marea",
       "familia": "narval",
       "etapa": 1,
@@ -3062,7 +3062,7 @@
     },
     {
       "id": "colmillar",
-      "nombre": "Colmillar",
+      "nombre": "Narvapixel",
       "tipo": "marea",
       "familia": "narval",
       "etapa": 2,
@@ -3092,7 +3092,7 @@
     },
     {
       "id": "glaciarval",
-      "nombre": "Glaciarval",
+      "nombre": "Narvamegapix",
       "tipo": "marea",
       "familia": "narval",
       "etapa": 3,
@@ -3127,7 +3127,7 @@
     },
     {
       "id": "glacior",
-      "nombre": "Glacior",
+      "nombre": "Narvagigapix",
       "tipo": "marea",
       "familia": "narval",
       "etapa": 4,
@@ -3153,7 +3153,7 @@
     },
     {
       "id": "glacior_eclipse",
-      "nombre": "Glacior Eclipse",
+      "nombre": "Noxnarvapix",
       "tipo": "marea",
       "familia": "narval",
       "etapa": 4,
@@ -3179,7 +3179,7 @@
     },
     {
       "id": "tapirin",
-      "nombre": "Tapirín",
+      "nombre": "Pixtapir",
       "tipo": "brote",
       "familia": "tapir",
       "etapa": 1,
@@ -3209,7 +3209,7 @@
     },
     {
       "id": "musgapir",
-      "nombre": "Musgapir",
+      "nombre": "Pixeltapir",
       "tipo": "brote",
       "familia": "tapir",
       "etapa": 2,
@@ -3239,7 +3239,7 @@
     },
     {
       "id": "hongotapir",
-      "nombre": "Hongotapir",
+      "nombre": "Megapixtapir",
       "tipo": "brote",
       "familia": "tapir",
       "etapa": 3,
@@ -3274,7 +3274,7 @@
     },
     {
       "id": "micelon",
-      "nombre": "Micelón",
+      "nombre": "Gigapixtapir",
       "tipo": "brote",
       "familia": "tapir",
       "etapa": 4,
@@ -3300,7 +3300,7 @@
     },
     {
       "id": "micelon_eclipse",
-      "nombre": "Micelón Eclipse",
+      "nombre": "Noxpixtapir",
       "tipo": "brote",
       "familia": "tapir",
       "etapa": 4,
@@ -3326,7 +3326,7 @@
     },
     {
       "id": "ninfin",
-      "nombre": "Ninfín",
+      "nombre": "Pixmantis",
       "tipo": "brote",
       "familia": "mantis",
       "etapa": 1,
@@ -3356,7 +3356,7 @@
     },
     {
       "id": "orquiman",
-      "nombre": "Orquimán",
+      "nombre": "Pixelmantis",
       "tipo": "brote",
       "familia": "mantis",
       "etapa": 2,
@@ -3386,7 +3386,7 @@
     },
     {
       "id": "orquimantis",
-      "nombre": "Orquimantis",
+      "nombre": "Megapixmantis",
       "tipo": "brote",
       "familia": "mantis",
       "etapa": 3,
@@ -3421,7 +3421,7 @@
     },
     {
       "id": "orquira",
-      "nombre": "Orquira",
+      "nombre": "Gigapixmantis",
       "tipo": "brote",
       "familia": "mantis",
       "etapa": 4,
@@ -3447,7 +3447,7 @@
     },
     {
       "id": "orquira_eclipse",
-      "nombre": "Orquira Eclipse",
+      "nombre": "Noxpixmantis",
       "tipo": "brote",
       "familia": "mantis",
       "etapa": 4,
@@ -3473,7 +3473,7 @@
     },
     {
       "id": "capibin",
-      "nombre": "Capibín",
+      "nombre": "Capipix",
       "tipo": "brote",
       "familia": "capibara",
       "etapa": 1,
@@ -3503,7 +3503,7 @@
     },
     {
       "id": "raicibara",
-      "nombre": "Raicibara",
+      "nombre": "Capipixel",
       "tipo": "brote",
       "familia": "capibara",
       "etapa": 2,
@@ -3533,7 +3533,7 @@
     },
     {
       "id": "manglaron",
-      "nombre": "Manglarón",
+      "nombre": "Capimegapix",
       "tipo": "brote",
       "familia": "capibara",
       "etapa": 3,
@@ -3568,7 +3568,7 @@
     },
     {
       "id": "raigon",
-      "nombre": "Raigón",
+      "nombre": "Capigigapix",
       "tipo": "brote",
       "familia": "capibara",
       "etapa": 4,
@@ -3594,7 +3594,7 @@
     },
     {
       "id": "raigon_eclipse",
-      "nombre": "Raigón Eclipse",
+      "nombre": "Noxcapipix",
       "tipo": "brote",
       "familia": "capibara",
       "etapa": 4,
@@ -3620,7 +3620,7 @@
     },
     {
       "id": "ramitin",
-      "nombre": "Ramitín",
+      "nombre": "Pixrama",
       "tipo": "brote",
       "familia": "fasmido",
       "etapa": 1,
@@ -3650,7 +3650,7 @@
     },
     {
       "id": "bambulito",
-      "nombre": "Bambulito",
+      "nombre": "Pixelrama",
       "tipo": "brote",
       "familia": "fasmido",
       "etapa": 2,
@@ -3680,7 +3680,7 @@
     },
     {
       "id": "bambucan",
-      "nombre": "Bambucán",
+      "nombre": "Megapixrama",
       "tipo": "brote",
       "familia": "fasmido",
       "etapa": 3,
@@ -3715,7 +3715,7 @@
     },
     {
       "id": "bambuzal",
-      "nombre": "Bambuzal",
+      "nombre": "Gigapixrama",
       "tipo": "brote",
       "familia": "fasmido",
       "etapa": 4,
@@ -3741,7 +3741,7 @@
     },
     {
       "id": "bambuzal_eclipse",
-      "nombre": "Bambuzal Eclipse",
+      "nombre": "Noxpixrama",
       "tipo": "brote",
       "familia": "fasmido",
       "etapa": 4,
@@ -3767,7 +3767,7 @@
     },
     {
       "id": "pavito",
-      "nombre": "Pavito",
+      "nombre": "Pavopix",
       "tipo": "rayo",
       "familia": "pavoreal",
       "etapa": 1,
@@ -3797,7 +3797,7 @@
     },
     {
       "id": "plumasol",
-      "nombre": "Plumasol",
+      "nombre": "Pavopixel",
       "tipo": "rayo",
       "familia": "pavoreal",
       "etapa": 2,
@@ -3827,7 +3827,7 @@
     },
     {
       "id": "abanicor",
-      "nombre": "Abanicor",
+      "nombre": "Pavomegapix",
       "tipo": "rayo",
       "familia": "pavoreal",
       "etapa": 3,
@@ -3862,7 +3862,7 @@
     },
     {
       "id": "heliavo",
-      "nombre": "Heliavo",
+      "nombre": "Pavogigapix",
       "tipo": "rayo",
       "familia": "pavoreal",
       "etapa": 4,
@@ -3888,7 +3888,7 @@
     },
     {
       "id": "heliavo_eclipse",
-      "nombre": "Heliavo Eclipse",
+      "nombre": "Noxpavopix",
       "tipo": "rayo",
       "familia": "pavoreal",
       "etapa": 4,
@@ -3914,7 +3914,7 @@
     },
     {
       "id": "carpin",
-      "nombre": "Carpín",
+      "nombre": "Pixcarpa",
       "tipo": "rayo",
       "familia": "carpa",
       "etapa": 1,
@@ -3944,7 +3944,7 @@
     },
     {
       "id": "farolin",
-      "nombre": "Farolín",
+      "nombre": "Pixelcarpa",
       "tipo": "rayo",
       "familia": "carpa",
       "etapa": 2,
@@ -3974,7 +3974,7 @@
     },
     {
       "id": "lucicarpa",
-      "nombre": "Lucicarpa",
+      "nombre": "Megapixcarpa",
       "tipo": "rayo",
       "familia": "carpa",
       "etapa": 3,
@@ -4009,7 +4009,7 @@
     },
     {
       "id": "faroluz",
-      "nombre": "Faroluz",
+      "nombre": "Gigapixcarpa",
       "tipo": "rayo",
       "familia": "carpa",
       "etapa": 4,
@@ -4035,7 +4035,7 @@
     },
     {
       "id": "faroluz_eclipse",
-      "nombre": "Faroluz Eclipse",
+      "nombre": "Noxpixcarpa",
       "tipo": "rayo",
       "familia": "carpa",
       "etapa": 4,
@@ -4061,7 +4061,7 @@
     },
     {
       "id": "chinchin",
-      "nombre": "Chinchín",
+      "nombre": "Chinchipix",
       "tipo": "rayo",
       "familia": "chinchilla",
       "etapa": 1,
@@ -4091,7 +4091,7 @@
     },
     {
       "id": "prismilla",
-      "nombre": "Prismilla",
+      "nombre": "Chinchipixel",
       "tipo": "rayo",
       "familia": "chinchilla",
       "etapa": 2,
@@ -4121,7 +4121,7 @@
     },
     {
       "id": "cuarzilla",
-      "nombre": "Cuarzilla",
+      "nombre": "Chinchimegapix",
       "tipo": "rayo",
       "familia": "chinchilla",
       "etapa": 3,
@@ -4156,7 +4156,7 @@
     },
     {
       "id": "prismora",
-      "nombre": "Prismora",
+      "nombre": "Chinchigigapix",
       "tipo": "rayo",
       "familia": "chinchilla",
       "etapa": 4,
@@ -4182,7 +4182,7 @@
     },
     {
       "id": "prismora_eclipse",
-      "nombre": "Prismora Eclipse",
+      "nombre": "Noxchinchipix",
       "tipo": "rayo",
       "familia": "chinchilla",
       "etapa": 4,
@@ -4208,7 +4208,7 @@
     },
     {
       "id": "golondrin",
-      "nombre": "Golondrín",
+      "nombre": "Pixgolon",
       "tipo": "cielo",
       "familia": "golondrina",
       "etapa": 1,
@@ -4238,7 +4238,7 @@
     },
     {
       "id": "albavuelo",
-      "nombre": "Albavuelo",
+      "nombre": "Pixelgolon",
       "tipo": "cielo",
       "familia": "golondrina",
       "etapa": 2,
@@ -4268,7 +4268,7 @@
     },
     {
       "id": "rasalba",
-      "nombre": "Rasalba",
+      "nombre": "Megapixgolon",
       "tipo": "cielo",
       "familia": "golondrina",
       "etapa": 3,
@@ -4303,7 +4303,7 @@
     },
     {
       "id": "albalis",
-      "nombre": "Albalis",
+      "nombre": "Gigapixgolon",
       "tipo": "cielo",
       "familia": "golondrina",
       "etapa": 4,
@@ -4329,7 +4329,7 @@
     },
     {
       "id": "albalis_eclipse",
-      "nombre": "Albalis Eclipse",
+      "nombre": "Noxpixgolon",
       "tipo": "cielo",
       "familia": "golondrina",
       "etapa": 4,
@@ -4355,7 +4355,7 @@
     },
     {
       "id": "buhito",
-      "nombre": "Buhíto",
+      "nombre": "Buhopix",
       "tipo": "cielo",
       "familia": "buho",
       "etapa": 1,
@@ -4385,7 +4385,7 @@
     },
     {
       "id": "ululin",
-      "nombre": "Ululín",
+      "nombre": "Buhopixel",
       "tipo": "cielo",
       "familia": "buho",
       "etapa": 2,
@@ -4415,7 +4415,7 @@
     },
     {
       "id": "umbralon",
-      "nombre": "Umbralón",
+      "nombre": "Buhomegapix",
       "tipo": "cielo",
       "familia": "buho",
       "etapa": 3,
@@ -4450,7 +4450,7 @@
     },
     {
       "id": "umbrus",
-      "nombre": "Umbrus",
+      "nombre": "Buhogigapix",
       "tipo": "cielo",
       "familia": "buho",
       "etapa": 4,
@@ -4476,7 +4476,7 @@
     },
     {
       "id": "umbrus_eclipse",
-      "nombre": "Umbrus Eclipse",
+      "nombre": "Noxbuhopix",
       "tipo": "cielo",
       "familia": "buho",
       "etapa": 4,
@@ -4502,7 +4502,7 @@
     },
     {
       "id": "murcito",
-      "nombre": "Murcito",
+      "nombre": "Pixmurci",
       "tipo": "sombra",
       "familia": "murcielago",
       "etapa": 1,
@@ -4532,7 +4532,7 @@
     },
     {
       "id": "velurci",
-      "nombre": "Velurci",
+      "nombre": "Pixelmurci",
       "tipo": "sombra",
       "familia": "murcielago",
       "etapa": 2,
@@ -4562,7 +4562,7 @@
     },
     {
       "id": "alanoche",
-      "nombre": "Alanoche",
+      "nombre": "Megapixmurci",
       "tipo": "sombra",
       "familia": "murcielago",
       "etapa": 3,
@@ -4597,7 +4597,7 @@
     },
     {
       "id": "vespero",
-      "nombre": "Véspero",
+      "nombre": "Gigapixmurci",
       "tipo": "sombra",
       "familia": "murcielago",
       "etapa": 4,
@@ -4623,7 +4623,7 @@
     },
     {
       "id": "vespero_eclipse",
-      "nombre": "Véspero Eclipse",
+      "nombre": "Noxpixmurci",
       "tipo": "sombra",
       "familia": "murcielago",
       "etapa": 4,
@@ -4649,7 +4649,7 @@
     },
     {
       "id": "topin",
-      "nombre": "Topín",
+      "nombre": "Topopix",
       "tipo": "roca",
       "familia": "topo",
       "etapa": 1,
@@ -4679,7 +4679,7 @@
     },
     {
       "id": "excavito",
-      "nombre": "Excavito",
+      "nombre": "Topopixel",
       "tipo": "roca",
       "familia": "topo",
       "etapa": 2,
@@ -4709,7 +4709,7 @@
     },
     {
       "id": "amatopo",
-      "nombre": "Amatopo",
+      "nombre": "Topomegapix",
       "tipo": "roca",
       "familia": "topo",
       "etapa": 3,
@@ -4744,7 +4744,7 @@
     },
     {
       "id": "geodon",
-      "nombre": "Geodón",
+      "nombre": "Topogigapix",
       "tipo": "roca",
       "familia": "topo",
       "etapa": 4,
@@ -4770,7 +4770,7 @@
     },
     {
       "id": "geodon_eclipse",
-      "nombre": "Geodón Eclipse",
+      "nombre": "Noxtopopix",
       "tipo": "roca",
       "familia": "topo",
       "etapa": 4,
@@ -4796,7 +4796,7 @@
     },
     {
       "id": "mapachin",
-      "nombre": "Mapachín",
+      "nombre": "Pixmapache",
       "tipo": "roca",
       "familia": "mapache",
       "etapa": 1,
@@ -4826,7 +4826,7 @@
     },
     {
       "id": "onixito",
-      "nombre": "Onixito",
+      "nombre": "Pixelmapache",
       "tipo": "roca",
       "familia": "mapache",
       "etapa": 2,
@@ -4856,7 +4856,7 @@
     },
     {
       "id": "anillonix",
-      "nombre": "Anillónix",
+      "nombre": "Megapixmapache",
       "tipo": "roca",
       "familia": "mapache",
       "etapa": 3,
@@ -4891,7 +4891,7 @@
     },
     {
       "id": "onixor",
-      "nombre": "Onixor",
+      "nombre": "Gigapixmapache",
       "tipo": "roca",
       "familia": "mapache",
       "etapa": 4,
@@ -4917,7 +4917,7 @@
     },
     {
       "id": "onixor_eclipse",
-      "nombre": "Onixor Eclipse",
+      "nombre": "Noxpixmapache",
       "tipo": "roca",
       "familia": "mapache",
       "etapa": 4,

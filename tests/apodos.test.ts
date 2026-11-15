@@ -23,13 +23,13 @@ describe('Apodos y favorita', () => {
   it('el apodo se muestra en vez del nombre, también en combate, y se quita dejándolo vacío', () => {
     const e = conCriaturas('lumbrito');
     const c = e.criaturas[0]!;
-    expect(nombreDe(DATOS, c)).toBe('Lumbrito');
+    expect(nombreDe(DATOS, c)).toBe('Leopix');
     ponerApodo(e, 'lumbrito', 'Chispi');
     expect(nombreDe(DATOS, c)).toBe('Chispi');
     expect(combatienteDe(DATOS, c).nombre).toBe('Chispi');
     ponerApodo(e, 'lumbrito', '');
     expect(c.apodo).toBeUndefined();
-    expect(nombreDe(DATOS, c)).toBe('Lumbrito');
+    expect(nombreDe(DATOS, c)).toBe('Leopix');
   });
 
   it('el apodo y la favorita siguen a la criatura cuando evoluciona', () => {

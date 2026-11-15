@@ -31,7 +31,7 @@ export function textoPremioRuleta(p: PremioRuleta): string {
 
 /** Etiqueta mínima para la casilla de la rueda. */
 function etiqueta(p: PremioRuleta): string {
-  if (p.monedas && p.sobre) return '¡JACKPOT!';
+  if (p.monedas && p.sobre) return t('rul.jackpot');
   if (p.monedas) return String(p.monedas);
   if (p.esencia) return String(p.esencia);
   if (p.item) return p.cantidad > 1 ? `×${p.cantidad}` : DATOS.items.get(p.item)!.efecto.tipo === 'xp' ? 'XP' : t('rul.item');

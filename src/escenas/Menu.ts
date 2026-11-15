@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { faltaExpedicion, metasPorCobrar } from '../core/progresion/coleccion';
+import { expedicionLibre, faltaExpedicion, metasPorCobrar } from '../core/progresion/coleccion';
 import { semanalCobrado, tipoDeLaSemana } from '../core/modos/semanal';
 import { DATOS } from '../core/datos';
 import { NIVELES_IA } from '../core/combate/ia';
@@ -227,6 +227,7 @@ export class Menu extends Phaser.Scene {
       if (c === 'menu.misiones' && porCobrar) return t('menu.misionesN', { n: porCobrar });
       if (c === 'menu.coleccion' && metas) return t('menu.coleccionN', { n: metas });
       if (c === 'menu.expediciones' && volvieron) return t('menu.expedicionesN', { n: volvieron });
+      if (c === 'menu.expediciones' && expedicionLibre(DATOS, juego.estado)) return t('menu.expedicionesLibre');
       if (c === 'menu.ruleta' && ruletaDisponible(juego.estado, Date.now())) return t('menu.ruletaHoy');
       return t(c);
     });

@@ -244,6 +244,8 @@ export const EconomiaZ = z.object({
   fusion: z.object({ copias: z.number().int().min(2) }),
   /** Semana temática: un tipo protagonista, su sobre más barato y un Jefe Eclipse. */
   semanal: z.object({ descuento: z.number().int().min(0).max(90), nivelExtra: z.number().int().min(0), premio: PremioMetaZ }),
+  /** Consuelo al perder: Esencia del premio de valiente y cuántas veces por día. */
+  consuelo: z.object({ esencia: z.number().int().min(0), porDia: z.number().int().min(0) }),
   /** Eventos de calendario (ver src/core/progresion/eventos.ts). */
   eventos: z.array(EventoZ),
   /** Primeros pasos: premio de cada paso de la guía. */
@@ -378,6 +380,8 @@ export const EstadoJuegoZ = z.object({
   ruleta: z.object({ ultimoDia: z.number().int() }),
   /** Jefes (semanales y Guardianes) a los que ya les ganaste: cada uno es una insignia. */
   jefes: z.array(z.string()),
+  /** Premios de valiente de hoy (opcional: las partidas viejas no lo tienen). */
+  consuelo: z.object({ dia: z.number().int(), veces: z.number().int().min(0) }).optional(),
   /** Regalos de eventos ya cobrados («navidad-2026»). */
   eventos: z.object({ regalos: z.array(z.string()) }),
   /** Primeros pasos: índice del próximo paso por cobrar (5 = guía terminada). */

@@ -16,6 +16,7 @@ import { progresoJefes, registrarJefe } from '../core/modos/jefes';
 import { entrenadorDelDia, equipoEntrenador, resultadoEntrenador } from '../core/modos/entrenador';
 import { desafioDelDia, empezarDesafio, equiposDesafio, terminarDesafio, textoCompartir } from '../core/modos/desafio';
 import { compartirTexto, urlJuego } from '../ui/compartir';
+import { darConsuelo } from '../core/progresion/consuelo';
 import { musica } from '../audio/musica';
 import { ajustes, alCambiarAjustes } from '../ajustes';
 import type { Habilidad, Item } from '../esquemas/esquemas';
@@ -259,7 +260,7 @@ export class Combate extends Phaser.Scene {
     await this.decir(t('c.adelante', { n: this.nom(0) }));
 
     while (this.vivo && !this.bat.terminado) {
-      this.turnoTxt.poner(`Turno ${this.bat.turno + 1}`);
+      this.turnoTxt.poner(t('c.turno', { n: this.bat.turno + 1 }));
       await this.girar('jugador');
       const accion = await this.elegirAccion();
       if (!this.vivo) return;
@@ -454,9 +455,21 @@ export class Combate extends Phaser.Scene {
       if (p.monedas) extra.push(t('fin.entrenador', { n: p.monedas }));
       if (p.sobre) extra.push(t('fin.sobre', { s: nombreSobre(p.sobre) }));
     }
+    // Perder no es tiempo tirado: premio de valiente, «¡casi!» y un consejo de tipos.
+    if (!r.victoria && !retirada) {
+      const cs = darConsuelo(DATOS, juego.estado, this.bat, Date.now());
+      if (cs.esencia) extra.push(t('fin.valiente', { n: cs.esencia }));
+      if (cs.casi !== null) extra.push(t('fin.casi', { n: Math.max(1, Math.round(cs.casi * 100)) }));
+      if (cs.consejo) {
+        const nombreTipo = (id: string) => DATOS.tipos.get(id)!.nombre;
+        const fuertes = cs.consejo.fuertes.map(nombreTipo).join(t('fin.o'));
+        extra.push(t('fin.consejo', { r: nombreTipo(cs.consejo.rival), f: fuertes }));
+        if (cs.consejo.tuya) extra.push(t('fin.consejoTuya', { n: this.nomMia(cs.consejo.tuya) }));
+      }
+    }
     juego.guardar();
     musica.tocar(r.victoria ? 'victoria' : 'derrota');
-    const lineas = [t('fin.turnos', { n: this.bat.turno }), ...extra];
+    const lineas = [t('fin.turnos', { n: this.bat.turno }), ...extra].flatMap((l) => partir(l, 146));
     if (r.monedas) lineas.push(t('fin.monedas', { n: r.monedas }));
     if (r.xpPorCriatura) lineas.push(t('fin.xp', { n: r.xpPorCriatura }));
     for (const s of r.subidas) lineas.push(t('fin.sube', { n: this.nomMia(s.especie), nv: s.nivel }));
@@ -683,7 +696,7 @@ export class Combate extends Phaser.Scene {
       /** Reloj de Arena: se eligen dos ataques seguidos. Con B se vuelve al menú sin gastarlo. */
       const relojDeArena = (item: Item) => {
         const listo = (primera: Accion, segunda: Accion) => {
-          this.turnoTxt.poner(`Turno ${this.bat.turno + 1}`);
+          this.turnoTxt.poner(t('c.turno', { n: this.bat.turno + 1 }));
           quitar(juego.estado, item.id);
           resolver({ tipo: 'doble', item, primera, segunda });
         };

@@ -1,5 +1,5 @@
 """
-Íconos de la PWA a partir del sprite de Lumbrito (brasa_1_frente), ampliado sin suavizar.
+Íconos de la PWA a partir del sprite de Leopix (brasa_1_frente), ampliado sin suavizar.
 Genera public/iconos/: icono-192.png, icono-512.png (esquinas redondeadas), maskable-512.png (a sangre,
 criatura dentro de la zona segura), apple-touch-icon.png (180, a sangre) y favicon.png (48).
 Uso: python3 scripts/generar_iconos.py
