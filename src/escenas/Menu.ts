@@ -1,3 +1,4 @@
+import { abrirHuevo, huevosListos } from '../core/minijuegos/mina';
 import Phaser from 'phaser';
 import { expedicionLibre, faltaExpedicion, metasPorCobrar } from '../core/progresion/coleccion';
 import { semanalCobrado, tipoDeLaSemana } from '../core/modos/semanal';
@@ -7,7 +8,7 @@ import { equipoDe, nombreDe } from '../core/estado/juego';
 
 /** La favorita saluda (salto y grito) la primera vez que se abre el menú en cada sesión. */
 let saludoHecho = false;
-import { sobresGratis } from '../core/sobres/sobres';
+import { recibir, sobresGratis } from '../core/sobres/sobres';
 import { puedeEvolucionar } from '../core/progresion/evolucion';
 import { cobrarDiario, diarioDisponible, premioDeHoy } from '../core/progresion/diario';
 import { ruletaDisponible } from '../core/progresion/ruleta';
@@ -187,6 +188,13 @@ export class Menu extends Phaser.Scene {
     if (juego.recuperada) {
       juego.recuperada = false;
       this.mostrarAviso(t('menu.recuperada.titulo'), t('menu.recuperada.texto'), t('menu.aviso.ayuda'), (a) => a === 'a' && this.scene.restart());
+    } else if (this.modo === 'principal' && huevosListos(estado, Date.now()).length) {
+      // Huevo de la Mina: nace la cría (rareza épica, la única forma de conseguir esa familia).
+      const especie = abrirHuevo(estado, Date.now())!;
+      recibir(DATOS, estado, especie, 'epica', false);
+      juego.guardar();
+      sonido.tocar('zona');
+      this.mostrarAviso(t('menu.huevo.titulo'), t('menu.huevo.texto', { n: DATOS.criaturas.get(especie)!.nombre }), t('menu.aviso.ayuda'), (a) => (a === 'a' || a === 'b') && this.scene.restart());
     } else if (this.modo === 'principal' && pasoActual(estado)?.cumplido(estado)) this.mostrarPaso();
     else if (this.modo === 'principal' && regaloPendiente(DATOS, estado, Date.now())) this.mostrarRegalo();
     else if (diarioDisponible(estado, Date.now())) this.mostrarDiario();

@@ -40,7 +40,7 @@ describe('Primeros pasos', () => {
     const v8 = { ...estadoNuevo(DATOS, 0), version: 8, bienvenida: true } as Record<string, unknown>;
     delete v8.guia;
     const m = EstadoJuegoZ.parse(migrar(v8));
-    expect(m.version).toBe(10);
+    expect(m.version).toBe(11);
     expect(pasoActual(m)).toBeNull();
     const nueva = { ...estadoNuevo(DATOS, 0), version: 8 } as Record<string, unknown>;
     delete nueva.guia;

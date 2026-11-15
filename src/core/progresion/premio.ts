@@ -28,7 +28,7 @@ function tirarUno(datos: Datos, rng: Rng): PremioTirado {
   if (op.tipo === 'item') return { tipo: 'item', item: op.item, cantidad: op.cantidad };
   // Criatura: una de etapa 1, con las probabilidades del sobre gratis.
   const basico = datos.sobres.sobres.find((s) => s.id === datos.sobres.gratis.sobre)!;
-  const especie = rng.elegir([...datos.criaturas.values()].filter((c) => c.etapa === 1)).id;
+  const especie = rng.elegir([...datos.criaturas.values()].filter((c) => c.etapa === 1 && !c.origen)).id;
   return { tipo: 'criatura', especie, rareza: tirarRareza(basico.prob, rng), brillante: rng.prob(probBrillante(datos, Date.now())) };
 }
 

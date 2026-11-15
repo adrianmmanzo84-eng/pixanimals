@@ -171,7 +171,7 @@ function tirarCarta(datos: Datos, estado: EstadoJuego, def: SobreDef, rareza: Ra
     }
   }
   const etapa = rng.prob(def.probEtapa2) ? 2 : 1;
-  const candidatas = [...datos.criaturas.values()].filter((c) => c.etapa === etapa && (!def.tipo || c.tipo === def.tipo));
+  const candidatas = [...datos.criaturas.values()].filter((c) => c.etapa === etapa && !c.origen && (!def.tipo || c.tipo === def.tipo));
   const especie = rng.elegir(candidatas).id;
   return recibir(datos, estado, especie, rareza, rng.prob(probBrillante(datos, ahora)), etapa === 2 ? nivelDeLlegada(datos, especie) : datos.sobres.nivelInicial);
 }
@@ -182,7 +182,7 @@ function tirarCarta(datos: Datos, estado: EstadoJuego, def: SobreDef, rareza: Ra
  * para que ninguno empiece en desventaja por la rareza.
  */
 export function cartaInicial(datos: Datos, estado: EstadoJuego, rng: Rng): CartaCriatura {
-  const iniciales = [...datos.criaturas.values()].filter((c) => c.etapa === 1);
+  const iniciales = [...datos.criaturas.values()].filter((c) => c.etapa === 1 && !c.origen);
   estado.bienvenida = true;
   return recibir(datos, estado, rng.elegir(iniciales).id, 'poco_comun', false);
 }

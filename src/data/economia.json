@@ -88,7 +88,8 @@
     "lista": [
       "bayas",
       "eco",
-      "golpe"
+      "golpe",
+      "mina"
     ]
   },
   "misiones": {
@@ -577,5 +578,313 @@
   "consuelo": {
     "esencia": 8,
     "porDia": 3
+  },
+  "mina": {
+    "columnas": 15,
+    "vida": 5,
+    "energia": 70,
+    "baya": 18,
+    "profundidadZona": 50,
+    "eclosionHoras": 2,
+    "premioGuarida": 40,
+    "zonas": [
+      {
+        "monstruo": null,
+        "nivel": 18,
+        "cuevas": 12,
+        "monedas": 2,
+        "xp": 10,
+        "bloques": {
+          "tierra": 60,
+          "piedra": 18,
+          "dura": 0,
+          "roca": 3,
+          "irrompible": 2,
+          "moneda": 3.0,
+          "gema": 1.4,
+          "baya": 1.8,
+          "cofre": 0.6,
+          "corazon": 0.45,
+          "pinchos": 2,
+          "gas": 0.5,
+          "lava": 0,
+          "bomba": 0
+        },
+        "cofre": [
+          {
+            "item": "pocion",
+            "peso": 30
+          },
+          {
+            "item": "caramelo_s",
+            "peso": 30
+          },
+          {
+            "item": "antidoto",
+            "peso": 15
+          },
+          {
+            "item": "carta_escudo",
+            "peso": 15
+          },
+          {
+            "item": "vit_ps",
+            "peso": 5
+          },
+          {
+            "item": "vit_atq",
+            "peso": 5
+          }
+        ]
+      },
+      {
+        "monstruo": null,
+        "nivel": 28,
+        "cuevas": 14,
+        "monedas": 3,
+        "xp": 15,
+        "bloques": {
+          "tierra": 30,
+          "piedra": 38,
+          "dura": 6,
+          "roca": 4,
+          "irrompible": 3,
+          "moneda": 3.0,
+          "gema": 1.6,
+          "baya": 1.7,
+          "cofre": 0.65,
+          "corazon": 0.45,
+          "pinchos": 3,
+          "gas": 1.5,
+          "lava": 0,
+          "bomba": 0.5
+        },
+        "cofre": [
+          {
+            "item": "pocion",
+            "peso": 20
+          },
+          {
+            "item": "caramelo_s",
+            "peso": 20
+          },
+          {
+            "item": "caramelo_m",
+            "peso": 15
+          },
+          {
+            "item": "tonico",
+            "peso": 15
+          },
+          {
+            "item": "carta_furia",
+            "peso": 10
+          },
+          {
+            "item": "carta_muralla",
+            "peso": 10
+          },
+          {
+            "item": "vit_def",
+            "peso": 5
+          },
+          {
+            "item": "vit_vel",
+            "peso": 5
+          }
+        ]
+      },
+      {
+        "monstruo": null,
+        "nivel": 38,
+        "cuevas": 14,
+        "monedas": 4,
+        "xp": 20,
+        "bloques": {
+          "tierra": 15,
+          "piedra": 40,
+          "dura": 14,
+          "roca": 5,
+          "irrompible": 4,
+          "moneda": 3.0,
+          "gema": 1.8,
+          "baya": 1.6,
+          "cofre": 0.7,
+          "corazon": 0.45,
+          "pinchos": 4,
+          "gas": 2,
+          "lava": 0,
+          "bomba": 1
+        },
+        "cofre": [
+          {
+            "item": "superpocion",
+            "peso": 20
+          },
+          {
+            "item": "caramelo_m",
+            "peso": 25
+          },
+          {
+            "item": "encanto_lento",
+            "peso": 10
+          },
+          {
+            "item": "encanto_debil",
+            "peso": 10
+          },
+          {
+            "item": "carta_mente",
+            "peso": 10
+          },
+          {
+            "item": "carta_rafaga",
+            "peso": 10
+          },
+          {
+            "item": "vit_ate",
+            "peso": 8
+          },
+          {
+            "item": "vit_dfe",
+            "peso": 7
+          }
+        ]
+      },
+      {
+        "monstruo": null,
+        "nivel": 48,
+        "cuevas": 10,
+        "monedas": 5,
+        "xp": 28,
+        "bloques": {
+          "tierra": 5,
+          "piedra": 34,
+          "dura": 24,
+          "roca": 6,
+          "irrompible": 5,
+          "moneda": 3.0,
+          "gema": 2.0,
+          "baya": 1.6,
+          "cofre": 0.75,
+          "corazon": 0.5,
+          "pinchos": 4,
+          "gas": 2,
+          "lava": 4,
+          "bomba": 1.5
+        },
+        "cofre": [
+          {
+            "item": "superpocion",
+            "peso": 20
+          },
+          {
+            "item": "caramelo_m",
+            "peso": 20
+          },
+          {
+            "item": "caramelo_l",
+            "peso": 10
+          },
+          {
+            "item": "revivir",
+            "peso": 10
+          },
+          {
+            "item": "encanto_sueno",
+            "peso": 10
+          },
+          {
+            "item": "reloj_arena",
+            "peso": 8
+          },
+          {
+            "item": "amuleto_fuerza",
+            "peso": 4
+          },
+          {
+            "item": "amuleto_vigor",
+            "peso": 4
+          },
+          {
+            "item": "vit_atq",
+            "peso": 7
+          },
+          {
+            "item": "vit_ps",
+            "peso": 7
+          }
+        ]
+      },
+      {
+        "monstruo": null,
+        "nivel": 58,
+        "cuevas": 10,
+        "monedas": 6,
+        "xp": 36,
+        "bloques": {
+          "tierra": 0,
+          "piedra": 26,
+          "dura": 34,
+          "roca": 7,
+          "irrompible": 6,
+          "moneda": 3.2,
+          "gema": 2.2,
+          "baya": 1.6,
+          "cofre": 0.8,
+          "corazon": 0.55,
+          "pinchos": 5,
+          "gas": 3,
+          "lava": 4,
+          "bomba": 2
+        },
+        "cofre": [
+          {
+            "item": "pocion_max",
+            "peso": 15
+          },
+          {
+            "item": "caramelo_l",
+            "peso": 20
+          },
+          {
+            "item": "revivir",
+            "peso": 15
+          },
+          {
+            "item": "reloj_arena",
+            "peso": 10
+          },
+          {
+            "item": "piedra_eclipse",
+            "peso": 5
+          },
+          {
+            "item": "amuleto_mente",
+            "peso": 5
+          },
+          {
+            "item": "amuleto_calma",
+            "peso": 5
+          },
+          {
+            "item": "amuleto_pluma",
+            "peso": 5
+          },
+          {
+            "item": "amuleto_coraza",
+            "peso": 5
+          },
+          {
+            "item": "vit_vel",
+            "peso": 8
+          },
+          {
+            "item": "vit_ate",
+            "peso": 7
+          }
+        ]
+      }
+    ]
   }
 }

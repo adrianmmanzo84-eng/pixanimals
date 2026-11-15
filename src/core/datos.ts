@@ -112,6 +112,15 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
     usados.add(id);
     if (Number(piso) % economia.torre.jefeCada !== 0) errores.push(`Torre: el piso ${piso} del Guardián ${id} no es un piso de jefe.`);
   }
+  // Mina Pixel: los ítems de los cofres existen; el monstruo (si hay) es una forma final de una familia exclusiva.
+  economia.mina.zonas.forEach((z, i) => {
+    for (const c of z.cofre) if (!mItems.has(c.item)) errores.push(`Mina, zona ${i + 1}: el cofre da un ítem que no existe (${c.item}).`);
+    if (z.monstruo) {
+      const m = mCri.get(z.monstruo);
+      if (!m) errores.push(`Mina, zona ${i + 1}: el monstruo ${z.monstruo} no existe.`);
+      else if (m.origen !== 'mina') errores.push(`Mina, zona ${i + 1}: el monstruo ${z.monstruo} debe ser de una familia exclusiva (origen "mina").`);
+    }
+  });
   return { datos: { tipos: mTipos, balance, habilidades: mHab, criaturas: mCri, jugables, sobres, economia, items: mItems, reglasItems }, errores };
 }
 

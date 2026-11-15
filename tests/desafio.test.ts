@@ -73,7 +73,7 @@ describe('Desafío del día', () => {
     const v7 = { ...estadoNuevo(DATOS, 0), version: 7 } as Record<string, unknown>;
     delete v7.desafio;
     const m = EstadoJuegoZ.parse(migrar(v7));
-    expect(m.version).toBe(10);
+    expect(m.version).toBe(11);
     expect(m.desafio.dia).toBe(-1);
   });
 });

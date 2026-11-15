@@ -4,6 +4,7 @@ import type { CriaturaJugador, MinijuegoId } from '../esquemas/esquemas';
 import { DATOS } from '../core/datos';
 import { equipoDe, nombreDe } from '../core/estado/juego';
 import { partidasConPremio } from '../core/minijuegos/minijuegos';
+import { zonaMaxima } from '../core/minijuegos/mina';
 import { puedeEvolucionar, tieneEvolucion } from '../core/progresion/evolucion';
 import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
@@ -15,7 +16,7 @@ import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { partir, Texto } from '../ui/texto';
 
-const ESCENA: Record<MinijuegoId, string> = { bayas: 'MiniBayas', eco: 'MiniEco', golpe: 'MiniGolpe' };
+const ESCENA: Record<MinijuegoId, string> = { bayas: 'MiniBayas', eco: 'MiniEco', golpe: 'MiniGolpe', mina: 'MiniMina' };
 const VISIBLES = 4;
 
 /**
@@ -28,13 +29,16 @@ export class Minijuegos extends Phaser.Scene {
   private selCriatura = 0;
   private scroll = 0;
   private especiePrevia = '';
+  /** Mina Pixel: zona donde arranca (el ascensor llega hasta la última guarida alcanzada). */
+  private zona = 1;
   private capa!: Phaser.GameObjects.Container;
 
   constructor() {
     super('Minijuegos');
   }
 
-  init(d: { juego?: MinijuegoId; especie?: string; modo?: 'juego' | 'criatura'; selCriatura?: number }): void {
+  init(d: { juego?: MinijuegoId; especie?: string; modo?: 'juego' | 'criatura'; selCriatura?: number; zona?: number }): void {
+    this.zona = d?.zona ?? zonaMaxima(DATOS, juego.estado);
     const lista = DATOS.economia.minijuegos.lista;
     this.sel = Math.max(0, lista.indexOf(d?.juego ?? lista[0]!));
     this.especiePrevia = d?.especie ?? '';
@@ -45,7 +49,7 @@ export class Minijuegos extends Phaser.Scene {
 
   /** Redibuja reiniciando la escena (así se liberan las texturas de los textos). */
   private redibujar(): void {
-    this.scene.restart({ juego: DATOS.economia.minijuegos.lista[this.sel], especie: this.especiePrevia, modo: this.modo, selCriatura: this.selCriatura });
+    this.scene.restart({ juego: DATOS.economia.minijuegos.lista[this.sel], especie: this.especiePrevia, modo: this.modo, selCriatura: this.selCriatura, zona: this.zona });
   }
 
   create(): void {
@@ -86,22 +90,23 @@ export class Minijuegos extends Phaser.Scene {
     const ahora = Date.now();
     if (this.modo === 'juego') {
       DATOS.economia.minijuegos.lista.forEach((id, i) => {
-        const y = 21 + i * 39;
-        ventana(g, 8, y, 224, 36);
-        if (i === this.sel) g.lineStyle(1.4, n(C.resalte), 1).strokeRoundedRect(8, y, 224, 36, 4);
-        const nombre = txt(16, y + 4, 140, 10, i === this.sel ? C.resalte : C.tinta, 'izq', { peso: 600 }).poner(t(`mj.${id}`));
+        // Cuatro juegos: tarjetas más bajas para que entren todos.
+        const y = 20 + i * 31;
+        ventana(g, 8, y, 224, 29);
+        if (i === this.sel) g.lineStyle(1.4, n(C.resalte), 1).strokeRoundedRect(8, y, 224, 29, 4);
+        const nombre = txt(16, y + 3, 140, 10, i === this.sel ? C.resalte : C.tinta, 'izq', { peso: 600 }).poner(t(`mj.${id}`));
         if (i === this.sel) puntero.marcar(`j${i}`, nombre.imagen);
-        puntero.zona(8, y, 224, 36, () => {
+        puntero.zona(8, y, 224, 29, () => {
           if (i === this.sel) return;
           this.sel = i;
           sonido.tocar('cursor');
           this.pintar();
         });
-        txt(16, y + 14, 156, 20, C.tintaSuave, 'izq', { tam: 6.6 }).poner(partir(t(`mj.${id}.desc`), 156, 6.6).join('\n'));
+        txt(16, y + 12, 160, 16, C.tintaSuave, 'izq', { tam: 6 }).poner(partir(t(`mj.${id}.desc`), 160, 6).slice(0, 2).join('\n'));
         const quedan = partidasConPremio(DATOS, juego.estado, id, ahora);
-        txt(130, y + 4, 96, 10, quedan ? '#2f7a48' : C.tintaSuave, 'der').poner(t('mj.premiosHoy', { n: quedan, m: DATOS.economia.minijuegos.conPremioPorDia }));
+        txt(130, y + 3, 96, 10, quedan ? '#2f7a48' : C.tintaSuave, 'der').poner(t('mj.premiosHoy', { n: quedan, m: DATOS.economia.minijuegos.conPremioPorDia }));
         const rec = juego.estado.minijuegos.records[id];
-        if (rec) txt(160, y + 16, 66, 10, C.tintaSuave, 'der').poner(t('mj.recordN', { n: rec }));
+        if (rec) txt(176, y + 15, 50, 10, C.tintaSuave, 'der', { tam: 6 }).poner(t(id === 'mina' ? 'mina.recordM' : 'mj.recordN', { n: rec }));
       });
       txt(0, 143, 240, 10, '#ffffff', 'centro', { borde: '#2b3a78' }).poner(t('mj.ayuda'));
       return;
@@ -109,7 +114,18 @@ export class Minijuegos extends Phaser.Scene {
     // Elegir criatura
     const lista = this.criaturas();
     ventana(g, 8, 20, 224, 118);
-    txt(14, 23, 212, 10, C.tinta, 'izq', { peso: 600 }).poner(t('mj.quien', { j: t(`mj.${DATOS.economia.minijuegos.lista[this.sel]}`) }));
+    const idJuego = DATOS.economia.minijuegos.lista[this.sel]!;
+    txt(14, 23, 212, 10, C.tinta, 'izq', { peso: 600 }).poner(t('mj.quien', { j: t(`mj.${idJuego}`) }));
+    // Mina: el ascensor (zona inicial, con ◀ ▶) y los huevos que están incubando.
+    if (idJuego === 'mina') {
+      const max = zonaMaxima(DATOS, juego.estado);
+      txt(120, 23, 106, 10, max > 1 ? C.resalte : C.tintaSuave, 'der', { peso: 600 }).poner(max > 1 ? `◀ ${t('mina.zonaN', { n: this.zona })} ▶` : t('mina.zonaN', { n: 1 }));
+      const huevos = juego.estado.mina.huevos;
+      if (huevos.length) {
+        const falta = Math.max(0, Math.min(...huevos.map((h) => h.eclosiona)) - ahora);
+        txt(14, 128, 212, 8, '#2f7a48', 'izq', { tam: 6 }).poner(t('mina.huevos', { n: huevos.length, h: Math.floor(falta / 3_600_000), m: Math.ceil((falta % 3_600_000) / 60_000) }));
+      }
+    }
     if (!this.fijarScroll) this.scroll = Math.max(0, Math.min(this.selCriatura - 1, lista.length - VISIBLES));
     this.fijarScroll = false;
     const emax = DATOS.economia.entrenamiento.max;
@@ -165,13 +181,17 @@ export class Minijuegos extends Phaser.Scene {
       } else return;
     } else {
       const lista = this.criaturas();
+      const id = DATOS.economia.minijuegos.lista[this.sel]!;
       if (a === 'arriba' || a === 'abajo') {
         this.selCriatura = (this.selCriatura + (a === 'abajo' ? 1 : lista.length - 1)) % lista.length;
         sonido.tocar('cursor');
+      } else if ((a === 'izquierda' || a === 'derecha') && id === 'mina' && zonaMaxima(DATOS, juego.estado) > 1) {
+        const max = zonaMaxima(DATOS, juego.estado);
+        this.zona = ((this.zona - 1 + (a === 'derecha' ? 1 : max - 1)) % max) + 1;
+        sonido.tocar('cursor');
       } else if (a === 'a') {
         sonido.tocar('aceptar');
-        const id = DATOS.economia.minijuegos.lista[this.sel]!;
-        this.scene.start(ESCENA[id], { especie: lista[this.selCriatura]!.especie });
+        this.scene.start(ESCENA[id], { especie: lista[this.selCriatura]!.especie, zona: this.zona });
         return;
       } else if (a === 'b') {
         this.modo = 'juego';

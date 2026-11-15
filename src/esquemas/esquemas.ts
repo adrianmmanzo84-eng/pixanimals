@@ -64,6 +64,8 @@ export const CriaturaZ = z.object({
   sprites: z.string().regex(/^[a-z]+_[0-9]+[a-z]?$/),
   /** Jefes: no se capturan, no salen en sobres y no están en el Bestiario ni en el Álbum. `semanal` o `guardian` (Torre). */
   jefe: z.enum(['semanal', 'guardian']).optional(),
+  /** «mina»: familia exclusiva de la Mina Pixel (solo se obtiene del huevo de su monstruo; nunca en sobres ni premios). */
+  origen: z.literal('mina').optional(),
 });
 
 export const TiposZ = z.object({
@@ -137,7 +139,7 @@ const PremioZ = z.discriminatedUnion('tipo', [
   z.object({ tipo: z.literal('criatura'), peso: z.number().positive() }),
 ]);
 const RangoZ = z.object({ min: z.number().int().min(0), max: z.number().int().min(0) });
-export const MinijuegoIdZ = z.enum(['bayas', 'eco', 'golpe']);
+export const MinijuegoIdZ = z.enum(['bayas', 'eco', 'golpe', 'mina']);
 export const EventoMisionZ = z.enum(['victoria', 'combate', 'eficaz', 'minijuego', 'sobre', 'item', 'record']);
 export const MisionZ = z.object({
   id: z.string().min(1),
@@ -244,6 +246,31 @@ export const EconomiaZ = z.object({
   fusion: z.object({ copias: z.number().int().min(2) }),
   /** Semana temática: un tipo protagonista, su sobre más barato y un Jefe Eclipse. */
   semanal: z.object({ descuento: z.number().int().min(0).max(90), nivelExtra: z.number().int().min(0), premio: PremioMetaZ }),
+  /** Mina Pixel (ver src/core/minijuegos/mina.ts): tamaño, recursos, y por zona los pesos de cada bloque, el botín y su monstruo. */
+  mina: z.object({
+    columnas: z.number().int().min(5),
+    vida: z.number().int().min(1),
+    energia: z.number().int().min(10),
+    baya: z.number().int().min(1),
+    profundidadZona: z.number().int().min(10),
+    eclosionHoras: z.number().min(0),
+    premioGuarida: z.number().int().min(0),
+    zonas: z
+      .array(
+        z.object({
+          /** Especie (forma final) del monstruo de la guarida; null mientras no exista. */
+          monstruo: z.string().nullable(),
+          nivel: z.number().int().min(1).max(100),
+          /** Probabilidad (%) de una cueva de aire por fila. */
+          cuevas: z.number().min(0).max(100),
+          monedas: z.number().int().min(0),
+          xp: z.number().int().min(0),
+          bloques: z.record(z.enum(['tierra', 'piedra', 'dura', 'roca', 'irrompible', 'moneda', 'gema', 'baya', 'cofre', 'corazon', 'pinchos', 'gas', 'lava', 'bomba']), z.number().min(0)),
+          cofre: z.array(z.object({ item: z.string(), peso: z.number().positive() })).min(1),
+        }),
+      )
+      .min(1),
+  }),
   /** Consuelo al perder: Esencia del premio de valiente y cuántas veces por día. */
   consuelo: z.object({ esencia: z.number().int().min(0), porDia: z.number().int().min(0) }),
   /** Eventos de calendario (ver src/core/progresion/eventos.ts). */
@@ -328,7 +355,7 @@ export const CriaturaJugadorZ = z.object({
   favorita: z.boolean().optional(),
 });
 export const EstadoJuegoZ = z.object({
-  version: z.literal(10),
+  version: z.literal(11),
   monedas: z.number().int().min(0),
   esencia: z.number().int().min(0),
   criaturas: z.array(CriaturaJugadorZ),
@@ -380,6 +407,8 @@ export const EstadoJuegoZ = z.object({
   ruleta: z.object({ ultimoDia: z.number().int() }),
   /** Jefes (semanales y Guardianes) a los que ya les ganaste: cada uno es una insignia. */
   jefes: z.array(z.string()),
+  /** Mina Pixel: hasta qué zona llega el ascensor y los huevos incubando (especie de la cría y cuándo eclosiona). */
+  mina: z.object({ zonaMax: z.number().int().min(1), huevos: z.array(z.object({ especie: z.string(), eclosiona: z.number() })) }),
   /** Premios de valiente de hoy (opcional: las partidas viejas no lo tienen). */
   consuelo: z.object({ dia: z.number().int(), veces: z.number().int().min(0) }).optional(),
   /** Regalos de eventos ya cobrados («navidad-2026»). */

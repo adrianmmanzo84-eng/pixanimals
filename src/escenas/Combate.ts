@@ -14,6 +14,7 @@ import { registrar } from '../core/progresion/misiones';
 import { datosPiso, equipoPiso, resultadoTorre } from '../core/modos/torre';
 import { progresoJefes, registrarJefe } from '../core/modos/jefes';
 import { entrenadorDelDia, equipoEntrenador, resultadoEntrenador } from '../core/modos/entrenador';
+import { equipoGuarida, vencerGuarida } from '../core/minijuegos/mina';
 import { desafioDelDia, empezarDesafio, equiposDesafio, terminarDesafio, textoCompartir } from '../core/modos/desafio';
 import { compartirTexto, urlJuego } from '../ui/compartir';
 import { darConsuelo } from '../core/progresion/consuelo';
@@ -34,8 +35,10 @@ import { partir, Texto } from '../ui/texto';
 export interface ConfigCombate {
   ia: NivelIA;
   /** rapido: rival parejo al azar; torre: el piso `piso`; entrenador: el Entrenador del día; semanal: el Jefe de la semana; desafio: el Desafío del día (equipo prestado, igual para todos). */
-  modo?: 'rapido' | 'torre' | 'entrenador' | 'semanal' | 'desafio';
+  modo?: 'rapido' | 'torre' | 'entrenador' | 'semanal' | 'desafio' | 'mina';
   piso?: number;
+  /** mina: zona de la guarida cuyo monstruo se enfrenta. */
+  zona?: number;
 }
 
 interface Panel {
@@ -165,17 +168,19 @@ export class Combate extends Phaser.Scene {
           ? equipoEntrenador(DATOS, entrenadorDelDia(DATOS, Date.now()), mios)
           : modo === 'semanal'
             ? equipoSemanal(DATOS, Date.now(), mios)
-            : generarRival(DATOS, mios, rng);
+            : modo === 'mina'
+              ? equipoGuarida(DATOS, this.cfg.zona ?? 1, mios.length)
+              : generarRival(DATOS, mios, rng);
     this.rivalInicial = rival[0]!.especie.id;
     this.bat = new Batalla(DATOS, [prestados ? prestados[0] : mios.map((c) => combatienteDe(DATOS, c)), rival], rng);
     // Ataque Definitivo: siempre para ti; entre los rivales, solo jefes de la Torre y el Entrenador del día, que lo cargan avisando.
     const jefe = modo === 'torre' && datosPiso(DATOS, this.cfg.piso ?? 1, 1).jefe;
-    this.bat.definitivoPermitido = [true, modo === 'entrenador' || modo === 'semanal' || jefe];
+    this.bat.definitivoPermitido = [true, modo === 'entrenador' || modo === 'semanal' || modo === 'mina' || jefe];
     this.bat.definitivoConCarga = [false, true];
     // Cada modo tiene su música; el combate rápido alterna entre tres canciones.
     const pisoTorre = modo === 'torre' ? datosPiso(DATOS, this.cfg.piso ?? 1, 1) : null;
     musica.tocar(
-      pisoTorre ? (pisoTorre.guardian ? 'guardian' : pisoTorre.jefe ? 'jefe' : 'torre') : modo === 'entrenador' ? 'entrenador' : modo === 'semanal' ? 'semanal' : modo === 'desafio' ? 'torre' : ['combate', 'combate2', 'combate3'][Math.floor(Math.random() * 3)]!,
+      pisoTorre ? (pisoTorre.guardian ? 'guardian' : pisoTorre.jefe ? 'jefe' : 'torre') : modo === 'entrenador' ? 'entrenador' : modo === 'semanal' ? 'semanal' : modo === 'desafio' ? 'torre' : modo === 'mina' ? 'jefe' : ['combate', 'combate2', 'combate3'][Math.floor(Math.random() * 3)]!,
     );
     this.verRival();
 
@@ -192,7 +197,12 @@ export class Combate extends Phaser.Scene {
     // El escenario depende del tipo del primer rival; uno de cada cuatro combates ocurre en la pradera.
     const arena = rng.prob(25) ? 'pradera' : (FONDO_POR_TIPO[el.especie.tipo] ?? 'pradera');
     this.mundo = this.add.container(0, 0);
-    this.mundo.add(this.add.image(0, 0, fondo(this, arena)).setOrigin(0, 0).setScale(0.25));
+    // La guarida de la Mina usa su propio fondo si existe (cualquier ancho: se ajusta a 240 px).
+    const guarida = modo === 'mina' ? `mina_guarida${this.cfg.zona ?? 1}` : '';
+    if (guarida && this.textures.exists(guarida)) {
+      const img = this.add.image(0, 0, guarida).setOrigin(0, 0);
+      this.mundo.add(img.setScale(240 / img.width, 160 / img.height));
+    } else this.mundo.add(this.add.image(0, 0, fondo(this, modo === 'mina' ? 'volcan' : arena)).setOrigin(0, 0).setScale(0.25));
     this.sprites = [
       this.add.image(POS[0].x - 120, POS[0].y, textura(yo.especie.id, 'espalda', yo.brillante)).setOrigin(0.5, ORIGEN_Y),
       this.add.image(POS[1].x + 120, POS[1].y, textura(el.especie.id, 'frente', el.brillante)).setOrigin(0.5, ORIGEN_Y),
@@ -449,6 +459,12 @@ export class Combate extends Phaser.Scene {
       const p = resultadoSemanal(DATOS, juego.estado, r.victoria, Date.now());
       if (p) extra.push(t('fin.semanal', { n: p.monedas ?? 0, s: p.sobre ? nombreSobre(p.sobre) : '' }));
       if (r.victoria) this.insignia(this.rivalInicial, extra);
+    }
+    if (modo === 'mina' && !retirada && r.victoria) {
+      const p = vencerGuarida(DATOS, juego.estado, this.cfg.zona ?? 1, Date.now());
+      if (p.huevo) extra.push(t('fin.huevo', { n: DATOS.criaturas.get(p.huevo)!.nombre, h: DATOS.economia.mina.eclosionHoras }));
+      else extra.push(t('fin.guaridaMonedas', { n: p.monedas }));
+      this.insignia(this.rivalInicial, extra);
     }
     if (modo === 'entrenador' && !retirada) {
       const p = resultadoEntrenador(DATOS, juego.estado, r.victoria, Date.now());

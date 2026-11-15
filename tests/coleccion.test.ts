@@ -126,7 +126,7 @@ describe('guardado v5', () => {
     for (const k of ['copias', 'registro', 'album', 'medallas', 'expediciones', 'semanal', 'ruleta']) delete e[k];
     e.estadisticas = { combates: 3, victorias: 2, sobres: 1 };
     const m = deserializar(JSON.stringify(e))!;
-    expect(m.version).toBe(10);
+    expect(m.version).toBe(11);
     expect(m.estadisticas).toMatchObject({ combates: 3, victorias: 2, fusiones: 0 });
     expect(m.expediciones).toEqual([]);
   });

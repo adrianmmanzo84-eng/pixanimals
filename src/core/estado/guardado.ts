@@ -55,6 +55,7 @@ export function serializar(estado: EstadoJuego): string {
  * v7 → v8: Desafío del día.
  * v8 → v9: Primeros pasos (las partidas que ya empezaron no ven la guía).
  * v9 → v10: regalos de eventos de calendario.
+ * v10 → v11: Mina Pixel (ascensor y huevos).
  */
 export function migrar(obj: unknown): unknown {
   if (!obj || typeof obj !== 'object') return obj;
@@ -107,6 +108,10 @@ export function migrar(obj: unknown): unknown {
   if (o.version === 9) {
     o.version = 10;
     o.eventos = { regalos: [] };
+  }
+  if (o.version === 10) {
+    o.version = 11;
+    o.mina = { zonaMax: 1, huevos: [] };
   }
   return o;
 }
