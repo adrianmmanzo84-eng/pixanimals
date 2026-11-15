@@ -228,6 +228,8 @@ export const EconomiaZ = z.object({
   fusion: z.object({ copias: z.number().int().min(2) }),
   /** Semana temática: un tipo protagonista, su sobre más barato y un Jefe Eclipse. */
   semanal: z.object({ descuento: z.number().int().min(0).max(90), nivelExtra: z.number().int().min(0), premio: PremioMetaZ }),
+  /** Primeros pasos: premio de cada paso de la guía. */
+  guia: z.object({ combate: PremioMetaZ, sobre: PremioMetaZ, equipo: PremioMetaZ, minijuego: PremioMetaZ, torre: PremioMetaZ }),
   /** Desafío del día: nivel de los dos equipos y premio (victoria o derrota). */
   desafio: z.object({ nivel: z.number().int().min(1), monedasVictoria: z.number().int().min(0), esenciaVictoria: z.number().int().min(0), monedasDerrota: z.number().int().min(0) }),
   /** Ruleta diaria: un giro gratis por día. Cada casilla tiene un premio (nunca criaturas) y un peso. */
@@ -302,7 +304,7 @@ export const CriaturaJugadorZ = z.object({
   amuleto: z.string().nullable(),
 });
 export const EstadoJuegoZ = z.object({
-  version: z.literal(8),
+  version: z.literal(9),
   monedas: z.number().int().min(0),
   esencia: z.number().int().min(0),
   criaturas: z.array(CriaturaJugadorZ),
@@ -354,6 +356,8 @@ export const EstadoJuegoZ = z.object({
   ruleta: z.object({ ultimoDia: z.number().int() }),
   /** Jefes (semanales y Guardianes) a los que ya les ganaste: cada uno es una insignia. */
   jefes: z.array(z.string()),
+  /** Primeros pasos: índice del próximo paso por cobrar (5 = guía terminada). */
+  guia: z.object({ paso: z.number().int().min(0) }),
   /** Desafío del día: último día jugado, su resultado, racha de días seguidos y victorias totales. */
   desafio: z.object({
     dia: z.number().int(),

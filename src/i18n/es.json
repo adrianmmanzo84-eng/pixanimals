@@ -478,5 +478,15 @@
   "menu.copia.titulo": "¿Guardamos una copia?",
   "menu.copia.texto": "Tu colección crece. Descarga una copia en archivo para no perderla nunca, aunque se borre el navegador.",
   "menu.copia.ayuda": "A: ir a Guardado · B: ahora no",
-  "menu.aviso.ayuda": "A: seguir"
+  "menu.aviso.ayuda": "A: seguir",
+  "guia.etiqueta": "Paso {n}/{t}",
+  "guia.combate": "Gana un combate rápido (Combatir)",
+  "guia.sobre": "Abre tu sobre gratis (Sobres)",
+  "guia.equipo": "Junta 3 criaturas: abre sobres",
+  "guia.minijuego": "Juega un minijuego",
+  "guia.torre": "Supera el piso 1 de la Torre",
+  "guia.titulo": "¡Paso completado!",
+  "guia.tituloFin": "¡Primeros pasos completos!",
+  "guia.premio": "Premio: {p}",
+  "guia.fin": "Ya conoces lo básico. Vuelve cada día: hay Desafío, misiones y ruleta nuevos."
 }

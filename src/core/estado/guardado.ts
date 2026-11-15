@@ -53,6 +53,7 @@ export function serializar(estado: EstadoJuego): string {
  * v5 → v6: ruleta diaria.
  * v6 → v7: insignias de jefes.
  * v7 → v8: Desafío del día.
+ * v8 → v9: Primeros pasos (las partidas que ya empezaron no ven la guía).
  */
 export function migrar(obj: unknown): unknown {
   if (!obj || typeof obj !== 'object') return obj;
@@ -97,6 +98,10 @@ export function migrar(obj: unknown): unknown {
   if (o.version === 7) {
     o.version = 8;
     o.desafio = { dia: -1, terminado: false, victoria: false, turnos: 0, vidas: [], racha: 0, mejorRacha: 0, victorias: 0 };
+  }
+  if (o.version === 8) {
+    o.version = 9;
+    o.guia = { paso: o.bienvenida ? 5 : 0 };
   }
   return o;
 }

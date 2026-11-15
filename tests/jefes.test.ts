@@ -73,7 +73,7 @@ describe('jefes', () => {
     const v6 = { ...estadoNuevo(DATOS, 0), version: 6 } as Record<string, unknown>;
     delete v6.jefes;
     const m = EstadoJuegoZ.parse(migrar(v6));
-    expect(m.version).toBe(8);
+    expect(m.version).toBe(9);
     expect(m.jefes).toEqual([]);
   });
 });

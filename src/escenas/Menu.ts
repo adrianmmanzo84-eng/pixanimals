@@ -22,6 +22,7 @@ import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { abrirGuardado } from '../ui/guardadoDom';
 import { debeRecordarCopia } from '../core/estado/respaldo';
+import { cobrarPaso, pasoActual, PASOS_GUIA, premioPaso } from '../core/progresion/guia';
 import { marcarAviso, ultimaCopia, ultimoAviso } from '../ui/recordatorio';
 import { Puntero } from '../ui/puntero';
 import { partir, Texto } from '../ui/texto';
@@ -54,6 +55,8 @@ export class Menu extends Phaser.Scene {
   /** Qué hacer con A o B mientras se muestra un aviso (partida recuperada, recordatorio de copia). */
   private alAviso: ((a: AccionEntrada) => void) | null = null;
   private submenu = false;
+  /** Cartel de Primeros pasos (solo en el menú principal). */
+  private cartelGuia: Phaser.GameObjects.Container | null = null;
 
   constructor() {
     super('Menu');
@@ -137,13 +140,29 @@ export class Menu extends Phaser.Scene {
     });
     if (!equipo.length) new Texto(this, 10, 130, 220, 10, C.tintaSuave, 'centro').poner(t('menu.sinEquipo'));
     this.ayuda = new Texto(this, 0, 98, 240, 10, '#ffffff', 'centro', { borde: '#2b3a78' }).visible(false);
+    // Primeros pasos: el paso actual en un cartel y el cursor sobre la opción que lleva a cumplirlo.
+    this.cartelGuia = null;
+    const paso = pasoActual(estado);
+    if (paso) {
+      const g = this.add.graphics();
+      ventana(g, 30, 98, 180, 16, 0.96);
+      g.fillStyle(n(C.resalte), 1).fillRoundedRect(34, 101, 50, 10, 3);
+      const n1 = PASOS_GUIA.indexOf(paso) + 1;
+      this.cartelGuia = this.add.container(0, 0, [
+        g,
+        new Texto(this, 34, 101, 50, 10, '#ffffff', 'centro', { tam: 6, peso: 600 }).poner(t('guia.etiqueta', { n: n1, t: PASOS_GUIA.length })).imagen,
+        new Texto(this, 88, 101, 120, 10, C.tinta, 'izq', { tam: 6.6, peso: 600 }).poner(t(`guia.${paso.id}`)).imagen,
+      ]);
+      if (this.modo === 'principal') this.sel = paso.opcion;
+    }
 
     this.pintar();
     // Un solo aviso por vez: partida recuperada > premio diario > recordatorio de copia.
     if (juego.recuperada) {
       juego.recuperada = false;
       this.mostrarAviso(t('menu.recuperada.titulo'), t('menu.recuperada.texto'), t('menu.aviso.ayuda'), (a) => a === 'a' && this.scene.restart());
-    } else if (diarioDisponible(estado, Date.now())) this.mostrarDiario();
+    } else if (this.modo === 'principal' && pasoActual(estado)?.cumplido(estado)) this.mostrarPaso();
+    else if (diarioDisponible(estado, Date.now())) this.mostrarDiario();
     else if (this.modo === 'principal' && debeRecordarCopia(estado, ultimaCopia(), ultimoAviso(), Date.now())) {
       marcarAviso();
       this.mostrarAviso(t('menu.copia.titulo'), t('menu.copia.texto'), t('menu.copia.ayuda'), (a) => {
@@ -202,9 +221,28 @@ export class Menu extends Phaser.Scene {
     this.cursor.clear().fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3);
     this.puntero?.marcar(`${this.modo}:${this.sel}`, this.filas[this.sel]?.imagen);
     this.ayuda.poner(t('menu.dificultad')).visible(false);
+    this.cartelGuia?.setVisible(principal);
   }
 
-  /** Ventana del premio diario: los 7 días del ciclo, con el de hoy marcado. */
+  /** Paso de la guía cumplido: muestra el premio; A lo cobra y vuelve a abrir el menú (que muestra el siguiente). */
+  private mostrarPaso(): void {
+    const paso = pasoActual(juego.estado)!;
+    const p = premioPaso(DATOS, paso);
+    const partes: string[] = [];
+    if (p.monedas) partes.push(t('fin.monedas', { n: p.monedas }));
+    if (p.esencia) partes.push(t('fin.esencia', { n: p.esencia }));
+    if (p.sobre) partes.push(DATOS.sobres.sobres.find((x) => x.id === p.sobre)?.nombre ?? p.sobre);
+    const ultimo = PASOS_GUIA.indexOf(paso) === PASOS_GUIA.length - 1;
+    const texto = `${t(`guia.${paso.id}`)} ✓\n${t('guia.premio', { p: partes.join(' · ') })}${ultimo ? `\n${t('guia.fin')}` : ''}`;
+    sonido.tocar(ultimo ? 'tesoro' : 'sube');
+    this.mostrarAviso(t(ultimo ? 'guia.tituloFin' : 'guia.titulo'), texto, t('menu.aviso.ayuda'), (a) => {
+      if (a !== 'a') return;
+      cobrarPaso(DATOS, juego.estado);
+      juego.guardar();
+      this.scene.restart();
+    });
+  }
+
   /** Cartel encima del menú con título, texto y ayuda; `alPulsar` decide qué hacen A y B. */
   private mostrarAviso(titulo: string, texto: string, ayuda: string, alPulsar: (a: AccionEntrada) => void): void {
     this.modo = 'aviso';
@@ -223,6 +261,7 @@ export class Menu extends Phaser.Scene {
       tx.imagen.setDepth(11);
   }
 
+  /** Ventana del premio diario: los 7 días del ciclo, con el de hoy marcado. */
   private mostrarDiario(): void {
     const estado = juego.estado;
     const p = premioDeHoy(DATOS, estado, Date.now());
@@ -294,9 +333,11 @@ export class Menu extends Phaser.Scene {
       this.sel = 0;
       sonido.tocar('cancelar');
     } else if (a === 'b' && this.modo === 'combates') {
-      this.modo = 'principal';
-      this.sel = 0;
       sonido.tocar('cancelar');
+      // Al volver al menú principal se vuelve a abrir la escena: así aparecen el paso cumplido y el cartel de la guía.
+      this.submenu = false;
+      this.scene.restart({});
+      return;
     } else if (a === 'a') {
       if (this.modo === 'dificultad') {
         sonido.tocar('aceptar');

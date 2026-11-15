@@ -468,5 +468,24 @@
     "monedasVictoria": 60,
     "esenciaVictoria": 20,
     "monedasDerrota": 15
+  },
+  "guia": {
+    "combate": {
+      "monedas": 40
+    },
+    "sobre": {
+      "esencia": 20
+    },
+    "equipo": {
+      "monedas": 60
+    },
+    "minijuego": {
+      "monedas": 40,
+      "esencia": 20
+    },
+    "torre": {
+      "monedas": 100,
+      "sobre": "raro"
+    }
   }
 }
