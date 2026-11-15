@@ -398,6 +398,13 @@
    32
   ]
  },
+ "logo": {
+  "ruta": "ui/marca/logo.png",
+  "tam": [
+   220,
+   74
+  ]
+ },
  "medalla_brillantes_1": {
   "ruta": "ui/medallas/medalla_brillantes_1.png",
   "tam": [

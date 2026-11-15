@@ -13,8 +13,8 @@ import { favoritaDe } from '../core/estado/juego';
 import version from '../../package.json';
 
 /** Caja del logo en el mundo de 240×160. */
-const LOGO_ANCHO = 200;
-const LOGO_ALTO = 70;
+const LOGO_ANCHO = 220;
+const LOGO_ALTO = 74;
 
 /**
  * Pantalla de título: la portada, el logo (el del autor si está en `arte/originales/ui/marca/logo.png`;
