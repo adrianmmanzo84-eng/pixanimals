@@ -2,7 +2,8 @@ import Phaser from 'phaser';
 import { bloqueoFusion, enExpedicion, fusionar } from '../core/progresion/coleccion';
 import { Puntero, saltito } from '../ui/puntero';
 import { DATOS } from '../core/datos';
-import { bonusStats, criaturaDe, potencialDe } from '../core/estado/juego';
+import { alternarFavorita, bonusStats, criaturaDe, nombreDe, ponerApodo, potencialDe } from '../core/estado/juego';
+import { pedirApodo } from '../ui/apodoDom';
 import { cantidad, equiparAmuleto } from '../core/items/items';
 import { calcularStats } from '../core/combate/formulas';
 import { costoLlenar, evolucionar, infundirEsencia, opcionesEvolucion, puedeEvolucionar, tieneEvolucion, type OpcionEvolucion } from '../core/progresion/evolucion';
@@ -18,7 +19,7 @@ import { fondo } from '../ui/fondos';
 import { partir, Texto } from '../ui/texto';
 import { claveTipo, hayArte, pieza } from '../ui/arte';
 
-type Accion = { id: 'frente' | 'sacar' | 'sumar' | 'entrenar' | 'amuleto' | 'fusionar' } | { id: 'evo'; op: OpcionEvolucion };
+type Accion = { id: 'frente' | 'sacar' | 'sumar' | 'entrenar' | 'amuleto' | 'fusionar' | 'apodo' | 'favorita' } | { id: 'evo'; op: OpcionEvolucion };
 
 /**
  * Mis criaturas: toda la colección (primero el equipo, en orden), con experiencia, barra de Entrenamiento
@@ -83,7 +84,7 @@ export class Equipo extends Phaser.Scene {
       g.fillStyle(activa ? 0xfde9c8 : n(C.papelSombra), 1).fillRoundedRect(10, y, 220, 33, 4);
       if (activa) g.lineStyle(1.2, n(C.resalte), 1).strokeRoundedRect(10, y, 220, 33, 4);
       miniatura(this.add.image(28, y + 16, textura(c.especie, 'frente', c.brillante)), c.especie, 30, 0.6);
-      const nombre = new Texto(this, 48, y + 2, 80, 10, C.tinta, 'izq', { peso: 600 }).poner(especie.nombre + (c.brillante ? ' ✦' : ''));
+      const nombre = new Texto(this, 48, y + 2, 80, 10, C.tinta, 'izq', { peso: 600 }).poner((c.favorita ? '★ ' : '') + nombreDe(DATOS, c) + (c.brillante ? ' ✦' : ''));
       if (activa && this.salto && !this.acciones) saltito(this, nombre.imagen);
       if (!this.acciones)
         this.puntero.zona(10, y, 220, 33, () => {
@@ -143,6 +144,7 @@ export class Equipo extends Phaser.Scene {
     if (c.amuleto || this.amuletosEnBolsa().length) res.push({ id: 'amuleto' });
     if ((juego.estado.copias[c.especie] ?? 0) > 0) res.push({ id: 'fusionar' });
     for (const op of opcionesEvolucion(DATOS, juego.estado, c)) res.push({ id: 'evo', op });
+    res.push({ id: 'apodo' }, { id: 'favorita' });
     return res;
   }
 
@@ -158,6 +160,7 @@ export class Equipo extends Phaser.Scene {
   }
 
   private etiqueta(a: Accion): string {
+    if (a.id === 'favorita') return t(this.lista[this.sel]?.favorita ? 'mc.ac.noFavorita' : 'mc.ac.favorita');
     if (a.id === 'evo') return t('mc.ac.evo', { n: DATOS.criaturas.get(a.op.a)!.nombre });
     return t(`mc.ac.${a.id}`);
   }
@@ -169,6 +172,10 @@ export class Equipo extends Phaser.Scene {
     switch (a.id) {
       case 'frente':
         return { texto: t('mc.d.frente'), puede: true };
+      case 'apodo':
+        return { texto: c.apodo ? t('mc.d.apodoCambiar', { a: c.apodo }) : t('mc.d.apodo'), puede: true };
+      case 'favorita':
+        return { texto: t(c.favorita ? 'mc.d.noFavorita' : 'mc.d.favorita'), puede: true };
       case 'sacar':
         return e.equipo.length <= 1 ? { texto: t('mc.d.ultima'), puede: false } : { texto: t('mc.d.sacar'), puede: true };
       case 'sumar':
@@ -306,6 +313,26 @@ export class Equipo extends Phaser.Scene {
       juego.guardar();
       sonido.tocar('sube');
       this.scene.restart({ sel: this.sel, acciones: true, accion: this.accion, aviso: t('mc.ok.entrenar', { n: DATOS.criaturas.get(c.especie)!.nombre, p }) });
+    } else if (ac.id === 'apodo') {
+      sonido.tocar('aceptar');
+      this.ocupado = true;
+      Entrada.escuchar(null);
+      const especie = DATOS.criaturas.get(c.especie)!.nombre;
+      void pedirApodo(especie, c.apodo ?? '').then((texto) => {
+        let aviso = '';
+        if (texto !== null) {
+          const apodo = ponerApodo(e, c.especie, texto);
+          juego.guardar();
+          aviso = apodo ? t('mc.ok.apodo', { n: especie, a: apodo }) : t('mc.ok.sinApodo', { n: especie });
+        }
+        this.scene.restart({ sel: this.sel, acciones: true, accion: this.accion, aviso });
+      });
+    } else if (ac.id === 'favorita') {
+      const marcada = alternarFavorita(e, c.especie);
+      juego.guardar();
+      if (marcada) sonido.grito(c.especie);
+      else sonido.tocar('cancelar');
+      this.scene.restart({ sel: this.sel, acciones: true, accion: this.accion, aviso: t(marcada ? 'mc.ok.favorita' : 'mc.ok.noFavorita', { n: nombreDe(DATOS, c) }) });
     } else if (ac.id === 'evo') {
       sonido.tocar('aceptar');
       void this.animarEvolucion(c, ac.op.a);

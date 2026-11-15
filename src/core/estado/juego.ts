@@ -86,5 +86,41 @@ export function bonusStats(datos: Datos, c: CriaturaJugador): Partial<Record<Sta
 }
 
 export function combatienteDe(datos: Datos, c: CriaturaJugador): Combatiente {
-  return crearCombatiente(datos, c.especie, c.nivel, { potencial: potencialDe(datos, c.rareza), extra: bonusStats(datos, c), brillante: c.brillante });
+  const cb = crearCombatiente(datos, c.especie, c.nivel, { potencial: potencialDe(datos, c.rareza), extra: bonusStats(datos, c), brillante: c.brillante });
+  return { ...cb, nombre: nombreDe(datos, c) };
+}
+
+/** Nombre que se muestra de una criatura tuya: su apodo, o el de su especie. */
+export function nombreDe(datos: Datos, c: CriaturaJugador): string {
+  return c.apodo || datos.criaturas.get(c.especie)!.nombre;
+}
+
+/** Apodo limpio: sin caracteres de control ni signos de etiqueta, espacios simples, hasta 12 letras. Vacío = sin apodo. */
+export function limpiarApodo(texto: string): string {
+  const limpio = texto.replace(/[\u0000-\u001f\u007f<>{}\\]/g, '').replace(/\s+/g, ' ').trim();
+  return [...limpio].slice(0, 12).join('').trim();
+}
+
+/** Pone (o quita, si queda vacío) el apodo. Sigue a la criatura aunque evolucione. */
+export function ponerApodo(estado: EstadoJuego, especie: string, texto: string): string {
+  const c = criaturaDe(estado, especie);
+  if (!c) return '';
+  const apodo = limpiarApodo(texto);
+  if (apodo) c.apodo = apodo;
+  else delete c.apodo;
+  return apodo;
+}
+
+/** Marca la favorita (solo una); si ya lo era, la desmarca. Devuelve si quedó marcada. */
+export function alternarFavorita(estado: EstadoJuego, especie: string): boolean {
+  const c = criaturaDe(estado, especie);
+  if (!c) return false;
+  const ahora = !c.favorita;
+  for (const x of estado.criaturas) delete x.favorita;
+  if (ahora) c.favorita = true;
+  return ahora;
+}
+
+export function favoritaDe(estado: EstadoJuego): CriaturaJugador | null {
+  return estado.criaturas.find((c) => c.favorita) ?? null;
 }

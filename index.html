@@ -46,14 +46,18 @@
       #botones button[data-accion="b"] { background: #b13e53; border-color: #ef7d57; }
       #barra button#instalar { background: #38b764; border-color: #a7f070; color: #10142c; }
       #barra button[hidden] { display: none; }
-      #guardado, #ayuda-instalar { position: fixed; inset: 0; z-index: 5; display: none; align-items: center; justify-content: center; background: rgba(20, 24, 48, 0.82); padding: 14px; touch-action: auto; user-select: text; -webkit-user-select: text; }
-      #guardado.abierto, #ayuda-instalar.abierto { display: flex; }
-      #guardado .caja, #ayuda-instalar .caja { width: 100%; max-width: 440px; background: #fbfaf3; color: #1f2340; border: 3px solid #2b3a78; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-      #guardado h2, #ayuda-instalar h2 { margin: 0; font-size: 18px; }
-      #guardado p, #ayuda-instalar p { margin: 0; font-size: 13px; line-height: 1.4; }
+      #guardado, #ayuda-instalar, #dialogo-apodo { position: fixed; inset: 0; z-index: 5; display: none; align-items: center; justify-content: center; background: rgba(20, 24, 48, 0.82); padding: 14px; touch-action: auto; user-select: text; -webkit-user-select: text; }
+      #guardado.abierto, #ayuda-instalar.abierto, #dialogo-apodo.abierto { display: flex; }
+      #guardado .caja, #ayuda-instalar .caja, #dialogo-apodo .caja { width: 100%; max-width: 440px; background: #fbfaf3; color: #1f2340; border: 3px solid #2b3a78; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+      #guardado h2, #ayuda-instalar h2, #dialogo-apodo h2 { margin: 0; font-size: 18px; }
+      #guardado p, #ayuda-instalar p, #dialogo-apodo p { margin: 0; font-size: 13px; line-height: 1.4; }
       #guardado textarea { width: 100%; height: 110px; font: 12px ui-monospace, monospace; border: 2px solid #9fb0c4; border-radius: 8px; padding: 8px; resize: none; user-select: text; -webkit-user-select: text; }
-      #guardado button, #ayuda-instalar button { min-height: 42px; border-radius: 8px; border: 2px solid #2b3a78; background: #5aa9f0; color: #10142c; font-size: 14px; font-weight: 600; }
+      #guardado button, #ayuda-instalar button, #dialogo-apodo button { min-height: 42px; border-radius: 8px; border: 2px solid #2b3a78; background: #5aa9f0; color: #10142c; font-size: 14px; font-weight: 600; }
       #guardado .caja { max-height: 100%; overflow-y: auto; }
+      #dialogo-apodo input { width: 100%; font: 600 20px system-ui, sans-serif; border: 2px solid #9fb0c4; border-radius: 8px; padding: 10px; user-select: text; -webkit-user-select: text; }
+      #dialogo-apodo .fila { display: flex; gap: 8px; }
+      #dialogo-apodo .fila button { flex: 1; }
+      #dialogo-apodo button.secundario { background: #e3e8f0; }
       #guardado button.peligro { background: #f3c0c8; border-color: #c0394f; }
       #guardado .estado { min-height: 18px; font-weight: 600; color: #2b6a3f; }
       #ayuda { font-size: 12px; color: #94b0c2; text-align: center; }
@@ -102,6 +106,17 @@
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
+    <div id="dialogo-apodo" role="dialog" aria-modal="true" aria-labelledby="apodo-titulo">
+      <div class="caja">
+        <h2 id="apodo-titulo"></h2>
+        <p id="apodo-texto"></p>
+        <input id="apodo-campo" type="text" maxlength="12" autocomplete="off" autocapitalize="words" spellcheck="false" enterkeyhint="done" />
+        <div class="fila">
+          <button type="button" id="apodo-cancelar" class="secundario"></button>
+          <button type="button" id="apodo-aceptar"></button>
+        </div>
+      </div>
+    </div>
     <div id="ayuda-instalar" role="dialog" aria-modal="true" aria-labelledby="ayuda-instalar-titulo">
       <div class="caja">
         <h2 id="ayuda-instalar-titulo">Instalar en iPhone o iPad</h2>

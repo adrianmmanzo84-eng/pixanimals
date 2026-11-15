@@ -9,6 +9,7 @@ import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
 import { juego } from '../juego';
+import { criaturaDe, nombreDe } from '../core/estado/juego';
 import { miniatura, textura } from '../ui/criaturas';
 import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
@@ -100,7 +101,7 @@ export class Expediciones extends Phaser.Scene {
         } else {
           const c = e.criaturas.find((cc) => cc.especie === x.especie);
           this.capa.add(miniatura(this.add.image(ilus ? 30 : 24, y + 15, textura(x.especie, 'frente', c?.brillante)), x.especie, 26, 0.5));
-          this.txt(x0, y + 3, 120, 10, C.tinta, 'izq', { peso: 600 }).poner(DATOS.criaturas.get(x.especie)!.nombre);
+          this.txt(x0, y + 3, 120, 10, C.tinta, 'izq', { peso: 600 }).poner(this.nom(x.especie));
           const falta = faltaExpedicion(x, ahora);
           const total = x.horas * 3_600_000;
           const largo = ilus ? 100 : 120;
@@ -136,7 +137,7 @@ export class Expediciones extends Phaser.Scene {
         g.fillStyle(activa ? 0xfde9c8 : n(C.papelSombra), 1).fillRoundedRect(12, y, 216, 20, 3);
         if (activa) g.lineStyle(1.2, n(C.resalte), 1).strokeRoundedRect(12, y, 216, 20, 3);
         this.capa.add(miniatura(this.add.image(24, y + 10, textura(c.especie, 'frente', c.brillante)), c.especie, 18, 0.36));
-        this.txt(38, y + 5, 120, 10, C.tinta, 'izq', { peso: 600 }).poner(DATOS.criaturas.get(c.especie)!.nombre);
+        this.txt(38, y + 5, 120, 10, C.tinta, 'izq', { peso: 600 }).poner(this.nom(c.especie));
         this.txt(150, y + 5, 72, 10, C.tintaSuave, 'der').poner(t('nv', { n: c.nivel }));
         this.puntero.zona(12, y, 216, 20, () => {
           if (i === this.selCriatura) return;
@@ -152,7 +153,7 @@ export class Expediciones extends Phaser.Scene {
     }
     // Duración
     const c = this.disponibles()[this.selCriatura]!;
-    const nombre = DATOS.criaturas.get(c.especie)!.nombre;
+    const nombre = this.nom(c.especie);
     ventana(g, 6, 18, 228, 104);
     this.txt(12, 21, 216, 10, C.tinta, 'izq', { peso: 600 }).poner(t('exp.cuanto', { n: nombre }));
     DATOS.economia.expediciones.duraciones.forEach((d, i) => {
@@ -212,7 +213,7 @@ export class Expediciones extends Phaser.Scene {
         }
         juego.guardar();
         sonido.tocar('victoria');
-        const partes = [t('exp.cobro', { n: DATOS.criaturas.get(botin.especie)!.nombre, m: botin.monedas, x: botin.xp })];
+        const partes = [t('exp.cobro', { n: this.nom(botin.especie), m: botin.monedas, x: botin.xp })];
         if (botin.item) partes.push(DATOS.items.get(botin.item)!.nombre);
         if (botin.sobre) partes.push(DATOS.sobres.sobres.find((s) => s.id === botin.sobre)!.nombre);
         this.aviso = partes.join(' · ');
@@ -255,8 +256,14 @@ export class Expediciones extends Phaser.Scene {
       sonido.tocar('sube');
       this.modo = 'lugares';
       this.sel = e.expediciones.length - 1;
-      this.aviso = t('exp.enviada', { n: DATOS.criaturas.get(c.especie)!.nombre, h: horas });
+      this.aviso = t('exp.enviada', { n: this.nom(c.especie), h: horas });
       this.pintar();
     }
+  }
+
+  /** Nombre de una criatura tuya (su apodo, si tiene). */
+  private nom(especie: string): string {
+    const c = criaturaDe(juego.estado, especie);
+    return c ? nombreDe(DATOS, c) : DATOS.criaturas.get(especie)!.nombre;
   }
 }

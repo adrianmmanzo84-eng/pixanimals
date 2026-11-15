@@ -38,7 +38,7 @@ export const Entrada = {
   iniciar(): void {
     window.addEventListener('keydown', (e) => {
       // Si se está escribiendo en un campo de texto (panel de guardado), las teclas no son del juego.
-      if (e.target instanceof HTMLElement && e.target.closest('#guardado')) return;
+      if (e.target instanceof HTMLElement && e.target.closest('#guardado, #dialogo-apodo')) return;
       const a = TECLAS[e.key];
       if (!a) return;
       e.preventDefault();

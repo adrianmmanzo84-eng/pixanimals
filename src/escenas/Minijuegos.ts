@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { Puntero } from '../ui/puntero';
 import type { CriaturaJugador, MinijuegoId } from '../esquemas/esquemas';
 import { DATOS } from '../core/datos';
-import { equipoDe } from '../core/estado/juego';
+import { equipoDe, nombreDe } from '../core/estado/juego';
 import { partidasConPremio } from '../core/minijuegos/minijuegos';
 import { puedeEvolucionar, tieneEvolucion } from '../core/progresion/evolucion';
 import { Entrada, type AccionEntrada } from '../entrada';
@@ -120,8 +120,7 @@ export class Minijuegos extends Phaser.Scene {
       g.fillStyle(activa ? 0xfde9c8 : n(C.papelSombra), 1).fillRoundedRect(14, y, 212, 23, 3);
       if (activa) g.lineStyle(1.2, n(C.resalte), 1).strokeRoundedRect(14, y, 212, 23, 3);
       this.capa.add(miniatura(this.add.image(28, y + 11, textura(c.especie, 'frente', c.brillante)), c.especie, 20, 0.4));
-      const esp = DATOS.criaturas.get(c.especie)!;
-      const nombre = txt(44, y + 2, 100, 10, C.tinta, 'izq', { peso: 600 }).poner(esp.nombre + (c.brillante ? ' ✦' : ''));
+      const nombre = txt(44, y + 2, 100, 10, C.tinta, 'izq', { peso: 600 }).poner(nombreDe(DATOS, c) + (c.brillante ? ' ✦' : ''));
       if (activa) puntero.marcar(`c${c.especie}`, nombre.imagen);
       puntero.zona(14, y, 212, 23, () => {
         if (i === this.selCriatura) return;

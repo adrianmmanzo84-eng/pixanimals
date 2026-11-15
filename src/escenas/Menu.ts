@@ -3,7 +3,10 @@ import { faltaExpedicion, metasPorCobrar } from '../core/progresion/coleccion';
 import { semanalCobrado, tipoDeLaSemana } from '../core/modos/semanal';
 import { DATOS } from '../core/datos';
 import { NIVELES_IA } from '../core/combate/ia';
-import { equipoDe } from '../core/estado/juego';
+import { equipoDe, nombreDe } from '../core/estado/juego';
+
+/** La favorita saluda (salto y grito) la primera vez que se abre el menú en cada sesión. */
+let saludoHecho = false;
 import { sobresGratis } from '../core/sobres/sobres';
 import { puedeEvolucionar } from '../core/progresion/evolucion';
 import { cobrarDiario, diarioDisponible, premioDeHoy } from '../core/progresion/diario';
@@ -135,7 +138,16 @@ export class Menu extends Phaser.Scene {
       const icono = this.add.sprite(x + 16, 135, textura(c.especie, 'icono'), 0);
       let cuadro = 0;
       this.time.addEvent({ delay: 420, loop: true, callback: () => icono.setFrame((cuadro ^= 1)) });
-      new Texto(this, x + 33, 124, 44, 10).poner(DATOS.criaturas.get(c.especie)!.nombre);
+      // Los nombres largos (y los apodos de 12 letras) van con letra más chica para entrar en su lugar.
+      const nombre = (c.favorita ? '★' : '') + nombreDe(DATOS, c);
+      new Texto(this, x + 33, 124, 44, 10, C.tinta, 'izq', nombre.length > 9 ? { tam: nombre.length > 11 ? 5.4 : 6.2 } : {}).poner(nombre);
+      if (c.favorita && !saludoHecho) {
+        saludoHecho = true;
+        this.time.delayedCall(450, () => {
+          sonido.grito(c.especie);
+          this.tweens.add({ targets: icono, y: 128, duration: 140, yoyo: true, repeat: 1, ease: 'Quad.easeOut' });
+        });
+      }
       new Texto(this, x + 33, 134, 44, 10, C.tintaSuave).poner(t('nv', { n: c.nivel }) + (c.brillante ? ' ✦' : ''));
     });
     if (!equipo.length) new Texto(this, 10, 130, 220, 10, C.tintaSuave, 'centro').poner(t('menu.sinEquipo'));

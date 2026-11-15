@@ -302,6 +302,10 @@ export const CriaturaJugadorZ = z.object({
   entrenamiento: z.number().int().min(0),
   /** Amuleto equipado (id de ítem) o null. */
   amuleto: z.string().nullable(),
+  /** Apodo que le puso el jugador (solo en su partida; nunca se comparte). */
+  apodo: z.string().max(12).optional(),
+  /** La favorita del jugador (a lo sumo una). */
+  favorita: z.boolean().optional(),
 });
 export const EstadoJuegoZ = z.object({
   version: z.literal(9),

@@ -491,5 +491,20 @@
   "guia.fin": "Ya conoces lo básico. Vuelve cada día: hay Desafío, misiones y ruleta nuevos.",
   "titulo.pulsa": "Pulsa A o toca para jugar",
   "titulo.lema": "Colecciona · Entrena · Combate",
-  "titulo.sinCompras": "Gratis · sin compras · sin registros"
+  "titulo.sinCompras": "Gratis · sin compras · sin registros",
+  "mc.ac.apodo": "Apodo",
+  "mc.ac.favorita": "Favorita ★",
+  "mc.ac.noFavorita": "Quitar ★",
+  "mc.d.apodo": "Ponle un nombre propio (hasta 12 letras). Solo lo ves tú.",
+  "mc.d.apodoCambiar": "Se llama «{a}». Puedes cambiarlo o borrarlo.",
+  "mc.d.favorita": "Márcala como tu favorita: lleva ★ y encabeza el desfile del título.",
+  "mc.d.noFavorita": "Es tu favorita. Pulsa para quitarle la ★.",
+  "mc.ok.apodo": "{n} ahora se llama {a}.",
+  "mc.ok.sinApodo": "{n} vuelve a su nombre.",
+  "mc.ok.favorita": "¡{n} es tu favorita!",
+  "mc.ok.noFavorita": "{n} ya no es tu favorita.",
+  "apodo.titulo": "Apodo para {n}",
+  "apodo.texto": "Hasta 12 letras. Déjalo vacío para volver al nombre de la especie.",
+  "apodo.aceptar": "Listo",
+  "apodo.cancelar": "Cancelar"
 }

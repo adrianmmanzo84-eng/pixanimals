@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import type { MinijuegoId } from '../../esquemas/esquemas';
 import { DATOS } from '../../core/datos';
-import { criaturaDe } from '../../core/estado/juego';
+import { criaturaDe, nombreDe } from '../../core/estado/juego';
 import { terminarMinijuego, type ResultadoMinijuego } from '../../core/minijuegos/minijuegos';
 import { Entrada, type AccionEntrada } from '../../entrada';
 import { sonido } from '../../audio/sfx';
@@ -188,7 +188,8 @@ export abstract class MinijuegoBase extends Phaser.Scene {
   }
 
   private mostrarResultado(r: ResultadoMinijuego, textoValor: string): void {
-    const nombre = DATOS.criaturas.get(criaturaDe(juego.estado, this.especie)?.especie ?? this.especie)?.nombre ?? '';
+    const mia = criaturaDe(juego.estado, this.especie);
+    const nombre = mia ? nombreDe(DATOS, mia) : (DATOS.criaturas.get(this.especie)?.nombre ?? '');
     const lineas = [textoValor + (r.record ? `  ·  ${t('mj.record')}` : '')];
     if (!r.conPremio) lineas.push(t('mj.sinPremio', { n: DATOS.economia.minijuegos.conPremioPorDia }));
     else {

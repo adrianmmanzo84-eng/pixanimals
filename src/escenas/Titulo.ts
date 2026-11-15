@@ -8,6 +8,8 @@ import { hayArte } from '../ui/arte';
 import { textura } from '../ui/criaturas';
 import { prepararCamara } from '../ui/estilo';
 import { Texto } from '../ui/texto';
+import { juego } from '../juego';
+import { favoritaDe } from '../core/estado/juego';
 import version from '../../package.json';
 
 /** Caja del logo en el mundo de 240×160. */
@@ -82,7 +84,10 @@ export class Titulo extends Phaser.Scene {
   /** Criaturas al azar que cruzan caminando, una detrás de otra, en bucle. */
   private desfile(): void {
     const especies = DATOS.jugables.filter((c) => c.etapa <= 2);
-    const elegidas = Phaser.Utils.Array.Shuffle([...especies]).slice(0, 6);
+    // Tu favorita encabeza el desfile.
+    const fav = favoritaDe(juego.estado);
+    const azar = Phaser.Utils.Array.Shuffle([...especies]).filter((c) => c.id !== fav?.especie);
+    const elegidas = [...(fav ? [DATOS.criaturas.get(fav.especie)!] : []), ...azar].slice(0, 6);
     elegidas.forEach((c, i) => {
       const s = this.add.sprite(-20 - i * 42, 124, textura(c.id, 'icono'), 0).setFlipX(true);
       let cuadro = 0;

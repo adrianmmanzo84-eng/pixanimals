@@ -8,7 +8,7 @@ import { Batalla, type Accion, type Combatiente, type Evento, type Lado } from '
 import { elegirAccion, elegirReemplazo, type NivelIA } from '../core/combate/ia';
 import { accionConDano, calificarGolpe, GOLPE, posicionGolpe } from '../core/combate/golpe';
 import { generarRival } from '../core/combate/rival';
-import { combatienteDe, criaturaDe, equipoDe, marcarVista } from '../core/estado/juego';
+import { combatienteDe, criaturaDe, equipoDe, marcarVista, nombreDe } from '../core/estado/juego';
 import { aplicarRecompensa, xpParaSubir } from '../core/progresion/experiencia';
 import { registrar } from '../core/progresion/misiones';
 import { datosPiso, equipoPiso, resultadoTorre } from '../core/modos/torre';
@@ -459,9 +459,9 @@ export class Combate extends Phaser.Scene {
     const lineas = [t('fin.turnos', { n: this.bat.turno }), ...extra];
     if (r.monedas) lineas.push(t('fin.monedas', { n: r.monedas }));
     if (r.xpPorCriatura) lineas.push(t('fin.xp', { n: r.xpPorCriatura }));
-    for (const s of r.subidas) lineas.push(t('fin.sube', { n: DATOS.criaturas.get(s.especie)!.nombre, nv: s.nivel }));
+    for (const s of r.subidas) lineas.push(t('fin.sube', { n: this.nomMia(s.especie), nv: s.nivel }));
     if (r.entrenamiento) lineas.push(t('fin.entrenamiento', { n: r.entrenamiento }));
-    for (const e of r.listas) lineas.push(t('fin.evoLista', { n: DATOS.criaturas.get(e)!.nombre }));
+    for (const e of r.listas) lineas.push(t('fin.evoLista', { n: this.nomMia(e) }));
     const alto = 34 + lineas.length * 9;
     const g = this.add.graphics();
     ventana(g, 44, 32, 152, alto);
@@ -1027,6 +1027,12 @@ export class Combate extends Phaser.Scene {
     if (!registrarJefe(DATOS, juego.estado, id)) return;
     const p = progresoJefes(DATOS, juego.estado);
     extra.push(t('fin.insignia', { n: DATOS.criaturas.get(id)!.nombre, m: p.vencidos, t: p.total }));
+  }
+
+  /** Nombre de una criatura tuya por especie (su apodo, si tiene). */
+  private nomMia(especie: string): string {
+    const c = criaturaDe(juego.estado, especie);
+    return c ? nombreDe(DATOS, c) : DATOS.criaturas.get(especie)!.nombre;
   }
 
   private nom(lado: Lado): string {
