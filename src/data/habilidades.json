@@ -5593,6 +5593,739 @@
       "precision": null,
       "usos": 1,
       "efectos": []
+    },
+    {
+      "id": "zarpa_de_helecho",
+      "animacion": "zarpazo",
+      "nombre": "Zarpa de Helecho",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "garras_guadana",
+      "animacion": "zarpazo",
+      "nombre": "Garras Guadaña",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "follaje_jurasico",
+      "animacion": "hojas",
+      "nombre": "Follaje Jurásico",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6,
+          "contraEstado": {
+            "estado": "veneno",
+            "prob": 30,
+            "soloFisico": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "savia_antigua",
+      "animacion": "raices",
+      "nombre": "Savia Antigua",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 8,
+      "efectos": [
+        {
+          "tipo": "cura",
+          "porcentaje": 25
+        }
+      ]
+    },
+    {
+      "id": "brote_eterno",
+      "animacion": "polen",
+      "nombre": "Brote Eterno",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 8,
+      "efectos": [
+        {
+          "tipo": "cura",
+          "porcentaje": 25
+        },
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "siega_prehistorica",
+      "animacion": "hojas",
+      "nombre": "Siega Prehistórica",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "siega_milenaria",
+      "animacion": "hojas",
+      "nombre": "Siega Milenaria",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "raiz_del_mundo",
+      "animacion": "raices",
+      "nombre": "Raíz del Mundo",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "onda_abisal",
+      "animacion": "ola",
+      "nombre": "Onda Abisal",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "oleaje_antiguo",
+      "animacion": "ola",
+      "nombre": "Oleaje Antiguo",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "burbuja_fosil",
+      "animacion": "burbujas",
+      "nombre": "Burbuja Fósil",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6,
+          "contraEstado": {
+            "estado": "sueno",
+            "prob": 30,
+            "soloFisico": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "canto_profundo",
+      "animacion": "arrullo",
+      "nombre": "Canto Profundo",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "canto_de_nereida",
+      "animacion": "arrullo",
+      "nombre": "Canto de Nereida",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "dfe",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "maremoto_jurasico",
+      "animacion": "ola",
+      "nombre": "Maremoto Jurásico",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "diluvio_eterno",
+      "animacion": "ola",
+      "nombre": "Diluvio Eterno",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "mar_primordial",
+      "animacion": "ola",
+      "nombre": "Mar Primordial",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "cuerno_voltio",
+      "animacion": "rayo",
+      "nombre": "Cuerno Voltio",
+      "tipo": "rayo",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "paralisis",
+          "prob": 10,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "tricuerno_electrico",
+      "animacion": "rayo",
+      "nombre": "Tricuerno Eléctrico",
+      "tipo": "rayo",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "paralisis",
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "gola_escudo",
+      "animacion": "corteza",
+      "nombre": "Gola Escudo",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6,
+          "contraEstado": {
+            "estado": "paralisis",
+            "prob": 30,
+            "soloFisico": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "carga_cristal",
+      "animacion": "brillo",
+      "nombre": "Carga Cristal",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "gola_tormenta",
+      "animacion": "brillo",
+      "nombre": "Gola Tormenta",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "estampida_voltaica",
+      "animacion": "impacto",
+      "nombre": "Estampida Voltaica",
+      "tipo": "rayo",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "embestida_eterna",
+      "animacion": "impacto",
+      "nombre": "Embestida Eterna",
+      "tipo": "rayo",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "trueno_del_cretacico",
+      "animacion": "rayo",
+      "nombre": "Trueno Cretácico",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "dentellada_volcanica",
+      "animacion": "dentellada",
+      "nombre": "Mordida Volcánica",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "quemadura",
+          "prob": 10,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "mandibula_de_magma",
+      "animacion": "dentellada",
+      "nombre": "Mandíbula de Magma",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "quemadura",
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "piel_de_basalto",
+      "animacion": "corteza",
+      "nombre": "Piel de Basalto",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6,
+          "contraEstado": {
+            "estado": "quemadura",
+            "prob": 30,
+            "soloFisico": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "rugido_tirano",
+      "animacion": "grito",
+      "nombre": "Rugido Tirano",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": -1,
+          "prob": 100,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "rugido_cretacico",
+      "animacion": "grito",
+      "nombre": "Rugido Cretácico",
+      "tipo": "brasa",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": -1,
+          "prob": 100,
+          "objetivo": "rival"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "erupcion_rex",
+      "animacion": "llamarada",
+      "nombre": "Erupción Rex",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "cataclismo_igneo",
+      "animacion": "anillo_fuego",
+      "nombre": "Cataclismo Ígneo",
+      "tipo": "brasa",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "meteoro_final",
+      "animacion": "llamarada",
+      "nombre": "Meteoro Final",
+      "tipo": "brasa",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "mirada_permica",
+      "animacion": "mirada",
+      "nombre": "Mirada Pérmica",
+      "tipo": "sombra",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "sueno",
+          "prob": 10,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "ojo_del_abismo",
+      "animacion": "mirada",
+      "nombre": "Ojo del Abismo",
+      "tipo": "sombra",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "sueno",
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "velo_fosil",
+      "animacion": "corriente",
+      "nombre": "Velo Fósil",
+      "tipo": "sombra",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6,
+          "contraEstado": {
+            "estado": "veneno",
+            "prob": 30,
+            "soloFisico": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "vela_sombria",
+      "animacion": "brillo",
+      "nombre": "Vela Sombría",
+      "tipo": "sombra",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "vela_estelar",
+      "animacion": "brillo",
+      "nombre": "Vela Estelar",
+      "tipo": "sombra",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "pulso_permico",
+      "animacion": "corriente",
+      "nombre": "Pulso Pérmico",
+      "tipo": "sombra",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "noche_primigenia",
+      "animacion": "mirada",
+      "nombre": "Noche Primigenia",
+      "tipo": "sombra",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "eclipse_fosil",
+      "animacion": "mirada",
+      "nombre": "Eclipse Fósil",
+      "tipo": "sombra",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
     }
   ]
 }

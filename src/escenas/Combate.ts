@@ -197,12 +197,9 @@ export class Combate extends Phaser.Scene {
     // El escenario depende del tipo del primer rival; uno de cada cuatro combates ocurre en la pradera.
     const arena = rng.prob(25) ? 'pradera' : (FONDO_POR_TIPO[el.especie.tipo] ?? 'pradera');
     this.mundo = this.add.container(0, 0);
-    // La guarida de la Mina usa su propio fondo si existe (cualquier ancho: se ajusta a 240 px).
+    // La guarida de la Mina usa su propio fondo (960×455, como los demás fondos de combate).
     const guarida = modo === 'mina' ? `mina_guarida${this.cfg.zona ?? 1}` : '';
-    if (guarida && this.textures.exists(guarida)) {
-      const img = this.add.image(0, 0, guarida).setOrigin(0, 0);
-      this.mundo.add(img.setScale(240 / img.width, 160 / img.height));
-    } else this.mundo.add(this.add.image(0, 0, fondo(this, modo === 'mina' ? 'volcan' : arena)).setOrigin(0, 0).setScale(0.25));
+    if (guarida && this.textures.exists(guarida)) this.mundo.add(this.add.image(0, 0, guarida).setOrigin(0, 0).setScale(240 / 960)); else this.mundo.add(this.add.image(0, 0, fondo(this, modo === 'mina' ? 'volcan' : arena)).setOrigin(0, 0).setScale(0.25));
     this.sprites = [
       this.add.image(POS[0].x - 120, POS[0].y, textura(yo.especie.id, 'espalda', yo.brillante)).setOrigin(0.5, ORIGEN_Y),
       this.add.image(POS[1].x + 120, POS[1].y, textura(el.especie.id, 'frente', el.brillante)).setOrigin(0.5, ORIGEN_Y),

@@ -37,7 +37,7 @@ export function datosPiso(datos: Datos, piso: number, tamano: number): PisoTorre
   const nivel = Math.min(datos.balance.nivelMax, Math.round(t.nivelBase + t.nivelPorPiso * piso) + (jefe ? t.nivelExtraJefe : 0));
   const ia = t.ia.find((x) => piso <= x.hasta)?.ia ?? 'experta';
   const rng = new Rng(piso * 1009 + 7);
-  const bolsa = [...datos.criaturas.values()].filter((c) => c.etapa === 1).map((c) => c.id);
+  const bolsa = [...datos.criaturas.values()].filter((c) => c.etapa === 1 && !c.origen).map((c) => c.id);
   const especies = Array.from({ length: tamano }, (_, i) => {
     const inicial = bolsa.splice(rng.entero(0, bolsa.length - 1), 1)[0]!;
     // Los jefes usan formas Eclipse cuando el nivel alcanza (la primera criatura del equipo).

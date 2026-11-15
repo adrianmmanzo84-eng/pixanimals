@@ -194,7 +194,8 @@ export class Menu extends Phaser.Scene {
       recibir(DATOS, estado, especie, 'epica', false);
       juego.guardar();
       sonido.tocar('zona');
-      this.mostrarAviso(t('menu.huevo.titulo'), t('menu.huevo.texto', { n: DATOS.criaturas.get(especie)!.nombre }), t('menu.aviso.ayuda'), (a) => (a === 'a' || a === 'b') && this.scene.restart());
+      const fam = DATOS.criaturas.get(especie)!.familia;
+      this.mostrarAviso(t('menu.huevo.titulo'), t('menu.huevo.texto', { n: DATOS.criaturas.get(especie)!.nombre }), t('menu.aviso.ayuda'), (a) => (a === 'a' || a === 'b') && this.scene.restart(), 44, (x, y) => this.eclosion(x, y, especie, fam));
     } else if (this.modo === 'principal' && pasoActual(estado)?.cumplido(estado)) this.mostrarPaso();
     else if (this.modo === 'principal' && regaloPendiente(DATOS, estado, Date.now())) this.mostrarRegalo();
     else if (diarioDisponible(estado, Date.now())) this.mostrarDiario();
@@ -294,21 +295,44 @@ export class Menu extends Phaser.Scene {
   }
 
   /** Cartel encima del menú con título, texto y ayuda; `alPulsar` decide qué hacen A y B. */
-  private mostrarAviso(titulo: string, texto: string, ayuda: string, alPulsar: (a: AccionEntrada) => void): void {
+  /** `espacio`: alto libre bajo el título para una imagen; `alDibujar` recibe su centro. */
+  private mostrarAviso(titulo: string, texto: string, ayuda: string, alPulsar: (a: AccionEntrada) => void, espacio = 0, alDibujar?: (x: number, y: number) => void): void {
     this.modo = 'aviso';
     this.alAviso = alPulsar;
     this.add.graphics().setDepth(9).fillStyle(0x141830, 0.7).fillRect(0, 0, 240, 160);
     const lineas = partir(texto, 176);
-    const alto = 46 + lineas.length * 10;
+    const alto = 46 + lineas.length * 10 + espacio;
     const g = this.add.graphics().setDepth(10);
     ventana(g, 24, 80 - alto / 2, 192, alto);
     const y0 = 80 - alto / 2;
+    if (alDibujar) alDibujar(120, y0 + 19 + espacio / 2);
     for (const tx of [
       new Texto(this, 24, y0 + 6, 192, 12, '#257179', 'centro', { tam: 9.5, peso: 600 }).poner(titulo),
-      new Texto(this, 32, y0 + 21, 176, lineas.length * 10, C.tinta, 'centro').poner(lineas.join('\n')),
+      new Texto(this, 32, y0 + 21 + espacio, 176, lineas.length * 10, C.tinta, 'centro').poner(lineas.join('\n')),
       new Texto(this, 24, y0 + alto - 15, 192, 10, C.tintaSuave, 'centro').poner(ayuda),
     ])
       tx.imagen.setDepth(11);
+  }
+
+  /** El huevo tiembla, se abre con un destello y aparece la cría. */
+  private eclosion(x: number, y: number, especie: string, familia: string): void {
+    const clave = `huevo_${familia}`;
+    const cria = this.add.image(x, y + 22, textura(especie, 'frente')).setOrigin(0.5, 1).setScale(0.5).setDepth(11).setAlpha(0);
+    if (!this.textures.exists(clave)) {
+      cria.setAlpha(1);
+      return;
+    }
+    const huevo = this.add.image(x, y, clave).setDepth(11);
+    this.tweens.add({
+      targets: huevo, angle: { from: -12, to: 12 }, duration: 110, yoyo: true, repeat: 5, delay: 250,
+      onComplete: () => {
+        this.cameras.main.flash(220, 255, 255, 255);
+        sonido.tocar('sube');
+        huevo.destroy();
+        this.tweens.add({ targets: cria, alpha: 1, scale: { from: 0.2, to: 0.5 }, duration: 260, ease: 'Back.easeOut' });
+        this.tweens.add({ targets: cria, y: y + 16, duration: 160, yoyo: true, repeat: 1, delay: 280 });
+      },
+    });
   }
 
   /** Ventana del premio diario: los 7 días del ciclo, con el de hoy marcado. */

@@ -24,7 +24,7 @@ export function entrenadorDelDia(datos: Datos, ahora: number): EntrenadorDelDia 
   const dia = diaLocal(ahora);
   const rng = new Rng(dia * 48271 + 11);
   const nombre = rng.elegir(datos.economia.entrenador.nombres);
-  const iniciales = [...datos.criaturas.values()].filter((c) => c.etapa === 1);
+  const iniciales = [...datos.criaturas.values()].filter((c) => c.etapa === 1 && !c.origen);
   const tipos = [...new Set(iniciales.map((c) => c.tipo))];
   const tipo = rng.elegir(tipos);
   const delTipo = iniciales.filter((c) => c.tipo === tipo).map((c) => c.id);

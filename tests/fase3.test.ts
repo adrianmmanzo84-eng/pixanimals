@@ -270,7 +270,7 @@ describe('carta premio', () => {
 describe('formas Eclipse', () => {
   it('cada familia tiene una Eclipse: sale de la etapa 3 a nivel 40 con la Piedra Eclipse y suma lo mismo que la etapa 4', () => {
     const eclipses = DATOS.jugables.filter((c) => c.sprites.endsWith('_4b'));
-    expect(eclipses).toHaveLength(new Set(DATOS.jugables.map((c) => c.familia)).size);
+    expect(eclipses).toHaveLength(new Set(DATOS.jugables.filter((c) => !c.origen).map((c) => c.familia)).size);
     for (const ec of eclipses) {
       const padre = DATOS.jugables.find((c) => c.evoluciona.some((e) => e.a === ec.id))!;
       expect(padre.etapa).toBe(3);

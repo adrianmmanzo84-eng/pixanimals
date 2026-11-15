@@ -19,9 +19,10 @@ const tipos = (ev: Evento[]) => ev.map((e) => e.t);
 
 describe('datos de la fase 2', () => {
   it('165 criaturas: 33 familias × 4 etapas + 33 Eclipse, con totales 300 / 380 / 450 / 520 (Brote, algo menos desde la etapa 2)', () => {
-    expect(DATOS.jugables.length).toBe(165);
-    expect(new Set(DATOS.jugables.map((c) => c.familia)).size).toBe(33);
-    for (const c of DATOS.jugables) {
+    const comunes = DATOS.jugables.filter((c) => !c.origen);
+    expect(comunes.length).toBe(165);
+    expect(new Set(comunes.map((c) => c.familia)).size).toBe(33);
+    for (const c of comunes) {
       const total = Object.values(c.base).reduce((a, b) => a + b, 0);
       const meta = [300, 380, 450, 520][c.etapa - 1]!;
       // La familia Brote cambia total por curación y resistencia (ver docs/BALANCE.md).

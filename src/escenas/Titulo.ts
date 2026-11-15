@@ -83,7 +83,7 @@ export class Titulo extends Phaser.Scene {
 
   /** Criaturas al azar que cruzan caminando, una detrás de otra, en bucle. */
   private desfile(): void {
-    const especies = DATOS.jugables.filter((c) => c.etapa <= 2);
+    const especies = DATOS.jugables.filter((c) => c.etapa <= 2 && !c.origen);
     // Tu favorita encabeza el desfile.
     const fav = favoritaDe(juego.estado);
     const azar = Phaser.Utils.Array.Shuffle([...especies]).filter((c) => c.id !== fav?.especie);

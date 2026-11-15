@@ -10,7 +10,7 @@ import { crearCombatiente, type Combatiente } from './motor';
 export function generarRival(datos: Datos, equipoJugador: CriaturaJugador[], rng: Rng): Combatiente[] {
   const promedio = Math.round(equipoJugador.reduce((s, c) => s + c.nivel, 0) / equipoJugador.length);
   const etapaMax = Math.max(...equipoJugador.map((c) => datos.criaturas.get(c.especie)!.etapa));
-  const iniciales = [...datos.criaturas.values()].filter((c) => c.etapa === 1);
+  const iniciales = [...datos.criaturas.values()].filter((c) => c.etapa === 1 && !c.origen);
   // Familias sin repetir mientras alcancen, para que el rival también tenga variedad de tipos.
   const bolsa = [...iniciales];
   return equipoJugador.map(() => {

@@ -183,6 +183,26 @@
     "astucia": {
       "nombre": "Astucia",
       "mecanica": "ultimo_rescoldo"
+    },
+    "garras_ancestrales": {
+      "nombre": "Garras Ancestrales",
+      "mecanica": "raices"
+    },
+    "marea_antigua": {
+      "nombre": "Marea Antigua",
+      "mecanica": "oleaje"
+    },
+    "gola_conductora": {
+      "nombre": "Gola Conductora",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "rugido_fosil": {
+      "nombre": "Rugido Fósil",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "vela_umbria": {
+      "nombre": "Vela Umbría",
+      "mecanica": "raices"
     }
   },
   "definitivo": {

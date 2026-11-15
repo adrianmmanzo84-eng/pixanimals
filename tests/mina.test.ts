@@ -144,42 +144,58 @@ describe('Mina Pixel: progreso', () => {
     expect(e.inventario.pocion).toBe(1);
   });
 
-  it('vencer una guarida abre el ascensor; sin monstruo da monedas', () => {
-    const e = estadoNuevo(DATOS, 0);
-    expect(zonaMaxima(DATOS, e)).toBe(1);
-    const r = vencerGuarida(DATOS, e, 1, 0);
-    expect(r.huevo).toBeNull();
-    expect(r.monedas).toBe(M.premioGuarida);
-    expect(zonaMaxima(DATOS, e)).toBe(2);
-    vencerGuarida(DATOS, e, 5, 0);
-    expect(zonaMaxima(DATOS, e)).toBe(5);
+  it('cada guarida tiene la forma final de una familia exclusiva (Brote, Marea, Rayo, Brasa, Sombra)', () => {
+    const tipos = M.zonas.map((z) => DATOS.criaturas.get(z.monstruo!)!);
+    expect(tipos.map((c) => c.tipo)).toEqual(['brote', 'marea', 'rayo', 'brasa', 'sombra']);
+    for (const c of tipos) {
+      expect(c.etapa).toBe(4);
+      expect(c.origen).toBe('mina');
+      expect(c.definitivo).toBeTruthy();
+    }
+    expect(M.zonas.map((z) => criaDe(DATOS, z.monstruo!))).toEqual(['terin', 'plesin', 'triclin', 'tirin', 'dimlin']);
   });
 
-  it('con monstruo, la primera victoria da un huevo con la cría, que eclosiona a las horas', () => {
-    // Prueba con una familia existente marcada como exclusiva (las del autor llegarán después).
-    const datos: Datos = { ...DATOS, economia: { ...DATOS.economia, mina: { ...M, zonas: M.zonas.map((z, i) => (i === 0 ? { ...z, monstruo: 'solarion' } : z)) } } };
-    expect(criaDe(datos, 'solarion')).toBe('lumbrito');
-    const e = estadoNuevo(datos, 0);
-    e.criaturas = [];
-    const r = vencerGuarida(datos, e, 1, 1000);
-    expect(r.huevo).toBe('lumbrito');
+  it('vencer una guarida abre el ascensor; sin monstruo da monedas', () => {
+    const sinMonstruo: Datos = { ...DATOS, economia: { ...DATOS.economia, mina: { ...M, zonas: M.zonas.map((z) => ({ ...z, monstruo: null })) } } };
+    const e = estadoNuevo(sinMonstruo, 0);
+    expect(zonaMaxima(sinMonstruo, e)).toBe(1);
+    const r = vencerGuarida(sinMonstruo, e, 1, 0);
+    expect(r.huevo).toBeNull();
+    expect(r.monedas).toBe(M.premioGuarida);
+    expect(zonaMaxima(sinMonstruo, e)).toBe(2);
+    vencerGuarida(sinMonstruo, e, 5, 0);
+    expect(zonaMaxima(sinMonstruo, e)).toBe(5);
+  });
+
+  it('la primera victoria da un huevo con la cría, que eclosiona a las horas; después, monedas', () => {
+    const e = estadoNuevo(DATOS, 0);
+    const r = vencerGuarida(DATOS, e, 4, 1000);
+    expect(r.huevo).toBe('tirin');
     expect(huevosListos(e, 1000)).toHaveLength(0);
     expect(huevosListos(e, 1000 + M.eclosionHoras * 3_600_000)).toHaveLength(1);
-    expect(vencerGuarida(datos, e, 1, 2000).huevo).toBeNull(); // un huevo por familia
+    const otra = vencerGuarida(DATOS, e, 4, 2000); // un huevo por familia
+    expect(otra.huevo).toBeNull();
+    expect(otra.monedas).toBe(M.premioGuarida * 4);
     expect(abrirHuevo(e, 1000)).toBeNull();
-    expect(abrirHuevo(e, 1000 + M.eclosionHoras * 3_600_000)).toBe('lumbrito');
+    expect(abrirHuevo(e, 1000 + M.eclosionHoras * 3_600_000)).toBe('tirin');
     expect(e.mina.huevos).toHaveLength(0);
   });
 
   it('la guarida: el monstruo sale primero, más fuerte, con su familia detrás', () => {
-    const datos: Datos = { ...DATOS, economia: { ...DATOS.economia, mina: { ...M, zonas: M.zonas.map((z, i) => (i === 1 ? { ...z, monstruo: 'solarion' } : z)) } } };
-    expect(equipoGuarida(DATOS, 2, 3)).toEqual([]);
-    const eq = equipoGuarida(datos, 2, 3);
-    expect(eq).toHaveLength(3);
-    expect(eq[0]!.especie.id).toBe('solarion');
+    const sinMonstruo: Datos = { ...DATOS, economia: { ...DATOS.economia, mina: { ...M, zonas: M.zonas.map((z) => ({ ...z, monstruo: null })) } } };
+    expect(equipoGuarida(sinMonstruo, 2, 3)).toEqual([]);
+    const eq = equipoGuarida(DATOS, 2, 3);
+    expect(eq.map((c) => c.especie.id)).toEqual(['nereidon', 'plesiomar', 'ondaples']);
     expect(eq[0]!.nivel).toBe(M.zonas[1]!.nivel + 2);
-    expect(new Set(eq.map((c) => c.especie.familia)).size).toBe(1);
-    expect(equipoGuarida(datos, 2, 1)).toHaveLength(1);
+    expect(equipoGuarida(DATOS, 2, 1)).toHaveLength(1);
+  });
+
+  it('las familias exclusivas no aparecen como rivales, en la Torre ni en el Desafío', async () => {
+    const { generarRival } = await import('../src/core/combate/rival');
+    const { Rng } = await import('../src/core/rng');
+    const { nuevaCriatura } = await import('../src/core/estado/juego');
+    const equipo = ['lumbrito', 'aletin', 'brotin'].map((id) => nuevaCriatura(id, 30, 'comun', false));
+    for (let s = 0; s < 300; s++) for (const c of generarRival(DATOS, equipo, new Rng(s))) expect(c.especie.origen).toBeUndefined();
   });
 
   it('las familias exclusivas de la mina nunca salen en sobres', async () => {

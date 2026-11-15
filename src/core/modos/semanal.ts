@@ -50,8 +50,8 @@ export function equipoSemanal(datos: Datos, ahora: number, equipoJugador: Criatu
   const jefe = jefeDeLaSemana(datos, ahora);
   const tipo = datos.criaturas.get(jefe)!.tipo;
   const rng = new Rng(semanaLocal(ahora) * 7919 + 13);
-  const acompanantes = [...datos.criaturas.values()].filter((c) => c.tipo === tipo && c.etapa === 3).map((c) => c.id);
-  const otros = [...datos.criaturas.values()].filter((c) => c.etapa === 3 && !acompanantes.includes(c.id)).map((c) => c.id);
+  const acompanantes = [...datos.criaturas.values()].filter((c) => c.tipo === tipo && c.etapa === 3 && !c.origen).map((c) => c.id);
+  const otros = [...datos.criaturas.values()].filter((c) => c.etapa === 3 && !c.origen && !acompanantes.includes(c.id)).map((c) => c.id);
   const ids = [jefe];
   while (ids.length < Math.max(1, equipoJugador.length)) {
     const bolsa = acompanantes.length ? acompanantes : otros;

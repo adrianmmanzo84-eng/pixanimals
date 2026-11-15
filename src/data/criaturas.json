@@ -4940,6 +4940,726 @@
       "evoluciona": [],
       "sprites": "mapache_4b",
       "definitivo": "guarida_del_vacio"
+    },
+    {
+      "id": "terin",
+      "nombre": "Terizpix",
+      "tipo": "brote",
+      "familia": "terin",
+      "etapa": 1,
+      "pasiva": "garras_ancestrales",
+      "base": {
+        "ps": 55,
+        "atq": 62,
+        "def": 54,
+        "ate": 41,
+        "dfe": 52,
+        "vel": 46
+      },
+      "habilidades": [
+        "zarpa_de_helecho",
+        "follaje_jurasico",
+        "savia_antigua",
+        "siega_prehistorica"
+      ],
+      "habilidadesPrueba": [
+        "zarpa_de_helecho",
+        "follaje_jurasico",
+        "savia_antigua",
+        "siega_prehistorica"
+      ],
+      "descripcion": "Cría de garras largas. Peina la tierra en busca de raíces dulces.",
+      "sprites": "terin_1",
+      "evoluciona": [
+        {
+          "a": "teribrote",
+          "nivel": 16
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "teribrote",
+      "nombre": "Terizpixel",
+      "tipo": "brote",
+      "familia": "terin",
+      "etapa": 2,
+      "pasiva": "garras_ancestrales",
+      "base": {
+        "ps": 69,
+        "atq": 78,
+        "def": 69,
+        "ate": 52,
+        "dfe": 65,
+        "vel": 59
+      },
+      "habilidades": [
+        "garras_guadana",
+        "follaje_jurasico",
+        "savia_antigua",
+        "siega_prehistorica"
+      ],
+      "habilidadesPrueba": [
+        "garras_guadana",
+        "follaje_jurasico",
+        "savia_antigua",
+        "siega_prehistorica"
+      ],
+      "descripcion": "Le brotan hojas en el lomo. Duerme de pie, oculta entre helechos.",
+      "sprites": "terin_2",
+      "evoluciona": [
+        {
+          "a": "verdigarra",
+          "nivel": 28
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "verdigarra",
+      "nombre": "Terizmegapix",
+      "tipo": "brote",
+      "familia": "terin",
+      "etapa": 3,
+      "pasiva": "garras_ancestrales",
+      "base": {
+        "ps": 81,
+        "atq": 93,
+        "def": 81,
+        "ate": 62,
+        "dfe": 78,
+        "vel": 70
+      },
+      "habilidades": [
+        "garras_guadana",
+        "follaje_jurasico",
+        "brote_eterno",
+        "siega_prehistorica"
+      ],
+      "habilidadesPrueba": [
+        "garras_guadana",
+        "follaje_jurasico",
+        "brote_eterno",
+        "siega_prehistorica"
+      ],
+      "descripcion": "Sus garras cortan raíces gruesas como si fueran pasto.",
+      "sprites": "terin_3",
+      "evoluciona": [
+        {
+          "a": "verdicron",
+          "nivel": 40
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "verdicron",
+      "nombre": "Terizgigapix",
+      "tipo": "brote",
+      "familia": "terin",
+      "etapa": 4,
+      "pasiva": "garras_ancestrales",
+      "base": {
+        "ps": 94,
+        "atq": 108,
+        "def": 95,
+        "ate": 72,
+        "dfe": 90,
+        "vel": 81
+      },
+      "habilidades": [
+        "garras_guadana",
+        "follaje_jurasico",
+        "brote_eterno",
+        "siega_milenaria"
+      ],
+      "habilidadesPrueba": [
+        "garras_guadana",
+        "follaje_jurasico",
+        "brote_eterno",
+        "siega_milenaria"
+      ],
+      "descripcion": "Guardián inmortal de la vida subterránea. Donde pisa, crece un bosque.",
+      "sprites": "terin_4",
+      "evoluciona": [],
+      "origen": "mina",
+      "definitivo": "raiz_del_mundo"
+    },
+    {
+      "id": "plesin",
+      "nombre": "Plesiopix",
+      "tipo": "marea",
+      "familia": "plesin",
+      "etapa": 1,
+      "pasiva": "marea_antigua",
+      "base": {
+        "ps": 63,
+        "atq": 41,
+        "def": 49,
+        "ate": 59,
+        "dfe": 57,
+        "vel": 41
+      },
+      "habilidades": [
+        "onda_abisal",
+        "burbuja_fosil",
+        "canto_profundo",
+        "maremoto_jurasico"
+      ],
+      "habilidadesPrueba": [
+        "onda_abisal",
+        "burbuja_fosil",
+        "canto_profundo",
+        "maremoto_jurasico"
+      ],
+      "descripcion": "Nada en los charcos de las grutas. Su cuello se estira al curiosear.",
+      "sprites": "plesin_1",
+      "evoluciona": [
+        {
+          "a": "ondaples",
+          "nivel": 16
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "ondaples",
+      "nombre": "Plesiopixel",
+      "tipo": "marea",
+      "familia": "plesin",
+      "etapa": 2,
+      "pasiva": "marea_antigua",
+      "base": {
+        "ps": 79,
+        "atq": 52,
+        "def": 62,
+        "ate": 75,
+        "dfe": 72,
+        "vel": 52
+      },
+      "habilidades": [
+        "oleaje_antiguo",
+        "burbuja_fosil",
+        "canto_profundo",
+        "maremoto_jurasico"
+      ],
+      "habilidadesPrueba": [
+        "oleaje_antiguo",
+        "burbuja_fosil",
+        "canto_profundo",
+        "maremoto_jurasico"
+      ],
+      "descripcion": "Mueve las aletas como remos. Canta para llamar a las corrientes.",
+      "sprites": "plesin_2",
+      "evoluciona": [
+        {
+          "a": "plesiomar",
+          "nivel": 28
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "plesiomar",
+      "nombre": "Plesiomegapix",
+      "tipo": "marea",
+      "familia": "plesin",
+      "etapa": 3,
+      "pasiva": "marea_antigua",
+      "base": {
+        "ps": 93,
+        "atq": 62,
+        "def": 74,
+        "ate": 89,
+        "dfe": 85,
+        "vel": 62
+      },
+      "habilidades": [
+        "oleaje_antiguo",
+        "burbuja_fosil",
+        "canto_de_nereida",
+        "maremoto_jurasico"
+      ],
+      "habilidadesPrueba": [
+        "oleaje_antiguo",
+        "burbuja_fosil",
+        "canto_de_nereida",
+        "maremoto_jurasico"
+      ],
+      "descripcion": "Recorre lagos subterráneos que ningún mapa conoce.",
+      "sprites": "plesin_3",
+      "evoluciona": [
+        {
+          "a": "nereidon",
+          "nivel": 40
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "nereidon",
+      "nombre": "Plesiogigapix",
+      "tipo": "marea",
+      "familia": "plesin",
+      "etapa": 4,
+      "pasiva": "marea_antigua",
+      "base": {
+        "ps": 108,
+        "atq": 72,
+        "def": 86,
+        "ate": 103,
+        "dfe": 99,
+        "vel": 72
+      },
+      "habilidades": [
+        "oleaje_antiguo",
+        "burbuja_fosil",
+        "canto_de_nereida",
+        "diluvio_eterno"
+      ],
+      "habilidadesPrueba": [
+        "oleaje_antiguo",
+        "burbuja_fosil",
+        "canto_de_nereida",
+        "diluvio_eterno"
+      ],
+      "descripcion": "Deidad inmortal de las aguas profundas. Las mareas obedecen su canto.",
+      "sprites": "plesin_4",
+      "evoluciona": [],
+      "origen": "mina",
+      "definitivo": "mar_primordial"
+    },
+    {
+      "id": "triclin",
+      "nombre": "Tricepix",
+      "tipo": "rayo",
+      "familia": "triclin",
+      "etapa": 1,
+      "pasiva": "gola_conductora",
+      "base": {
+        "ps": 57,
+        "atq": 57,
+        "def": 67,
+        "ate": 44,
+        "dfe": 49,
+        "vel": 36
+      },
+      "habilidades": [
+        "cuerno_voltio",
+        "gola_escudo",
+        "carga_cristal",
+        "estampida_voltaica"
+      ],
+      "habilidadesPrueba": [
+        "cuerno_voltio",
+        "gola_escudo",
+        "carga_cristal",
+        "estampida_voltaica"
+      ],
+      "descripcion": "Su gola chispea cuando se asusta. Embiste cristales para jugar.",
+      "sprites": "triclin_1",
+      "evoluciona": [
+        {
+          "a": "tricorayo",
+          "nivel": 16
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "tricorayo",
+      "nombre": "Tricepixel",
+      "tipo": "rayo",
+      "familia": "triclin",
+      "etapa": 2,
+      "pasiva": "gola_conductora",
+      "base": {
+        "ps": 71,
+        "atq": 72,
+        "def": 85,
+        "ate": 56,
+        "dfe": 62,
+        "vel": 46
+      },
+      "habilidades": [
+        "tricuerno_electrico",
+        "gola_escudo",
+        "carga_cristal",
+        "estampida_voltaica"
+      ],
+      "habilidadesPrueba": [
+        "tricuerno_electrico",
+        "gola_escudo",
+        "carga_cristal",
+        "estampida_voltaica"
+      ],
+      "descripcion": "Guarda electricidad en los cuernos y la suelta al embestir.",
+      "sprites": "triclin_2",
+      "evoluciona": [
+        {
+          "a": "voltaceratops",
+          "nivel": 28
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "voltaceratops",
+      "nombre": "Tricemegapix",
+      "tipo": "rayo",
+      "familia": "triclin",
+      "etapa": 3,
+      "pasiva": "gola_conductora",
+      "base": {
+        "ps": 85,
+        "atq": 85,
+        "def": 101,
+        "ate": 66,
+        "dfe": 74,
+        "vel": 54
+      },
+      "habilidades": [
+        "tricuerno_electrico",
+        "gola_escudo",
+        "gola_tormenta",
+        "estampida_voltaica"
+      ],
+      "habilidadesPrueba": [
+        "tricuerno_electrico",
+        "gola_escudo",
+        "gola_tormenta",
+        "estampida_voltaica"
+      ],
+      "descripcion": "Su gola de cristal atrae los rayos de toda la gruta.",
+      "sprites": "triclin_3",
+      "evoluciona": [
+        {
+          "a": "triceraion",
+          "nivel": 40
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "triceraion",
+      "nombre": "Tricegigapix",
+      "tipo": "rayo",
+      "familia": "triclin",
+      "etapa": 4,
+      "pasiva": "gola_conductora",
+      "base": {
+        "ps": 99,
+        "atq": 99,
+        "def": 117,
+        "ate": 76,
+        "dfe": 86,
+        "vel": 63
+      },
+      "habilidades": [
+        "tricuerno_electrico",
+        "gola_escudo",
+        "gola_tormenta",
+        "embestida_eterna"
+      ],
+      "habilidadesPrueba": [
+        "tricuerno_electrico",
+        "gola_escudo",
+        "gola_tormenta",
+        "embestida_eterna"
+      ],
+      "descripcion": "Guardián eterno de los cristales. Un solo paso suyo hace tronar la tierra.",
+      "sprites": "triclin_4",
+      "evoluciona": [],
+      "origen": "mina",
+      "definitivo": "trueno_del_cretacico"
+    },
+    {
+      "id": "tirin",
+      "nombre": "Rexpix",
+      "tipo": "brasa",
+      "familia": "tirin",
+      "etapa": 1,
+      "pasiva": "rugido_fosil",
+      "base": {
+        "ps": 59,
+        "atq": 70,
+        "def": 52,
+        "ate": 41,
+        "dfe": 44,
+        "vel": 44
+      },
+      "habilidades": [
+        "dentellada_volcanica",
+        "piel_de_basalto",
+        "rugido_tirano",
+        "erupcion_rex"
+      ],
+      "habilidadesPrueba": [
+        "dentellada_volcanica",
+        "piel_de_basalto",
+        "rugido_tirano",
+        "erupcion_rex"
+      ],
+      "descripcion": "Muerde todo lo que encuentra. Sus dientes ya están tibios al nacer.",
+      "sprites": "tirin_1",
+      "evoluciona": [
+        {
+          "a": "tirascua",
+          "nivel": 16
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "tirascua",
+      "nombre": "Rexpixel",
+      "tipo": "brasa",
+      "familia": "tirin",
+      "etapa": 2,
+      "pasiva": "rugido_fosil",
+      "base": {
+        "ps": 75,
+        "atq": 88,
+        "def": 65,
+        "ate": 52,
+        "dfe": 56,
+        "vel": 56
+      },
+      "habilidades": [
+        "mandibula_de_magma",
+        "piel_de_basalto",
+        "rugido_tirano",
+        "erupcion_rex"
+      ],
+      "habilidadesPrueba": [
+        "mandibula_de_magma",
+        "piel_de_basalto",
+        "rugido_tirano",
+        "erupcion_rex"
+      ],
+      "descripcion": "Su cola deja brasas al barrer el suelo de la caverna.",
+      "sprites": "tirin_2",
+      "evoluciona": [
+        {
+          "a": "rexbrasa",
+          "nivel": 28
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "rexbrasa",
+      "nombre": "Rexmegapix",
+      "tipo": "brasa",
+      "familia": "tirin",
+      "etapa": 3,
+      "pasiva": "rugido_fosil",
+      "base": {
+        "ps": 88,
+        "atq": 105,
+        "def": 78,
+        "ate": 62,
+        "dfe": 66,
+        "vel": 66
+      },
+      "habilidades": [
+        "mandibula_de_magma",
+        "piel_de_basalto",
+        "rugido_cretacico",
+        "erupcion_rex"
+      ],
+      "habilidadesPrueba": [
+        "mandibula_de_magma",
+        "piel_de_basalto",
+        "rugido_cretacico",
+        "erupcion_rex"
+      ],
+      "descripcion": "Ruge dentro de los volcanes para despertar al magma.",
+      "sprites": "tirin_3",
+      "evoluciona": [
+        {
+          "a": "ignirrex",
+          "nivel": 40
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "ignirrex",
+      "nombre": "Rexgigapix",
+      "tipo": "brasa",
+      "familia": "tirin",
+      "etapa": 4,
+      "pasiva": "rugido_fosil",
+      "base": {
+        "ps": 104,
+        "atq": 122,
+        "def": 90,
+        "ate": 72,
+        "dfe": 76,
+        "vel": 76
+      },
+      "habilidades": [
+        "mandibula_de_magma",
+        "piel_de_basalto",
+        "rugido_cretacico",
+        "cataclismo_igneo"
+      ],
+      "habilidadesPrueba": [
+        "mandibula_de_magma",
+        "piel_de_basalto",
+        "rugido_cretacico",
+        "cataclismo_igneo"
+      ],
+      "descripcion": "Deidad ancestral del fuego. Su rugido abrió los ríos de lava.",
+      "sprites": "tirin_4",
+      "evoluciona": [],
+      "origen": "mina",
+      "definitivo": "meteoro_final"
+    },
+    {
+      "id": "dimlin",
+      "nombre": "Dimepix",
+      "tipo": "sombra",
+      "familia": "dimlin",
+      "etapa": 1,
+      "pasiva": "vela_umbria",
+      "base": {
+        "ps": 52,
+        "atq": 44,
+        "def": 46,
+        "ate": 62,
+        "dfe": 52,
+        "vel": 54
+      },
+      "habilidades": [
+        "mirada_permica",
+        "velo_fosil",
+        "vela_sombria",
+        "pulso_permico"
+      ],
+      "habilidadesPrueba": [
+        "mirada_permica",
+        "velo_fosil",
+        "vela_sombria",
+        "pulso_permico"
+      ],
+      "descripcion": "Se calienta bajo los hongos que brillan. Su vela cambia de color.",
+      "sprites": "dimlin_1",
+      "evoluciona": [
+        {
+          "a": "veloscuro",
+          "nivel": 16
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "veloscuro",
+      "nombre": "Dimepixel",
+      "tipo": "sombra",
+      "familia": "dimlin",
+      "etapa": 2,
+      "pasiva": "vela_umbria",
+      "base": {
+        "ps": 65,
+        "atq": 56,
+        "def": 59,
+        "ate": 78,
+        "dfe": 65,
+        "vel": 69
+      },
+      "habilidades": [
+        "ojo_del_abismo",
+        "velo_fosil",
+        "vela_sombria",
+        "pulso_permico"
+      ],
+      "habilidadesPrueba": [
+        "ojo_del_abismo",
+        "velo_fosil",
+        "vela_sombria",
+        "pulso_permico"
+      ],
+      "descripcion": "Desaparece en la oscuridad apagando el brillo de su vela.",
+      "sprites": "dimlin_2",
+      "evoluciona": [
+        {
+          "a": "dimetombra",
+          "nivel": 28
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "dimetombra",
+      "nombre": "Dimemegapix",
+      "tipo": "sombra",
+      "familia": "dimlin",
+      "etapa": 3,
+      "pasiva": "vela_umbria",
+      "base": {
+        "ps": 77,
+        "atq": 66,
+        "def": 70,
+        "ate": 93,
+        "dfe": 78,
+        "vel": 81
+      },
+      "habilidades": [
+        "ojo_del_abismo",
+        "velo_fosil",
+        "vela_estelar",
+        "pulso_permico"
+      ],
+      "habilidadesPrueba": [
+        "ojo_del_abismo",
+        "velo_fosil",
+        "vela_estelar",
+        "pulso_permico"
+      ],
+      "descripcion": "Las marcas de su vela forman mapas del abismo.",
+      "sprites": "dimlin_3",
+      "evoluciona": [
+        {
+          "a": "noxmetrodon",
+          "nivel": 40
+        }
+      ],
+      "origen": "mina"
+    },
+    {
+      "id": "noxmetrodon",
+      "nombre": "Dimegigapix",
+      "tipo": "sombra",
+      "familia": "dimlin",
+      "etapa": 4,
+      "pasiva": "vela_umbria",
+      "base": {
+        "ps": 90,
+        "atq": 76,
+        "def": 81,
+        "ate": 108,
+        "dfe": 90,
+        "vel": 95
+      },
+      "habilidades": [
+        "ojo_del_abismo",
+        "velo_fosil",
+        "vela_estelar",
+        "noche_primigenia"
+      ],
+      "habilidadesPrueba": [
+        "ojo_del_abismo",
+        "velo_fosil",
+        "vela_estelar",
+        "noche_primigenia"
+      ],
+      "descripcion": "Deidad inmortal de Sombra. Su vela guarda un cielo de estrellas.",
+      "sprites": "dimlin_4",
+      "evoluciona": [],
+      "origen": "mina",
+      "definitivo": "eclipse_fosil"
     }
   ]
 }

@@ -17,6 +17,11 @@ export class Arranque extends Phaser.Scene {
     cargarArteUI(this);
     this.load.image('fondoimg_portada', 'fondos/portada.jpg');
     this.load.image('carta_dorso', 'ui/carta_dorso.png');
+    for (let z = 1; z <= 5; z++) {
+      this.load.image(`mina_zona${z}`, `mina/zona${z}.jpg`);
+      this.load.image(`mina_guarida${z}`, `mina/guarida${z}.jpg`);
+    }
+    for (const f of ['terin', 'plesin', 'triclin', 'tirin', 'dimlin']) this.load.image(`huevo_${f}`, `mina/huevo_${f}.png`);
     this.load.spritesheet('mina_bloques', 'mina/bloques.png', { frameWidth: 16, frameHeight: 16 });
     for (const c of DATOS.criaturas.values()) {
       this.load.image(`${c.sprites}_frente`, `sprites/${c.sprites}_frente.png`);

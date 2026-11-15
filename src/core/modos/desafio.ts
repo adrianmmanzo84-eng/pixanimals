@@ -34,7 +34,7 @@ export function desafioDelDia(datos: Datos, ahora: number): DesafioDelDia {
   const dia = diaLocal(ahora);
   const rng = new Rng(dia * 2654435761 + 97);
   // Formas de etapa 3: una por familia, todas jugables.
-  const bolsa = datos.jugables.filter((c) => c.etapa === 3).map((c) => c.id);
+  const bolsa = datos.jugables.filter((c) => c.etapa === 3 && !c.origen).map((c) => c.id);
   const sacar = () => bolsa.splice(rng.entero(0, bolsa.length - 1), 1)[0]!;
   const equipo = [sacar(), sacar(), sacar()];
   const rival = [sacar(), sacar(), sacar()];

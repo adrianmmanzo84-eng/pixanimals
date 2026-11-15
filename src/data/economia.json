@@ -589,7 +589,7 @@
     "premioGuarida": 40,
     "zonas": [
       {
-        "monstruo": null,
+        "monstruo": "verdicron",
         "nivel": 18,
         "cuevas": 12,
         "monedas": 2,
@@ -638,7 +638,7 @@
         ]
       },
       {
-        "monstruo": null,
+        "monstruo": "nereidon",
         "nivel": 28,
         "cuevas": 14,
         "monedas": 3,
@@ -695,7 +695,7 @@
         ]
       },
       {
-        "monstruo": null,
+        "monstruo": "triceraion",
         "nivel": 38,
         "cuevas": 14,
         "monedas": 4,
@@ -752,7 +752,7 @@
         ]
       },
       {
-        "monstruo": null,
+        "monstruo": "ignirrex",
         "nivel": 48,
         "cuevas": 10,
         "monedas": 5,
@@ -817,7 +817,7 @@
         ]
       },
       {
-        "monstruo": null,
+        "monstruo": "noxmetrodon",
         "nivel": 58,
         "cuevas": 10,
         "monedas": 6,

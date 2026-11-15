@@ -145,7 +145,8 @@ export class MiniMina extends MinijuegoBase {
   private dibujarFondos(): void {
     const prof = DATOS.economia.mina.profundidadZona;
     const ancho = this.mina.columnas * TAM;
-    for (let z = this.zonaInicio; z <= DATOS.economia.mina.zonas.length; z++) {
+    // También la zona de arriba: se ve sobre el punto de partida al bajar en ascensor.
+    for (let z = Math.max(1, this.zonaInicio - 1); z <= DATOS.economia.mina.zonas.length; z++) {
       const y0 = (z - 1) * prof * TAM;
       const alto = prof * TAM + TAM;
       const clave = `mina_zona${z}`;

@@ -17,7 +17,7 @@ describe('jefes', () => {
     expect(jefes.filter((j) => j.jefe === 'guardian')).toHaveLength(6);
     for (const tipo of DATOS.tipos.keys()) if (tipo !== 'neutro') expect(jefes.filter((j) => j.jefe === 'semanal' && j.tipo === tipo)).toHaveLength(2);
     for (const j of jefes) expect(DATOS.jugables).not.toContain(j);
-    expect(DATOS.jugables).toHaveLength(165);
+    expect(DATOS.jugables.filter((c) => !c.origen)).toHaveLength(165);
     expect(new Set(jefes.map((j) => j.sprites)).size).toBe(20);
   });
 

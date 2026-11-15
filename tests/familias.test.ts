@@ -8,7 +8,8 @@ import { generarRival } from '../src/core/combate/rival';
 import { nuevaCriatura } from '../src/core/estado/juego';
 
 const hab = (i: number): Accion => ({ tipo: 'habilidad', indice: i });
-const criaturas = DATOS.jugables;
+// Las familias de la Mina (origen 'mina') son aparte: no tienen Eclipse ni salen como rivales comunes.
+const criaturas = DATOS.jugables.filter((c) => !c.origen);
 
 describe('tabla de tipos', () => {
   const elementales = [...DATOS.tipos.values()].filter((t) => t.id !== 'neutro');

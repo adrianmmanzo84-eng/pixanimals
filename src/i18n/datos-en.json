@@ -574,6 +574,66 @@
   "custodio_del_umbral": {
    "nombre": "Threshold Keeper",
    "descripcion": "Ruins guardian. An ancient heron before the door that won't open."
+  },
+  "terin": {
+   "descripcion": "A long-clawed hatchling. It combs the soil for sweet roots."
+  },
+  "teribrote": {
+   "descripcion": "Leaves sprout on its back. It sleeps standing up among the ferns."
+  },
+  "verdigarra": {
+   "descripcion": "Its claws slice through thick roots as if they were grass."
+  },
+  "verdicron": {
+   "descripcion": "Undying guardian of underground life. A forest grows wherever it steps."
+  },
+  "plesin": {
+   "descripcion": "It swims in cave pools. Its neck stretches whenever it is curious."
+  },
+  "ondaples": {
+   "descripcion": "It paddles its flippers like oars. It sings to call the currents."
+  },
+  "plesiomar": {
+   "descripcion": "It roams underground lakes that no map has ever charted."
+  },
+  "nereidon": {
+   "descripcion": "Undying deity of the deep waters. The tides obey its song."
+  },
+  "triclin": {
+   "descripcion": "Its frill sparks when startled. It headbutts crystals for fun."
+  },
+  "tricorayo": {
+   "descripcion": "It stores electricity in its horns and releases it when it charges."
+  },
+  "voltaceratops": {
+   "descripcion": "Its crystal frill draws in every lightning bolt in the cave."
+  },
+  "triceraion": {
+   "descripcion": "Eternal guardian of the crystals. A single step makes the ground thunder."
+  },
+  "tirin": {
+   "descripcion": "It bites everything it finds. Its teeth are already warm at birth."
+  },
+  "tirascua": {
+   "descripcion": "Its tail leaves embers behind as it sweeps the cave floor."
+  },
+  "rexbrasa": {
+   "descripcion": "It roars inside volcanoes to wake the magma."
+  },
+  "ignirrex": {
+   "descripcion": "Ancient deity of fire. Its roar carved the rivers of lava."
+  },
+  "dimlin": {
+   "descripcion": "It warms itself under glowing mushrooms. Its sail changes color."
+  },
+  "veloscuro": {
+   "descripcion": "It vanishes into the dark by dimming the glow of its sail."
+  },
+  "dimetombra": {
+   "descripcion": "The markings on its sail form maps of the abyss."
+  },
+  "noxmetrodon": {
+   "descripcion": "Undying deity of Shadow. Its sail holds a sky full of stars."
   }
  },
  "habilidades": {
@@ -1578,6 +1638,126 @@
   },
   "guarida_del_vacio": {
    "nombre": "Void Lair"
+  },
+  "zarpa_de_helecho": {
+   "nombre": "Fern Claw"
+  },
+  "garras_guadana": {
+   "nombre": "Scythe Claws"
+  },
+  "follaje_jurasico": {
+   "nombre": "Jurassic Foliage"
+  },
+  "savia_antigua": {
+   "nombre": "Ancient Sap"
+  },
+  "brote_eterno": {
+   "nombre": "Eternal Sprout"
+  },
+  "siega_prehistorica": {
+   "nombre": "Primal Harvest"
+  },
+  "siega_milenaria": {
+   "nombre": "Millennial Reap"
+  },
+  "raiz_del_mundo": {
+   "nombre": "World Root"
+  },
+  "onda_abisal": {
+   "nombre": "Abyssal Wave"
+  },
+  "oleaje_antiguo": {
+   "nombre": "Ancient Swell"
+  },
+  "burbuja_fosil": {
+   "nombre": "Fossil Bubble"
+  },
+  "canto_profundo": {
+   "nombre": "Deep Song"
+  },
+  "canto_de_nereida": {
+   "nombre": "Nereid Song"
+  },
+  "maremoto_jurasico": {
+   "nombre": "Jurassic Surge"
+  },
+  "diluvio_eterno": {
+   "nombre": "Eternal Deluge"
+  },
+  "mar_primordial": {
+   "nombre": "Primal Sea"
+  },
+  "cuerno_voltio": {
+   "nombre": "Volt Horn"
+  },
+  "tricuerno_electrico": {
+   "nombre": "Tri-Horn Shock"
+  },
+  "gola_escudo": {
+   "nombre": "Frill Shield"
+  },
+  "carga_cristal": {
+   "nombre": "Crystal Charge"
+  },
+  "gola_tormenta": {
+   "nombre": "Storm Frill"
+  },
+  "estampida_voltaica": {
+   "nombre": "Volt Stampede"
+  },
+  "embestida_eterna": {
+   "nombre": "Eternal Charge"
+  },
+  "trueno_del_cretacico": {
+   "nombre": "Cretaceous Thunder"
+  },
+  "dentellada_volcanica": {
+   "nombre": "Volcanic Bite"
+  },
+  "mandibula_de_magma": {
+   "nombre": "Magma Jaws"
+  },
+  "piel_de_basalto": {
+   "nombre": "Basalt Hide"
+  },
+  "rugido_tirano": {
+   "nombre": "Tyrant Roar"
+  },
+  "rugido_cretacico": {
+   "nombre": "Cretaceous Roar"
+  },
+  "erupcion_rex": {
+   "nombre": "Rex Eruption"
+  },
+  "cataclismo_igneo": {
+   "nombre": "Igneous Cataclysm"
+  },
+  "meteoro_final": {
+   "nombre": "Final Meteor"
+  },
+  "mirada_permica": {
+   "nombre": "Permian Gaze"
+  },
+  "ojo_del_abismo": {
+   "nombre": "Abyss Eye"
+  },
+  "velo_fosil": {
+   "nombre": "Fossil Veil"
+  },
+  "vela_sombria": {
+   "nombre": "Shadow Sail"
+  },
+  "vela_estelar": {
+   "nombre": "Star Sail"
+  },
+  "pulso_permico": {
+   "nombre": "Permian Pulse"
+  },
+  "noche_primigenia": {
+   "nombre": "Primeval Night"
+  },
+  "eclipse_fosil": {
+   "nombre": "Fossil Eclipse"
   }
  },
  "items": {
