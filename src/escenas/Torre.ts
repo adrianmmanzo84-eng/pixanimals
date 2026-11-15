@@ -21,7 +21,7 @@ const BASE_Y = 150;
 /**
  * Torre de Desafíos como en los juegos de pelea (D220): una torre de 10 pisos con el jefe en la cima.
  * Tu criatura está en el piso que toca; al ganar vuelve aquí y sube. Al costado, el rival del piso y su premio.
- * Arte opcional: torre_fondo (960×640), torre_piso (240×44 por piso, se repite), torre_cima (240×120).
+ * Arte opcional: torre_fondo (960×640), torre_piso y torre_piso_jefe (296×44, se repite por piso), torre_cima (328×164).
  */
 export class Torre extends Phaser.Scene {
   private subio = false;
@@ -114,7 +114,7 @@ export class Torre extends Phaser.Scene {
       const vencido = p <= estado.torre.mejor;
       const actual = p === piso;
       if (arte) {
-        this.add.image(X0, y, 'torre_piso').setOrigin(0, 0).setDisplaySize(ANCHO, ALTO_PISO);
+        this.add.image(X0, y, datos.jefe && this.textures.exists('torre_piso_jefe') ? 'torre_piso_jefe' : 'torre_piso').setOrigin(0, 0).setDisplaySize(ANCHO, ALTO_PISO);
       } else {
         // Bloque de piedra con dos ventanas.
         g.fillStyle(p % 2 ? 0x8a8296 : 0x7a7286, 1).fillRect(X0, y, ANCHO, ALTO_PISO);

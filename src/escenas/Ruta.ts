@@ -24,7 +24,7 @@ const NODOS = [
 /**
  * Camino del Entrenador del día o del Jefe de la semana (D221), como un mapa de Super Mario World:
  * estaciones previas y el jefe al final. ◀ ▶ recorren el camino; A pelea en la estación marcada (si ya llegaste).
- * Arte opcional: ruta_entrenador / ruta_semanal (960×520, el mapa) y los íconos ruta_nodo, ruta_vencido, ruta_jefe (16×16).
+ * Arte opcional: ruta_entrenador / ruta_semanal (960×640, el mapa) y los íconos ruta_nodo, ruta_vencido, ruta_jefe (64×64, se ven a 16 px).
  */
 export class Ruta extends Phaser.Scene {
   private modo: ModoRuta = 'entrenador';
@@ -72,7 +72,7 @@ export class Ruta extends Phaser.Scene {
       const vencida = i < v || (e.jefe && this.jefeVencido());
       const abierta = i <= v;
       const clave = e.jefe ? 'ruta_jefe' : vencida ? 'ruta_vencido' : 'ruta_nodo';
-      if (this.textures.exists(clave)) this.add.image(p.x, p.y, clave);
+      if (this.textures.exists(clave)) this.add.image(p.x, p.y, clave).setScale(0.25);
       else {
         const r = e.jefe ? 8 : 6;
         g.fillStyle(0x1a1c2c, 0.35).fillEllipse(p.x, p.y + r - 1, r * 2.4, r);
