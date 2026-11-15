@@ -426,9 +426,10 @@ export class MiniMina extends MinijuegoBase {
       g.fillCircle(x + 2, 24, 2).fillCircle(x + 5, 24, 2).fillTriangle(x, 24.6, x + 7, 24.6, x + 3.5, 28.5);
     }
     // Energía
-    const e = m.energia / DATOS.economia.mina.energia;
-    g.fillStyle(0x2a2f45, 1).fillRoundedRect(54, 22.5, 60, 6, 2);
-    g.fillStyle(e > 0.3 ? 0xa7f070 : 0xff8a3a, 1).fillRoundedRect(54, 22.5, Math.max(2, 60 * e), 6, 2);
+    const e = m.energia / m.energiaMax;
+    const x0 = 10 + max * 9; // la barra empieza después del último corazón
+    g.fillStyle(0x2a2f45, 1).fillRoundedRect(x0, 22.5, 60, 6, 2);
+    g.fillStyle(e > 0.3 ? 0xa7f070 : 0xff8a3a, 1).fillRoundedRect(x0, 22.5, Math.max(2, 60 * e), 6, 2);
     this.hudTexto.poner(`${m.monedas} 🪙  ${m.xp} XP  ${m.items.length} ✦`);
     this.marcador.poner(t('mina.metros', { n: m.metros }));
   }

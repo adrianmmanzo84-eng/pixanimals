@@ -251,6 +251,7 @@ export const EconomiaZ = z.object({
     columnas: z.number().int().min(5),
     vida: z.number().int().min(1),
     energia: z.number().int().min(10),
+    energiaPorZona: z.number().int().min(0),
     baya: z.number().int().min(1),
     profundidadZona: z.number().int().min(10),
     eclosionHoras: z.number().min(0),

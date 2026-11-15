@@ -69,6 +69,7 @@ export class Mina {
   y: number;
   vida: number;
   energia: number;
+  readonly energiaMax: number;
   monedas = 0;
   xp = 0;
   items: string[] = [];
@@ -88,7 +89,9 @@ export class Mina {
     this.x = Math.floor(this.columnas / 2);
     this.y = this.filaInicial;
     this.vida = m.vida;
-    this.energia = m.energia;
+    // Las zonas hondas tienen bloques más duros: se arranca con más energía.
+    this.energiaMax = m.energia + m.energiaPorZona * (zona - 1);
+    this.energia = this.energiaMax;
   }
 
   /** Filas cavadas desde el inicio de esta vuelta. */
@@ -218,7 +221,7 @@ export class Mina {
         ev.push({ t: 'botin', x, y, tipo: 'xp', n: z.xp });
         break;
       case 'baya': {
-        const n = Math.min(this.datos.economia.mina.energia - this.energia, this.datos.economia.mina.baya);
+        const n = Math.min(this.energiaMax - this.energia, this.datos.economia.mina.baya);
         this.energia += n;
         ev.push({ t: 'botin', x, y, tipo: 'energia', n });
         break;

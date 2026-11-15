@@ -19,6 +19,7 @@ from PIL import Image
 
 sys.path.insert(0, os.path.dirname(__file__))
 import importar_arte as ia  # noqa: E402
+import recorte_fuente as rf  # noqa: E402
 
 RAIZ = os.path.join(os.path.dirname(__file__), '..')
 DATA = os.path.join(RAIZ, 'src', 'data')
@@ -236,13 +237,19 @@ def datos():
 def sprites(src):
     destino = os.path.join(RAIZ, 'public', 'sprites')
     for f in FAMILIAS:
+        ruta = os.path.join(src, 'fuentes', f'familia_{f["origen_arte"].split("_")[0]}_{f["familia"]}.png')
+        fuente = rf.recortar(ruta) if os.path.exists(ruta) else None
         for e in range(4):
             base = f'{f["origen_arte"]}_{e}'
-            vistas = []
-            for v in ('frente', 'espalda'):
-                img = Image.open(os.path.join(src, 'sprites', f'{base}_{v}.png')).convert('RGBA')
-                img = img.crop(img.getbbox())
-                vistas.append(img.resize((img.width * 6, img.height * 6), Image.NEAREST))
+            if fuente:
+                # Desde la lámina en alta resolución: mismo proceso que las demás familias (reducción por área).
+                vistas = [fuente[(e, 'frente')], fuente[(e, 'espalda')]]
+            else:
+                vistas = []
+                for v in ('frente', 'espalda'):
+                    img = Image.open(os.path.join(src, 'sprites', f'{base}_{v}.png')).convert('RGBA')
+                    img = img.crop(img.getbbox())
+                    vistas.append(img.resize((img.width * 6, img.height * 6), Image.NEAREST))
             nombre = f'{f["familia"]}_{e + 1}'
             ia.convertir(vistas[0], vistas[1], ia.TAMANOS[e], destino, nombre)
             # Ícono del autor, en la hoja de 2 cuadros del juego (el segundo baja un píxel).
