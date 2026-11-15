@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { iniciarPWA } from './pwa';
 import '@fontsource/fredoka/latin-500.css';
 import '@fontsource/fredoka/latin-600.css';
 import { Entrada } from './entrada';
@@ -32,14 +33,20 @@ const ALTO = 160 * ESCALA;
 /** El lienzo ocupa todo el espacio disponible manteniendo la proporción 3:2. */
 function ajustarEscala(canvas: HTMLCanvasElement): void {
   const tactil = document.body.classList.contains('tactil');
+  // La barra de ajustes puede ocupar una o dos filas (según el ancho y el botón Instalar): el juego empieza debajo.
+  const barra = document.getElementById('barra');
+  const app = document.getElementById('app');
+  const arriba = (barra?.offsetHeight ?? 36) + 16;
+  if (app) app.style.paddingTop = `${arriba}px`;
   const anchoDisp = window.innerWidth - 22;
-  const altoDisp = window.innerHeight - (tactil ? 290 : 110);
+  const altoDisp = window.innerHeight - arriba - (tactil ? 238 : 58);
   const ancho = Math.max(240, Math.min(anchoDisp, altoDisp * 1.5, ANCHO * 1.5));
   canvas.style.width = `${Math.floor(ancho)}px`;
   canvas.style.height = `${Math.floor(ancho / 1.5)}px`;
 }
 
 async function iniciar(): Promise<void> {
+  iniciarPWA();
   Entrada.iniciar();
   Entrada.alPrimerGesto(() => sonido.activar());
 

@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#1a1c2c" />
     <title>PIXANIMALS</title>
-    <link rel="icon" href="data:," />
+    <meta name="description" content="Colecciona criaturas pixel art, combate y juega minijuegos. Gratis, sin compras ni registros." />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="iconos/favicon.png" />
+    <link rel="apple-touch-icon" href="iconos/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="PIXANIMALS" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <style>
       * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
       html, body { margin: 0; height: 100%; background: #1a1c2c; color: #f4f4f4; font-family: system-ui, sans-serif; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
@@ -28,13 +35,15 @@
       #botones button { width: 68px; height: 68px; border-radius: 50%; }
       #botones button[data-accion="a"] { background: #38b764; border-color: #a7f070; margin-bottom: 26px; }
       #botones button[data-accion="b"] { background: #b13e53; border-color: #ef7d57; }
-      #guardado { position: fixed; inset: 0; z-index: 5; display: none; align-items: center; justify-content: center; background: rgba(20, 24, 48, 0.82); padding: 14px; touch-action: auto; user-select: text; -webkit-user-select: text; }
-      #guardado.abierto { display: flex; }
-      #guardado .caja { width: 100%; max-width: 440px; background: #fbfaf3; color: #1f2340; border: 3px solid #2b3a78; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-      #guardado h2 { margin: 0; font-size: 18px; }
-      #guardado p { margin: 0; font-size: 13px; line-height: 1.4; }
+      #barra button#instalar { background: #38b764; border-color: #a7f070; color: #10142c; }
+      #barra button[hidden] { display: none; }
+      #guardado, #ayuda-instalar { position: fixed; inset: 0; z-index: 5; display: none; align-items: center; justify-content: center; background: rgba(20, 24, 48, 0.82); padding: 14px; touch-action: auto; user-select: text; -webkit-user-select: text; }
+      #guardado.abierto, #ayuda-instalar.abierto { display: flex; }
+      #guardado .caja, #ayuda-instalar .caja { width: 100%; max-width: 440px; background: #fbfaf3; color: #1f2340; border: 3px solid #2b3a78; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+      #guardado h2, #ayuda-instalar h2 { margin: 0; font-size: 18px; }
+      #guardado p, #ayuda-instalar p { margin: 0; font-size: 13px; line-height: 1.4; }
       #guardado textarea { width: 100%; height: 110px; font: 12px ui-monospace, monospace; border: 2px solid #9fb0c4; border-radius: 8px; padding: 8px; resize: none; user-select: text; -webkit-user-select: text; }
-      #guardado button { min-height: 42px; border-radius: 8px; border: 2px solid #2b3a78; background: #5aa9f0; color: #10142c; font-size: 14px; font-weight: 600; }
+      #guardado button, #ayuda-instalar button { min-height: 42px; border-radius: 8px; border: 2px solid #2b3a78; background: #5aa9f0; color: #10142c; font-size: 14px; font-weight: 600; }
       #guardado button.peligro { background: #f3c0c8; border-color: #c0394f; }
       #guardado .estado { min-height: 18px; font-weight: 600; color: #2b6a3f; }
       #ayuda { font-size: 12px; color: #94b0c2; text-align: center; }
@@ -43,6 +52,7 @@
   </head>
   <body>
     <div id="barra">
+      <button id="instalar" type="button" hidden title="Instalar PIXANIMALS como app">Instalar</button>
       <button id="velocidad" type="button" aria-pressed="false" title="Velocidad de los combates">Velocidad ×1</button>
       <button id="camara" type="button" aria-pressed="true" title="Movimiento de cámara en los combates">Cámara: sí</button>
       <button id="golpe" type="button" aria-pressed="true" title="Golpe justo: pulsar A en el momento justo para pegar más fuerte, o automático">Golpe: barra</button>
@@ -79,5 +89,14 @@
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
+    <div id="ayuda-instalar" role="dialog" aria-modal="true" aria-labelledby="ayuda-instalar-titulo">
+      <div class="caja">
+        <h2 id="ayuda-instalar-titulo">Instalar en iPhone o iPad</h2>
+        <p>1. En Safari, toca el botón <b>Compartir</b> (el cuadrado con la flecha hacia arriba).</p>
+        <p>2. Elige <b>«Agregar a inicio»</b> y luego <b>Agregar</b>.</p>
+        <p>PIXANIMALS queda en tu pantalla de inicio como una app: abre a pantalla completa, funciona sin internet y tu partida queda más protegida.</p>
+        <button type="button">Entendido</button>
+      </div>
+    </div>
   </body>
 </html>
