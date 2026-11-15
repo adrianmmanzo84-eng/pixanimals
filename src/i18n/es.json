@@ -488,5 +488,8 @@
   "guia.titulo": "¡Paso completado!",
   "guia.tituloFin": "¡Primeros pasos completos!",
   "guia.premio": "Premio: {p}",
-  "guia.fin": "Ya conoces lo básico. Vuelve cada día: hay Desafío, misiones y ruleta nuevos."
+  "guia.fin": "Ya conoces lo básico. Vuelve cada día: hay Desafío, misiones y ruleta nuevos.",
+  "titulo.pulsa": "Pulsa A o toca para jugar",
+  "titulo.lema": "Colecciona · Entrena · Combate",
+  "titulo.sinCompras": "Gratis · sin compras · sin registros"
 }

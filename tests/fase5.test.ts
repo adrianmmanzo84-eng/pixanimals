@@ -159,7 +159,7 @@ describe('música', () => {
   it('cada canción tiene sus 4 canales del mismo largo, en compases enteros y con notas válidas', async () => {
     const { CANCIONES } = await import('../src/audio/canciones');
     const { leerCanal } = await import('../src/audio/musica');
-    expect(Object.keys(CANCIONES)).toEqual(expect.arrayContaining(['menu', 'combate', 'combate2', 'combate3', 'jefe', 'torre', 'entrenador', 'semanal', 'guardian', 'minijuego', 'victoria', 'derrota']));
+    expect(Object.keys(CANCIONES)).toEqual(expect.arrayContaining(['titulo', 'menu', 'combate', 'combate2', 'combate3', 'jefe', 'torre', 'entrenador', 'semanal', 'guardian', 'minijuego', 'victoria', 'derrota']));
     for (const [id, c] of Object.entries(CANCIONES)) {
       const largos = (['p1', 'p2', 'tri', 'ruido'] as const).map((k) => leerCanal(c[k], k === 'ruido').largo);
       expect(new Set(largos).size, id).toBe(1);

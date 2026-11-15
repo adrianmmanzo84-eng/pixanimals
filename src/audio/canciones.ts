@@ -25,6 +25,15 @@ const octavas = (baja: string, alta: string) => Array.from({ length: 4 }, () => 
 const repetir = (s: string, n: number) => Array.from({ length: n }, () => s).join(' | ');
 
 export const CANCIONES: Record<string, Cancion> = {
+  // Título: épica y luminosa, Do – Sol – La menor – Fa. Es la identidad sonora del juego.
+  titulo: {
+    bpm: 120,
+    bucle: true,
+    p1: 'C5:4 E5:2 G5:2 C6:4 B5:2 G5:2 | D5:4 G5:2 B5:2 D6:4 C6:2 B5:2 | A5:4 E5:2 A5:2 C6:4 B5:2 A5:2 | F5:2 G5:2 A5:2 C6:2 B5:4 G5:4',
+    p2: [arp('C4', 'E4', 'G4'), arp('G3', 'B3', 'D4'), arp('A3', 'C4', 'E4'), arp('F3', 'A3', 'C4')].join(' | '),
+    tri: [octavas('C2', 'C3'), octavas('G2', 'G3'), octavas('A2', 'A3'), octavas('F2', 'F3')].join(' | '),
+    ruido: repetir('k:2 -:2 h:2 -:2 s:2 -:2 h:2 h:2', 4),
+  },
   // Menú: tranquila, Fa – Sol – Mi menor – La menor.
   menu: {
     bpm: 104,

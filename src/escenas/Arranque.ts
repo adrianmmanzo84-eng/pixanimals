@@ -30,6 +30,6 @@ export class Arranque extends Phaser.Scene {
     crearTexturasEfectos(this);
     prepararArteUI(this);
     if (this.textures.exists('carta_dorso')) this.textures.get('carta_dorso').setFilter(Phaser.Textures.FilterMode.NEAREST);
-    this.scene.start('Menu');
+    this.scene.start('Titulo');
   }
 }
