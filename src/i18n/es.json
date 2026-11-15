@@ -150,7 +150,7 @@
   "fin.continuar": "A: continuar",
   "fin.retirada": "RETIRADA",
   "g.titulo": "Guardado",
-  "g.auto": "La partida se guarda sola en este navegador. Con este código puedes llevarla a otro dispositivo.",
+  "g.auto": "La partida se guarda sola en este navegador, con una copia de seguridad aparte. Para no perderla nunca (o llevarla a otro dispositivo), descarga una copia en archivo o copia el código.",
   "g.copiar": "Copiar código",
   "g.cargar": "Cargar el código pegado",
   "g.borrar": "Borrar partida",
@@ -468,5 +468,15 @@
   "des.compartido": "¡Listo para compartir!",
   "des.copiado": "Copiado: pégalo en tu chat",
   "des.error": "No se pudo copiar",
-  "fin.esencia": "+{n} Esencia"
+  "fin.esencia": "+{n} Esencia",
+  "g.descargar": "Descargar copia (archivo)",
+  "g.archivo": "Cargar desde archivo",
+  "g.descargado": "Copia descargada. Guárdala en un lugar seguro.",
+  "g.archivoInvalido": "Ese archivo no tiene una partida válida.",
+  "menu.recuperada.titulo": "Partida recuperada",
+  "menu.recuperada.texto": "El guardado de este navegador se había perdido o dañado. Tu partida volvió desde la copia de seguridad.",
+  "menu.copia.titulo": "¿Guardamos una copia?",
+  "menu.copia.texto": "Tu colección crece. Descarga una copia en archivo para no perderla nunca, aunque se borre el navegador.",
+  "menu.copia.ayuda": "A: ir a Guardado · B: ahora no",
+  "menu.aviso.ayuda": "A: seguir"
 }

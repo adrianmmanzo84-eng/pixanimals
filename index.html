@@ -44,6 +44,7 @@
       #guardado p, #ayuda-instalar p { margin: 0; font-size: 13px; line-height: 1.4; }
       #guardado textarea { width: 100%; height: 110px; font: 12px ui-monospace, monospace; border: 2px solid #9fb0c4; border-radius: 8px; padding: 8px; resize: none; user-select: text; -webkit-user-select: text; }
       #guardado button, #ayuda-instalar button { min-height: 42px; border-radius: 8px; border: 2px solid #2b3a78; background: #5aa9f0; color: #10142c; font-size: 14px; font-weight: 600; }
+      #guardado .caja { max-height: 100%; overflow-y: auto; }
       #guardado button.peligro { background: #f3c0c8; border-color: #c0394f; }
       #guardado .estado { min-height: 18px; font-weight: 600; color: #2b6a3f; }
       #ayuda { font-size: 12px; color: #94b0c2; text-align: center; }
@@ -82,6 +83,9 @@
         <p id="g-texto"></p>
         <textarea id="g-codigo" spellcheck="false" aria-label="Código de guardado"></textarea>
         <p class="estado" id="g-estado" aria-live="polite"></p>
+        <button type="button" id="g-descargar"></button>
+        <button type="button" id="g-archivo"></button>
+        <input type="file" id="g-entrada" accept=".txt,text/plain" hidden />
         <button type="button" id="g-copiar"></button>
         <button type="button" id="g-cargar"></button>
         <button type="button" id="g-borrar" class="peligro"></button>

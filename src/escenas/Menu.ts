@@ -21,8 +21,10 @@ import { textura } from '../ui/criaturas';
 import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { abrirGuardado } from '../ui/guardadoDom';
+import { debeRecordarCopia } from '../core/estado/respaldo';
+import { marcarAviso, ultimaCopia, ultimoAviso } from '../ui/recordatorio';
 import { Puntero } from '../ui/puntero';
-import { Texto } from '../ui/texto';
+import { partir, Texto } from '../ui/texto';
 import { hayArte, pieza } from '../ui/arte';
 
 const OPCIONES = [
@@ -48,7 +50,9 @@ export class Menu extends Phaser.Scene {
   private ayuda!: Texto;
   private sel = 0;
   private puntero: Puntero | null = null;
-  private modo: 'principal' | 'combates' | 'dificultad' | 'diario' = 'principal';
+  private modo: 'principal' | 'combates' | 'dificultad' | 'diario' | 'aviso' = 'principal';
+  /** Qué hacer con A o B mientras se muestra un aviso (partida recuperada, recordatorio de copia). */
+  private alAviso: ((a: AccionEntrada) => void) | null = null;
   private submenu = false;
 
   constructor() {
@@ -135,7 +139,20 @@ export class Menu extends Phaser.Scene {
     this.ayuda = new Texto(this, 0, 98, 240, 10, '#ffffff', 'centro', { borde: '#2b3a78' }).visible(false);
 
     this.pintar();
-    if (diarioDisponible(estado, Date.now())) this.mostrarDiario();
+    // Un solo aviso por vez: partida recuperada > premio diario > recordatorio de copia.
+    if (juego.recuperada) {
+      juego.recuperada = false;
+      this.mostrarAviso(t('menu.recuperada.titulo'), t('menu.recuperada.texto'), t('menu.aviso.ayuda'), (a) => a === 'a' && this.scene.restart());
+    } else if (diarioDisponible(estado, Date.now())) this.mostrarDiario();
+    else if (this.modo === 'principal' && debeRecordarCopia(estado, ultimaCopia(), ultimoAviso(), Date.now())) {
+      marcarAviso();
+      this.mostrarAviso(t('menu.copia.titulo'), t('menu.copia.texto'), t('menu.copia.ayuda'), (a) => {
+        if (a === 'a') {
+          Entrada.escuchar(null);
+          abrirGuardado(() => this.scene.restart());
+        } else if (a === 'b') this.scene.restart();
+      });
+    }
     Entrada.escuchar((a) => this.alPulsar(a));
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => Entrada.escuchar(null));
   }
@@ -188,6 +205,24 @@ export class Menu extends Phaser.Scene {
   }
 
   /** Ventana del premio diario: los 7 días del ciclo, con el de hoy marcado. */
+  /** Cartel encima del menú con título, texto y ayuda; `alPulsar` decide qué hacen A y B. */
+  private mostrarAviso(titulo: string, texto: string, ayuda: string, alPulsar: (a: AccionEntrada) => void): void {
+    this.modo = 'aviso';
+    this.alAviso = alPulsar;
+    this.add.graphics().setDepth(9).fillStyle(0x141830, 0.7).fillRect(0, 0, 240, 160);
+    const lineas = partir(texto, 176);
+    const alto = 46 + lineas.length * 10;
+    const g = this.add.graphics().setDepth(10);
+    ventana(g, 24, 80 - alto / 2, 192, alto);
+    const y0 = 80 - alto / 2;
+    for (const tx of [
+      new Texto(this, 24, y0 + 6, 192, 12, '#257179', 'centro', { tam: 9.5, peso: 600 }).poner(titulo),
+      new Texto(this, 32, y0 + 21, 176, lineas.length * 10, C.tinta, 'centro').poner(lineas.join('\n')),
+      new Texto(this, 24, y0 + alto - 15, 192, 10, C.tintaSuave, 'centro').poner(ayuda),
+    ])
+      tx.imagen.setDepth(11);
+  }
+
   private mostrarDiario(): void {
     const estado = juego.estado;
     const p = premioDeHoy(DATOS, estado, Date.now());
@@ -225,6 +260,11 @@ export class Menu extends Phaser.Scene {
   }
 
   private alPulsar(a: AccionEntrada): void {
+    if (this.modo === 'aviso') {
+      if (a === 'a' || a === 'b') sonido.tocar(a === 'a' ? 'aceptar' : 'cancelar');
+      this.alAviso?.(a);
+      return;
+    }
     if (this.modo === 'diario') {
       if (a !== 'a') return;
       cobrarDiario(DATOS, juego.estado, Date.now());

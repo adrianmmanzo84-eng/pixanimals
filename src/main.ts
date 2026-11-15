@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { juego as partida } from './juego';
 import { iniciarPWA } from './pwa';
 import '@fontsource/fredoka/latin-500.css';
 import '@fontsource/fredoka/latin-600.css';
@@ -82,6 +83,9 @@ async function iniciar(): Promise<void> {
     cambiarAjustes({ efectos: (ajustes.efectos + 1) % 4 });
     sonido.tocar('cursor');
   });
+
+  // Antes de abrir cualquier pantalla: si el guardado se perdió o se dañó, se recupera de la copia.
+  await partida.recuperar();
 
   // La fuente debe estar cargada antes de dibujar el primer texto.
   try {
