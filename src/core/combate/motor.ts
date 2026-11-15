@@ -101,12 +101,14 @@ export interface OpcionesCombatiente {
   /** Bonus porcentual por stat (vitaminas). */
   extra?: Partial<Record<keyof Stats, number>>;
   brillante?: boolean;
+  /** Los 4 ataques de una criatura del jugador (los que eligió); si falta, los de su especie. */
+  habilidades?: string[];
 }
 
 export function crearCombatiente(datos: Datos, idEspecie: string, nivel: number, opciones: OpcionesCombatiente = {}): Combatiente {
   const especie = datos.criaturas.get(idEspecie);
   if (!especie) throw new Error(`Criatura inexistente: ${idEspecie}`);
-  const ids = opciones.setPrueba && especie.habilidadesPrueba ? especie.habilidadesPrueba : especie.habilidades;
+  const ids = opciones.habilidades ?? (opciones.setPrueba && especie.habilidadesPrueba ? especie.habilidadesPrueba : especie.habilidades);
   const stats = calcularStats(especie, nivel, datos.balance, opciones.potencial ?? 0, opciones.extra);
   return {
     especie,

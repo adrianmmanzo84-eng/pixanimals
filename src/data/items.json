@@ -55,6 +55,20 @@
       "rareza": "rara"
     },
     {
+      "id": "pergamino",
+      "nombre": "Pergamino Técnico",
+      "descripcion": "Enseña un ataque nuevo de su tipo: eliges entre 3.",
+      "uso": "fuera",
+      "efecto": {
+        "tipo": "tecnica",
+        "opciones": 3
+      },
+      "precio": {
+        "monedas": 250
+      },
+      "color": "#d9b26a"
+    },
+    {
       "id": "vit_ps",
       "nombre": "Vitamina Vigor",
       "descripcion": "PS +3 % para siempre. Hasta 5 dosis por stat.",

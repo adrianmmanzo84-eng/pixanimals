@@ -1,3 +1,4 @@
+import { ofertaPorNivel } from './ataques';
 import type { CriaturaJugador, EstadoJuego } from '../../esquemas/esquemas';
 import { multEvento } from './eventos';
 import type { Datos } from '../datos';
@@ -16,6 +17,7 @@ export function xpParaSubir(datos: Datos, nivel: number): number {
 /** Suma experiencia y sube los niveles que correspondan. Devuelve cuántos niveles subió. */
 export function darXp(datos: Datos, c: CriaturaJugador, xp: number): number {
   let subidos = 0;
+  const nivelAntes = c.nivel;
   c.xp += xp;
   while (c.nivel < datos.balance.nivelMax && c.xp >= xpParaSubir(datos, c.nivel)) {
     c.xp -= xpParaSubir(datos, c.nivel);
@@ -23,6 +25,7 @@ export function darXp(datos: Datos, c: CriaturaJugador, xp: number): number {
     subidos++;
   }
   if (c.nivel >= datos.balance.nivelMax) c.xp = 0;
+  if (subidos) ofertaPorNivel(datos, c, nivelAntes);
   return subidos;
 }
 

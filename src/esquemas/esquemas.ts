@@ -272,6 +272,8 @@ export const EconomiaZ = z.object({
       )
       .min(1),
   }),
+  /** Aprender ataques: cada cuántos niveles se ofrece uno nuevo. */
+  ataques: z.object({ cadaNiveles: z.number().int().min(1) }),
   /** Consuelo al perder: Esencia del premio de valiente y cuántas veces por día. */
   consuelo: z.object({ esencia: z.number().int().min(0), porDia: z.number().int().min(0) }),
   /** Eventos de calendario (ver src/core/progresion/eventos.ts). */
@@ -315,6 +317,8 @@ export const EfectoItemZ = z.discriminatedUnion('tipo', [
   }),
   /** Amuleto: se equipa (uno por criatura) y suma un % a un stat mientras lo lleva. */
   z.object({ tipo: z.literal('amuleto'), stat: StatVitaminaZ, porcentaje: z.number().min(1).max(30) }),
+  /** Pergamino de Técnica: ofrece ataques nuevos para aprender (ver progresion/ataques.ts). */
+  z.object({ tipo: z.literal('tecnica'), opciones: z.number().int().min(1).max(5) }),
 ]);
 export const ItemZ = z.object({
   id: z.string().regex(/^[a-z0-9_]+$/),
@@ -354,6 +358,12 @@ export const CriaturaJugadorZ = z.object({
   apodo: z.string().max(12).optional(),
   /** La favorita del jugador (a lo sumo una). */
   favorita: z.boolean().optional(),
+  /** Ataques elegidos para los espacios 0 a 2 (null = el original de su especie). El Final no se cambia. */
+  ataques: z.array(z.string().nullable()).max(3).optional(),
+  /** Memoria: ataques que aprendió alguna vez (se pueden volver a poner gratis). */
+  aprendidos: z.array(z.string()).optional(),
+  /** Ataque que quiere aprender por haber subido de nivel (pendiente de respuesta). */
+  ofertaAtaque: z.string().optional(),
 });
 export const EstadoJuegoZ = z.object({
   version: z.literal(11),

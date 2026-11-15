@@ -1896,6 +1896,10 @@
   "amuleto_pluma": {
    "nombre": "Feather Amulet",
    "descripcion": "Speed +10 % while held. Equip it in My creatures."
+  },
+  "pergamino": {
+   "nombre": "Technique Scroll",
+   "descripcion": "Teaches a new move of its type: choose from 3."
   }
  },
  "sobres": {

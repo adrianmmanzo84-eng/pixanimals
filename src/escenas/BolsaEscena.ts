@@ -1,8 +1,9 @@
 import Phaser from 'phaser';
 import { Puntero, saltito } from '../ui/puntero';
 import { DATOS } from '../core/datos';
-import { criaturaDe } from '../core/estado/juego';
+import { criaturaDe, nombreDe } from '../core/estado/juego';
 import { cantidad, usarItem, vitaminasLibres } from '../core/items/items';
+import { nuevosPara } from '../core/progresion/ataques';
 import { xpParaSubir } from '../core/progresion/experiencia';
 import type { Item } from '../esquemas/esquemas';
 import { Entrada, type AccionEntrada } from '../entrada';
@@ -155,6 +156,18 @@ export class BolsaEscena extends Phaser.Scene {
   }
 
   private usar(it: Item, especie?: string): void {
+    if (it.efecto.tipo === 'tecnica' && especie) {
+      // El Pergamino se gasta recién al aprender: la elección se hace en la escena de ataques.
+      const c = criaturaDe(juego.estado, especie)!;
+      if (!nuevosPara(DATOS, c).length) {
+        sonido.tocar('negado');
+        this.scene.restart({ sel: this.sel, objetivo: this.objetivo, aviso: t('bolsaP.no.sin_ataques', { n: nombreDe(DATOS, c) }) });
+        return;
+      }
+      sonido.tocar('aceptar');
+      this.scene.start('Ataques', { especie, modo: 'pergamino', volver: { escena: 'BolsaEscena', datos: { sel: this.sel } } });
+      return;
+    }
     const r = usarItem(DATOS, juego.estado, it.id, Date.now(), especie);
     const nombre = especie ? DATOS.criaturas.get(especie)!.nombre : '';
     if (!r.ok) {

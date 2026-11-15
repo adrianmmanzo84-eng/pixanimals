@@ -1,3 +1,4 @@
+import { describirHabilidad } from '../ui/habilidadTexto';
 import Phaser from 'phaser';
 import { claveCategoria, claveEstado, claveTipo, ESTADO_DE_STAT, hayArte, pieza } from '../ui/arte';
 import { equipoSemanal, resultadoSemanal, tipoDeLaSemana } from '../core/modos/semanal';
@@ -920,17 +921,8 @@ export class Combate extends Phaser.Scene {
     this.info2.poner(texto, motivo ? C.resalte : C.tinta).visible(true);
   }
 
-  /** Describe los efectos de una habilidad a partir de sus datos (sin texto escrito a mano). */
   private describir(h: Habilidad): string {
-    const partes: string[] = [];
-    for (const e of h.efectos) {
-      if (e.tipo === 'estado') partes.push(t(e.prob >= 100 ? 'ef.estado.seguro' : 'ef.estado', { prob: e.prob, estado: t(`estado.${e.estado}`) }));
-      else if (e.tipo === 'etapa') partes.push(t(e.objetivo === 'propio' ? 'ef.etapa.sube' : 'ef.etapa.baja', { prob: e.prob, stat: t(`stat.${e.stat}`) }));
-      else if (e.tipo === 'cura') partes.push(t('ef.cura', { x: e.porcentaje }));
-      else if (e.tipo === 'guardia') partes.push(t(`ef.guardia.${e.modo}`, { x: Math.round((e.reduccion ?? 0) * 100) }));
-    }
-    if (h.rol === 'final') partes.push(t('ef.final', { n: h.enfriamiento }));
-    return partes.join(' · ');
+    return describirHabilidad(h);
   }
 
   // ------------------------------------------------------------ dibujo

@@ -30,6 +30,7 @@ import { MiniBayas } from './escenas/minijuegos/Bayas';
 import { MiniEco } from './escenas/minijuegos/Eco';
 import { MiniGolpe } from './escenas/minijuegos/Golpe';
 import { MiniMina } from './escenas/minijuegos/Mina';
+import { Ataques } from './escenas/Ataques';
 import { ESCALA } from './ui/texto';
 
 /** El mundo del juego mide 240×160; se dibuja a 4× para que letras y fondos salgan suaves. */
@@ -136,7 +137,7 @@ async function iniciar(): Promise<void> {
     banner: false,
     audio: { noAudio: true },
     scale: { mode: Phaser.Scale.NONE },
-    scene: [Arranque, Titulo, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, MiniMina, Misiones, Desafio, Coleccion, Expediciones, Ruleta],
+    scene: [Arranque, Titulo, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, MiniMina, Ataques, Misiones, Desafio, Coleccion, Expediciones, Ruleta],
   });
   ajustarEscala(juego.canvas);
   // Solo en desarrollo: acceso desde la consola para pruebas visuales.

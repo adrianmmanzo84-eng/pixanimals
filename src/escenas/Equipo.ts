@@ -19,7 +19,7 @@ import { fondo } from '../ui/fondos';
 import { partir, Texto } from '../ui/texto';
 import { claveTipo, hayArte, pieza } from '../ui/arte';
 
-type Accion = { id: 'frente' | 'sacar' | 'sumar' | 'entrenar' | 'amuleto' | 'fusionar' | 'apodo' | 'favorita' } | { id: 'evo'; op: OpcionEvolucion };
+type Accion = { id: 'frente' | 'sacar' | 'sumar' | 'entrenar' | 'amuleto' | 'fusionar' | 'apodo' | 'favorita' | 'ataques' } | { id: 'evo'; op: OpcionEvolucion };
 
 /**
  * Mis criaturas: toda la colección (primero el equipo, en orden), con experiencia, barra de Entrenamiento
@@ -144,7 +144,7 @@ export class Equipo extends Phaser.Scene {
     if (c.amuleto || this.amuletosEnBolsa().length) res.push({ id: 'amuleto' });
     if ((juego.estado.copias[c.especie] ?? 0) > 0) res.push({ id: 'fusionar' });
     for (const op of opcionesEvolucion(DATOS, juego.estado, c)) res.push({ id: 'evo', op });
-    res.push({ id: 'apodo' }, { id: 'favorita' });
+    res.push({ id: 'ataques' }, { id: 'apodo' }, { id: 'favorita' });
     return res;
   }
 
@@ -172,6 +172,8 @@ export class Equipo extends Phaser.Scene {
     switch (a.id) {
       case 'frente':
         return { texto: t('mc.d.frente'), puede: true };
+      case 'ataques':
+        return { texto: c.ofertaAtaque ? t('mc.d.ataquesOferta', { a: DATOS.habilidades.get(c.ofertaAtaque)!.nombre }) : t('mc.d.ataques'), puede: true };
       case 'apodo':
         return { texto: c.apodo ? t('mc.d.apodoCambiar', { a: c.apodo }) : t('mc.d.apodo'), puede: true };
       case 'favorita':
@@ -278,6 +280,11 @@ export class Equipo extends Phaser.Scene {
     }
     const e = juego.estado;
     const volver = (aviso = '', sel = this.sel) => this.scene.restart({ sel, aviso });
+    if (ac.id === 'ataques') {
+      sonido.tocar('aceptar');
+      this.scene.start('Ataques', { especie: c.especie, modo: c.ofertaAtaque ? 'oferta' : 'gestionar', volver: { escena: 'Equipo', datos: { sel: this.sel, acciones: true, accion: this.accion } } });
+      return;
+    }
     if (ac.id === 'frente') {
       e.equipo = [c.especie, ...e.equipo.filter((x) => x !== c.especie)];
       juego.guardar();

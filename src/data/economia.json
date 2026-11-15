@@ -575,6 +575,9 @@
       }
     }
   ],
+  "ataques": {
+    "cadaNiveles": 5
+  },
   "consuelo": {
     "esencia": 8,
     "porDia": 3
@@ -692,6 +695,10 @@
           {
             "item": "vit_vel",
             "peso": 5
+          },
+          {
+            "item": "pergamino",
+            "peso": 6
           }
         ]
       },
@@ -749,6 +756,10 @@
           {
             "item": "vit_dfe",
             "peso": 7
+          },
+          {
+            "item": "pergamino",
+            "peso": 8
           }
         ]
       },
@@ -814,6 +825,10 @@
           {
             "item": "vit_ps",
             "peso": 7
+          },
+          {
+            "item": "pergamino",
+            "peso": 10
           }
         ]
       },
@@ -883,6 +898,10 @@
           {
             "item": "vit_ate",
             "peso": 7
+          },
+          {
+            "item": "pergamino",
+            "peso": 12
           }
         ]
       }

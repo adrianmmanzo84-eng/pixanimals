@@ -5,7 +5,7 @@ import { expedicionLibre, faltaExpedicion, metasPorCobrar } from '../core/progre
 import { semanalCobrado, tipoDeLaSemana } from '../core/modos/semanal';
 import { DATOS } from '../core/datos';
 import { NIVELES_IA } from '../core/combate/ia';
-import { equipoDe, nombreDe } from '../core/estado/juego';
+import { criaturaDe, equipoDe, nombreDe } from '../core/estado/juego';
 
 /** La favorita saluda (salto y grito) la primera vez que se abre el menú en cada sesión. */
 let saludoHecho = false;
@@ -49,6 +49,8 @@ const COL_X = [40, 126];
 
 /** Menú principal: desde aquí se entra a todo lo demás. */
 export class Menu extends Phaser.Scene {
+  /** El jugador eligió «más tarde» para las ofertas de ataques (hasta que vuelva a abrir el juego). */
+  static ofertasVistas = false;
   private filas: Texto[] = [];
   /** Íconos del menú principal: solo se ven en él (los submenús no llevan íconos). */
   private iconos: Phaser.GameObjects.GameObject[] = [];
@@ -197,6 +199,16 @@ export class Menu extends Phaser.Scene {
       sonido.tocar('zona');
       const fam = DATOS.criaturas.get(especie)!.familia;
       this.mostrarAviso(t('menu.huevo.titulo'), t('menu.huevo.texto', { n: DATOS.criaturas.get(especie)!.nombre }), t('menu.aviso.ayuda'), (a) => (a === 'a' || a === 'b') && this.scene.restart(), 44, (x, y) => this.eclosion(x, y, especie, fam));
+    } else if (this.modo === 'principal' && !Menu.ofertasVistas && estado.criaturas.some((c) => c.ofertaAtaque)) {
+      // Subió de nivel y quiere aprender un ataque (B: más tarde; no vuelve a avisar hasta la próxima vez que se abra el juego).
+      const c = estado.equipo.map((id) => criaturaDe(estado, id)).find((x) => x?.ofertaAtaque) ?? estado.criaturas.find((x) => x.ofertaAtaque)!;
+      this.mostrarAviso(t('menu.ataque.titulo'), t('menu.ataque.texto', { n: nombreDe(DATOS, c), a: DATOS.habilidades.get(c.ofertaAtaque!)!.nombre }), t('menu.ataque.ayuda'), (a) => {
+        if (a === 'a') this.scene.start('Ataques', { especie: c.especie, modo: 'oferta', volver: { escena: 'Menu' } });
+        else if (a === 'b') {
+          Menu.ofertasVistas = true;
+          this.scene.restart();
+        }
+      });
     } else if (this.modo === 'principal' && pasoActual(estado)?.cumplido(estado)) this.mostrarPaso();
     else if (this.modo === 'principal' && regaloPendiente(DATOS, estado, Date.now())) this.mostrarRegalo();
     else if (diarioDisponible(estado, Date.now())) this.mostrarDiario();

@@ -1,3 +1,4 @@
+import { ataquesDe } from '../progresion/ataques';
 import type { CriaturaJugador, EstadoJuego, RarezaId, StatVitamina } from '../../esquemas/esquemas';
 import type { Datos } from '../datos';
 import { crearCombatiente, type Combatiente } from '../combate/motor';
@@ -88,7 +89,7 @@ export function bonusStats(datos: Datos, c: CriaturaJugador): Partial<Record<Sta
 }
 
 export function combatienteDe(datos: Datos, c: CriaturaJugador): Combatiente {
-  const cb = crearCombatiente(datos, c.especie, c.nivel, { potencial: potencialDe(datos, c.rareza), extra: bonusStats(datos, c), brillante: c.brillante });
+  const cb = crearCombatiente(datos, c.especie, c.nivel, { potencial: potencialDe(datos, c.rareza), extra: bonusStats(datos, c), brillante: c.brillante, habilidades: ataquesDe(datos, c) });
   return { ...cb, nombre: nombreDe(datos, c) };
 }
 
