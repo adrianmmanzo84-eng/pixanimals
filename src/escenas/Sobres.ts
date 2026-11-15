@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { probBrillante } from '../core/progresion/eventos';
 import { tipoDeLaSemana } from '../core/modos/semanal';
 import { Puntero } from '../ui/puntero';
 import { iconoItem } from '../ui/iconos';
@@ -199,7 +200,9 @@ export class Sobres extends Phaser.Scene {
     const prob = probConIncienso(def.prob, estado, ahora);
     const pct = (x: number) => (Number.isInteger(x) ? String(x) : x.toFixed(1));
     ORDEN_RAREZA.forEach((r, i) => this.probs[i]!.poner(`${estrellas(r)}  ${pct(prob[r])} %`, COLOR_RAREZA[r]));
-    this.probs[4]!.poner(t('sobres.brillante', { n: DATOS.sobres.brillanteUnoEn }), C.tintaSuave);
+    // Un evento de suerte multiplica la probabilidad de brillante: se muestra la del día.
+    const unoEn = Math.round(100 / probBrillante(DATOS, Date.now()));
+    this.probs[4]!.poner(t('sobres.brillante', { n: unoEn }), unoEn < DATOS.sobres.brillanteUnoEn ? C.resalte : C.tintaSuave);
     this.probs[5]!.poner(t('sobres.pity.rara', { n: Math.max(1, DATOS.sobres.pity.rara - estado.pity.rara + 1) }), C.tintaSuave);
     this.probs[6]!.poner(t('sobres.pity.epica', { n: Math.max(1, DATOS.sobres.pity.epica - estado.pity.epica + 1) }), C.tintaSuave);
     this.probs[7]!.poner(

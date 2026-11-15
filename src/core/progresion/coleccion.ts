@@ -1,4 +1,5 @@
 import type { EstadoJuego, PremioMeta, RarezaId } from '../../esquemas/esquemas';
+import { multEvento } from './eventos';
 import type { Datos } from '../datos';
 import type { Rng } from '../rng';
 import { criaturaDe } from '../estado/juego';
@@ -236,7 +237,7 @@ export function cobrarExpedicion(datos: Datos, estado: EstadoJuego, especie: str
   const d = datos.economia.expediciones.duraciones.find((y) => y.horas === x.horas)!;
   estado.expediciones.splice(i, 1);
   const c = criaturaDe(estado, especie);
-  const monedas = Math.round(d.monedas * (1 + (c?.nivel ?? 1) / 50));
+  const monedas = Math.round(d.monedas * (1 + (c?.nivel ?? 1) / 50) * multEvento(datos, 'monedasExpedicion', ahora));
   estado.monedas += monedas;
   const subio = c ? darXp(datos, c, d.xp) > 0 : false;
   let item: string | null = null;

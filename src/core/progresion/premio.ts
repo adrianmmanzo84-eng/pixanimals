@@ -3,6 +3,7 @@ import type { Datos } from '../datos';
 import type { Rng } from '../rng';
 import { agregar } from '../items/items';
 import { recibir, tirarRareza, type CartaCriatura } from '../sobres/sobres';
+import { probBrillante } from './eventos';
 
 /** Carta premio: al ganar, se reparten varias cartas boca abajo y el jugador se queda con una. */
 
@@ -28,7 +29,7 @@ function tirarUno(datos: Datos, rng: Rng): PremioTirado {
   // Criatura: una de etapa 1, con las probabilidades del sobre gratis.
   const basico = datos.sobres.sobres.find((s) => s.id === datos.sobres.gratis.sobre)!;
   const especie = rng.elegir([...datos.criaturas.values()].filter((c) => c.etapa === 1)).id;
-  return { tipo: 'criatura', especie, rareza: tirarRareza(basico.prob, rng), brillante: rng.prob(100 / datos.sobres.brillanteUnoEn) };
+  return { tipo: 'criatura', especie, rareza: tirarRareza(basico.prob, rng), brillante: rng.prob(probBrillante(datos, Date.now())) };
 }
 
 /** Las cartas boca abajo. Se tiran todas de antemano para poder mostrar después las que no se eligieron. */

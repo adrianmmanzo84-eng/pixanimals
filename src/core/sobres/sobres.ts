@@ -1,4 +1,5 @@
 import type { EstadoJuego, RarezaId, SobreDef } from '../../esquemas/esquemas';
+import { probBrillante } from '../progresion/eventos';
 import type { Datos } from '../datos';
 import type { Rng } from '../rng';
 import { criaturaDe, marcarVista, nuevaCriatura } from '../estado/juego';
@@ -138,7 +139,7 @@ export function abrirSobre(datos: Datos, estado: EstadoJuego, idSobre: string, r
   estado.estadisticas.sobres++;
   registrar(datos, estado, 'sobre', 1, ahora);
 
-  return rarezas.map((rareza) => tirarCarta(datos, estado, def, rareza, rng));
+  return rarezas.map((rareza) => tirarCarta(datos, estado, def, rareza, rng, ahora));
 }
 
 /** Nivel con el que llega una criatura de etapa 2: el nivel en que evoluciona su etapa anterior. */
@@ -161,7 +162,7 @@ export function itemDeRareza(datos: Datos, def: SobreDef, rareza: RarezaId, rng:
 }
 
 /** Una carta del sobre: ítem (según `probItem`) o criatura de etapa 1 o 2 (según `probEtapa2`). */
-function tirarCarta(datos: Datos, estado: EstadoJuego, def: SobreDef, rareza: RarezaId, rng: Rng): Carta {
+function tirarCarta(datos: Datos, estado: EstadoJuego, def: SobreDef, rareza: RarezaId, rng: Rng, ahora = Date.now()): Carta {
   if (rng.prob(def.probItem)) {
     const item = itemDeRareza(datos, def, rareza, rng);
     if (item) {
@@ -172,7 +173,7 @@ function tirarCarta(datos: Datos, estado: EstadoJuego, def: SobreDef, rareza: Ra
   const etapa = rng.prob(def.probEtapa2) ? 2 : 1;
   const candidatas = [...datos.criaturas.values()].filter((c) => c.etapa === etapa && (!def.tipo || c.tipo === def.tipo));
   const especie = rng.elegir(candidatas).id;
-  return recibir(datos, estado, especie, rareza, rng.prob(100 / datos.sobres.brillanteUnoEn), etapa === 2 ? nivelDeLlegada(datos, especie) : datos.sobres.nivelInicial);
+  return recibir(datos, estado, especie, rareza, rng.prob(probBrillante(datos, ahora)), etapa === 2 ? nivelDeLlegada(datos, especie) : datos.sobres.nivelInicial);
 }
 
 /**

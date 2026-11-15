@@ -1,4 +1,5 @@
 import type { CriaturaJugador, EstadoJuego } from '../../esquemas/esquemas';
+import { multEvento } from './eventos';
 import type { Datos } from '../datos';
 import type { NivelIA } from '../combate/ia';
 import type { Batalla } from '../combate/motor';
@@ -42,14 +43,17 @@ export interface Recompensa {
  * Derrota o retirada: una pequeña compensación en monedas y la mitad de la XP ganada hasta ese momento.
  */
 /** `monedasVictoria`: si el modo paga su propio premio (Torre, Entrenador del día), las monedas por ganar se reemplazan por este valor. */
-export function aplicarRecompensa(datos: Datos, estado: EstadoJuego, bat: Batalla, dificultad: NivelIA, retirada = false, monedasVictoria?: number): Recompensa {
+export function aplicarRecompensa(datos: Datos, estado: EstadoJuego, bat: Batalla, dificultad: NivelIA, retirada = false, monedasVictoria?: number, ahora = Date.now()): Recompensa {
   const eco = datos.economia;
+  // Eventos de calendario: más XP en todos los modos; más monedas solo en el combate rápido (los otros pagan su premio propio).
+  const multXp = multEvento(datos, 'xpCombate', ahora);
+  const multMonedas = monedasVictoria === undefined ? multEvento(datos, 'monedasCombate', ahora) : 1;
   const victoria = !retirada && bat.ganador === 0;
   const caidos = bat.equipos[1].miembros.filter((m) => m.ps <= 0);
   const xpTotal = caidos.reduce((s, m) => s + eco.xp.porVictoriaBase + eco.xp.porNivelRival * m.nivel, 0) * (victoria ? 1 : 0.5);
   const participantes = bat.equipos[0].miembros.filter((m) => m.participo);
-  const xpPorCriatura = retirada ? 0 : Math.floor(xpTotal / Math.max(1, participantes.length));
-  const monedas = retirada ? 0 : victoria ? (monedasVictoria ?? eco.recompensas[dificultad]) : eco.recompensas.derrota;
+  const xpPorCriatura = retirada ? 0 : Math.floor((xpTotal * multXp) / Math.max(1, participantes.length));
+  const monedas = retirada ? 0 : Math.round((victoria ? (monedasVictoria ?? eco.recompensas[dificultad]) : eco.recompensas.derrota) * multMonedas);
   const subidas: Recompensa['subidas'] = [];
   const listas: string[] = [];
   const entrenamiento = victoria ? eco.entrenamiento.porVictoria : 0;

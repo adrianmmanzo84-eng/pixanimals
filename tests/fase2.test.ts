@@ -9,6 +9,9 @@ import { deserializar, exportarCodigo, importarCodigo, serializar } from '../src
 import { abrirSobre, costoDe, precioSobre, sobreBienvenida, sobresGratis, type Carta } from '../src/core/sobres/sobres';
 import { aplicarRecompensa, darXp, xpParaSubir } from '../src/core/progresion/experiencia';
 
+/** Un martes sin evento de calendario (los eventos cambian las recompensas). */
+const MARTES = new Date(2026, 10, 17, 12).getTime();
+
 const HORA = 3_600_000;
 const hab = (i: number): Accion => ({ tipo: 'habilidad', indice: i });
 const trio = (nivel = 10) => ['lumbrito', 'aletin', 'brotin'].map((id) => crearCombatiente(DATOS, id, nivel));
@@ -263,7 +266,7 @@ describe('experiencia y recompensas', () => {
     bat.terminado = true;
     bat.ganador = 0;
     const monedas = e.monedas;
-    const r = aplicarRecompensa(DATOS, e, bat, 'experta');
+    const r = aplicarRecompensa(DATOS, e, bat, 'experta', false, undefined, MARTES);
     expect(r.victoria).toBe(true);
     expect(e.monedas).toBe(monedas + DATOS.economia.recompensas.experta);
     expect(r.xpPorCriatura).toBe(3 * (12 + 5 * 5)); // solo participó la primera
@@ -278,8 +281,8 @@ describe('experiencia y recompensas', () => {
     bat.terminado = true;
     bat.ganador = 1;
     const monedas = e.monedas;
-    expect(aplicarRecompensa(DATOS, e, bat, 'novata').monedas).toBe(DATOS.economia.recompensas.derrota);
-    expect(aplicarRecompensa(DATOS, e, bat, 'novata', true)).toMatchObject({ monedas: 0, xpPorCriatura: 0 });
+    expect(aplicarRecompensa(DATOS, e, bat, 'novata', false, undefined, MARTES).monedas).toBe(DATOS.economia.recompensas.derrota);
+    expect(aplicarRecompensa(DATOS, e, bat, 'novata', true, undefined, MARTES)).toMatchObject({ monedas: 0, xpPorCriatura: 0 });
     expect(e.monedas).toBe(monedas + DATOS.economia.recompensas.derrota);
   });
 });

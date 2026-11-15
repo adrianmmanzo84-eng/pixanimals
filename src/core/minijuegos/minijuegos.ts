@@ -1,4 +1,5 @@
 import type { EstadoJuego, MinijuegoId } from '../../esquemas/esquemas';
+import { multEvento } from '../progresion/eventos';
 import type { Datos } from '../datos';
 import { criaturaDe } from '../estado/juego';
 import { diaLocal } from '../items/items';
@@ -59,7 +60,7 @@ export function terminarMinijuego(datos: Datos, estado: EstadoJuego, id: Minijue
     const c = criaturaDe(estado, especie);
     if (c) {
       const antes = puedeEvolucionar(datos, estado, c);
-      entrenamiento = sumarEntrenamiento(datos, c, escala(eco.entrenamiento, p));
+      entrenamiento = sumarEntrenamiento(datos, c, Math.round(escala(eco.entrenamiento, p) * multEvento(datos, 'entrenamientoMinijuego', ahora)));
       lista = !antes && puedeEvolucionar(datos, estado, c);
     }
   }

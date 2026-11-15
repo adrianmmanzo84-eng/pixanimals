@@ -487,5 +487,91 @@
       "monedas": 100,
       "sobre": "raro"
     }
-  }
+  },
+  "eventos": [
+    {
+      "id": "aniversario",
+      "fechas": [
+        "11-14"
+      ],
+      "efectos": {
+        "monedasCombate": 2,
+        "xpCombate": 1.5,
+        "brillante": 2
+      },
+      "regalo": "legendario"
+    },
+    {
+      "id": "anioNuevo",
+      "fechas": [
+        "01-01"
+      ],
+      "efectos": {
+        "monedasCombate": 2,
+        "xpCombate": 2
+      },
+      "regalo": "raro"
+    },
+    {
+      "id": "halloween",
+      "fechas": [
+        "10-31"
+      ],
+      "efectos": {
+        "brillante": 3
+      },
+      "regalo": "sombra"
+    },
+    {
+      "id": "navidad",
+      "fechas": [
+        "12-24",
+        "12-25"
+      ],
+      "efectos": {
+        "monedasCombate": 1.5,
+        "xpCombate": 1.5,
+        "monedasExpedicion": 1.5
+      },
+      "regalo": "raro"
+    },
+    {
+      "id": "entrenamiento",
+      "dias": [
+        1
+      ],
+      "efectos": {
+        "entrenamientoMinijuego": 2
+      }
+    },
+    {
+      "id": "expedicion",
+      "dias": [
+        3
+      ],
+      "efectos": {
+        "monedasExpedicion": 1.5
+      }
+    },
+    {
+      "id": "suerte",
+      "dias": [
+        5
+      ],
+      "efectos": {
+        "brillante": 2
+      }
+    },
+    {
+      "id": "combate",
+      "dias": [
+        6,
+        0
+      ],
+      "efectos": {
+        "monedasCombate": 1.5,
+        "xpCombate": 1.5
+      }
+    }
+  ]
 }

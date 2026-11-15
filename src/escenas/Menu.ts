@@ -26,6 +26,7 @@ import { fondo } from '../ui/fondos';
 import { abrirGuardado } from '../ui/guardadoDom';
 import { debeRecordarCopia } from '../core/estado/respaldo';
 import { cobrarPaso, pasoActual, PASOS_GUIA, premioPaso } from '../core/progresion/guia';
+import { cobrarRegalo, eventoDeHoy, regaloPendiente } from '../core/progresion/eventos';
 import { marcarAviso, ultimaCopia, ultimoAviso } from '../ui/recordatorio';
 import { Puntero } from '../ui/puntero';
 import { partir, Texto } from '../ui/texto';
@@ -166,6 +167,19 @@ export class Menu extends Phaser.Scene {
         new Texto(this, 88, 101, 120, 10, C.tinta, 'izq', { tam: 6.6, peso: 600 }).poner(t(`guia.${paso.id}`)).imagen,
       ]);
       if (this.modo === 'principal') this.sel = paso.opcion;
+    } else {
+      // Evento de calendario de hoy (si no hay guía, ocupa su lugar).
+      const ev = eventoDeHoy(DATOS, Date.now());
+      if (ev) {
+        const g = this.add.graphics();
+        ventana(g, 30, 98, 180, 16, 0.96);
+        g.fillStyle(0x7a56b0, 1).fillRoundedRect(34, 101, 64, 10, 3);
+        this.cartelGuia = this.add.container(0, 0, [
+          g,
+          new Texto(this, 34, 101, 64, 10, '#ffffff', 'centro', { tam: 5.8, peso: 600 }).poner(t(`evento.${ev.id}`)).imagen,
+          new Texto(this, 102, 101, 106, 10, C.tinta, 'izq', { tam: 6, peso: 600 }).poner(t(`evento.${ev.id}.desc`)).imagen,
+        ]);
+      }
     }
 
     this.pintar();
@@ -174,6 +188,7 @@ export class Menu extends Phaser.Scene {
       juego.recuperada = false;
       this.mostrarAviso(t('menu.recuperada.titulo'), t('menu.recuperada.texto'), t('menu.aviso.ayuda'), (a) => a === 'a' && this.scene.restart());
     } else if (this.modo === 'principal' && pasoActual(estado)?.cumplido(estado)) this.mostrarPaso();
+    else if (this.modo === 'principal' && regaloPendiente(DATOS, estado, Date.now())) this.mostrarRegalo();
     else if (diarioDisponible(estado, Date.now())) this.mostrarDiario();
     else if (this.modo === 'principal' && debeRecordarCopia(estado, ultimaCopia(), ultimoAviso(), Date.now())) {
       marcarAviso();
@@ -250,6 +265,20 @@ export class Menu extends Phaser.Scene {
     this.mostrarAviso(t(ultimo ? 'guia.tituloFin' : 'guia.titulo'), texto, t('menu.aviso.ayuda'), (a) => {
       if (a !== 'a') return;
       cobrarPaso(DATOS, juego.estado);
+      juego.guardar();
+      this.scene.restart();
+    });
+  }
+
+  /** Regalo del evento de hoy (fechas especiales): un sobre que queda para abrir gratis en Sobres. */
+  private mostrarRegalo(): void {
+    const r = regaloPendiente(DATOS, juego.estado, Date.now())!;
+    const sobre = DATOS.sobres.sobres.find((s) => s.id === r.sobre)?.nombre ?? r.sobre;
+    sonido.tocar('tesoro');
+    this.cameras.main.flash(220, 255, 236, 170);
+    this.mostrarAviso(t(`evento.${r.evento.id}.titulo`), t('evento.regalo', { s: sobre, d: t(`evento.${r.evento.id}.desc`) }), t('evento.cobrar'), (a) => {
+      if (a !== 'a') return;
+      cobrarRegalo(DATOS, juego.estado, Date.now());
       juego.guardar();
       this.scene.restart();
     });

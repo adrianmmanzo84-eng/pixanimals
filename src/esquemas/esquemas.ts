@@ -154,6 +154,22 @@ export type PremioMeta = z.infer<typeof PremioMetaZ>;
 export const PremioRuletaZ = PremioMetaZ.extend({ item: z.string().optional(), cantidad: z.number().int().min(1).default(1) });
 export type PremioRuleta = z.infer<typeof PremioRuletaZ>;
 
+/** Evento de calendario: por fecha («MM-DD») o día de la semana (0 = domingo), con multiplicadores y un sobre de regalo opcional. */
+export const EventoZ = z.object({
+  id: z.string(),
+  fechas: z.array(z.string().regex(/^\d{2}-\d{2}$/)).optional(),
+  dias: z.array(z.number().int().min(0).max(6)).optional(),
+  efectos: z.object({
+    monedasCombate: z.number().min(1).max(5).optional(),
+    xpCombate: z.number().min(1).max(5).optional(),
+    entrenamientoMinijuego: z.number().min(1).max(5).optional(),
+    monedasExpedicion: z.number().min(1).max(5).optional(),
+    brillante: z.number().min(1).max(10).optional(),
+  }),
+  regalo: z.string().optional(),
+});
+export type EventoDef = z.infer<typeof EventoZ>;
+
 export const EconomiaZ = z.object({
   monedasIniciales: z.number().int(),
   tamanoEquipo: z.number().int().min(1).max(6),
@@ -228,6 +244,8 @@ export const EconomiaZ = z.object({
   fusion: z.object({ copias: z.number().int().min(2) }),
   /** Semana temática: un tipo protagonista, su sobre más barato y un Jefe Eclipse. */
   semanal: z.object({ descuento: z.number().int().min(0).max(90), nivelExtra: z.number().int().min(0), premio: PremioMetaZ }),
+  /** Eventos de calendario (ver src/core/progresion/eventos.ts). */
+  eventos: z.array(EventoZ),
   /** Primeros pasos: premio de cada paso de la guía. */
   guia: z.object({ combate: PremioMetaZ, sobre: PremioMetaZ, equipo: PremioMetaZ, minijuego: PremioMetaZ, torre: PremioMetaZ }),
   /** Desafío del día: nivel de los dos equipos y premio (victoria o derrota). */
@@ -308,7 +326,7 @@ export const CriaturaJugadorZ = z.object({
   favorita: z.boolean().optional(),
 });
 export const EstadoJuegoZ = z.object({
-  version: z.literal(9),
+  version: z.literal(10),
   monedas: z.number().int().min(0),
   esencia: z.number().int().min(0),
   criaturas: z.array(CriaturaJugadorZ),
@@ -360,6 +378,8 @@ export const EstadoJuegoZ = z.object({
   ruleta: z.object({ ultimoDia: z.number().int() }),
   /** Jefes (semanales y Guardianes) a los que ya les ganaste: cada uno es una insignia. */
   jefes: z.array(z.string()),
+  /** Regalos de eventos ya cobrados («navidad-2026»). */
+  eventos: z.object({ regalos: z.array(z.string()) }),
   /** Primeros pasos: índice del próximo paso por cobrar (5 = guía terminada). */
   guia: z.object({ paso: z.number().int().min(0) }),
   /** Desafío del día: último día jugado, su resultado, racha de días seguidos y victorias totales. */
