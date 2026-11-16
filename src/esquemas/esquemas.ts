@@ -65,7 +65,7 @@ export const CriaturaZ = z.object({
   /** Jefes: no se capturan, no salen en sobres y no están en el Bestiario ni en el Álbum. `semanal` o `guardian` (Torre). */
   jefe: z.enum(['semanal', 'guardian']).optional(),
   /** «mina»: familia exclusiva de la Mina Pixel (solo se obtiene del huevo de su monstruo; nunca en sobres ni premios). */
-  origen: z.literal('mina').optional(),
+  origen: z.enum(['mina', 'crono']).optional(),
 });
 
 export const TiposZ = z.object({
@@ -97,6 +97,14 @@ export const BalanceZ = z.object({
     raices: z.object({ nombre: z.string(), curaDivisor: z.number() }),
   }),
   /** Pasivas con nombre y mensaje propios que funcionan igual que una de las tres de arriba. */
+  /** Reglas de las eras del Cronoportal (ver motor: aplicarRegla). */
+  reglas: z.object({
+    marea: z.object({ cada: z.number().int().min(2), mult: z.number().min(1) }),
+    esporas: z.object({ prob: z.number().min(0).max(100) }),
+    estampida: z.object({ cada: z.number().int().min(2), porcentaje: z.number().min(1).max(50) }),
+    meteoro: z.object({ turno: z.number().int().min(2), porcentaje: z.number().min(1).max(90) }),
+    frio: z.object({ inmunes: z.array(z.string()) }),
+  }),
   pasivasAlias: z.record(z.string(), z.object({ nombre: z.string(), mecanica: z.enum(['ultimo_rescoldo', 'oleaje', 'raices']) })),
   empujon: z.object({ potencia: z.number() }),
   cansancio: z.object({ desdeTurno: z.number().int(), danoDivisor: z.number() }),
@@ -245,6 +253,17 @@ export const EconomiaZ = z.object({
   /** Fusión: cuántas copias repetidas hacen subir una rareza. */
   fusion: z.object({ copias: z.number().int().min(2) }),
   /** Semana temática: un tipo protagonista, su sobre más barato y un Jefe Eclipse. */
+  /** Cronoportal: eras (familia, regla, niveles, tipos de los rivales), mapa y premios. */
+  crono: z.object({
+    eras: z.array(z.object({ familia: z.string(), regla: z.enum(['marea', 'esporas', 'estampida', 'meteoro', 'frio']), nivel: z.tuple([z.number().int(), z.number().int()]), tipos: z.array(z.string()).min(1) })).length(5),
+    columnas: z.number().int().min(4).max(10),
+    fragmentos: z.number().int().min(1),
+    fogata: z.number().min(1).max(100),
+    monedasCombate: z.number().int().min(0),
+    monedasPorEra: z.number().int().min(0),
+    excavacion: z.object({ fosiles: z.tuple([z.number().int(), z.number().int()]), monedas: z.number().int().min(0) }),
+    premioJefe: z.object({ monedas: z.number().int(), porEra: z.number().int(), fosiles: z.number().int(), ambar: z.number().int() }),
+  }),
   /** Caminos (Entrenador y Jefe de la semana): estaciones previas, niveles menos que el jefe y monedas de cada una. */
   rutas: z.object({ previas: z.number().int().min(1).max(5), nivelesMenos: z.array(z.number().int().min(0)), monedas: z.array(z.number().int().min(0)) }),
   semanal: z.object({ descuento: z.number().int().min(0).max(90), nivelExtra: z.number().int().min(0), premio: PremioMetaZ }),
@@ -405,6 +424,29 @@ export const EstadoJuegoZ = z.object({
   torre: z.object({ piso: z.number().int().min(1), mejor: z.number().int().min(0) }),
   /** Último día en que se cobró el premio del Entrenador del día. */
   entrenador: z.object({ diaCobrado: z.number().int() }),
+  /** Cronoportal: eras abiertas y vencidas, fósiles por familia, ámbar y la expedición en curso. */
+  crono: z
+    .object({
+      eraMax: z.number().int().min(1),
+      vencidas: z.array(z.number().int()),
+      fosiles: z.record(z.string(), z.number().int().min(0)),
+      ambar: z.number().int().min(0),
+      grietaDia: z.number().int().optional(),
+      expedicion: z
+        .object({
+          era: z.number().int(),
+          semilla: z.number(),
+          actual: z.string().nullable(),
+          visitados: z.array(z.string()),
+          equipo: z.array(z.string()),
+          vida: z.record(z.string(), z.number()),
+          grieta: z.boolean(),
+          resueltos: z.array(z.string()),
+          botin: z.object({ monedas: z.number(), fosiles: z.number(), ambar: z.number() }),
+        })
+        .optional(),
+    })
+    .optional(),
   /** Caminos del Entrenador y del Jefe de la semana: estaciones previas vencidas en el día o semana (`ciclo`). */
   rutas: z
     .object({

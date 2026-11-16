@@ -112,6 +112,11 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
     usados.add(id);
     if (Number(piso) % economia.torre.jefeCada !== 0) errores.push(`Torre: el piso ${piso} del Guardián ${id} no es un piso de jefe.`);
   }
+  // Cronoportal: cada era apunta a una familia prehistórica (origen «crono») con sus 4 etapas.
+  economia.crono.eras.forEach((e, i) => {
+    const fam = [...mCri.values()].filter((c) => c.familia === e.familia);
+    if (fam.length !== 4 || fam.some((c) => c.origen !== 'crono')) errores.push(`Cronoportal, era ${i + 1}: la familia ${e.familia} debe tener 4 etapas con origen "crono".`);
+  });
   // Mina Pixel: los ítems de los cofres existen; el monstruo (si hay) es una forma final de una familia exclusiva.
   economia.mina.zonas.forEach((z, i) => {
     for (const c of z.cofre) if (!mItems.has(c.item)) errores.push(`Mina, zona ${i + 1}: el cofre da un ítem que no existe (${c.item}).`);

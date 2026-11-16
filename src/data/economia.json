@@ -354,6 +354,14 @@
         3,
         5
       ]
+    },
+    {
+      "id": "crono",
+      "metas": [
+        1,
+        3,
+        5
+      ]
     }
   ],
   "premiosMedalla": [
@@ -927,5 +935,86 @@
         ]
       }
     ]
+  },
+  "crono": {
+    "eras": [
+      {
+        "familia": "anomalo",
+        "regla": "marea",
+        "nivel": [
+          20,
+          28
+        ],
+        "tipos": [
+          "marea"
+        ]
+      },
+      {
+        "familia": "meganeura",
+        "regla": "esporas",
+        "nivel": [
+          28,
+          38
+        ],
+        "tipos": [
+          "rayo",
+          "brote"
+        ]
+      },
+      {
+        "familia": "estego",
+        "regla": "estampida",
+        "nivel": [
+          38,
+          48
+        ],
+        "tipos": [
+          "brote",
+          "roca"
+        ]
+      },
+      {
+        "familia": "ptero",
+        "regla": "meteoro",
+        "nivel": [
+          48,
+          56
+        ],
+        "tipos": [
+          "cielo",
+          "brasa"
+        ]
+      },
+      {
+        "familia": "mamut",
+        "regla": "frio",
+        "nivel": [
+          56,
+          65
+        ],
+        "tipos": [
+          "roca",
+          "marea"
+        ]
+      }
+    ],
+    "columnas": 8,
+    "fragmentos": 5,
+    "fogata": 50,
+    "monedasCombate": 20,
+    "monedasPorEra": 10,
+    "excavacion": {
+      "fosiles": [
+        1,
+        2
+      ],
+      "monedas": 25
+    },
+    "premioJefe": {
+      "monedas": 100,
+      "porEra": 60,
+      "fosiles": 2,
+      "ambar": 1
+    }
   }
 }

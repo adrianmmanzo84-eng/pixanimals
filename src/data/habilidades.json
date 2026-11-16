@@ -6326,6 +6326,743 @@
       "precision": null,
       "usos": 1,
       "efectos": []
+    },
+    {
+      "id": "garra_primitiva",
+      "animacion": "zarpazo",
+      "nombre": "Garra Primitiva",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "tenaza_abisal",
+      "animacion": "dentellada",
+      "nombre": "Tenaza Abisal",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "caparazon_cambrico",
+      "animacion": "corteza",
+      "nombre": "Caparazón Cámbrico",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6,
+          "contraEstado": {
+            "estado": "veneno",
+            "prob": 30,
+            "soloFisico": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "ojos_compuestos",
+      "animacion": "brillo",
+      "nombre": "Ojos Compuestos",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "marea_cambrica",
+      "animacion": "ola",
+      "nombre": "Marea Cámbrica",
+      "tipo": "marea",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "remolino_cambrico",
+      "animacion": "ola",
+      "nombre": "Remolino Cámbrico",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "abismo_primigenio",
+      "animacion": "ola",
+      "nombre": "Abismo Primigenio",
+      "tipo": "marea",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "primer_oceano",
+      "animacion": "ola",
+      "nombre": "Primer Océano",
+      "tipo": "marea",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "zumbido_voltaico",
+      "animacion": "rayo",
+      "nombre": "Zumbido Voltaico",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "paralisis",
+          "prob": 10,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "picada_relampago",
+      "animacion": "rayo",
+      "nombre": "Picada Relámpago",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "estado",
+          "estado": "paralisis",
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "alas_de_vitral",
+      "animacion": "brillo",
+      "nombre": "Alas de Vitral",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6,
+          "contraEstado": {
+            "estado": "paralisis",
+            "prob": 30,
+            "soloFisico": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "vuelo_estatico",
+      "animacion": "brillo",
+      "nombre": "Vuelo Estático",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "mil_facetas",
+      "animacion": "brillo",
+      "nombre": "Mil Facetas",
+      "tipo": "rayo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "enjambre_electrico",
+      "animacion": "rayo",
+      "nombre": "Enjambre Eléctrico",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "tormenta_pantanosa",
+      "animacion": "rayo",
+      "nombre": "Tormenta Pantanosa",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "rayo_primordial",
+      "animacion": "rayo",
+      "nombre": "Rayo Primordial",
+      "tipo": "rayo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "coletazo_de_puas",
+      "animacion": "impacto",
+      "nombre": "Coletazo de Púas",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "puas_milenarias",
+      "animacion": "impacto",
+      "nombre": "Púas Milenarias",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "placas_de_hoja",
+      "animacion": "hojas",
+      "nombre": "Placas de Hoja",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6,
+          "contraEstado": {
+            "estado": "veneno",
+            "prob": 30,
+            "soloFisico": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "sol_del_jurasico",
+      "animacion": "sol",
+      "nombre": "Sol del Jurásico",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 8,
+      "efectos": [
+        {
+          "tipo": "cura",
+          "porcentaje": 25
+        }
+      ]
+    },
+    {
+      "id": "bosque_jurasico",
+      "animacion": "raices",
+      "nombre": "Bosque Jurásico",
+      "tipo": "brote",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 8,
+      "efectos": [
+        {
+          "tipo": "cura",
+          "porcentaje": 25
+        },
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "estampida_de_hojas",
+      "animacion": "hojas",
+      "nombre": "Estampida de Hojas",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "gran_estampida",
+      "animacion": "impacto",
+      "nombre": "Gran Estampida",
+      "tipo": "brote",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "corazon_jurasico",
+      "animacion": "hojas",
+      "nombre": "Corazón Jurásico",
+      "tipo": "brote",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "picotazo_cretacico",
+      "animacion": "impacto",
+      "nombre": "Picotazo Cretácico",
+      "tipo": "cielo",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "cresta_cortante",
+      "animacion": "zarpazo",
+      "nombre": "Cresta Cortante",
+      "tipo": "cielo",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "alas_planeadoras",
+      "animacion": "corriente",
+      "nombre": "Alas Planeadoras",
+      "tipo": "cielo",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6,
+          "contraEstado": {
+            "estado": "paralisis",
+            "prob": 30,
+            "soloFisico": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "corriente_termica",
+      "animacion": "corriente",
+      "nombre": "Corriente Térmica",
+      "tipo": "cielo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "vuelo_rasante",
+      "animacion": "corriente",
+      "nombre": "Vuelo Rasante",
+      "tipo": "cielo",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "picado_meteoro",
+      "animacion": "llamarada",
+      "nombre": "Picado Meteoro",
+      "tipo": "cielo",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "lluvia_de_meteoros",
+      "animacion": "llamarada",
+      "nombre": "Lluvia de Meteoros",
+      "tipo": "cielo",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "ultimo_cielo",
+      "animacion": "llamarada",
+      "nombre": "Último Cielo",
+      "tipo": "cielo",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
+    },
+    {
+      "id": "colmillazo",
+      "animacion": "impacto",
+      "nombre": "Colmillazo",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 40,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "colmillos_de_hielo",
+      "animacion": "impacto",
+      "nombre": "Colmillos de Hielo",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 55,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "vel",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "pelaje_glacial",
+      "animacion": "corteza",
+      "nombre": "Pelaje Glacial",
+      "tipo": "roca",
+      "categoria": "estado",
+      "rol": "defensiva",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "prioridad": 1,
+      "efectos": [
+        {
+          "tipo": "guardia",
+          "modo": "reduce",
+          "reduccion": 0.6,
+          "contraEstado": {
+            "estado": "paralisis",
+            "prob": 30,
+            "soloFisico": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "bramido_helado",
+      "animacion": "grito",
+      "nombre": "Bramido Helado",
+      "tipo": "roca",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": -1,
+          "prob": 100,
+          "objetivo": "rival"
+        }
+      ]
+    },
+    {
+      "id": "manada_glacial",
+      "animacion": "grito",
+      "nombre": "Manada Glacial",
+      "tipo": "roca",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 12,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": 1,
+          "prob": 100,
+          "objetivo": "propio"
+        }
+      ]
+    },
+    {
+      "id": "alud_de_nieve",
+      "animacion": "impacto",
+      "nombre": "Alud de Nieve",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 85,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "glaciacion",
+      "animacion": "impacto",
+      "nombre": "Glaciación",
+      "tipo": "roca",
+      "categoria": "fisica",
+      "rol": "final",
+      "potencia": 110,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": []
+    },
+    {
+      "id": "era_de_hielo",
+      "animacion": "impacto",
+      "nombre": "Era de Hielo",
+      "tipo": "roca",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": []
     }
   ]
 }

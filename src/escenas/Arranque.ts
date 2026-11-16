@@ -31,6 +31,14 @@ export class Arranque extends Phaser.Scene {
     for (const f of ['terin', 'plesin', 'triclin', 'tirin', 'dimlin']) this.load.image(`huevo_${f}`, `mina/huevo_${f}.png`);
     cargarAnimMina(this.load);
     cargarAnimaciones(this.load);
+    // Cronoportal: escenarios de las eras, mapas, sala e íconos del mapa y los fósiles.
+    for (let n = 1; n <= 5; n++) {
+      this.load.image(`crono_era${n}`, `crono/era${n}.jpg`);
+      this.load.image(`crono_mapa${n}`, `crono/mapa${n}.jpg`);
+    }
+    this.load.image('crono_sala', 'crono/sala.jpg');
+    for (const c of ['ambar', 'fosil_anomalo', 'fosil_meganeura', 'fosil_estego', 'fosil_ptero', 'fosil_mamut', 'mapa_combate', 'mapa_evento', 'mapa_excavacion', 'mapa_fogata', 'mapa_jefe', 'mapa_visitado'])
+      this.load.image(`cr_${c}`, `crono/iconos/${c}.png`);
     // Arte opcional de la Torre y los caminos (si falta, se dibuja por código). Ver manifiesto en public/modos/.
     for (const c of ['torre_fondo', 'torre_piso', 'torre_piso_jefe', 'torre_cima', 'ruta_entrenador', 'ruta_semanal', 'ruta_nodo', 'ruta_vencido', 'ruta_jefe'])
       if (ARTE_MODOS.includes(c)) this.load.image(c, `modos/${c}.png`);

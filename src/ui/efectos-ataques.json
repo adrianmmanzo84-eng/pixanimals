@@ -31,6 +31,12 @@
    160
   ]
  },
+ "abismo_primigenio": {
+  "impacto": [
+   90,
+   87
+  ]
+ },
  "abismo_profundo": {
   "impacto": [
    96,
@@ -123,6 +129,18 @@
    54
   ]
  },
+ "alas_de_vitral": {
+  "impacto": [
+   57,
+   58
+  ]
+ },
+ "alas_planeadoras": {
+  "impacto": [
+   58,
+   49
+  ]
+ },
  "alba_negra": {
   "impacto": [
    118,
@@ -143,6 +161,12 @@
   "impacto": [
    90,
    82
+  ]
+ },
+ "alud_de_nieve": {
+  "impacto": [
+   90,
+   89
   ]
  },
  "amanecer_eterno": {
@@ -243,6 +267,12 @@
    160
   ]
  },
+ "bosque_jurasico": {
+  "impacto": [
+   58,
+   53
+  ]
+ },
  "bosque_primordial": {
   "impacto": [
    128,
@@ -251,6 +281,12 @@
   "pantalla": [
    240,
    119
+  ]
+ },
+ "bramido_helado": {
+  "impacto": [
+   57,
+   55
   ]
  },
  "brillo_de_cuarzo": {
@@ -339,6 +375,12 @@
   "impacto": [
    58,
    57
+  ]
+ },
+ "caparazon_cambrico": {
+  "impacto": [
+   58,
+   52
   ]
  },
  "caparazon_forjado": {
@@ -461,10 +503,22 @@
    58
   ]
  },
+ "coletazo_de_puas": {
+  "impacto": [
+   58,
+   55
+  ]
+ },
  "coletazo_marino": {
   "impacto": [
    57,
    52
+  ]
+ },
+ "colmillazo": {
+  "impacto": [
+   57,
+   51
   ]
  },
  "colmillo_de_basalto": {
@@ -488,6 +542,12 @@
  "colmillo_velado": {
   "impacto": [
    57,
+   57
+  ]
+ },
+ "colmillos_de_hielo": {
+  "impacto": [
+   58,
    57
   ]
  },
@@ -553,6 +613,16 @@
    160
   ]
  },
+ "corazon_jurasico": {
+  "impacto": [
+   120,
+   122
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "cornada_ignea": {
   "impacto": [
    58,
@@ -601,6 +671,18 @@
   "impacto": [
    55,
    58
+  ]
+ },
+ "corriente_termica": {
+  "impacto": [
+   53,
+   58
+  ]
+ },
+ "cresta_cortante": {
+  "impacto": [
+   58,
+   51
   ]
  },
  "cristal_quebrado": {
@@ -807,10 +889,26 @@
    57
   ]
  },
+ "enjambre_electrico": {
+  "impacto": [
+   90,
+   85
+  ]
+ },
  "envoltura_de_alas": {
   "impacto": [
    58,
    58
+  ]
+ },
+ "era_de_hielo": {
+  "impacto": [
+   115,
+   122
+  ],
+  "pantalla": [
+   240,
+   160
   ]
  },
  "era_glacial": {
@@ -915,6 +1013,12 @@
    96
   ]
  },
+ "estampida_de_hojas": {
+  "impacto": [
+   90,
+   79
+  ]
+ },
  "estampida_verde": {
   "impacto": [
    90,
@@ -1013,6 +1117,12 @@
    83
   ]
  },
+ "garra_primitiva": {
+  "impacto": [
+   57,
+   53
+  ]
+ },
  "garras_guadana": {
   "impacto": [
    58,
@@ -1027,6 +1137,12 @@
   "pantalla": [
    240,
    160
+  ]
+ },
+ "glaciacion": {
+  "impacto": [
+   90,
+   89
   ]
  },
  "glaciar_eterno": {
@@ -1071,6 +1187,12 @@
   "impacto": [
    90,
    87
+  ]
+ },
+ "gran_estampida": {
+  "impacto": [
+   90,
+   72
   ]
  },
  "gran_fundicion": {
@@ -1283,6 +1405,12 @@
    128
   ]
  },
+ "lluvia_de_meteoros": {
+  "impacto": [
+   90,
+   83
+  ]
+ },
  "lluvia_de_onice": {
   "impacto": [
    90,
@@ -1347,6 +1475,12 @@
    57
   ]
  },
+ "manada_glacial": {
+  "impacto": [
+   58,
+   55
+  ]
+ },
  "mandibula_de_magma": {
   "impacto": [
    58,
@@ -1373,6 +1507,12 @@
   "pantalla": [
    240,
    160
+  ]
+ },
+ "marea_cambrica": {
+  "impacto": [
+   55,
+   58
   ]
  },
  "marea_de_asedio": {
@@ -1445,6 +1585,12 @@
   "pantalla": [
    240,
    160
+  ]
+ },
+ "mil_facetas": {
+  "impacto": [
+   56,
+   58
   ]
  },
  "mil_faroles": {
@@ -1585,6 +1731,12 @@
    89
   ]
  },
+ "ojos_compuestos": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
  "ojos_del_abanico": {
   "impacto": [
    90,
@@ -1667,6 +1819,18 @@
    57
   ]
  },
+ "pelaje_glacial": {
+  "impacto": [
+   58,
+   55
+  ]
+ },
+ "picada_relampago": {
+  "impacto": [
+   54,
+   58
+  ]
+ },
  "picado_aurora": {
   "impacto": [
    96,
@@ -1683,6 +1847,12 @@
   "impacto": [
    90,
    87
+  ]
+ },
+ "picado_meteoro": {
+  "impacto": [
+   88,
+   90
   ]
  },
  "picado_nocturno": {
@@ -1707,6 +1877,12 @@
   "impacto": [
    64,
    61
+  ]
+ },
+ "picotazo_cretacico": {
+  "impacto": [
+   56,
+   54
   ]
  },
  "picotazo_igneo": {
@@ -1757,6 +1933,12 @@
    85
   ]
  },
+ "placas_de_hoja": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
  "planeo": {
   "impacto": [
    64,
@@ -1791,6 +1973,16 @@
   "impacto": [
    64,
    54
+  ]
+ },
+ "primer_oceano": {
+  "impacto": [
+   122,
+   122
+  ],
+  "pantalla": [
+   240,
+   160
   ]
  },
  "prisma_absoluto": {
@@ -1833,6 +2025,12 @@
   "impacto": [
    90,
    86
+  ]
+ },
+ "puas_milenarias": {
+  "impacto": [
+   58,
+   56
   ]
  },
  "pulir_escamas": {
@@ -1917,6 +2115,16 @@
    89
   ]
  },
+ "rayo_primordial": {
+  "impacto": [
+   119,
+   122
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
  "rayo_violeta": {
   "impacto": [
    96,
@@ -1961,6 +2169,12 @@
   "impacto": [
    90,
    86
+  ]
+ },
+ "remolino_cambrico": {
+  "impacto": [
+   90,
+   88
   ]
  },
  "remolino_del_vacio": {
@@ -2093,6 +2307,12 @@
    160
   ]
  },
+ "sol_del_jurasico": {
+  "impacto": [
+   55,
+   58
+  ]
+ },
  "sol_supremo": {
   "impacto": [
    128,
@@ -2135,6 +2355,12 @@
   "impacto": [
    55,
    58
+  ]
+ },
+ "tenaza_abisal": {
+  "impacto": [
+   58,
+   54
   ]
  },
  "tenaza_colosal": {
@@ -2253,6 +2479,12 @@
    93
   ]
  },
+ "tormenta_pantanosa": {
+  "impacto": [
+   90,
+   89
+  ]
+ },
  "tormenta_violeta": {
   "impacto": [
    128,
@@ -2290,6 +2522,16 @@
  "trueno_del_cretacico": {
   "impacto": [
    117,
+   122
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "ultimo_cielo": {
+  "impacto": [
+   122,
    122
   ],
   "pantalla": [
@@ -2395,10 +2637,22 @@
    52
   ]
  },
+ "vuelo_estatico": {
+  "impacto": [
+   58,
+   56
+  ]
+ },
  "vuelo_nocturno": {
   "impacto": [
    56,
    58
+  ]
+ },
+ "vuelo_rasante": {
+  "impacto": [
+   58,
+   42
   ]
  },
  "yunque_ardiente": {
@@ -2429,6 +2683,12 @@
   "impacto": [
    95,
    96
+  ]
+ },
+ "zumbido_voltaico": {
+  "impacto": [
+   58,
+   55
   ]
  }
 }

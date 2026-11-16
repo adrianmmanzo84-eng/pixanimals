@@ -235,6 +235,7 @@ export class Menu extends Phaser.Scene {
         t(guardianDePiso(DATOS, piso) ? 'menu.torreGuardian' : esJefe(DATOS, piso) ? 'menu.torreJefe' : 'menu.torre', { n: piso }),
         t(entrenadorCobrado(juego.estado, Date.now()) ? 'menu.entrenadorHecho' : 'menu.entrenador'),
         t(semanalCobrado(juego.estado, Date.now()) ? 'menu.semanalHecho' : 'menu.semanal', { t: DATOS.tipos.get(tipoDeLaSemana(DATOS, Date.now()))!.nombre }),
+        t(juego.estado.crono?.expedicion ? 'menu.cronoViaje' : 'menu.crono'),
       ];
     }
     const hayGratis = sobresGratis(DATOS, juego.estado, Date.now()).disponibles > 0;
@@ -461,8 +462,9 @@ export class Menu extends Phaser.Scene {
           this.modo = 'dificultad';
           this.sel = 1;
         } else {
-          const modo = (['desafio', 'torre', 'entrenador', 'semanal'] as const)[this.sel - 1]!;
-          if (modo === 'torre') this.scene.start('Torre');
+          const modo = (['desafio', 'torre', 'entrenador', 'semanal', 'crono'] as const)[this.sel - 1]!;
+          if (modo === 'crono') this.scene.start(juego.estado.crono?.expedicion ? 'CronoMapa' : 'Cronoportal');
+          else if (modo === 'torre') this.scene.start('Torre');
           else if (modo === 'desafio') this.scene.start('Desafio', { modo });
           else this.scene.start('Ruta', { modo });
           return;

@@ -203,9 +203,51 @@
     "vela_umbria": {
       "nombre": "Vela Umbría",
       "mecanica": "raices"
+    },
+    "garras_cambricas": {
+      "nombre": "Garras Cámbricas",
+      "mecanica": "oleaje"
+    },
+    "alas_estaticas": {
+      "nombre": "Alas Estáticas",
+      "mecanica": "oleaje"
+    },
+    "lomo_frondoso": {
+      "nombre": "Lomo Frondoso",
+      "mecanica": "raices"
+    },
+    "viento_cretacico": {
+      "nombre": "Viento Cretácico",
+      "mecanica": "ultimo_rescoldo"
+    },
+    "pelaje_eterno": {
+      "nombre": "Pelaje Eterno",
+      "mecanica": "raices"
     }
   },
   "definitivo": {
     "turnoMinimo": 5
+  },
+  "reglas": {
+    "marea": {
+      "cada": 3,
+      "mult": 1.25
+    },
+    "esporas": {
+      "prob": 20
+    },
+    "estampida": {
+      "cada": 4,
+      "porcentaje": 10
+    },
+    "meteoro": {
+      "turno": 8,
+      "porcentaje": 25
+    },
+    "frio": {
+      "inmunes": [
+        "brasa"
+      ]
+    }
   }
 }

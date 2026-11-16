@@ -1090,5 +1090,33 @@
    32,
    32
   ]
+ },
+ "medalla_crono_1": {
+  "ruta": "ui/medallas/medalla_crono_1.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_crono_2": {
+  "ruta": "ui/medallas/medalla_crono_2.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_crono_3": {
+  "ruta": "ui/medallas/medalla_crono_3.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_crono_bloqueada": {
+  "ruta": "ui/medallas/medalla_crono_bloqueada.png",
+  "tam": [
+   32,
+   32
+  ]
  }
 }

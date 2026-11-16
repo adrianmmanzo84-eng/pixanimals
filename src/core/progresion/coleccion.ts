@@ -118,6 +118,8 @@ export function progresoMedalla(datos: Datos, estado: EstadoJuego, id: string): 
       return estado.jefes.length;
     case 'mina':
       return estado.mina.guaridas?.length ?? 0;
+    case 'crono':
+      return estado.crono?.vencidas.length ?? 0;
     default:
       return 0;
   }

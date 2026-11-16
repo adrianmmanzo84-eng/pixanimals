@@ -634,6 +634,66 @@
   },
   "noxmetrodon": {
    "descripcion": "Undying deity of Shadow. Its sail holds a sky full of stars."
+  },
+  "anomalo_1": {
+   "descripcion": "A hatchling of the first ocean. Its stalk eyes watch everything with curiosity."
+  },
+  "anomalo_2": {
+   "descripcion": "It ripples its side flaps and hunts small fish with its two hooks."
+  },
+  "anomalo_3": {
+   "descripcion": "The most feared hunter of the ancient sea. Its spiny hooks never let go."
+  },
+  "anomalo_4": {
+   "descripcion": "Guardian of the first ocean. Its flaps shine like sails of amber."
+  },
+  "meganeura_1": {
+   "descripcion": "A swamp nymph. Its wing buds spark when it is happy."
+  },
+  "meganeura_2": {
+   "descripcion": "It tries out its four wings and buzzes among the giant ferns."
+  },
+  "meganeura_3": {
+   "descripcion": "A huge dragonfly. The veins of its wings store electricity."
+  },
+  "meganeura_4": {
+   "descripcion": "Guardian of the giant forest storms. Its wings are living stained glass."
+  },
+  "estego_1": {
+   "descripcion": "Little leaves sprout instead of plates. It wags its tail while eating."
+  },
+  "estego_2": {
+   "descripcion": "Its plates are big leaves that follow the sun all day."
+  },
+  "estego_3": {
+   "descripcion": "Its plates hardened like autumn leaves. Nobody goes near its tail."
+  },
+  "estego_4": {
+   "descripcion": "Guardian of the Jurassic herd. It carries a whole forest on its back."
+  },
+  "ptero_1": {
+   "descripcion": "It can't fly yet, but it jumps off rocks flapping its little wings."
+  },
+  "ptero_2": {
+   "descripcion": "It glides over the cliffs looking for warm air currents."
+  },
+  "ptero_3": {
+   "descripcion": "A great sunset glider. Its crest cuts through the wind."
+  },
+  "ptero_4": {
+   "descripcion": "Guardian of the last sky. It crosses the sunset with a comet trail."
+  },
+  "mamut_1": {
+   "descripcion": "A round woolly calf. It curls its trunk to sleep."
+  },
+  "mamut_2": {
+   "descripcion": "Frost sticks to its fur and it doesn't even notice."
+  },
+  "mamut_3": {
+   "descripcion": "It carries rock and ice tangled in its fur. Its steps shake the tundra."
+  },
+  "mamut_4": {
+   "descripcion": "Guardian of the Ice Age. Its ice tusks hold amber."
   }
  },
  "habilidades": {
@@ -1758,6 +1818,126 @@
   },
   "eclipse_fosil": {
    "nombre": "Fossil Eclipse"
+  },
+  "garra_primitiva": {
+   "nombre": "Primal Claw"
+  },
+  "tenaza_abisal": {
+   "nombre": "Abyssal Pincer"
+  },
+  "caparazon_cambrico": {
+   "nombre": "Cambrian Shell"
+  },
+  "ojos_compuestos": {
+   "nombre": "Compound Eyes"
+  },
+  "marea_cambrica": {
+   "nombre": "Cambrian Tide"
+  },
+  "remolino_cambrico": {
+   "nombre": "Cambrian Whirl"
+  },
+  "abismo_primigenio": {
+   "nombre": "Primeval Abyss"
+  },
+  "primer_oceano": {
+   "nombre": "First Ocean"
+  },
+  "zumbido_voltaico": {
+   "nombre": "Volt Buzz"
+  },
+  "picada_relampago": {
+   "nombre": "Lightning Dive"
+  },
+  "alas_de_vitral": {
+   "nombre": "Glass Wings"
+  },
+  "vuelo_estatico": {
+   "nombre": "Static Flight"
+  },
+  "mil_facetas": {
+   "nombre": "Thousand Facets"
+  },
+  "enjambre_electrico": {
+   "nombre": "Electric Swarm"
+  },
+  "tormenta_pantanosa": {
+   "nombre": "Swamp Storm"
+  },
+  "rayo_primordial": {
+   "nombre": "Primordial Bolt"
+  },
+  "coletazo_de_puas": {
+   "nombre": "Spike Swipe"
+  },
+  "puas_milenarias": {
+   "nombre": "Ancient Spikes"
+  },
+  "placas_de_hoja": {
+   "nombre": "Leaf Plates"
+  },
+  "sol_del_jurasico": {
+   "nombre": "Jurassic Sun"
+  },
+  "bosque_jurasico": {
+   "nombre": "Jurassic Grove"
+  },
+  "estampida_de_hojas": {
+   "nombre": "Leaf Stampede"
+  },
+  "gran_estampida": {
+   "nombre": "Great Stampede"
+  },
+  "corazon_jurasico": {
+   "nombre": "Jurassic Heart"
+  },
+  "picotazo_cretacico": {
+   "nombre": "Cretaceous Peck"
+  },
+  "cresta_cortante": {
+   "nombre": "Crest Slash"
+  },
+  "alas_planeadoras": {
+   "nombre": "Gliding Wings"
+  },
+  "corriente_termica": {
+   "nombre": "Thermal Current"
+  },
+  "vuelo_rasante": {
+   "nombre": "Skimming Flight"
+  },
+  "picado_meteoro": {
+   "nombre": "Meteor Dive"
+  },
+  "lluvia_de_meteoros": {
+   "nombre": "Meteor Shower"
+  },
+  "ultimo_cielo": {
+   "nombre": "Last Sky"
+  },
+  "colmillazo": {
+   "nombre": "Tusk Strike"
+  },
+  "colmillos_de_hielo": {
+   "nombre": "Ice Tusks"
+  },
+  "pelaje_glacial": {
+   "nombre": "Glacial Fur"
+  },
+  "bramido_helado": {
+   "nombre": "Frozen Bellow"
+  },
+  "manada_glacial": {
+   "nombre": "Glacial Herd"
+  },
+  "alud_de_nieve": {
+   "nombre": "Snow Slide"
+  },
+  "glaciacion": {
+   "nombre": "Glaciation"
+  },
+  "era_de_hielo": {
+   "nombre": "Ice Age"
   }
  },
  "items": {

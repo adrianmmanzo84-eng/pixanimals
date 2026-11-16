@@ -1,4 +1,5 @@
-import { animar, confeti, type ClaveAnim } from '../ui/animaciones';
+import { equipoExpedicion, nodoActual, reglaDe, rivalesNodo, terminarCombate } from '../core/modos/crono';
+import { animar, confeti, crearAnimaciones, type ClaveAnim } from '../ui/animaciones';
 import { equipoEstacion, ganarEstacion, type ModoRuta } from '../core/modos/rutas';
 import { describirHabilidad } from '../ui/habilidadTexto';
 import Phaser from 'phaser';
@@ -38,7 +39,7 @@ import { partir, Texto } from '../ui/texto';
 export interface ConfigCombate {
   ia: NivelIA;
   /** rapido: rival parejo al azar; torre: el piso `piso`; entrenador: el Entrenador del día; semanal: el Jefe de la semana; desafio: el Desafío del día (equipo prestado, igual para todos). */
-  modo?: 'rapido' | 'torre' | 'entrenador' | 'semanal' | 'desafio' | 'mina';
+  modo?: 'rapido' | 'torre' | 'entrenador' | 'semanal' | 'desafio' | 'mina' | 'crono';
   piso?: number;
   /** mina: zona de la guarida cuyo monstruo se enfrenta. */
   zona?: number;
@@ -163,7 +164,10 @@ export class Combate extends Phaser.Scene {
     const semilla = desafio ? desafio.semilla : (Date.now() ^ (Math.random() * 0x7fffffff)) >>> 0;
     const rng = new Rng(semilla);
     this.rngIA = new Rng(semilla ^ 0x9e3779b9);
-    const mios = equipoDe(juego.estado);
+    // Cronoportal: pelean las que siguen en pie en la expedición, con la vida que les quedó.
+    const ex = modo === 'crono' ? juego.estado.crono?.expedicion : undefined;
+    const nodoCrono = modo === 'crono' ? nodoActual(DATOS, juego.estado) : null;
+    const mios = ex ? equipoExpedicion(juego.estado) : equipoDe(juego.estado);
     const prestados = desafio ? equiposDesafio(DATOS, desafio) : null;
     const rival = prestados
       ? prestados[1]
@@ -177,17 +181,22 @@ export class Combate extends Phaser.Scene {
             ? equipoSemanal(DATOS, Date.now(), mios)
             : modo === 'mina'
               ? equipoGuarida(DATOS, this.cfg.zona ?? 1, mios.length)
-              : generarRival(DATOS, mios, rng);
+              : ex && nodoCrono
+                ? rivalesNodo(DATOS, ex.era, nodoCrono, ex.semilla, mios.length)
+                : generarRival(DATOS, mios, rng);
     this.rivalInicial = rival[0]!.especie.id;
-    this.bat = new Batalla(DATOS, [prestados ? prestados[0] : mios.map((c) => combatienteDe(DATOS, c)), rival], rng);
+    const propios = prestados ? prestados[0] : mios.map((c) => combatienteDe(DATOS, c));
+    if (ex) for (const cb of propios) cb.ps = Math.max(1, Math.round(cb.stats.ps * (ex.vida[cb.especie.id] ?? 1)));
+    this.bat = new Batalla(DATOS, [propios, rival], rng);
+    if (ex) this.bat.regla = reglaDe(DATOS, ex.era);
     // Ataque Definitivo: siempre para ti; entre los rivales, solo jefes de la Torre y el Entrenador del día, que lo cargan avisando.
     const jefe = modo === 'torre' && datosPiso(DATOS, this.cfg.piso ?? 1, 1).jefe;
-    this.bat.definitivoPermitido = [true, ((modo === 'entrenador' || modo === 'semanal') && !this.esPrevia()) || modo === 'mina' || jefe];
+    this.bat.definitivoPermitido = [true, ((modo === 'entrenador' || modo === 'semanal') && !this.esPrevia()) || modo === 'mina' || jefe || nodoCrono?.tipo === 'jefe'];
     this.bat.definitivoConCarga = [false, true];
     // Cada modo tiene su música; el combate rápido alterna entre tres canciones.
     const pisoTorre = modo === 'torre' ? datosPiso(DATOS, this.cfg.piso ?? 1, 1) : null;
     musica.tocar(
-      pisoTorre ? (pisoTorre.guardian ? 'guardian' : pisoTorre.jefe ? 'jefe' : 'torre') : modo === 'entrenador' ? 'entrenador' : modo === 'semanal' ? 'semanal' : modo === 'desafio' ? 'torre' : modo === 'mina' ? 'jefe' : ['combate', 'combate2', 'combate3'][Math.floor(Math.random() * 3)]!,
+      pisoTorre ? (pisoTorre.guardian ? 'guardian' : pisoTorre.jefe ? 'jefe' : 'torre') : modo === 'entrenador' ? 'entrenador' : modo === 'semanal' ? 'semanal' : modo === 'desafio' ? 'torre' : modo === 'mina' || nodoCrono?.tipo === 'jefe' ? 'jefe' : ['combate', 'combate2', 'combate3'][Math.floor(Math.random() * 3)]!,
     );
     this.verRival();
 
@@ -205,7 +214,8 @@ export class Combate extends Phaser.Scene {
     const arena = rng.prob(25) ? 'pradera' : (FONDO_POR_TIPO[el.especie.tipo] ?? 'pradera');
     this.mundo = this.add.container(0, 0);
     // La guarida de la Mina usa su propio fondo (960×455, como los demás fondos de combate).
-    const guarida = modo === 'mina' ? `mina_guarida${this.cfg.zona ?? 1}` : '';
+    const exCrono = modo === 'crono' ? juego.estado.crono?.expedicion : undefined;
+    const guarida = modo === 'mina' ? `mina_guarida${this.cfg.zona ?? 1}` : exCrono ? `crono_era${exCrono.era}` : '';
     if (guarida && this.textures.exists(guarida)) this.mundo.add(this.add.image(0, 0, guarida).setOrigin(0, 0).setScale(240 / 960)); else this.mundo.add(this.add.image(0, 0, fondo(this, modo === 'mina' ? 'volcan' : arena)).setOrigin(0, 0).setScale(0.25));
     this.sprites = [
       this.add.image(POS[0].x - 120, POS[0].y, textura(yo.especie.id, 'espalda', yo.brillante)).setOrigin(0.5, ORIGEN_Y),
@@ -270,6 +280,11 @@ export class Combate extends Phaser.Scene {
       const p = datosPiso(DATOS, this.cfg.piso ?? 1, 1);
       await this.decir(t(p.jefe ? 'c.torreJefe' : 'c.torre', { n: p.piso }));
       if (p.guardian) await this.decir(t('c.guardian', { n: this.nom(1) }));
+    }
+    if (this.cfg.modo === 'crono' && this.bat.regla) {
+      const ex = juego.estado.crono!.expedicion!;
+      await this.decir(t(nodoActual(DATOS, juego.estado)?.tipo === 'jefe' ? 'c.cronoJefe' : 'c.crono', { e: t(`crono.era${ex.era}`) }));
+      await this.decir(t(`crono.regla.${this.bat.regla}`));
     }
     if (this.bat.act(1).brillante) this.efectoSobre(1, 'fx_brillante');
     await this.decir(t('c.aparece', { n: this.nom(1) }));
@@ -344,6 +359,9 @@ export class Combate extends Phaser.Scene {
           sonido.tocar('escudo');
           this.temblor(300, 0.012);
           await this.decir(t('c.definitivoBloqueado', { n: this.nom(e.lado) }));
+          break;
+        case 'regla':
+          await this.animRegla(e);
           break;
         case 'dano': {
           const atacante = (1 - e.lado) as Lado;
@@ -451,6 +469,98 @@ export class Combate extends Phaser.Scene {
     this.pintarEstado(1);
   }
 
+  /** Efecto visual y mensaje de la regla de la era (Cronoportal). */
+  private async animRegla(e: Extract<Evento, { t: 'regla' }>): Promise<void> {
+    const lado = e.lado;
+    switch (e.regla) {
+      case 'marea':
+        sonido.tocar('giro');
+        if (this.anims.exists('crono_marea') || this.textures.exists('crono_marea')) void animar(this, 'crono_marea', 120, 92, { contenedor: this.mundo, profundidad: 25, quedar: 900 });
+        await this.decir(t('crono.c.marea'));
+        break;
+      case 'esporas':
+        if (lado !== undefined) this.efectoSobre(lado, 'crono_esporas');
+        await this.decir(t('crono.c.esporas', { n: this.nom(lado ?? 0) }));
+        break;
+      case 'estampida': {
+        sonido.tocar('golpe_fuerte');
+        crearAnimaciones(this);
+        const m = this.add.sprite(-60, 84, 'crono_estampida').setDepth(25);
+        this.mundo.add(m);
+        m.play('crono_estampida');
+        this.temblor(500, 0.012);
+        this.tweens.add({ targets: m, x: 300, duration: 900, onComplete: () => m.destroy() });
+        if (lado !== undefined) {
+          await this.esperar(400);
+          await this.animGolpe(lado);
+          if (e.ps !== undefined) await this.animarPs(lado, e.ps);
+        }
+        await this.decir(t('crono.c.estampida', { n: this.nom(lado ?? 0) }));
+        break;
+      }
+      case 'meteoro':
+        if (e.turnos && e.turnos > 0) {
+          await this.decir(t('crono.c.meteoroCuenta', { n: e.turnos }));
+          break;
+        }
+        if (lado === undefined) {
+          // Cae: el meteoro cruza y estalla en el centro.
+          crearAnimaciones(this);
+          const m = this.add.sprite(230, -10, 'crono_meteoro').setDepth(40);
+          this.mundo.add(m);
+          m.play('crono_meteoro');
+          sonido.tocar('explota');
+          await this.tween({ targets: m, x: 120, y: 70, duration: 600, ease: 'Quad.easeIn' });
+          m.destroy();
+          this.cameras.main.flash(300, 255, 200, 120);
+          this.temblor(600, 0.02);
+          void animar(this, 'crono_meteoro_impacto', 120, 66, { contenedor: this.mundo, profundidad: 40, escala: 1.5 });
+          await this.decir(t('crono.c.meteoro'));
+        } else if (e.ps !== undefined) await this.animarPs(lado, e.ps);
+        break;
+      case 'frio':
+        if (lado !== undefined) this.efectoSobre(lado, 'crono_escarcha');
+        await this.decir(t('crono.c.frio', { n: this.nom(lado ?? 0) }));
+        break;
+    }
+  }
+
+  /** Fin de un combate del Cronoportal: guarda la vida del equipo, cobra y vuelve al mapa (o al portal). */
+  private async resultadoCrono(retirada: boolean): Promise<void> {
+    const r = aplicarRecompensa(DATOS, juego.estado, this.bat, this.cfg.ia, retirada, 0);
+    const vidas: Record<string, number> = {};
+    for (const c of this.bat.equipos[0].miembros) vidas[c.especie.id] = c.ps / c.stats.ps;
+    const res = terminarCombate(DATOS, juego.estado, r.victoria && !retirada, vidas);
+    juego.guardar();
+    musica.tocar(r.victoria ? 'victoria' : 'derrota');
+    const lineas: string[] = [];
+    if (res.monedas) lineas.push(t('fin.monedas', { n: res.monedas }));
+    if (r.xpPorCriatura) lineas.push(t('fin.xp', { n: r.xpPorCriatura }));
+    for (const s of r.subidas) lineas.push(t('fin.sube', { n: this.nomMia(s.especie), nv: s.nivel }));
+    if (res.fin === 'jefe') {
+      lineas.push(t('crono.fin.jefe', { f: res.fosiles, a: res.ambar }));
+      if (res.eraNueva) lineas.push(t('crono.fin.eraNueva'));
+    }
+    if (res.fin === 'derrota') lineas.push(...partir(t('crono.fin.derrota'), 146));
+    const alto = 34 + lineas.length * 9;
+    const g = this.add.graphics();
+    ventana(g, 44, 32, 152, alto);
+    new Texto(this, 44, 38, 152, 12, r.victoria ? '#257179' : C.resalte, 'centro', { tam: 9.5, peso: 600 }).poner(t(retirada ? 'fin.retirada' : r.victoria ? 'fin.victoria' : 'fin.derrota'));
+    new Texto(this, 44, 51, 152, lineas.length * 9 + 4, C.tinta, 'centro').poner(lineas.join('\n'));
+    new Texto(this, 44, 53 + lineas.length * 9, 152, 10, C.tintaSuave, 'centro').poner(t('fin.continuar'));
+    this.msg.poner('');
+    if (r.subidas.length) this.efectoSobre(0, 'fx_subir_nivel');
+    if (res.fin === 'jefe') confeti(this, 120, 26, 22);
+    await this.esperar(400);
+    this.alPulsar = (a) => {
+      if (a !== 'a' && a !== 'b') return;
+      sonido.tocar('aceptar');
+      if (res.fin === 'sigue') this.scene.start('CronoMapa', {});
+      else if (res.fin === 'jefe') this.scene.start('Premio', { volver: { escena: 'Cronoportal', datos: {} } });
+      else this.scene.start('Cronoportal', {});
+    };
+  }
+
   /** Ganó una insignia de jefe en este combate (para su efecto en la ventana final). */
   private ganoInsignia = false;
 
@@ -473,6 +583,7 @@ export class Combate extends Phaser.Scene {
   private async resultado(retirada: boolean): Promise<void> {
     const modo = this.cfg.modo ?? 'rapido';
     if (modo === 'desafio') return this.resultadoDesafio();
+    if (modo === 'crono') return this.resultadoCrono(retirada);
     // Torre y Entrenador pagan su propio premio en lugar de las monedas por dificultad.
     const r = aplicarRecompensa(DATOS, juego.estado, this.bat, this.cfg.ia, retirada, modo === 'rapido' ? undefined : 0);
     const extra: string[] = [];

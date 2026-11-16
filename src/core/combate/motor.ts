@@ -94,7 +94,12 @@ export type Evento =
   | { t: 'definitivo'; lado: Lado }
   | { t: 'definitivo_bloqueado'; lado: Lado }
   | { t: 'debilitado'; lado: Lado }
+  /** Regla de la era del Cronoportal (D232): aviso y, si corresponde, a quién afecta y cuánto. */
+  | { t: 'regla'; regla: ReglaEra; lado?: Lado; cantidad?: number; ps?: number; turnos?: number }
   | { t: 'fin'; ganador: Lado | null };
+
+/** Reglas de las eras del Cronoportal. */
+export type ReglaEra = 'marea' | 'esporas' | 'estampida' | 'meteoro' | 'frio';
 
 export interface OpcionesCombatiente {
   setPrueba?: boolean;
@@ -151,6 +156,12 @@ export class Batalla {
   definitivoCargado: [boolean, boolean] = [false, false];
   /** Multiplicador de daño de este turno por lado (golpe justo del jugador). La escena lo pone y lo vuelve a 1. */
   potenciador: [number, number] = [1, 1];
+  /** Regla de la era (Cronoportal); null en los demás modos. */
+  regla: ReglaEra | null = null;
+  /** Marea alta: en los turnos múltiplos de 3 los ataques de tipo Marea pegan más. */
+  mareaAlta(): boolean {
+    return this.regla === 'marea' && this.turno % this.datos.balance.reglas.marea.cada === 0;
+  }
 
   constructor(
     readonly datos: Datos,
@@ -409,6 +420,7 @@ export class Batalla {
     if (yo.oleaje) otros *= b.pasivas.oleaje.mult;
     if (yo.estado?.id === 'quemadura' && categoria === 'fisica') otros *= b.estados.quemadura.multFisico;
     otros *= this.potenciador[lado];
+    if (tipo === 'marea' && this.mareaAlta()) otros *= b.reglas.marea.mult;
     if (consumir) yo.oleaje = false;
     return calcularDano(
       {
@@ -640,6 +652,67 @@ export class Batalla {
         ev.push({ t: 'cansancio', lado, cantidad, ps: c.ps });
         if (c.ps <= 0) this.trasCaida(lado, ev);
       }
+    }
+    if (!this.terminado && this.regla) this.aplicarRegla(ev);
+  }
+
+  /** Efecto de la regla de la era al final del turno. */
+  private aplicarRegla(ev: Evento[]): void {
+    const r = this.datos.balance.reglas;
+    const vivos = ([0, 1] as Lado[]).filter((l) => this.act(l).ps > 0);
+    switch (this.regla) {
+      case 'marea':
+        // Aviso un turno antes de que suba el agua.
+        if ((this.turno + 1) % r.marea.cada === 0) ev.push({ t: 'regla', regla: 'marea', turnos: 1 });
+        break;
+      case 'esporas':
+        if (vivos.length && this.rng.prob(r.esporas.prob)) {
+          const lado = vivos[this.rng.entero(0, vivos.length - 1)]!;
+          if (!this.act(lado).estado) {
+            ev.push({ t: 'regla', regla: 'esporas', lado });
+            this.aplicarEstado(lado, this.rng.prob(50) ? 'veneno' : 'sueno', ev, true);
+          }
+        }
+        break;
+      case 'estampida':
+        if (this.turno % r.estampida.cada === 0 && vivos.length) {
+          const lado = vivos.reduce((a, b) => (this.act(b).ps / this.act(b).stats.ps < this.act(a).ps / this.act(a).stats.ps ? b : a));
+          const c = this.act(lado);
+          const cantidad = Math.min(c.ps, Math.max(1, Math.floor(c.stats.ps * r.estampida.porcentaje / 100)));
+          c.ps -= cantidad;
+          ev.push({ t: 'regla', regla: 'estampida', lado, cantidad, ps: c.ps });
+          if (c.ps <= 0) this.trasCaida(lado, ev);
+        }
+        break;
+      case 'meteoro': {
+        const faltan = r.meteoro.turno - this.turno;
+        if (faltan > 0 && (faltan <= 3 || this.turno === 1)) ev.push({ t: 'regla', regla: 'meteoro', turnos: faltan });
+        if (faltan === 0) {
+          ev.push({ t: 'regla', regla: 'meteoro', turnos: 0 });
+          // Cae: todas las criaturas en pie de los dos equipos quedan con a lo sumo un 25 % de vida.
+          for (const lado of [0, 1] as Lado[])
+            this.equipos[lado].miembros.forEach((c, i) => {
+              if (c.ps <= 0) return;
+              const tope = Math.max(1, Math.floor(c.stats.ps * r.meteoro.porcentaje / 100));
+              if (c.ps > tope) {
+                c.ps = tope;
+                if (i === this.equipos[lado].activo) ev.push({ t: 'regla', regla: 'meteoro', lado, ps: c.ps, turnos: 0 });
+              }
+            });
+        }
+        break;
+      }
+      case 'frio':
+        for (const lado of vivos) {
+          const c = this.act(lado);
+          if (r.frio.inmunes.includes(c.especie.tipo)) continue;
+          const max = this.datos.balance.etapas.max;
+          if (c.etapas.vel > -max) {
+            c.etapas.vel--;
+            ev.push({ t: 'regla', regla: 'frio', lado });
+          }
+        }
+        break;
     }
   }
 

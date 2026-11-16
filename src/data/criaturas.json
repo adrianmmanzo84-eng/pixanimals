@@ -5660,6 +5660,726 @@
       "evoluciona": [],
       "origen": "mina",
       "definitivo": "eclipse_fosil"
+    },
+    {
+      "id": "anomalo_1",
+      "nombre": "Anomalopix",
+      "tipo": "marea",
+      "familia": "anomalo",
+      "etapa": 1,
+      "pasiva": "garras_cambricas",
+      "base": {
+        "ps": 51,
+        "atq": 61,
+        "def": 49,
+        "ate": 44,
+        "dfe": 49,
+        "vel": 56
+      },
+      "habilidades": [
+        "garra_primitiva",
+        "caparazon_cambrico",
+        "ojos_compuestos",
+        "remolino_cambrico"
+      ],
+      "habilidadesPrueba": [
+        "garra_primitiva",
+        "caparazon_cambrico",
+        "ojos_compuestos",
+        "remolino_cambrico"
+      ],
+      "descripcion": "Cría del primer océano. Sus ojos sobre tallos lo miran todo con curiosidad.",
+      "sprites": "anomalo_1",
+      "evoluciona": [
+        {
+          "a": "anomalo_2",
+          "nivel": 16
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "anomalo_2",
+      "nombre": "Anomalopixel",
+      "tipo": "marea",
+      "familia": "anomalo",
+      "etapa": 2,
+      "pasiva": "garras_cambricas",
+      "base": {
+        "ps": 64,
+        "atq": 78,
+        "def": 62,
+        "ate": 55,
+        "dfe": 62,
+        "vel": 71
+      },
+      "habilidades": [
+        "tenaza_abisal",
+        "caparazon_cambrico",
+        "ojos_compuestos",
+        "remolino_cambrico"
+      ],
+      "habilidadesPrueba": [
+        "tenaza_abisal",
+        "caparazon_cambrico",
+        "ojos_compuestos",
+        "remolino_cambrico"
+      ],
+      "descripcion": "Ondula sus aletas laterales y caza pececitos con sus dos ganchos.",
+      "sprites": "anomalo_2",
+      "evoluciona": [
+        {
+          "a": "anomalo_3",
+          "nivel": 28
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "anomalo_3",
+      "nombre": "Anomalomegapix",
+      "tipo": "marea",
+      "familia": "anomalo",
+      "etapa": 3,
+      "pasiva": "garras_cambricas",
+      "base": {
+        "ps": 77,
+        "atq": 92,
+        "def": 73,
+        "ate": 65,
+        "dfe": 73,
+        "vel": 85
+      },
+      "habilidades": [
+        "tenaza_abisal",
+        "caparazon_cambrico",
+        "marea_cambrica",
+        "remolino_cambrico"
+      ],
+      "habilidadesPrueba": [
+        "tenaza_abisal",
+        "caparazon_cambrico",
+        "marea_cambrica",
+        "remolino_cambrico"
+      ],
+      "descripcion": "El cazador más temido del mar antiguo. Sus ganchos espinosos no sueltan.",
+      "sprites": "anomalo_3",
+      "evoluciona": [
+        {
+          "a": "anomalo_4",
+          "nivel": 40
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "anomalo_4",
+      "nombre": "Anomalogigapix",
+      "tipo": "marea",
+      "familia": "anomalo",
+      "etapa": 4,
+      "pasiva": "garras_cambricas",
+      "base": {
+        "ps": 89,
+        "atq": 107,
+        "def": 85,
+        "ate": 76,
+        "dfe": 85,
+        "vel": 98
+      },
+      "habilidades": [
+        "tenaza_abisal",
+        "caparazon_cambrico",
+        "marea_cambrica",
+        "abismo_primigenio"
+      ],
+      "habilidadesPrueba": [
+        "tenaza_abisal",
+        "caparazon_cambrico",
+        "marea_cambrica",
+        "abismo_primigenio"
+      ],
+      "descripcion": "Guardián del primer océano. Sus aletas brillan como velas de ámbar.",
+      "sprites": "anomalo_4",
+      "evoluciona": [],
+      "origen": "crono",
+      "definitivo": "primer_oceano"
+    },
+    {
+      "id": "meganeura_1",
+      "nombre": "Meganeupix",
+      "tipo": "rayo",
+      "familia": "meganeura",
+      "etapa": 1,
+      "pasiva": "alas_estaticas",
+      "base": {
+        "ps": 46,
+        "atq": 44,
+        "def": 44,
+        "ate": 62,
+        "dfe": 49,
+        "vel": 65
+      },
+      "habilidades": [
+        "zumbido_voltaico",
+        "alas_de_vitral",
+        "vuelo_estatico",
+        "enjambre_electrico"
+      ],
+      "habilidadesPrueba": [
+        "zumbido_voltaico",
+        "alas_de_vitral",
+        "vuelo_estatico",
+        "enjambre_electrico"
+      ],
+      "descripcion": "Ninfa del pantano. Sus brotes de alas chispean cuando está contenta.",
+      "sprites": "meganeura_1",
+      "evoluciona": [
+        {
+          "a": "meganeura_2",
+          "nivel": 16
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "meganeura_2",
+      "nombre": "Meganeupixel",
+      "tipo": "rayo",
+      "familia": "meganeura",
+      "etapa": 2,
+      "pasiva": "alas_estaticas",
+      "base": {
+        "ps": 58,
+        "atq": 56,
+        "def": 56,
+        "ate": 78,
+        "dfe": 62,
+        "vel": 82
+      },
+      "habilidades": [
+        "picada_relampago",
+        "alas_de_vitral",
+        "vuelo_estatico",
+        "enjambre_electrico"
+      ],
+      "habilidadesPrueba": [
+        "picada_relampago",
+        "alas_de_vitral",
+        "vuelo_estatico",
+        "enjambre_electrico"
+      ],
+      "descripcion": "Estrena sus cuatro alas y zumba entre los helechos gigantes.",
+      "sprites": "meganeura_2",
+      "evoluciona": [
+        {
+          "a": "meganeura_3",
+          "nivel": 28
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "meganeura_3",
+      "nombre": "Meganeumegapix",
+      "tipo": "rayo",
+      "familia": "meganeura",
+      "etapa": 3,
+      "pasiva": "alas_estaticas",
+      "base": {
+        "ps": 69,
+        "atq": 66,
+        "def": 66,
+        "ate": 93,
+        "dfe": 74,
+        "vel": 97
+      },
+      "habilidades": [
+        "picada_relampago",
+        "alas_de_vitral",
+        "mil_facetas",
+        "enjambre_electrico"
+      ],
+      "habilidadesPrueba": [
+        "picada_relampago",
+        "alas_de_vitral",
+        "mil_facetas",
+        "enjambre_electrico"
+      ],
+      "descripcion": "Una libélula enorme. Las nervaduras de sus alas guardan electricidad.",
+      "sprites": "meganeura_3",
+      "evoluciona": [
+        {
+          "a": "meganeura_4",
+          "nivel": 40
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "meganeura_4",
+      "nombre": "Meganeugigapix",
+      "tipo": "rayo",
+      "familia": "meganeura",
+      "etapa": 4,
+      "pasiva": "alas_estaticas",
+      "base": {
+        "ps": 82,
+        "atq": 76,
+        "def": 76,
+        "ate": 108,
+        "dfe": 86,
+        "vel": 112
+      },
+      "habilidades": [
+        "picada_relampago",
+        "alas_de_vitral",
+        "mil_facetas",
+        "tormenta_pantanosa"
+      ],
+      "habilidadesPrueba": [
+        "picada_relampago",
+        "alas_de_vitral",
+        "mil_facetas",
+        "tormenta_pantanosa"
+      ],
+      "descripcion": "Guardiana de las tormentas del bosque gigante. Sus alas son vitrales vivos.",
+      "sprites": "meganeura_4",
+      "evoluciona": [],
+      "origen": "crono",
+      "definitivo": "rayo_primordial"
+    },
+    {
+      "id": "estego_1",
+      "nombre": "Estegopix",
+      "tipo": "brote",
+      "familia": "estego",
+      "etapa": 1,
+      "pasiva": "lomo_frondoso",
+      "base": {
+        "ps": 59,
+        "atq": 57,
+        "def": 67,
+        "ate": 39,
+        "dfe": 52,
+        "vel": 36
+      },
+      "habilidades": [
+        "coletazo_de_puas",
+        "placas_de_hoja",
+        "sol_del_jurasico",
+        "estampida_de_hojas"
+      ],
+      "habilidadesPrueba": [
+        "coletazo_de_puas",
+        "placas_de_hoja",
+        "sol_del_jurasico",
+        "estampida_de_hojas"
+      ],
+      "descripcion": "En lugar de placas le brotan hojitas. Mueve la cola cuando come.",
+      "sprites": "estego_1",
+      "evoluciona": [
+        {
+          "a": "estego_2",
+          "nivel": 16
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "estego_2",
+      "nombre": "Estegopixel",
+      "tipo": "brote",
+      "familia": "estego",
+      "etapa": 2,
+      "pasiva": "lomo_frondoso",
+      "base": {
+        "ps": 75,
+        "atq": 72,
+        "def": 85,
+        "ate": 49,
+        "dfe": 65,
+        "vel": 46
+      },
+      "habilidades": [
+        "puas_milenarias",
+        "placas_de_hoja",
+        "sol_del_jurasico",
+        "estampida_de_hojas"
+      ],
+      "habilidadesPrueba": [
+        "puas_milenarias",
+        "placas_de_hoja",
+        "sol_del_jurasico",
+        "estampida_de_hojas"
+      ],
+      "descripcion": "Sus placas son hojas grandes que siguen al sol durante el día.",
+      "sprites": "estego_2",
+      "evoluciona": [
+        {
+          "a": "estego_3",
+          "nivel": 28
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "estego_3",
+      "nombre": "Estegomegapix",
+      "tipo": "brote",
+      "familia": "estego",
+      "etapa": 3,
+      "pasiva": "lomo_frondoso",
+      "base": {
+        "ps": 89,
+        "atq": 85,
+        "def": 101,
+        "ate": 58,
+        "dfe": 78,
+        "vel": 54
+      },
+      "habilidades": [
+        "puas_milenarias",
+        "placas_de_hoja",
+        "bosque_jurasico",
+        "estampida_de_hojas"
+      ],
+      "habilidadesPrueba": [
+        "puas_milenarias",
+        "placas_de_hoja",
+        "bosque_jurasico",
+        "estampida_de_hojas"
+      ],
+      "descripcion": "Sus placas se endurecieron como hojas de otoño. Nadie se acerca a su cola.",
+      "sprites": "estego_3",
+      "evoluciona": [
+        {
+          "a": "estego_4",
+          "nivel": 40
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "estego_4",
+      "nombre": "Estegogigapix",
+      "tipo": "brote",
+      "familia": "estego",
+      "etapa": 4,
+      "pasiva": "lomo_frondoso",
+      "base": {
+        "ps": 103,
+        "atq": 99,
+        "def": 117,
+        "ate": 68,
+        "dfe": 90,
+        "vel": 63
+      },
+      "habilidades": [
+        "puas_milenarias",
+        "placas_de_hoja",
+        "bosque_jurasico",
+        "gran_estampida"
+      ],
+      "habilidadesPrueba": [
+        "puas_milenarias",
+        "placas_de_hoja",
+        "bosque_jurasico",
+        "gran_estampida"
+      ],
+      "descripcion": "Guardián de la manada jurásica. Lleva un bosque entero sobre el lomo.",
+      "sprites": "estego_4",
+      "evoluciona": [],
+      "origen": "crono",
+      "definitivo": "corazon_jurasico"
+    },
+    {
+      "id": "ptero_1",
+      "nombre": "Pteropix",
+      "tipo": "cielo",
+      "familia": "ptero",
+      "etapa": 1,
+      "pasiva": "viento_cretacico",
+      "base": {
+        "ps": 49,
+        "atq": 62,
+        "def": 44,
+        "ate": 46,
+        "dfe": 44,
+        "vel": 65
+      },
+      "habilidades": [
+        "picotazo_cretacico",
+        "alas_planeadoras",
+        "corriente_termica",
+        "picado_meteoro"
+      ],
+      "habilidadesPrueba": [
+        "picotazo_cretacico",
+        "alas_planeadoras",
+        "corriente_termica",
+        "picado_meteoro"
+      ],
+      "descripcion": "Todavía no sabe volar, pero salta desde las rocas batiendo sus alitas.",
+      "sprites": "ptero_1",
+      "evoluciona": [
+        {
+          "a": "ptero_2",
+          "nivel": 16
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "ptero_2",
+      "nombre": "Pteropixel",
+      "tipo": "cielo",
+      "familia": "ptero",
+      "etapa": 2,
+      "pasiva": "viento_cretacico",
+      "base": {
+        "ps": 61,
+        "atq": 78,
+        "def": 56,
+        "ate": 59,
+        "dfe": 56,
+        "vel": 82
+      },
+      "habilidades": [
+        "cresta_cortante",
+        "alas_planeadoras",
+        "corriente_termica",
+        "picado_meteoro"
+      ],
+      "habilidadesPrueba": [
+        "cresta_cortante",
+        "alas_planeadoras",
+        "corriente_termica",
+        "picado_meteoro"
+      ],
+      "descripcion": "Planea sobre los acantilados buscando corrientes de aire tibio.",
+      "sprites": "ptero_2",
+      "evoluciona": [
+        {
+          "a": "ptero_3",
+          "nivel": 28
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "ptero_3",
+      "nombre": "Pteromegapix",
+      "tipo": "cielo",
+      "familia": "ptero",
+      "etapa": 3,
+      "pasiva": "viento_cretacico",
+      "base": {
+        "ps": 73,
+        "atq": 93,
+        "def": 66,
+        "ate": 70,
+        "dfe": 66,
+        "vel": 97
+      },
+      "habilidades": [
+        "cresta_cortante",
+        "alas_planeadoras",
+        "vuelo_rasante",
+        "picado_meteoro"
+      ],
+      "habilidadesPrueba": [
+        "cresta_cortante",
+        "alas_planeadoras",
+        "vuelo_rasante",
+        "picado_meteoro"
+      ],
+      "descripcion": "Gran planeador del atardecer. Su cresta corta el viento.",
+      "sprites": "ptero_3",
+      "evoluciona": [
+        {
+          "a": "ptero_4",
+          "nivel": 40
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "ptero_4",
+      "nombre": "Pterogigapix",
+      "tipo": "cielo",
+      "familia": "ptero",
+      "etapa": 4,
+      "pasiva": "viento_cretacico",
+      "base": {
+        "ps": 87,
+        "atq": 108,
+        "def": 76,
+        "ate": 81,
+        "dfe": 76,
+        "vel": 112
+      },
+      "habilidades": [
+        "cresta_cortante",
+        "alas_planeadoras",
+        "vuelo_rasante",
+        "lluvia_de_meteoros"
+      ],
+      "habilidadesPrueba": [
+        "cresta_cortante",
+        "alas_planeadoras",
+        "vuelo_rasante",
+        "lluvia_de_meteoros"
+      ],
+      "descripcion": "Guardián del último cielo. Cruza el atardecer con estela de cometa.",
+      "sprites": "ptero_4",
+      "evoluciona": [],
+      "origen": "crono",
+      "definitivo": "ultimo_cielo"
+    },
+    {
+      "id": "mamut_1",
+      "nombre": "Mamutpix",
+      "tipo": "roca",
+      "familia": "mamut",
+      "etapa": 1,
+      "pasiva": "pelaje_eterno",
+      "base": {
+        "ps": 70,
+        "atq": 59,
+        "def": 62,
+        "ate": 36,
+        "dfe": 52,
+        "vel": 31
+      },
+      "habilidades": [
+        "colmillazo",
+        "pelaje_glacial",
+        "bramido_helado",
+        "alud_de_nieve"
+      ],
+      "habilidadesPrueba": [
+        "colmillazo",
+        "pelaje_glacial",
+        "bramido_helado",
+        "alud_de_nieve"
+      ],
+      "descripcion": "Cría lanuda y redonda. Se enrosca la trompa para dormir.",
+      "sprites": "mamut_1",
+      "evoluciona": [
+        {
+          "a": "mamut_2",
+          "nivel": 16
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "mamut_2",
+      "nombre": "Mamutpixel",
+      "tipo": "roca",
+      "familia": "mamut",
+      "etapa": 2,
+      "pasiva": "pelaje_eterno",
+      "base": {
+        "ps": 89,
+        "atq": 75,
+        "def": 78,
+        "ate": 46,
+        "dfe": 65,
+        "vel": 39
+      },
+      "habilidades": [
+        "colmillos_de_hielo",
+        "pelaje_glacial",
+        "bramido_helado",
+        "alud_de_nieve"
+      ],
+      "habilidadesPrueba": [
+        "colmillos_de_hielo",
+        "pelaje_glacial",
+        "bramido_helado",
+        "alud_de_nieve"
+      ],
+      "descripcion": "La escarcha se le pega al pelaje y él ni se da cuenta.",
+      "sprites": "mamut_2",
+      "evoluciona": [
+        {
+          "a": "mamut_3",
+          "nivel": 28
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "mamut_3",
+      "nombre": "Mamutmegapix",
+      "tipo": "roca",
+      "familia": "mamut",
+      "etapa": 3,
+      "pasiva": "pelaje_eterno",
+      "base": {
+        "ps": 105,
+        "atq": 89,
+        "def": 93,
+        "ate": 54,
+        "dfe": 78,
+        "vel": 46
+      },
+      "habilidades": [
+        "colmillos_de_hielo",
+        "pelaje_glacial",
+        "manada_glacial",
+        "alud_de_nieve"
+      ],
+      "habilidadesPrueba": [
+        "colmillos_de_hielo",
+        "pelaje_glacial",
+        "manada_glacial",
+        "alud_de_nieve"
+      ],
+      "descripcion": "Lleva roca y hielo enganchados al pelo. Su paso hace temblar la tundra.",
+      "sprites": "mamut_3",
+      "evoluciona": [
+        {
+          "a": "mamut_4",
+          "nivel": 40
+        }
+      ],
+      "origen": "crono"
+    },
+    {
+      "id": "mamut_4",
+      "nombre": "Mamutgigapix",
+      "tipo": "roca",
+      "familia": "mamut",
+      "etapa": 4,
+      "pasiva": "pelaje_eterno",
+      "base": {
+        "ps": 122,
+        "atq": 103,
+        "def": 108,
+        "ate": 63,
+        "dfe": 90,
+        "vel": 54
+      },
+      "habilidades": [
+        "colmillos_de_hielo",
+        "pelaje_glacial",
+        "manada_glacial",
+        "glaciacion"
+      ],
+      "habilidadesPrueba": [
+        "colmillos_de_hielo",
+        "pelaje_glacial",
+        "manada_glacial",
+        "glaciacion"
+      ],
+      "descripcion": "Guardián de la Edad de Hielo. Sus colmillos de hielo guardan ámbar.",
+      "sprites": "mamut_4",
+      "evoluciona": [],
+      "origen": "crono",
+      "definitivo": "era_de_hielo"
     }
   ]
 }
