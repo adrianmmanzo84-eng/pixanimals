@@ -37,6 +37,7 @@ import { Ruta } from './escenas/Ruta';
 import { Cronoportal } from './escenas/Cronoportal';
 import { CronoMapa } from './escenas/CronoMapa';
 import { ESCALA } from './ui/texto';
+import { iniciarDiag, montarDiag } from './diag';
 
 /** El mundo del juego mide 240×160; se dibuja a 4× para que letras y fondos salgan suaves. */
 const ANCHO = 240 * ESCALA;
@@ -75,6 +76,7 @@ function textosDePagina(): void {
 }
 
 async function iniciar(): Promise<void> {
+  iniciarDiag();
   // Idioma: nombres y descripciones de los datos, y los textos fijos de la página.
   traducirDatos(DATOS);
   textosDePagina();
@@ -155,6 +157,8 @@ async function iniciar(): Promise<void> {
   ajustarEscala(juego.canvas);
   // Solo en desarrollo: acceso desde la consola para pruebas visuales.
   if (import.meta.env.DEV) Object.assign(window, { __pixGame: juego });
+  // Modo diagnóstico (?diag): versión, pantalla, errores y archivos faltantes en un recuadro.
+  montarDiag(juego);
   window.addEventListener('resize', () => ajustarEscala(juego.canvas));
 }
 
