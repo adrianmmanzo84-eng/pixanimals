@@ -48,6 +48,9 @@ const POR_COLUMNA = 6;
 const COL_X = [40, 126];
 
 /** Menú principal: desde aquí se entra a todo lo demás. */
+/** Píxeles de pantalla por píxel del ícono del equipo en el menú. */
+const ESCALA_ICONO = 3;
+
 export class Menu extends Phaser.Scene {
   /** El jugador eligió «más tarde» para las ofertas de ataques (hasta que vuelva a abrir el juego). */
   static ofertasVistas = false;
@@ -140,7 +143,8 @@ export class Menu extends Phaser.Scene {
     const equipo = equipoDe(estado);
     equipo.forEach((c, i) => {
       const x = 10 + i * 76;
-      const icono = this.add.sprite(x + 16, 135, textura(c.especie, 'icono'), 0);
+      // Ícono de 32×32 a ESCALA_ICONO píxeles de pantalla por píxel (D238; antes 4, se veía grande y gordo).
+      const icono = this.add.sprite(x + 16, 135, textura(c.especie, 'icono'), 0).setScale(ESCALA_ICONO / 4);
       let cuadro = 0;
       this.time.addEvent({ delay: 420, loop: true, callback: () => icono.setFrame((cuadro ^= 1)) });
       // Los nombres largos (y los apodos de 12 letras) van con letra más chica para entrar en su lugar.
@@ -150,7 +154,7 @@ export class Menu extends Phaser.Scene {
         saludoHecho = true;
         this.time.delayedCall(450, () => {
           sonido.grito(c.especie);
-          this.tweens.add({ targets: icono, y: 128, duration: 140, yoyo: true, repeat: 1, ease: 'Quad.easeOut' });
+          this.tweens.add({ targets: icono, y: icono.y - 7, duration: 140, yoyo: true, repeat: 1, ease: 'Quad.easeOut' });
         });
       }
       new Texto(this, x + 33, 134, 44, 10, C.tintaSuave).poner(t('nv', { n: c.nivel }) + (c.brillante ? ' ✦' : ''));
@@ -167,7 +171,7 @@ export class Menu extends Phaser.Scene {
       const n1 = PASOS_GUIA.indexOf(paso) + 1;
       this.cartelGuia = this.add.container(0, 0, [
         g,
-        new Texto(this, 34, 101, 50, 10, '#ffffff', 'centro', { tam: 6, peso: 600 }).poner(t('guia.etiqueta', { n: n1, t: PASOS_GUIA.length })).imagen,
+        new Texto(this, 34, 102.25, 50, 10, '#ffffff', 'centro', { tam: 6, peso: 600 }).poner(t('guia.etiqueta', { n: n1, t: PASOS_GUIA.length })).imagen,
         new Texto(this, 88, 101, 120, 10, C.tinta, 'izq', { tam: 6.6, peso: 600 }).poner(t(`guia.${paso.id}`)).imagen,
       ]);
       if (this.modo === 'principal') this.sel = paso.opcion;
@@ -180,7 +184,7 @@ export class Menu extends Phaser.Scene {
         g.fillStyle(0x7a56b0, 1).fillRoundedRect(34, 101, 64, 10, 3);
         this.cartelGuia = this.add.container(0, 0, [
           g,
-          new Texto(this, 34, 101, 64, 10, '#ffffff', 'centro', { tam: 5.8, peso: 600 }).poner(t(`evento.${ev.id}`)).imagen,
+          new Texto(this, 34, 102.25, 64, 10, '#ffffff', 'centro', { tam: 5.8, peso: 600 }).poner(t(`evento.${ev.id}`)).imagen,
           new Texto(this, 102, 101, 106, 10, C.tinta, 'izq', { tam: 6, peso: 600 }).poner(t(`evento.${ev.id}.desc`)).imagen,
         ]);
       }
