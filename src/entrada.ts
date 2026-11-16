@@ -38,20 +38,23 @@ function iniciarStick(): void {
   const base = document.getElementById('stick');
   const perilla = document.getElementById('perilla');
   if (!base || !perilla) return;
-  const MUERTA = 0.32; // zona muerta (fracción del radio)
-  const PRIMERA = 380; // ms antes de empezar a repetir
-  const REPETIR = 130; // ms entre repeticiones
+  const MUERTA = 0.24; // zona muerta (fracción del radio)
+  const PRIMERA = 500; // ms antes de empezar a repetir
+  const REPETIR = 220; // ms entre repeticiones
+  /** Medio ancho del sector de cada eje: 75° deja diagonales de 60° (antes 45°, costaban). */
+  const SECTOR = (Math.PI * 5) / 12;
   let dedo: number | null = null;
-  let principal: AccionEntrada | null = null;
+  let estado = '';
   let reloj: ReturnType<typeof setTimeout> | null = null;
   const parar = () => {
     if (reloj) clearTimeout(reloj);
     reloj = null;
   };
-  const repetir = (a: AccionEntrada, espera: number) => {
+  /** Repite las direcciones del estado; en diagonal alterna las dos (así se avanza en diagonal). */
+  const repetir = (dirs: AccionEntrada[], i: number, espera: number) => {
     reloj = setTimeout(() => {
-      emitir(a);
-      repetir(a, REPETIR);
+      emitir(dirs[i % dirs.length]!);
+      repetir(dirs, i + 1, REPETIR);
     }, espera);
   };
   const DIRS: AccionEntrada[] = ['arriba', 'abajo', 'izquierda', 'derecha'];
@@ -69,31 +72,34 @@ function iniciarStick(): void {
     const fuerza = Math.min(1, largo);
     vector.x = fuerza > MUERTA ? dx : 0;
     vector.y = fuerza > MUERTA ? dy : 0;
-    // Apretadas: las direcciones del ángulo, con diagonales (sector de 45° alrededor de cada eje).
     for (const d of DIRS) apretadas.delete(d);
-    let nueva: AccionEntrada | null = null;
+    const dirs: AccionEntrada[] = [];
     if (fuerza > MUERTA) {
       const ang = Math.atan2(dy, dx);
-      const cerca = (a: number) => Math.abs(Math.atan2(Math.sin(ang - a), Math.cos(ang - a))) < (Math.PI * 3) / 8;
-      if (cerca(0)) apretadas.add('derecha');
-      if (cerca(Math.PI)) apretadas.add('izquierda');
-      if (cerca(Math.PI / 2)) apretadas.add('abajo');
-      if (cerca(-Math.PI / 2)) apretadas.add('arriba');
-      nueva = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? 'derecha' : 'izquierda') : dy > 0 ? 'abajo' : 'arriba';
+      const cerca = (a: number) => Math.abs(Math.atan2(Math.sin(ang - a), Math.cos(ang - a))) < SECTOR;
+      // Primero el eje dominante: es el que se emite al entrar en la diagonal.
+      const vertical: AccionEntrada | null = cerca(Math.PI / 2) ? 'abajo' : cerca(-Math.PI / 2) ? 'arriba' : null;
+      const horizontal: AccionEntrada | null = cerca(0) ? 'derecha' : cerca(Math.PI) ? 'izquierda' : null;
+      const domina = Math.abs(dx) > Math.abs(dy) ? [horizontal, vertical] : [vertical, horizontal];
+      for (const d of domina) if (d) dirs.push(d);
+      for (const d of dirs) apretadas.add(d);
     }
-    if (nueva !== principal) {
-      principal = nueva;
-      parar();
-      if (nueva) {
-        emitir(nueva);
-        repetir(nueva, PRIMERA);
-      }
-    }
+    const clave = [...dirs].sort().join('+');
+    if (clave === estado) return;
+    const antes = estado.split('+').filter(Boolean) as AccionEntrada[];
+    estado = clave;
+    parar();
+    if (!dirs.length) return;
+    // Al pasar de un eje a la diagonal que lo contiene, se emite el otro (no se repite el que ya iba).
+    const nuevo = dirs.find((d) => !antes.includes(d)) ?? dirs[0]!;
+    emitir(nuevo);
+    const orden = dirs.length > 1 ? [dirs.find((d) => d !== nuevo)!, nuevo] : dirs;
+    repetir(orden, 0, PRIMERA);
   };
   const soltar = (e: PointerEvent) => {
     if (e.pointerId !== dedo) return;
     dedo = null;
-    principal = null;
+    estado = '';
     parar();
     vector.x = vector.y = 0;
     for (const d of DIRS) apretadas.delete(d);
