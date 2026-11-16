@@ -149,7 +149,7 @@ export class Menu extends Phaser.Scene {
       this.time.addEvent({ delay: 420, loop: true, callback: () => icono.setFrame((cuadro ^= 1)) });
       // Los nombres largos (y los apodos de 12 letras) van con letra más chica para entrar en su lugar.
       const nombre = (c.favorita ? '★' : '') + nombreDe(DATOS, c);
-      new Texto(this, x + 33, 124, 44, 10, C.tinta, 'izq', nombre.length > 9 ? { tam: nombre.length > 11 ? 5.4 : 6.2 } : {}).poner(nombre);
+      new Texto(this, x + 31, 126, 46, 9, C.tinta, 'izq', { tam: nombre.length > 11 ? 5 : nombre.length > 9 ? 5.6 : 6.2, peso: 600 }).poner(nombre);
       if (c.favorita && !saludoHecho) {
         saludoHecho = true;
         this.time.delayedCall(450, () => {
@@ -157,7 +157,7 @@ export class Menu extends Phaser.Scene {
           this.tweens.add({ targets: icono, y: icono.y - 7, duration: 140, yoyo: true, repeat: 1, ease: 'Quad.easeOut' });
         });
       }
-      new Texto(this, x + 33, 134, 44, 10, C.tintaSuave).poner(t('nv', { n: c.nivel }) + (c.brillante ? ' ✦' : ''));
+      new Texto(this, x + 31, 135, 46, 9, C.tintaSuave, 'izq', { tam: 5.6 }).poner(t('nv', { n: c.nivel }) + (c.brillante ? ' ✦' : ''));
     });
     if (!equipo.length) new Texto(this, 10, 130, 220, 10, C.tintaSuave, 'centro').poner(t('menu.sinEquipo'));
     this.ayuda = new Texto(this, 0, 98, 240, 10, '#ffffff', 'centro', { borde: '#2b3a78' }).visible(false);
