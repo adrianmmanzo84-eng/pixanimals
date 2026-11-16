@@ -80,7 +80,8 @@ export const Entrada = {
       gesto();
       window.setTimeout(() => emitir('a'), 90);
     });
-    const tactil = window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
+    // `?movil` fuerza el diseño de teléfono en la PC (para verlo sin instalar la app, D248).
+    const tactil = window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window || new URLSearchParams(location.search).has('movil');
     document.body.classList.toggle('tactil', tactil);
   },
 };
