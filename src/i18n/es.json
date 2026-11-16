@@ -718,5 +718,6 @@
   "crono.ev.manantial.o0": "Beber (+35 % de vida)",
   "crono.ev.manantial.o1": "Buscar monedas en el fondo (+40 monedas)",
   "crono.ev.manantial.r0": "El agua fresca reanimó a tu equipo.",
-  "crono.ev.manantial.r1": "Encontraste {m} monedas en el fondo."
+  "crono.ev.manantial.r1": "Encontraste {m} monedas en el fondo.",
+  "arranque.cargando": "Cargando… {n} %"
 }

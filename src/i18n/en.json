@@ -718,5 +718,6 @@
   "crono.ev.manantial.o0": "Drink (+35% HP)",
   "crono.ev.manantial.o1": "Search the bottom for coins (+40 coins)",
   "crono.ev.manantial.r0": "The fresh water revived your team.",
-  "crono.ev.manantial.r1": "You found {m} coins at the bottom."
+  "crono.ev.manantial.r1": "You found {m} coins at the bottom.",
+  "arranque.cargando": "Loading… {n}%"
 }

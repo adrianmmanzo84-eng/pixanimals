@@ -6,8 +6,10 @@ import { cargarArteUI, prepararArteUI } from '../ui/arte';
 import { prepararTexturasCriaturas } from '../ui/criaturas';
 import { cargarEfectosIlustrados, crearTexturasEfectos } from '../ui/efectos';
 import { FONDOS_ILUSTRADOS } from '../ui/fondos';
+import { prepararCamara } from '../ui/estilo';
+import { Texto } from '../ui/texto';
+import { t } from '../i18n/i18n';
 
-/** Carga los sprites de todas las criaturas definidas en los datos. */
 /** Fondos de minijuego a resolución exacta ya entregados (vacío: se usa el de combate ampliado). */
 const FONDOS_MINIJUEGO: string[] = [];
 
@@ -17,6 +19,7 @@ export class Arranque extends Phaser.Scene {
   }
 
   preload(): void {
+    this.pantallaDeCarga();
     for (const id of FONDOS_ILUSTRADOS) this.load.image(`fondoimg_${id}`, `fondos/${id}.jpg`);
     cargarEfectosIlustrados(this);
     cargarArteUI(this);
@@ -48,6 +51,20 @@ export class Arranque extends Phaser.Scene {
       this.load.image(`${c.sprites}_espalda`, `sprites/${c.sprites}_espalda.png`);
       this.load.spritesheet(`${c.sprites}_icono`, `sprites/${c.sprites}_icono.png`, { frameWidth: 32, frameHeight: 32 });
     }
+  }
+
+  /** Pantalla de carga (D239): nombre del juego, barra y porcentaje mientras bajan las imágenes y sonidos. */
+  private pantallaDeCarga(): void {
+    prepararCamara(this);
+    new Texto(this, 0, 58, 240, 18, '#ffd76a', 'centro', { tam: 14, peso: 600, borde: '#2b3a78' }).poner('PIXANIMALS');
+    const g = this.add.graphics();
+    g.fillStyle(0x333c57, 1).fillRoundedRect(50, 84, 140, 8, 3);
+    const barra = this.add.graphics();
+    const txt = new Texto(this, 0, 96, 240, 10, '#c7cfdd', 'centro', { tam: 6.4 }).poner(t('arranque.cargando', { n: 0 }));
+    this.load.on('progress', (v: number) => {
+      barra.clear().fillStyle(0x41a6f6, 1).fillRoundedRect(51, 85, Math.max(4, 138 * v), 6, 2);
+      txt.poner(t('arranque.cargando', { n: Math.floor(v * 100) }));
+    });
   }
 
   create(): void {
