@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="theme-color" content="#1a1c2c" />
     <title>PIXANIMALS</title>
     <meta name="description" content="Colecciona criaturas pixel art, combate y juega minijuegos. Gratis, sin compras ni registros." />
@@ -62,6 +62,26 @@
       #guardado .estado { min-height: 18px; font-weight: 600; color: #2b6a3f; }
       #ayuda { font-size: 12px; color: #94b0c2; text-align: center; }
       body.tactil #ayuda { display: none; }
+      /* ---- Celular y tableta (D241): juego a toda la altura, controles semitransparentes a los costados ---- */
+      #ajustes-boton, #girar { display: none; }
+      body.tactil { --t: min(12vh, 48px); }
+      body.tactil #app { height: 100%; padding: 0; gap: 0; justify-content: center; }
+      body.tactil #pantalla { border: 0; border-radius: 0; }
+      body.tactil #pantalla canvas { border-radius: 0; }
+      body.tactil #mando { display: block; position: fixed; inset: 0; max-width: none; padding: 0; pointer-events: none; z-index: 3; }
+      body.tactil #cruz { position: fixed; left: calc(env(safe-area-inset-left, 0px) + 1.2vh); bottom: calc(env(safe-area-inset-bottom, 0px) + 3vh); grid-template-columns: repeat(3, var(--t)); grid-template-rows: repeat(3, var(--t)); pointer-events: auto; opacity: 0.55; }
+      body.tactil #cruz button { width: var(--t); height: var(--t); font-size: calc(var(--t) * 0.36); background: rgba(51, 60, 87, 0.85); }
+      body.tactil #botones { position: fixed; right: calc(env(safe-area-inset-right, 0px) + 1.6vh); bottom: calc(env(safe-area-inset-bottom, 0px) + 4vh); gap: calc(var(--t) * 0.22); pointer-events: auto; opacity: 0.6; }
+      body.tactil #botones button { width: calc(var(--t) * 1.15); height: calc(var(--t) * 1.15); font-size: calc(var(--t) * 0.4); }
+      body.tactil #botones button[data-accion="a"] { margin-bottom: calc(var(--t) * 0.55); }
+      body.tactil #mando button.pulsado, body.tactil #mando button:active { opacity: 1; }
+      body.tactil #barra { display: none; position: fixed; inset: auto; top: 50%; left: 50%; right: auto; transform: translate(-50%, -50%); z-index: 6; width: min(92vw, 560px); padding: 14px; gap: 8px; justify-content: center; background: rgba(16, 20, 44, 0.96); border: 2px solid #566c86; border-radius: 12px; }
+      body.tactil.ajustes-abiertos #barra { display: flex; }
+      body.tactil #barra button { height: 40px; font-size: 13px; padding: 0 10px; }
+      body.tactil #ajustes-boton { display: flex; align-items: center; justify-content: center; position: fixed; z-index: 4; top: calc(env(safe-area-inset-top, 0px) + 1.2vh); left: calc(env(safe-area-inset-left, 0px) + 1.2vh); width: 40px; height: 40px; border-radius: 50%; border: 2px solid #566c86; background: rgba(41, 54, 111, 0.6); color: #f4f4f4; font-size: 20px; padding: 0; }
+      body.tactil.vertical #girar { display: flex; position: fixed; inset: 0; z-index: 8; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: #1a1c2c; color: #f4f4f4; font: 600 18px system-ui, sans-serif; text-align: center; padding: 24px; }
+      #girar .icono { font-size: 64px; animation: girar 2.4s ease-in-out infinite; }
+      @keyframes girar { 0%, 30% { transform: rotate(0deg); } 60%, 100% { transform: rotate(-90deg); } }
     </style>
   </head>
   <body>
@@ -75,6 +95,8 @@
       <button id="vol-efectos" type="button" title="Volumen de los efectos">Efectos ■■■</button>
       <button id="silencio" type="button" aria-pressed="false">Sonido: sí</button>
     </div>
+    <button id="ajustes-boton" type="button" aria-label="Ajustes">⚙</button>
+    <div id="girar" role="alert"><div class="icono">📱</div><div id="girar-texto">Gira el teléfono para jugar</div></div>
     <div id="app">
       <div id="pantalla"></div>
       <div id="mando" aria-label="Controles táctiles">

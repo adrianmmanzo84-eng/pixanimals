@@ -46,16 +46,62 @@ const ALTO = 160 * ESCALA;
 /** El lienzo ocupa todo el espacio disponible manteniendo la proporción 3:2. */
 function ajustarEscala(canvas: HTMLCanvasElement): void {
   const tactil = document.body.classList.contains('tactil');
-  // La barra de ajustes puede ocupar una o dos filas (según el ancho y el botón Instalar): el juego empieza debajo.
-  const barra = document.getElementById('barra');
+  document.body.classList.toggle('vertical', tactil && window.innerHeight > window.innerWidth);
   const app = document.getElementById('app');
-  const arriba = (barra?.offsetHeight ?? 36) + 16;
-  if (app) app.style.paddingTop = `${arriba}px`;
-  const anchoDisp = window.innerWidth - 22;
-  const altoDisp = window.innerHeight - arriba - (tactil ? 238 : 58);
-  const ancho = Math.max(240, Math.min(anchoDisp, altoDisp * 1.5, ANCHO * 1.5));
+  let ancho: number;
+  if (tactil) {
+    // Celular o tableta (D241): el juego ocupa toda la altura; los controles flotan semitransparentes encima.
+    if (app) app.style.paddingTop = '0px';
+    // Se deja lugar a los costados para la cruz y A/B (3 botones de ancho), achicando el juego como mucho un 10 %.
+    const alto = window.innerHeight;
+    const boton = Math.min(alto * 0.12, 48);
+    const margen = boton * 3 + 14;
+    const lleno = Math.min(window.innerWidth, alto * 1.5);
+    ancho = Math.min(lleno, Math.max(window.innerWidth - 2 * margen, lleno * 0.9));
+  } else {
+    // La barra de ajustes puede ocupar una o dos filas (según el ancho y el botón Instalar): el juego empieza debajo.
+    const barra = document.getElementById('barra');
+    const arriba = (barra?.offsetHeight ?? 36) + 16;
+    if (app) app.style.paddingTop = `${arriba}px`;
+    const anchoDisp = window.innerWidth - 22;
+    const altoDisp = window.innerHeight - arriba - 58;
+    ancho = Math.max(240, Math.min(anchoDisp, altoDisp * 1.5, ANCHO * 1.5));
+  }
   canvas.style.width = `${Math.floor(ancho)}px`;
   canvas.style.height = `${Math.floor(ancho / 1.5)}px`;
+}
+
+/** Celular: ajustes detrás del botón ⚙, pantalla completa horizontal y botón Atrás de Android como B (D241). */
+function prepararCelular(): void {
+  if (!document.body.classList.contains('tactil')) return;
+  const boton = document.getElementById('ajustes-boton');
+  boton?.addEventListener('pointerdown', (e) => {
+    e.stopPropagation();
+    document.body.classList.toggle('ajustes-abiertos');
+  });
+  // Tocar fuera del panel de ajustes lo cierra.
+  document.addEventListener('pointerdown', (e) => {
+    if (!document.body.classList.contains('ajustes-abiertos')) return;
+    const t = e.target as HTMLElement;
+    if (t.closest('#barra') || t.closest('#ajustes-boton')) return;
+    document.body.classList.remove('ajustes-abiertos');
+  });
+  // Pantalla completa y giro fijo al primer toque (el navegador solo lo permite tras un gesto).
+  Entrada.alPrimerGesto(() => {
+    const raiz = document.documentElement as HTMLElement & { requestFullscreen?: (o?: FullscreenOptions) => Promise<void> };
+    if (!document.fullscreenElement && raiz.requestFullscreen)
+      void raiz
+        .requestFullscreen({ navigationUI: 'hide' })
+        .then(() => (screen.orientation as ScreenOrientation & { lock?: (o: string) => Promise<void> }).lock?.('landscape'))
+        .catch(() => undefined);
+  });
+  // Botón Atrás del teléfono: en vez de salir del juego, funciona como B.
+  history.pushState({ pix: 1 }, '');
+  window.addEventListener('popstate', () => {
+    if (document.body.classList.contains('ajustes-abiertos')) document.body.classList.remove('ajustes-abiertos');
+    else Entrada.pulsar('b');
+    history.pushState({ pix: 1 }, '');
+  });
 }
 
 /** Textos fijos de index.html (ayuda de teclas, botón Instalar, instrucciones de iPhone) en el idioma elegido. */
@@ -66,6 +112,8 @@ function textosDePagina(): void {
     if (el) el[html ? 'innerHTML' : 'textContent'] = t(clave);
   };
   poner('ayuda', 'pag.teclas');
+  poner('girar-texto', 'pag.girar');
+  document.getElementById('ajustes-boton')?.setAttribute('aria-label', t('pag.ajustes'));
   poner('instalar', 'pag.instalar');
   poner('ayuda-instalar-titulo', 'pag.ios.titulo');
   poner('ios-paso1', 'pag.ios.paso1', true);
@@ -82,6 +130,7 @@ async function iniciar(): Promise<void> {
   textosDePagina();
   iniciarPWA();
   Entrada.iniciar();
+  prepararCelular();
   Entrada.alPrimerGesto(() => sonido.activar());
 
   // Barra de ajustes: velocidad del combate, cámara, volumen de música y de efectos (0 a 3) y silencio general.

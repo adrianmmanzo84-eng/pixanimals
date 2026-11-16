@@ -14,11 +14,15 @@ let huboGesto = false;
 /** Acciones que están apretadas ahora (para minijuegos que se mueven mientras mantienes la flecha). */
 const apretadas = new Set<AccionEntrada>();
 
+/** El primer gesto (toque o tecla) habilita el audio y la pantalla completa: debe correr dentro del gesto. */
+function gesto(): void {
+  if (huboGesto) return;
+  huboGesto = true;
+  alPrimerGesto.forEach((f) => f());
+}
+
 function emitir(a: AccionEntrada): void {
-  if (!huboGesto) {
-    huboGesto = true;
-    alPrimerGesto.forEach((f) => f());
-  }
+  gesto();
   oyente?.(a);
 }
 
@@ -26,6 +30,10 @@ export const Entrada = {
   /** Solo hay un oyente activo: la escena o el menú que tiene el foco. */
   escuchar(f: Oyente | null): void {
     oyente = f;
+  },
+  /** Emite una acción desde fuera del teclado y del mando (botón Atrás de Android). */
+  pulsar(a: AccionEntrada): void {
+    emitir(a);
   },
   /** ¿Está apretada ahora esta acción? */
   apretada(a: AccionEntrada): boolean {
@@ -66,7 +74,12 @@ export const Entrada = {
       boton.addEventListener('pointercancel', soltar);
     });
     // Tocar la pantalla del juego equivale a A (avanzar texto).
-    document.getElementById('pantalla')?.addEventListener('pointerdown', () => emitir('a'));
+    // Se espera un instante (D241): primero el juego mueve la elección a la opción tocada y después se confirma.
+    // Antes la confirmación llegaba primero y un toque abría la opción que estaba marcada, no la tocada.
+    document.getElementById('pantalla')?.addEventListener('pointerdown', () => {
+      gesto();
+      window.setTimeout(() => emitir('a'), 90);
+    });
     const tactil = window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
     document.body.classList.toggle('tactil', tactil);
   },

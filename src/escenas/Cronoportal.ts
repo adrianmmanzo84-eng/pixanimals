@@ -93,7 +93,7 @@ export class Cronoportal extends Phaser.Scene {
         g.fillStyle(n(C.resalte), 1).fillTriangle(10, y + 2, 10, y + 8, 13, y + 5);
       }
       new Texto(this, 16, y, 124, 11, activa ? C.resalte : color, 'izq', { tam: 7, peso: activa ? 600 : 500 }).poner(texto);
-      this.puntero.zona(8, y - 1, 132, 12, () => (i === this.sel ? this.tecla('a') : this.mover(i)));
+      this.puntero.zona(8, y - 1, 132, 12, () => (i === this.sel ? undefined : this.mover(i)));
     });
 
     // Detalle de lo marcado.
@@ -192,7 +192,7 @@ export class Cronoportal extends Phaser.Scene {
       new Texto(this, x - 21, y + 54, 42, 9, C.tintaSuave, 'centro', { tam: 5.4 }).poner(tiene ? DATOS.criaturas.get(cria)!.nombre : t(`crono.era${i + 1}`));
       const listo = puedeRevivir(DATOS, juego.estado, fam);
       new Texto(this, x - 21, y + 64, 42, 9, tiene ? '#2f7a48' : listo ? C.resalte : C.apagado, 'centro', { tam: 5.4, peso: 600 }).poner(t(tiene ? 'crono.labTiene' : listo ? 'crono.labListo' : 'crono.labFalta'));
-      this.puntero.zona(x - 21, y, 42, 76, () => (i === this.sel ? this.teclaLab('a') : (sonido.tocar('cursor'), this.scene.restart({ lab: true, sel: i }))));
+      this.puntero.zona(x - 21, y, 42, 76, () => (i === this.sel ? undefined : (sonido.tocar('cursor'), this.scene.restart({ lab: true, sel: i }))));
     });
     new Texto(this, 10, 118, 220, 24, this.aviso ? C.resalte : C.tinta, 'izq', { tam: 6.4 }).poner(partir(this.aviso || t('crono.labAyuda'), 218, 6.4).join('\n'));
     new Texto(this, 4, 146, 232, 10, C.tintaSuave, 'centro', { tam: 6 }).poner(t('crono.labTeclas'));

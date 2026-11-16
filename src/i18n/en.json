@@ -719,5 +719,7 @@
   "crono.ev.manantial.o1": "Search the bottom for coins (+40 coins)",
   "crono.ev.manantial.r0": "The fresh water revived your team.",
   "crono.ev.manantial.r1": "You found {m} coins at the bottom.",
-  "arranque.cargando": "Loading… {n}%"
+  "arranque.cargando": "Loading… {n}%",
+  "pag.girar": "Turn your phone sideways to play",
+  "pag.ajustes": "Settings"
 }

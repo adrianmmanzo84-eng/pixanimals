@@ -84,7 +84,7 @@ export class CronoMapa extends Phaser.Scene {
       if (this.textures.exists(icono)) this.add.image(p.x, p.y, icono).setAlpha(visitado && x.id !== ex.actual ? 0.55 : 1).setScale(x.tipo === 'jefe' ? 1.25 : 1);
       else g.fillStyle(x.tipo === 'jefe' ? 0xc0304a : 0xf5c542, 1).fillCircle(p.x, p.y, 6);
       if (visitado && x.id !== ex.actual && this.textures.exists('cr_mapa_visitado')) this.add.image(p.x + 5, p.y + 5, 'cr_mapa_visitado');
-      if (elegible) this.puntero.zona(p.x - 10, p.y - 10, 20, 20, () => (marcado ? this.tecla('a') : this.mover(opciones.findIndex((o) => o.id === x.id))));
+      if (elegible) this.puntero.zona(p.x - 10, p.y - 10, 20, 20, () => (marcado ? undefined : this.mover(opciones.findIndex((o) => o.id === x.id))));
     }
     // Tu criatura en el nodo actual (o en la entrada, a la izquierda).
     const lider = ex.equipo.find((e) => (ex.vida[e] ?? 0) > 0) ?? ex.equipo[0]!;
@@ -135,7 +135,7 @@ export class CronoMapa extends Phaser.Scene {
       const activa = this.sel === i;
       if (activa) g.fillStyle(0xfde9c8, 1).fillRoundedRect(30, y - 1, 180, 12, 3);
       txt(y, 11, `${activa ? '▶ ' : '  '}${t(`crono.ev.${ev}.o${i}`)}`, activa ? C.resalte : C.tinta, { peso: activa ? 600 : 500 });
-      this.puntero.zona(30, y - 1, 180, 12, () => (activa ? this.tecla('a') : this.scene.restart({ evento: true, sel: i })));
+      this.puntero.zona(30, y - 1, 180, 12, () => (activa ? undefined : this.scene.restart({ evento: true, sel: i })));
     }
   }
 
