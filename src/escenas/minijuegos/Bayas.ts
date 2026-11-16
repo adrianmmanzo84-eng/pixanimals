@@ -1,9 +1,10 @@
 import Phaser from 'phaser';
+import { DATOS } from '../../core/datos';
 import type { MinijuegoId } from '../../esquemas/esquemas';
 import { Entrada, type AccionEntrada } from '../../entrada';
 import { sonido } from '../../audio/sfx';
 import { t } from '../../i18n/i18n';
-import { textura } from '../../ui/criaturas';
+import { miniatura, textura } from '../../ui/criaturas';
 import { MinijuegoBase } from './Base';
 
 const DURACION = 30;
@@ -78,9 +79,14 @@ export class MiniBayas extends MinijuegoBase {
     this.altura = 0;
     this.vy = 0;
     this.derecha = false;
-    this.yo = this.add.sprite(120, SUELO, textura(this.especie, 'icono'), 0).setOrigin(0.5, 1);
-    let cuadro = 0;
-    this.time.addEvent({ delay: 300, loop: true, callback: () => this.yo!.setFrame((cuadro ^= 1)) });
+    if (this.textures.exists(`${DATOS.criaturas.get(this.especie)!.sprites}_mini`)) {
+      // Arte HD (D252): la mini, apoyada en el suelo por los pies.
+      this.yo = miniatura(this.add.image(120, SUELO, textura(this.especie, 'frente')), this.especie, 26, 0.4).setOrigin(0.5, 0.985);
+    } else {
+      this.yo = this.add.sprite(120, SUELO, textura(this.especie, 'icono'), 0).setOrigin(0.5, 1);
+      let cuadro = 0;
+      this.time.addEvent({ delay: 300, loop: true, callback: () => this.yo!.setFrame((cuadro ^= 1)) });
+    }
     this.pintarMarcador();
   }
 
@@ -174,10 +180,20 @@ export class MiniBayas extends MinijuegoBase {
           this.aturdido = 0.7;
           this.cameras.main.shake(120, 0.01);
           sonido.tocar('golpe');
+          this.globo(t('mj.bayas.auch'), this.yo!.x, this.yo!.y - 34, '#ffb0b0');
         } else {
           this.puntos += c.tipo === 'dorada' ? 3 : 1;
           sonido.tocar('atrapa');
-          this.tweens.add({ targets: this.yo!, scaleY: 0.85, duration: 60, yoyo: true });
+          const sy = this.yo!.scaleY;
+          this.tweens.add({ targets: this.yo!, scaleY: sy * 0.85, duration: 60, yoyo: true });
+          // ¡A comer! (D252): globo de texto y miguitas; la dorada, con brillos.
+          const frases = c.tipo === 'dorada' ? ['mj.bayas.delicioso'] : ['mj.bayas.nam', 'mj.bayas.glup', 'mj.bayas.rico'];
+          this.globo(t(frases[Math.floor(Math.random() * frases.length)]!), this.yo!.x, this.yo!.y - 34, c.tipo === 'dorada' ? '#ffe27a' : '#ffffff');
+          for (let k = 0; k < 6; k++) {
+            const m = this.add.rectangle(this.yo!.x + (Math.random() * 10 - 5), this.yo!.y - 18, 2, 2, c.tipo === 'dorada' ? 0xffd76a : 0xd0425a).setDepth(600);
+            this.tweens.add({ targets: m, x: m.x + (Math.random() * 24 - 12), y: m.y - 6 - Math.random() * 10, alpha: 0, duration: 380, ease: 'Quad.easeOut', onComplete: () => m.destroy() });
+          }
+          if (c.tipo === 'dorada') this.destellos(this.yo!.x, this.yo!.y - 18, 8);
         }
       }
       if (atrapada || c.img.y > 150) {

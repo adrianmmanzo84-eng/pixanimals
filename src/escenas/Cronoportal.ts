@@ -160,6 +160,9 @@ export class Cronoportal extends Phaser.Scene {
   private async viajar(): Promise<void> {
     Entrada.escuchar(null);
     sonido.tocar('especial');
+    // Primero se oscurece toda la pantalla (D251): el viaje no debe dejar ver la sala ni sus letras detrás.
+    const negro = this.add.graphics().setDepth(99).fillStyle(0x000000, 1).fillRect(-10, -10, 260, 180).setAlpha(0);
+    await new Promise<void>((r) => this.tweens.add({ targets: negro, alpha: 1, duration: 180, onComplete: () => r() }));
     this.cameras.main.flash(250, 200, 230, 255);
     await animar(this, 'crono_viaje', 120, 80, { profundidad: 100 });
     this.scene.start('CronoMapa', { llegada: true });

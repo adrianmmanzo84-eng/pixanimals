@@ -28,7 +28,7 @@ export abstract class MinijuegoBase extends Phaser.Scene {
   protected marcador!: Texto;
   protected info!: Texto;
   /** La criatura en pantalla (cada minijuego la crea); la usa el festejo final. */
-  protected yo: Phaser.GameObjects.Sprite | null = null;
+  protected yo: Phaser.GameObjects.Image | null = null;
   private fin = false;
   private pausado = false;
   private capaPausa: Phaser.GameObjects.Container | null = null;
@@ -196,6 +196,50 @@ export abstract class MinijuegoBase extends Phaser.Scene {
       const p = this.add.rectangle(x, y, 3, 3, i % 2 ? 0xf5e070 : 0xffffff).setDepth(650).setAngle(45);
       this.tweens.add({ targets: p, x: x + Math.cos(a) * 26, y: y + Math.sin(a) * 22, alpha: 0, scale: 0.4, duration: 520, ease: 'Quad.easeOut', onComplete: () => p.destroy() });
     }
+  }
+
+  /**
+   * Nota musical que sale de (x, y), sube ondulando y se desvanece (D252, Eco: la criatura «canta»).
+   * `doble`: corchea doble.
+   */
+  protected nota(x: number, y: number, color: number, doble = false): void {
+    const g = this.add.graphics().setDepth(640).setPosition(x, y);
+    const borde = 0x141830;
+    const cabeza = (cx: number, cy: number) => g.fillStyle(color, 1).fillEllipse(cx, cy, 5, 3.8).lineStyle(0.7, borde, 1).strokeEllipse(cx, cy, 5, 3.8);
+    if (doble) {
+      cabeza(-3, 1);
+      cabeza(3, 0);
+      g.fillStyle(borde, 1).fillRect(-1.3, -8, 1, 9).fillRect(4.7, -9, 1, 9).fillRect(-1.3, -9, 7, 1.6);
+    } else {
+      cabeza(0, 0);
+      g.fillStyle(borde, 1).fillRect(1.7, -9, 1, 9);
+      g.fillStyle(color, 1).fillTriangle(2.7, -9, 6.2, -6, 2.7, -5.6).lineStyle(0.6, borde, 1).strokeTriangle(2.7, -9, 6.2, -6, 2.7, -5.6);
+    }
+    const lado = Math.random() < 0.5 ? -1 : 1;
+    const prog = { t: 0 };
+    g.setScale(0.6).setAngle(lado * -8);
+    this.tweens.add({
+      targets: prog,
+      t: 1,
+      duration: 900,
+      ease: 'Sine.easeOut',
+      onUpdate: () => {
+        g.setPosition(x + lado * (prog.t * 16 + Math.sin(prog.t * 9) * 3), y - prog.t * 30);
+        g.setScale(0.6 + prog.t * 0.6).setAlpha(prog.t < 0.65 ? 1 : 1 - (prog.t - 0.65) / 0.35);
+      },
+      onComplete: () => g.destroy(),
+    });
+  }
+
+  /** Globo de texto que salta y se desvanece sobre la criatura (¡Ñam!, ¡Glup!, ¡Auch!). */
+  protected globo(texto: string, x: number, y: number, color = '#ffffff'): void {
+    const tx = new Texto(this, x - 45, y - 7, 90, 14, color, 'centro', { tam: 9.4, peso: 600, borde: '#2b3a78' }).poner(texto);
+    // El texto ya viene a escala (se dibuja en alta resolución): se anima relativo a esa escala y desde su centro.
+    const img = tx.imagen.setDepth(660);
+    const s0 = img.scaleX;
+    img.setOrigin(0.5, 0.5).setPosition(x, y).setScale(s0 * 0.6);
+    this.tweens.add({ targets: img, scale: s0, duration: 140, ease: 'Back.easeOut' });
+    this.tweens.add({ targets: img, y: img.y - 14, alpha: 0, delay: 380, duration: 420, ease: 'Quad.easeIn', onComplete: () => img.destroy() });
   }
 
   /** Saltito con sonido (al acertar una ronda). */

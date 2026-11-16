@@ -7,7 +7,7 @@ import { sonido } from '../audio/sfx';
 import { musica } from '../audio/musica';
 import { t } from '../i18n/i18n';
 import { juego } from '../juego';
-import { miniatura, textura } from '../ui/criaturas';
+import { marcaCriatura, miniatura, textura } from '../ui/criaturas';
 import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { Texto } from '../ui/texto';
 
@@ -67,11 +67,15 @@ export class Torre extends Phaser.Scene {
 
     // Tu criatura en su piso.
     const lider = mios[0];
-    let marca: Phaser.GameObjects.Sprite | null = null;
+    // A la derecha de la torre, a la altura de su piso, con una flechita hacia él (D251; antes quedaba en la
+    // esquina de abajo, medio cortada).
+    let marca: Phaser.GameObjects.Image | null = null;
     if (lider) {
       const pisoMarca = Math.min(anterior, hasta);
-      marca = this.add.sprite(X0 - 8, this.yPiso(pisoMarca, desde) + ALTO_PISO - 6, textura(lider.especie, 'icono'), 0).setScale(0.5);
-      this.time.addEvent({ delay: 300, loop: true, callback: () => marca?.setFrame(marca.frame.name === '0' ? 1 : 0) });
+      const y = this.yMarca(pisoMarca, desde);
+      marca = marcaCriatura(this, X0 + ANCHO + 11, y, lider.especie, 15);
+      this.flecha = this.add.graphics();
+      this.ponerFlecha(y);
     }
 
     this.dibujarPanel(piso, mios.length);
@@ -169,11 +173,27 @@ export class Torre extends Phaser.Scene {
   }
 
   /** La criatura sube un piso dando saltitos; si venció la cima, el tramo baja y aparece el siguiente. */
-  private async animarSubida(marca: Phaser.GameObjects.Sprite, de: number, a: number, desde: number, hasta: number): Promise<void> {
+  private flecha: Phaser.GameObjects.Graphics | null = null;
+
+  /** Centro de la marca de tu criatura junto a un piso. */
+  private yMarca(piso: number, desde: number): number {
+    return this.yPiso(piso, desde) + ALTO_PISO / 2 - 2;
+  }
+
+  /** Flechita entre la torre y tu criatura, apuntando al piso. */
+  private ponerFlecha(y: number): void {
+    const x = X0 + ANCHO + 2;
+    this.flecha?.clear().fillStyle(0xffd76a, 1).fillTriangle(x, y + 2, x + 3, y - 0.5, x + 3, y + 4.5).lineStyle(0.5, 0x1a1c2c, 1).strokeTriangle(x, y + 2, x + 3, y - 0.5, x + 3, y + 4.5);
+  }
+
+  private async animarSubida(marca: Phaser.GameObjects.Image, de: number, a: number, desde: number, hasta: number): Promise<void> {
     await new Promise<void>((r) => this.time.delayedCall(350, () => r()));
     sonido.tocar('sube');
-    const yDestino = a > hasta ? this.yPiso(hasta, desde) - 30 : this.yPiso(a, desde) + ALTO_PISO - 6;
+    const yDestino = a > hasta ? this.yPiso(hasta, desde) - 30 : this.yMarca(a, desde);
+    this.tweens.killTweensOf(marca);
+    this.flecha?.clear();
     await new Promise<void>((r) => this.tweens.add({ targets: marca, y: yDestino, duration: 520, ease: 'Back.easeOut', onComplete: () => r() }));
+    if (a <= hasta) this.ponerFlecha(yDestino);
     if (a > hasta) {
       // Cima vencida: cartel y el tramo nuevo.
       sonido.tocar('victoria');

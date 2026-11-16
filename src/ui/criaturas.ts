@@ -244,3 +244,19 @@ export function prepararTexturasCriaturas(escena: Phaser.Scene): void {
     });
   }
 }
+
+/**
+ * Marca de «tu criatura» en mapas y en la Torre (D251): la mini HD flotando apenas, o el ícono animado de dos
+ * cuadros si no hay HD. (x, y) es el centro de la criatura; `alto` su alto en px del mundo.
+ */
+export function marcaCriatura(escena: Phaser.Scene, x: number, y: number, especie: string, alto = 16): Phaser.GameObjects.Image {
+  const sprites = DATOS.criaturas.get(especie)!.sprites;
+  if (escena.textures.exists(`${sprites}_mini`)) {
+    const img = miniatura(escena.add.image(x, y, textura(especie, 'frente')), especie, alto, 0.4);
+    escena.tweens.add({ targets: img, y: y - 1.5, duration: 700, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
+    return img;
+  }
+  const sp = escena.add.sprite(x, y, textura(especie, 'icono'), 0).setScale(alto / 32);
+  escena.time.addEvent({ delay: 300, loop: true, callback: () => sp.setFrame(sp.frame.name === '0' ? 1 : 0) });
+  return sp;
+}

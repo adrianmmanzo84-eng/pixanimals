@@ -6,14 +6,14 @@ import { sonido } from '../audio/sfx';
 import { musica } from '../audio/musica';
 import { t } from '../i18n/i18n';
 import { juego } from '../juego';
-import { textura } from '../ui/criaturas';
+import { marcaCriatura, miniatura, textura } from '../ui/criaturas';
 import { C, prepararCamara, ventana } from '../ui/estilo';
 import { partir, Texto } from '../ui/texto';
 import { Puntero } from '../ui/puntero';
 import { confeti } from '../ui/animaciones';
 
 /** Zona del mapa donde van los nodos (el resto es el panel de abajo). */
-const X0 = 18;
+const X0 = 32;
 const X1 = 222;
 const Y0 = 22;
 const Y1 = 104;
@@ -26,13 +26,15 @@ export class CronoMapa extends Phaser.Scene {
   private sel = 0;
   private aviso = '';
   private evento = false;
+  private llegada = false;
   private puntero!: Puntero;
 
   constructor() {
     super('CronoMapa');
   }
 
-  init(d: { sel?: number; aviso?: string; evento?: boolean }): void {
+  init(d: { sel?: number; aviso?: string; evento?: boolean; llegada?: boolean }): void {
+    this.llegada = !!d?.llegada;
     this.sel = d?.sel ?? 0;
     this.aviso = d?.aviso ?? '';
     this.evento = !!d?.evento;
@@ -49,6 +51,7 @@ export class CronoMapa extends Phaser.Scene {
     const ex = crono(juego.estado).expedicion;
     if (!ex) return void this.scene.start('Cronoportal', {});
     musica.tocar('torre');
+    if (this.llegada) this.cameras.main.fadeIn(450, 0, 0, 0);
     this.puntero = new Puntero(this);
     const clave = `crono_mapa${ex.era}`;
     if (this.textures.exists(clave)) this.add.image(0, 0, clave).setOrigin(0, 0).setScale(0.25);
@@ -89,9 +92,9 @@ export class CronoMapa extends Phaser.Scene {
     // Tu criatura en el nodo actual (o en la entrada, a la izquierda).
     const lider = ex.equipo.find((e) => (ex.vida[e] ?? 0) > 0) ?? ex.equipo[0]!;
     const act = nodoActual(DATOS, juego.estado);
-    const pa = act ? P(act) : { x: X0 - 10, y: (Y0 + Y1) / 2 };
-    const marca = this.add.sprite(pa.x, pa.y - 11, textura(lider, 'icono'), 0).setScale(0.5);
-    this.time.addEvent({ delay: 300, loop: true, callback: () => marca.setFrame(marca.frame.name === '0' ? 1 : 0) });
+    // Antes de empezar, en la entrada (a la izquierda de la primera columna); después, parada sobre su nodo (D251).
+    const pa = act ? P(act) : { x: X0 - 17, y: (Y0 + Y1) / 2 + 6 };
+    marcaCriatura(this, pa.x, pa.y - (act ? 12 : 6), lider, 15).setDepth(5);
 
     this.dibujarPanel(opciones);
     if (this.evento) this.dibujarEvento();
@@ -110,7 +113,7 @@ export class CronoMapa extends Phaser.Scene {
     ex.equipo.forEach((e, i) => {
       const x = 10 + i * 46;
       const v = ex.vida[e] ?? 0;
-      this.add.sprite(x + 8, 124, textura(e, 'icono'), 0).setScale(0.5).setAlpha(v > 0 ? 1 : 0.35);
+      miniatura(this.add.image(x + 8, 124, textura(e, 'frente')), e, 14, 0.3).setAlpha(v > 0 ? 1 : 0.35);
       g.fillStyle(0x2a2f45, 1).fillRect(x + 18, 122, 24, 4);
       g.fillStyle(v > 0.5 ? 0x3fbf6a : v > 0.2 ? 0xf5c542 : 0xe0504a, 1).fillRect(x + 18, 122, Math.round(24 * v), 4);
     });

@@ -3,7 +3,7 @@ import type { MinijuegoId } from '../../esquemas/esquemas';
 import type { AccionEntrada } from '../../entrada';
 import { sonido } from '../../audio/sfx';
 import { t } from '../../i18n/i18n';
-import { textura } from '../../ui/criaturas';
+import { marcaCriatura } from '../../ui/criaturas';
 import { n } from '../../ui/estilo';
 import { MinijuegoBase } from './Base';
 
@@ -40,7 +40,8 @@ export class MiniEco extends MinijuegoBase {
     this.secuencia = [];
     this.logrado = 0;
     this.escuchando = false;
-    this.yo = this.add.sprite(120, 80, textura(this.especie, 'icono'), 0).setScale(0.75);
+    this.yo = marcaCriatura(this, 120, 80, this.especie, 24);
+    this.tweens.killTweensOf(this.yo);
     this.pintar(-1);
     this.marcador.poner(t('mj.eco.marcador', { n: 0 }));
   }
@@ -100,6 +101,8 @@ export class MiniEco extends MinijuegoBase {
       return;
     }
     sonido.tocar(`eco${i}`);
+    // La criatura «canta»: le sale una nota del color de la tecla (D252).
+    if (this.yo) this.nota(this.yo.x + 8, this.yo.y - 12, PADS[i]!.color, this.pos % 3 === 2);
     this.pos++;
     if (this.pos === this.secuencia.length) {
       this.escuchando = false;

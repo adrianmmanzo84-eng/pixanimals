@@ -290,7 +290,7 @@
   "c.golpe.fallo": "Golpe normal.",
   "mj.eco.fin": "Repetiste {n} flechas",
   "mj.golpe": "Golpe Justo",
-  "mj.golpe.desc": "Frena el marcador con A dentro de la franja verde; el centro amarillo vale doble.",
+  "mj.golpe.desc": "Frena el marcador con A dentro de la franja verde y tu criatura golpea el objetivo; el centro amarillo pega doble. Tienes 8 golpes: ¡rompe todo lo que puedas!",
   "mj.golpe.ayuda": "A para frenar",
   "mj.golpe.marcador": "Ronda {r}/{t} · {n} pts",
   "mj.golpe.perfecto": "¡Perfecto!",
@@ -722,5 +722,13 @@
   "arranque.cargando": "Cargando… {n} %",
   "pag.girar": "Gira el teléfono para jugar",
   "pag.ajustes": "Ajustes",
-  "g.autoApp": "La partida se guarda sola en este teléfono, con copias de seguridad aparte. Para llevarla a otro dispositivo (o no perderla si borras la app), descarga una copia en archivo o copia el código."
+  "g.autoApp": "La partida se guarda sola en este teléfono, con copias de seguridad aparte. Para llevarla a otro dispositivo (o no perderla si borras la app), descarga una copia en archivo o copia el código.",
+  "mj.golpe.marcador2": "Golpe {r}/{t} · {n} pts · rotos {k}",
+  "mj.golpe.roto": "¡Roto!",
+  "mj.golpe.fin2": "{n} de {m} puntos · {k} objetivo(s) roto(s)",
+  "mj.bayas.nam": "¡Ñam!",
+  "mj.bayas.glup": "¡Glup!",
+  "mj.bayas.rico": "¡Qué rico!",
+  "mj.bayas.delicioso": "¡Delicioso!",
+  "mj.bayas.auch": "¡Auch!"
 }

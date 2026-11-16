@@ -290,7 +290,7 @@
   "c.golpe.fallo": "Normal strike.",
   "mj.eco.fin": "You repeated {n} arrows",
   "mj.golpe": "Timed Strike",
-  "mj.golpe.desc": "Stop the marker with A inside the green zone; the yellow center counts double.",
+  "mj.golpe.desc": "Stop the marker with A inside the green zone and your creature strikes the target; the yellow center hits twice as hard. You have 8 hits: smash all you can!",
   "mj.golpe.ayuda": "A to stop",
   "mj.golpe.marcador": "Round {r}/{t} · {n} pts",
   "mj.golpe.perfecto": "Perfect!",
@@ -722,5 +722,13 @@
   "arranque.cargando": "Loading… {n}%",
   "pag.girar": "Turn your phone sideways to play",
   "pag.ajustes": "Settings",
-  "g.autoApp": "Your game saves automatically on this phone, with separate backups. To take it to another device (or keep it if you delete the app), download a backup file or copy the code."
+  "g.autoApp": "Your game saves automatically on this phone, with separate backups. To take it to another device (or keep it if you delete the app), download a backup file or copy the code.",
+  "mj.golpe.marcador2": "Hit {r}/{t} · {n} pts · broken {k}",
+  "mj.golpe.roto": "Smashed!",
+  "mj.golpe.fin2": "{n} of {m} points · {k} target(s) smashed",
+  "mj.bayas.nam": "Yum!",
+  "mj.bayas.glup": "Gulp!",
+  "mj.bayas.rico": "Tasty!",
+  "mj.bayas.delicioso": "Delicious!",
+  "mj.bayas.auch": "Ouch!"
 }
