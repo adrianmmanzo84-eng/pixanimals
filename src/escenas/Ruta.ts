@@ -13,13 +13,29 @@ import { miniatura, textura } from '../ui/criaturas';
 import { C, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
 import { Texto } from '../ui/texto';
 
-/** Dónde está cada estación en el mapa (la última es el jefe). */
-const NODOS = [
+/** Dónde está cada estación en el mapa (la última es el jefe). Sin arte se usan las del manifiesto del autor. */
+const NODOS_BASE = [
   { x: 26, y: 104 },
   { x: 76, y: 70 },
   { x: 132, y: 98 },
   { x: 196, y: 52 },
 ];
+/** Centro real de cada plazoleta pintada en los mapas del autor (medido sobre la imagen; D240). */
+const NODOS_ARTE: Record<ModoRuta, { x: number; y: number }[]> = {
+  entrenador: [
+    { x: 23.75, y: 104.25 },
+    { x: 72.75, y: 71.75 },
+    { x: 136, y: 92.75 },
+    { x: 195.5, y: 52.25 },
+  ],
+  semanal: [
+    { x: 26, y: 102 },
+    { x: 78.5, y: 71.25 },
+    { x: 134.75, y: 95.5 },
+    { x: 198.75, y: 53 },
+  ],
+};
+let NODOS = NODOS_BASE;
 
 /**
  * Camino del Entrenador del día o del Jefe de la semana (D221), como un mapa de Super Mario World:
@@ -56,6 +72,7 @@ export class Ruta extends Phaser.Scene {
     this.dibujarMapa(colorTipo);
     const g = this.add.graphics();
     const arte = this.textures.exists(`ruta_${this.modo}`);
+    NODOS = arte ? NODOS_ARTE[this.modo] : NODOS_BASE;
     // Camino punteado entre estaciones (más claro lo recorrido); el mapa del autor ya trae el camino dibujado.
     for (let i = 0; i < (arte ? 0 : NODOS.length - 1); i++) {
       const a = NODOS[i]!;

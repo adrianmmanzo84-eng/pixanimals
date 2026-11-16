@@ -177,7 +177,7 @@ export class Cronoportal extends Phaser.Scene {
     ventana(g, 4, 4, 232, 152);
     new Texto(this, 10, 8, 220, 12, '#257179', 'izq', { tam: 9, peso: 600 }).poner(t('crono.lab'));
     new Texto(this, 10, 20, 220, 10, C.tintaSuave, 'izq', { tam: 6.2 }).poner(t('crono.labSub', { n: DATOS.economia.crono.fragmentos, a: cr.ambar }));
-    if (this.textures.exists('cr_ambar')) this.add.image(224, 24, 'cr_ambar');
+    if (this.textures.exists('cr_ambar')) this.add.image(224, 24, 'cr_ambar').setScale(0.75);
     this.familias().forEach((fam, i) => {
       const x = 28 + i * 46;
       const y = 36;
@@ -187,7 +187,7 @@ export class Cronoportal extends Phaser.Scene {
       const cria = criaFamilia(DATOS, fam);
       const tiene = juego.estado.criaturas.some((c) => DATOS.criaturas.get(c.especie)?.familia === fam);
       miniatura(this.add.image(x, y + 20, textura(cria, tiene ? 'frente' : 'silueta')), cria, 30, 0.5);
-      if (this.textures.exists(`cr_fosil_${fam}`)) this.add.image(x - 7, y + 44, `cr_fosil_${fam}`);
+      if (this.textures.exists(`cr_fosil_${fam}`)) this.add.image(x - 6, y + 44, `cr_fosil_${fam}`).setScale(0.75);
       new Texto(this, x + 3, y + 39, 22, 10, C.tinta, 'izq', { tam: 6.6, peso: 600 }).poner(`${cr.fosiles[fam] ?? 0}`);
       new Texto(this, x - 21, y + 54, 42, 9, C.tintaSuave, 'centro', { tam: 5.4 }).poner(tiene ? DATOS.criaturas.get(cria)!.nombre : t(`crono.era${i + 1}`));
       const listo = puedeRevivir(DATOS, juego.estado, fam);

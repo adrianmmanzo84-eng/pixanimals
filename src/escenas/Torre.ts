@@ -59,7 +59,9 @@ export class Torre extends Phaser.Scene {
     const yCima = this.yPiso(hasta, desde) - 2;
     const visto = estado.vistas.includes(jefeCima) || !!cima.guardian;
     // Sobre la muralla de la cima (el arte deja libre el centro de arriba).
-    const yJefe = this.textures.exists('torre_cima') ? yCima - 28 : yCima - 12;
+    const yJefe = this.textures.exists('torre_cima') ? yCima - 30 : yCima - 12;
+    // Sombra en la muralla para que el jefe se vea parado arriba y no hundido en la cima.
+    this.add.graphics().fillStyle(0x1a1c2c, 0.35).fillEllipse(X0 + ANCHO / 2, yJefe + 11, 22, 4);
     miniatura(this.add.image(X0 + ANCHO / 2, yJefe, textura(jefeCima, visto ? 'frente' : 'silueta')), jefeCima, 24, 0.45);
     new Texto(this, X0 - 6, Math.max(0, yJefe - 22), ANCHO + 12, 9, '#ffd76a', 'centro', { tam: 6, peso: 600, borde: '#1a1c2c' }).poner(cima.guardian ? t('torre.guardian') : t('torre.cima', { n: hasta }));
 
@@ -155,8 +157,8 @@ export class Torre extends Phaser.Scene {
       const x = 132 + (i % 3) * 38;
       g.fillStyle(0xe8ecf4, 1).fillRoundedRect(x - 17, 38, 34, 38, 3);
       const visto = estado.vistas.includes(id);
-      miniatura(this.add.image(x, 54, textura(id, visto ? 'frente' : 'silueta')), id, 28, 0.45);
-      new Texto(this, x - 17, 66, 34, 9, C.tinta, 'centro', { tam: 5.4 }).poner(visto ? DATOS.criaturas.get(id)!.nombre : '???');
+      miniatura(this.add.image(x, 51, textura(id, visto ? 'frente' : 'silueta')), id, 24, 0.45);
+      new Texto(this, x - 17, 66.5, 34, 9, C.tinta, 'centro', { tam: 5.4 }).poner(visto ? DATOS.criaturas.get(id)!.nombre : '???');
     });
     new Texto(this, 116, 82, 112, 10, C.tinta, 'izq', { tam: 6.6 }).poner(t('des.nivel', { n: p.nivel, ia: t(`ia.${p.ia}`) }));
     const pr = premioPiso(DATOS, piso);
