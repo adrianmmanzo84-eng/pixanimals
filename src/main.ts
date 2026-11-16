@@ -53,7 +53,7 @@ function ajustarEscala(canvas: HTMLCanvasElement): void {
   if (tactil) {
     // Celular o tableta (D241): el juego ocupa toda la altura; los controles flotan semitransparentes encima.
     if (app) app.style.paddingTop = '0px';
-    // Se deja lugar a los costados para la cruz y A/B (3 botones de ancho), achicando el juego como mucho un 10 %.
+    // Se deja lugar a los costados para el stick y A/B (unos 3 botones de ancho), achicando el juego como mucho un 10 %.
     // Se cuenta también la franja que el teléfono reserva para la cámara frontal (márgenes seguros).
     const alto = window.innerHeight;
     const boton = Math.min(alto * 0.12, 48);

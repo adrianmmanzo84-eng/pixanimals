@@ -69,8 +69,11 @@
       body.tactil #pantalla { border: 0; border-radius: 0; }
       body.tactil #pantalla canvas { border-radius: 0; }
       body.tactil #mando { display: block; position: fixed; inset: 0; max-width: none; padding: 0; pointer-events: none; z-index: 3; }
-      body.tactil #cruz { position: fixed; left: calc(env(safe-area-inset-left, 0px) + 1.2vh); bottom: calc(env(safe-area-inset-bottom, 0px) + 3vh); grid-template-columns: repeat(3, var(--t)); grid-template-rows: repeat(3, var(--t)); pointer-events: auto; opacity: 0.55; }
-      body.tactil #cruz button { width: var(--t); height: var(--t); font-size: calc(var(--t) * 0.36); background: rgba(51, 60, 87, 0.85); }
+      /* Stick de 360° (D249): base redonda semitransparente y perilla que sigue al pulgar. */
+      #stick { display: none; }
+      body.tactil #stick { display: block; position: fixed; left: calc(env(safe-area-inset-left, 0px) + 1.4vh); bottom: calc(env(safe-area-inset-bottom, 0px) + 4vh); width: calc(var(--t) * 2.8); height: calc(var(--t) * 2.8); border-radius: 50%; background: radial-gradient(circle, rgba(51, 60, 87, 0.55) 0%, rgba(51, 60, 87, 0.75) 70%); border: 2px solid rgba(86, 108, 134, 0.9); pointer-events: auto; touch-action: none; opacity: 0.6; }
+      body.tactil #stick.activo { opacity: 0.9; }
+      #perilla { position: absolute; left: 50%; top: 50%; width: 44%; height: 44%; margin: -22% 0 0 -22%; border-radius: 50%; background: rgba(148, 176, 194, 0.95); border: 2px solid #f4f4f4; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); pointer-events: none; }
       body.tactil #botones { position: fixed; right: calc(env(safe-area-inset-right, 0px) + 1.6vh); bottom: calc(env(safe-area-inset-bottom, 0px) + 4vh); gap: calc(var(--t) * 0.22); pointer-events: auto; opacity: 0.6; }
       body.tactil #botones button { width: calc(var(--t) * 1.15); height: calc(var(--t) * 1.15); font-size: calc(var(--t) * 0.4); }
       body.tactil #botones button[data-accion="a"] { margin-bottom: calc(var(--t) * 0.55); }
@@ -112,12 +115,7 @@
     <div id="app">
       <div id="pantalla"></div>
       <div id="mando" aria-label="Controles táctiles">
-        <div id="cruz">
-          <span></span><button type="button" data-accion="arriba" aria-label="Arriba">▲</button><span></span>
-          <button type="button" data-accion="izquierda" aria-label="Izquierda">◀</button><span></span>
-          <button type="button" data-accion="derecha" aria-label="Derecha">▶</button>
-          <span></span><button type="button" data-accion="abajo" aria-label="Abajo">▼</button><span></span>
-        </div>
+        <div id="stick" role="group" aria-label="Stick de dirección"><div id="perilla"></div></div>
         <div id="botones">
           <button type="button" data-accion="b" aria-label="Volver">B</button>
           <button type="button" data-accion="a" aria-label="Aceptar">A</button>
