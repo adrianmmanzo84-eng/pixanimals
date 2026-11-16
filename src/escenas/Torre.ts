@@ -13,10 +13,10 @@ import { Texto } from '../ui/texto';
 
 /** Pisos por tramo de la torre que se ve (el último es el jefe de la cima). */
 const TRAMO = 10;
-const X0 = 18;
+const X0 = 15;
 const ANCHO = 74;
 const ALTO_PISO = 11;
-const BASE_Y = 150;
+const BASE_Y = 160;
 
 /**
  * Torre de Desafíos como en los juegos de pelea (D220): una torre de 10 pisos con el jefe en la cima.
@@ -58,8 +58,10 @@ export class Torre extends Phaser.Scene {
     const jefeCima = cima.especies[0]!;
     const yCima = this.yPiso(hasta, desde) - 2;
     const visto = estado.vistas.includes(jefeCima) || !!cima.guardian;
-    miniatura(this.add.image(X0 + ANCHO / 2, yCima - 12, textura(jefeCima, visto ? 'frente' : 'silueta')), jefeCima, 26, 0.45);
-    new Texto(this, X0 - 6, yCima - 34, ANCHO + 12, 9, '#ffd76a', 'centro', { tam: 6, peso: 600, borde: '#1a1c2c' }).poner(cima.guardian ? t('torre.guardian') : t('torre.cima', { n: hasta }));
+    // Sobre la muralla de la cima (el arte deja libre el centro de arriba).
+    const yJefe = this.textures.exists('torre_cima') ? yCima - 28 : yCima - 12;
+    miniatura(this.add.image(X0 + ANCHO / 2, yJefe, textura(jefeCima, visto ? 'frente' : 'silueta')), jefeCima, 24, 0.45);
+    new Texto(this, X0 - 6, Math.max(0, yJefe - 22), ANCHO + 12, 9, '#ffd76a', 'centro', { tam: 6, peso: 600, borde: '#1a1c2c' }).poner(cima.guardian ? t('torre.guardian') : t('torre.cima', { n: hasta }));
 
     // Tu criatura en su piso.
     const lider = mios[0];
@@ -121,11 +123,14 @@ export class Torre extends Phaser.Scene {
         g.fillStyle(0x5d566b, 1).fillRect(X0, y + ALTO_PISO - 1, ANCHO, 1);
         g.fillStyle(0x5d566b, 1).fillRect(X0 + 24, y, 1, ALTO_PISO - 1).fillRect(X0 + 50, y, 1, ALTO_PISO - 1);
       }
-      const luz = vencido ? 0xffd76a : actual ? 0xfff4c0 : 0x2a2838;
-      g.fillStyle(luz, 1).fillRect(X0 + 8, y + 3, 5, 5).fillRect(X0 + ANCHO - 13, y + 3, 5, 5);
-      if (datos.jefe) g.fillStyle(0xc0304a, 1).fillRect(X0 + ANCHO, y + 1, 6, 5).fillTriangle(X0 + ANCHO + 6, y + 1, X0 + ANCHO + 6, y + 6, X0 + ANCHO + 9, y + 3.5);
+      if (!arte) {
+        const luz = vencido ? 0xffd76a : actual ? 0xfff4c0 : 0x2a2838;
+        g.fillStyle(luz, 1).fillRect(X0 + 8, y + 3, 5, 5).fillRect(X0 + ANCHO - 13, y + 3, 5, 5);
+      }
+      if (datos.jefe && !arte) g.fillStyle(0xc0304a, 1).fillRect(X0 + ANCHO, y + 1, 6, 5).fillTriangle(X0 + ANCHO + 6, y + 1, X0 + ANCHO + 6, y + 6, X0 + ANCHO + 9, y + 3.5);
       if (actual) g.lineStyle(1, n(C.resalte), 1).strokeRect(X0 - 0.5, y - 0.5, ANCHO + 1, ALTO_PISO);
-      new Texto(this, X0 + 26, y + 1, 22, 9, vencido || actual ? '#1a1c2c' : '#e8e4f0', 'centro', { tam: 6, peso: 600 }).poner(String(p));
+      if (arte) new Texto(this, X0 + 26, y + 1, 22, 9, vencido ? '#ffd76a' : '#ffffff', 'centro', { tam: 6, peso: 600, borde: '#1a1c2c' }).poner(vencido ? `${p}✓` : String(p));
+      else new Texto(this, X0 + 26, y + 1, 22, 9, vencido || actual ? '#1a1c2c' : '#e8e4f0', 'centro', { tam: 6, peso: 600 }).poner(String(p));
     }
     // Cima: almenas y bandera.
     const yTop = this.yPiso(hasta, desde);
@@ -135,8 +140,8 @@ export class Torre extends Phaser.Scene {
       g.fillStyle(0x6a6276, 1);
       for (let i = 0; i < 6; i++) g.fillRect(X0 + i * 14, yTop - 4, 8, 4);
     }
-    // Base de la torre.
-    g.fillStyle(0x4a4456, 1).fillRect(X0 - 4, BASE_Y, ANCHO + 8, 4);
+    // Base de la torre (con arte, la torre apoya en el borde de abajo).
+    if (!arte) g.fillStyle(0x4a4456, 1).fillRect(X0 - 4, BASE_Y - 4, ANCHO + 8, 4);
   }
 
   private dibujarPanel(piso: number, tam: number): void {

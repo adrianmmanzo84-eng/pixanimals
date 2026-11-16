@@ -1,0 +1,110 @@
+{
+  "archivos": [
+    {
+      "archivo": "torre_fondo.png",
+      "size": [
+        960,
+        640
+      ],
+      "modo": "RGB",
+      "transparente": false
+    },
+    {
+      "archivo": "torre_piso.png",
+      "size": [
+        296,
+        44
+      ],
+      "modo": "RGBA",
+      "transparente": false
+    },
+    {
+      "archivo": "torre_piso_jefe.png",
+      "size": [
+        296,
+        44
+      ],
+      "modo": "RGBA",
+      "transparente": false
+    },
+    {
+      "archivo": "torre_cima.png",
+      "size": [
+        328,
+        164
+      ],
+      "modo": "RGBA",
+      "transparente": true
+    },
+    {
+      "archivo": "ruta_entrenador.png",
+      "size": [
+        960,
+        640
+      ],
+      "modo": "RGB",
+      "transparente": false
+    },
+    {
+      "archivo": "ruta_semanal.png",
+      "size": [
+        960,
+        640
+      ],
+      "modo": "RGB",
+      "transparente": false
+    },
+    {
+      "archivo": "ruta_nodo.png",
+      "size": [
+        64,
+        64
+      ],
+      "modo": "RGBA",
+      "transparente": true
+    },
+    {
+      "archivo": "ruta_vencido.png",
+      "size": [
+        64,
+        64
+      ],
+      "modo": "RGBA",
+      "transparente": true
+    },
+    {
+      "archivo": "ruta_jefe.png",
+      "size": [
+        64,
+        64
+      ],
+      "modo": "RGBA",
+      "transparente": true
+    }
+  ],
+  "estaciones": [
+    {
+      "x": 104,
+      "y": 416
+    },
+    {
+      "x": 304,
+      "y": 280
+    },
+    {
+      "x": 528,
+      "y": 392
+    },
+    {
+      "x": 784,
+      "y": 208
+    }
+  ],
+  "franja_panel_semanal": {
+    "x": 0,
+    "y": 490,
+    "ancho": 960,
+    "alto": 150
+  },
+  "empalme_vertical_verificado": true
+}

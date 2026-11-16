@@ -1,0 +1,87 @@
+{
+  "herramienta": "Generador integrado de imágenes",
+  "piezas": [
+    {
+      "id": "torre_fondo",
+      "size": [
+        960,
+        640
+      ],
+      "transparent": false,
+      "prompt": "Use case: stylized-concept. Production 2D game background for PIXANIMALS, landscape aspect 3:2, intended final 960x640. Beautiful polished cartoon painted fantasy landscape, matching collectible creature RPG scenery, NOT pixel art. Sunset gold rose sky, distant layered blue lavender mountains, gentle green foothills, warm side light upper left, depth and magical adventure. Composition: LEFT 40 percent is calm sky and distant valley, clear uninterrupted space to overlay a tall tower in foreground; ground only lowest 10 percent, no foreground objects blocking tower. Right half mostly quiet distant scenery as an interface covers it. Landscape ONLY, DO NOT DRAW A TOWER, buildings, characters, pathways, text, frames, menus, logo, watermark. Soft unobtrusive detail with attractive colors. Full bleed opaque."
+    },
+    {
+      "id": "torre_piso",
+      "size": [
+        296,
+        44
+      ],
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Single modular tower floor asset for PIXANIMALS 2D game, transparent background, straight front orthographic elevation, no perspective. A VERY WIDE LOW rectangular segment ratio 296:44 (6.73:1) filling horizontal width of a landscape canvas, leave ample transparency above and below. Gray-blue fantasy dressed stone with restrained warm gold trim, elegant chunky cartoon videogame rendering, simple large readable masonry, warm upper-left light. EXACTLY TWO small arched windows, one near left quarter x20% and one right quarter x80%, dark deep blue interior amber glow. Middle 40% plain subtly textured stone free of symbols, to overlay floor number. Straight horizontal top and bottom edges and vertical sides; no roof, no base, no plinth, no ledges jutting outside rectangle. Identical narrow flat bluegray mortar/stone band at top and bottom so floor can repeat upward without seam. No labels, digits, text, character, background, shadow cast on background, no separate pieces. Draw entire long shallow block intact, not square building."
+    },
+    {
+      "id": "torre_piso_jefe",
+      "size": [
+        296,
+        44
+      ],
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Single boss floor module of fantasy tower in PIXANIMALS game. Transparent canvas. One extremely wide shallow rectangular stone block width:height 296:44, centered with transparent space above and below. STRICT FRONT ORTHOGRAPHIC ELEVATION. Gray-blue chunky painted cartoon stonework, restrained gold trim, upper-left lighting. Two small arched windows at x20% and x80%, two little lit wall torches near outer ends, red heraldic cloth banners immediately beside windows. Middle40% blank plain stone free to overlay floor number, NO emblem or banner at center. Everything including torches and banners within rectangular outline. Top and bottom have same narrow flat bluegray stone/mortar band for vertical tiling, same dimensions as ordinary floor. No roof, no floor slab, no perspective, no base, no characters, no lettering, no numbers, no drop shadow, no background. Stronger red and gold details identify boss but keep center empty."
+    },
+    {
+      "id": "torre_cima",
+      "size": [
+        328,
+        164
+      ],
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. PIXANIMALS game tower summit, single transparent background standalone architectural sprite, intended 328x164 ratio2:1. Straight front orthographic elevation, centered symmetrical structure, gray-blue dressed stone in polished chunky painted cartoon game art, warm upper-left lighting, restrained gold trims and small red heraldic banners at the two outer ends. Crenellated battlements and a sturdy flat boss standing platform, central walkway surface roughly at55 percent image height, vertical stone facade beneath; pair low squat side turrets. Bottom central wall is296units wide on328canvas, aligned center to fit296wide tower below. Upper central half of canvas is EMPTY TRANSPARENT SPACE for the boss sprite to stand, NO ROOF over central platform, no throne or ornament blocking center. Bottom edge straight horizontal. No characters, no sky or scenery, no lettering or digits, no background shadow. Isolated game asset whole object visible."
+    },
+    {
+      "id": "ruta_entrenador",
+      "size": [
+        960,
+        640
+      ],
+      "transparent": false,
+      "prompt": "Use case: stylized-concept. PIXANIMALS Trainer Path game map background, polished illustrated cartoon fantasy meadow, landscape3:2 final960x640. Elevated oblique view into lush sunlit prairies, soft rolling grass, small flowers and bushes around OUTER MARGINS. One clear sandy footpath connects EXACTLY FOUR empty circular grass/sand clearings in order LEFT TO RIGHT: center1=(104,416),center2=(304,280),center3=(528,392),center4=(784,208) in960x640 canvas. Normalized locations (10.83%width,65%height),(31.67%,43.75%),(55%,61.25%),(81.67%,32.5%). Path curves1→2→3→4, simple S route, never branches or crosses itself. Each empty clearing diameter90px; no stones, plants, buildings or markers in central70px. All four must be clearly identifiable as open spaces. Golden gentle upper-left light, pleasing emerald lime sage palette. No text, no numbers, no flags, no nodes/icons, no UI, no creatures. Landscape margins embellishment only, four station spots stay unoccupied. Entire image full bleed opaque."
+    },
+    {
+      "id": "ruta_semanal",
+      "size": [
+        960,
+        640
+      ],
+      "transparent": false,
+      "prompt": "Use case: stylized-concept. PIXANIMALS Weekly Boss Path map background, polished illustrated cartoon fantasy game world, landscape3:2 final960x640. Elevated oblique view of dramatic obsidian volcanic ruins, distant volcano near upper right against violet dusk sky, lava glow restrained only along margins, broken columns and rugged rocks framing outskirts. One clearly visible dusty warm ash stone footpath connects EXACTLY FOUR EMPTY circular stone clearings in this order:1=(104,416),2=(304,280),3=(528,392),4=(784,208) on960x640. Normalized(10.83%,65%),(31.67%,43.75%),(55%,61.25%),(81.67%,32.5%). One serpentine path1→2→3→4 with no branching or crossing. Four circular clearings diameter90px, center70px utterly clear for node overlays. Lower150px (y490..640) is quiet dark ground, covered by UI; ALL path and stations stay above y470. Dark epic navy charcoal plum with muted amber crimson, clear readable path contrast but background subdued. No text, no numbers, no monsters, no flags, no icons, no UI. Full bleed opaque."
+    },
+    {
+      "id": "ruta_nodo",
+      "size": [
+        64,
+        64
+      ],
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. One PIXANIMALS map station game icon, authentic crisp low resolution pixel art sprite on TRANSPARENT background. Exact64x64 logical grid, nearest neighbor big clean pixel clusters, limited palette maximum16opaque colors, 1px dark navy outline, no antialias, no soft gradients or soft glow. Front/elevated slightly oval thick round golden-yellow stone station tile, embossed simple circular center, faceted dark ochre beveled rim. Center unoccupied no lettering, looks like undiscovered/unbeaten station. Compact easy-read collectible RPG UI style, light from upper left. Whole icon in58x48centralarea, a few bright yellow pixel highlights on top-left edge, transparent padding. No text or digits, no background, no other icons, no floating sparkles or drop shadow."
+    },
+    {
+      "id": "ruta_vencido",
+      "size": [
+        64,
+        64
+      ],
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. One PIXANIMALS beaten map station game icon. True64x64 logical pixel art, limited16colorpalette, sharp dark navy1pixeloutline, no antialias or smooth gradients. On transparent background: round emerald-green stone tile with faceted dark green beveled rim, same compact slight elevated oval circular platform as an RPG station. At center short upright green victory pennant on little gold flagpole and CLEAR IVORY CHECKMARK on flag. Victory easy to recognize at64pixels. Warm upperleftlighting, chunky clean pixel clusters. Whole icon within58x58 with transparent margin. No words, letters or numbers, no background, no soft glow, no stray particles, no cast shadow outside sprite."
+    },
+    {
+      "id": "ruta_jefe",
+      "size": [
+        64,
+        64
+      ],
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. One PIXANIMALS boss map station game icon. Authentic pixel art on64x64logicalgrid, sharp dark navy1pxoutline, limited palette16opaque colors, no antialias, no smooth gradients. Transparent background. Slight elevated circular round crimson red stone tile, faceted dark maroon beveled rim, matching round RPG map station platform. Large clear stylized ivory SKULL on central tile with GOLD THREEPOINTED CROWN above it, readable menacing boss emblem, fantasy cute-monster game UI quality. Whole sprite within58x58centralarea, warmupperleftlight. No text, no digits, no background, no mist, no softglow, no drop shadow or stray particles."
+    }
+  ],
+  "correccion_ruta_semanal": "Use case: precise-object-edit. Image1 is the finished painted Weekly Boss volcanic route map to edit; image2 is a STRICT POSITION GUIDE only, not an art style. Preserve image1's beautiful volcanic ruins, dusk mood, painterly cartoon quality and single winding path. Change ONLY the placement of the four open circular stone stations and their connecting path to precisely match the circle centers of image2. Final landscape aspect3:2, intended960x640. Centers EXACTLY (104,416),(304,280),(528,392),(784,208); diameter100px per clearing, center at those coordinates. On1536x1024 output these correspond(166,666),(486,448),(845,627),(1254,333). In original image1 all stations are too high, especially1 and3. Move first rightward10px DOWN40px, secondright16pxDOWN25px, thirdleft10pxDOWN46px,fourthright4pxDOWN14px in960x640 coordinates. Retain one connected curving path1→2→3→4, no additional route or station. Lower150px quiet dark ground underUI, every station above y470. NO guide marks, crosses, labels, circles drawn as diagram, text, numbers, characters, UI or overlays in result. The only change is physically relocating the stone platforms and smoothly adjusting terrain/path around them. Full bleed opaque PNG."
+}

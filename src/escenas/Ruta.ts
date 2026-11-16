@@ -55,8 +55,9 @@ export class Ruta extends Phaser.Scene {
 
     this.dibujarMapa(colorTipo);
     const g = this.add.graphics();
-    // Camino punteado entre estaciones (más claro lo recorrido).
-    for (let i = 0; i < NODOS.length - 1; i++) {
+    const arte = this.textures.exists(`ruta_${this.modo}`);
+    // Camino punteado entre estaciones (más claro lo recorrido); el mapa del autor ya trae el camino dibujado.
+    for (let i = 0; i < (arte ? 0 : NODOS.length - 1); i++) {
       const a = NODOS[i]!;
       const b = NODOS[i + 1]!;
       const pasos = 9;
@@ -80,7 +81,7 @@ export class Ruta extends Phaser.Scene {
         g.lineStyle(1.2, 0x1a1c2c, 1).strokeCircle(p.x, p.y, r);
         if (e.jefe) g.fillStyle(0xc0304a, 1).fillCircle(p.x, p.y, r - 3);
       }
-      if (vencida) new Texto(this, p.x - 6, p.y - 5, 12, 10, '#ffffff', 'centro', { tam: 7, peso: 600, borde: '#1a1c2c' }).poner('✓');
+      if (vencida && !this.textures.exists('ruta_vencido')) new Texto(this, p.x - 6, p.y - 5, 12, 10, '#ffffff', 'centro', { tam: 7, peso: 600, borde: '#1a1c2c' }).poner('✓');
       if (i === this.sel) g.lineStyle(1.4, n(C.resalte), 1).strokeCircle(p.x, p.y, (e.jefe ? 8 : 6) + 3);
       this.input.on('pointerdown', (ptr: Phaser.Input.Pointer) => {
         const wx = ptr.x / 4;
@@ -166,15 +167,15 @@ export class Ruta extends Phaser.Scene {
     const estado = juego.estado;
     const e = lista[this.sel]!;
     const g = this.add.graphics();
-    ventana(g, 4, 118, 232, 38);
+    ventana(g, 4, 122, 232, 36);
     const ahora = Date.now();
     const titulo = e.jefe
       ? this.modo === 'entrenador'
         ? t('des.entrenador', { n: entrenadorDelDia(DATOS, ahora).nombre })
         : DATOS.criaturas.get(jefeDeLaSemana(DATOS, ahora))!.nombre
       : t(`ruta.estacion.${this.modo}`, { n: this.sel + 1 });
-    new Texto(this, 10, 121, 120, 10, '#257179', 'izq', { tam: 7.6, peso: 600 }).poner(titulo);
-    new Texto(this, 10, 131, 120, 10, C.tinta, 'izq', { tam: 6.2 }).poner(t('ruta.nivel', { n: e.nivel }));
+    new Texto(this, 10, 125, 120, 10, '#257179', 'izq', { tam: 7.6, peso: 600 }).poner(titulo);
+    new Texto(this, 10, 135, 120, 10, C.tinta, 'izq', { tam: 6.2 }).poner(t('ruta.nivel', { n: e.nivel }));
     let premio: string;
     if (this.sel < v || (e.jefe && this.jefeVencido())) premio = t('ruta.vencida');
     else if (this.sel > v) premio = t('ruta.bloqueada');
@@ -186,12 +187,12 @@ export class Ruta extends Phaser.Scene {
       const pr = DATOS.economia.semanal.premio;
       premio = t('des.premioSobre', { n: pr.monedas ?? 0, s: DATOS.sobres.sobres.find((s) => s.id === pr.sobre)?.nombre ?? '' });
     }
-    new Texto(this, 10, 140, 130, 10, this.sel > v ? C.tintaSuave : C.resalte, 'izq', { tam: 6.2, peso: 600 }).poner(premio);
+    new Texto(this, 10, 145, 130, 10, this.sel > v ? C.tintaSuave : C.resalte, 'izq', { tam: 6.2, peso: 600 }).poner(premio);
     e.equipo.forEach((id, i) => {
       const x = 152 + i * 28;
-      g.fillStyle(0xe8ecf4, 1).fillRoundedRect(x - 13, 121, 26, 26, 3);
+      g.fillStyle(0xe8ecf4, 1).fillRoundedRect(x - 13, 126, 26, 28, 3);
       const visto = estado.vistas.includes(id);
-      miniatura(this.add.image(x, 134, textura(id, visto ? 'frente' : 'silueta')), id, 22, 0.35);
+      miniatura(this.add.image(x, 140, textura(id, visto ? 'frente' : 'silueta')), id, 22, 0.35);
     });
     new Texto(this, 4, 4, 232, 10, '#ffffff', 'centro', { tam: 6.4, borde: '#1a1c2c' }).poner(t('ruta.ayuda'));
   }
