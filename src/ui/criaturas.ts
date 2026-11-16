@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { DATOS } from '../core/datos';
 import type { RarezaId } from '../esquemas/esquemas';
+import { versionHD } from './hd';
 
 /** Texturas derivadas de los sprites: variante brillante (otra paleta) y silueta para el Bestiario. */
 
@@ -33,7 +34,7 @@ function derivar(escena: Phaser.Scene, clave: string, sufijo: string, f: (d: Uin
 }
 
 /** Gira el tono de un color (placeholder de la paleta brillante hasta tener paletas dibujadas a mano). */
-function girarTono(d: Uint8ClampedArray, i: number): void {
+export function girarTono(d: Uint8ClampedArray, i: number): void {
   const r = d[i]! / 255;
   const g = d[i + 1]! / 255;
   const b = d[i + 2]! / 255;
@@ -80,6 +81,15 @@ export function miniatura<T extends Phaser.GameObjects.Image>(img: T, idEspecie:
   const sprites = DATOS.criaturas.get(idEspecie)!.sprites;
   const lado = Math.max(altoVisible(idEspecie), anchos.get(sprites) ?? 48);
   const escala = Math.min(maxEscala, caja / lado);
+  // Con arte HD (D243): el dibujo reducido en suave, sin escala entera ni íconos.
+  // Si se ve más grande que la mini (128 px de pantalla) y la grande está cargada, se usa la grande.
+  const pantalla = escala * 96 * 4;
+  const hd = (pantalla > 140 ? versionHD(img.scene, img.texture.key, 'grande', girarTono) : null) ?? versionHD(img.scene, img.texture.key, 'mini', girarTono);
+  if (hd) {
+    img.setTexture(hd.clave);
+    teñir(img, hd.relleno);
+    return img.setOrigin(0.5, 1 - altoVisible(idEspecie) / 2 / 96).setScale(escala * hd.factor);
+  }
   // Achicado a menos de 2,5 píxeles de pantalla por píxel, el dibujo grande se empasta: se usa el ícono (32×32),
   // que el autor dibujó para verse chico.
   const clave = img.texture.key;
@@ -92,6 +102,30 @@ export function miniatura<T extends Phaser.GameObjects.Image>(img: T, idEspecie:
     return img.setScale(escalaNitida(Math.min(1, caja / ladoIco), 1.12));
   }
   return centrarVisible(img, idEspecie).setScale(escalaNitida(escala, 1.12));
+}
+
+/** Silueta de color (relleno) o colores normales. */
+function teñir(img: Phaser.GameObjects.Image, relleno: number | null): void {
+  if (relleno === null) img.clearTint().setTintMode(Phaser.TintModes.MULTIPLY);
+  else img.setTint(relleno).setTintMode(Phaser.TintModes.FILL);
+}
+
+/**
+ * Pone en una imagen la criatura de esta clave del pixel art (`textura(...)`) en su versión HD grande si está
+ * cargada, o en pixel art si no. `escala` es respecto del lienzo de 96 (1 = tamaño de combate).
+ * Guarda el factor en la imagen (`hd`) para quien necesite pasar de píxeles de textura a los del lienzo de 96.
+ */
+export function ponerCriatura<T extends Phaser.GameObjects.Image>(img: T, clave: string, escala = 1): T {
+  const hd = versionHD(img.scene, clave, 'grande', girarTono);
+  if (hd) {
+    img.setTexture(hd.clave);
+    teñir(img, hd.relleno);
+    img.setData('hd', hd.factor);
+    return img.setScale(escala * hd.factor);
+  }
+  img.setTexture(clave);
+  img.setData('hd', 1);
+  return img.setScale(escala);
 }
 
 /** Caja visible del primer cuadro de cada ícono (para centrarlo). */

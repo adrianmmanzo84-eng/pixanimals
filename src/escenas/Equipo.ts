@@ -14,7 +14,8 @@ import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
 import { juego } from '../juego';
-import { COLOR_RAREZA, estrellas, miniatura, textura } from '../ui/criaturas';
+import { COLOR_RAREZA, estrellas, miniatura, ponerCriatura, textura } from '../ui/criaturas';
+import { cargarGrandes } from '../ui/hd';
 import { C, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { partir, Texto } from '../ui/texto';
@@ -363,7 +364,8 @@ export class Equipo extends Phaser.Scene {
     this.add.graphics().fillStyle(0x141830, 1).fillRect(0, 0, 240, 160);
     const brillo = this.add.graphics();
     // Tamaño real de combate, apoyada en la base: al evolucionar se nota cuánto crece.
-    const sprite = this.add.image(120, 112, textura(c.especie, 'frente', c.brillante)).setOrigin(0.5, 1);
+    await cargarGrandes(this, [c.especie, destino]);
+    const sprite = ponerCriatura(this.add.image(120, 112, textura(c.especie, 'frente', c.brillante)).setOrigin(0.5, 1), textura(c.especie, 'frente', c.brillante));
     const g = this.add.graphics();
     ventana(g, 4, 120, 232, 36);
     const msg = new Texto(this, 12, 126, 216, 20);
@@ -378,7 +380,7 @@ export class Equipo extends Phaser.Scene {
     let nueva = false;
     for (let k = 0; k < 26 && !cancelada; k++) {
       nueva = !nueva;
-      sprite.setTexture(textura(nueva ? destino : c.especie, 'blanca'));
+      ponerCriatura(sprite, textura(nueva ? destino : c.especie, 'blanca'));
       brillo.clear().fillStyle(0xffffff, 0.08 + k * 0.012).fillCircle(120, 72, 24 + k);
       if (k % 3 === 0) sonido.tocar('cursor');
       await esperar(pausa);
@@ -386,7 +388,7 @@ export class Equipo extends Phaser.Scene {
     }
     ayuda.poner('');
     if (cancelada) {
-      sprite.setTexture(textura(c.especie, 'frente', c.brillante));
+      ponerCriatura(sprite, textura(c.especie, 'frente', c.brillante));
       brillo.clear();
       sonido.tocar('cancelar');
       msg.poner(t('evo.cancelada', { n: antes.nombre }));
@@ -394,12 +396,12 @@ export class Equipo extends Phaser.Scene {
       evolucionar(DATOS, juego.estado, c.especie, destino);
       juego.guardar();
       this.cameras.main.flash(500, 255, 255, 255);
-      sprite.setTexture(textura(destino, 'frente', c.brillante));
+      ponerCriatura(sprite, textura(destino, 'frente', c.brillante));
       void animar(this, 'fx_evolucion', sprite.x, sprite.y - sprite.displayHeight * (sprite.originY - 0.5), { profundidad: (sprite.depth ?? 0) + 1 });
       confeti(this, 120, 40, 16);
       brillo.clear().fillStyle(0xfde9c8, 0.18).fillCircle(120, 72, 48);
       sonido.tocar('victoria');
-      this.tweens.add({ targets: sprite, scale: 1.08, duration: 160, yoyo: true });
+      this.tweens.add({ targets: sprite, scale: sprite.scale * 1.08, duration: 160, yoyo: true });
       msg.poner(partir(t('evo.lista', { n: antes.nombre, m: despues.nombre }), 214).join('\n'));
     }
     await esperar(500);

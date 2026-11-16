@@ -7,6 +7,7 @@ import { prepararTexturasCriaturas } from '../ui/criaturas';
 import { cargarEfectosIlustrados, crearTexturasEfectos } from '../ui/efectos';
 import { FONDOS_ILUSTRADOS } from '../ui/fondos';
 import { prepararCamara } from '../ui/estilo';
+import { cargarMinis } from '../ui/hd';
 import { Texto } from '../ui/texto';
 import { t } from '../i18n/i18n';
 
@@ -32,6 +33,8 @@ export class Arranque extends Phaser.Scene {
     for (const f of ['terin', 'plesin', 'triclin', 'tirin', 'dimlin']) this.load.image(`huevo_${f}`, `mina/huevo_${f}.png`);
     cargarAnimMina(this.load);
     cargarAnimaciones(this.load);
+    // Arte HD de las criaturas (D243): las minis van al arrancar; las grandes, a pedido.
+    cargarMinis(this.load);
     // Cronoportal: escenarios de las eras, mapas, sala e íconos del mapa y los fósiles.
     for (let n = 1; n <= 5; n++) {
       this.load.image(`crono_era${n}`, `crono/era${n}.jpg`);

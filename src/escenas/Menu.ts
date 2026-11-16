@@ -22,7 +22,8 @@ import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
 import { juego } from '../juego';
-import { textura } from '../ui/criaturas';
+import { miniatura, textura } from '../ui/criaturas';
+import { tieneHD } from '../ui/hd';
 import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
 import { abrirGuardado } from '../ui/guardadoDom';
@@ -144,9 +145,17 @@ export class Menu extends Phaser.Scene {
     equipo.forEach((c, i) => {
       const x = 10 + i * 76;
       // Ícono de 32×32 a ESCALA_ICONO píxeles de pantalla por píxel (D238; antes 4, se veía grande y gordo).
-      const icono = this.add.sprite(x + 16, 135, textura(c.especie, 'icono'), 0).setScale(ESCALA_ICONO / 4);
-      let cuadro = 0;
-      this.time.addEvent({ delay: 420, loop: true, callback: () => icono.setFrame((cuadro ^= 1)) });
+      let icono: Phaser.GameObjects.Image;
+      if (tieneHD(DATOS.criaturas.get(c.especie)!.sprites)) {
+        // Arte HD (D243): el dibujo en suave, flotando apenas.
+        icono = miniatura(this.add.image(x + 16, 135, textura(c.especie, 'frente', c.brillante)), c.especie, 26, 0.5);
+        this.tweens.add({ targets: icono, y: icono.y - 1, duration: 900 + i * 130, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
+      } else {
+        const sp = this.add.sprite(x + 16, 135, textura(c.especie, 'icono'), 0).setScale(ESCALA_ICONO / 4);
+        let cuadro = 0;
+        this.time.addEvent({ delay: 420, loop: true, callback: () => sp.setFrame((cuadro ^= 1)) });
+        icono = sp;
+      }
       // Los nombres largos (y los apodos de 12 letras) van con letra más chica para entrar en su lugar.
       const nombre = (c.favorita ? '★' : '') + nombreDe(DATOS, c);
       new Texto(this, x + 31, 126, 46, 9, C.tinta, 'izq', { tam: nombre.length > 11 ? 5 : nombre.length > 9 ? 5.6 : 6.2, peso: 600 }).poner(nombre);

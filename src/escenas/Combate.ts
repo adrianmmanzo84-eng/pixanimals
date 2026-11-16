@@ -30,7 +30,8 @@ import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { t } from '../i18n/i18n';
 import { juego } from '../juego';
-import { altoVisible, textura } from '../ui/criaturas';
+import { altoVisible, ponerCriatura, textura } from '../ui/criaturas';
+import { cargarGrandes } from '../ui/hd';
 import { C, COLOR_ESTADO, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
 import { Efectos } from '../ui/efectos';
 import { fondo, FONDO_POR_TIPO } from '../ui/fondos';
@@ -223,6 +224,12 @@ export class Combate extends Phaser.Scene {
       this.add.image(POS[1].x + 120, POS[1].y, textura(el.especie.id, 'frente', el.brillante)).setOrigin(0.5, ORIGEN_Y),
     ];
     this.mundo.add(this.sprites);
+    // Arte HD (D243): mientras cargan las grandes se ve el pixel art; al llegar se cambian sin mover nada.
+    this.sprites.forEach((sp, i) => this.ponerSprite(sp, sp.texture.key, i as Lado));
+    void cargarGrandes(this, this.bat.equipos.flatMap((e) => e.miembros.map((m) => m.especie.id))).then(() => {
+      if (!this.vivo) return;
+      this.sprites.forEach((sp, i) => sp.alpha > 0 && this.ponerSprite(sp, this.texturaDe(i as Lado, this.bat.act(i as Lado)), i as Lado));
+    });
     this.capaFx = this.add.container(0, 0);
     this.mundo.add(this.capaFx);
     this.fx = new Efectos(this, this.capaFx, (ms, f) => this.temblor(ms, f));
@@ -1237,6 +1244,11 @@ export class Combate extends Phaser.Scene {
     return POS[this.hueco(lado)];
   }
 
+  /** Pone la criatura en el sprite de un lado (HD si está cargada) a tamaño de combate. */
+  private ponerSprite(s: Phaser.GameObjects.Image, clave: string, _lado: Lado): Phaser.GameObjects.Image {
+    return ponerCriatura(s, clave, 1);
+  }
+
   private texturaDe(lado: Lado, c: Combatiente): string {
     return textura(c.especie.id, this.hueco(lado) === 0 ? 'espalda' : 'frente', c.brillante);
   }
@@ -1284,7 +1296,7 @@ export class Combate extends Phaser.Scene {
       const f = this.reloj * (i ? 1.5 : 1.7) + i * 1.9;
       const dy = Math.round(Math.sin(f) * 1.6 * 4) / 4;
       const dx = Math.round(Math.sin(f * 0.5 + 0.8) * 1.0 * 4) / 4;
-      s.setOrigin(0.5 - dx / s.width, ORIGEN_Y + dy / s.height);
+      s.setOrigin(0.5 - dx / s.displayWidth, ORIGEN_Y + dy / s.displayHeight);
     });
   }
 
@@ -1347,7 +1359,7 @@ export class Combate extends Phaser.Scene {
     for (const lado of [0, 1] as Lado[]) {
       const s = this.sprites[lado];
       const p = this.pos(lado);
-      s.setTexture(this.texturaDe(lado, this.bat.act(lado))).setPosition(p.x, s.alpha === 0 ? p.y + 30 : p.y);
+      this.ponerSprite(s, this.texturaDe(lado, this.bat.act(lado)), lado).setPosition(p.x, s.alpha === 0 ? p.y + 30 : p.y);
     }
     // El de atrás (más cerca de la cámara) se dibuja encima.
     this.mundo.bringToTop(this.sprites[this.vista === 'rival' ? 1 : 0]);
@@ -1372,7 +1384,7 @@ export class Combate extends Phaser.Scene {
       await this.tween({ targets: s, x: fuera, duration: 260, ease: 'Cubic.easeIn' });
     }
     const entra = this.bat.act(lado);
-    s.setTexture(this.texturaDe(lado, entra)).setPosition(fuera, this.pos(lado).y).setAlpha(1);
+    this.ponerSprite(s, this.texturaDe(lado, entra), lado).setPosition(fuera, this.pos(lado).y).setAlpha(1);
     this.refrescarPanel(lado);
     if (lado === 1) this.verRival();
     sonido.tocar('aceptar');
@@ -1490,11 +1502,13 @@ export class Combate extends Phaser.Scene {
       duration: 520,
       ease: 'Sine.easeIn',
       onUpdate: () => {
-        const corte = LIENZO - alto * prog.t;
-        s.setCrop(0, 0, LIENZO, Math.max(0, corte));
+        // En píxeles de la textura (96 en pixel art, 384 en HD).
+        const k = s.height / LIENZO;
+        const corte = s.height - alto * k * prog.t;
+        s.setCrop(0, 0, s.width, Math.max(0, corte));
         if (prog.t - chispa > 0.06) {
           chispa = prog.t;
-          this.fx.chispasDesde(s.x, s.y + (corte - LIENZO * ORIGEN_Y), Math.max(18, alto * 0.6), color, 6);
+          this.fx.chispasDesde(s.x, s.y + (corte - s.height * ORIGEN_Y) * s.scaleY, Math.max(18, alto * 0.6), color, 6);
         }
       },
     });
