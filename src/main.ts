@@ -38,6 +38,7 @@ import { Cronoportal } from './escenas/Cronoportal';
 import { CronoMapa } from './escenas/CronoMapa';
 import { ESCALA } from './ui/texto';
 import { iniciarDiag, montarDiag } from './diag';
+import { esNativo, iniciarNativo } from './nativo';
 
 /** El mundo del juego mide 240×160; se dibuja a 4× para que letras y fondos salgan suaves. */
 const ANCHO = 240 * ESCALA;
@@ -100,6 +101,8 @@ function prepararCelular(): void {
     if (t.closest('#barra') || t.closest('#ajustes-boton')) return;
     document.body.classList.remove('ajustes-abiertos');
   });
+  // En la app de Android la pantalla completa, el giro y el botón Atrás los maneja la app (nativo.ts).
+  if (esNativo) return;
   // Pantalla completa y giro fijo al primer toque (el navegador solo lo permite tras un gesto).
   Entrada.alPrimerGesto(() => {
     const raiz = document.documentElement as HTMLElement & { requestFullscreen?: (o?: FullscreenOptions) => Promise<void> };
@@ -220,6 +223,11 @@ async function iniciar(): Promise<void> {
   ajustarEscala(juego.canvas);
   // Solo en desarrollo: acceso desde la consola para pruebas visuales.
   if (import.meta.env.DEV) Object.assign(window, { __pixGame: juego });
+  // App de Android: botón Atrás del teléfono.
+  iniciarNativo(
+    () => juego.scene.getScenes(true).map((e) => e.sys.settings.key),
+    () => Entrada.pulsar('b'),
+  );
   // Modo diagnóstico (?diag): versión, pantalla, errores y archivos faltantes en un recuadro.
   montarDiag(juego);
   window.addEventListener('resize', () => ajustarEscala(juego.canvas));

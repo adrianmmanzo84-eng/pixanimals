@@ -4,6 +4,7 @@ import { elegirRecuperacion } from './core/estado/respaldo';
 import { estadoNuevo } from './core/estado/juego';
 import type { EstadoJuego } from './esquemas/esquemas';
 import { borrarRespaldos, guardarRespaldo, leerRespaldos } from './respaldoIdb';
+import { borrarNativo, guardarNativo, leerNativo } from './nativo';
 
 /** Partida en curso. Las escenas la leen y, tras cada cambio importante, llaman a guardar(). */
 const almacen: Almacen = new AlmacenLocal();
@@ -21,7 +22,11 @@ export const juego = {
     almacen.escribir(texto);
     // Copia en el segundo almacén, agrupando los guardados seguidos.
     if (pendiente) clearTimeout(pendiente);
-    pendiente = setTimeout(() => void guardarRespaldo(texto), 800);
+    pendiente = setTimeout(() => {
+      void guardarRespaldo(texto);
+      // En la app de Android, además, en el almacén de la app (D245).
+      guardarNativo(texto);
+    }, 800);
   },
   reemplazar(estado: EstadoJuego): void {
     this.estado = estado;
@@ -31,12 +36,14 @@ export const juego = {
     almacen.borrar();
     if (pendiente) clearTimeout(pendiente);
     void borrarRespaldos();
+    borrarNativo();
     this.estado = estadoNuevo(DATOS, Date.now());
   },
   /** Al abrir: si el guardado principal falta o está dañado, recupera la copia válida más reciente. */
   async recuperar(): Promise<void> {
     if (this.prueba) return;
-    const r = elegirRecuperacion(almacen.leer(), await leerRespaldos());
+    const nativo = await leerNativo();
+    const r = elegirRecuperacion(almacen.leer(), [...(await leerRespaldos()), ...(nativo ? [nativo] : [])]);
     if (!r) return;
     this.estado = r.estado;
     this.recuperada = true;

@@ -1,3 +1,4 @@
+import { esNativo } from './nativo';
 /**
  * PWA: registra el service worker (solo en el build publicado), pide almacenamiento persistente
  * para que el navegador no borre la partida, y maneja el botón «Instalar»:
@@ -20,6 +21,8 @@ function esIOS(): boolean {
 }
 
 export function iniciarPWA(): void {
+  // En la app de Android no hace falta: el juego ya está instalado y sus archivos van dentro de la app.
+  if (esNativo) return;
   if (import.meta.env.PROD && 'serviceWorker' in navigator) {
     window.addEventListener('load', () => void navigator.serviceWorker.register('./sw.js').catch(() => undefined));
   }

@@ -1,0 +1,47 @@
+name: App de Android
+# Compila el instalador de prueba (APK) en cada publicación y lo deja en la versión «android-prueba»
+# de GitHub (Releases), con un enlace directo para bajarlo desde el teléfono (D245).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: android
+  cancel-in-progress: true
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21, cache: gradle }
+      - run: npm ci
+      - run: npm run build
+      - run: npx cap sync android
+      - name: Compilar APK
+        working-directory: android
+        run: ./gradlew assembleDebug --no-daemon
+      - name: Nombrar el instalador
+        id: apk
+        run: |
+          V=$(node -p "require('./package.json').version")
+          cp android/app/build/outputs/apk/debug/app-debug.apk "pixanimals-$V.apk"
+          cp android/app/build/outputs/apk/debug/app-debug.apk pixanimals.apk
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pixanimals-${{ steps.apk.outputs.version }}
+          path: pixanimals-${{ steps.apk.outputs.version }}.apk
+      - name: Publicar en «android-prueba»
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete android-prueba --yes --cleanup-tag || true
+          gh release create android-prueba pixanimals.apk "pixanimals-${{ steps.apk.outputs.version }}.apk" \
+            --prerelease --target "$GITHUB_SHA" \
+            --title "PIXANIMALS ${{ steps.apk.outputs.version }} (prueba para Android)" \
+            --notes "Instalador de prueba de la versión ${{ steps.apk.outputs.version }}. En el teléfono: descargar pixanimals.apk, abrirlo y permitir «instalar apps de esta fuente». Cada versión nueva se instala encima de la anterior y conserva la partida."
