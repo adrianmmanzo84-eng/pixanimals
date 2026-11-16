@@ -1,0 +1,3788 @@
+[
+  {
+    "archivo": "criaturas/sprites/39_anomalo_0_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "c9748ccf3d64bc7fe70cd9cce5ca4f39ff9c5a7ae9b4f0e9611b566111385303",
+    "familia": 39,
+    "etapa": 0,
+    "vista": "frente",
+    "nombre": "Anomalopix"
+  },
+  {
+    "archivo": "criaturas/sprites/39_anomalo_0_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "c6f079ae036ee7068aaa9281a48f969a13799a29087129ad798ec1b5cf7ae12d",
+    "familia": 39,
+    "etapa": 0,
+    "vista": "espalda",
+    "nombre": "Anomalopix"
+  },
+  {
+    "archivo": "criaturas/iconos/39_anomalo_0.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "f1fe1aff75dd9445a267ec7cf86c2d0455d7a60dd0e0258d63e98ed2092bde47",
+    "familia": 39,
+    "etapa": 0
+  },
+  {
+    "archivo": "criaturas/sprites/39_anomalo_1_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "6f45c20b267a8c109aa20339568863799fd888c1f55d5bd0f057889e76a1f8f0",
+    "familia": 39,
+    "etapa": 1,
+    "vista": "frente",
+    "nombre": "Anomalopixel"
+  },
+  {
+    "archivo": "criaturas/sprites/39_anomalo_1_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "8dfee78ea16d29f22f1e8fef442bf022967f7030b714f8f9ddddd87b8ce286f7",
+    "familia": 39,
+    "etapa": 1,
+    "vista": "espalda",
+    "nombre": "Anomalopixel"
+  },
+  {
+    "archivo": "criaturas/iconos/39_anomalo_1.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "89a80778dd620a00efff2df377dbd34294874aa4e8731d85876aa34c6388508f",
+    "familia": 39,
+    "etapa": 1
+  },
+  {
+    "archivo": "criaturas/sprites/39_anomalo_2_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "eadaf9443f0b0f2afac4fd7af8e24f9c2220bbd67b5f3792a736f124e878900c",
+    "familia": 39,
+    "etapa": 2,
+    "vista": "frente",
+    "nombre": "Anomalomegapix"
+  },
+  {
+    "archivo": "criaturas/sprites/39_anomalo_2_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "697ec99b3df6b1481edb2edae40dded3a116651fc514e4a1faae72adf6074ed4",
+    "familia": 39,
+    "etapa": 2,
+    "vista": "espalda",
+    "nombre": "Anomalomegapix"
+  },
+  {
+    "archivo": "criaturas/iconos/39_anomalo_2.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "b04897579e766b67ebe622ebda0db58d8c540fdbb7ff9a6999d35a61f9ee8e09",
+    "familia": 39,
+    "etapa": 2
+  },
+  {
+    "archivo": "criaturas/sprites/39_anomalo_3_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "31d7ca7b9e7f29fa9462a9b0bec65398f7bc0c4cfa6360a4eaab30185fb6676d",
+    "familia": 39,
+    "etapa": 3,
+    "vista": "frente",
+    "nombre": "Anomalogigapix"
+  },
+  {
+    "archivo": "criaturas/sprites/39_anomalo_3_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "d9207453b07e3bebc52a464412e2d31ad2d8d8802a5a7edb627e64b7c1fcefbc",
+    "familia": 39,
+    "etapa": 3,
+    "vista": "espalda",
+    "nombre": "Anomalogigapix"
+  },
+  {
+    "archivo": "criaturas/iconos/39_anomalo_3.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "a09e899478d7f23c8457365c835f4f72ff5bedf385cdf3c92a45686e50bf2d33",
+    "familia": 39,
+    "etapa": 3
+  },
+  {
+    "archivo": "criaturas/laminas/39_anomalo.png",
+    "clase": "lamina_criatura",
+    "ancho": 1536,
+    "alto": 1024,
+    "sha256": "60302fb30d40dddf864e70c8c169658e12a71dedc05acc4a2eebb318794af213",
+    "familia": 39
+  },
+  {
+    "archivo": "criaturas/compatibles_4x2/39_anomalo.png",
+    "clase": "lamina_compatible",
+    "ancho": 1536,
+    "alto": 1024,
+    "sha256": "5046dfde88df32a3fa8a09cbcb3b98d821da2280a2d4c04759100754e5147d0e",
+    "familia": 39
+  },
+  {
+    "archivo": "criaturas/sprites/40_meganeura_0_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "6c08c21995107ead6b5d60426163661f5ade96775663161cb449c2dd0779edde",
+    "familia": 40,
+    "etapa": 0,
+    "vista": "frente",
+    "nombre": "Meganeupix"
+  },
+  {
+    "archivo": "criaturas/sprites/40_meganeura_0_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "affba46907f604b08f03c7e9c1f81026e9027a36bb053af96abf810aef30f668",
+    "familia": 40,
+    "etapa": 0,
+    "vista": "espalda",
+    "nombre": "Meganeupix"
+  },
+  {
+    "archivo": "criaturas/iconos/40_meganeura_0.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "dc2cf43d665c5b61a638b8da237d295da71570663ef46afe207093fc7cf533dd",
+    "familia": 40,
+    "etapa": 0
+  },
+  {
+    "archivo": "criaturas/sprites/40_meganeura_1_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "33bcaf8c7e70ad2883b9555c4389e00b3a3b07b870b653cee38ef4b4c2ff1f3e",
+    "familia": 40,
+    "etapa": 1,
+    "vista": "frente",
+    "nombre": "Meganeupixel"
+  },
+  {
+    "archivo": "criaturas/sprites/40_meganeura_1_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "8fe38a8275f63e412308f9086e5c0cc27ad2b695556c5a3c4c293c171800240d",
+    "familia": 40,
+    "etapa": 1,
+    "vista": "espalda",
+    "nombre": "Meganeupixel"
+  },
+  {
+    "archivo": "criaturas/iconos/40_meganeura_1.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "e81c9753a03fbdef24cf7a32130bcb5c0b1c5472209c23f86c56bad1d4909e1f",
+    "familia": 40,
+    "etapa": 1
+  },
+  {
+    "archivo": "criaturas/sprites/40_meganeura_2_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "704b884256611e865280c9eda7be739bb9fc00fbaabe05fc0d3432147c27b860",
+    "familia": 40,
+    "etapa": 2,
+    "vista": "frente",
+    "nombre": "Meganeumegapix"
+  },
+  {
+    "archivo": "criaturas/sprites/40_meganeura_2_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "40808defb3d686bd09b69c21c3a8b52ac8904b867c9d6f683fddc71aebf206c1",
+    "familia": 40,
+    "etapa": 2,
+    "vista": "espalda",
+    "nombre": "Meganeumegapix"
+  },
+  {
+    "archivo": "criaturas/iconos/40_meganeura_2.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "cccd9c528561b62f058034e311fd8546c7bd2e6560b350fa2078d8a00d8b1f7f",
+    "familia": 40,
+    "etapa": 2
+  },
+  {
+    "archivo": "criaturas/sprites/40_meganeura_3_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "c6d824a8e673add0a10068e272d87066bbcc4a5498cbeec8b14e15647c4d3db3",
+    "familia": 40,
+    "etapa": 3,
+    "vista": "frente",
+    "nombre": "Meganeugigapix"
+  },
+  {
+    "archivo": "criaturas/sprites/40_meganeura_3_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "7b096ec20b5a85a541b650eb83fa710f953ec53e7530b6ee947bd0efd896657a",
+    "familia": 40,
+    "etapa": 3,
+    "vista": "espalda",
+    "nombre": "Meganeugigapix"
+  },
+  {
+    "archivo": "criaturas/iconos/40_meganeura_3.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "a3d4c03feb638b0a2cfd696aea83567143fd98f8dd1a74fc47bdfbc1aa33c021",
+    "familia": 40,
+    "etapa": 3
+  },
+  {
+    "archivo": "criaturas/laminas/40_meganeura.png",
+    "clase": "lamina_criatura",
+    "ancho": 1536,
+    "alto": 1024,
+    "sha256": "8c4d09125da715063fee6db2877f12e375dcc5e157dd47c74a6cec7e356945e0",
+    "familia": 40
+  },
+  {
+    "archivo": "criaturas/compatibles_4x2/40_meganeura.png",
+    "clase": "lamina_compatible",
+    "ancho": 1536,
+    "alto": 1024,
+    "sha256": "026e76424866dc139b4cb35c7c1470106c03819e6c67508473b7d3c6866b24e2",
+    "familia": 40
+  },
+  {
+    "archivo": "criaturas/sprites/41_estego_0_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "52cc793b2238286bc12bbaf8c9cee1a1c7dfcd5e099252671ff704095f77a027",
+    "familia": 41,
+    "etapa": 0,
+    "vista": "frente",
+    "nombre": "Estegopix"
+  },
+  {
+    "archivo": "criaturas/sprites/41_estego_0_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "32488caa0d661d8dc0cff5c393d8d33ef707f9cd8280b3fdfb71d87d44383989",
+    "familia": 41,
+    "etapa": 0,
+    "vista": "espalda",
+    "nombre": "Estegopix"
+  },
+  {
+    "archivo": "criaturas/iconos/41_estego_0.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "13d0cedbe3c96ca09b476f5e0294383b1627bd4a3956406eabae7fa5376ea8b2",
+    "familia": 41,
+    "etapa": 0
+  },
+  {
+    "archivo": "criaturas/sprites/41_estego_1_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "c42c284374d5672a69eccc8591567d69384cebdec04c073301ca6ff2c4905a48",
+    "familia": 41,
+    "etapa": 1,
+    "vista": "frente",
+    "nombre": "Estegopixel"
+  },
+  {
+    "archivo": "criaturas/sprites/41_estego_1_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "bbc8fb4173ed3f8ba6c8e758b03447a17774efa0c030d95eb282bb13bc5c50ed",
+    "familia": 41,
+    "etapa": 1,
+    "vista": "espalda",
+    "nombre": "Estegopixel"
+  },
+  {
+    "archivo": "criaturas/iconos/41_estego_1.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "627d78151c8ba27e1940938f2013b0b5b990c7ada7d0dc86e42212ff99490049",
+    "familia": 41,
+    "etapa": 1
+  },
+  {
+    "archivo": "criaturas/sprites/41_estego_2_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "9a0f202d80d1fa5447c973efa8e7186ac98d51709c98ff3d24e389810df08619",
+    "familia": 41,
+    "etapa": 2,
+    "vista": "frente",
+    "nombre": "Estegomegapix"
+  },
+  {
+    "archivo": "criaturas/sprites/41_estego_2_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "0f9ca7b3a34b1b0cd08dd00b37c153985fdf3f43f830fdbad3e8c6faf82bd3fd",
+    "familia": 41,
+    "etapa": 2,
+    "vista": "espalda",
+    "nombre": "Estegomegapix"
+  },
+  {
+    "archivo": "criaturas/iconos/41_estego_2.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "bd078bad2745bb4db75e2e92b64b5c0fcec63887d9295148fb97d6f5e897f9f4",
+    "familia": 41,
+    "etapa": 2
+  },
+  {
+    "archivo": "criaturas/sprites/41_estego_3_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "8a7a6d9982bccad30f3dc781a77a758ffd5f59d92219ff9944ca9397a45ca143",
+    "familia": 41,
+    "etapa": 3,
+    "vista": "frente",
+    "nombre": "Estegogigapix"
+  },
+  {
+    "archivo": "criaturas/sprites/41_estego_3_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "a9b944e1d52118b2478df3233a133dadd7b2aba7f44e398ded41833b73f530c3",
+    "familia": 41,
+    "etapa": 3,
+    "vista": "espalda",
+    "nombre": "Estegogigapix"
+  },
+  {
+    "archivo": "criaturas/iconos/41_estego_3.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "891ca1f6c0c4a3ba515504cb0dbd2d2f149735279804587a4f10db0d6d853ab5",
+    "familia": 41,
+    "etapa": 3
+  },
+  {
+    "archivo": "criaturas/laminas/41_estego.png",
+    "clase": "lamina_criatura",
+    "ancho": 1536,
+    "alto": 1024,
+    "sha256": "9ab9f259ad68809aa5cf86fc18802c7c3164aab94b5422144eda59629039700c",
+    "familia": 41
+  },
+  {
+    "archivo": "criaturas/compatibles_4x2/41_estego.png",
+    "clase": "lamina_compatible",
+    "ancho": 1536,
+    "alto": 1024,
+    "sha256": "cc7e1af7baf303e0f0595882916ae631fe99f1109b031de90e29205a65e9f0e4",
+    "familia": 41
+  },
+  {
+    "archivo": "criaturas/sprites/42_ptero_0_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "b5749f86932ce29aeaccc43b926f638b896030c0d90f1396b10eaa10713a1d5b",
+    "familia": 42,
+    "etapa": 0,
+    "vista": "frente",
+    "nombre": "Pteropix"
+  },
+  {
+    "archivo": "criaturas/sprites/42_ptero_0_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "123f7637cb233a4c44278cff9944d9ac51b38e68b144cd2fd7806bcba684dfe5",
+    "familia": 42,
+    "etapa": 0,
+    "vista": "espalda",
+    "nombre": "Pteropix"
+  },
+  {
+    "archivo": "criaturas/iconos/42_ptero_0.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "548ec121639ff2fb0f6774b46e3d50f25439d9cac0a07fafa07e20c73b0ea1ab",
+    "familia": 42,
+    "etapa": 0
+  },
+  {
+    "archivo": "criaturas/sprites/42_ptero_1_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "9797c7f319d51fff4b13cff83b441a2f26fcba23be6490189d9176d2fb71fad5",
+    "familia": 42,
+    "etapa": 1,
+    "vista": "frente",
+    "nombre": "Pteropixel"
+  },
+  {
+    "archivo": "criaturas/sprites/42_ptero_1_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "e3bb222d27a3d9131b5b7facaaf7102d832eebc2961ce28ef9f7c2a0ea8d0385",
+    "familia": 42,
+    "etapa": 1,
+    "vista": "espalda",
+    "nombre": "Pteropixel"
+  },
+  {
+    "archivo": "criaturas/iconos/42_ptero_1.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "f0239c3639c9211e89a5910b3e8ca3cb591e7db934d3f703d0a09249b3cf6e0b",
+    "familia": 42,
+    "etapa": 1
+  },
+  {
+    "archivo": "criaturas/sprites/42_ptero_2_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "85ce03ff90eb31b8b8a48e258dc6f4d25393998fcaf7dd9da799a1910be38e20",
+    "familia": 42,
+    "etapa": 2,
+    "vista": "frente",
+    "nombre": "Pteromegapix"
+  },
+  {
+    "archivo": "criaturas/sprites/42_ptero_2_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "ba388d8e8d1e6604cf9adf92137fb5396e8cba2bfe6ee5813329b6c435a52e73",
+    "familia": 42,
+    "etapa": 2,
+    "vista": "espalda",
+    "nombre": "Pteromegapix"
+  },
+  {
+    "archivo": "criaturas/iconos/42_ptero_2.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "096e96b2e936f5b13fc221d2f00c8cd13be48b074590efa2c62fba05486c1438",
+    "familia": 42,
+    "etapa": 2
+  },
+  {
+    "archivo": "criaturas/sprites/42_ptero_3_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "5b98e26b05aa217e3bcdbd4ab35deb8e2e8df20f4ed48b65e9595ddcf4e0db59",
+    "familia": 42,
+    "etapa": 3,
+    "vista": "frente",
+    "nombre": "Pterogigapix"
+  },
+  {
+    "archivo": "criaturas/sprites/42_ptero_3_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "23f686d50b486dcc05ca810baf9a110ea73267ca3f4f2dc5c0eb3cf438915bac",
+    "familia": 42,
+    "etapa": 3,
+    "vista": "espalda",
+    "nombre": "Pterogigapix"
+  },
+  {
+    "archivo": "criaturas/iconos/42_ptero_3.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "afed8d8362611e5cc651b35a01411ff31ee2ad878bbad6aeb04307b7d1d6228a",
+    "familia": 42,
+    "etapa": 3
+  },
+  {
+    "archivo": "criaturas/laminas/42_ptero.png",
+    "clase": "lamina_criatura",
+    "ancho": 1536,
+    "alto": 1024,
+    "sha256": "7ba1486f74d99d009a30e57d7a5dc77afcbf23c4664522885647b5abe4a4a611",
+    "familia": 42
+  },
+  {
+    "archivo": "criaturas/compatibles_4x2/42_ptero.png",
+    "clase": "lamina_compatible",
+    "ancho": 1536,
+    "alto": 1024,
+    "sha256": "0f56086fcf36ededaa1b21e1a12ca10de8584dc115f0bc51857c4f1569c4dff2",
+    "familia": 42
+  },
+  {
+    "archivo": "criaturas/sprites/43_mamut_0_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "c8b545078687d975597ac5e2a4e4fb5091b1f9f7891b364b9b0b35403427a5b0",
+    "familia": 43,
+    "etapa": 0,
+    "vista": "frente",
+    "nombre": "Mamutpix"
+  },
+  {
+    "archivo": "criaturas/sprites/43_mamut_0_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "fb3adde629a4a7e38b58ab95cea0f8fe8ba3754ee741e07df5d5c53ddf2e84fc",
+    "familia": 43,
+    "etapa": 0,
+    "vista": "espalda",
+    "nombre": "Mamutpix"
+  },
+  {
+    "archivo": "criaturas/iconos/43_mamut_0.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "539261f3cc111cacf8da99af49ce13ca168563cfdd50b1aafe1094d3cc2397d5",
+    "familia": 43,
+    "etapa": 0
+  },
+  {
+    "archivo": "criaturas/sprites/43_mamut_1_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "d906de6015ff7845eff5ce66f50cd1fca8de46b4d393aa8061ad4f4380debe79",
+    "familia": 43,
+    "etapa": 1,
+    "vista": "frente",
+    "nombre": "Mamutpixel"
+  },
+  {
+    "archivo": "criaturas/sprites/43_mamut_1_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "18ed256fee359a5de2104cfeab9dda54fb7bb2a84cf6a4bf38644077b4670bde",
+    "familia": 43,
+    "etapa": 1,
+    "vista": "espalda",
+    "nombre": "Mamutpixel"
+  },
+  {
+    "archivo": "criaturas/iconos/43_mamut_1.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "1e187a870a142a2476a880a634f7a6b59e2fff98e4a848d58d305fbe2ec5c825",
+    "familia": 43,
+    "etapa": 1
+  },
+  {
+    "archivo": "criaturas/sprites/43_mamut_2_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "8fb4114c74aa3a0762c46e8250b7d3a5c020ea0af12c3c55d2612ed8810c989c",
+    "familia": 43,
+    "etapa": 2,
+    "vista": "frente",
+    "nombre": "Mamutmegapix"
+  },
+  {
+    "archivo": "criaturas/sprites/43_mamut_2_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "d2f9b6e290c9af32c308a71023424e8759aa0a0be9d5b0164f93b97575d35793",
+    "familia": 43,
+    "etapa": 2,
+    "vista": "espalda",
+    "nombre": "Mamutmegapix"
+  },
+  {
+    "archivo": "criaturas/iconos/43_mamut_2.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "6cf906f299b18212a92ca62bd8ba28d7807803d346a110d1fbd592c8a11c5dbd",
+    "familia": 43,
+    "etapa": 2
+  },
+  {
+    "archivo": "criaturas/sprites/43_mamut_3_frente.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "28a6dd99689163c022226082f886ba7831095705dc697c3a36ae6c27e1aa09b3",
+    "familia": 43,
+    "etapa": 3,
+    "vista": "frente",
+    "nombre": "Mamutgigapix"
+  },
+  {
+    "archivo": "criaturas/sprites/43_mamut_3_espalda.png",
+    "clase": "criatura",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "620300dfdb8901da8945ddaf9aae72f4c124842e9d9fe31cf0aeac0c42296a6e",
+    "familia": 43,
+    "etapa": 3,
+    "vista": "espalda",
+    "nombre": "Mamutgigapix"
+  },
+  {
+    "archivo": "criaturas/iconos/43_mamut_3.png",
+    "clase": "icono_criatura",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "400432c19aa1d4c84aa8a35eb9f794cec570c0fb52d5ec1bf840d1713c3e3514",
+    "familia": 43,
+    "etapa": 3
+  },
+  {
+    "archivo": "criaturas/laminas/43_mamut.png",
+    "clase": "lamina_criatura",
+    "ancho": 1536,
+    "alto": 1024,
+    "sha256": "3d7a58bce1c70e1606726a1dc7e425a924e27ebe0512faf0fc5695153cd03b2a",
+    "familia": 43
+  },
+  {
+    "archivo": "criaturas/compatibles_4x2/43_mamut.png",
+    "clase": "lamina_compatible",
+    "ancho": 1536,
+    "alto": 1024,
+    "sha256": "488684488a14e03a127a828a8f1f28007a50cfeb4b2037dd2efe2a9cab34667a",
+    "familia": 43
+  },
+  {
+    "archivo": "escenarios/crono_era1.png",
+    "clase": "era",
+    "ancho": 960,
+    "alto": 455,
+    "sha256": "01f13106ecd6e81702056f1afaf3b9fd9ddf1c13e0cb71c590326778e2a23c42",
+    "era": 1
+  },
+  {
+    "archivo": "escenarios/crono_mapa1.png",
+    "clase": "mapa",
+    "ancho": 960,
+    "alto": 640,
+    "sha256": "ac763a7106efda8cf94ec3a9c463ffb039423b9f9e26691210a24578287217ad",
+    "era": 1
+  },
+  {
+    "archivo": "escenarios/crono_era2.png",
+    "clase": "era",
+    "ancho": 960,
+    "alto": 455,
+    "sha256": "70d99b03e4381da73749e6a02b8c0b55c9a427f939784b613a6399bc5686f2ef",
+    "era": 2
+  },
+  {
+    "archivo": "escenarios/crono_mapa2.png",
+    "clase": "mapa",
+    "ancho": 960,
+    "alto": 640,
+    "sha256": "107296ee4004d4256fc557b554e94bfceb7244fb347c6367b49110d8aa6e337e",
+    "era": 2
+  },
+  {
+    "archivo": "escenarios/crono_era3.png",
+    "clase": "era",
+    "ancho": 960,
+    "alto": 455,
+    "sha256": "b31e9d783c7bdc6338be37c5d2f3234eb70e4b3ff96d03b1de5d0de8137b8d14",
+    "era": 3
+  },
+  {
+    "archivo": "escenarios/crono_mapa3.png",
+    "clase": "mapa",
+    "ancho": 960,
+    "alto": 640,
+    "sha256": "4b885602006afaa0fb4b41e9fc11bea471d55b1c2db2c0f028d7e872cd38e246",
+    "era": 3
+  },
+  {
+    "archivo": "escenarios/crono_era4.png",
+    "clase": "era",
+    "ancho": 960,
+    "alto": 455,
+    "sha256": "83aabfb1d8b8858fffc175fa8f1bc5a3bf30badc0df8d46ad7ae53fac9d0397e",
+    "era": 4
+  },
+  {
+    "archivo": "escenarios/crono_mapa4.png",
+    "clase": "mapa",
+    "ancho": 960,
+    "alto": 640,
+    "sha256": "e4cce85ec733222b914faab405db19d396af4b298eb9943868e52a7c5512a56b",
+    "era": 4
+  },
+  {
+    "archivo": "escenarios/crono_era5.png",
+    "clase": "era",
+    "ancho": 960,
+    "alto": 455,
+    "sha256": "25b6121271c2a352e729d872354185703c4105cdcd6fddd89c73244d7ec23b77",
+    "era": 5
+  },
+  {
+    "archivo": "escenarios/crono_mapa5.png",
+    "clase": "mapa",
+    "ancho": 960,
+    "alto": 640,
+    "sha256": "26f82391f2e8e454bc3399acd2a8913cb3118fb012f1fbaef66de0ec16128250",
+    "era": 5
+  },
+  {
+    "archivo": "escenarios/crono_sala.png",
+    "clase": "sala",
+    "ancho": 960,
+    "alto": 640,
+    "sha256": "4eb7a26577fcdacdd66459ef6759570c6d42eb3e8673bdf751be7816d62f777c",
+    "era": null
+  },
+  {
+    "archivo": "iconos/fosil_anomalo.png",
+    "clase": "icono",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "4b0bf30af5176e9a3cf87038e7ac1ab6e9a8a79c7eb17d61723a0c2375f45412"
+  },
+  {
+    "archivo": "iconos/fosil_meganeura.png",
+    "clase": "icono",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "6fe40987cf4a4ca49f2871b1aec26023aefeedb5069b4a03cd06c18c6c40d3f4"
+  },
+  {
+    "archivo": "iconos/fosil_estego.png",
+    "clase": "icono",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "e351918742427906507a6d3855cf23788e97bbf2291d80f74a5abd379426b5da"
+  },
+  {
+    "archivo": "iconos/fosil_ptero.png",
+    "clase": "icono",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "c2ffa046efb84151f68787c13dcc7143410a4d494b2c27981a5b6c04241117ca"
+  },
+  {
+    "archivo": "iconos/fosil_mamut.png",
+    "clase": "icono",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "84a3f36775bbb5bf2000ea652ac4ad8c30b4ceaa7be13d8f828f494a3647aa55"
+  },
+  {
+    "archivo": "iconos/ambar.png",
+    "clase": "icono",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "28cfc437713fbbbd77133cdb31a98d2b51c214dd58dbc085d0f00cf084f1f036"
+  },
+  {
+    "archivo": "iconos/mapa_combate.png",
+    "clase": "icono",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "281f58d6e8e43d0e731ac2fc573534601d38cbf1b170d44c14baf066e8c7ff21"
+  },
+  {
+    "archivo": "iconos/mapa_excavacion.png",
+    "clase": "icono",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "e19c496ea0ff82ef93a43667a0d59652ecbc7e0de9d00f9e2f085b419ba4b367"
+  },
+  {
+    "archivo": "iconos/mapa_evento.png",
+    "clase": "icono",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "ee8e45ff87e316d90e6562f52c16fe474af97d3c68e6055b5b68c2db20ab9744"
+  },
+  {
+    "archivo": "iconos/mapa_fogata.png",
+    "clase": "icono",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "e88b5d9ba719229780366204a8c3095f0799621112a36a3cca5ef4480dea5f3d"
+  },
+  {
+    "archivo": "iconos/mapa_jefe.png",
+    "clase": "icono",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "d990f720a989935072f0dc37fde872a1637f40d5bd8ae92f5bca2a36e23721d5"
+  },
+  {
+    "archivo": "iconos/mapa_visitado.png",
+    "clase": "icono",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "39442a805dabd3e48561b9a098cb24512f0fb50c7828268e46c95802536ebef5"
+  },
+  {
+    "archivo": "medallas/medalla_jefes_1.png",
+    "clase": "medalla",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "c61e55169191a5a06a68482c21c66487044865779690c1f42665cb0c0c6ae97b",
+    "tema": "jefes",
+    "nivel": 1
+  },
+  {
+    "archivo": "medallas/medalla_jefes_2.png",
+    "clase": "medalla",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "5e9d12fdd91fb1f2098bfd1634c76d00c6e937df1ef2d91065ceec13020b5530",
+    "tema": "jefes",
+    "nivel": 2
+  },
+  {
+    "archivo": "medallas/medalla_jefes_3.png",
+    "clase": "medalla",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "d2e4215815b337528a25bad9b3b90a571208c544daeed64fafe8c11b6f0a1e67",
+    "tema": "jefes",
+    "nivel": 3
+  },
+  {
+    "archivo": "medallas/medalla_jefes_bloqueada.png",
+    "clase": "medalla",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "1d8ce5c53f9cd70a496bf00db46613c27e3d87732631d55881c66acb5d818938",
+    "tema": "jefes",
+    "nivel": 0
+  },
+  {
+    "archivo": "medallas/medalla_mina_1.png",
+    "clase": "medalla",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "a985e5c3fa4c41c062ec024691086a7a46b68ccb8fd4f9ed87231d3a998005e6",
+    "tema": "mina",
+    "nivel": 1
+  },
+  {
+    "archivo": "medallas/medalla_mina_2.png",
+    "clase": "medalla",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "40ae9bed77ebf40082d029581c3e8b8f7118967dece2ba0af35e94e31d967f81",
+    "tema": "mina",
+    "nivel": 2
+  },
+  {
+    "archivo": "medallas/medalla_mina_3.png",
+    "clase": "medalla",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "18e781c28481bf67944243dfb5a9b0e0ac9587c4312ae10c007fb306802c4735",
+    "tema": "mina",
+    "nivel": 3
+  },
+  {
+    "archivo": "medallas/medalla_mina_bloqueada.png",
+    "clase": "medalla",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "1d8ce5c53f9cd70a496bf00db46613c27e3d87732631d55881c66acb5d818938",
+    "tema": "mina",
+    "nivel": 0
+  },
+  {
+    "archivo": "medallas/medalla_crono_1.png",
+    "clase": "medalla",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "730e1a0be2a0195ef1402128c4dd511de61511a195ba74f7db0789a60f9872b2",
+    "tema": "crono",
+    "nivel": 1
+  },
+  {
+    "archivo": "medallas/medalla_crono_2.png",
+    "clase": "medalla",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "f57159c6431ffe2dbe1a913989724f0bff3df8153b191af1381122b70183226d",
+    "tema": "crono",
+    "nivel": 2
+  },
+  {
+    "archivo": "medallas/medalla_crono_3.png",
+    "clase": "medalla",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "a46cbe56ce4be9d507d356d0da169630f495125720260de7b9ce474cf7877093",
+    "tema": "crono",
+    "nivel": 3
+  },
+  {
+    "archivo": "medallas/medalla_crono_bloqueada.png",
+    "clase": "medalla",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "7f799909f0d2fdf9ff82c001c204e7a06d42313f32f9545eea479f0bc71c5efa",
+    "tema": "crono",
+    "nivel": 0
+  },
+  {
+    "archivo": "mina/animaciones/mina_pico.png",
+    "clase": "animacion_mina_reutilizada",
+    "ancho": 48,
+    "alto": 16,
+    "sha256": "f9ea4ad8b0e03d34a0569210dc55cea8e1e494fb7c70aab402ac6adb9d3a13f1",
+    "fotogramas": 3,
+    "cuadro": [
+      16,
+      16
+    ],
+    "duraciones_ms": [
+      90,
+      65,
+      95
+    ],
+    "bucle": false,
+    "reutilizado": true
+  },
+  {
+    "archivo": "mina/animaciones/mina_explosion.png",
+    "clase": "animacion_mina_reutilizada",
+    "ancho": 288,
+    "alto": 48,
+    "sha256": "1547148a9f15244f004747d5cfc33b3ea09645c25011a26e3c33576144482448",
+    "fotogramas": 6,
+    "cuadro": [
+      48,
+      48
+    ],
+    "duraciones_ms": [
+      45,
+      55,
+      65,
+      75,
+      85,
+      95
+    ],
+    "bucle": false,
+    "reutilizado": true
+  },
+  {
+    "archivo": "mina/animaciones/mina_gas.png",
+    "clase": "animacion_mina_reutilizada",
+    "ancho": 64,
+    "alto": 16,
+    "sha256": "0f006fb9d2fc63a4a90a73b2988763e80d654e386f11560119475e634343df36",
+    "fotogramas": 4,
+    "cuadro": [
+      16,
+      16
+    ],
+    "duraciones_ms": [
+      140,
+      140,
+      140,
+      140
+    ],
+    "bucle": true,
+    "reutilizado": true
+  },
+  {
+    "archivo": "mina/animaciones/huevo.png",
+    "clase": "animacion_mina_reutilizada",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "473c3ee8a507c360fed47c2b4460fddf4afcdcc19eef013e328734bcd3cdb2b5",
+    "fotogramas": 1,
+    "cuadro": [
+      32,
+      32
+    ],
+    "duraciones_ms": [
+      1000
+    ],
+    "bucle": false,
+    "reutilizado": true
+  },
+  {
+    "archivo": "mina/animaciones/mina_polvo.png",
+    "clase": "animacion_mina_reutilizada",
+    "ancho": 48,
+    "alto": 8,
+    "sha256": "219b53140b7e36698fdb8052873aadb7d96746f729b34b7b62cc3876cc7c74e7",
+    "fotogramas": 3,
+    "cuadro": [
+      16,
+      8
+    ],
+    "duraciones_ms": [
+      65,
+      75,
+      95
+    ],
+    "bucle": false,
+    "reutilizado": true
+  },
+  {
+    "archivo": "mina/animaciones/mina_destello.png",
+    "clase": "animacion_mina_reutilizada",
+    "ancho": 32,
+    "alto": 8,
+    "sha256": "87611496d722f7e20ea291d021d9850a8ffd481bb65beda0d8f8c9f939b3aa71",
+    "fotogramas": 4,
+    "cuadro": [
+      8,
+      8
+    ],
+    "duraciones_ms": [
+      70,
+      80,
+      80,
+      100
+    ],
+    "bucle": false,
+    "reutilizado": true
+  },
+  {
+    "archivo": "mina/animaciones/mina_vapor.png",
+    "clase": "animacion_mina_reutilizada",
+    "ancho": 64,
+    "alto": 16,
+    "sha256": "d6d4f6e234e225f4f0c80b9e0181f00433c28c660010da7c3130d4aa042148ef",
+    "fotogramas": 4,
+    "cuadro": [
+      16,
+      16
+    ],
+    "duraciones_ms": [
+      80,
+      95,
+      110,
+      130
+    ],
+    "bucle": false,
+    "reutilizado": true
+  },
+  {
+    "archivo": "mina/animaciones/huevo_eclosion.png",
+    "clase": "animacion_mina_reutilizada",
+    "ancho": 128,
+    "alto": 32,
+    "sha256": "c6269c6268f1c7b833af8976836f4586dba12333f1709ed67f66169b245aa61d",
+    "fotogramas": 4,
+    "cuadro": [
+      32,
+      32
+    ],
+    "duraciones_ms": [
+      120,
+      120,
+      170,
+      260
+    ],
+    "bucle": false,
+    "reutilizado": true
+  },
+  {
+    "archivo": "iconos/item_huevo.png",
+    "clase": "icono",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "473c3ee8a507c360fed47c2b4460fddf4afcdcc19eef013e328734bcd3cdb2b5"
+  },
+  {
+    "archivo": "ataques/piezas/34_zarpa_de_helecho.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "b0344f9863327fea7688dcec01c496c0d399d3705c14d41482a5d1de00f4490c",
+    "familia": 34,
+    "ataque": "Zarpa de Helecho",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/34_follaje_jurasico.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "94efa215827566044e4fbe02c2ee0a8d4a56fe641adeb8e03612047e637396ce",
+    "familia": 34,
+    "ataque": "Follaje Jurásico",
+    "tipo": "Defensivo"
+  },
+  {
+    "archivo": "ataques/piezas/34_savia_antigua.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "6ef16d942c50da717cc0c219316e4b465c0bb28dcfd896286c800ec154971e23",
+    "familia": 34,
+    "ataque": "Savia Antigua",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/34_siega_prehistorica.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "4b221684888cd041fd64d7704e317c36eaf7442c3f91b23d4bc3bd0a2fe4e4b4",
+    "familia": 34,
+    "ataque": "Siega Prehistórica",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/piezas/34_garras_guadana.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "73e3ddc03b5c8ed156db43b44a393c1eb61b89f177d244d61336b39bd4434dfa",
+    "familia": 34,
+    "ataque": "Garras Guadaña",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/34_brote_eterno.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "ead7e86dc09466703d2274669e9e18e2d4e4d14a9d6e89e0a174ecf98035bb15",
+    "familia": 34,
+    "ataque": "Brote Eterno",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/34_siega_milenaria.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "5af46a88c59aef201bc2dce1f04593a94f9c4725bab9d173932ee35f5c94b77f",
+    "familia": 34,
+    "ataque": "Siega Milenaria",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/laminas/34_ataques.png",
+    "clase": "lamina_ataques",
+    "ancho": 384,
+    "alto": 192,
+    "sha256": "1f538172105fe6f9bc188e47bd831288c9199e1ef3bd7bbbcf5d3a935f362105",
+    "familia": 34
+  },
+  {
+    "archivo": "ataques/piezas/34_raiz_del_mundo_impacto.png",
+    "clase": "definitivo_impacto",
+    "ancho": 128,
+    "alto": 128,
+    "sha256": "9fb52f0946073ed87f62888740b93940cc84c42f21f24765200d19dd46bef8c1",
+    "familia": 34,
+    "ataque": "Raíz del Mundo"
+  },
+  {
+    "archivo": "ataques/piezas/34_raiz_del_mundo_pantalla.png",
+    "clase": "definitivo_pantalla",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "f684e8fecaff9c950ad88751af86ea209177531bcee9cb26cdd744880eba550f",
+    "familia": 34,
+    "ataque": "Raíz del Mundo"
+  },
+  {
+    "archivo": "ataques/laminas/34_definitivos.png",
+    "clase": "lamina_definitivos",
+    "ancho": 480,
+    "alto": 160,
+    "sha256": "e469c38a2041edcb9c366167ae6734b5aa337dfa4c4c16f63a811787c5de7160",
+    "familia": 34
+  },
+  {
+    "archivo": "ataques/piezas/35_onda_abisal.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "aba83217153d50bc3d63f76532ab39ffc50eeb50853d063b49c0cede914799f8",
+    "familia": 35,
+    "ataque": "Onda Abisal",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/35_burbuja_fosil.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "86b63bbe1c859ddd34c3a0183858e931b0d71b08be5b6a2a09749404c1de5f18",
+    "familia": 35,
+    "ataque": "Burbuja Fósil",
+    "tipo": "Defensivo"
+  },
+  {
+    "archivo": "ataques/piezas/35_canto_profundo.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "c35f9a28f87c6d580449a0535c95062df4375e337241d797f79b3c7ba51b6031",
+    "familia": 35,
+    "ataque": "Canto Profundo",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/35_maremoto_jurasico.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "d0240b5c2339885195746d935a3ddede555cbc2c2afb509d01750342578f4ec1",
+    "familia": 35,
+    "ataque": "Maremoto Jurásico",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/piezas/35_oleaje_antiguo.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "20fa4fa8dfe4904201dbc3aefa6b822b6394a4989107a18fbbf701994d881cbd",
+    "familia": 35,
+    "ataque": "Oleaje Antiguo",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/35_canto_de_nereida.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "a8abb94360baf1ba34467d4f51e769b8621485f8e0c798efba986ee3d763819c",
+    "familia": 35,
+    "ataque": "Canto de Nereida",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/35_diluvio_eterno.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "0551dbd691418b7fe4fbf7d72639b694c0fccc08328d1b5683c4b2fb222e8c54",
+    "familia": 35,
+    "ataque": "Diluvio Eterno",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/laminas/35_ataques.png",
+    "clase": "lamina_ataques",
+    "ancho": 384,
+    "alto": 192,
+    "sha256": "757cf6ea09db847172c7c527fa4f7250c2f94c14acc9bb195cb842984c31e40d",
+    "familia": 35
+  },
+  {
+    "archivo": "ataques/piezas/35_mar_primordial_impacto.png",
+    "clase": "definitivo_impacto",
+    "ancho": 128,
+    "alto": 128,
+    "sha256": "37635ff5a4b3c99872a57a660a4002cdf6a4fc30fc39ac9d58ad213d3168b593",
+    "familia": 35,
+    "ataque": "Mar Primordial"
+  },
+  {
+    "archivo": "ataques/piezas/35_mar_primordial_pantalla.png",
+    "clase": "definitivo_pantalla",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "0cde1a91d2c429540143fb1b66df74af53bc3215c6beda8b67f0b4d86ebf3ccc",
+    "familia": 35,
+    "ataque": "Mar Primordial"
+  },
+  {
+    "archivo": "ataques/laminas/35_definitivos.png",
+    "clase": "lamina_definitivos",
+    "ancho": 480,
+    "alto": 160,
+    "sha256": "33ed76307e201ad287e2e825a9c0bb8e5b80ae1bf2cb93e33754dc1f51c1a22a",
+    "familia": 35
+  },
+  {
+    "archivo": "ataques/piezas/36_cuerno_voltio.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "355519c0b6674eb1b3b1ee49cab0b219895830e0425a2c55c301c4eb642eb08e",
+    "familia": 36,
+    "ataque": "Cuerno Voltio",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/36_gola_escudo.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "54266cd27b880ce3b81db8def1cc9518cf64f3df9b41e1c76e4a6944d4ae269d",
+    "familia": 36,
+    "ataque": "Gola Escudo",
+    "tipo": "Defensivo"
+  },
+  {
+    "archivo": "ataques/piezas/36_carga_cristal.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "bea09cb99e820ba61f13d0ea123180626c828913c347d32755ab6f5f6183a9fa",
+    "familia": 36,
+    "ataque": "Carga Cristal",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/36_estampida_voltaica.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "8564f5af4f3a3e16d5966aa904a035f0aec992370a9c40e93374c0c746f15820",
+    "familia": 36,
+    "ataque": "Estampida Voltaica",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/piezas/36_tricuerno_electrico.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "47a8ac1a520afdcd9f47a08b9806c4f09c7476b7fb159547147f2e581616b674",
+    "familia": 36,
+    "ataque": "Tricuerno Eléctrico",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/36_gola_tormenta.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "798d7063890842275cdc6a4a00590d39127ba3a6e2ebb6d9ff521e997fe11d74",
+    "familia": 36,
+    "ataque": "Gola Tormenta",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/36_embestida_eterna.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "7ad7d8bb042675e0de129da1a9fc28d097e45dd6aeb14cc7f3b6096363bbfe64",
+    "familia": 36,
+    "ataque": "Embestida Eterna",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/laminas/36_ataques.png",
+    "clase": "lamina_ataques",
+    "ancho": 384,
+    "alto": 192,
+    "sha256": "d5b5fe23f1512e53f1ae9812b1536034dcfcccb4e367a0dd96c22cb0c4d06acb",
+    "familia": 36
+  },
+  {
+    "archivo": "ataques/piezas/36_trueno_cretacico_impacto.png",
+    "clase": "definitivo_impacto",
+    "ancho": 128,
+    "alto": 128,
+    "sha256": "247e38af6873617a3499a840ed7991f4dbf10bd0c178e8da1dbce9876ae9d40e",
+    "familia": 36,
+    "ataque": "Trueno Cretácico"
+  },
+  {
+    "archivo": "ataques/piezas/36_trueno_cretacico_pantalla.png",
+    "clase": "definitivo_pantalla",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "6d1fa71519de70639975227f952aa76e73e84e62d400f12526db1f72f89d2705",
+    "familia": 36,
+    "ataque": "Trueno Cretácico"
+  },
+  {
+    "archivo": "ataques/laminas/36_definitivos.png",
+    "clase": "lamina_definitivos",
+    "ancho": 480,
+    "alto": 160,
+    "sha256": "e1cb0c7557ea1d574e43aa9c2a52299b5a2f779c5fe5759f71d614ed876e1696",
+    "familia": 36
+  },
+  {
+    "archivo": "ataques/piezas/37_mordida_volcanica.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "b75fcae0109c55ece4757ebc7a7e41ccdce924829c07528b4dd63569ef3b8374",
+    "familia": 37,
+    "ataque": "Mordida Volcánica",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/37_piel_de_basalto.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "cdf7b97a0d6f15160287cf995a5256c929388c76068d1f52e7353f674de86f11",
+    "familia": 37,
+    "ataque": "Piel de Basalto",
+    "tipo": "Defensivo"
+  },
+  {
+    "archivo": "ataques/piezas/37_rugido_tirano.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "943ab119b415c629663c57a143d9eb82d2a4bad83ae9559d82fedbf67a407dbc",
+    "familia": 37,
+    "ataque": "Rugido Tirano",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/37_erupcion_rex.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "2cbfedd9578da622549e4b95869d8ab53e304f4d4b15019c94ab20b665ef039b",
+    "familia": 37,
+    "ataque": "Erupción Rex",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/piezas/37_mandibula_de_magma.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "7577ac3f2410cc3a6804ce2e9b5a7e8d76f05891fcef6a68f6e989d60fc722fe",
+    "familia": 37,
+    "ataque": "Mandíbula de Magma",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/37_rugido_cretacico.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "09cb0b44df90f0f7ac1a0d7bdd2369a0173ed92dfdc14ad480b97653a5db219d",
+    "familia": 37,
+    "ataque": "Rugido Cretácico",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/37_cataclismo_igneo.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "8580884725311f9ce714b0bd000538af15a01646435097577b160efcb6ff0c78",
+    "familia": 37,
+    "ataque": "Cataclismo Ígneo",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/laminas/37_ataques.png",
+    "clase": "lamina_ataques",
+    "ancho": 384,
+    "alto": 192,
+    "sha256": "a89adb30dc04f8bdb64f75d848566f9e91e015fbe2aa6570ebe9cd51be6fbc81",
+    "familia": 37
+  },
+  {
+    "archivo": "ataques/piezas/37_meteoro_final_impacto.png",
+    "clase": "definitivo_impacto",
+    "ancho": 128,
+    "alto": 128,
+    "sha256": "23e790c02114b89a11e391cf24e5b5e70d981a5811420f824cd22dc0eaf6eb02",
+    "familia": 37,
+    "ataque": "Meteoro Final"
+  },
+  {
+    "archivo": "ataques/piezas/37_meteoro_final_pantalla.png",
+    "clase": "definitivo_pantalla",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "3b8394984b3083ea622462a62a689610bd42f27e66df6747e1eb6f4cb36ade0a",
+    "familia": 37,
+    "ataque": "Meteoro Final"
+  },
+  {
+    "archivo": "ataques/laminas/37_definitivos.png",
+    "clase": "lamina_definitivos",
+    "ancho": 480,
+    "alto": 160,
+    "sha256": "0d4bc221eb523d2efc7db1d498f04f7cba531299081368d1faf2810cf123769c",
+    "familia": 37
+  },
+  {
+    "archivo": "ataques/piezas/38_mirada_permica.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "d54ce0769d5100c4890f4192d9c96303e3e447c5a7575c2def2ee8559352eed4",
+    "familia": 38,
+    "ataque": "Mirada Pérmica",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/38_velo_fosil.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "b76c476e691395c5067b99fed8aff047cd2aa3d413521fcb5943e3ad272c1855",
+    "familia": 38,
+    "ataque": "Velo Fósil",
+    "tipo": "Defensivo"
+  },
+  {
+    "archivo": "ataques/piezas/38_vela_sombria.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "8a8e3f85239b92900c5d0a5f120648c411ba4af657ca95927a58577bc9a8bc5f",
+    "familia": 38,
+    "ataque": "Vela Sombría",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/38_pulso_permico.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "ec1bd480593e19d6662990ac631ad210592767fe315b7ec6738d2360e54a4c69",
+    "familia": 38,
+    "ataque": "Pulso Pérmico",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/piezas/38_ojo_del_abismo.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "a2625a3924597e5dd29ea82406f4091c4e39c475451137ea5dec5700f1338492",
+    "familia": 38,
+    "ataque": "Ojo del Abismo",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/38_vela_estelar.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "a7acc697d9758a82ad5af701f992af171e0347350dca4875fa439f07f8841cd5",
+    "familia": 38,
+    "ataque": "Vela Estelar",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/38_noche_primigenia.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "6840f46325ab030422e70efee8509a154574f768a5d04dc1320a883648414e9c",
+    "familia": 38,
+    "ataque": "Noche Primigenia",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/laminas/38_ataques.png",
+    "clase": "lamina_ataques",
+    "ancho": 384,
+    "alto": 192,
+    "sha256": "bed7e1b3bb42b13223b4db39c8558980c02ccc0685b107a74ab9e97e9f7a9e44",
+    "familia": 38
+  },
+  {
+    "archivo": "ataques/piezas/38_eclipse_fosil_impacto.png",
+    "clase": "definitivo_impacto",
+    "ancho": 128,
+    "alto": 128,
+    "sha256": "eeb56eacb761ef1d3ba123c29b3b4dfb12ef6f0c14c921577fa6ae3883e31a6e",
+    "familia": 38,
+    "ataque": "Eclipse Fósil"
+  },
+  {
+    "archivo": "ataques/piezas/38_eclipse_fosil_pantalla.png",
+    "clase": "definitivo_pantalla",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "f82f10d28ad31bd3fcd1c6f21deda867dc591f5446f5a436d6bc40b522e8cae6",
+    "familia": 38,
+    "ataque": "Eclipse Fósil"
+  },
+  {
+    "archivo": "ataques/laminas/38_definitivos.png",
+    "clase": "lamina_definitivos",
+    "ancho": 480,
+    "alto": 160,
+    "sha256": "eea3fd0abcdc176187059f4bb0c7c6906e46859b997c1a3100066665b3197e00",
+    "familia": 38
+  },
+  {
+    "archivo": "ataques/piezas/39_garra_primitiva.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "436c9ba8f0ab627ab02d95566478078bc92d7b118b9f797ee89c952c29a85042",
+    "familia": 39,
+    "ataque": "Garra Primitiva",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/39_caparazon_cambrico.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "3bdf26e66a7233314ab2cd64a68bd5329175cc3afd64042cffc963762b56dad0",
+    "familia": 39,
+    "ataque": "Caparazón Cámbrico",
+    "tipo": "Defensivo"
+  },
+  {
+    "archivo": "ataques/piezas/39_ojos_compuestos.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "179250ffe355a23bbefbed08b5fce9ee5046f0f9370bd866743e06ca3ed6558f",
+    "familia": 39,
+    "ataque": "Ojos Compuestos",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/39_remolino_cambrico.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "487348c7f782996201566e0ff72aa26f6bff36920ef7ba250c4c1ee05c5e44b1",
+    "familia": 39,
+    "ataque": "Remolino Cámbrico",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/piezas/39_tenaza_abisal.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "7873e2d8b993c0def24fd7054b93d21d5e716e9af812061ce870885793e8a1a1",
+    "familia": 39,
+    "ataque": "Tenaza Abisal",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/39_marea_cambrica.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "20b7bc3f3b2e83a9f1ebe6747b7a109a280279f43c675784616ded1183d6ef7c",
+    "familia": 39,
+    "ataque": "Marea Cámbrica",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/39_abismo_primigenio.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "16d466ed0a3b731657d64ac906bd760e9939e8dee506a7a705cff23eb963b367",
+    "familia": 39,
+    "ataque": "Abismo Primigenio",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/laminas/39_ataques.png",
+    "clase": "lamina_ataques",
+    "ancho": 384,
+    "alto": 192,
+    "sha256": "f3420f4efffdb89d8d8af14e93dd8331d99710f5e6f33a3e91f621d04897d4cb",
+    "familia": 39
+  },
+  {
+    "archivo": "ataques/piezas/39_primer_oceano_impacto.png",
+    "clase": "definitivo_impacto",
+    "ancho": 128,
+    "alto": 128,
+    "sha256": "df3e94f85ef2eb35b1e43b520ae3fb088416a5263866c026d761664e19becc15",
+    "familia": 39,
+    "ataque": "Primer Océano"
+  },
+  {
+    "archivo": "ataques/piezas/39_primer_oceano_pantalla.png",
+    "clase": "definitivo_pantalla",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "a5f75ce53ade21c0d96f6972c5161d1c6d54c50d47ed9fd3437312a4258256a1",
+    "familia": 39,
+    "ataque": "Primer Océano"
+  },
+  {
+    "archivo": "ataques/laminas/39_definitivos.png",
+    "clase": "lamina_definitivos",
+    "ancho": 480,
+    "alto": 160,
+    "sha256": "c0f654e242a9c6431234c37bad5a851bd8b52f11d22966c6f8143a9931b22d09",
+    "familia": 39
+  },
+  {
+    "archivo": "ataques/piezas/40_zumbido_voltaico.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "91d8ff5c5dc85445d2ffa5a52bcf0fc6ac990bf4db607b2ee75cb13fe9ccb347",
+    "familia": 40,
+    "ataque": "Zumbido Voltaico",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/40_alas_de_vitral.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "76268aa22749f11b039a8279c5262cb558be750a8b49d88bfd058d358f33730c",
+    "familia": 40,
+    "ataque": "Alas de Vitral",
+    "tipo": "Defensivo"
+  },
+  {
+    "archivo": "ataques/piezas/40_vuelo_estatico.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "f904123732d4d569ff7d959b0bdff846761d6e6d57e46c33b4f6bb94755c2829",
+    "familia": 40,
+    "ataque": "Vuelo Estático",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/40_enjambre_electrico.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "78404d6061ebf6a954a9964d1428807ce953fda4c8a66f36ffa456ab02635191",
+    "familia": 40,
+    "ataque": "Enjambre Eléctrico",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/piezas/40_picada_relampago.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "4331ca99c8042138667bb73aa0b799feaff4784438e3a4ad850088772f560694",
+    "familia": 40,
+    "ataque": "Picada Relámpago",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/40_mil_facetas.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "af96fa7b6cd3ecef3042a88a5485a16c16b1d734345b6b955eee5b68867cc540",
+    "familia": 40,
+    "ataque": "Mil Facetas",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/40_tormenta_pantanosa.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "004998c9128cf5b9419372695db9c16b9b563bfe3d16bbb9822b7588d04c26a2",
+    "familia": 40,
+    "ataque": "Tormenta Pantanosa",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/laminas/40_ataques.png",
+    "clase": "lamina_ataques",
+    "ancho": 384,
+    "alto": 192,
+    "sha256": "9eb0b5347720a31c36a5cbb4b69bc0eac3aa8918eb1b23e926756cacae08e319",
+    "familia": 40
+  },
+  {
+    "archivo": "ataques/piezas/40_rayo_primordial_impacto.png",
+    "clase": "definitivo_impacto",
+    "ancho": 128,
+    "alto": 128,
+    "sha256": "6d6d0fdf5bcdc96c24af23e4b803ddea2401faa01cfbb171edbc837785267c92",
+    "familia": 40,
+    "ataque": "Rayo Primordial"
+  },
+  {
+    "archivo": "ataques/piezas/40_rayo_primordial_pantalla.png",
+    "clase": "definitivo_pantalla",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "d57e42ff7633a8a44fed8c674eb4a7afa9b4a8ba4e1f35ece6290f0e34a2f692",
+    "familia": 40,
+    "ataque": "Rayo Primordial"
+  },
+  {
+    "archivo": "ataques/laminas/40_definitivos.png",
+    "clase": "lamina_definitivos",
+    "ancho": 480,
+    "alto": 160,
+    "sha256": "0c677c31b2bf3accd7ea5b02e9e66f9dbc82352d164aad6b2f39a7eb95296677",
+    "familia": 40
+  },
+  {
+    "archivo": "ataques/piezas/41_coletazo_de_puas.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "709d3bb62d6c004d162db168a6c26a63dd6137ad2f405e6e88deaec76d1d48ed",
+    "familia": 41,
+    "ataque": "Coletazo de Púas",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/41_placas_de_hoja.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "0270ad263a297454bb449216dc00a17cf3c4342fb9131d35aa83cb4235941542",
+    "familia": 41,
+    "ataque": "Placas de Hoja",
+    "tipo": "Defensivo"
+  },
+  {
+    "archivo": "ataques/piezas/41_sol_del_jurasico.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "098cdba66adf1c113690a62cb961847a60164bdebf6ea88d385d79edca2fe6fe",
+    "familia": 41,
+    "ataque": "Sol del Jurásico",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/41_estampida_de_hojas.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "b74dee04e9a7ba36424ccd60e9ca36f2c29151dabcadd597656550e1721c5c56",
+    "familia": 41,
+    "ataque": "Estampida de Hojas",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/piezas/41_puas_milenarias.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "00dacd2a2a25c2b53efaae58d2ae096536715bdf52eed2a42585355b8584ddcc",
+    "familia": 41,
+    "ataque": "Púas Milenarias",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/41_bosque_jurasico.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "8d1d8ce82133db7cc0f9c6eb4e4f278271a40bfe8d4867112af1be91b04842da",
+    "familia": 41,
+    "ataque": "Bosque Jurásico",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/41_gran_estampida.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "e486365d4fe49655a6dd6f954deab1af460515a369d3025cc4f5c103ee54f254",
+    "familia": 41,
+    "ataque": "Gran Estampida",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/laminas/41_ataques.png",
+    "clase": "lamina_ataques",
+    "ancho": 384,
+    "alto": 192,
+    "sha256": "39b88f977dc69f064bc4be9f466e78c10580c89e1715dd704a696cfb5b6531ba",
+    "familia": 41
+  },
+  {
+    "archivo": "ataques/piezas/41_corazon_jurasico_impacto.png",
+    "clase": "definitivo_impacto",
+    "ancho": 128,
+    "alto": 128,
+    "sha256": "f6a5796e482fa3cbbad72d4e7ecef6b5de9daffb85a4250c3dbc818b97b5448e",
+    "familia": 41,
+    "ataque": "Corazón Jurásico"
+  },
+  {
+    "archivo": "ataques/piezas/41_corazon_jurasico_pantalla.png",
+    "clase": "definitivo_pantalla",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "7eaaf85800ae8b8c592849ebebac46d180ca65c8c7ecff044c1ce5bbd3932c1a",
+    "familia": 41,
+    "ataque": "Corazón Jurásico"
+  },
+  {
+    "archivo": "ataques/laminas/41_definitivos.png",
+    "clase": "lamina_definitivos",
+    "ancho": 480,
+    "alto": 160,
+    "sha256": "2f14061869e6da938a2584bb4ab8af0192aff5c16085033c1c2a51170df31716",
+    "familia": 41
+  },
+  {
+    "archivo": "ataques/piezas/42_picotazo_cretacico.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "6e650201e6efde13a9a25983d67dbd0d9eb7af680bf2e3e895e5d35caf38cea2",
+    "familia": 42,
+    "ataque": "Picotazo Cretácico",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/42_alas_planeadoras.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "8ac71f538549da8b350f2f0e167990c210a76ce68e7ce4a7b4b7f788d3c66aa6",
+    "familia": 42,
+    "ataque": "Alas Planeadoras",
+    "tipo": "Defensivo"
+  },
+  {
+    "archivo": "ataques/piezas/42_corriente_termica.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "780297882f4816844423b7eaf269ca6ada72cbdd4601fbb59680c4a2b59f63d0",
+    "familia": 42,
+    "ataque": "Corriente Térmica",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/42_picado_meteoro.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "dac72720de77cac6f3efec65519e988d991b90e55f47807686a850c788b4df09",
+    "familia": 42,
+    "ataque": "Picado Meteoro",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/piezas/42_cresta_cortante.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "77633ad1f43d0d626b8e853e8ebc69bb1d5769e7e7bc8ffe445c12944ea6a64a",
+    "familia": 42,
+    "ataque": "Cresta Cortante",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/42_vuelo_rasante.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "606970aac1fdd06e406636e9c0bdf7a1cbfe917315c1eee653fe2daf58c50ba8",
+    "familia": 42,
+    "ataque": "Vuelo Rasante",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/42_lluvia_de_meteoros.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "8576d63edfa0151221414f143d8b9c1318b529d71fef5b9687b0fa323ef3ae1a",
+    "familia": 42,
+    "ataque": "Lluvia de Meteoros",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/laminas/42_ataques.png",
+    "clase": "lamina_ataques",
+    "ancho": 384,
+    "alto": 192,
+    "sha256": "fa27debaafab1167dd394418ee5fa55407b691d4e4d51f2aeccaea57f3a142db",
+    "familia": 42
+  },
+  {
+    "archivo": "ataques/piezas/42_ultimo_cielo_impacto.png",
+    "clase": "definitivo_impacto",
+    "ancho": 128,
+    "alto": 128,
+    "sha256": "d509138050c1cf8e8e1b34fbc485fdce0fd7c79788e390280c49eadc28ba2cd1",
+    "familia": 42,
+    "ataque": "Último Cielo"
+  },
+  {
+    "archivo": "ataques/piezas/42_ultimo_cielo_pantalla.png",
+    "clase": "definitivo_pantalla",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "d2ea1852a5009680877018913563ff88069c5c4b683aabdcbbcfff5a78452356",
+    "familia": 42,
+    "ataque": "Último Cielo"
+  },
+  {
+    "archivo": "ataques/laminas/42_definitivos.png",
+    "clase": "lamina_definitivos",
+    "ancho": 480,
+    "alto": 160,
+    "sha256": "886e1f967baf43dd9b2a06cd30fc241e007e18023be2510f4c6ca0361d268467",
+    "familia": 42
+  },
+  {
+    "archivo": "ataques/piezas/43_colmillazo.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "5a44fe5103893ec8036893d5d6f67d116efc9d85f72476a3e6fc19948410b2e3",
+    "familia": 43,
+    "ataque": "Colmillazo",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/43_pelaje_glacial.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "46dbfc137ec94164e5979d9ce786349606cd40b5534a90cc35cfdcc5706cb823",
+    "familia": 43,
+    "ataque": "Pelaje Glacial",
+    "tipo": "Defensivo"
+  },
+  {
+    "archivo": "ataques/piezas/43_bramido_helado.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "395bc7b352fb32e3774910ab3e1005eecf742a7ebc0381eeb11ef043031a97b4",
+    "familia": 43,
+    "ataque": "Bramido Helado",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/43_alud_de_nieve.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "c1f63365773d849f57d8d0fa23d658372fc845eed7c2e6020a85969c761b7134",
+    "familia": 43,
+    "ataque": "Alud de Nieve",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/piezas/43_colmillos_de_hielo.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "2ce2b981d43689c5cfcbca6a4b6a89db7515d3944adaf0de8221de2941a69ef3",
+    "familia": 43,
+    "ataque": "Colmillos de Hielo",
+    "tipo": "Ofensivo"
+  },
+  {
+    "archivo": "ataques/piezas/43_manada_glacial.png",
+    "clase": "efecto_ataque",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "ae761905e0da083b6dad7b61861f151b3ef338d32b40fa5419194a09eb2d5e37",
+    "familia": 43,
+    "ataque": "Manada Glacial",
+    "tipo": "Apoyo"
+  },
+  {
+    "archivo": "ataques/piezas/43_glaciacion.png",
+    "clase": "efecto_ataque",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "972e8569f68098e9ae5a0b044efde8d257ef94e0393aa39dc33fb69a6703c3c1",
+    "familia": 43,
+    "ataque": "Glaciación",
+    "tipo": "Final"
+  },
+  {
+    "archivo": "ataques/laminas/43_ataques.png",
+    "clase": "lamina_ataques",
+    "ancho": 384,
+    "alto": 192,
+    "sha256": "9680979cd817a371dffcc7af64c2f17ae675b5826612af7434e141a727873b14",
+    "familia": 43
+  },
+  {
+    "archivo": "ataques/piezas/43_era_de_hielo_impacto.png",
+    "clase": "definitivo_impacto",
+    "ancho": 128,
+    "alto": 128,
+    "sha256": "10313d9f0426f1c9c222bec4f1d3ff38a49326087504e2ce47c1efe3d0087c2d",
+    "familia": 43,
+    "ataque": "Era de Hielo"
+  },
+  {
+    "archivo": "ataques/piezas/43_era_de_hielo_pantalla.png",
+    "clase": "definitivo_pantalla",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "05ca1e6393c9515b102ef46c596b05a322b1d1125b4bfeb4f43f9fb06cefd1a5",
+    "familia": 43,
+    "ataque": "Era de Hielo"
+  },
+  {
+    "archivo": "ataques/laminas/43_definitivos.png",
+    "clase": "lamina_definitivos",
+    "ancho": 480,
+    "alto": 160,
+    "sha256": "46ebd5d3043b97dabfe9162acf2c5ee4bfc0790765e70d8d3d543c5fefc216e3",
+    "familia": 43
+  },
+  {
+    "archivo": "fotogramas/crono_portal_00.png",
+    "clase": "fotograma",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "3357515a18e44f83c4795f184aad4f48466c7d6ced99dd60c6d0fd278903fd56",
+    "animacion": "crono_portal",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_portal_01.png",
+    "clase": "fotograma",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "84afdf0f9d153333d9dc745c165cf9129fe050d4793b5489b58aaf5dc0475ac2",
+    "animacion": "crono_portal",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_portal_02.png",
+    "clase": "fotograma",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "1fa39a556c08be708fa11182497f3af2a41fefd3c17861988671952a8a9622d7",
+    "animacion": "crono_portal",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/crono_portal_03.png",
+    "clase": "fotograma",
+    "ancho": 64,
+    "alto": 64,
+    "sha256": "95aa998130cb61e44b4487e9655339625e7308b9d640de2bd2c7f029975eeeda",
+    "animacion": "crono_portal",
+    "cuadro": 3
+  },
+  {
+    "archivo": "crono/animaciones/crono_portal.png",
+    "clase": "animacion",
+    "ancho": 256,
+    "alto": 64,
+    "sha256": "c8bf28447b57b4e5319efd817c59c563638461be582c0d240960d6288d20a351",
+    "fotogramas": 4,
+    "cuadro": [
+      64,
+      64
+    ],
+    "duraciones_ms": [
+      130,
+      130,
+      130,
+      130
+    ],
+    "bucle": true
+  },
+  {
+    "archivo": "fotogramas/crono_viaje_00.png",
+    "clase": "fotograma",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "3208e3b9ebf098d2f343dfadeb81f58ab3a973e07ba4a62f500d429e2be9b872",
+    "animacion": "crono_viaje",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_viaje_01.png",
+    "clase": "fotograma",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "4a46aa6d0c3602a74535f1088e51f9ef567f83de08f54f767a6868c43fd22071",
+    "animacion": "crono_viaje",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_viaje_02.png",
+    "clase": "fotograma",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "2e669c244a0a781565ef6390bf9f991a66688e68dc0d1b1bef286a466e4f05b8",
+    "animacion": "crono_viaje",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/crono_viaje_03.png",
+    "clase": "fotograma",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "9547e1ae7e8279bf9c9fcc108f85be939034575e6308546b0909a8464301156e",
+    "animacion": "crono_viaje",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/crono_viaje_04.png",
+    "clase": "fotograma",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "69d251684c74cfbf2565a53c044c147124ffca7784eff8fd4aa34427da835530",
+    "animacion": "crono_viaje",
+    "cuadro": 4
+  },
+  {
+    "archivo": "fotogramas/crono_viaje_05.png",
+    "clase": "fotograma",
+    "ancho": 240,
+    "alto": 160,
+    "sha256": "94b2ee0df6705430c9d84a5ea03c3227c8904eb5e519242c5311da85149ab269",
+    "animacion": "crono_viaje",
+    "cuadro": 5
+  },
+  {
+    "archivo": "crono/animaciones/crono_viaje.png",
+    "clase": "animacion",
+    "ancho": 1440,
+    "alto": 160,
+    "sha256": "dbc574897199aa50b6ca265b4b523607f06b4fa11cbb0c5afe7ff6020663ed94",
+    "fotogramas": 6,
+    "cuadro": [
+      240,
+      160
+    ],
+    "duraciones_ms": [
+      95,
+      100,
+      110,
+      120,
+      100,
+      110
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/crono_marea_00.png",
+    "clase": "fotograma",
+    "ancho": 240,
+    "alto": 40,
+    "sha256": "eff2c417980b1b19402cc025b231542d71cd54935d93c68298cc2078276a6a83",
+    "animacion": "crono_marea",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_marea_01.png",
+    "clase": "fotograma",
+    "ancho": 240,
+    "alto": 40,
+    "sha256": "b6bc2f617ac7fca95c373906a780c1951bc8d8e3cd8159f2d805eb9a7c24df83",
+    "animacion": "crono_marea",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_marea_02.png",
+    "clase": "fotograma",
+    "ancho": 240,
+    "alto": 40,
+    "sha256": "1ea7204263e03cfb081b4b350e36c67c526e35c6d0079b83e7a7a9cbc90b8c90",
+    "animacion": "crono_marea",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/crono_marea_03.png",
+    "clase": "fotograma",
+    "ancho": 240,
+    "alto": 40,
+    "sha256": "989554dfbe40e541267bbf504cdeb7f06c2e01db28397c0317ab358eb441a5de",
+    "animacion": "crono_marea",
+    "cuadro": 3
+  },
+  {
+    "archivo": "crono/animaciones/crono_marea.png",
+    "clase": "animacion",
+    "ancho": 960,
+    "alto": 40,
+    "sha256": "596777f84f9a9493fbec8798bc80a10ad5b022b1154b0f4d798245e9f631eca1",
+    "fotogramas": 4,
+    "cuadro": [
+      240,
+      40
+    ],
+    "duraciones_ms": [
+      85,
+      85,
+      85,
+      125
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/crono_esporas_00.png",
+    "clase": "fotograma",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "d3c4c4f161d5aaaa62550862453e87664e59ce0f4dd336d3f099326f3b8efc19",
+    "animacion": "crono_esporas",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_esporas_01.png",
+    "clase": "fotograma",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "2d39a8e86331dc4d4304b77d6aa92e11fec1e604c7703d7368da1cba84d26a23",
+    "animacion": "crono_esporas",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_esporas_02.png",
+    "clase": "fotograma",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "51e5da1f05f240105de94e815024ef95ea7867171ac096d652ce19e3c5e465cb",
+    "animacion": "crono_esporas",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/crono_esporas_03.png",
+    "clase": "fotograma",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "81d5f67d4d87dd832ba4d402febddd6ad582018b9b3c9d617c91bcc4e0d6a559",
+    "animacion": "crono_esporas",
+    "cuadro": 3
+  },
+  {
+    "archivo": "crono/animaciones/crono_esporas.png",
+    "clase": "animacion",
+    "ancho": 64,
+    "alto": 16,
+    "sha256": "a73372f6018d4950afe05fb1fef950c98e7fcd1c5079512cb2b759fbf1aef874",
+    "fotogramas": 4,
+    "cuadro": [
+      16,
+      16
+    ],
+    "duraciones_ms": [
+      85,
+      85,
+      85,
+      125
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/crono_estampida_00.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 48,
+    "sha256": "85f5d2ba531440f676096ed392e521ac590eaaf92d9a3ccf6e3205fb9b62cdb8",
+    "animacion": "crono_estampida",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_estampida_01.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 48,
+    "sha256": "bed0ac5c304021c5b9a143470bd2669de1072e7a2ae6e2ecfdfd9d3b9ada3f4f",
+    "animacion": "crono_estampida",
+    "cuadro": 1
+  },
+  {
+    "archivo": "crono/animaciones/crono_estampida.png",
+    "clase": "animacion",
+    "ancho": 192,
+    "alto": 48,
+    "sha256": "8ded4fa799a86cf7be5abdca94e6a2befd837ebf21417ece08b83ef5274b4c9b",
+    "fotogramas": 2,
+    "cuadro": [
+      96,
+      48
+    ],
+    "duraciones_ms": [
+      130,
+      130
+    ],
+    "bucle": true
+  },
+  {
+    "archivo": "fotogramas/crono_meteoro_00.png",
+    "clase": "fotograma",
+    "ancho": 24,
+    "alto": 24,
+    "sha256": "7d21cb0fa453a4648738aba1caf1b72c2d144e4b4ac366fb9c15b92c72f2057d",
+    "animacion": "crono_meteoro",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_meteoro_01.png",
+    "clase": "fotograma",
+    "ancho": 24,
+    "alto": 24,
+    "sha256": "ed457ad46440995534003938faeae451b2466e15d97440639bca6354c3c2ac73",
+    "animacion": "crono_meteoro",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_meteoro_02.png",
+    "clase": "fotograma",
+    "ancho": 24,
+    "alto": 24,
+    "sha256": "e4317dede3f8a45edbf70f5afbd1e584bd5fa87f4faed9a6de15a305362c688f",
+    "animacion": "crono_meteoro",
+    "cuadro": 2
+  },
+  {
+    "archivo": "crono/animaciones/crono_meteoro.png",
+    "clase": "animacion",
+    "ancho": 72,
+    "alto": 24,
+    "sha256": "5ddf7698f4e75da39f2b6ba6803bd2385f5b546378784ad7cfebda40fe2014e0",
+    "fotogramas": 3,
+    "cuadro": [
+      24,
+      24
+    ],
+    "duraciones_ms": [
+      130,
+      130,
+      130
+    ],
+    "bucle": true
+  },
+  {
+    "archivo": "fotogramas/crono_meteoro_impacto_00.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "5bedcec7c553994349125772d6955884cbbf245f63a5f5ecd55e307f0bd120b4",
+    "animacion": "crono_meteoro_impacto",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_meteoro_impacto_01.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "54162730376a371195265ebe4f44c26cac5436e14d937f9828a204b5844aedc3",
+    "animacion": "crono_meteoro_impacto",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_meteoro_impacto_02.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "0665e72993829e0a7d6b9cfc199ccabac272c4ed04e34de43c368a192cafce0b",
+    "animacion": "crono_meteoro_impacto",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/crono_meteoro_impacto_03.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "006ca3219d4cdb73966dde4ab172105637996317c07743f9904ba412f26502f6",
+    "animacion": "crono_meteoro_impacto",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/crono_meteoro_impacto_04.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "b32d74ba9f7bdb508356860dd253581e393c440dee3399e687531fd0a325ca07",
+    "animacion": "crono_meteoro_impacto",
+    "cuadro": 4
+  },
+  {
+    "archivo": "crono/animaciones/crono_meteoro_impacto.png",
+    "clase": "animacion",
+    "ancho": 480,
+    "alto": 96,
+    "sha256": "ad37bdb35b927b31de5ae06cb54c6736a8f6dfd99c71ff8cbba8822e07fa127b",
+    "fotogramas": 5,
+    "cuadro": [
+      96,
+      96
+    ],
+    "duraciones_ms": [
+      85,
+      85,
+      85,
+      85,
+      125
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/crono_escarcha_00.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "5f307a91d3e45bca10ca3a8b1ad1457ac413d3379634ec83aac00a4335dbbe11",
+    "animacion": "crono_escarcha",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_escarcha_01.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "4a7171ae00d59d942f73806a1c5d2fb4def56aa5daeb14b748d62e31a49aa3d8",
+    "animacion": "crono_escarcha",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_escarcha_02.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "b3f312a36c94d2d43cd0b16c21e1522723d1948585a820b37379da5a785cf4b9",
+    "animacion": "crono_escarcha",
+    "cuadro": 2
+  },
+  {
+    "archivo": "crono/animaciones/crono_escarcha.png",
+    "clase": "animacion",
+    "ancho": 96,
+    "alto": 32,
+    "sha256": "7a4f046119117b86275056b4bd59c1833069720e71a75711fa88dabc229db4ae",
+    "fotogramas": 3,
+    "cuadro": [
+      32,
+      32
+    ],
+    "duraciones_ms": [
+      85,
+      85,
+      125
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_00.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "180cbf5c42f1843b31d8a8317185b653a6af1bcbb560b7926e2e03ec9183855d",
+    "animacion": "crono_revivir",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_01.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "cebd622364e80e540df306ceeaf63041caf424a6311410d29f1ceb323c2d1270",
+    "animacion": "crono_revivir",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_02.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "4fbaf29a9a4264831d81adcc6d3baf1408a415e49ee8748138dffe45f5b40b24",
+    "animacion": "crono_revivir",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_03.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "2d365ebdd17e52e1bf23ca0231c046e122069507cb516f809fa2e0f60d08d2d6",
+    "animacion": "crono_revivir",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_04.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "b91df81a4475969b4fd90215076632794467fee59066f4865f7c9a8f638ead45",
+    "animacion": "crono_revivir",
+    "cuadro": 4
+  },
+  {
+    "archivo": "crono/animaciones/crono_revivir.png",
+    "clase": "animacion",
+    "ancho": 240,
+    "alto": 48,
+    "sha256": "5f3e960528fc18b82b20b9debd3d0a02a762aad6947a2e3d96eb80dcadb1ff01",
+    "fotogramas": 5,
+    "cuadro": [
+      48,
+      48
+    ],
+    "duraciones_ms": [
+      140,
+      150,
+      130,
+      130,
+      300
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/fx_subir_nivel_00.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "cdb39058cad463a6a8eb70741df09d1bb99551fa6577b1267d12d383f2793e48",
+    "animacion": "fx_subir_nivel",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/fx_subir_nivel_01.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "46504582c3129c42dee5b337dd09dee3ef63ba740b7d3f81ac59a004e05ee54b",
+    "animacion": "fx_subir_nivel",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/fx_subir_nivel_02.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "ea416316a54f15ce03f770e8a35662f824ccfd2b5d0c6fbcc54dd57b789bb7ed",
+    "animacion": "fx_subir_nivel",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/fx_subir_nivel_03.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "2f659e14d0e00ca1d4417f8685df4e14fb4ec0ebe4a96d675bc00549803b7cf4",
+    "animacion": "fx_subir_nivel",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/fx_subir_nivel_04.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "f91f8a9331779523735653d06f3c467f261c6c41561224a75af690ac8481e8bb",
+    "animacion": "fx_subir_nivel",
+    "cuadro": 4
+  },
+  {
+    "archivo": "fotogramas/fx_subir_nivel_05.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "e3b780c1951f61b8bdb0987a23370e158d35457474af1d502ceab33eb6a9df0d",
+    "animacion": "fx_subir_nivel",
+    "cuadro": 5
+  },
+  {
+    "archivo": "fx/fx_subir_nivel.png",
+    "clase": "animacion",
+    "ancho": 288,
+    "alto": 48,
+    "sha256": "7ac8b87e8e5b188f088e7d3be494dfc6ef37f21e43cc1d84a844033370e55432",
+    "fotogramas": 6,
+    "cuadro": [
+      48,
+      48
+    ],
+    "duraciones_ms": [
+      85,
+      85,
+      85,
+      85,
+      85,
+      125
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/fx_evolucion_00.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "4d707b22649d8a4e712ec6ee7cace1088dfb20e924b1420079c9cf2496fb2ba8",
+    "animacion": "fx_evolucion",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/fx_evolucion_01.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "0cc9cd787db3b34ba95c5f8b53bb132c85b986ccde52dd124fc159d323916968",
+    "animacion": "fx_evolucion",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/fx_evolucion_02.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "a91f1086139d989d7a994f14419a0db6c6e3150bd216438e04fb821d12a9b9ea",
+    "animacion": "fx_evolucion",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/fx_evolucion_03.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "74c32b7efc773cd746b8ce1a28150fbe998285d3b70d08a93dc5ddfdc0cf1a4a",
+    "animacion": "fx_evolucion",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/fx_evolucion_04.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "b779a50d14853df136e3fd1d096a5e5fd9f65217bf43b52d6902fbadebde6f06",
+    "animacion": "fx_evolucion",
+    "cuadro": 4
+  },
+  {
+    "archivo": "fotogramas/fx_evolucion_05.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "fafed3768e2517b48eaf8a25177c289c83a07da93ac5bb036b49ea848db00a54",
+    "animacion": "fx_evolucion",
+    "cuadro": 5
+  },
+  {
+    "archivo": "fotogramas/fx_evolucion_06.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "a7a4815e8878b05ce659cdd9797953e8697415a20c9d8382476364d85e233d9b",
+    "animacion": "fx_evolucion",
+    "cuadro": 6
+  },
+  {
+    "archivo": "fotogramas/fx_evolucion_07.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "67f671e87ca7e5bb0d50fcd00d8e207efdd5762f30e5f78914227d9b459b2eb3",
+    "animacion": "fx_evolucion",
+    "cuadro": 7
+  },
+  {
+    "archivo": "fx/fx_evolucion.png",
+    "clase": "animacion",
+    "ancho": 768,
+    "alto": 96,
+    "sha256": "57107f325a5092657a31bd2cf466cdaafd3c7ce83b807cc1ae0895bdf857cf67",
+    "fotogramas": 8,
+    "cuadro": [
+      96,
+      96
+    ],
+    "duraciones_ms": [
+      90,
+      90,
+      100,
+      110,
+      140,
+      100,
+      90,
+      110
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/fx_critico_00.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "7ea064e8fb8d0b84d5b120afc437376ef7c6a8c0f0f723209e4ec07f0582a1fb",
+    "animacion": "fx_critico",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/fx_critico_01.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "2534e5ef51e77df8c7c827e8922b907ff60ef1938558371305f242cc46442cbb",
+    "animacion": "fx_critico",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/fx_critico_02.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "866986aff1769e29b5f2c8a261242b42edee9dc15d358a93ac6e043993d69638",
+    "animacion": "fx_critico",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/fx_critico_03.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "6dbba706394f54a516ea9b91da19dc78751c4eda3d71e8e0262d068c5c1df11b",
+    "animacion": "fx_critico",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fx/fx_critico.png",
+    "clase": "animacion",
+    "ancho": 128,
+    "alto": 32,
+    "sha256": "efd029dc4f4a9cfe04ea3e5f0409f57b1e3b0110fb779e63481b1381b006b419",
+    "fotogramas": 4,
+    "cuadro": [
+      32,
+      32
+    ],
+    "duraciones_ms": [
+      85,
+      85,
+      85,
+      125
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/fx_golpe_justo_00.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "99606d66631a0bf50f9b10df85edc9e5e6aad5fef568eac250997fd7624dba87",
+    "animacion": "fx_golpe_justo",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/fx_golpe_justo_01.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "6a11d3f8ae1ef84ee0264e167b5245d41a415a87ea7322f161a16b9a6fd94814",
+    "animacion": "fx_golpe_justo",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/fx_golpe_justo_02.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "f064ce4b60605fce4a1d477947a12e94e3212a61b792d1373ddf3f9eedbf331c",
+    "animacion": "fx_golpe_justo",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/fx_golpe_justo_03.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "f17f2a79bcb7d4e10da87606f74ce71711c57f5e791c109e301de2026a272ffb",
+    "animacion": "fx_golpe_justo",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fx/fx_golpe_justo.png",
+    "clase": "animacion",
+    "ancho": 192,
+    "alto": 48,
+    "sha256": "efeb1ae86549fe023aa83308e7be7267093d6f40b507d6209e7dabd6b6ec869f",
+    "fotogramas": 4,
+    "cuadro": [
+      48,
+      48
+    ],
+    "duraciones_ms": [
+      85,
+      85,
+      85,
+      125
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/fx_brillante_00.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "651a46add2ce04dc2ade760b6faa34d03b9756b3420e8bfcf35502a7b0b9bd65",
+    "animacion": "fx_brillante",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/fx_brillante_01.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "052f3dd5beaea0cc999291cf8514ece2b11ccd51aa5c40f6e0b3918d2426abef",
+    "animacion": "fx_brillante",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/fx_brillante_02.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "7f004be4ce163080dd8344c39d8501cb61f8b02ce919c784209c99b1b6a450fe",
+    "animacion": "fx_brillante",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/fx_brillante_03.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "97cc8269441e2cacbe8864215dabe1d778c20343bef71d55c912ed59a2063a95",
+    "animacion": "fx_brillante",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/fx_brillante_04.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "fe30c157231b77e3ba4a72753c99e85a9cb3a4f10910d72d4771b084824465fb",
+    "animacion": "fx_brillante",
+    "cuadro": 4
+  },
+  {
+    "archivo": "fotogramas/fx_brillante_05.png",
+    "clase": "fotograma",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "f00337004a05cc24bce584775077806fd35bc9fb2d636bdb5363be1ecf2491de",
+    "animacion": "fx_brillante",
+    "cuadro": 5
+  },
+  {
+    "archivo": "fx/fx_brillante.png",
+    "clase": "animacion",
+    "ancho": 192,
+    "alto": 32,
+    "sha256": "d847430b8cdd18bc44b8ef1010915231d9b20f63d5136eb419c0d34cd6a4568c",
+    "fotogramas": 6,
+    "cuadro": [
+      32,
+      32
+    ],
+    "duraciones_ms": [
+      85,
+      85,
+      85,
+      85,
+      85,
+      125
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/fx_sobre_rara_00.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "3f8e159dd98288e82d373f955e925cc68d09b48b37901fc212a263fe36e3465b",
+    "animacion": "fx_sobre_rara",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/fx_sobre_rara_01.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "38d0c9d3bbb4a7ece5486465dff71223025fa01825fc69c16e6f5df40039db0c",
+    "animacion": "fx_sobre_rara",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/fx_sobre_rara_02.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "53278f4af4233385c8ea0687260c0b28e6167344d9f5733bcce14f00789f8e87",
+    "animacion": "fx_sobre_rara",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/fx_sobre_rara_03.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "5fb5107ddf2c6dbb5fce531f20c7e7a336202f0810c726e117c7b62edf8bfa05",
+    "animacion": "fx_sobre_rara",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/fx_sobre_rara_04.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "d267aa2bd4ea9173d5f8c1176cfbf4ef6fd7e03a42746d86ba43657b537cec18",
+    "animacion": "fx_sobre_rara",
+    "cuadro": 4
+  },
+  {
+    "archivo": "fotogramas/fx_sobre_rara_05.png",
+    "clase": "fotograma",
+    "ancho": 96,
+    "alto": 96,
+    "sha256": "1ef2f4691dc298d4ff904eb987096f70a442fdb680f534490a4a09c0ec8cd586",
+    "animacion": "fx_sobre_rara",
+    "cuadro": 5
+  },
+  {
+    "archivo": "fx/fx_sobre_rara.png",
+    "clase": "animacion",
+    "ancho": 576,
+    "alto": 96,
+    "sha256": "498a21a6c8c033980cb4c02c869fd6bdfdd40782be99aff66c5e328947120a61",
+    "fotogramas": 6,
+    "cuadro": [
+      96,
+      96
+    ],
+    "duraciones_ms": [
+      85,
+      85,
+      85,
+      85,
+      85,
+      125
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/fx_insignia_00.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "2f3a8d0e6b2321e6043db52d15172fa377f99b4402f7c18367df7303490b5819",
+    "animacion": "fx_insignia",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/fx_insignia_01.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "2eb462161c5ba1b636f95b6fafec26f82b1f07ce7f151ca15cd1963f7c5dd4c4",
+    "animacion": "fx_insignia",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/fx_insignia_02.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "9ff86e295e6c9e08ee949be98afa167c9e0af819a685d752d562a6cadf0ecfdc",
+    "animacion": "fx_insignia",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/fx_insignia_03.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "99af26a7e8067d10a5af1a681658550cd1c5d228f58ace7add99ad646e6483c2",
+    "animacion": "fx_insignia",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/fx_insignia_04.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "3514b0f8d8f2e7266409b17ae549b10b3dd3a50e2b177f8a078d7b67110fbd27",
+    "animacion": "fx_insignia",
+    "cuadro": 4
+  },
+  {
+    "archivo": "fx/fx_insignia.png",
+    "clase": "animacion",
+    "ancho": 240,
+    "alto": 48,
+    "sha256": "09156a213ab184e7ec09ca61212d2b589ffcc23adb65ce60b7af10f345774da3",
+    "fotogramas": 5,
+    "cuadro": [
+      48,
+      48
+    ],
+    "duraciones_ms": [
+      85,
+      85,
+      85,
+      85,
+      125
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/fx_confeti_00.png",
+    "clase": "fotograma",
+    "ancho": 8,
+    "alto": 8,
+    "sha256": "04ecda4d86de0f6130e67ce373a9cf405ff03866196d29325e1447eaa6378402",
+    "animacion": "fx_confeti",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/fx_confeti_01.png",
+    "clase": "fotograma",
+    "ancho": 8,
+    "alto": 8,
+    "sha256": "e0f89dc98bc3cd5e36fe43afbf3d9ce142f69be881931e0a9733700e0df30628",
+    "animacion": "fx_confeti",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/fx_confeti_02.png",
+    "clase": "fotograma",
+    "ancho": 8,
+    "alto": 8,
+    "sha256": "550d176a95963be03fd573a98baa79a37d87ef8b5e628b209f2ce8294e586171",
+    "animacion": "fx_confeti",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/fx_confeti_03.png",
+    "clase": "fotograma",
+    "ancho": 8,
+    "alto": 8,
+    "sha256": "db3aa8fb964b1f2d8477b1b613f23d2b7065c10fb980b211a999957f904c725d",
+    "animacion": "fx_confeti",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fx/fx_confeti.png",
+    "clase": "animacion",
+    "ancho": 32,
+    "alto": 8,
+    "sha256": "2b6ccfaa04a1d7a8b9999f1f66bff0f0cf9571cff5fb458aa409f3f499c37323",
+    "fotogramas": 4,
+    "cuadro": [
+      8,
+      8
+    ],
+    "duraciones_ms": [
+      85,
+      85,
+      85,
+      125
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_anomalo_00.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "c291d826006137c3242049a3cdf3b881e81332ce8b6992fa0041fd9229166f17",
+    "animacion": "crono_revivir_anomalo",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_anomalo_01.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "7b3faa680ce8dd5c5a08968856d315a55ea1fc986cc6b28bb9c612a61a349757",
+    "animacion": "crono_revivir_anomalo",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_anomalo_02.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "b8fc93e56bae9aa0f79db29581b2eb13c890a2ce73eebef1ecb43bbabb9629d0",
+    "animacion": "crono_revivir_anomalo",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_anomalo_03.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "50e38735350c1dc43f3d67db2696b7161c7e873bff598d834131d7ac98387da5",
+    "animacion": "crono_revivir_anomalo",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_anomalo_04.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "a8103cbff114e19b1cb8983bcf328838021780ac62bbab48901de7bbe07f6048",
+    "animacion": "crono_revivir_anomalo",
+    "cuadro": 4
+  },
+  {
+    "archivo": "crono/animaciones/crono_revivir_anomalo.png",
+    "clase": "animacion_revivir_familia",
+    "ancho": 240,
+    "alto": 48,
+    "sha256": "cedd9e39f42785539c74b642f2c7c9a4d4f8ec4ba406382b0dffbe61a2c809ed",
+    "fotogramas": 5,
+    "cuadro": [
+      48,
+      48
+    ],
+    "duraciones_ms": [
+      140,
+      150,
+      130,
+      130,
+      300
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_meganeura_00.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "d04f2c3f1102ee4820ccc8dbea67edfa102f9583bee41705f970fa03a0605ef4",
+    "animacion": "crono_revivir_meganeura",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_meganeura_01.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "09f372e7b532db2e9c291818a81720685ed1e983a406c92a856d1d2fbec9050b",
+    "animacion": "crono_revivir_meganeura",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_meganeura_02.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "0d2ac0915455e45a58f99f4732a1ff75158c024a96fd6b8cb2cb73c62e95028c",
+    "animacion": "crono_revivir_meganeura",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_meganeura_03.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "c65b6b5f4845772c6bff9c5148509062f0188941fb0ab5365161ce86597461a2",
+    "animacion": "crono_revivir_meganeura",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_meganeura_04.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "26998d3bf4e94a61981be2d31bf7b89efba984de75ed3dc68b8725160d339d23",
+    "animacion": "crono_revivir_meganeura",
+    "cuadro": 4
+  },
+  {
+    "archivo": "crono/animaciones/crono_revivir_meganeura.png",
+    "clase": "animacion_revivir_familia",
+    "ancho": 240,
+    "alto": 48,
+    "sha256": "9abb9e45b451c94760d58e4eba1d11d6644b954b2191f262f37919e17c25c9cb",
+    "fotogramas": 5,
+    "cuadro": [
+      48,
+      48
+    ],
+    "duraciones_ms": [
+      140,
+      150,
+      130,
+      130,
+      300
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_estego_00.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "afd5855d9a003dc5ad6ea2939d92c252dcf4bd176012a9e69be83557ebda0279",
+    "animacion": "crono_revivir_estego",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_estego_01.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "5778f0ddc436856f3f1cd6cc71bf831ecccb62807fa1ae78f9b76a3c6096dac2",
+    "animacion": "crono_revivir_estego",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_estego_02.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "16c00d9101f77db9665ba64bb1b11f2980942c6e2c496941f16d188f4f2e84fa",
+    "animacion": "crono_revivir_estego",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_estego_03.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "950711651189d89fb08e593eaa401acd8b18974ecbb4844edbafc5595ee3a7ba",
+    "animacion": "crono_revivir_estego",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_estego_04.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "5348e0d8b500b504ffb4546a1f6aabc2a35d11efe6c86c948e3a68df6084fce2",
+    "animacion": "crono_revivir_estego",
+    "cuadro": 4
+  },
+  {
+    "archivo": "crono/animaciones/crono_revivir_estego.png",
+    "clase": "animacion_revivir_familia",
+    "ancho": 240,
+    "alto": 48,
+    "sha256": "3bf70ff42aa225df224ceaf7fbe701ccd390495678e049cd125f5afeb14c51df",
+    "fotogramas": 5,
+    "cuadro": [
+      48,
+      48
+    ],
+    "duraciones_ms": [
+      140,
+      150,
+      130,
+      130,
+      300
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_ptero_00.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "686c2e6ccf3ed52a01dbb6a8150cb96f652f2834fccdb196d93ae080eb0f4b8a",
+    "animacion": "crono_revivir_ptero",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_ptero_01.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "b694cad9478950f6cc05761828d6a4a4631f8a43b9e294f201b7919cef287f4b",
+    "animacion": "crono_revivir_ptero",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_ptero_02.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "499ff0e89359940420339036a4ce8433189783b90575a87ce411a327d63f35a7",
+    "animacion": "crono_revivir_ptero",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_ptero_03.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "de86edc2ee34c042b7d618505e760b0e739803e326d00831aeea2d44876365b6",
+    "animacion": "crono_revivir_ptero",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_ptero_04.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "583170893a4a3b084d2eaa30d1e23ff1740fc6d321ba20875558addb4462de26",
+    "animacion": "crono_revivir_ptero",
+    "cuadro": 4
+  },
+  {
+    "archivo": "crono/animaciones/crono_revivir_ptero.png",
+    "clase": "animacion_revivir_familia",
+    "ancho": 240,
+    "alto": 48,
+    "sha256": "26e2f3fc450f2702fd433a770fa95e7dfbce3b83285bfb482025430c6ab57dc1",
+    "fotogramas": 5,
+    "cuadro": [
+      48,
+      48
+    ],
+    "duraciones_ms": [
+      140,
+      150,
+      130,
+      130,
+      300
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_mamut_00.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "37cf2feef9a4ac7e81f73fce55ea261e0bb3748779eb6746bf1e6cbff2e18326",
+    "animacion": "crono_revivir_mamut",
+    "cuadro": 0
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_mamut_01.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "527ef996b509a05af39bebe1659c4588d9b5c63d688a74819dae1bee50832374",
+    "animacion": "crono_revivir_mamut",
+    "cuadro": 1
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_mamut_02.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "9709480e4fea3dd554401c2a52a877b582a0502c0a2a0b08d508fb065dd10be2",
+    "animacion": "crono_revivir_mamut",
+    "cuadro": 2
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_mamut_03.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "00ce638aff3207c6ae2e28a0f7d694a3a34ee66c26d3ff3fbe23c47b6e435bc8",
+    "animacion": "crono_revivir_mamut",
+    "cuadro": 3
+  },
+  {
+    "archivo": "fotogramas/crono_revivir_mamut_04.png",
+    "clase": "fotograma",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "5aa8e506061f311c9c4b03a9175fcfaf794882ee3e2fc1de29ab52a2be8f9321",
+    "animacion": "crono_revivir_mamut",
+    "cuadro": 4
+  },
+  {
+    "archivo": "crono/animaciones/crono_revivir_mamut.png",
+    "clase": "animacion_revivir_familia",
+    "ancho": 240,
+    "alto": 48,
+    "sha256": "fb35f6328f531682004c2b297bc473f6b294a4ab321002b7c3c74749690f6c54",
+    "fotogramas": 5,
+    "cuadro": [
+      48,
+      48
+    ],
+    "duraciones_ms": [
+      140,
+      150,
+      130,
+      130,
+      300
+    ],
+    "bucle": false
+  },
+  {
+    "archivo": "fotogramas/huevo_00.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "473c3ee8a507c360fed47c2b4460fddf4afcdcc19eef013e328734bcd3cdb2b5",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/huevo_eclosion_00.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "4eb6234e117e9baa5ca13ccfe52f99f814e762a76da88982d9a67ea214b29dbc",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/huevo_eclosion_01.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "a9b67fd7fd7fe8b3f5919c13f678a0c491189598ec49391c250ab88a30f3b851",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/huevo_eclosion_02.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "d4963e2780ee5027255198cf05e84e7e1a6898d91c4fadc0c2126fcaeb4a832c",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/huevo_eclosion_03.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 32,
+    "alto": 32,
+    "sha256": "553bf3ff10e0cf54f367f29485571f7f2d778938ec000e3633d06e3d2988921c",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_destello_00.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 8,
+    "alto": 8,
+    "sha256": "6ae9193d2cfba08a82685a19b5efe168dc1e2477e00ce59852a8ddf06844457f",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_destello_01.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 8,
+    "alto": 8,
+    "sha256": "0e8d239ae7f36c5f4ff7d8adfe412081314e640139414b43af4d6ffdc011fb00",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_destello_02.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 8,
+    "alto": 8,
+    "sha256": "5d6e050fcc8ede182b03570ca2d883663ee16cf9b76251208b9ee8d6dd4f090d",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_destello_03.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 8,
+    "alto": 8,
+    "sha256": "6ae9193d2cfba08a82685a19b5efe168dc1e2477e00ce59852a8ddf06844457f",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_explosion_00.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "d82e851f1fcafc5524dcb42820873462454fc4dd1ccd2aad9c282773237facf6",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_explosion_01.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "4d4262d4cbec41e658adf8aa56674eba71685159a6bab625a0a3c16c2430ea6a",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_explosion_02.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "3976ed8f0813c36d78a8e9bd7b7bd3b39dcf3e00f6f3fbee654093b5e6115be0",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_explosion_03.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "eba76391dfef85ffa511cb65c57a680dc9f76f510481ce5fcb1aa6654df8b605",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_explosion_04.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "e29195f6de860958e5f174bbe06ec4720d1b685d0f4d9e1598ace79f4b1a242f",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_explosion_05.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 48,
+    "alto": 48,
+    "sha256": "f156b56a571baea7383d47f41051fce4c47ae3fa8f79175c035d580977704caa",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_gas_00.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "6035169586bf2a8f6b1f3676ce2ce817c2e85bcbadad7a7c20e0e59bc2696eec",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_gas_01.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "95a3cb775598b03de252ae029926a7d71a67b4de9d8726c8f1772cfa55860765",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_gas_02.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "d4c76042eae6a0543dcf53e66978f5ccc0e3f449c0bcf657bab813b25e254b0b",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_gas_03.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "17bac6e430ac5b89d4c31b6d38ed47f3d61936f63ce504738f4a16820921bd62",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_pico_00.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "ad596a045daea2eb948dbaf65df8a6950be8f832d812532e2c074114991db9b1",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_pico_01.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "816dd0d3bdd5ffd12c13e4b9abc1b0576af1f00b803a3a6e0c03909d3a5a58c4",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_pico_02.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "b0b4e20c80966757a150a69f117a30071e0926969800cae93533c81c272f4753",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_polvo_00.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 8,
+    "sha256": "147d0ad90214cbae5ec2fc30ae8e02454bd9c6cf9115e3e722bfb8edbe5fe258",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_polvo_01.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 8,
+    "sha256": "f3a2d79df94a224e4e68162a8236360963e60b990bee0756c8d21959d127e3d3",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_polvo_02.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 8,
+    "sha256": "3f91f31fd9b3a678ea53bacd5be288cabde8ef40672a0514478b685158da2519",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_vapor_00.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "798f650c8cc5cc4f676a17b2c44379604642fdc65fe3c4344dba5c771df63cbf",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_vapor_01.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "b88c37207cc4a4c3f47246621ba17a0fc334a0f400778f27563fdcef0b06299d",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_vapor_02.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "301bbbbd8b7d4929ea7c0ceda720156bb4a04561bda6766fb30b14dd3482ac0c",
+    "reutilizado": true
+  },
+  {
+    "archivo": "fotogramas/mina_vapor_03.png",
+    "clase": "fotograma_mina_reutilizado",
+    "ancho": 16,
+    "alto": 16,
+    "sha256": "8dfe12df9623567fa6014eaf5c2c5e9eb34f4178b39ce5fc3813a7d529868371",
+    "reutilizado": true
+  }
+]

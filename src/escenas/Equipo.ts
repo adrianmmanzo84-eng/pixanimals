@@ -1,3 +1,4 @@
+import { animar, confeti } from '../ui/animaciones';
 import Phaser from 'phaser';
 import { bloqueoFusion, enExpedicion, fusionar } from '../core/progresion/coleccion';
 import { Puntero, saltito } from '../ui/puntero';
@@ -394,6 +395,8 @@ export class Equipo extends Phaser.Scene {
       juego.guardar();
       this.cameras.main.flash(500, 255, 255, 255);
       sprite.setTexture(textura(destino, 'frente', c.brillante));
+      void animar(this, 'fx_evolucion', sprite.x, sprite.y - sprite.displayHeight * (sprite.originY - 0.5), { profundidad: (sprite.depth ?? 0) + 1 });
+      confeti(this, 120, 40, 16);
       brillo.clear().fillStyle(0xfde9c8, 0.18).fillCircle(120, 72, 48);
       sonido.tocar('victoria');
       this.tweens.add({ targets: sprite, scale: 1.08, duration: 160, yoyo: true });

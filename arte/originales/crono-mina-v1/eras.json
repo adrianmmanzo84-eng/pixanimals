@@ -1,0 +1,52 @@
+[
+  {
+    "era": 1,
+    "name": "Mar Primitivo",
+    "levels": "20–28",
+    "rule": "Marea",
+    "family": 39,
+    "description": "a shallow primordial sea at dawn viewed from underwater, golden sunlight filtering from above, rounded stromatolite mounds, primitive algae, sponges and sparse spiral shells, turquoise water coral-pink accents and gold light",
+    "ground": "two pale sand banks",
+    "map": "an overhead distant view of a shallow turquoise ancient sea with rounded reef-like stromatolite shoals, primitive algae islands and quiet open water paths"
+  },
+  {
+    "era": 2,
+    "name": "Bosque Gigante",
+    "levels": "28–38",
+    "rule": "Esporas",
+    "family": 40,
+    "description": "an enormous Carboniferous swamp forest, tree-sized horsetails and giant ferns, tall scaled trunks, subtle distant green haze and a few luminous spore motes, wet green amber palette and faint distant electric-blue storm light",
+    "ground": "two large broad fallen moss-covered logs with flat tops",
+    "map": "an overhead distant swamp forest map with giant fern canopies, horsetail groves, winding dark water channels and broad quiet clearings"
+  },
+  {
+    "era": 3,
+    "name": "Jurásico",
+    "levels": "38–48",
+    "rule": "Estampida",
+    "family": 41,
+    "description": "a wide Jurassic valley of conifers and cycads, a winding river, dormant volcanoes far away, bright green ochre and blue sky; ONLY tiny indistinct sauropod silhouettes on the remote horizon, no foreground animals",
+    "ground": "two clearings of gently trampled green grass",
+    "map": "an overhead distant Jurassic valley map with a looping river, conifer and cycad clusters, low dormant volcanic hills and open green paths, no animals"
+  },
+  {
+    "era": 4,
+    "name": "Cretácico",
+    "levels": "48–56",
+    "rule": "Meteoro",
+    "family": 42,
+    "description": "a coastal Cretaceous cliff at sunset, orange-red violet and cream sky, one small bright distant meteor high in sky (not an explosion), magnolia trees and early flowers at outer edges, distant ocean",
+    "ground": "two wide flat rocky cliff ledges integrated into a continuous safe fighting shelf",
+    "map": "an overhead distant sunset coastal plateau map, dark magnolia groves, cream rock cliffs, violet ocean inlets and a small subtle meteor in the far sky"
+  },
+  {
+    "era": 5,
+    "name": "Edad de Hielo",
+    "levels": "56–65",
+    "rule": "Frío",
+    "family": 43,
+    "description": "a snowy Ice Age tundra with immense pale-blue glaciers, green northern lights in a deep blue sky, snow-covered fir trees and patches of warm brown earth, luminous clean cold palette",
+    "ground": "two broad flat ice slabs topped with snow",
+    "map": "an overhead distant snowy tundra map with blue glacier ridges, small fir groves, dark frozen streams and open snow paths, subtle green aurora glow, no animals"
+  }
+]

@@ -1,0 +1,1415 @@
+[
+  {
+    "id": "crono_portal",
+    "archivo": "crono/animaciones/crono_portal.png",
+    "frames": 4,
+    "size": [
+      64,
+      64
+    ],
+    "durations": [
+      130,
+      130,
+      130,
+      130
+    ],
+    "loop": true,
+    "end_mode": "loop",
+    "rectangles": [
+      [
+        0,
+        0,
+        64,
+        64
+      ],
+      [
+        64,
+        0,
+        64,
+        64
+      ],
+      [
+        128,
+        0,
+        64,
+        64
+      ],
+      [
+        192,
+        0,
+        64,
+        64
+      ]
+    ]
+  },
+  {
+    "id": "crono_viaje",
+    "archivo": "crono/animaciones/crono_viaje.png",
+    "frames": 6,
+    "size": [
+      240,
+      160
+    ],
+    "durations": [
+      95,
+      100,
+      110,
+      120,
+      100,
+      110
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "rectangles": [
+      [
+        0,
+        0,
+        240,
+        160
+      ],
+      [
+        240,
+        0,
+        240,
+        160
+      ],
+      [
+        480,
+        0,
+        240,
+        160
+      ],
+      [
+        720,
+        0,
+        240,
+        160
+      ],
+      [
+        960,
+        0,
+        240,
+        160
+      ],
+      [
+        1200,
+        0,
+        240,
+        160
+      ]
+    ]
+  },
+  {
+    "id": "crono_marea",
+    "archivo": "crono/animaciones/crono_marea.png",
+    "frames": 4,
+    "size": [
+      240,
+      40
+    ],
+    "durations": [
+      85,
+      85,
+      85,
+      125
+    ],
+    "loop": false,
+    "end_mode": "hold",
+    "rectangles": [
+      [
+        0,
+        0,
+        240,
+        40
+      ],
+      [
+        240,
+        0,
+        240,
+        40
+      ],
+      [
+        480,
+        0,
+        240,
+        40
+      ],
+      [
+        720,
+        0,
+        240,
+        40
+      ]
+    ]
+  },
+  {
+    "id": "crono_esporas",
+    "archivo": "crono/animaciones/crono_esporas.png",
+    "frames": 4,
+    "size": [
+      16,
+      16
+    ],
+    "durations": [
+      85,
+      85,
+      85,
+      125
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "rectangles": [
+      [
+        0,
+        0,
+        16,
+        16
+      ],
+      [
+        16,
+        0,
+        16,
+        16
+      ],
+      [
+        32,
+        0,
+        16,
+        16
+      ],
+      [
+        48,
+        0,
+        16,
+        16
+      ]
+    ]
+  },
+  {
+    "id": "crono_estampida",
+    "archivo": "crono/animaciones/crono_estampida.png",
+    "frames": 2,
+    "size": [
+      96,
+      48
+    ],
+    "durations": [
+      130,
+      130
+    ],
+    "loop": true,
+    "end_mode": "loop",
+    "rectangles": [
+      [
+        0,
+        0,
+        96,
+        48
+      ],
+      [
+        96,
+        0,
+        96,
+        48
+      ]
+    ]
+  },
+  {
+    "id": "crono_meteoro",
+    "archivo": "crono/animaciones/crono_meteoro.png",
+    "frames": 3,
+    "size": [
+      24,
+      24
+    ],
+    "durations": [
+      130,
+      130,
+      130
+    ],
+    "loop": true,
+    "end_mode": "loop",
+    "rectangles": [
+      [
+        0,
+        0,
+        24,
+        24
+      ],
+      [
+        24,
+        0,
+        24,
+        24
+      ],
+      [
+        48,
+        0,
+        24,
+        24
+      ]
+    ]
+  },
+  {
+    "id": "crono_meteoro_impacto",
+    "archivo": "crono/animaciones/crono_meteoro_impacto.png",
+    "frames": 5,
+    "size": [
+      96,
+      96
+    ],
+    "durations": [
+      85,
+      85,
+      85,
+      85,
+      125
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "rectangles": [
+      [
+        0,
+        0,
+        96,
+        96
+      ],
+      [
+        96,
+        0,
+        96,
+        96
+      ],
+      [
+        192,
+        0,
+        96,
+        96
+      ],
+      [
+        288,
+        0,
+        96,
+        96
+      ],
+      [
+        384,
+        0,
+        96,
+        96
+      ]
+    ]
+  },
+  {
+    "id": "crono_escarcha",
+    "archivo": "crono/animaciones/crono_escarcha.png",
+    "frames": 3,
+    "size": [
+      32,
+      32
+    ],
+    "durations": [
+      85,
+      85,
+      125
+    ],
+    "loop": false,
+    "end_mode": "hold",
+    "rectangles": [
+      [
+        0,
+        0,
+        32,
+        32
+      ],
+      [
+        32,
+        0,
+        32,
+        32
+      ],
+      [
+        64,
+        0,
+        32,
+        32
+      ]
+    ]
+  },
+  {
+    "id": "crono_revivir",
+    "archivo": "crono/animaciones/crono_revivir.png",
+    "frames": 5,
+    "size": [
+      48,
+      48
+    ],
+    "durations": [
+      140,
+      150,
+      130,
+      130,
+      300
+    ],
+    "loop": false,
+    "end_mode": "hold",
+    "rectangles": [
+      [
+        0,
+        0,
+        48,
+        48
+      ],
+      [
+        48,
+        0,
+        48,
+        48
+      ],
+      [
+        96,
+        0,
+        48,
+        48
+      ],
+      [
+        144,
+        0,
+        48,
+        48
+      ],
+      [
+        192,
+        0,
+        48,
+        48
+      ]
+    ]
+  },
+  {
+    "id": "fx_subir_nivel",
+    "archivo": "fx/fx_subir_nivel.png",
+    "frames": 6,
+    "size": [
+      48,
+      48
+    ],
+    "durations": [
+      85,
+      85,
+      85,
+      85,
+      85,
+      125
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "rectangles": [
+      [
+        0,
+        0,
+        48,
+        48
+      ],
+      [
+        48,
+        0,
+        48,
+        48
+      ],
+      [
+        96,
+        0,
+        48,
+        48
+      ],
+      [
+        144,
+        0,
+        48,
+        48
+      ],
+      [
+        192,
+        0,
+        48,
+        48
+      ],
+      [
+        240,
+        0,
+        48,
+        48
+      ]
+    ]
+  },
+  {
+    "id": "fx_evolucion",
+    "archivo": "fx/fx_evolucion.png",
+    "frames": 8,
+    "size": [
+      96,
+      96
+    ],
+    "durations": [
+      90,
+      90,
+      100,
+      110,
+      140,
+      100,
+      90,
+      110
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "rectangles": [
+      [
+        0,
+        0,
+        96,
+        96
+      ],
+      [
+        96,
+        0,
+        96,
+        96
+      ],
+      [
+        192,
+        0,
+        96,
+        96
+      ],
+      [
+        288,
+        0,
+        96,
+        96
+      ],
+      [
+        384,
+        0,
+        96,
+        96
+      ],
+      [
+        480,
+        0,
+        96,
+        96
+      ],
+      [
+        576,
+        0,
+        96,
+        96
+      ],
+      [
+        672,
+        0,
+        96,
+        96
+      ]
+    ]
+  },
+  {
+    "id": "fx_critico",
+    "archivo": "fx/fx_critico.png",
+    "frames": 4,
+    "size": [
+      32,
+      32
+    ],
+    "durations": [
+      85,
+      85,
+      85,
+      125
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "rectangles": [
+      [
+        0,
+        0,
+        32,
+        32
+      ],
+      [
+        32,
+        0,
+        32,
+        32
+      ],
+      [
+        64,
+        0,
+        32,
+        32
+      ],
+      [
+        96,
+        0,
+        32,
+        32
+      ]
+    ]
+  },
+  {
+    "id": "fx_golpe_justo",
+    "archivo": "fx/fx_golpe_justo.png",
+    "frames": 4,
+    "size": [
+      48,
+      48
+    ],
+    "durations": [
+      85,
+      85,
+      85,
+      125
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "rectangles": [
+      [
+        0,
+        0,
+        48,
+        48
+      ],
+      [
+        48,
+        0,
+        48,
+        48
+      ],
+      [
+        96,
+        0,
+        48,
+        48
+      ],
+      [
+        144,
+        0,
+        48,
+        48
+      ]
+    ]
+  },
+  {
+    "id": "fx_brillante",
+    "archivo": "fx/fx_brillante.png",
+    "frames": 6,
+    "size": [
+      32,
+      32
+    ],
+    "durations": [
+      85,
+      85,
+      85,
+      85,
+      85,
+      125
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "rectangles": [
+      [
+        0,
+        0,
+        32,
+        32
+      ],
+      [
+        32,
+        0,
+        32,
+        32
+      ],
+      [
+        64,
+        0,
+        32,
+        32
+      ],
+      [
+        96,
+        0,
+        32,
+        32
+      ],
+      [
+        128,
+        0,
+        32,
+        32
+      ],
+      [
+        160,
+        0,
+        32,
+        32
+      ]
+    ]
+  },
+  {
+    "id": "fx_sobre_rara",
+    "archivo": "fx/fx_sobre_rara.png",
+    "frames": 6,
+    "size": [
+      96,
+      96
+    ],
+    "durations": [
+      85,
+      85,
+      85,
+      85,
+      85,
+      125
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "rectangles": [
+      [
+        0,
+        0,
+        96,
+        96
+      ],
+      [
+        96,
+        0,
+        96,
+        96
+      ],
+      [
+        192,
+        0,
+        96,
+        96
+      ],
+      [
+        288,
+        0,
+        96,
+        96
+      ],
+      [
+        384,
+        0,
+        96,
+        96
+      ],
+      [
+        480,
+        0,
+        96,
+        96
+      ]
+    ]
+  },
+  {
+    "id": "fx_insignia",
+    "archivo": "fx/fx_insignia.png",
+    "frames": 5,
+    "size": [
+      48,
+      48
+    ],
+    "durations": [
+      85,
+      85,
+      85,
+      85,
+      125
+    ],
+    "loop": false,
+    "end_mode": "hold",
+    "rectangles": [
+      [
+        0,
+        0,
+        48,
+        48
+      ],
+      [
+        48,
+        0,
+        48,
+        48
+      ],
+      [
+        96,
+        0,
+        48,
+        48
+      ],
+      [
+        144,
+        0,
+        48,
+        48
+      ],
+      [
+        192,
+        0,
+        48,
+        48
+      ]
+    ]
+  },
+  {
+    "id": "fx_confeti",
+    "archivo": "fx/fx_confeti.png",
+    "frames": 4,
+    "size": [
+      8,
+      8
+    ],
+    "durations": [
+      85,
+      85,
+      85,
+      125
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "rectangles": [
+      [
+        0,
+        0,
+        8,
+        8
+      ],
+      [
+        8,
+        0,
+        8,
+        8
+      ],
+      [
+        16,
+        0,
+        8,
+        8
+      ],
+      [
+        24,
+        0,
+        8,
+        8
+      ]
+    ]
+  },
+  {
+    "id": "crono_revivir_anomalo",
+    "archivo": "crono/animaciones/crono_revivir_anomalo.png",
+    "frames": 5,
+    "size": [
+      48,
+      48
+    ],
+    "durations": [
+      140,
+      150,
+      130,
+      130,
+      300
+    ],
+    "loop": false,
+    "end_mode": "hold",
+    "rectangles": [
+      [
+        0,
+        0,
+        48,
+        48
+      ],
+      [
+        48,
+        0,
+        48,
+        48
+      ],
+      [
+        96,
+        0,
+        48,
+        48
+      ],
+      [
+        144,
+        0,
+        48,
+        48
+      ],
+      [
+        192,
+        0,
+        48,
+        48
+      ]
+    ]
+  },
+  {
+    "id": "crono_revivir_meganeura",
+    "archivo": "crono/animaciones/crono_revivir_meganeura.png",
+    "frames": 5,
+    "size": [
+      48,
+      48
+    ],
+    "durations": [
+      140,
+      150,
+      130,
+      130,
+      300
+    ],
+    "loop": false,
+    "end_mode": "hold",
+    "rectangles": [
+      [
+        0,
+        0,
+        48,
+        48
+      ],
+      [
+        48,
+        0,
+        48,
+        48
+      ],
+      [
+        96,
+        0,
+        48,
+        48
+      ],
+      [
+        144,
+        0,
+        48,
+        48
+      ],
+      [
+        192,
+        0,
+        48,
+        48
+      ]
+    ]
+  },
+  {
+    "id": "crono_revivir_estego",
+    "archivo": "crono/animaciones/crono_revivir_estego.png",
+    "frames": 5,
+    "size": [
+      48,
+      48
+    ],
+    "durations": [
+      140,
+      150,
+      130,
+      130,
+      300
+    ],
+    "loop": false,
+    "end_mode": "hold",
+    "rectangles": [
+      [
+        0,
+        0,
+        48,
+        48
+      ],
+      [
+        48,
+        0,
+        48,
+        48
+      ],
+      [
+        96,
+        0,
+        48,
+        48
+      ],
+      [
+        144,
+        0,
+        48,
+        48
+      ],
+      [
+        192,
+        0,
+        48,
+        48
+      ]
+    ]
+  },
+  {
+    "id": "crono_revivir_ptero",
+    "archivo": "crono/animaciones/crono_revivir_ptero.png",
+    "frames": 5,
+    "size": [
+      48,
+      48
+    ],
+    "durations": [
+      140,
+      150,
+      130,
+      130,
+      300
+    ],
+    "loop": false,
+    "end_mode": "hold",
+    "rectangles": [
+      [
+        0,
+        0,
+        48,
+        48
+      ],
+      [
+        48,
+        0,
+        48,
+        48
+      ],
+      [
+        96,
+        0,
+        48,
+        48
+      ],
+      [
+        144,
+        0,
+        48,
+        48
+      ],
+      [
+        192,
+        0,
+        48,
+        48
+      ]
+    ]
+  },
+  {
+    "id": "crono_revivir_mamut",
+    "archivo": "crono/animaciones/crono_revivir_mamut.png",
+    "frames": 5,
+    "size": [
+      48,
+      48
+    ],
+    "durations": [
+      140,
+      150,
+      130,
+      130,
+      300
+    ],
+    "loop": false,
+    "end_mode": "hold",
+    "rectangles": [
+      [
+        0,
+        0,
+        48,
+        48
+      ],
+      [
+        48,
+        0,
+        48,
+        48
+      ],
+      [
+        96,
+        0,
+        48,
+        48
+      ],
+      [
+        144,
+        0,
+        48,
+        48
+      ],
+      [
+        192,
+        0,
+        48,
+        48
+      ]
+    ]
+  },
+  {
+    "id": "mina_pico",
+    "archivo": "mina/animaciones/mina_pico.png",
+    "frames": 3,
+    "size": [
+      16,
+      16
+    ],
+    "durations": [
+      90,
+      65,
+      95
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "anchor": [
+      5,
+      1
+    ],
+    "rectangles": [
+      [
+        0,
+        0,
+        16,
+        16
+      ],
+      [
+        16,
+        0,
+        16,
+        16
+      ],
+      [
+        32,
+        0,
+        16,
+        16
+      ]
+    ]
+  },
+  {
+    "id": "mina_explosion",
+    "archivo": "mina/animaciones/mina_explosion.png",
+    "frames": 6,
+    "size": [
+      48,
+      48
+    ],
+    "durations": [
+      45,
+      55,
+      65,
+      75,
+      85,
+      95
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "anchor": [
+      24,
+      24
+    ],
+    "rectangles": [
+      [
+        0,
+        0,
+        48,
+        48
+      ],
+      [
+        48,
+        0,
+        48,
+        48
+      ],
+      [
+        96,
+        0,
+        48,
+        48
+      ],
+      [
+        144,
+        0,
+        48,
+        48
+      ],
+      [
+        192,
+        0,
+        48,
+        48
+      ],
+      [
+        240,
+        0,
+        48,
+        48
+      ]
+    ]
+  },
+  {
+    "id": "mina_gas",
+    "archivo": "mina/animaciones/mina_gas.png",
+    "frames": 4,
+    "size": [
+      16,
+      16
+    ],
+    "durations": [
+      140,
+      140,
+      140,
+      140
+    ],
+    "loop": true,
+    "end_mode": "loop",
+    "anchor": [
+      8,
+      8
+    ],
+    "rectangles": [
+      [
+        0,
+        0,
+        16,
+        16
+      ],
+      [
+        16,
+        0,
+        16,
+        16
+      ],
+      [
+        32,
+        0,
+        16,
+        16
+      ],
+      [
+        48,
+        0,
+        16,
+        16
+      ]
+    ]
+  },
+  {
+    "id": "huevo",
+    "archivo": "mina/animaciones/huevo.png",
+    "frames": 1,
+    "size": [
+      32,
+      32
+    ],
+    "durations": [
+      1000
+    ],
+    "loop": false,
+    "end_mode": "hold",
+    "anchor": [
+      16,
+      31
+    ],
+    "rectangles": [
+      [
+        0,
+        0,
+        32,
+        32
+      ]
+    ]
+  },
+  {
+    "id": "mina_polvo",
+    "archivo": "mina/animaciones/mina_polvo.png",
+    "frames": 3,
+    "size": [
+      16,
+      8
+    ],
+    "durations": [
+      65,
+      75,
+      95
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "anchor": [
+      8,
+      7
+    ],
+    "rectangles": [
+      [
+        0,
+        0,
+        16,
+        8
+      ],
+      [
+        16,
+        0,
+        16,
+        8
+      ],
+      [
+        32,
+        0,
+        16,
+        8
+      ]
+    ]
+  },
+  {
+    "id": "mina_destello",
+    "archivo": "mina/animaciones/mina_destello.png",
+    "frames": 4,
+    "size": [
+      8,
+      8
+    ],
+    "durations": [
+      70,
+      80,
+      80,
+      100
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "anchor": [
+      4,
+      4
+    ],
+    "rectangles": [
+      [
+        0,
+        0,
+        8,
+        8
+      ],
+      [
+        8,
+        0,
+        8,
+        8
+      ],
+      [
+        16,
+        0,
+        8,
+        8
+      ],
+      [
+        24,
+        0,
+        8,
+        8
+      ]
+    ]
+  },
+  {
+    "id": "mina_vapor",
+    "archivo": "mina/animaciones/mina_vapor.png",
+    "frames": 4,
+    "size": [
+      16,
+      16
+    ],
+    "durations": [
+      80,
+      95,
+      110,
+      130
+    ],
+    "loop": false,
+    "end_mode": "hide",
+    "anchor": [
+      8,
+      15
+    ],
+    "rectangles": [
+      [
+        0,
+        0,
+        16,
+        16
+      ],
+      [
+        16,
+        0,
+        16,
+        16
+      ],
+      [
+        32,
+        0,
+        16,
+        16
+      ],
+      [
+        48,
+        0,
+        16,
+        16
+      ]
+    ]
+  },
+  {
+    "id": "huevo_eclosion",
+    "archivo": "mina/animaciones/huevo_eclosion.png",
+    "frames": 4,
+    "size": [
+      32,
+      32
+    ],
+    "durations": [
+      120,
+      120,
+      170,
+      260
+    ],
+    "loop": false,
+    "end_mode": "hold",
+    "anchor": [
+      16,
+      31
+    ],
+    "rectangles": [
+      [
+        0,
+        0,
+        32,
+        32
+      ],
+      [
+        32,
+        0,
+        32,
+        32
+      ],
+      [
+        64,
+        0,
+        32,
+        32
+      ],
+      [
+        96,
+        0,
+        32,
+        32
+      ]
+    ]
+  }
+]

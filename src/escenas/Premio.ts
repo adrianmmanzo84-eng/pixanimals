@@ -1,3 +1,4 @@
+import { confeti } from '../ui/animaciones';
 import Phaser from 'phaser';
 import { DATOS } from '../core/datos';
 import { Rng } from '../core/rng';
@@ -149,7 +150,10 @@ export class Premio extends Phaser.Scene {
     juego.guardar();
     const buena = elegido.tipo === 'criatura' || (elegido.tipo === 'item' && (DATOS.items.get(elegido.item)!.precio?.monedas ?? 0) >= 100);
     sonido.tocar(buena ? 'victoria' : 'sube');
-    if (buena) this.cameras.main.flash(180, 255, 240, 180);
+    if (buena) {
+      this.cameras.main.flash(180, 255, 240, 180);
+      confeti(this, 120, 20, 18);
+    }
     await this.tw({ targets: this.cartas[this.sel]!, scaleX: 1.08, scaleY: 1.08, duration: 120, yoyo: true });
     let texto = t('premio.tuya');
     if (carta) texto += ' ' + (carta.resultado === 'nueva' ? t('carta.nueva') : carta.resultado === 'mejora' ? t('carta.mejora') : t('carta.repetida', { n: carta.esencia }));

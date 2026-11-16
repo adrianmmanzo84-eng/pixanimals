@@ -1027,5 +1027,68 @@
    32,
    32
   ]
+ },
+ "medalla_jefes_1": {
+  "ruta": "ui/medallas/medalla_jefes_1.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_jefes_2": {
+  "ruta": "ui/medallas/medalla_jefes_2.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_jefes_3": {
+  "ruta": "ui/medallas/medalla_jefes_3.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_jefes_bloqueada": {
+  "ruta": "ui/medallas/medalla_jefes_bloqueada.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_mina_1": {
+  "ruta": "ui/medallas/medalla_mina_1.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_mina_2": {
+  "ruta": "ui/medallas/medalla_mina_2.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_mina_3": {
+  "ruta": "ui/medallas/medalla_mina_3.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "medalla_mina_bloqueada": {
+  "ruta": "ui/medallas/medalla_mina_bloqueada.png",
+  "tam": [
+   32,
+   32
+  ]
+ },
+ "item_huevo": {
+  "ruta": "ui/items/item_huevo.png",
+  "tam": [
+   32,
+   32
+  ]
  }
 }

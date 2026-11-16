@@ -1,3 +1,4 @@
+import { animar, confeti } from '../ui/animaciones';
 import Phaser from 'phaser';
 import { probBrillante } from '../core/progresion/eventos';
 import { tipoDeLaSemana } from '../core/modos/semanal';
@@ -296,6 +297,13 @@ export class Sobres extends Phaser.Scene {
       this.cara(cont, carta);
       const buena = carta.rareza === 'rara' || carta.rareza === 'epica' || (carta.clase === 'criatura' && carta.brillante);
       this.avisoCarta(carta, buena);
+      // Rayos detrás de una Rara o Épica y destellos sobre una brillante (efectos del autor).
+      if (carta.rareza === 'rara' || carta.rareza === 'epica') {
+        cont.setDepth(Math.max(cont.depth, 5));
+        void animar(this, 'fx_sobre_rara', cont.x, cont.y, { profundidad: cont.depth - 1 });
+      }
+      if (carta.clase === 'criatura' && carta.brillante) void animar(this, 'fx_brillante', cont.x, cont.y - 8, { profundidad: cont.depth + 1 });
+      if (carta.rareza === 'epica') confeti(this, cont.x, cont.y - 30, 14);
       await this.tw({ targets: cont, scaleX: 1, duration: 130 });
       if (buena) await this.tw({ targets: cont, scaleX: 1.08, scaleY: 1.08, duration: 110, yoyo: true });
     }

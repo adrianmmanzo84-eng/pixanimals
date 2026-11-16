@@ -1,3 +1,4 @@
+import { confeti } from '../../ui/animaciones';
 import Phaser from 'phaser';
 import type { MinijuegoId } from '../../esquemas/esquemas';
 import { DATOS } from '../../core/datos';
@@ -141,6 +142,7 @@ export abstract class MinijuegoBase extends Phaser.Scene {
     if (record) {
       const r = new Texto(this, 0, 22, 240, 16, '#f5e070', 'centro', { tam: 11, peso: 600, borde: '#2b3a78' }).poner(t('mj.record'));
       r.imagen.setDepth(600);
+      confeti(this, 120, 18, 22, 601);
       this.tweens.add({ targets: r.imagen, y: { from: 8, to: 22 }, alpha: { from: 0, to: 1 }, duration: 300, ease: 'Back.easeOut' });
     }
     const yo = this.yo;

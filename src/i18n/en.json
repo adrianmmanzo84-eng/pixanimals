@@ -632,5 +632,6 @@
   "c.estacion.entrenador": "A trainer's apprentice challenges you! (station {n})",
   "c.estacion.semanal": "A boss guard blocks the way! (station {n})",
   "fin.estacion": "Station {n} cleared: +{m} coins.",
-  "fin.estacionRepetida": "Station already cleared (no prize)."
+  "fin.estacionRepetida": "Station already cleared (no prize).",
+  "med.mina": "Defeat {n} Mine lairs"
 }

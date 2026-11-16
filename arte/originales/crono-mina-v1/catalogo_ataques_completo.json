@@ -1,0 +1,686 @@
+{
+  "ataques": [
+    {
+      "id": 34,
+      "titulo": "Therizinosaurus (Terizpix → Terizgigapix)",
+      "informacion": "Pasiva: **Garras Ancestrales** (como Raíces: recupera un poco de vida cada turno).",
+      "ataques": [
+        [
+          "F1 C1",
+          "Zarpa de Helecho",
+          "Ofensivo",
+          "Etapa 1",
+          "Físico, potencia 40; 15 % de bajar Defensa rival.",
+          "Tres cortes verdes con forma de garra de helecho, sobre el rival."
+        ],
+        [
+          "F1 C2",
+          "Follaje Jurásico",
+          "Defensivo",
+          "Toda la línea",
+          "Reduce el daño 60 %; 30 % de envenenar a quien golpee de cerca.",
+          "Escudo de frondas jurásicas alrededor de quien lo usa."
+        ],
+        [
+          "F1 C3",
+          "Savia Antigua",
+          "Apoyo",
+          "Etapas 1 y 2",
+          "Cura 25 % de la vida.",
+          "Gotas de savia dorada que suben y curan."
+        ],
+        [
+          "F1 C4",
+          "Siega Prehistórica",
+          "Final",
+          "Etapas 1 a 3",
+          "Físico, potencia 85.",
+          "Arco de hojas afiladas que barre al rival, en grande."
+        ],
+        [
+          "F2 C1",
+          "Garras Guadaña",
+          "Ofensivo",
+          "Etapas 2 a 4",
+          "Físico, potencia 55; 20 % de bajar Defensa rival.",
+          "Garras largas como guadañas que cortan en X."
+        ],
+        [
+          "F2 C2",
+          "Brote Eterno",
+          "Apoyo",
+          "Etapas 3 y 4",
+          "Cura 25 % de la vida; sube Ataque.",
+          "Brotes que crecen en espiral con flechas hacia arriba."
+        ],
+        [
+          "F2 C3",
+          "Siega Milenaria",
+          "Final",
+          "Etapa 4",
+          "Físico, potencia 110.",
+          "Remolino de hojas y garras gigantes, en grande sobre el rival."
+        ]
+      ],
+      "definitivo": [
+        "Raíz del Mundo",
+        "Raíces gigantes que brotan con hojas doradas",
+        "Terizgigapix con un bosque creciendo a su paso"
+      ]
+    },
+    {
+      "id": 35,
+      "titulo": "Plesiosaurio (Plesiopix → Plesiogigapix)",
+      "informacion": "Pasiva: **Marea Antigua** (como Oleaje: sus ataques suben de poder tras usar un apoyo).",
+      "ataques": [
+        [
+          "F1 C1",
+          "Onda Abisal",
+          "Ofensivo",
+          "Etapa 1",
+          "Especial, potencia 40; 15 % de bajar Velocidad rival.",
+          "Onda de agua oscura en arco hacia el rival."
+        ],
+        [
+          "F1 C2",
+          "Burbuja Fósil",
+          "Defensivo",
+          "Toda la línea",
+          "Reduce el daño 60 %; 30 % de dormir a quien golpee de cerca.",
+          "Burbuja grande con detalles de fósil alrededor de quien lo usa."
+        ],
+        [
+          "F1 C3",
+          "Canto Profundo",
+          "Apoyo",
+          "Etapas 1 y 2",
+          "Sube Ataque Especial.",
+          "Notas musicales de agua en espiral, sobre quien lo usa."
+        ],
+        [
+          "F1 C4",
+          "Maremoto Jurásico",
+          "Final",
+          "Etapas 1 a 3",
+          "Especial, potencia 85.",
+          "Gran ola con siluetas de aletas, en grande sobre el rival."
+        ],
+        [
+          "F2 C1",
+          "Oleaje Antiguo",
+          "Ofensivo",
+          "Etapas 2 a 4",
+          "Especial, potencia 55; 20 % de bajar Velocidad rival.",
+          "Oleaje con espuma que golpea en dos olas."
+        ],
+        [
+          "F2 C2",
+          "Canto de Nereida",
+          "Apoyo",
+          "Etapas 3 y 4",
+          "Sube Ataque Especial; sube Defensa Especial.",
+          "Canto con brillo celeste y flechas hacia arriba."
+        ],
+        [
+          "F2 C3",
+          "Diluvio Eterno",
+          "Final",
+          "Etapa 4",
+          "Especial, potencia 110.",
+          "Diluvio de agua desde arriba con remolino, en grande."
+        ]
+      ],
+      "definitivo": [
+        "Mar Primordial",
+        "Remolino de agua profunda con brillo celeste",
+        "Plesiogigapix cantando sobre un mar subterráneo"
+      ]
+    },
+    {
+      "id": 36,
+      "titulo": "Triceratops (Tricepix → Tricegigapix)",
+      "informacion": "Pasiva: **Gola Conductora** (como Último Rescoldo: pega más fuerte con poca vida).",
+      "ataques": [
+        [
+          "F1 C1",
+          "Cuerno Voltio",
+          "Ofensivo",
+          "Etapa 1",
+          "Físico, potencia 40; 10 % de paralizar.",
+          "Cuerno con chispa amarilla que embiste."
+        ],
+        [
+          "F1 C2",
+          "Gola Escudo",
+          "Defensivo",
+          "Toda la línea",
+          "Reduce el daño 60 %; 30 % de paralizar a quien golpee de cerca.",
+          "Gola de cristal desplegada como escudo con arcos eléctricos."
+        ],
+        [
+          "F1 C3",
+          "Carga Cristal",
+          "Apoyo",
+          "Etapas 1 y 2",
+          "Sube Defensa.",
+          "Cristales azules que se cargan de energía, sobre quien lo usa."
+        ],
+        [
+          "F1 C4",
+          "Estampida Voltaica",
+          "Final",
+          "Etapas 1 a 3",
+          "Físico, potencia 85.",
+          "Polvareda con rayos y huellas, en grande sobre el rival."
+        ],
+        [
+          "F2 C1",
+          "Tricuerno Eléctrico",
+          "Ofensivo",
+          "Etapas 2 a 4",
+          "Físico, potencia 55; 20 % de paralizar.",
+          "Tres cuernos eléctricos que impactan en abanico."
+        ],
+        [
+          "F2 C2",
+          "Gola Tormenta",
+          "Apoyo",
+          "Etapas 3 y 4",
+          "Sube Defensa; sube Ataque.",
+          "Gola con rayos y flechas hacia arriba."
+        ],
+        [
+          "F2 C3",
+          "Embestida Eterna",
+          "Final",
+          "Etapa 4",
+          "Físico, potencia 110.",
+          "Embestida de energía cristalina, en grande sobre el rival."
+        ]
+      ],
+      "definitivo": [
+        "Trueno Cretácico",
+        "Rayo que cae sobre un cristal y estalla",
+        "Tricegigapix con la gola cargada bajo una tormenta de cristales"
+      ]
+    },
+    {
+      "id": 37,
+      "titulo": "Tyrannosaurus (Rexpix → Rexgigapix)",
+      "informacion": "Pasiva: **Rugido Fósil** (como Último Rescoldo: pega más fuerte con poca vida).",
+      "ataques": [
+        [
+          "F1 C1",
+          "Mordida Volcánica",
+          "Ofensivo",
+          "Etapa 1",
+          "Físico, potencia 40; 10 % de quemar.",
+          "Mandíbula con brasas que se cierra sobre el rival."
+        ],
+        [
+          "F1 C2",
+          "Piel de Basalto",
+          "Defensivo",
+          "Toda la línea",
+          "Reduce el daño 60 %; 30 % de quemar a quien golpee de cerca.",
+          "Piel de basalto agrietada con lava brillando, como escudo."
+        ],
+        [
+          "F1 C3",
+          "Rugido Tirano",
+          "Apoyo",
+          "Etapas 1 y 2",
+          "Baja Ataque rival.",
+          "Rugido en ondas rojas hacia el rival."
+        ],
+        [
+          "F1 C4",
+          "Erupción Rex",
+          "Final",
+          "Etapas 1 a 3",
+          "Físico, potencia 85.",
+          "Erupción de lava desde el suelo, en grande sobre el rival."
+        ],
+        [
+          "F2 C1",
+          "Mandíbula de Magma",
+          "Ofensivo",
+          "Etapas 2 a 4",
+          "Físico, potencia 55; 20 % de quemar.",
+          "Mandíbula de magma con chorreaduras naranjas."
+        ],
+        [
+          "F2 C2",
+          "Rugido Cretácico",
+          "Apoyo",
+          "Etapas 3 y 4",
+          "Baja Ataque rival; sube Ataque.",
+          "Rugido con ondas y flechas rojas hacia arriba."
+        ],
+        [
+          "F2 C3",
+          "Cataclismo Ígneo",
+          "Final",
+          "Etapa 4",
+          "Físico, potencia 110.",
+          "Anillo de fuego que explota alrededor del rival, en grande."
+        ]
+      ],
+      "definitivo": [
+        "Meteoro Final",
+        "Meteoro de fuego que cae y explota",
+        "Rexgigapix rugiendo mientras cae un meteoro sobre el volcán"
+      ]
+    },
+    {
+      "id": 38,
+      "titulo": "Dimetrodon (Dimepix → Dimegigapix)",
+      "informacion": "Pasiva: **Vela Umbría** (como Raíces: recupera un poco de vida cada turno).",
+      "ataques": [
+        [
+          "F1 C1",
+          "Mirada Pérmica",
+          "Ofensivo",
+          "Etapa 1",
+          "Especial, potencia 40; 10 % de dormir.",
+          "Ojos violetas que destellan con una onda de sueño."
+        ],
+        [
+          "F1 C2",
+          "Velo Fósil",
+          "Defensivo",
+          "Toda la línea",
+          "Reduce el daño 60 %; 30 % de envenenar a quien golpee de cerca.",
+          "Velo de sombra con fósiles marcados alrededor de quien lo usa."
+        ],
+        [
+          "F1 C3",
+          "Vela Sombría",
+          "Apoyo",
+          "Etapas 1 y 2",
+          "Sube Ataque Especial.",
+          "Vela dorsal violeta que brilla, sobre quien lo usa."
+        ],
+        [
+          "F1 C4",
+          "Pulso Pérmico",
+          "Final",
+          "Etapas 1 a 3",
+          "Especial, potencia 85.",
+          "Pulso de energía oscura en ondas, en grande sobre el rival."
+        ],
+        [
+          "F2 C1",
+          "Ojo del Abismo",
+          "Ofensivo",
+          "Etapas 2 a 4",
+          "Especial, potencia 55; 15 % de dormir.",
+          "Ojo gigante del abismo que se abre sobre el rival."
+        ],
+        [
+          "F2 C2",
+          "Vela Estelar",
+          "Apoyo",
+          "Etapas 3 y 4",
+          "Sube Ataque Especial; sube Velocidad.",
+          "Vela con estrellas y flechas hacia arriba."
+        ],
+        [
+          "F2 C3",
+          "Noche Primigenia",
+          "Final",
+          "Etapa 4",
+          "Especial, potencia 110.",
+          "Noche con estrellas que cae sobre el rival, en grande."
+        ]
+      ],
+      "definitivo": [
+        "Eclipse Fósil",
+        "Eclipse negro con anillo violeta",
+        "Dimegigapix con la vela convertida en un cielo estrellado"
+      ]
+    },
+    {
+      "id": 39,
+      "titulo": "Anomalocaris",
+      "informacion": "Paleta: agua turquesa, coral rosado y destellos de ámbar. Pasiva: **Garras Cámbricas** (como Oleaje: sus ataques suben de poder tras usar un apoyo).",
+      "ataques": [
+        [
+          "F1 C1",
+          "Garra Primitiva",
+          "Ofensivo",
+          "Etapa 1",
+          "Físico, potencia 40; 15 % de bajar Defensa rival.",
+          "Dos garras curvas con espinas que se cierran sobre el rival."
+        ],
+        [
+          "F1 C2",
+          "Caparazón Cámbrico",
+          "Defensivo",
+          "Toda la línea",
+          "Reduce el daño 60 %; 30 % de envenenar a quien golpee de cerca.",
+          "Placas segmentadas formando un escudo semitransparente."
+        ],
+        [
+          "F1 C3",
+          "Ojos Compuestos",
+          "Apoyo",
+          "Etapas 1 y 2",
+          "Sube Ataque.",
+          "Ojos facetados que brillan con flechas hacia arriba, sobre quien lo usa."
+        ],
+        [
+          "F1 C4",
+          "Remolino Cámbrico",
+          "Final",
+          "Etapas 1 a 3",
+          "Físico, potencia 85.",
+          "Remolino de agua con conchas y partículas, en grande sobre el rival."
+        ],
+        [
+          "F2 C1",
+          "Tenaza Abisal",
+          "Ofensivo",
+          "Etapas 2 a 4",
+          "Físico, potencia 55; 20 % de bajar Defensa rival.",
+          "Tenazas espinosas azul oscuro que atrapan al rival."
+        ],
+        [
+          "F2 C2",
+          "Marea Cámbrica",
+          "Apoyo",
+          "Etapas 3 y 4",
+          "Sube Ataque y Velocidad.",
+          "Espiral de corriente con flechas hacia arriba."
+        ],
+        [
+          "F2 C3",
+          "Abismo Primigenio",
+          "Final",
+          "Etapa 4",
+          "Físico, potencia 110.",
+          "Ola oscura que se cierra como una boca con anillos de ámbar."
+        ]
+      ],
+      "definitivo": [
+        "Primer Océano",
+        "Gran tromba de agua con un núcleo de ámbar",
+        "Anomalogigapix emergiendo del océano primitivo con las aletas abiertas"
+      ]
+    },
+    {
+      "id": 40,
+      "titulo": "Meganeura",
+      "informacion": "Paleta: verde iridiscente, azul eléctrico y vitral. Pasiva: **Alas Estáticas** (como Oleaje).",
+      "ataques": [
+        [
+          "F1 C1",
+          "Zumbido Voltaico",
+          "Ofensivo",
+          "Etapa 1",
+          "Especial, potencia 40; 10 % de paralizar.",
+          "Ondas de sonido eléctricas en arcos, sobre el rival."
+        ],
+        [
+          "F1 C2",
+          "Alas de Vitral",
+          "Defensivo",
+          "Toda la línea",
+          "Reduce el daño 60 %; 30 % de paralizar a quien golpee de cerca.",
+          "Cuatro alas translúcidas de vitral cerrándose como escudo."
+        ],
+        [
+          "F1 C3",
+          "Vuelo Estático",
+          "Apoyo",
+          "Etapas 1 y 2",
+          "Sube Velocidad.",
+          "Círculo de chispas con estela, alrededor de quien lo usa."
+        ],
+        [
+          "F1 C4",
+          "Enjambre Eléctrico",
+          "Final",
+          "Etapas 1 a 3",
+          "Especial, potencia 85.",
+          "Nube de chispas zumbantes que envuelve al rival."
+        ],
+        [
+          "F2 C1",
+          "Picada Relámpago",
+          "Ofensivo",
+          "Etapas 2 a 4",
+          "Especial, potencia 55; 20 % de paralizar.",
+          "Rayo en zigzag que cae en picada sobre el rival."
+        ],
+        [
+          "F2 C2",
+          "Mil Facetas",
+          "Apoyo",
+          "Etapas 3 y 4",
+          "Sube Ataque Especial y Velocidad.",
+          "Mosaico de facetas brillantes con flechas hacia arriba."
+        ],
+        [
+          "F2 C3",
+          "Tormenta Pantanosa",
+          "Final",
+          "Etapa 4",
+          "Especial, potencia 110.",
+          "Tormenta verde y azul con rayos ramificados sobre el rival."
+        ]
+      ],
+      "definitivo": [
+        "Rayo Primordial",
+        "Rayo ramificado verde y azul con chispas de ámbar",
+        "Meganeugigapix sobre el bosque gigante bajo una tormenta eléctrica"
+      ]
+    },
+    {
+      "id": 41,
+      "titulo": "Stegosaurus",
+      "informacion": "Paleta: verde musgo, terracota y luz de sol. Pasiva: **Lomo Frondoso** (como Raíces: recupera un poco de vida cada turno).",
+      "ataques": [
+        [
+          "F1 C1",
+          "Coletazo de Púas",
+          "Ofensivo",
+          "Etapa 1",
+          "Físico, potencia 40; 15 % de bajar Defensa rival.",
+          "Cola con púas que barre en arco sobre el rival."
+        ],
+        [
+          "F1 C2",
+          "Placas de Hoja",
+          "Defensivo",
+          "Toda la línea",
+          "Reduce el daño 60 %; 30 % de envenenar a quien golpee de cerca.",
+          "Placas verdes en forma de hoja formando un escudo."
+        ],
+        [
+          "F1 C3",
+          "Sol del Jurásico",
+          "Apoyo",
+          "Etapas 1 y 2",
+          "Cura 25 % de la vida.",
+          "Rayos de sol cálidos con hojitas que suben."
+        ],
+        [
+          "F1 C4",
+          "Estampida de Hojas",
+          "Final",
+          "Etapas 1 a 3",
+          "Físico, potencia 85.",
+          "Polvareda con hojas y siluetas de una manada, en grande sobre el rival."
+        ],
+        [
+          "F2 C1",
+          "Púas Milenarias",
+          "Ofensivo",
+          "Etapas 2 a 4",
+          "Físico, potencia 55; 20 % de bajar Defensa rival.",
+          "Cuatro púas de piedra y ámbar que golpean en cruz."
+        ],
+        [
+          "F2 C2",
+          "Bosque Jurásico",
+          "Apoyo",
+          "Etapas 3 y 4",
+          "Cura 25 % y sube Defensa.",
+          "Brotes que crecen alrededor con un escudo verde suave."
+        ],
+        [
+          "F2 C3",
+          "Gran Estampida",
+          "Final",
+          "Etapa 4",
+          "Físico, potencia 110.",
+          "Manada en carga con polvo y hojas, a lo ancho del rival."
+        ]
+      ],
+      "definitivo": [
+        "Corazón Jurásico",
+        "Estallido de hojas y placas con un brillo de ámbar en el centro",
+        "Estegogigapix guiando una estampida jurásica en el valle"
+      ]
+    },
+    {
+      "id": 42,
+      "titulo": "Pteranodon",
+      "informacion": "Paleta: cielo rojo de atardecer, crema y naranja de meteoro. Pasiva: **Viento Cretácico** (como Último Rescoldo: pega más fuerte con poca vida).",
+      "ataques": [
+        [
+          "F1 C1",
+          "Picotazo Cretácico",
+          "Ofensivo",
+          "Etapa 1",
+          "Físico, potencia 40; 15 % de bajar Defensa rival.",
+          "Pico que entra en diagonal con trazo de viento."
+        ],
+        [
+          "F1 C2",
+          "Alas Planeadoras",
+          "Defensivo",
+          "Toda la línea",
+          "Reduce el daño 60 %; 30 % de paralizar a quien golpee de cerca.",
+          "Dos alas de membrana envolviendo a quien lo usa."
+        ],
+        [
+          "F1 C3",
+          "Corriente Térmica",
+          "Apoyo",
+          "Etapas 1 y 2",
+          "Sube Velocidad.",
+          "Columna de aire caliente en espiral con flechas hacia arriba."
+        ],
+        [
+          "F1 C4",
+          "Picado Meteoro",
+          "Final",
+          "Etapas 1 a 3",
+          "Físico, potencia 85.",
+          "Silueta en picada envuelta en fuego, en grande sobre el rival."
+        ],
+        [
+          "F2 C1",
+          "Cresta Cortante",
+          "Ofensivo",
+          "Etapas 2 a 4",
+          "Físico, potencia 55; 20 % de bajar Defensa rival.",
+          "Corte curvo naranja con forma de cresta."
+        ],
+        [
+          "F2 C2",
+          "Vuelo Rasante",
+          "Apoyo",
+          "Etapas 3 y 4",
+          "Sube Ataque y Velocidad.",
+          "Estela de viento horizontal con flechas hacia arriba."
+        ],
+        [
+          "F2 C3",
+          "Lluvia de Meteoros",
+          "Final",
+          "Etapa 4",
+          "Físico, potencia 110.",
+          "Varios meteoros pequeños cayendo sobre el rival."
+        ]
+      ],
+      "definitivo": [
+        "Último Cielo",
+        "Cometa que estalla en anillos de fuego y ámbar",
+        "Pterogigapix cruzando el cielo rojo seguido por una lluvia de meteoros"
+      ]
+    },
+    {
+      "id": 43,
+      "titulo": "Mamut lanudo",
+      "informacion": "Paleta: hielo celeste, blanco nieve y castaño. Pasiva: **Pelaje Eterno** (como Raíces).",
+      "ataques": [
+        [
+          "F1 C1",
+          "Colmillazo",
+          "Ofensivo",
+          "Etapa 1",
+          "Físico, potencia 40; 15 % de bajar Defensa rival.",
+          "Dos colmillos que embisten con un destello blanco."
+        ],
+        [
+          "F1 C2",
+          "Pelaje Glacial",
+          "Defensivo",
+          "Toda la línea",
+          "Reduce el daño 60 %; 30 % de paralizar (congelar) a quien golpee de cerca.",
+          "Pelaje con escarcha formando un escudo redondo."
+        ],
+        [
+          "F1 C3",
+          "Bramido Helado",
+          "Apoyo",
+          "Etapas 1 y 2",
+          "Baja el Ataque del rival.",
+          "Ondas de sonido con copos de nieve hacia el rival."
+        ],
+        [
+          "F1 C4",
+          "Alud de Nieve",
+          "Final",
+          "Etapas 1 a 3",
+          "Físico, potencia 85.",
+          "Avalancha de nieve y rocas cayendo sobre el rival."
+        ],
+        [
+          "F2 C1",
+          "Colmillos de Hielo",
+          "Ofensivo",
+          "Etapas 2 a 4",
+          "Físico, potencia 55; 20 % de bajar Velocidad rival.",
+          "Colmillos de hielo cristalino que se cruzan."
+        ],
+        [
+          "F2 C2",
+          "Manada Glacial",
+          "Apoyo",
+          "Etapas 3 y 4",
+          "Sube Ataque y Defensa.",
+          "Huellas de hielo en círculo con flechas hacia arriba."
+        ],
+        [
+          "F2 C3",
+          "Glaciación",
+          "Final",
+          "Etapa 4",
+          "Físico, potencia 110.",
+          "Bloques de hielo que brotan del suelo y encierran al rival."
+        ]
+      ],
+      "definitivo": [
+        "Era de Hielo",
+        "Estallido de hielo y roca con núcleo de ámbar",
+        "Mamutgigapix bajo la aurora, con glaciares que se levantan detrás"
+      ]
+    }
+  ],
+  "conteo_ataques": 80,
+  "efectos_individuales": 90
+}

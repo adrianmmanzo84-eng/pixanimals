@@ -1,4 +1,5 @@
 import { cargarAnimMina } from '../ui/animMina';
+import { cargarAnimaciones } from '../ui/animaciones';
 import Phaser from 'phaser';
 import { DATOS } from '../core/datos';
 import { cargarArteUI, prepararArteUI } from '../ui/arte';
@@ -29,6 +30,7 @@ export class Arranque extends Phaser.Scene {
     }
     for (const f of ['terin', 'plesin', 'triclin', 'tirin', 'dimlin']) this.load.image(`huevo_${f}`, `mina/huevo_${f}.png`);
     cargarAnimMina(this.load);
+    cargarAnimaciones(this.load);
     // Arte opcional de la Torre y los caminos (si falta, se dibuja por código). Ver manifiesto en public/modos/.
     for (const c of ['torre_fondo', 'torre_piso', 'torre_piso_jefe', 'torre_cima', 'ruta_entrenador', 'ruta_semanal', 'ruta_nodo', 'ruta_vencido', 'ruta_jefe'])
       if (ARTE_MODOS.includes(c)) this.load.image(c, `modos/${c}.png`);

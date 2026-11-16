@@ -400,6 +400,7 @@ export function criaDe(datos: Datos, especie: string): string | null {
 export function vencerGuarida(datos: Datos, estado: EstadoJuego, zona: number, ahora: number): { huevo: string | null; monedas: number } {
   const m = datos.economia.mina;
   estado.mina.zonaMax = Math.max(estado.mina.zonaMax, Math.min(m.zonas.length, zona + 1));
+  estado.mina.guaridas = [...new Set([...(estado.mina.guaridas ?? []), zona])].sort((a, b) => a - b);
   const monstruo = monstruoDe(datos, zona);
   const cria = monstruo ? criaDe(datos, monstruo) : null;
   const yaTiene = cria && (estado.mina.huevos.some((h) => h.especie === cria) || estado.criaturas.some((c) => datos.criaturas.get(c.especie)?.familia === datos.criaturas.get(cria)?.familia));

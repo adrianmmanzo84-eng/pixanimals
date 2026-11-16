@@ -116,6 +116,8 @@ export function progresoMedalla(datos: Datos, estado: EstadoJuego, id: string): 
       return e.impecables;
     case 'jefes':
       return estado.jefes.length;
+    case 'mina':
+      return estado.mina.guaridas?.length ?? 0;
     default:
       return 0;
   }

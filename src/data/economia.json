@@ -346,6 +346,14 @@
         10,
         20
       ]
+    },
+    {
+      "id": "mina",
+      "metas": [
+        1,
+        3,
+        5
+      ]
     }
   ],
   "premiosMedalla": [

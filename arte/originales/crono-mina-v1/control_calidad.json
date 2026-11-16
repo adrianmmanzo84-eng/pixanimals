@@ -1,0 +1,4564 @@
+{
+  "completo": true,
+  "fuentes_nuevas": 55,
+  "recursos_png": 379,
+  "recursos_principales": 246,
+  "fotogramas_individuales": 133,
+  "familias": 5,
+  "etapas": 20,
+  "ataques": 80,
+  "piezas_ataque": 90,
+  "laminas_ataques": 20,
+  "escenarios": 11,
+  "tiras_y_huevo": 30,
+  "faltantes": [],
+  "conteo_por_clase": {
+    "criatura": 40,
+    "icono_criatura": 20,
+    "lamina_criatura": 5,
+    "lamina_compatible": 5,
+    "era": 5,
+    "mapa": 5,
+    "sala": 1,
+    "icono": 13,
+    "medalla": 12,
+    "animacion_mina_reutilizada": 8,
+    "efecto_ataque": 70,
+    "lamina_ataques": 10,
+    "definitivo_impacto": 10,
+    "definitivo_pantalla": 10,
+    "lamina_definitivos": 10,
+    "fotograma": 104,
+    "animacion": 17,
+    "animacion_revivir_familia": 5,
+    "fotograma_mina_reutilizado": 29
+  },
+  "archivos": [
+    {
+      "archivo": "criaturas/sprites/39_anomalo_0_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/39_anomalo_0_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/39_anomalo_0.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/39_anomalo_1_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/39_anomalo_1_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/39_anomalo_1.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/39_anomalo_2_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/39_anomalo_2_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/39_anomalo_2.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/39_anomalo_3_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/39_anomalo_3_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/39_anomalo_3.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/laminas/39_anomalo.png",
+      "tamano": [
+        1536,
+        1024
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/compatibles_4x2/39_anomalo.png",
+      "tamano": [
+        1536,
+        1024
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/40_meganeura_0_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/40_meganeura_0_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 10,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/40_meganeura_0.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/40_meganeura_1_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/40_meganeura_1_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/40_meganeura_1.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/40_meganeura_2_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/40_meganeura_2_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/40_meganeura_2.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 10,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/40_meganeura_3_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/40_meganeura_3_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/40_meganeura_3.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/laminas/40_meganeura.png",
+      "tamano": [
+        1536,
+        1024
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/compatibles_4x2/40_meganeura.png",
+      "tamano": [
+        1536,
+        1024
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/41_estego_0_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/41_estego_0_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/41_estego_0.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/41_estego_1_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/41_estego_1_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 10,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/41_estego_1.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/41_estego_2_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/41_estego_2_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/41_estego_2.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/41_estego_3_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/41_estego_3_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/41_estego_3.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/laminas/41_estego.png",
+      "tamano": [
+        1536,
+        1024
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/compatibles_4x2/41_estego.png",
+      "tamano": [
+        1536,
+        1024
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/42_ptero_0_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/42_ptero_0_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/42_ptero_0.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/42_ptero_1_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/42_ptero_1_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/42_ptero_1.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/42_ptero_2_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/42_ptero_2_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/42_ptero_2.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/42_ptero_3_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/42_ptero_3_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/42_ptero_3.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/laminas/42_ptero.png",
+      "tamano": [
+        1536,
+        1024
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/compatibles_4x2/42_ptero.png",
+      "tamano": [
+        1536,
+        1024
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/43_mamut_0_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/43_mamut_0_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/43_mamut_0.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/43_mamut_1_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/43_mamut_1_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/43_mamut_1.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/43_mamut_2_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/43_mamut_2_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/43_mamut_2.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/43_mamut_3_frente.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/sprites/43_mamut_3_espalda.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/iconos/43_mamut_3.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/laminas/43_mamut.png",
+      "tamano": [
+        1536,
+        1024
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "criaturas/compatibles_4x2/43_mamut.png",
+      "tamano": [
+        1536,
+        1024
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "escenarios/crono_era1.png",
+      "tamano": [
+        960,
+        455
+      ],
+      "colores_opacos": 273236,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "escenarios/crono_mapa1.png",
+      "tamano": [
+        960,
+        640
+      ],
+      "colores_opacos": 10756,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "escenarios/crono_era2.png",
+      "tamano": [
+        960,
+        455
+      ],
+      "colores_opacos": 178491,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "escenarios/crono_mapa2.png",
+      "tamano": [
+        960,
+        640
+      ],
+      "colores_opacos": 1839,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "escenarios/crono_era3.png",
+      "tamano": [
+        960,
+        455
+      ],
+      "colores_opacos": 198062,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "escenarios/crono_mapa3.png",
+      "tamano": [
+        960,
+        640
+      ],
+      "colores_opacos": 3888,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "escenarios/crono_era4.png",
+      "tamano": [
+        960,
+        455
+      ],
+      "colores_opacos": 189870,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "escenarios/crono_mapa4.png",
+      "tamano": [
+        960,
+        640
+      ],
+      "colores_opacos": 5047,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "escenarios/crono_era5.png",
+      "tamano": [
+        960,
+        455
+      ],
+      "colores_opacos": 213200,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "escenarios/crono_mapa5.png",
+      "tamano": [
+        960,
+        640
+      ],
+      "colores_opacos": 5022,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "escenarios/crono_sala.png",
+      "tamano": [
+        960,
+        640
+      ],
+      "colores_opacos": 227294,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/fosil_anomalo.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/fosil_meganeura.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/fosil_estego.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/fosil_ptero.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/fosil_mamut.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/ambar.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/mapa_combate.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/mapa_excavacion.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/mapa_evento.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/mapa_fogata.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/mapa_jefe.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/mapa_visitado.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_jefes_1.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_jefes_2.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_jefes_3.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_jefes_bloqueada.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 2,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_mina_1.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_mina_2.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_mina_3.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_mina_bloqueada.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 2,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_crono_1.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_crono_2.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_crono_3.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "medallas/medalla_crono_bloqueada.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 2,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "mina/animaciones/mina_pico.png",
+      "tamano": [
+        48,
+        16
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "mina/animaciones/mina_explosion.png",
+      "tamano": [
+        288,
+        48
+      ],
+      "colores_opacos": 10,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "mina/animaciones/mina_gas.png",
+      "tamano": [
+        64,
+        16
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "mina/animaciones/huevo.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "mina/animaciones/mina_polvo.png",
+      "tamano": [
+        48,
+        8
+      ],
+      "colores_opacos": 4,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "mina/animaciones/mina_destello.png",
+      "tamano": [
+        32,
+        8
+      ],
+      "colores_opacos": 3,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "mina/animaciones/mina_vapor.png",
+      "tamano": [
+        64,
+        16
+      ],
+      "colores_opacos": 4,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "mina/animaciones/huevo_eclosion.png",
+      "tamano": [
+        128,
+        32
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "iconos/item_huevo.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/34_zarpa_de_helecho.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/34_follaje_jurasico.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/34_savia_antigua.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/34_siega_prehistorica.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/34_garras_guadana.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/34_brote_eterno.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/34_siega_milenaria.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/34_ataques.png",
+      "tamano": [
+        384,
+        192
+      ],
+      "colores_opacos": 95,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/34_raiz_del_mundo_impacto.png",
+      "tamano": [
+        128,
+        128
+      ],
+      "colores_opacos": 31,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/34_raiz_del_mundo_pantalla.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 64,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/34_definitivos.png",
+      "tamano": [
+        480,
+        160
+      ],
+      "colores_opacos": 95,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/35_onda_abisal.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/35_burbuja_fosil.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/35_canto_profundo.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/35_maremoto_jurasico.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/35_oleaje_antiguo.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/35_canto_de_nereida.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/35_diluvio_eterno.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/35_ataques.png",
+      "tamano": [
+        384,
+        192
+      ],
+      "colores_opacos": 97,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/35_mar_primordial_impacto.png",
+      "tamano": [
+        128,
+        128
+      ],
+      "colores_opacos": 32,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/35_mar_primordial_pantalla.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 64,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/35_definitivos.png",
+      "tamano": [
+        480,
+        160
+      ],
+      "colores_opacos": 96,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/36_cuerno_voltio.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/36_gola_escudo.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/36_carga_cristal.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/36_estampida_voltaica.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/36_tricuerno_electrico.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/36_gola_tormenta.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/36_embestida_eterna.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/36_ataques.png",
+      "tamano": [
+        384,
+        192
+      ],
+      "colores_opacos": 97,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/36_trueno_cretacico_impacto.png",
+      "tamano": [
+        128,
+        128
+      ],
+      "colores_opacos": 31,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/36_trueno_cretacico_pantalla.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 64,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/36_definitivos.png",
+      "tamano": [
+        480,
+        160
+      ],
+      "colores_opacos": 95,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/37_mordida_volcanica.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/37_piel_de_basalto.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/37_rugido_tirano.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/37_erupcion_rex.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/37_mandibula_de_magma.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/37_rugido_cretacico.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/37_cataclismo_igneo.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/37_ataques.png",
+      "tamano": [
+        384,
+        192
+      ],
+      "colores_opacos": 97,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/37_meteoro_final_impacto.png",
+      "tamano": [
+        128,
+        128
+      ],
+      "colores_opacos": 31,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/37_meteoro_final_pantalla.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 64,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/37_definitivos.png",
+      "tamano": [
+        480,
+        160
+      ],
+      "colores_opacos": 95,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/38_mirada_permica.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/38_velo_fosil.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/38_vela_sombria.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/38_pulso_permico.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/38_ojo_del_abismo.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/38_vela_estelar.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/38_noche_primigenia.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/38_ataques.png",
+      "tamano": [
+        384,
+        192
+      ],
+      "colores_opacos": 98,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/38_eclipse_fosil_impacto.png",
+      "tamano": [
+        128,
+        128
+      ],
+      "colores_opacos": 31,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/38_eclipse_fosil_pantalla.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 64,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/38_definitivos.png",
+      "tamano": [
+        480,
+        160
+      ],
+      "colores_opacos": 95,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/39_garra_primitiva.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/39_caparazon_cambrico.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/39_ojos_compuestos.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/39_remolino_cambrico.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/39_tenaza_abisal.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/39_marea_cambrica.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/39_abismo_primigenio.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/39_ataques.png",
+      "tamano": [
+        384,
+        192
+      ],
+      "colores_opacos": 96,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/39_primer_oceano_impacto.png",
+      "tamano": [
+        128,
+        128
+      ],
+      "colores_opacos": 31,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/39_primer_oceano_pantalla.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 64,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/39_definitivos.png",
+      "tamano": [
+        480,
+        160
+      ],
+      "colores_opacos": 95,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/40_zumbido_voltaico.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/40_alas_de_vitral.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/40_vuelo_estatico.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/40_enjambre_electrico.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/40_picada_relampago.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/40_mil_facetas.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/40_tormenta_pantanosa.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/40_ataques.png",
+      "tamano": [
+        384,
+        192
+      ],
+      "colores_opacos": 98,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/40_rayo_primordial_impacto.png",
+      "tamano": [
+        128,
+        128
+      ],
+      "colores_opacos": 31,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/40_rayo_primordial_pantalla.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 64,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/40_definitivos.png",
+      "tamano": [
+        480,
+        160
+      ],
+      "colores_opacos": 95,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/41_coletazo_de_puas.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/41_placas_de_hoja.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/41_sol_del_jurasico.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/41_estampida_de_hojas.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/41_puas_milenarias.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/41_bosque_jurasico.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/41_gran_estampida.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/41_ataques.png",
+      "tamano": [
+        384,
+        192
+      ],
+      "colores_opacos": 99,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/41_corazon_jurasico_impacto.png",
+      "tamano": [
+        128,
+        128
+      ],
+      "colores_opacos": 31,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/41_corazon_jurasico_pantalla.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 64,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/41_definitivos.png",
+      "tamano": [
+        480,
+        160
+      ],
+      "colores_opacos": 95,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/42_picotazo_cretacico.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/42_alas_planeadoras.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/42_corriente_termica.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/42_picado_meteoro.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/42_cresta_cortante.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/42_vuelo_rasante.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/42_lluvia_de_meteoros.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/42_ataques.png",
+      "tamano": [
+        384,
+        192
+      ],
+      "colores_opacos": 96,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/42_ultimo_cielo_impacto.png",
+      "tamano": [
+        128,
+        128
+      ],
+      "colores_opacos": 31,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/42_ultimo_cielo_pantalla.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 64,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/42_definitivos.png",
+      "tamano": [
+        480,
+        160
+      ],
+      "colores_opacos": 95,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/43_colmillazo.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/43_pelaje_glacial.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/43_bramido_helado.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/43_alud_de_nieve.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/43_colmillos_de_hielo.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/43_manada_glacial.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/43_glaciacion.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/43_ataques.png",
+      "tamano": [
+        384,
+        192
+      ],
+      "colores_opacos": 92,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/43_era_de_hielo_impacto.png",
+      "tamano": [
+        128,
+        128
+      ],
+      "colores_opacos": 32,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/piezas/43_era_de_hielo_pantalla.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 64,
+      "alpha": [
+        255
+      ]
+    },
+    {
+      "archivo": "ataques/laminas/43_definitivos.png",
+      "tamano": [
+        480,
+        160
+      ],
+      "colores_opacos": 92,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_portal_00.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_portal_01.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_portal_02.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_portal_03.png",
+      "tamano": [
+        64,
+        64
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_portal.png",
+      "tamano": [
+        256,
+        64
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_viaje_00.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 10,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_viaje_01.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_viaje_02.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_viaje_03.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_viaje_04.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_viaje_05.png",
+      "tamano": [
+        240,
+        160
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_viaje.png",
+      "tamano": [
+        1440,
+        160
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_marea_00.png",
+      "tamano": [
+        240,
+        40
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_marea_01.png",
+      "tamano": [
+        240,
+        40
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_marea_02.png",
+      "tamano": [
+        240,
+        40
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_marea_03.png",
+      "tamano": [
+        240,
+        40
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_marea.png",
+      "tamano": [
+        960,
+        40
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_esporas_00.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 2,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_esporas_01.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 3,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_esporas_02.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_esporas_03.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 2,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_esporas.png",
+      "tamano": [
+        64,
+        16
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_estampida_00.png",
+      "tamano": [
+        96,
+        48
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_estampida_01.png",
+      "tamano": [
+        96,
+        48
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_estampida.png",
+      "tamano": [
+        192,
+        48
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_meteoro_00.png",
+      "tamano": [
+        24,
+        24
+      ],
+      "colores_opacos": 8,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_meteoro_01.png",
+      "tamano": [
+        24,
+        24
+      ],
+      "colores_opacos": 8,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_meteoro_02.png",
+      "tamano": [
+        24,
+        24
+      ],
+      "colores_opacos": 8,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_meteoro.png",
+      "tamano": [
+        72,
+        24
+      ],
+      "colores_opacos": 8,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_meteoro_impacto_00.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_meteoro_impacto_01.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_meteoro_impacto_02.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_meteoro_impacto_03.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 8,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_meteoro_impacto_04.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 10,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_meteoro_impacto.png",
+      "tamano": [
+        480,
+        96
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_escarcha_00.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 3,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_escarcha_01.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_escarcha_02.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_escarcha.png",
+      "tamano": [
+        96,
+        32
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_00.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_01.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_02.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_03.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_04.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_revivir.png",
+      "tamano": [
+        240,
+        48
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_subir_nivel_00.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_subir_nivel_01.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_subir_nivel_02.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_subir_nivel_03.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_subir_nivel_04.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_subir_nivel_05.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fx/fx_subir_nivel.png",
+      "tamano": [
+        288,
+        48
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_evolucion_00.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_evolucion_01.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_evolucion_02.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_evolucion_03.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_evolucion_04.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_evolucion_05.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_evolucion_06.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_evolucion_07.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fx/fx_evolucion.png",
+      "tamano": [
+        768,
+        96
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_critico_00.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_critico_01.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_critico_02.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_critico_03.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fx/fx_critico.png",
+      "tamano": [
+        128,
+        32
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_golpe_justo_00.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_golpe_justo_01.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_golpe_justo_02.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_golpe_justo_03.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fx/fx_golpe_justo.png",
+      "tamano": [
+        192,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_brillante_00.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_brillante_01.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_brillante_02.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_brillante_03.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_brillante_04.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_brillante_05.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 4,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fx/fx_brillante.png",
+      "tamano": [
+        192,
+        32
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_sobre_rara_00.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_sobre_rara_01.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_sobre_rara_02.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_sobre_rara_03.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_sobre_rara_04.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_sobre_rara_05.png",
+      "tamano": [
+        96,
+        96
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fx/fx_sobre_rara.png",
+      "tamano": [
+        576,
+        96
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_insignia_00.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_insignia_01.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_insignia_02.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_insignia_03.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 10,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_insignia_04.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fx/fx_insignia.png",
+      "tamano": [
+        240,
+        48
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_confeti_00.png",
+      "tamano": [
+        8,
+        8
+      ],
+      "colores_opacos": 1,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_confeti_01.png",
+      "tamano": [
+        8,
+        8
+      ],
+      "colores_opacos": 0,
+      "alpha": [
+        0
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_confeti_02.png",
+      "tamano": [
+        8,
+        8
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/fx_confeti_03.png",
+      "tamano": [
+        8,
+        8
+      ],
+      "colores_opacos": 1,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fx/fx_confeti.png",
+      "tamano": [
+        32,
+        8
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_anomalo_00.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 4,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_anomalo_01.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_anomalo_02.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_anomalo_03.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_anomalo_04.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_revivir_anomalo.png",
+      "tamano": [
+        240,
+        48
+      ],
+      "colores_opacos": 15,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_meganeura_00.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_meganeura_01.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_meganeura_02.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_meganeura_03.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_meganeura_04.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_revivir_meganeura.png",
+      "tamano": [
+        240,
+        48
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_estego_00.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_estego_01.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_estego_02.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_estego_03.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_estego_04.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_revivir_estego.png",
+      "tamano": [
+        240,
+        48
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_ptero_00.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_ptero_01.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_ptero_02.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_ptero_03.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_ptero_04.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_revivir_ptero.png",
+      "tamano": [
+        240,
+        48
+      ],
+      "colores_opacos": 14,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_mamut_00.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_mamut_01.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_mamut_02.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_mamut_03.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/crono_revivir_mamut_04.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 12,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "crono/animaciones/crono_revivir_mamut.png",
+      "tamano": [
+        240,
+        48
+      ],
+      "colores_opacos": 13,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/huevo_00.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/huevo_eclosion_00.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 9,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/huevo_eclosion_01.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 11,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/huevo_eclosion_02.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 10,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/huevo_eclosion_03.png",
+      "tamano": [
+        32,
+        32
+      ],
+      "colores_opacos": 8,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_destello_00.png",
+      "tamano": [
+        8,
+        8
+      ],
+      "colores_opacos": 1,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_destello_01.png",
+      "tamano": [
+        8,
+        8
+      ],
+      "colores_opacos": 1,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_destello_02.png",
+      "tamano": [
+        8,
+        8
+      ],
+      "colores_opacos": 2,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_destello_03.png",
+      "tamano": [
+        8,
+        8
+      ],
+      "colores_opacos": 1,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_explosion_00.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 4,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_explosion_01.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 6,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_explosion_02.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_explosion_03.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_explosion_04.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_explosion_05.png",
+      "tamano": [
+        48,
+        48
+      ],
+      "colores_opacos": 2,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_gas_00.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_gas_01.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_gas_02.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_gas_03.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 5,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_pico_00.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_pico_01.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_pico_02.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 7,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_polvo_00.png",
+      "tamano": [
+        16,
+        8
+      ],
+      "colores_opacos": 2,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_polvo_01.png",
+      "tamano": [
+        16,
+        8
+      ],
+      "colores_opacos": 4,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_polvo_02.png",
+      "tamano": [
+        16,
+        8
+      ],
+      "colores_opacos": 1,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_vapor_00.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 3,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_vapor_01.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 4,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_vapor_02.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 2,
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "archivo": "fotogramas/mina_vapor_03.png",
+      "tamano": [
+        16,
+        16
+      ],
+      "colores_opacos": 1,
+      "alpha": [
+        0,
+        255
+      ]
+    }
+  ]
+}

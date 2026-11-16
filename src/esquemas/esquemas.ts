@@ -223,7 +223,7 @@ export const EconomiaZ = z.object({
   /** Medallas: objetivos largos con 3 niveles (bronce, plata, oro). */
   medallas: z.array(
     z.object({
-      id: z.enum(['victorias', 'especies', 'sobres', 'torre', 'brillantes', 'expediciones', 'fusiones', 'impecables', 'jefes']),
+      id: z.enum(['victorias', 'especies', 'sobres', 'torre', 'brillantes', 'expediciones', 'fusiones', 'impecables', 'jefes', 'mina', 'crono']),
       metas: z.tuple([z.number().int().min(1), z.number().int().min(1), z.number().int().min(1)]),
     }),
   ),
@@ -428,7 +428,12 @@ export const EstadoJuegoZ = z.object({
   /** Jefes (semanales y Guardianes) a los que ya les ganaste: cada uno es una insignia. */
   jefes: z.array(z.string()),
   /** Mina Pixel: hasta qué zona llega el ascensor y los huevos incubando (especie de la cría y cuándo eclosiona). */
-  mina: z.object({ zonaMax: z.number().int().min(1), huevos: z.array(z.object({ especie: z.string(), eclosiona: z.number() })) }),
+  mina: z.object({
+    zonaMax: z.number().int().min(1),
+    huevos: z.array(z.object({ especie: z.string(), eclosiona: z.number() })),
+    /** Guaridas vencidas alguna vez (zonas), para la medalla Minero. */
+    guaridas: z.array(z.number().int()).optional(),
+  }),
   /** Premios de valiente de hoy (opcional: las partidas viejas no lo tienen). */
   consuelo: z.object({ dia: z.number().int(), veces: z.number().int().min(0) }).optional(),
   /** Regalos de eventos ya cobrados («navidad-2026»). */

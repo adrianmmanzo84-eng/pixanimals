@@ -1,0 +1,1332 @@
+[
+  {
+    "familia": 34,
+    "ataque": "Zarpa de Helecho",
+    "clase": "Ofensivo",
+    "usuario": "Etapa 1",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Defensa rival.",
+    "archivo": "ataques/piezas/34_zarpa_de_helecho.png",
+    "lamina": "ataques/laminas/34_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 34,
+    "ataque": "Follaje Jurásico",
+    "clase": "Defensivo",
+    "usuario": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %; 30 % de envenenar a quien golpee de cerca.",
+    "archivo": "ataques/piezas/34_follaje_jurasico.png",
+    "lamina": "ataques/laminas/34_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 34,
+    "ataque": "Savia Antigua",
+    "clase": "Apoyo",
+    "usuario": "Etapas 1 y 2",
+    "mecanica": "Cura 25 % de la vida.",
+    "archivo": "ataques/piezas/34_savia_antigua.png",
+    "lamina": "ataques/laminas/34_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 34,
+    "ataque": "Siega Prehistórica",
+    "clase": "Final",
+    "usuario": "Etapas 1 a 3",
+    "mecanica": "Físico, potencia 85.",
+    "archivo": "ataques/piezas/34_siega_prehistorica.png",
+    "lamina": "ataques/laminas/34_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 34,
+    "ataque": "Garras Guadaña",
+    "clase": "Ofensivo",
+    "usuario": "Etapas 2 a 4",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Defensa rival.",
+    "archivo": "ataques/piezas/34_garras_guadana.png",
+    "lamina": "ataques/laminas/34_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 34,
+    "ataque": "Brote Eterno",
+    "clase": "Apoyo",
+    "usuario": "Etapas 3 y 4",
+    "mecanica": "Cura 25 % de la vida; sube Ataque.",
+    "archivo": "ataques/piezas/34_brote_eterno.png",
+    "lamina": "ataques/laminas/34_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 34,
+    "ataque": "Siega Milenaria",
+    "clase": "Final",
+    "usuario": "Etapa 4",
+    "mecanica": "Físico, potencia 110.",
+    "archivo": "ataques/piezas/34_siega_milenaria.png",
+    "lamina": "ataques/laminas/34_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 34,
+    "ataque": "Raíz del Mundo",
+    "clase": "Definitivo",
+    "pieza": "impacto",
+    "archivo": "ataques/piezas/34_raiz_del_mundo_impacto.png",
+    "lamina": "ataques/laminas/34_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ]
+  },
+  {
+    "familia": 34,
+    "ataque": "Raíz del Mundo",
+    "clase": "Definitivo",
+    "pieza": "pantalla",
+    "archivo": "ataques/piezas/34_raiz_del_mundo_pantalla.png",
+    "lamina": "ataques/laminas/34_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ]
+  },
+  {
+    "familia": 35,
+    "ataque": "Onda Abisal",
+    "clase": "Ofensivo",
+    "usuario": "Etapa 1",
+    "mecanica": "Especial, potencia 40; 15 % de bajar Velocidad rival.",
+    "archivo": "ataques/piezas/35_onda_abisal.png",
+    "lamina": "ataques/laminas/35_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 35,
+    "ataque": "Burbuja Fósil",
+    "clase": "Defensivo",
+    "usuario": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %; 30 % de dormir a quien golpee de cerca.",
+    "archivo": "ataques/piezas/35_burbuja_fosil.png",
+    "lamina": "ataques/laminas/35_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 35,
+    "ataque": "Canto Profundo",
+    "clase": "Apoyo",
+    "usuario": "Etapas 1 y 2",
+    "mecanica": "Sube Ataque Especial.",
+    "archivo": "ataques/piezas/35_canto_profundo.png",
+    "lamina": "ataques/laminas/35_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 35,
+    "ataque": "Maremoto Jurásico",
+    "clase": "Final",
+    "usuario": "Etapas 1 a 3",
+    "mecanica": "Especial, potencia 85.",
+    "archivo": "ataques/piezas/35_maremoto_jurasico.png",
+    "lamina": "ataques/laminas/35_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 35,
+    "ataque": "Oleaje Antiguo",
+    "clase": "Ofensivo",
+    "usuario": "Etapas 2 a 4",
+    "mecanica": "Especial, potencia 55; 20 % de bajar Velocidad rival.",
+    "archivo": "ataques/piezas/35_oleaje_antiguo.png",
+    "lamina": "ataques/laminas/35_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 35,
+    "ataque": "Canto de Nereida",
+    "clase": "Apoyo",
+    "usuario": "Etapas 3 y 4",
+    "mecanica": "Sube Ataque Especial; sube Defensa Especial.",
+    "archivo": "ataques/piezas/35_canto_de_nereida.png",
+    "lamina": "ataques/laminas/35_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 35,
+    "ataque": "Diluvio Eterno",
+    "clase": "Final",
+    "usuario": "Etapa 4",
+    "mecanica": "Especial, potencia 110.",
+    "archivo": "ataques/piezas/35_diluvio_eterno.png",
+    "lamina": "ataques/laminas/35_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 35,
+    "ataque": "Mar Primordial",
+    "clase": "Definitivo",
+    "pieza": "impacto",
+    "archivo": "ataques/piezas/35_mar_primordial_impacto.png",
+    "lamina": "ataques/laminas/35_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ]
+  },
+  {
+    "familia": 35,
+    "ataque": "Mar Primordial",
+    "clase": "Definitivo",
+    "pieza": "pantalla",
+    "archivo": "ataques/piezas/35_mar_primordial_pantalla.png",
+    "lamina": "ataques/laminas/35_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ]
+  },
+  {
+    "familia": 36,
+    "ataque": "Cuerno Voltio",
+    "clase": "Ofensivo",
+    "usuario": "Etapa 1",
+    "mecanica": "Físico, potencia 40; 10 % de paralizar.",
+    "archivo": "ataques/piezas/36_cuerno_voltio.png",
+    "lamina": "ataques/laminas/36_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 36,
+    "ataque": "Gola Escudo",
+    "clase": "Defensivo",
+    "usuario": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %; 30 % de paralizar a quien golpee de cerca.",
+    "archivo": "ataques/piezas/36_gola_escudo.png",
+    "lamina": "ataques/laminas/36_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 36,
+    "ataque": "Carga Cristal",
+    "clase": "Apoyo",
+    "usuario": "Etapas 1 y 2",
+    "mecanica": "Sube Defensa.",
+    "archivo": "ataques/piezas/36_carga_cristal.png",
+    "lamina": "ataques/laminas/36_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 36,
+    "ataque": "Estampida Voltaica",
+    "clase": "Final",
+    "usuario": "Etapas 1 a 3",
+    "mecanica": "Físico, potencia 85.",
+    "archivo": "ataques/piezas/36_estampida_voltaica.png",
+    "lamina": "ataques/laminas/36_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 36,
+    "ataque": "Tricuerno Eléctrico",
+    "clase": "Ofensivo",
+    "usuario": "Etapas 2 a 4",
+    "mecanica": "Físico, potencia 55; 20 % de paralizar.",
+    "archivo": "ataques/piezas/36_tricuerno_electrico.png",
+    "lamina": "ataques/laminas/36_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 36,
+    "ataque": "Gola Tormenta",
+    "clase": "Apoyo",
+    "usuario": "Etapas 3 y 4",
+    "mecanica": "Sube Defensa; sube Ataque.",
+    "archivo": "ataques/piezas/36_gola_tormenta.png",
+    "lamina": "ataques/laminas/36_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 36,
+    "ataque": "Embestida Eterna",
+    "clase": "Final",
+    "usuario": "Etapa 4",
+    "mecanica": "Físico, potencia 110.",
+    "archivo": "ataques/piezas/36_embestida_eterna.png",
+    "lamina": "ataques/laminas/36_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 36,
+    "ataque": "Trueno Cretácico",
+    "clase": "Definitivo",
+    "pieza": "impacto",
+    "archivo": "ataques/piezas/36_trueno_cretacico_impacto.png",
+    "lamina": "ataques/laminas/36_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ]
+  },
+  {
+    "familia": 36,
+    "ataque": "Trueno Cretácico",
+    "clase": "Definitivo",
+    "pieza": "pantalla",
+    "archivo": "ataques/piezas/36_trueno_cretacico_pantalla.png",
+    "lamina": "ataques/laminas/36_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ]
+  },
+  {
+    "familia": 37,
+    "ataque": "Mordida Volcánica",
+    "clase": "Ofensivo",
+    "usuario": "Etapa 1",
+    "mecanica": "Físico, potencia 40; 10 % de quemar.",
+    "archivo": "ataques/piezas/37_mordida_volcanica.png",
+    "lamina": "ataques/laminas/37_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 37,
+    "ataque": "Piel de Basalto",
+    "clase": "Defensivo",
+    "usuario": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %; 30 % de quemar a quien golpee de cerca.",
+    "archivo": "ataques/piezas/37_piel_de_basalto.png",
+    "lamina": "ataques/laminas/37_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 37,
+    "ataque": "Rugido Tirano",
+    "clase": "Apoyo",
+    "usuario": "Etapas 1 y 2",
+    "mecanica": "Baja Ataque rival.",
+    "archivo": "ataques/piezas/37_rugido_tirano.png",
+    "lamina": "ataques/laminas/37_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 37,
+    "ataque": "Erupción Rex",
+    "clase": "Final",
+    "usuario": "Etapas 1 a 3",
+    "mecanica": "Físico, potencia 85.",
+    "archivo": "ataques/piezas/37_erupcion_rex.png",
+    "lamina": "ataques/laminas/37_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 37,
+    "ataque": "Mandíbula de Magma",
+    "clase": "Ofensivo",
+    "usuario": "Etapas 2 a 4",
+    "mecanica": "Físico, potencia 55; 20 % de quemar.",
+    "archivo": "ataques/piezas/37_mandibula_de_magma.png",
+    "lamina": "ataques/laminas/37_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 37,
+    "ataque": "Rugido Cretácico",
+    "clase": "Apoyo",
+    "usuario": "Etapas 3 y 4",
+    "mecanica": "Baja Ataque rival; sube Ataque.",
+    "archivo": "ataques/piezas/37_rugido_cretacico.png",
+    "lamina": "ataques/laminas/37_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 37,
+    "ataque": "Cataclismo Ígneo",
+    "clase": "Final",
+    "usuario": "Etapa 4",
+    "mecanica": "Físico, potencia 110.",
+    "archivo": "ataques/piezas/37_cataclismo_igneo.png",
+    "lamina": "ataques/laminas/37_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 37,
+    "ataque": "Meteoro Final",
+    "clase": "Definitivo",
+    "pieza": "impacto",
+    "archivo": "ataques/piezas/37_meteoro_final_impacto.png",
+    "lamina": "ataques/laminas/37_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ]
+  },
+  {
+    "familia": 37,
+    "ataque": "Meteoro Final",
+    "clase": "Definitivo",
+    "pieza": "pantalla",
+    "archivo": "ataques/piezas/37_meteoro_final_pantalla.png",
+    "lamina": "ataques/laminas/37_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ]
+  },
+  {
+    "familia": 38,
+    "ataque": "Mirada Pérmica",
+    "clase": "Ofensivo",
+    "usuario": "Etapa 1",
+    "mecanica": "Especial, potencia 40; 10 % de dormir.",
+    "archivo": "ataques/piezas/38_mirada_permica.png",
+    "lamina": "ataques/laminas/38_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 38,
+    "ataque": "Velo Fósil",
+    "clase": "Defensivo",
+    "usuario": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %; 30 % de envenenar a quien golpee de cerca.",
+    "archivo": "ataques/piezas/38_velo_fosil.png",
+    "lamina": "ataques/laminas/38_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 38,
+    "ataque": "Vela Sombría",
+    "clase": "Apoyo",
+    "usuario": "Etapas 1 y 2",
+    "mecanica": "Sube Ataque Especial.",
+    "archivo": "ataques/piezas/38_vela_sombria.png",
+    "lamina": "ataques/laminas/38_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 38,
+    "ataque": "Pulso Pérmico",
+    "clase": "Final",
+    "usuario": "Etapas 1 a 3",
+    "mecanica": "Especial, potencia 85.",
+    "archivo": "ataques/piezas/38_pulso_permico.png",
+    "lamina": "ataques/laminas/38_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 38,
+    "ataque": "Ojo del Abismo",
+    "clase": "Ofensivo",
+    "usuario": "Etapas 2 a 4",
+    "mecanica": "Especial, potencia 55; 15 % de dormir.",
+    "archivo": "ataques/piezas/38_ojo_del_abismo.png",
+    "lamina": "ataques/laminas/38_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 38,
+    "ataque": "Vela Estelar",
+    "clase": "Apoyo",
+    "usuario": "Etapas 3 y 4",
+    "mecanica": "Sube Ataque Especial; sube Velocidad.",
+    "archivo": "ataques/piezas/38_vela_estelar.png",
+    "lamina": "ataques/laminas/38_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 38,
+    "ataque": "Noche Primigenia",
+    "clase": "Final",
+    "usuario": "Etapa 4",
+    "mecanica": "Especial, potencia 110.",
+    "archivo": "ataques/piezas/38_noche_primigenia.png",
+    "lamina": "ataques/laminas/38_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 38,
+    "ataque": "Eclipse Fósil",
+    "clase": "Definitivo",
+    "pieza": "impacto",
+    "archivo": "ataques/piezas/38_eclipse_fosil_impacto.png",
+    "lamina": "ataques/laminas/38_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ]
+  },
+  {
+    "familia": 38,
+    "ataque": "Eclipse Fósil",
+    "clase": "Definitivo",
+    "pieza": "pantalla",
+    "archivo": "ataques/piezas/38_eclipse_fosil_pantalla.png",
+    "lamina": "ataques/laminas/38_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ]
+  },
+  {
+    "familia": 39,
+    "ataque": "Garra Primitiva",
+    "clase": "Ofensivo",
+    "usuario": "Etapa 1",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Defensa rival.",
+    "archivo": "ataques/piezas/39_garra_primitiva.png",
+    "lamina": "ataques/laminas/39_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 39,
+    "ataque": "Caparazón Cámbrico",
+    "clase": "Defensivo",
+    "usuario": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %; 30 % de envenenar a quien golpee de cerca.",
+    "archivo": "ataques/piezas/39_caparazon_cambrico.png",
+    "lamina": "ataques/laminas/39_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 39,
+    "ataque": "Ojos Compuestos",
+    "clase": "Apoyo",
+    "usuario": "Etapas 1 y 2",
+    "mecanica": "Sube Ataque.",
+    "archivo": "ataques/piezas/39_ojos_compuestos.png",
+    "lamina": "ataques/laminas/39_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 39,
+    "ataque": "Remolino Cámbrico",
+    "clase": "Final",
+    "usuario": "Etapas 1 a 3",
+    "mecanica": "Físico, potencia 85.",
+    "archivo": "ataques/piezas/39_remolino_cambrico.png",
+    "lamina": "ataques/laminas/39_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 39,
+    "ataque": "Tenaza Abisal",
+    "clase": "Ofensivo",
+    "usuario": "Etapas 2 a 4",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Defensa rival.",
+    "archivo": "ataques/piezas/39_tenaza_abisal.png",
+    "lamina": "ataques/laminas/39_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 39,
+    "ataque": "Marea Cámbrica",
+    "clase": "Apoyo",
+    "usuario": "Etapas 3 y 4",
+    "mecanica": "Sube Ataque y Velocidad.",
+    "archivo": "ataques/piezas/39_marea_cambrica.png",
+    "lamina": "ataques/laminas/39_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 39,
+    "ataque": "Abismo Primigenio",
+    "clase": "Final",
+    "usuario": "Etapa 4",
+    "mecanica": "Físico, potencia 110.",
+    "archivo": "ataques/piezas/39_abismo_primigenio.png",
+    "lamina": "ataques/laminas/39_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 39,
+    "ataque": "Primer Océano",
+    "clase": "Definitivo",
+    "pieza": "impacto",
+    "archivo": "ataques/piezas/39_primer_oceano_impacto.png",
+    "lamina": "ataques/laminas/39_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ]
+  },
+  {
+    "familia": 39,
+    "ataque": "Primer Océano",
+    "clase": "Definitivo",
+    "pieza": "pantalla",
+    "archivo": "ataques/piezas/39_primer_oceano_pantalla.png",
+    "lamina": "ataques/laminas/39_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ]
+  },
+  {
+    "familia": 40,
+    "ataque": "Zumbido Voltaico",
+    "clase": "Ofensivo",
+    "usuario": "Etapa 1",
+    "mecanica": "Especial, potencia 40; 10 % de paralizar.",
+    "archivo": "ataques/piezas/40_zumbido_voltaico.png",
+    "lamina": "ataques/laminas/40_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 40,
+    "ataque": "Alas de Vitral",
+    "clase": "Defensivo",
+    "usuario": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %; 30 % de paralizar a quien golpee de cerca.",
+    "archivo": "ataques/piezas/40_alas_de_vitral.png",
+    "lamina": "ataques/laminas/40_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 40,
+    "ataque": "Vuelo Estático",
+    "clase": "Apoyo",
+    "usuario": "Etapas 1 y 2",
+    "mecanica": "Sube Velocidad.",
+    "archivo": "ataques/piezas/40_vuelo_estatico.png",
+    "lamina": "ataques/laminas/40_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 40,
+    "ataque": "Enjambre Eléctrico",
+    "clase": "Final",
+    "usuario": "Etapas 1 a 3",
+    "mecanica": "Especial, potencia 85.",
+    "archivo": "ataques/piezas/40_enjambre_electrico.png",
+    "lamina": "ataques/laminas/40_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 40,
+    "ataque": "Picada Relámpago",
+    "clase": "Ofensivo",
+    "usuario": "Etapas 2 a 4",
+    "mecanica": "Especial, potencia 55; 20 % de paralizar.",
+    "archivo": "ataques/piezas/40_picada_relampago.png",
+    "lamina": "ataques/laminas/40_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 40,
+    "ataque": "Mil Facetas",
+    "clase": "Apoyo",
+    "usuario": "Etapas 3 y 4",
+    "mecanica": "Sube Ataque Especial y Velocidad.",
+    "archivo": "ataques/piezas/40_mil_facetas.png",
+    "lamina": "ataques/laminas/40_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 40,
+    "ataque": "Tormenta Pantanosa",
+    "clase": "Final",
+    "usuario": "Etapa 4",
+    "mecanica": "Especial, potencia 110.",
+    "archivo": "ataques/piezas/40_tormenta_pantanosa.png",
+    "lamina": "ataques/laminas/40_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 40,
+    "ataque": "Rayo Primordial",
+    "clase": "Definitivo",
+    "pieza": "impacto",
+    "archivo": "ataques/piezas/40_rayo_primordial_impacto.png",
+    "lamina": "ataques/laminas/40_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ]
+  },
+  {
+    "familia": 40,
+    "ataque": "Rayo Primordial",
+    "clase": "Definitivo",
+    "pieza": "pantalla",
+    "archivo": "ataques/piezas/40_rayo_primordial_pantalla.png",
+    "lamina": "ataques/laminas/40_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ]
+  },
+  {
+    "familia": 41,
+    "ataque": "Coletazo de Púas",
+    "clase": "Ofensivo",
+    "usuario": "Etapa 1",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Defensa rival.",
+    "archivo": "ataques/piezas/41_coletazo_de_puas.png",
+    "lamina": "ataques/laminas/41_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 41,
+    "ataque": "Placas de Hoja",
+    "clase": "Defensivo",
+    "usuario": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %; 30 % de envenenar a quien golpee de cerca.",
+    "archivo": "ataques/piezas/41_placas_de_hoja.png",
+    "lamina": "ataques/laminas/41_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 41,
+    "ataque": "Sol del Jurásico",
+    "clase": "Apoyo",
+    "usuario": "Etapas 1 y 2",
+    "mecanica": "Cura 25 % de la vida.",
+    "archivo": "ataques/piezas/41_sol_del_jurasico.png",
+    "lamina": "ataques/laminas/41_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 41,
+    "ataque": "Estampida de Hojas",
+    "clase": "Final",
+    "usuario": "Etapas 1 a 3",
+    "mecanica": "Físico, potencia 85.",
+    "archivo": "ataques/piezas/41_estampida_de_hojas.png",
+    "lamina": "ataques/laminas/41_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 41,
+    "ataque": "Púas Milenarias",
+    "clase": "Ofensivo",
+    "usuario": "Etapas 2 a 4",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Defensa rival.",
+    "archivo": "ataques/piezas/41_puas_milenarias.png",
+    "lamina": "ataques/laminas/41_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 41,
+    "ataque": "Bosque Jurásico",
+    "clase": "Apoyo",
+    "usuario": "Etapas 3 y 4",
+    "mecanica": "Cura 25 % y sube Defensa.",
+    "archivo": "ataques/piezas/41_bosque_jurasico.png",
+    "lamina": "ataques/laminas/41_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 41,
+    "ataque": "Gran Estampida",
+    "clase": "Final",
+    "usuario": "Etapa 4",
+    "mecanica": "Físico, potencia 110.",
+    "archivo": "ataques/piezas/41_gran_estampida.png",
+    "lamina": "ataques/laminas/41_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 41,
+    "ataque": "Corazón Jurásico",
+    "clase": "Definitivo",
+    "pieza": "impacto",
+    "archivo": "ataques/piezas/41_corazon_jurasico_impacto.png",
+    "lamina": "ataques/laminas/41_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ]
+  },
+  {
+    "familia": 41,
+    "ataque": "Corazón Jurásico",
+    "clase": "Definitivo",
+    "pieza": "pantalla",
+    "archivo": "ataques/piezas/41_corazon_jurasico_pantalla.png",
+    "lamina": "ataques/laminas/41_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ]
+  },
+  {
+    "familia": 42,
+    "ataque": "Picotazo Cretácico",
+    "clase": "Ofensivo",
+    "usuario": "Etapa 1",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Defensa rival.",
+    "archivo": "ataques/piezas/42_picotazo_cretacico.png",
+    "lamina": "ataques/laminas/42_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 42,
+    "ataque": "Alas Planeadoras",
+    "clase": "Defensivo",
+    "usuario": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %; 30 % de paralizar a quien golpee de cerca.",
+    "archivo": "ataques/piezas/42_alas_planeadoras.png",
+    "lamina": "ataques/laminas/42_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 42,
+    "ataque": "Corriente Térmica",
+    "clase": "Apoyo",
+    "usuario": "Etapas 1 y 2",
+    "mecanica": "Sube Velocidad.",
+    "archivo": "ataques/piezas/42_corriente_termica.png",
+    "lamina": "ataques/laminas/42_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 42,
+    "ataque": "Picado Meteoro",
+    "clase": "Final",
+    "usuario": "Etapas 1 a 3",
+    "mecanica": "Físico, potencia 85.",
+    "archivo": "ataques/piezas/42_picado_meteoro.png",
+    "lamina": "ataques/laminas/42_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 42,
+    "ataque": "Cresta Cortante",
+    "clase": "Ofensivo",
+    "usuario": "Etapas 2 a 4",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Defensa rival.",
+    "archivo": "ataques/piezas/42_cresta_cortante.png",
+    "lamina": "ataques/laminas/42_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 42,
+    "ataque": "Vuelo Rasante",
+    "clase": "Apoyo",
+    "usuario": "Etapas 3 y 4",
+    "mecanica": "Sube Ataque y Velocidad.",
+    "archivo": "ataques/piezas/42_vuelo_rasante.png",
+    "lamina": "ataques/laminas/42_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 42,
+    "ataque": "Lluvia de Meteoros",
+    "clase": "Final",
+    "usuario": "Etapa 4",
+    "mecanica": "Físico, potencia 110.",
+    "archivo": "ataques/piezas/42_lluvia_de_meteoros.png",
+    "lamina": "ataques/laminas/42_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 42,
+    "ataque": "Último Cielo",
+    "clase": "Definitivo",
+    "pieza": "impacto",
+    "archivo": "ataques/piezas/42_ultimo_cielo_impacto.png",
+    "lamina": "ataques/laminas/42_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ]
+  },
+  {
+    "familia": 42,
+    "ataque": "Último Cielo",
+    "clase": "Definitivo",
+    "pieza": "pantalla",
+    "archivo": "ataques/piezas/42_ultimo_cielo_pantalla.png",
+    "lamina": "ataques/laminas/42_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ]
+  },
+  {
+    "familia": 43,
+    "ataque": "Colmillazo",
+    "clase": "Ofensivo",
+    "usuario": "Etapa 1",
+    "mecanica": "Físico, potencia 40; 15 % de bajar Defensa rival.",
+    "archivo": "ataques/piezas/43_colmillazo.png",
+    "lamina": "ataques/laminas/43_ataques.png",
+    "rect": [
+      16,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 43,
+    "ataque": "Pelaje Glacial",
+    "clase": "Defensivo",
+    "usuario": "Toda la línea",
+    "mecanica": "Reduce el daño 60 %; 30 % de paralizar (congelar) a quien golpee de cerca.",
+    "archivo": "ataques/piezas/43_pelaje_glacial.png",
+    "lamina": "ataques/laminas/43_ataques.png",
+    "rect": [
+      112,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 43,
+    "ataque": "Bramido Helado",
+    "clase": "Apoyo",
+    "usuario": "Etapas 1 y 2",
+    "mecanica": "Baja el Ataque del rival.",
+    "archivo": "ataques/piezas/43_bramido_helado.png",
+    "lamina": "ataques/laminas/43_ataques.png",
+    "rect": [
+      208,
+      16,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 43,
+    "ataque": "Alud de Nieve",
+    "clase": "Final",
+    "usuario": "Etapas 1 a 3",
+    "mecanica": "Físico, potencia 85.",
+    "archivo": "ataques/piezas/43_alud_de_nieve.png",
+    "lamina": "ataques/laminas/43_ataques.png",
+    "rect": [
+      288,
+      0,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 43,
+    "ataque": "Colmillos de Hielo",
+    "clase": "Ofensivo",
+    "usuario": "Etapas 2 a 4",
+    "mecanica": "Físico, potencia 55; 20 % de bajar Velocidad rival.",
+    "archivo": "ataques/piezas/43_colmillos_de_hielo.png",
+    "lamina": "ataques/laminas/43_ataques.png",
+    "rect": [
+      16,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 43,
+    "ataque": "Manada Glacial",
+    "clase": "Apoyo",
+    "usuario": "Etapas 3 y 4",
+    "mecanica": "Sube Ataque y Defensa.",
+    "archivo": "ataques/piezas/43_manada_glacial.png",
+    "lamina": "ataques/laminas/43_ataques.png",
+    "rect": [
+      112,
+      112,
+      64,
+      64
+    ]
+  },
+  {
+    "familia": 43,
+    "ataque": "Glaciación",
+    "clase": "Final",
+    "usuario": "Etapa 4",
+    "mecanica": "Físico, potencia 110.",
+    "archivo": "ataques/piezas/43_glaciacion.png",
+    "lamina": "ataques/laminas/43_ataques.png",
+    "rect": [
+      192,
+      96,
+      96,
+      96
+    ]
+  },
+  {
+    "familia": 43,
+    "ataque": "Era de Hielo",
+    "clase": "Definitivo",
+    "pieza": "impacto",
+    "archivo": "ataques/piezas/43_era_de_hielo_impacto.png",
+    "lamina": "ataques/laminas/43_definitivos.png",
+    "rect": [
+      56,
+      16,
+      128,
+      128
+    ]
+  },
+  {
+    "familia": 43,
+    "ataque": "Era de Hielo",
+    "clase": "Definitivo",
+    "pieza": "pantalla",
+    "archivo": "ataques/piezas/43_era_de_hielo_pantalla.png",
+    "lamina": "ataques/laminas/43_definitivos.png",
+    "rect": [
+      240,
+      0,
+      240,
+      160
+    ]
+  }
+]

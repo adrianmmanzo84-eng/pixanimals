@@ -1,3 +1,4 @@
+import { animar, confeti, type ClaveAnim } from '../ui/animaciones';
 import { equipoEstacion, ganarEstacion, type ModoRuta } from '../core/modos/rutas';
 import { describirHabilidad } from '../ui/habilidadTexto';
 import Phaser from 'phaser';
@@ -270,7 +271,9 @@ export class Combate extends Phaser.Scene {
       await this.decir(t(p.jefe ? 'c.torreJefe' : 'c.torre', { n: p.piso }));
       if (p.guardian) await this.decir(t('c.guardian', { n: this.nom(1) }));
     }
+    if (this.bat.act(1).brillante) this.efectoSobre(1, 'fx_brillante');
     await this.decir(t('c.aparece', { n: this.nom(1) }));
+    if (this.bat.act(0).brillante) this.efectoSobre(0, 'fx_brillante');
     await this.decir(t('c.adelante', { n: this.nom(0) }));
 
     while (this.vivo && !this.bat.terminado) {
@@ -318,6 +321,7 @@ export class Combate extends Phaser.Scene {
         case 'cambio':
           await this.animCambio(e.lado, e.forzado, enCampo[e.lado]);
           enCampo[e.lado] = this.bat.act(e.lado).nombre;
+          if (this.bat.act(e.lado).brillante) this.efectoSobre(e.lado, 'fx_brillante');
           break;
         case 'usa':
           ultima = { lado: e.lado, h: e.habilidad };
@@ -350,6 +354,7 @@ export class Combate extends Phaser.Scene {
           }
           sonido.tocar(e.efectividad === 'ventaja' || e.critico ? 'golpe_fuerte' : e.efectividad === 'desventaja' || e.reducido ? 'golpe_debil' : 'golpe');
           if (ultima?.h?.rol === 'final') this.temblor(180, 0.01);
+          if (e.critico) this.efectoSobre(e.lado, 'fx_critico');
           await this.animGolpe(e.lado);
           this.soltar();
           await this.animarPs(e.lado, e.ps);
@@ -446,6 +451,17 @@ export class Combate extends Phaser.Scene {
     this.pintarEstado(1);
   }
 
+  /** Ganó una insignia de jefe en este combate (para su efecto en la ventana final). */
+  private ganoInsignia = false;
+
+  /** Reproduce un efecto del autor sobre el cuerpo de la criatura activa de un lado (sigue al escenario). */
+  private efectoSobre(lado: Lado, clave: ClaveAnim): void {
+    const s = this.sprites[lado];
+    if (!s) return;
+    const alto = altoVisible(this.bat.act(lado).especie.id);
+    void animar(this, clave, s.x, s.y - alto / 2, { contenedor: this.mundo, profundidad: 30 });
+  }
+
   /** Combate contra una estación previa del camino (no el jefe). */
   private esPrevia(): boolean {
     const m = this.cfg.modo;
@@ -516,6 +532,13 @@ export class Combate extends Phaser.Scene {
     new Texto(this, 44, 51, 152, lineas.length * 9 + 4, C.tinta, 'centro').poner(lineas.join('\n'));
     new Texto(this, 44, 53 + lineas.length * 9, 152, 10, C.tintaSuave, 'centro').poner(t('fin.continuar'));
     this.msg.poner('');
+    // Efectos del autor: subir de nivel sobre tu criatura e insignia de jefe sobre la ventana.
+    if (r.subidas.length) {
+      sonido.tocar('sube');
+      this.efectoSobre(0, 'fx_subir_nivel');
+    }
+    if (this.ganoInsignia) void animar(this, 'fx_insignia', 120, 30, { profundidad: 60, quedar: 1600 });
+    if (r.victoria) confeti(this, 120, 26, 18);
     await this.esperar(400);
     this.alPulsar = (a) => {
       if (a !== 'a' && a !== 'b') return;
@@ -1066,6 +1089,7 @@ export class Combate extends Phaser.Scene {
   /** La primera victoria contra un jefe lo suma a tus insignias. */
   private insignia(id: string, extra: string[]): void {
     if (!registrarJefe(DATOS, juego.estado, id)) return;
+    this.ganoInsignia = true;
     const p = progresoJefes(DATOS, juego.estado);
     extra.push(t('fin.insignia', { n: DATOS.criaturas.get(id)!.nombre, m: p.vencidos, t: p.total }));
   }
@@ -1443,7 +1467,10 @@ export class Combate extends Phaser.Scene {
         if (pos !== null) pintar(pos);
         this.msg.poner(t(`c.golpe.${r.nota}`), r.nota === 'perfecto' ? '#b8860b' : r.nota === 'bien' ? '#2f7a48' : C.tintaSuave);
         sonido.tocar(r.nota === 'perfecto' ? 'chispa' : r.nota === 'bien' ? 'atrapa' : 'falla');
-        if (r.nota === 'perfecto') this.cameras.main.flash(90, 255, 240, 160);
+        if (r.nota === 'perfecto') {
+          this.cameras.main.flash(90, 255, 240, 160);
+          this.efectoSobre(0, 'fx_golpe_justo');
+        }
         // Pausa corta con reloj real para leer la nota.
         window.setTimeout(() => {
           g.destroy();

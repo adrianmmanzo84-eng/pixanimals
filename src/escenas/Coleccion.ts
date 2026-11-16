@@ -1,3 +1,4 @@
+import { confeti } from '../ui/animaciones';
 import Phaser from 'phaser';
 import { Puntero, saltito } from '../ui/puntero';
 import { DATOS } from '../core/datos';
@@ -147,7 +148,9 @@ export class Coleccion extends Phaser.Scene {
       juego.guardar();
       sonido.tocar('victoria');
       this.cameras.main.flash(180, 255, 240, 180);
-      this.scene.restart({ pestana: this.pestana, sel: this.sel, aviso: t('col.cobrado', { p: textoPremio(premio) }) });
+      confeti(this, 120, 30, 18);
+      Entrada.escuchar(null);
+      this.time.delayedCall(650, () => this.scene.restart({ pestana: this.pestana, sel: this.sel, aviso: t('col.cobrado', { p: textoPremio(premio) }) }));
     }
   }
 

@@ -632,5 +632,6 @@
   "c.estacion.entrenador": "¡Un aprendiz del entrenador te desafía! (estación {n})",
   "c.estacion.semanal": "¡Un guardia del jefe te cierra el paso! (estación {n})",
   "fin.estacion": "Estación {n} superada: +{m} monedas.",
-  "fin.estacionRepetida": "Estación ya superada (sin premio)."
+  "fin.estacionRepetida": "Estación ya superada (sin premio).",
+  "med.mina": "Vence {n} guaridas de la Mina"
 }
