@@ -68,6 +68,9 @@ export class MiniMina extends MinijuegoBase {
     // Dos cámaras: la principal (zoom 2) mira la mina; otra encima (zoom 4) mira la interfaz.
     const camMina = this.cameras.main;
     camMina.setZoom(2);
+    // Posiciones redondeadas a píxeles enteros: la cámara sigue a la criatura con suavizado y, a medio píxel, la GPU
+    // tomaba la última fila del cuadro y dibujaba una línea titilante sobre la cabeza.
+    camMina.roundPixels = true;
     camMina.ignore(this.children.list.filter((o) => o !== this.mundo));
     const camUI = this.cameras.add(0, 0, this.scale.width, this.scale.height);
     camUI.setZoom(4).centerOn(120, 80);
@@ -139,7 +142,8 @@ export class MiniMina extends MinijuegoBase {
     const cam = this.cameras.main;
     const objetivo = this.yo.y + TAM * 1.6;
     const actual = cam.midPoint.y;
-    cam.centerOn(X0 + (this.mina.columnas * TAM) / 2, inmediato ? objetivo : actual + (objetivo - actual) * 0.18);
+    // Siempre en píxeles enteros del mundo (con zoom 2, son 2 de pantalla): sin medios píxeles que dejen líneas sueltas.
+    cam.centerOn(X0 + (this.mina.columnas * TAM) / 2, Math.round(inmediato ? objetivo : actual + (objetivo - actual) * 0.18));
   }
 
   private pos(x: number, y: number): { x: number; y: number } {
