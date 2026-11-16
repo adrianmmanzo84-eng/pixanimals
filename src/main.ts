@@ -53,11 +53,13 @@ function ajustarEscala(canvas: HTMLCanvasElement): void {
     // Celular o tableta (D241): el juego ocupa toda la altura; los controles flotan semitransparentes encima.
     if (app) app.style.paddingTop = '0px';
     // Se deja lugar a los costados para la cruz y A/B (3 botones de ancho), achicando el juego como mucho un 10 %.
+    // Se cuenta también la franja que el teléfono reserva para la cámara frontal (márgenes seguros).
     const alto = window.innerHeight;
     const boton = Math.min(alto * 0.12, 48);
-    const margen = boton * 3 + 14;
+    const seguro = margenesSeguros();
+    const margen = boton * 3 + alto * 0.012 + 10 + Math.max(seguro.izq, seguro.der);
     const lleno = Math.min(window.innerWidth, alto * 1.5);
-    ancho = Math.min(lleno, Math.max(window.innerWidth - 2 * margen, lleno * 0.9));
+    ancho = Math.min(lleno, Math.max(window.innerWidth - 2 * margen, lleno * 0.8));
   } else {
     // La barra de ajustes puede ocupar una o dos filas (según el ancho y el botón Instalar): el juego empieza debajo.
     const barra = document.getElementById('barra');
@@ -69,6 +71,18 @@ function ajustarEscala(canvas: HTMLCanvasElement): void {
   }
   canvas.style.width = `${Math.floor(ancho)}px`;
   canvas.style.height = `${Math.floor(ancho / 1.5)}px`;
+}
+
+/** Márgenes seguros del teléfono (cámara frontal, bordes curvos), en px. */
+let sonda: HTMLDivElement | null = null;
+function margenesSeguros(): { izq: number; der: number } {
+  if (!sonda) {
+    sonda = document.createElement('div');
+    sonda.style.cssText = 'position:fixed;visibility:hidden;pointer-events:none;padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)';
+    document.body.append(sonda);
+  }
+  const cs = getComputedStyle(sonda);
+  return { izq: parseFloat(cs.paddingLeft) || 0, der: parseFloat(cs.paddingRight) || 0 };
 }
 
 /** Celular: ajustes detrás del botón ⚙, pantalla completa horizontal y botón Atrás de Android como B (D241). */

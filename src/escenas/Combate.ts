@@ -67,7 +67,8 @@ interface Panel {
 /** Centro del lienzo de 64×64 de cada criatura; sus pies caen sobre las plataformas dibujadas en los fondos. */
 const POS = [
   { x: 51, y: 77 },
-  { x: 186, y: 53 },
+  // El rival apoya 6 px más arriba (D242): sus pies quedaban detrás de tu panel (que empieza en y 82).
+  { x: 186, y: 47 },
 ] as const;
 /** Lienzo de los sprites (96×96). Se apoyan en la plataforma: la base queda 32 px bajo POS.y y crecen hacia arriba. */
 const LIENZO = 96;

@@ -74,8 +74,9 @@ export function montarDiag(juego: Phaser.Game): void {
 
   caja = document.createElement('div');
   caja.id = 'diag';
+  const tactil = document.body.classList.contains('tactil');
   caja.style.cssText =
-    'position:fixed;left:8px;top:8px;z-index:9;max-width:min(420px,calc(100vw - 16px));max-height:45vh;overflow:auto;' +
+    (tactil ? 'position:fixed;right:8px;top:8px;' : 'position:fixed;left:8px;top:8px;') + 'z-index:9;max-width:min(420px,calc(100vw - 16px));max-height:45vh;overflow:auto;' +
     'background:rgba(16,20,44,.92);color:#e8ecf4;border:2px solid #41a6f6;border-radius:8px;padding:8px 10px;' +
     'font:12px/1.35 ui-monospace,monospace;user-select:text;-webkit-user-select:text;touch-action:auto';
   const cuerpo = document.createElement('div');
