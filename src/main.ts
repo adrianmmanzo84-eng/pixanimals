@@ -3,6 +3,7 @@ import { DATOS } from './core/datos';
 import { guardarIdioma, idioma, t } from './i18n/i18n';
 import { traducirDatos } from './i18n/datos';
 import { juego as partida } from './juego';
+import { cartelPrueba, estadoPrueba, pedidoPrueba } from './prueba';
 import { iniciarPWA } from './pwa';
 import '@fontsource/fredoka/latin-500.css';
 import '@fontsource/fredoka/latin-600.css';
@@ -118,6 +119,14 @@ async function iniciar(): Promise<void> {
     cambiarAjustes({ efectos: (ajustes.efectos + 1) % 4 });
     sonido.tocar('cursor');
   });
+
+  // Modo prueba (?prueba): partida aparte en memoria, con formas finales y el Definitivo desde el turno 1.
+  const pedidas = pedidoPrueba();
+  if (pedidas) {
+    partida.prueba = true;
+    partida.estado = estadoPrueba(pedidas);
+    cartelPrueba();
+  }
 
   // Antes de abrir cualquier pantalla: si el guardado se perdió o se dañó, se recupera de la copia.
   await partida.recuperar();

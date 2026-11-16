@@ -13,7 +13,10 @@ export const juego = {
   estado: deserializar(almacen.leer()) ?? estadoNuevo(DATOS, Date.now()),
   /** La partida se recuperó de la copia de seguridad al abrir (el menú lo avisa una vez). */
   recuperada: false,
+  /** Modo prueba (?prueba): la partida vive solo en memoria y nunca se guarda. */
+  prueba: false,
   guardar(): void {
+    if (this.prueba) return;
     const texto = serializar(this.estado);
     almacen.escribir(texto);
     // Copia en el segundo almacén, agrupando los guardados seguidos.
@@ -32,6 +35,7 @@ export const juego = {
   },
   /** Al abrir: si el guardado principal falta o está dañado, recupera la copia válida más reciente. */
   async recuperar(): Promise<void> {
+    if (this.prueba) return;
     const r = elegirRecuperacion(almacen.leer(), await leerRespaldos());
     if (!r) return;
     this.estado = r.estado;

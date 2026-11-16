@@ -368,7 +368,9 @@ export class Combate extends Phaser.Scene {
           await this.decir(t(`c.guardia.${e.modo}`, { n: this.nom(e.lado) }));
           break;
         case 'pasiva':
-          await this.decir(t(`c.pasiva.${e.pasiva}`, { n: this.nom(e.lado) }));
+          // Las pasivas con nombre propio (alias) usan el mensaje de su mecánica.
+          const clave = (DATOS.balance.pasivasAlias as Record<string, { mecanica: string } | undefined>)[e.pasiva]?.mecanica ?? e.pasiva;
+          await this.decir(t(`c.pasiva.${clave}`, { n: this.nom(e.lado) }));
           break;
         case 'estado_aplicado':
           sonido.tocar('estado');
