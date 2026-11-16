@@ -721,5 +721,6 @@
   "crono.ev.manantial.r1": "Encontraste {m} monedas en el fondo.",
   "arranque.cargando": "Cargando… {n} %",
   "pag.girar": "Gira el teléfono para jugar",
-  "pag.ajustes": "Ajustes"
+  "pag.ajustes": "Ajustes",
+  "g.autoApp": "La partida se guarda sola en este teléfono, con copias de seguridad aparte. Para llevarla a otro dispositivo (o no perderla si borras la app), descarga una copia en archivo o copia el código."
 }

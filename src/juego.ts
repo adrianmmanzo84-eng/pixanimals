@@ -10,8 +10,25 @@ import { borrarNativo, guardarNativo, leerNativo } from './nativo';
 const almacen: Almacen = new AlmacenLocal();
 let pendiente: ReturnType<typeof setTimeout> | null = null;
 
+/**
+ * Si hay un guardado que no se puede leer (dañado, o de una versión más nueva del juego), se aparta antes de
+ * escribir nada encima (D247): así no se pierde y se puede revisar o recuperar a mano.
+ */
+function leerInicial(): EstadoJuego | null {
+  const crudo = almacen.leer();
+  const e = deserializar(crudo);
+  if (crudo && !e) {
+    try {
+      localStorage.setItem('pixanimals.partida.ilegible', crudo);
+    } catch {
+      /* sin almacenamiento */
+    }
+  }
+  return e;
+}
+
 export const juego = {
-  estado: deserializar(almacen.leer()) ?? estadoNuevo(DATOS, Date.now()),
+  estado: leerInicial() ?? estadoNuevo(DATOS, Date.now()),
   /** La partida se recuperó de la copia de seguridad al abrir (el menú lo avisa una vez). */
   recuperada: false,
   /** Modo prueba (?prueba): la partida vive solo en memoria y nunca se guarda. */

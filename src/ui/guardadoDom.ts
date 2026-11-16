@@ -1,3 +1,4 @@
+import { esNativo } from '../nativo';
 import { exportarCodigo, importarCodigo } from '../core/estado/guardado';
 import { juego } from '../juego';
 import { t } from '../i18n/i18n';
@@ -18,7 +19,7 @@ export function abrirGuardado(cerrar: () => void): void {
   if (!preparado) {
     preparado = true;
     el('g-titulo').textContent = t('g.titulo');
-    el('g-texto').textContent = t('g.auto');
+    el('g-texto').textContent = t(esNativo ? 'g.autoApp' : 'g.auto');
     el('g-copiar').textContent = t('g.copiar');
     el('g-cargar').textContent = t('g.cargar');
     el('g-cerrar').textContent = t('g.cerrar');

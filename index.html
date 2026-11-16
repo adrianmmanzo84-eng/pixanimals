@@ -82,6 +82,18 @@
       body.tactil.vertical #girar { display: flex; position: fixed; inset: 0; z-index: 8; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: #1a1c2c; color: #f4f4f4; font: 600 18px system-ui, sans-serif; text-align: center; padding: 24px; }
       #girar .icono { font-size: 64px; animation: girar 2.4s ease-in-out infinite; }
       @keyframes girar { 0%, 30% { transform: rotate(0deg); } 60%, 100% { transform: rotate(-90deg); } }
+      /* Panel de guardado en pantallas bajas (celular horizontal, D247): dos columnas y botones compactos. */
+      @media (max-height: 520px) {
+        #guardado { padding: 8px; }
+        #guardado .caja { max-width: 760px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; padding: 10px 12px; align-content: start; }
+        #guardado h2, #guardado p#g-texto, #guardado textarea, #guardado .estado { grid-column: 1; }
+        #guardado h2 { font-size: 16px; }
+        #guardado p { font-size: 12px; }
+        #guardado textarea { height: 64px; min-height: 64px; flex-shrink: 0; }
+        #guardado button { grid-column: 2; min-height: 32px; font-size: 13px; padding: 4px 8px; }
+        #guardado h2 { grid-row: 1; } #guardado p#g-texto { grid-row: 2 / span 3; } #guardado textarea { grid-row: 5 / span 2; } #guardado .estado { grid-row: 7; }
+        #guardado #g-descargar { grid-row: 1; } #guardado #g-archivo { grid-row: 2; } #guardado #g-copiar { grid-row: 3; } #guardado #g-cargar { grid-row: 4; } #guardado #g-borrar { grid-row: 5; } #guardado #g-cerrar { grid-row: 6; }
+      }
     </style>
   </head>
   <body>
