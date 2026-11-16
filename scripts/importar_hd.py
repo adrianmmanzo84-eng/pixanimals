@@ -64,10 +64,69 @@ def convertir(frente, espalda, tamano, nombre):
     guardar(reducir_suave(f, MINI / LIENZO), f'{nombre}_mini.webp')
 
 
+def laminas_fuente():
+    """Familias de la Mina y del Cronoportal: láminas fuente del autor (3 filas × 4 columnas, fondo liso)."""
+    import glob
+    import recorte_fuente as rf
+    res = []
+    for ruta in sorted(glob.glob(os.path.join(ORIG, 'mina', '*.png'))):
+        res.append((os.path.basename(ruta)[:-4], ruta))
+    for ruta in sorted(glob.glob(os.path.join(ORIG, 'crono-mina-v1', 'fuentes', 'familia_*.png'))):
+        res.append((os.path.basename(ruta)[:-4].split('_', 2)[2], ruta))
+    return rf, res
+
+
+def ajustar_a_caja(recorte, sprite96):
+    """Coloca el dibujo grande dentro de la misma caja que ocupa el sprite de 96 (×K), apoyado abajo y centrado."""
+    x0, y0, x1, y1 = sprite96.getbbox()
+    bw, bh = (x1 - x0) * K, (y1 - y0) * K
+    f = min(bw / recorte.width, bh / recorte.height)
+    img = reducir_suave(recorte, f)
+    out = Image.new('RGBA', (LIENZO, LIENZO), (0, 0, 0, 0))
+    out.alpha_composite(img, (round((x0 + x1) / 2 * K - img.width / 2), y1 * K - img.height))
+    return out
+
+
+def jefes():
+    """Jefes semanales y Guardianes: sus sprites de 96 los dibujó el autor; la HD sale de sus láminas fuente."""
+    carpeta = os.path.join(ORIG, 'jefes', 'fuentes')
+    hechos = []
+    for archivo in sorted(os.listdir(carpeta)) if os.path.isdir(carpeta) else []:
+        m = re.match(r'jefe_(semana|evento)_(\d+)\.png$', archivo)
+        if not m:
+            continue
+        num = int(m.group(2))
+        nombre = f'jefe_{num:02d}' if m.group(1) == 'semana' else f'guardian_{num}'
+        frente, espalda = rama(Image.open(os.path.join(carpeta, archivo)).convert('RGBA'))
+        sprites = os.path.join(RAIZ, 'public', 'sprites')
+        f = ajustar_a_caja(frente, Image.open(os.path.join(sprites, f'{nombre}_frente.png')).convert('RGBA'))
+        e = ajustar_a_caja(espalda, Image.open(os.path.join(sprites, f'{nombre}_espalda.png')).convert('RGBA'))
+        guardar(f, f'{nombre}_frente.webp')
+        guardar(e, f'{nombre}_espalda.webp')
+        guardar(reducir_suave(f, MINI / LIENZO), f'{nombre}_mini.webp')
+        hechos.append(nombre)
+    if hechos:
+        print(f'✓ HD {len(hechos)} jefes')
+    return hechos
+
+
 def main():
     os.makedirs(DESTINO, exist_ok=True)
     pedidas = set(sys.argv[1:])
     lista = set(json.load(open(LISTA))) if os.path.exists(LISTA) else set()
+    if not pedidas or 'jefes' in pedidas:
+        lista.update(jefes())
+    rf, laminas = laminas_fuente()
+    for familia, ruta in laminas:
+        if pedidas and familia not in pedidas:
+            continue
+        fuente = rf.recortar(ruta)
+        for e in range(4):
+            convertir(fuente[(e, 'frente')], fuente[(e, 'espalda')], TAMANOS[e], f'{familia}_{e + 1}')
+            lista.add(f'{familia}_{e + 1}')
+        print(f'✓ HD {familia} (lámina fuente)')
+    if pedidas and not any(f in pedidas for f in [os.path.basename(x)[:-4].split('_')[0] for x in os.listdir(ORIG)]):
+        pass
     for archivo in sorted(os.listdir(ORIG)):
         if not archivo.endswith('.png') or archivo.startswith(NO_CRIATURAS):
             continue
