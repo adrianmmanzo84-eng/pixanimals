@@ -79,7 +79,43 @@ export function centrarVisible<T extends Phaser.GameObjects.Image>(img: T, idEsp
 export function miniatura<T extends Phaser.GameObjects.Image>(img: T, idEspecie: string, caja: number, maxEscala: number): T {
   const sprites = DATOS.criaturas.get(idEspecie)!.sprites;
   const lado = Math.max(altoVisible(idEspecie), anchos.get(sprites) ?? 48);
-  return centrarVisible(img, idEspecie).setScale(escalaNitida(Math.min(maxEscala, caja / lado), 1.12));
+  const escala = Math.min(maxEscala, caja / lado);
+  // Achicado a menos de 2,5 píxeles de pantalla por píxel, el dibujo grande se empasta: se usa el ícono (32×32),
+  // que el autor dibujó para verse chico.
+  const clave = img.texture.key;
+  const icono = clave.replace(/_frente(_[bsn])?$/, '_icono$1');
+  const caj = cajasIcono.get(sprites);
+  if (escala * 4 < 2.5 && icono !== clave && caj && img.scene.textures.exists(icono)) {
+    img.setTexture(icono, 0);
+    const ladoIco = Math.max(caj.ancho, caj.alto);
+    img.setOrigin(caj.cx / 32, caj.cy / 32);
+    return img.setScale(escalaNitida(Math.min(1, caja / ladoIco), 1.12));
+  }
+  return centrarVisible(img, idEspecie).setScale(escalaNitida(escala, 1.12));
+}
+
+/** Caja visible del primer cuadro de cada ícono (para centrarlo). */
+const cajasIcono = new Map<string, { ancho: number; alto: number; cx: number; cy: number }>();
+
+function medirIcono(escena: Phaser.Scene, clave: string): { ancho: number; alto: number; cx: number; cy: number } {
+  const img = escena.textures.get(clave).getSourceImage() as HTMLImageElement;
+  const lienzo = document.createElement('canvas');
+  lienzo.width = 32;
+  lienzo.height = 32;
+  const ctx = lienzo.getContext('2d')!;
+  ctx.drawImage(img, 0, 0);
+  const d = ctx.getImageData(0, 0, 32, 32).data;
+  let x0 = 32, y0 = 32, x1 = -1, y1 = -1;
+  for (let y = 0; y < 32; y++)
+    for (let x = 0; x < 32; x++)
+      if (d[(y * 32 + x) * 4 + 3]! > 0) {
+        x0 = Math.min(x0, x);
+        y0 = Math.min(y0, y);
+        x1 = Math.max(x1, x);
+        y1 = Math.max(y1, y);
+      }
+  if (x1 < 0) return { ancho: 32, alto: 32, cx: 16, cy: 16 };
+  return { ancho: x1 - x0 + 1, alto: y1 - y0 + 1, cx: (x0 + x1 + 1) / 2, cy: (y0 + y1 + 1) / 2 };
 }
 
 /**
@@ -118,12 +154,41 @@ function medir(escena: Phaser.Scene, clave: string): { alto: number; ancho: numb
   return { alto: img.height - arriba, ancho: Math.max(1, der - izq + 1) };
 }
 
+/** Variantes del ícono (brillante, silueta azul y negra) como hojas de 2 cuadros, igual que el original. */
+function derivarIcono(escena: Phaser.Scene, clave: string): void {
+  const hacer = (sufijo: string, f: (d: Uint8ClampedArray, i: number) => void) => {
+    if (escena.textures.exists(clave + sufijo)) return;
+    const img = escena.textures.get(clave).getSourceImage() as HTMLImageElement;
+    const tex = escena.textures.createCanvas(clave + sufijo, img.width, img.height)!;
+    tex.context.drawImage(img, 0, 0);
+    const datos = tex.context.getImageData(0, 0, img.width, img.height);
+    for (let i = 0; i < datos.data.length; i += 4) if (datos.data[i + 3]! > 0) f(datos.data, i);
+    tex.context.putImageData(datos, 0, 0);
+    tex.refresh();
+    tex.setFilter(Phaser.Textures.FilterMode.NEAREST);
+    for (let k = 0; k * 32 < img.width; k++) tex.add(k, 0, k * 32, 0, 32, 32);
+  };
+  hacer('_b', girarTono);
+  hacer('_s', (d, i) => {
+    d[i] = 0x2b;
+    d[i + 1] = 0x3a;
+    d[i + 2] = 0x78;
+  });
+  hacer('_n', (d, i) => {
+    d[i] = 0x10;
+    d[i + 1] = 0x12;
+    d[i + 2] = 0x1c;
+  });
+}
+
 export function prepararTexturasCriaturas(escena: Phaser.Scene): void {
   for (const c of DATOS.criaturas.values()) {
     const m = medir(escena, `${c.sprites}_frente`);
     altos.set(c.sprites, m.alto);
     anchos.set(c.sprites, m.ancho);
     for (const vista of ['frente', 'espalda', 'icono']) escena.textures.get(`${c.sprites}_${vista}`).setFilter(Phaser.Textures.FilterMode.NEAREST);
+    cajasIcono.set(c.sprites, medirIcono(escena, `${c.sprites}_icono`));
+    derivarIcono(escena, `${c.sprites}_icono`);
     derivar(escena, `${c.sprites}_frente`, '_b', girarTono);
     derivar(escena, `${c.sprites}_espalda`, '_b', girarTono);
     derivar(escena, `${c.sprites}_frente`, '_s', (d, i) => {

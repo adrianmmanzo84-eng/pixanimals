@@ -40,6 +40,8 @@ export interface Combatiente {
   participo: boolean;
   /** Ataque Definitivo que conoce, o null. */
   definitivo: Habilidad | null;
+  /** Cada criatura puede usar su Definitivo una vez por combate. */
+  definitivoUsado?: boolean;
 }
 
 export interface Equipo {
@@ -147,7 +149,6 @@ export class Batalla {
   definitivoPermitido: [boolean, boolean] = [false, false];
   definitivoConCarga: [boolean, boolean] = [false, false];
   definitivoCargado: [boolean, boolean] = [false, false];
-  definitivoUsado: [boolean, boolean] = [false, false];
   /** Multiplicador de daño de este turno por lado (golpe justo del jugador). La escena lo pone y lo vuelve a 1. */
   potenciador: [number, number] = [1, 1];
 
@@ -197,7 +198,7 @@ export class Batalla {
   bloqueoDefinitivo(lado: Lado): MotivoDefinitivo | null {
     if (!this.act(lado).definitivo) return 'no_tiene';
     if (!this.definitivoPermitido[lado]) return 'no_permitido';
-    if (this.definitivoUsado[lado]) return 'usado';
+    if (this.act(lado).definitivoUsado) return 'usado';
     if (this.turno + 1 < this.datos.balance.definitivo.turnoMinimo) return 'turno';
     if (this.definitivoConCarga[lado] && !this.definitivoCargado[lado]) return 'sin_cargar';
     return null;
@@ -469,7 +470,7 @@ export class Batalla {
     if (rival.ps <= 0) return;
     if (this.bloqueoDefinitivo(lado) !== null || !yo.definitivo) return this.actuar(lado, { tipo: 'empujon' }, ev);
     if (this.impedido(lado, ev)) return;
-    this.definitivoUsado[lado] = true;
+    yo.definitivoUsado = true;
     this.definitivoCargado[lado] = false;
     yo.ultima = yo.definitivo.id;
     ev.push({ t: 'usa', lado, habilidad: yo.definitivo });

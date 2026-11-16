@@ -72,6 +72,30 @@ describe('Ataque Definitivo', () => {
     expect(ev).toContainEqual({ t: 'debilitado', lado: 1 });
     expect(bat.bloqueoDefinitivo(0)).toBe('usado');
   });
+
+  it('cada criatura tiene su propio Definitivo: usarlo con una no gasta el de otra', () => {
+    const bat = new Batalla(
+      DATOS,
+      [
+        [crearCombatiente(DATOS, 'solarion', 50), crearCombatiente(DATOS, 'leviatan', 50)],
+        [crearCombatiente(DATOS, 'titan_ancestral', 50), crearCombatiente(DATOS, 'titan_eclipse', 50), crearCombatiente(DATOS, 'heliavo', 50)],
+      ],
+      new Rng(4),
+    );
+    bat.definitivoPermitido = [true, false];
+    for (let i = 0; i < 4; i++) bat.ejecutarTurno(hab(2), hab(2));
+    bat.ejecutarTurno({ tipo: 'definitivo' }, hab(2));
+    expect(bat.bloqueoDefinitivo(0)).toBe('usado');
+    for (const l of [...bat.pendientes]) bat.reemplazar(l, bat.banca(l)[0]!);
+    bat.ejecutarTurno({ tipo: 'cambio', indice: 1 }, hab(2));
+    for (const l of [...bat.pendientes]) bat.reemplazar(l, bat.banca(l)[0]!);
+    expect(bat.act(0).especie.id).toBe('leviatan');
+    expect(bat.bloqueoDefinitivo(0)).toBeNull();
+    const ev = bat.ejecutarTurno({ tipo: 'definitivo' }, hab(2));
+    expect(ev).toContainEqual({ t: 'definitivo', lado: 0 });
+    expect(bat.bloqueoDefinitivo(0)).toBe('usado');
+  });
+
   it('si el rival se cubre ese turno, lo resiste y el Definitivo se pierde', () => {
     const bat = hastaTurno(4);
     const ps = bat.act(1).ps;
