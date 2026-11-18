@@ -3,6 +3,7 @@ import type { MinijuegoId } from '../../esquemas/esquemas';
 import type { AccionEntrada } from '../../entrada';
 import { sonido } from '../../audio/sfx';
 import { t } from '../../i18n/i18n';
+import { DATOS } from '../../core/datos';
 import { marcaCriatura } from '../../ui/criaturas';
 import { C, n } from '../../ui/estilo';
 import { Texto } from '../../ui/texto';
@@ -66,7 +67,11 @@ export class MiniGolpe extends MinijuegoBase {
   protected preparar(): void {
     // Los bloques HD (128×128, 112 de contenido) se reducen con suavizado a ~48 px del mundo.
     this.g = this.add.graphics();
-    this.yo = marcaCriatura(this, YO.x, YO.y, this.especie, 30);
+    // Mira a la derecha (hacia el bloque) y crece con la evolución: la etapa 4 y las Eclipse igualan o superan al bloque (~42 px).
+    const c = DATOS.criaturas.get(this.especie)!;
+    const caja = c.etapa >= 4 ? (c.id.endsWith('_eclipse') ? 60 : 50) : [0, 24, 32, 42][c.etapa]!;
+    YO.y = 86 - caja / 2;
+    this.yo = marcaCriatura(this, YO.x, YO.y, this.especie, caja, 1).setFlipX(true);
     this.tweens.killTweensOf(this.yo);
     this.yo.setY(YO.y);
     this.barraVida = this.add.graphics().setDepth(3);
@@ -173,7 +178,7 @@ export class MiniGolpe extends MinijuegoBase {
     g.fillStyle(0xf5e070, 1).fillRect(this.centro - this.ancho * 0.175, Y - 5, this.ancho * 0.35, 10);
     g.fillStyle(n('#ffffff'), 1).fillRect(Math.round(this.x) - 1, Y - 9, 3, 18);
     // Sombras de tu criatura y del objetivo en el piso.
-    g.fillStyle(0x000000, 0.28).fillEllipse(YO.x, YO.y + 15, 26, 5).fillEllipse(BLANCO.x, BLANCO.y + 25, 44, 6);
+    g.fillStyle(0x000000, 0.28).fillEllipse(YO.x, 88, 20 + this.yo!.displayWidth * 0.5, 5).fillEllipse(BLANCO.x, BLANCO.y + 25, 44, 6);
   }
 
   protected empezar(): void {
@@ -194,7 +199,7 @@ export class MiniGolpe extends MinijuegoBase {
     if (!yo) return;
     this.golpeando = true;
     this.tweens.killTweensOf(yo);
-    const hasta = pts > 0 ? BLANCO.x - 34 : BLANCO.x - 44;
+    const hasta = BLANCO.x - 24 - yo.displayWidth / 2 - (pts > 0 ? 0 : 10);
     await new Promise<void>((r) => this.tweens.add({ targets: yo, x: hasta, y: YO.y - 4, duration: 110, ease: 'Quad.easeIn', onComplete: () => r() }));
     // Contacto.
     if (pts > 0) {
