@@ -737,43 +737,43 @@
  "ruleta_aguja": {
   "ruta": "ui/ruleta/ruleta_aguja.png",
   "tam": [
-   16,
-   20
+   64,
+   80
   ]
  },
  "ruleta_aro": {
   "ruta": "ui/ruleta/ruleta_aro.png",
   "tam": [
-   120,
-   120
+   480,
+   480
   ]
  },
  "ruleta_boton_espera": {
   "ruta": "ui/ruleta/ruleta_boton_espera.png",
   "tam": [
-   66,
-   14
+   264,
+   56
   ]
  },
  "ruleta_boton_listo": {
   "ruta": "ui/ruleta/ruleta_boton_listo.png",
   "tam": [
-   66,
-   14
+   264,
+   56
   ]
  },
  "ruleta_casilla_gorda": {
   "ruta": "ui/ruleta/ruleta_casilla_gorda.png",
   "tam": [
-   24,
-   30
+   96,
+   120
   ]
  },
  "ruleta_centro": {
   "ruta": "ui/ruleta/ruleta_centro.png",
   "tam": [
-   24,
-   24
+   96,
+   96
   ]
  },
  "ruleta_resalte": {

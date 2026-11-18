@@ -1,0 +1,226 @@
+[
+  {
+    "archivo": "crono/iconos/fosil_anomalo.png",
+    "ancho": 64,
+    "alto": 64,
+    "origen": "fuentes/iconos_crono.png",
+    "estilo": "pixelart",
+    "sha256": "08ecdcf6e09f5e97b605c7cf9a2ce303013341b24ae00e09de93f7c51390598e"
+  },
+  {
+    "archivo": "crono/iconos/fosil_meganeura.png",
+    "ancho": 64,
+    "alto": 64,
+    "origen": "fuentes/iconos_crono.png",
+    "estilo": "pixelart",
+    "sha256": "2f3b9cc0edc616d4dd8a3d93e280c78a6c6de116754b8696ecabf1f7f30e24c3"
+  },
+  {
+    "archivo": "crono/iconos/fosil_estego.png",
+    "ancho": 64,
+    "alto": 64,
+    "origen": "fuentes/iconos_crono.png",
+    "estilo": "pixelart",
+    "sha256": "3e89ed2df699897c34e4e5d8429957ae3186c3be8fcf6cd9f5874d7236a52ae5"
+  },
+  {
+    "archivo": "crono/iconos/fosil_ptero.png",
+    "ancho": 64,
+    "alto": 64,
+    "origen": "fuentes/iconos_crono.png",
+    "estilo": "pixelart",
+    "sha256": "0bb9f8679de51d037a012ab3467caac4295c968749aab6909210bd4f5a98e263"
+  },
+  {
+    "archivo": "crono/iconos/fosil_mamut.png",
+    "ancho": 64,
+    "alto": 64,
+    "origen": "fuentes/iconos_crono.png",
+    "estilo": "pixelart",
+    "sha256": "0c1aa4c77a0414092d8ef40bc6c4f2c4bd05e148f5d650646ab3d804049ba029"
+  },
+  {
+    "archivo": "crono/iconos/ambar.png",
+    "ancho": 64,
+    "alto": 64,
+    "origen": "fuentes/iconos_crono.png",
+    "estilo": "pixelart",
+    "sha256": "c75ac4b3c58805e8f470451633cf66458f83420b341a77e1c2f0e774928d5e34"
+  },
+  {
+    "archivo": "crono/iconos/mapa_combate.png",
+    "ancho": 64,
+    "alto": 64,
+    "origen": "fuentes/iconos_crono.png",
+    "estilo": "pixelart",
+    "sha256": "6b10d62fc92901a2d2661780f9f0c96fd7aa2a5ecbed22513192aab5705f7478"
+  },
+  {
+    "archivo": "crono/iconos/mapa_excavacion.png",
+    "ancho": 64,
+    "alto": 64,
+    "origen": "fuentes/iconos_crono.png",
+    "estilo": "pixelart",
+    "sha256": "69049315597e9434307267b2b8eae78ce4dd3e2550c783ad7c476ee01a612fbe"
+  },
+  {
+    "archivo": "crono/iconos/mapa_evento.png",
+    "ancho": 64,
+    "alto": 64,
+    "origen": "fuentes/iconos_crono.png",
+    "estilo": "pixelart",
+    "sha256": "e8c5220924a472214a06ea42d6e68689ab37913f021a8ed352f91e754ac4e6b5"
+  },
+  {
+    "archivo": "crono/iconos/mapa_fogata.png",
+    "ancho": 64,
+    "alto": 64,
+    "origen": "fuentes/iconos_crono.png",
+    "estilo": "pixelart",
+    "sha256": "21bbd8bc8692bc531d02cee1afa7a5b4c08122295e258e29d687a579aae88a74"
+  },
+  {
+    "archivo": "crono/iconos/mapa_jefe.png",
+    "ancho": 64,
+    "alto": 64,
+    "origen": "fuentes/iconos_crono.png",
+    "estilo": "pixelart",
+    "sha256": "74e5c6f7415db41de1e46e313ab0be8eff6bdc60b41b8f3f39321a4998999b8a"
+  },
+  {
+    "archivo": "crono/iconos/mapa_visitado.png",
+    "ancho": 64,
+    "alto": 64,
+    "origen": "fuentes/iconos_crono.png",
+    "estilo": "pixelart",
+    "sha256": "974c2bf428913c0b2b5225679313169e5c9ec28c28e6b6fce7514b4f88f56638"
+  },
+  {
+    "archivo": "ruleta/ruleta_aro.png",
+    "ancho": 480,
+    "alto": 480,
+    "origen": "fuentes/ruleta_aro.png",
+    "estilo": "pixelart",
+    "sha256": "e2943f205522aa0392f1767c1f1ae6889e7c16bdeb3b6280ef8906282e9215d8"
+  },
+  {
+    "archivo": "ruleta/ruleta_aguja.png",
+    "ancho": 64,
+    "alto": 80,
+    "origen": "fuentes/ruleta_piezas.png",
+    "estilo": "pixelart",
+    "sha256": "9e32d3dfd20f9538f513e17c51eca9b5f79a87164fdad42ee29822da0a5e245d"
+  },
+  {
+    "archivo": "ruleta/ruleta_centro.png",
+    "ancho": 96,
+    "alto": 96,
+    "origen": "fuentes/ruleta_piezas.png",
+    "estilo": "pixelart",
+    "sha256": "ae778adba580c467994452529409d1acccf040da20a21e058ec4ffd3acf5d563"
+  },
+  {
+    "archivo": "ruleta/ruleta_casilla_gorda.png",
+    "ancho": 96,
+    "alto": 120,
+    "origen": "fuentes/ruleta_piezas.png",
+    "estilo": "pixelart",
+    "sha256": "4cd105e3832fb1c62a70f649711cff8276a1d2167e39b1e302351bd6a0dfca63"
+  },
+  {
+    "archivo": "ruleta/ruleta_boton_listo.png",
+    "ancho": 264,
+    "alto": 56,
+    "origen": "fuentes/ruleta_piezas.png",
+    "estilo": "pixelart",
+    "sha256": "913702dc72798dade586b700cb0006d75f9f23690d5def1f215a10f2e72fb88e"
+  },
+  {
+    "archivo": "ruleta/ruleta_boton_espera.png",
+    "ancho": 264,
+    "alto": 56,
+    "origen": "fuentes/ruleta_piezas.png",
+    "estilo": "pixelart",
+    "sha256": "caa4d4d0a6ed19e12db4fefdbea0dc1cec2a184e91dac5d4a3c4ad132069ef06"
+  },
+  {
+    "archivo": "torre/torre_piso.png",
+    "ancho": 1184,
+    "alto": 176,
+    "origen": "fuentes/torre_piso.png",
+    "estilo": "ilustrado",
+    "sha256": "b39b17406592d4d417ca68a3410ac5b072afe586d4b23229876c0f6f1ce28214"
+  },
+  {
+    "archivo": "torre/torre_piso_jefe.png",
+    "ancho": 1184,
+    "alto": 176,
+    "origen": "fuentes/torre_piso_jefe.png",
+    "estilo": "ilustrado",
+    "sha256": "8bfc2c89edc79efbbb58f58ffec875aaf2f73c884072a71e43d4b06659804ba5"
+  },
+  {
+    "archivo": "torre/torre_cima.png",
+    "ancho": 1312,
+    "alto": 656,
+    "origen": "fuentes/torre_cima.png",
+    "estilo": "ilustrado",
+    "sha256": "d978913a0642de85429b2c85f72155fab8442ae18fc05867053abf3dd39b3b76"
+  },
+  {
+    "archivo": "golpe_justo/golpe_tierra.png",
+    "ancho": 128,
+    "alto": 128,
+    "origen": "fuentes/golpe_tierra.png",
+    "estilo": "pixelart",
+    "sha256": "6c9a9830f8e24f0196690b3fedcc0c074910775cbef076e7601c9802aee9aed2"
+  },
+  {
+    "archivo": "golpe_justo/golpe_piedra.png",
+    "ancho": 128,
+    "alto": 128,
+    "origen": "fuentes/golpe_piedra.png",
+    "estilo": "pixelart",
+    "sha256": "60e2da372cbc6e1021bd1b6eeb6b67a64b0228d154b5f9596f063f303b83d633"
+  },
+  {
+    "archivo": "golpe_justo/golpe_piedra_dura.png",
+    "ancho": 128,
+    "alto": 128,
+    "origen": "fuentes/golpe_piedra_dura.png",
+    "estilo": "pixelart",
+    "sha256": "eea7724606dcf506f50d2825695183beac5f10382137c6220fbe409629f99ad8"
+  },
+  {
+    "archivo": "golpe_justo/golpe_roca.png",
+    "ancho": 128,
+    "alto": 128,
+    "origen": "fuentes/golpe_roca.png",
+    "estilo": "pixelart",
+    "sha256": "239c1b13175c689c856af4c8ce254737576e7f1fdd371a265a137ef8535099a7"
+  },
+  {
+    "archivo": "golpe_justo/golpe_metal.png",
+    "ancho": 128,
+    "alto": 128,
+    "origen": "fuentes/golpe_metal.png",
+    "estilo": "pixelart",
+    "sha256": "108a9625999cacc34337db9b1faec25cb82d994756001da36860f4dba9c76056"
+  },
+  {
+    "archivo": "golpe_justo/golpe_grieta_1.png",
+    "ancho": 128,
+    "alto": 128,
+    "origen": "fuentes/golpe_grieta_1.png",
+    "estilo": "pixelart",
+    "sha256": "a8cf6a179c4d4461d6278539031b8af21cdf9a092b5b7e1214b2bef5908fde50"
+  },
+  {
+    "archivo": "golpe_justo/golpe_grieta_2.png",
+    "ancho": 128,
+    "alto": 128,
+    "origen": "fuentes/golpe_grieta_2.png",
+    "estilo": "pixelart",
+    "sha256": "cbd49e1c9ec938666f81b8ed2177ad3e12fc044329e584f632ee19c5d4f83902"
+  }
+]

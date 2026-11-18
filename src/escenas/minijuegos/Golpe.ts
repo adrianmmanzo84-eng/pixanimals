@@ -17,19 +17,19 @@ const Y = 112;
 /** Dónde está tu criatura y dónde el objetivo. */
 const YO = { x: 72, y: 70 };
 const BLANCO = { x: 160, y: 66 };
-/** Hoja de bloques de la Mina (16×16, 17 columnas por zona; columnas 15 y 16: grietas). */
-const COLUMNAS_HOJA = 17;
+/** Los bloques miden 128 px (112 de contenido): 0,375 los deja a 48 px del mundo, como antes. */
+const ESC_BLOQUE = 0.375;
 
 /**
  * Objetivos para romper (D252): bloques de la Mina, cada uno con su dureza (daño necesario).
  * Un golpe Perfecto hace 2 de daño, uno Bien hace 1 y un fallo, 0.
  */
 const OBJETIVOS = [
-  { id: 'tierra', col: 0, dureza: 2, color: 0x8a5a3a },
-  { id: 'piedra', col: 1, dureza: 3, color: 0x9aa0a8 },
-  { id: 'dura', col: 2, dureza: 4, color: 0x4a4e5e },
-  { id: 'roca', col: 3, dureza: 5, color: 0x7a7e88 },
-  { id: 'metal', col: 4, dureza: 6, color: 0x3a3c48 },
+  { id: 'tierra', tex: 'golpe_tierra', dureza: 2, color: 0x8a5a3a },
+  { id: 'piedra', tex: 'golpe_piedra', dureza: 3, color: 0x9aa0a8 },
+  { id: 'dura', tex: 'golpe_piedra_dura', dureza: 4, color: 0x4a4e5e },
+  { id: 'roca', tex: 'golpe_roca', dureza: 5, color: 0x7a7e88 },
+  { id: 'metal', tex: 'golpe_metal', dureza: 6, color: 0x3a3c48 },
 ] as const;
 type Objetivo = (typeof OBJETIVOS)[number];
 
@@ -54,26 +54,21 @@ export class MiniGolpe extends MinijuegoBase {
   private golpeando = false;
   // Objetivo actual
   private obj: Objetivo = OBJETIVOS[0];
-  private zona = 1;
   private dano = 0;
   private bloque: Phaser.GameObjects.Image | null = null;
   private grieta: Phaser.GameObjects.Image | null = null;
-  private lineas!: Phaser.GameObjects.Graphics;
   private barraVida!: Phaser.GameObjects.Graphics;
-  private grietas: { x: number; y: number }[][] = [];
 
   constructor() {
     super('MiniGolpe');
   }
 
   protected preparar(): void {
-    // Los bloques son pixel art de 16×16: se amplían sin suavizado.
-    this.textures.get('mina_bloques').setFilter(Phaser.Textures.FilterMode.NEAREST);
+    // Los bloques HD (128×128, 112 de contenido) se reducen con suavizado a ~48 px del mundo.
     this.g = this.add.graphics();
     this.yo = marcaCriatura(this, YO.x, YO.y, this.especie, 30);
     this.tweens.killTweensOf(this.yo);
     this.yo.setY(YO.y);
-    this.lineas = this.add.graphics().setDepth(3);
     this.barraVida = this.add.graphics().setDepth(3);
     this.aviso = new Texto(this, 0, 124, 240, 14, '#ffffff', 'centro', { tam: 10, peso: 600, borde: '#2b3a78' });
     this.ronda = 0;
@@ -91,15 +86,11 @@ export class MiniGolpe extends MinijuegoBase {
   private nuevoObjetivo(entrar = true): void {
     const tope = Math.min(OBJETIVOS.length - 1, 1 + this.rotos);
     this.obj = OBJETIVOS[Phaser.Math.Between(Math.max(0, tope - 2), tope)]!;
-    this.zona = Phaser.Math.Between(1, 5);
     this.dano = 0;
-    this.grietas = [];
-    this.lineas.clear();
     this.grieta?.destroy();
     this.grieta = null;
     this.bloque?.destroy();
-    const base = (this.zona - 1) * COLUMNAS_HOJA;
-    this.bloque = this.add.image(entrar ? 260 : BLANCO.x, BLANCO.y, 'mina_bloques', base + this.obj.col).setScale(3).setDepth(2);
+    this.bloque = this.add.image(entrar ? 260 : BLANCO.x, BLANCO.y, this.obj.tex).setScale(ESC_BLOQUE).setDepth(2);
     // Sombra en el piso.
     if (entrar) this.tweens.add({ targets: this.bloque, x: BLANCO.x, duration: 320, ease: 'Back.easeOut' });
     this.pintarVida();
@@ -113,34 +104,15 @@ export class MiniGolpe extends MinijuegoBase {
     for (let i = 0; i < d; i++) g.fillStyle(i < d - this.dano ? 0xf5c542 : 0x3a3f58, 1).fillRect(BLANCO.x - ancho / 2 + i * 5, BLANCO.y + 28, 4, 3);
   }
 
-  /** Grietas: las del dibujo de la Mina y, además, líneas desde el punto del golpe (una más por daño). */
-  private agrietar(dano: number): void {
+  /** Grietas del arte HD: leves al pasar 1/3 del daño y fuertes al pasar 2/3 (una capa por estado). */
+  private agrietar(_dano: number): void {
     if (!this.bloque) return;
-    const base = (this.zona - 1) * COLUMNAS_HOJA;
     const frac = this.dano / this.obj.dureza;
     const etapa = frac >= 2 / 3 ? 2 : frac >= 1 / 3 ? 1 : 0;
     if (etapa) {
-      if (!this.grieta) this.grieta = this.add.image(BLANCO.x, BLANCO.y, 'mina_bloques', base + 14 + etapa).setScale(3).setDepth(2.5);
-      else this.grieta.setFrame(base + 14 + etapa);
-    }
-    for (let k = 0; k < dano; k++) {
-      const linea = [{ x: BLANCO.x - 20 + Phaser.Math.Between(-2, 6), y: BLANCO.y + Phaser.Math.Between(-10, 10) }];
-      let ang = Phaser.Math.FloatBetween(-0.7, 0.7);
-      for (let s = 0; s < 4; s++) {
-        const p = linea[linea.length - 1]!;
-        ang += Phaser.Math.FloatBetween(-0.6, 0.6);
-        linea.push({ x: Math.min(BLANCO.x + 22, p.x + Math.cos(ang) * 8), y: Phaser.Math.Clamp(p.y + Math.sin(ang) * 8, BLANCO.y - 22, BLANCO.y + 22) });
-      }
-      this.grietas.push(linea);
-    }
-    const g = this.lineas.clear();
-    for (const l of this.grietas) {
-      g.lineStyle(1.4, 0x141018, 0.9).beginPath().moveTo(l[0]!.x, l[0]!.y);
-      for (const p of l.slice(1)) g.lineTo(p.x, p.y);
-      g.strokePath();
-      g.lineStyle(0.6, 0xffffff, 0.35).beginPath().moveTo(l[0]!.x + 0.6, l[0]!.y + 0.6);
-      for (const p of l.slice(1)) g.lineTo(p.x + 0.6, p.y + 0.6);
-      g.strokePath();
+      const tex = `golpe_grieta_${etapa}`;
+      if (!this.grieta) this.grieta = this.add.image(BLANCO.x, BLANCO.y, tex).setScale(ESC_BLOQUE).setDepth(2.5);
+      else this.grieta.setTexture(tex);
     }
   }
 
@@ -170,7 +142,6 @@ export class MiniGolpe extends MinijuegoBase {
     this.bloque = null;
     this.grieta?.destroy();
     this.grieta = null;
-    this.lineas.clear();
     b.destroy();
     this.barraVida.clear();
     this.aviso.poner(t('mj.golpe.roto'));

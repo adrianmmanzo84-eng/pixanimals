@@ -84,9 +84,9 @@ export class CronoMapa extends Phaser.Scene {
       g.fillStyle(0x1a1c2c, 0.35).fillEllipse(p.x, p.y + 7, 14, 4);
       if (elegible) g.fillStyle(marcado ? 0xffd76a : 0xfff4c0, marcado ? 0.9 : 0.5).fillCircle(p.x, p.y, marcado ? 11 : 10);
       const icono = `cr_mapa_${x.tipo}`;
-      if (this.textures.exists(icono)) this.add.image(p.x, p.y, icono).setAlpha(visitado && x.id !== ex.actual ? 0.55 : 1).setScale(x.tipo === 'jefe' ? 1.25 : 1);
+      if (this.textures.exists(icono)) this.add.image(p.x, p.y, icono).setAlpha(visitado && x.id !== ex.actual ? 0.55 : 1).setScale(x.tipo === 'jefe' ? 0.3125 : 0.25);
       else g.fillStyle(x.tipo === 'jefe' ? 0xc0304a : 0xf5c542, 1).fillCircle(p.x, p.y, 6);
-      if (visitado && x.id !== ex.actual && this.textures.exists('cr_mapa_visitado')) this.add.image(p.x + 5, p.y + 5, 'cr_mapa_visitado');
+      if (visitado && x.id !== ex.actual && this.textures.exists('cr_mapa_visitado')) this.add.image(p.x + 5, p.y + 5, 'cr_mapa_visitado').setScale(0.25);
       if (elegible) this.puntero.zona(p.x - 10, p.y - 10, 20, 20, () => (marcado ? undefined : this.mover(opciones.findIndex((o) => o.id === x.id))));
     }
     // Tu criatura en el nodo actual (o en la entrada, a la izquierda).

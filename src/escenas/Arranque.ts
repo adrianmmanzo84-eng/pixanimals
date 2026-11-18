@@ -48,6 +48,7 @@ export class Arranque extends Phaser.Scene {
     for (const c of ['torre_piso', 'torre_piso_jefe', 'torre_cima', 'ruta_nodo', 'ruta_vencido', 'ruta_jefe']) this.load.image(c, `modos/${c}.png`);
     // Fondos propios de minijuego (960×640): pradera, bosque, volcan.
     for (const a of FONDOS_MINIJUEGO) this.load.image(`mj_${a}`, `fondos/minijuego_${a}.png`);
+    for (const c of ['tierra', 'piedra', 'piedra_dura', 'roca', 'metal', 'grieta_1', 'grieta_2']) this.load.image(`golpe_${c}`, `mina/golpe_${c}.png`);
     this.load.spritesheet('mina_bloques', 'mina/bloques.png', { frameWidth: 16, frameHeight: 16 });
     for (const c of DATOS.criaturas.values()) {
       this.load.image(`${c.sprites}_frente`, `sprites/${c.sprites}_frente.png`);

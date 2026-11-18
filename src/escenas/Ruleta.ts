@@ -87,7 +87,7 @@ export class Ruleta extends Phaser.Scene {
     ventana(g, 138, 22, 98, 128);
     this.estadoTxt = new Texto(this, 141, 25, 92, 30, C.tinta, 'centro', { tam: 7, peso: 600 });
     this.botonG = this.add.graphics();
-    this.botonImg = hayArte(this, 'ruleta_boton_listo') ? this.add.image(154, 58, 'ui_ruleta_boton_listo').setOrigin(0, 0) : null;
+    this.botonImg = hayArte(this, 'ruleta_boton_listo') ? this.add.image(154, 58, 'ui_ruleta_boton_listo').setOrigin(0, 0).setDisplaySize(66, 14) : null;
     this.boton = new Texto(this, 154, 59, 66, 13, '#ffffff', 'centro', { tam: 8, peso: 600 });
     new Texto(this, 141, 78, 92, 10, C.tintaSuave, 'centro', { tam: 6.4 }).poner(t('rul.puedes'));
     const lista = new Texto(this, 143, 88, 92, 60, C.tinta, 'izq', { tam: 5.6 });
