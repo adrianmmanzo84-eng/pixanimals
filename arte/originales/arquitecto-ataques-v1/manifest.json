@@ -1,0 +1,112 @@
+[
+  {
+    "id": "borron",
+    "archivo": "efectos/ataques/borron.png",
+    "tamano": [
+      232,
+      232
+    ],
+    "transparente": true,
+    "cuadros": 1,
+    "anclaje": [
+      116,
+      116
+    ],
+    "tipo": "impacto",
+    "sha256": "b04921d26c16e37ac87236359f3fe74a23ec66180a8a328e46f73da9ff578501"
+  },
+  {
+    "id": "zarpa_del_vacio",
+    "archivo": "efectos/ataques/zarpa_del_vacio.png",
+    "tamano": [
+      232,
+      232
+    ],
+    "transparente": true,
+    "cuadros": 1,
+    "anclaje": [
+      116,
+      116
+    ],
+    "tipo": "impacto",
+    "sha256": "222286931ba02f71006c9fa64d92aa06102345c32039d197cd7756c81ab29f4b"
+  },
+  {
+    "id": "lienzo_gris",
+    "archivo": "efectos/ataques/lienzo_gris.png",
+    "tamano": [
+      232,
+      232
+    ],
+    "transparente": true,
+    "cuadros": 1,
+    "anclaje": [
+      116,
+      116
+    ],
+    "tipo": "impacto",
+    "sha256": "8b4f29b2e1af2daebaf7aeb5a21482055b0e14ae711c3b360806b925cf03eb04"
+  },
+  {
+    "id": "colapso_cromatico",
+    "archivo": "efectos/ataques/colapso_cromatico.png",
+    "tamano": [
+      360,
+      348
+    ],
+    "transparente": true,
+    "cuadros": 1,
+    "anclaje": [
+      178,
+      174
+    ],
+    "tipo": "impacto",
+    "nota_anclaje": "Centro del núcleo negro, útil para situar el efecto sobre el rival o el pecho del Arquitecto.",
+    "sha256": "5ea96fb62562619f4edc4b5d5f1287444df0d73107081b17c451e67f9ceb4116"
+  },
+  {
+    "id": "lienzo_en_blanco",
+    "archivo": "efectos/ataques/lienzo_en_blanco.png",
+    "tamano": [
+      472,
+      416
+    ],
+    "transparente": true,
+    "cuadros": 1,
+    "anclaje": [
+      178,
+      237
+    ],
+    "tipo": "impacto",
+    "nota_anclaje": "Centro del núcleo negro, útil para situar el efecto sobre el rival o el pecho del Arquitecto.",
+    "sha256": "c19dac85f685a6a6b242e442c7a1c7df207f146194e734a76e871b8e82641b4c"
+  },
+  {
+    "id": "lienzo_en_blanco_pantalla",
+    "archivo": "efectos/ataques/lienzo_en_blanco_pantalla.png",
+    "tamano": [
+      960,
+      640
+    ],
+    "transparente": false,
+    "cuadros": 1,
+    "anclaje": [
+      480,
+      320
+    ],
+    "tipo": "pantalla",
+    "sha256": "939aed263d034f1346a38714d3a2b97cab6305a6406dc2d6574776b7e72881b4"
+  },
+  {
+    "id": "lienzo_en_blanco_destello",
+    "archivo": "efectos/ataques/lienzo_en_blanco_destello.png",
+    "tamano": [
+      960,
+      640
+    ],
+    "transparente": false,
+    "cuadros": 1,
+    "tipo": "cierre_blanco",
+    "sha256": "f5f9328e4f6d99e37f557c8df6f94f0e2e8b9d60660b3821b933c60663d198f5"
+  }
+]

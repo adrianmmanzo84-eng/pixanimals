@@ -251,6 +251,12 @@
    63
   ]
  },
+ "borron": {
+  "impacto": [
+   58,
+   58
+  ]
+ },
  "bosque_de_bambu": {
   "impacto": [
    57,
@@ -489,6 +495,12 @@
   "impacto": [
    58,
    51
+  ]
+ },
+ "colapso_cromatico": {
+  "impacto": [
+   90,
+   87
   ]
  },
  "coletazo_anillado": {
@@ -1355,6 +1367,22 @@
   "impacto": [
    90,
    89
+  ]
+ },
+ "lienzo_en_blanco": {
+  "impacto": [
+   118,
+   104
+  ],
+  "pantalla": [
+   240,
+   160
+  ]
+ },
+ "lienzo_gris": {
+  "impacto": [
+   58,
+   58
   ]
  },
  "linterna_del_ocaso": {
@@ -2671,6 +2699,12 @@
   "impacto": [
    57,
    54
+  ]
+ },
+ "zarpa_del_vacio": {
+  "impacto": [
+   58,
+   58
   ]
  },
  "zarpa_estatica": {
