@@ -1,0 +1,138 @@
+{
+  "completo": true,
+  "png_preparados": 25,
+  "fondos_combate": 4,
+  "regiones": 6,
+  "finales": 1,
+  "vistas_arquitecto": 2,
+  "medallas": 6,
+  "objetos": 2,
+  "prisma_perspectiva_corregida": true,
+  "archivos": [
+    {
+      "archivo": "fondos/fondo_desierto.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "fondos/fondo_cumbre_helada.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "fondos/fondo_ruinas.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "fondos/fondo_origen_eclipse.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "arquitecto/arquitecto_frente.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "arquitecto/arquitecto_espalda.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "arquitecto/arquitecto_lamina.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "objetos/prisma_restaurador.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "compatibles_32/prisma_restaurador.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "objetos/cuarzo_luz.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "compatibles_32/cuarzo_luz.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "medallas/pixel_maestro_bosque.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "compatibles_32/pixel_maestro_bosque.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "medallas/pixel_maestro_costa.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "compatibles_32/pixel_maestro_costa.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "medallas/pixel_maestro_volcan.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "compatibles_32/pixel_maestro_volcan.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "medallas/pixel_maestro_desierto.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "compatibles_32/pixel_maestro_desierto.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "medallas/pixel_maestro_cumbre_helada.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "compatibles_32/pixel_maestro_cumbre_helada.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "medallas/pixel_maestro_ruinas.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "compatibles_32/pixel_maestro_ruinas.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "mapa/mapa_mundo.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    },
+    {
+      "archivo": "final/origen_arquitecto.png",
+      "tamano_correcto": true,
+      "transparencia_correcta": true
+    }
+  ]
+}

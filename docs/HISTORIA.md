@@ -93,3 +93,23 @@ Mientras no estén los fondos, las regiones 4 a 6 usan los existentes más parec
 - **H4 Regiones 3 a 6.**
 - **H5 Final y créditos.**
 Pruebas en cada fase: tests del estado y de los desbloqueos, simulación de dificultad, y capturas con Playwright del mapa y de un recorrido completo.
+
+## 11. El Arquitecto (jefe final) — propuesta para aprobar
+Arte recibido en `arte/originales/historia-v1/` (frente y espalda 384×384, fondo del combate final y escena final).
+
+- **Tipo: Neutro.** Es «sin color», como el lienzo en blanco que busca; además no tiene ventaja ni desventaja contra ningún tipo, así que cualquier equipo puede vencerlo.
+- **Pasiva: Último Trazo** (con la mecánica de Último Rescoldo): con poca vida pega más fuerte.
+- **Estadísticas provisorias:** PS 130 · Ataque 140 · Defensa 110 · At. Esp. 150 · Def. Esp. 110 · Velocidad 110. Se calibran con simulaciones para que sea el combate más difícil, pero ganable.
+
+| Ataque | Rol | Tipo | Categoría | Potencia / precisión / usos | Efecto | Idea visual |
+|---|---|---|---|---|---|---|
+| Borrón | ofensiva | neutro | especial | 60 / 100 / 20 | 20 %: baja 1 el Ataque Especial del rival | Una mancha gris que tacha al rival como un borrón de goma |
+| Zarpa del Vacío | ofensiva | sombra | física | 70 / 95 / 15 | 15 %: baja 1 la Defensa del rival | Tres zarpazos de cristal violeta con un hueco negro en cada corte |
+| Lienzo Gris | soporte | neutro | estado | — / — / 10 | Baja 1 el Ataque y 1 el Ataque Especial del rival | Una ola gris que pasa por el rival y le quita el color un instante |
+| Colapso Cromático | final | neutro | especial | 120 / 90 / 5, enfriamiento 4 | — | Los seis colores de las regiones giran alrededor del rival y se apagan hacia el centro |
+| **Lienzo en Blanco** | definitivo | neutro | especial | — | Como todos los Definitivos: carga un turno y deja fuera de combate a la criatura rival, salvo que se proteja | El disco negro del pecho se abre, el Eclipse cubre la pantalla y todo queda en blanco |
+
+Medidas de los dibujos de efectos (entregar a 4×, fondo transparente, WebP o PNG):
+- Borrón, Zarpa del Vacío y Lienzo Gris: impacto de **232×232**.
+- Colapso Cromático: impacto de **360×348**.
+- Lienzo en Blanco: impacto de **472×416** y pantalla completa de **960×640**.

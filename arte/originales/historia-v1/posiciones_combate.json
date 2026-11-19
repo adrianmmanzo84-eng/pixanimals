@@ -1,0 +1,49 @@
+{
+  "lienzo": [
+    960,
+    455
+  ],
+  "nota": "Centros orientativos de los dos círculos ilustrados; el juego puede afinar el apoyo de los pies según el sprite.",
+  "fondos": {
+    "fondo_desierto": {
+      "jugador": [
+        246,
+        336
+      ],
+      "rival": [
+        717,
+        210
+      ]
+    },
+    "fondo_cumbre_helada": {
+      "jugador": [
+        241,
+        333
+      ],
+      "rival": [
+        710,
+        229
+      ]
+    },
+    "fondo_ruinas": {
+      "jugador": [
+        235,
+        335
+      ],
+      "rival": [
+        735,
+        223
+      ]
+    },
+    "fondo_origen_eclipse": {
+      "jugador": [
+        235,
+        335
+      ],
+      "rival": [
+        722,
+        225
+      ]
+    }
+  }
+}

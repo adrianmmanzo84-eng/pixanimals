@@ -1,0 +1,82 @@
+{
+  "regiones": [
+    {
+      "id": "bosque",
+      "name": "Bosque",
+      "color": "#52c76a",
+      "palette": "emerald green and jade",
+      "motif": "two small embossed leaves at the bottom of the medallion",
+      "marcador_sugerido": [
+        155,
+        245
+      ]
+    },
+    {
+      "id": "costa",
+      "name": "Costa",
+      "color": "#398edf",
+      "palette": "deep ocean blue and turquoise",
+      "motif": "a small embossed curling ocean wave at the bottom of the medallion",
+      "marcador_sugerido": [
+        170,
+        470
+      ]
+    },
+    {
+      "id": "volcan",
+      "name": "Volcán",
+      "color": "#e74d43",
+      "palette": "crimson red and fiery orange",
+      "motif": "a small embossed flame at the bottom of the medallion",
+      "marcador_sugerido": [
+        460,
+        500
+      ]
+    },
+    {
+      "id": "desierto",
+      "name": "Desierto",
+      "color": "#e8bd48",
+      "palette": "sand gold and amber",
+      "motif": "a small embossed sun over a dune at the bottom of the medallion",
+      "marcador_sugerido": [
+        770,
+        445
+      ]
+    },
+    {
+      "id": "cumbre_helada",
+      "name": "Cumbre helada",
+      "color": "#76d9ed",
+      "palette": "ice cyan and pale sky blue",
+      "motif": "a small embossed sixpoint snowflake at the bottom of the medallion",
+      "marcador_sugerido": [
+        760,
+        170
+      ]
+    },
+    {
+      "id": "ruinas",
+      "name": "Ruinas",
+      "color": "#a775df",
+      "palette": "amethyst purple and violet",
+      "motif": "a small embossed ancient stone arch at the bottom of the medallion",
+      "marcador_sugerido": [
+        370,
+        110
+      ]
+    }
+  ],
+  "final": {
+    "id": "origen_eclipse",
+    "marcador_sugerido": [
+      500,
+      260
+    ]
+  },
+  "lienzo": [
+    960,
+    640
+  ],
+  "nota": "Puntos orientativos para marcadores del juego; el mapa no contiene textos incrustados."
+}

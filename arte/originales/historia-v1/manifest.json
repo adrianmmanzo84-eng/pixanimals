@@ -1,0 +1,227 @@
+[
+  {
+    "archivo": "fondos/fondo_desierto.png",
+    "tamano": [
+      960,
+      455
+    ],
+    "tipo": "fondo_combate",
+    "sha256": "651c709312be59ebadf6c2a5ee2f5525206f8b2fd54d68bbaa720727ec87349c"
+  },
+  {
+    "archivo": "fondos/fondo_cumbre_helada.png",
+    "tamano": [
+      960,
+      455
+    ],
+    "tipo": "fondo_combate",
+    "sha256": "9087903cb6855f426fc57db982037366b1c5b63d55d2526df4943f151eda3537"
+  },
+  {
+    "archivo": "fondos/fondo_ruinas.png",
+    "tamano": [
+      960,
+      455
+    ],
+    "tipo": "fondo_combate",
+    "sha256": "fdc7b91152973ebe06232099ef67bade27c6f3bf155e8ffe80fd0a6cc8595cb1"
+  },
+  {
+    "archivo": "fondos/fondo_origen_eclipse.png",
+    "tamano": [
+      960,
+      455
+    ],
+    "tipo": "fondo_combate",
+    "sha256": "ea783c76b5525300a5f61aa6e8d2c0876e9e0d6452941951ceadf7004a14b0b4"
+  },
+  {
+    "archivo": "arquitecto/arquitecto_frente.png",
+    "tamano": [
+      384,
+      384
+    ],
+    "tipo": "arquitecto",
+    "sha256": "ee4f5014797d082c5a33c2f28345c79563115b9f07e9a1bb51954b0d0c45aa7c"
+  },
+  {
+    "archivo": "arquitecto/arquitecto_espalda.png",
+    "tamano": [
+      384,
+      384
+    ],
+    "tipo": "arquitecto",
+    "sha256": "35e6a074753783a5bd5a33914c71d71168ccc0a23c3935588599c515c8ab1014"
+  },
+  {
+    "archivo": "arquitecto/arquitecto_lamina.png",
+    "tamano": [
+      768,
+      384
+    ],
+    "tipo": "lamina",
+    "sha256": "d8c0a0dccbc1129bc5acad2d4dc3cf6e9cb89bc2db7ff0f3f5f72bcfe394c491"
+  },
+  {
+    "archivo": "objetos/prisma_restaurador.png",
+    "tamano": [
+      128,
+      128
+    ],
+    "tipo": "objeto",
+    "sha256": "44c227db62e0b0f224d70b7d8a8f3e47bf0cb3d9c102501c056c6ab0c5aac171"
+  },
+  {
+    "archivo": "compatibles_32/prisma_restaurador.png",
+    "tamano": [
+      32,
+      32
+    ],
+    "tipo": "compatible_32",
+    "sha256": "1e317656280b6aab0763ba49bbe9d39b1685dfd35b1b50a05290ebb57ebc4d47"
+  },
+  {
+    "archivo": "objetos/cuarzo_luz.png",
+    "tamano": [
+      128,
+      128
+    ],
+    "tipo": "objeto",
+    "sha256": "614d60bb14912b38ffdb7a739443329a74b743a282885dd36f72ef4819229957"
+  },
+  {
+    "archivo": "compatibles_32/cuarzo_luz.png",
+    "tamano": [
+      32,
+      32
+    ],
+    "tipo": "compatible_32",
+    "sha256": "759ee232faa5ba1b46a97072f1f8ec3546f4f13a514925f6b72bea5052e9fb95"
+  },
+  {
+    "archivo": "medallas/pixel_maestro_bosque.png",
+    "tamano": [
+      128,
+      128
+    ],
+    "tipo": "medalla",
+    "sha256": "f08e0b4f60a54765497e7d7498df855ff4e6c5fd790e4688e28b83c1fa4c05e9"
+  },
+  {
+    "archivo": "compatibles_32/pixel_maestro_bosque.png",
+    "tamano": [
+      32,
+      32
+    ],
+    "tipo": "compatible_32",
+    "sha256": "128c1eee03eb98dd4c6721502e55cfc567078da2a7da6d7cf2ad9bd261f7d2fd"
+  },
+  {
+    "archivo": "medallas/pixel_maestro_costa.png",
+    "tamano": [
+      128,
+      128
+    ],
+    "tipo": "medalla",
+    "sha256": "4acfae6f68fc1d24dbb531ecb2edd55f345f36dd8453a4dfb874ab6ed7551e25"
+  },
+  {
+    "archivo": "compatibles_32/pixel_maestro_costa.png",
+    "tamano": [
+      32,
+      32
+    ],
+    "tipo": "compatible_32",
+    "sha256": "a524be4c848a4e1fb7597d649188eb6e08e80c16618333f8f75259dbc65cbe94"
+  },
+  {
+    "archivo": "medallas/pixel_maestro_volcan.png",
+    "tamano": [
+      128,
+      128
+    ],
+    "tipo": "medalla",
+    "sha256": "0c7484ca254adc9c42437b4ef58dd322aa855f5ccb4d9454be5ec0f4186acdbf"
+  },
+  {
+    "archivo": "compatibles_32/pixel_maestro_volcan.png",
+    "tamano": [
+      32,
+      32
+    ],
+    "tipo": "compatible_32",
+    "sha256": "a5b9abc9ba0bc742ebf988da08efcf129dfdc15340550937f3fb19df26d19c4f"
+  },
+  {
+    "archivo": "medallas/pixel_maestro_desierto.png",
+    "tamano": [
+      128,
+      128
+    ],
+    "tipo": "medalla",
+    "sha256": "1afcc56d6de539f0c0e80c97b068b15b96eb3baff9008825cca33afedf7562e6"
+  },
+  {
+    "archivo": "compatibles_32/pixel_maestro_desierto.png",
+    "tamano": [
+      32,
+      32
+    ],
+    "tipo": "compatible_32",
+    "sha256": "149ebafdf1d04243905fefa6111869ef7c6af3c4eb43d351f4d2b8ce908bb1dc"
+  },
+  {
+    "archivo": "medallas/pixel_maestro_cumbre_helada.png",
+    "tamano": [
+      128,
+      128
+    ],
+    "tipo": "medalla",
+    "sha256": "3df0838a36db43980d4949362fa683f21e8dd6d108ef2b56e3eb45d2fa9d1418"
+  },
+  {
+    "archivo": "compatibles_32/pixel_maestro_cumbre_helada.png",
+    "tamano": [
+      32,
+      32
+    ],
+    "tipo": "compatible_32",
+    "sha256": "d41d3f9604664166e67bef9d578982c1dbc9d275b2afbbc9b539c48c60e902e7"
+  },
+  {
+    "archivo": "medallas/pixel_maestro_ruinas.png",
+    "tamano": [
+      128,
+      128
+    ],
+    "tipo": "medalla",
+    "sha256": "f7bb181b6a83fd512045bafc21eac4afd969443a0ac8639c362d16a6c703bdde"
+  },
+  {
+    "archivo": "compatibles_32/pixel_maestro_ruinas.png",
+    "tamano": [
+      32,
+      32
+    ],
+    "tipo": "compatible_32",
+    "sha256": "929db192e6f56f91e7a901b9b3f5364b540b8fb0ab274df92b48dfb743dc1503"
+  },
+  {
+    "archivo": "mapa/mapa_mundo.png",
+    "tamano": [
+      960,
+      640
+    ],
+    "tipo": "mapa_mundo",
+    "sha256": "79c0e98f5a2b9858b80329466797d1c44426bfe939cd10ce950b6c08e8c248bb"
+  },
+  {
+    "archivo": "final/origen_arquitecto.png",
+    "tamano": [
+      960,
+      455
+    ],
+    "tipo": "escena_final",
+    "sha256": "7a528ef86dd2cc247dce12932b177eb4955fa71250c113b6a0162ad831d2e038"
+  }
+]
