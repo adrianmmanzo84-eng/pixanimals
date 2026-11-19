@@ -11,6 +11,8 @@ import { HD } from './hdLogico';
 export interface Punto {
   x: number;
   y: number;
+  /** Alto visible de la criatura en px del mundo (para ajustar escudos y efectos sobre ella). */
+  alto?: number;
   /** Altura de los pies de la criatura (para efectos que salen del suelo o caen sobre ella). */
   base?: number;
 }
@@ -138,6 +140,11 @@ export function crearTexturasEfectos(escena: Phaser.Scene): void {
 }
 
 const al = (a: number, b: number) => a + Math.random() * (b - a);
+
+/** Alto lógico (tamaño de antes del HD) de la textura de un efecto. */
+function i0Alto(s: Phaser.Scene, clave: string): number {
+  return s.textures.getFrame(clave).height / HD;
+}
 
 export class Efectos {
   constructor(
@@ -369,10 +376,14 @@ export class Efectos {
       // Apoyo, defensa o estado: sobre quien lo usa, o sobre el rival si es a él a quien afecta.
       const alRival = h.efectos.some((e) => (e.tipo === 'estado' || e.tipo === 'etapa') && e.objetivo === 'rival');
       const en = alRival ? el : yo;
-      const i = nuevo(en.x, en.y).setAlpha(0).setScale(0.6);
-      await this.tw({ targets: i, alpha: 1, scale: 1, duration: 200, ease: 'Back.easeOut' });
+      // Envuelve a la criatura: tamaño según su alto (ni enano ni gigante) y apoyado en sus pies, sin hundirse.
+      const altoFx = i0Alto(this.s, clave);
+      const k = en.alto ? Math.max(0.55, Math.min(1.25, (en.alto * 1.25) / altoFx)) : 1;
+      const y = en.base !== undefined ? Math.min(en.y, en.base + 3 - (altoFx * k) / 2) : en.y;
+      const i = nuevo(en.x, y).setAlpha(0).setScale(0.6 * k);
+      await this.tw({ targets: i, alpha: 1, scale: k, duration: 200, ease: 'Back.easeOut' });
       void this.subir(part, en, 4, 420, 16);
-      await this.avance(380, (t) => i.setScale(1 + 0.05 * Math.sin(t * Math.PI * 4)));
+      await this.avance(380, (t) => i.setScale(k * (1 + 0.05 * Math.sin(t * Math.PI * 4))));
       await this.desvanecer(i, 240, 0.15);
       return;
     }

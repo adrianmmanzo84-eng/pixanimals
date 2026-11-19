@@ -44,6 +44,16 @@ export function guardarIdioma(id: Idioma): void {
   ponerIdioma(id);
 }
 
+/** ¿Hay texto para esta clave (en el idioma actual o en español)? */
+export function hayTexto(clave: string): boolean {
+  return clave in actual || clave in IDIOMAS.es;
+}
+
+/** El texto de la primera clave que exista; si ninguna, el de la última (nunca muestra una clave cruda si hay respaldo). */
+export function tPrimera(claves: string[], vars: Record<string, string | number> = {}): string {
+  return t(claves.find(hayTexto) ?? claves[claves.length - 1]!, vars);
+}
+
 export function t(clave: string, vars: Record<string, string | number> = {}): string {
   const base = actual[clave] ?? IDIOMAS.es[clave] ?? clave;
   return base.replace(/\{(\w+)\}/g, (_, k: string) => String(vars[k] ?? `{${k}}`));

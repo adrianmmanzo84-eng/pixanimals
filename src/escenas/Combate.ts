@@ -28,7 +28,7 @@ import type { Habilidad, Item } from '../esquemas/esquemas';
 import { cantidad, quitar } from '../core/items/items';
 import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
-import { t } from '../i18n/i18n';
+import { t, tPrimera } from '../i18n/i18n';
 import { juego } from '../juego';
 import { altoVisible, ponerCriatura, textura } from '../ui/criaturas';
 import { cargarGrandes } from '../ui/hd';
@@ -448,7 +448,7 @@ export class Combate extends Phaser.Scene {
         case 'pasiva':
           // Las pasivas con nombre propio (alias) usan el mensaje de su mecánica.
           const clave = (DATOS.balance.pasivasAlias as Record<string, { mecanica: string } | undefined>)[e.pasiva]?.mecanica ?? e.pasiva;
-          await this.decir(t(`c.pasiva.${clave}`, { n: this.nom(e.lado) }));
+          await this.decir(tPrimera([`c.pasiva.${e.pasiva}`, `c.pasiva.${clave}`], { n: this.nom(e.lado) }));
           break;
         case 'estado_aplicado':
           sonido.tocar('estado');
@@ -484,7 +484,13 @@ export class Combate extends Phaser.Scene {
         case 'cura':
           sonido.tocar('cura');
           await Promise.all([this.fx.curar(this.centro(e.lado)), this.animarPs(e.lado, e.ps)]);
-          await this.decir(t(e.origen === 'pasiva' ? `c.curaPasiva.${this.bat.act(e.lado).especie.pasiva}` : 'c.cura', { n: this.nom(e.lado) }));
+          {
+            // Pasivas con nombre propio (micelio, geoda viva…): su texto si lo tiene; si no, el genérico. El de la
+            // mecánica («las raíces…») no sirve para todas.
+            const pas = this.bat.act(e.lado).especie.pasiva;
+            const claves = e.origen === 'pasiva' ? [`c.curaPasiva.${pas}`, 'c.cura'] : ['c.cura'];
+            await this.decir(tPrimera(claves, { n: this.nom(e.lado) }));
+          }
           break;
         case 'item':
           await this.girarHacia(e.lado);
@@ -1280,9 +1286,13 @@ export class Combate extends Phaser.Scene {
   }
 
   /** Centro del cuerpo visible de la criatura activa (los sprites se apoyan en la base de su lienzo). */
-  private centro(lado: Lado): { x: number; y: number; base: number } {
+  private centro(lado: Lado): { x: number; y: number; base: number; alto: number } {
     const p = this.pos(lado);
-    return { x: p.x, y: p.y + 32 - altoVisible(this.bat.act(lado).especie.id) / 2, base: p.y + 32 };
+    // Con la criatura achicada (escalaDe), los pies y el alto visible se escalan igual que el sprite.
+    const k = this.escalaDe(lado);
+    const base = p.y + PIES * k;
+    const alto = altoVisible(this.bat.act(lado).especie.id) * k;
+    return { x: p.x, y: base - alto / 2, base, alto };
   }
 
   /** Lugar en pantalla de cada lado: 0 = de espaldas abajo a la izquierda, 1 = de frente arriba a la derecha. */
