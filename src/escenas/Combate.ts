@@ -51,6 +51,7 @@ export interface ConfigCombate {
 interface Panel {
   x: number;
   y: number;
+  disp: Disposicion;
   nombre: Texto;
   nivel: Texto;
   ps: Texto;
@@ -89,13 +90,26 @@ const PIES = 31;
 const LIENZO = 96;
 const ORIGEN_Y = (LIENZO - 32) / LIENZO;
 /**
- * Paneles en diagonal, como el clásico: el del rival arriba a la izquierda y el tuyo abajo a la derecha.
- * Así cada criatura tiene casi toda la altura libre (las etapas finales miden hasta 86 px).
+ * Carteles de nombre y vida. Disposición normal, en diagonal como el clásico: el del rival arriba a la izquierda y el
+ * tuyo abajo a la derecha, así cada criatura tiene casi toda la altura libre (las etapas finales miden hasta 86 px).
+ * `puntos`: dónde empieza la fila de puntos del equipo (y hacia dónde crece); `extras`: marcas de estado y de bajas.
+ * Disposición «fila» (Mina y Cronoportal): las plataformas quedan arriba y el cartel del rival taparía a tu criatura,
+ * así que los dos carteles van abajo, cada uno bajo su criatura, y sus marcas ocupan el hueco del centro.
  */
-const PANEL = [
-  { x: 122, y: 82 },
-  { x: 2, y: 2 },
-] as const;
+interface Disposicion {
+  x: number;
+  y: number;
+  puntos: { x: number; y: number; paso: number };
+  extras: { x: number; y: number };
+}
+const DISPOSICION_NORMAL: readonly [Disposicion, Disposicion] = [
+  { x: 122, y: 82, puntos: { x: 116, y: 95, paso: -8 }, extras: { x: 70, y: 82 } },
+  { x: 2, y: 2, puntos: { x: 124, y: 15, paso: 8 }, extras: { x: 144, y: 2 } },
+];
+const DISPOSICION_FILA: readonly [Disposicion, Disposicion] = [
+  { x: 122, y: 88, puntos: { x: 126, y: 84, paso: 8 }, extras: { x: 172, y: 58 } },
+  { x: 2, y: 88, puntos: { x: 112, y: 84, paso: -8 }, extras: { x: 102, y: 58 } },
+];
 const MENU = ['menu.atacar', 'menu.bolsa', 'menu.equipo', 'menu.retirarse'];
 
 /**
@@ -109,6 +123,8 @@ export class Combate extends Phaser.Scene {
   private vivo = true;
   private sprites!: [Phaser.GameObjects.Image, Phaser.GameObjects.Image];
   /** Centro de las plataformas del fondo de este combate: donde apoyan los pies [tú, rival]. */
+  /** Disposición «fila» de los carteles (Mina y Cronoportal). */
+  private fila = false;
   private pies: [{ x: number; y: number }, { x: number; y: number }] = [PLATAFORMAS_BASE[0], PLATAFORMAS_BASE[1]];
   private paneles!: [Panel, Panel];
   private turnoTxt!: Texto;
@@ -237,6 +253,7 @@ export class Combate extends Phaser.Scene {
     if (guarida && this.textures.exists(guarida)) this.mundo.add(this.add.image(0, 0, guarida).setOrigin(0, 0).setScale(240 / 960)); else this.mundo.add(this.add.image(0, 0, fondo(this, modo === 'mina' ? 'volcan' : arena)).setOrigin(0, 0).setScale(0.25));
     const clavePlat = guarida && this.textures.exists(guarida) ? guarida : '';
     const plat = PLATAFORMAS[clavePlat] ?? PLATAFORMAS_BASE;
+    this.fila = !!clavePlat;
     this.pies = [plat[0], plat[1]];
     this.sprites = [
       this.add.image(plat[0].x - 120, plat[0].y - PIES * this.escalaDe(0), textura(yo.especie.id, 'espalda', yo.brillante)).setOrigin(0.5, ORIGEN_Y),
@@ -259,7 +276,8 @@ export class Combate extends Phaser.Scene {
       this.filtroBlur.active = false;
     }
     this.add.graphics().fillStyle(n(C.tinta), 1).fillRect(0, 110, 240, 50);
-    this.paneles = [this.crearPanel(PANEL[0].x, PANEL[0].y), this.crearPanel(PANEL[1].x, PANEL[1].y)];
+    const disp = clavePlat ? DISPOSICION_FILA : DISPOSICION_NORMAL;
+    this.paneles = [this.crearPanel(disp[0]), this.crearPanel(disp[1])];
     this.refrescarPanel(0);
     this.refrescarPanel(1);
     this.turnoTxt = new Texto(this, 4, 30, 116, 10, '#ffffff', 'izq', { borde: '#2b3a78' });
@@ -1111,13 +1129,15 @@ export class Combate extends Phaser.Scene {
 
   // ------------------------------------------------------------ dibujo
 
-  private crearPanel(x: number, y: number): Panel {
+  private crearPanel(d: Disposicion): Panel {
+    const { x, y } = d;
     const g = this.add.graphics();
     ventana(g, x, y, 116, 26, 0.95);
     new Texto(this, x + 6, y + 14, 12, 10, C.resalte).poner(t('ps'));
     return {
       x,
       y,
+      disp: d,
       nombre: new Texto(this, x + 6, y + 4, 80, 10),
       nivel: new Texto(this, x + 88, y + 4, 22, 10, C.tintaSuave, 'der'),
       ps: new Texto(this, x + 76, y + 14, 34, 10, C.tinta, 'der'),
@@ -1125,14 +1145,14 @@ export class Combate extends Phaser.Scene {
       puntos: this.add.graphics(),
       estadoFondo: this.add.graphics(),
       // El estado va fuera del panel, después de los puntos del equipo, para no tapar nombres largos.
-      estado: new Texto(this, x === PANEL[0].x ? x - 52 : x + 142, y + 8, 20, 10, C.papel, 'centro'),
-      estadoIco: pieza(this, 'estado_quemadura', (x === PANEL[0].x ? x - 52 : x + 142) + 5, y + 11.5, 8)?.setVisible(false) ?? null,
+      estado: new Texto(this, d.extras.x, d.extras.y + 8, 20, 10, C.papel, 'centro'),
+      estadoIco: pieza(this, 'estado_quemadura', d.extras.x + 5, d.extras.y + 11.5, 8)?.setVisible(false) ?? null,
       bajas: (['vel', 'atq'] as const).map((stat, i) => {
-        const bx = (x === PANEL[0].x ? x - 52 : x + 142) + i * 15;
+        const bx = d.extras.x + i * 15;
         return {
           stat,
-          ico: pieza(this, claveEstado(ESTADO_DE_STAT[stat]!), bx + 3.5, y + 22.5, 8)?.setVisible(false) ?? null,
-          txt: new Texto(this, bx + 7.5, y + 18, 9, 10, '#ffffff', 'izq', { tam: 5.8, peso: 600, borde: '#1f2340' }),
+          ico: pieza(this, claveEstado(ESTADO_DE_STAT[stat]!), bx + 3.5, d.extras.y + 22.5, 8)?.setVisible(false) ?? null,
+          txt: new Texto(this, bx + 7.5, d.extras.y + 18, 9, 10, '#ffffff', 'izq', { tam: 5.8, peso: 600, borde: '#1f2340' }),
         };
       }),
       mostrado: 0,
@@ -1180,8 +1200,8 @@ export class Combate extends Phaser.Scene {
     const equipo = this.bat.equipos[lado];
     p.puntos.clear();
     equipo.miembros.forEach((m, i) => {
-      const x = lado === 0 ? p.x - 6 - i * 8 : p.x + 122 + i * 8;
-      const y = p.y + 13;
+      const x = p.disp.puntos.x + i * p.disp.puntos.paso;
+      const y = p.disp.puntos.y;
       p.puntos.fillStyle(n(C.marco), 1).fillCircle(x, y, i === equipo.activo ? 3.4 : 2.8);
       p.puntos.fillStyle(m.ps > 0 ? C.psAlto : n(C.papel), 1).fillCircle(x, y, 2);
     });
@@ -1193,17 +1213,18 @@ export class Combate extends Phaser.Scene {
     p.estadoFondo.clear();
     // Bajas de stats (por ejemplo, de un Encanto): ícono y número de etapas; sin arte, una flecha con la sigla.
     const etapas = this.bat.act(lado).etapas;
-    const bx = p.x === PANEL[0].x ? p.x - 52 : p.x + 142;
+    const bx = p.disp.extras.x;
+    const ey = p.disp.extras.y;
     let k = 0;
     for (const b of p.bajas) {
       const n = etapas[b.stat];
       const baja = n < 0;
       const x0 = bx + k * 15;
-      b.ico?.setVisible(baja).setPosition(x0 + 3.5, p.y + 22.5);
+      b.ico?.setVisible(baja).setPosition(x0 + 3.5, ey + 22.5);
       b.txt.imagen.setX(x0 + 7.5);
       b.txt.poner(baja ? (b.ico ? `${n}` : `${t(`stat.abrev.${b.stat}`)}${n}`) : '');
       if (baja) {
-        p.estadoFondo.fillStyle(0x1f2340, 0.7).fillRoundedRect(x0 - 1, p.y + 18, 15, 9, 2);
+        p.estadoFondo.fillStyle(0x1f2340, 0.7).fillRoundedRect(x0 - 1, ey + 18, 15, 9, 2);
         k++;
       }
     }
@@ -1212,10 +1233,10 @@ export class Combate extends Phaser.Scene {
       p.estadoIco?.setVisible(false);
       return;
     }
-    const x = p.x === PANEL[0].x ? p.x - 52 : p.x + 142;
+    const x = p.disp.extras.x;
     // Con ícono, la píldora se alarga a la izquierda para que entre junto a la abreviatura.
     const ico = p.estadoIco && hayArte(this, claveEstado(est.id)) ? p.estadoIco : null;
-    p.estadoFondo.fillStyle(COLOR_ESTADO[est.id] ?? 0x566c86, 1).fillRoundedRect(ico ? x - 1 : x, p.y + 7, ico ? 28 : 20, 9, 2);
+    p.estadoFondo.fillStyle(COLOR_ESTADO[est.id] ?? 0x566c86, 1).fillRoundedRect(ico ? x - 1 : x, ey + 7, ico ? 28 : 20, 9, 2);
     ico?.setTexture(`ui_${claveEstado(est.id)}`).setVisible(true);
     p.estado.imagen.setX(ico ? x + 7 : x);
     p.estado.poner(t(`estado.abrev.${est.id}`));
@@ -1269,7 +1290,7 @@ export class Combate extends Phaser.Scene {
   private escalaDe(lado: Lado): number {
     const alto = altoVisible(this.bat.act(lado).especie.id);
     // Tu criatura (abajo a la izquierda) puede rozar apenas el cartel del rival, que llega hasta y 38.
-    const libre = this.pies[this.hueco(lado)].y - (this.hueco(lado) === 0 ? 34 : 3);
+    const libre = this.pies[this.hueco(lado)].y - (this.hueco(lado) === 0 && !this.fila ? 34 : 3);
     return Math.min(1, libre / alto);
   }
 
