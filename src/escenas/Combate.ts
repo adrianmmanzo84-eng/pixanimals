@@ -33,7 +33,7 @@ import { juego } from '../juego';
 import { altoVisible, ponerCriatura, textura } from '../ui/criaturas';
 import { cargarGrandes } from '../ui/hd';
 import { C, COLOR_ESTADO, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
-import { Efectos } from '../ui/efectos';
+import { Efectos, cargarEfectosDeAtaques } from '../ui/efectos';
 import { fondo, FONDO_POR_TIPO } from '../ui/fondos';
 import { partir, Texto } from '../ui/texto';
 
@@ -316,6 +316,8 @@ export class Combate extends Phaser.Scene {
   // ------------------------------------------------------------ flujo
 
   private async correr(): Promise<void> {
+    // Los efectos HD de los ataques se cargan a pedido: los de las criaturas en el campo, mientras entran.
+    void cargarEfectosDeAtaques(this, ([0, 1] as const).flatMap((l) => [...this.bat.act(l).habilidades.map((h) => h.def.id), ...(this.bat.act(l).definitivo ? [this.bat.act(l).definitivo!.id] : [])]));
     this.modoMensaje();
     await Promise.all([
       this.tween({ targets: this.sprites[0], x: this.pos(0).x, duration: 550, ease: 'Cubic.easeOut' }),

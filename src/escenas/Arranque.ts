@@ -1,3 +1,4 @@
+import { instalarHD } from '../ui/hdLogico';
 import { cargarAnimMina } from '../ui/animMina';
 import { cargarAnimaciones } from '../ui/animaciones';
 import Phaser from 'phaser';
@@ -20,6 +21,7 @@ export class Arranque extends Phaser.Scene {
   }
 
   preload(): void {
+    instalarHD();
     this.pantallaDeCarga();
     for (const id of FONDOS_ILUSTRADOS) this.load.image(`fondoimg_${id}`, `fondos/${id}.jpg`);
     cargarEfectosIlustrados(this);
@@ -49,7 +51,7 @@ export class Arranque extends Phaser.Scene {
     // Fondos propios de minijuego (960×640): pradera, bosque, volcan.
     for (const a of FONDOS_MINIJUEGO) this.load.image(`mj_${a}`, `fondos/minijuego_${a}.png`);
     for (const c of ['tierra', 'piedra', 'piedra_dura', 'roca', 'metal', 'grieta_1', 'grieta_2']) this.load.image(`golpe_${c}`, `mina/golpe_${c}.png`);
-    this.load.spritesheet('mina_bloques', 'mina/bloques.png', { frameWidth: 16, frameHeight: 16 });
+    this.load.spritesheet('mina_bloques', 'mina/bloques.png', { frameWidth: 64, frameHeight: 64 });
     for (const c of DATOS.criaturas.values()) {
       this.load.image(`${c.sprites}_frente`, `sprites/${c.sprites}_frente.png`);
       this.load.image(`${c.sprites}_espalda`, `sprites/${c.sprites}_espalda.png`);
@@ -76,7 +78,7 @@ export class Arranque extends Phaser.Scene {
     prepararTexturasCriaturas(this);
     crearTexturasEfectos(this);
     prepararArteUI(this);
-    if (this.textures.exists('carta_dorso')) this.textures.get('carta_dorso').setFilter(Phaser.Textures.FilterMode.NEAREST);
+    if (this.textures.exists('carta_dorso')) this.textures.get('carta_dorso').setFilter(Phaser.Textures.FilterMode.LINEAR);
     this.scene.start('Titulo');
   }
 }

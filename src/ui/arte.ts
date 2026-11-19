@@ -17,9 +17,13 @@ export function cargarArteUI(escena: Phaser.Scene): void {
   for (const [clave, p] of Object.entries(PIEZAS)) escena.load.image(`ui_${clave}`, p.ruta);
 }
 
-/** Pixel art: se amplía sin suavizado. */
+/** Pixel art chico: se amplía sin suavizado. El arte HD (más de 64 px) se reduce con suavizado. */
 export function prepararArteUI(escena: Phaser.Scene): void {
-  for (const clave of Object.keys(PIEZAS)) if (escena.textures.exists(`ui_${clave}`)) escena.textures.get(`ui_${clave}`).setFilter(Phaser.Textures.FilterMode.NEAREST);
+  for (const clave of Object.keys(PIEZAS)) {
+    if (!escena.textures.exists(`ui_${clave}`)) continue;
+    const f = escena.textures.getFrame(`ui_${clave}`);
+    escena.textures.get(`ui_${clave}`).setFilter(Math.max(f.width, f.height) > 64 ? Phaser.Textures.FilterMode.LINEAR : Phaser.Textures.FilterMode.NEAREST);
+  }
 }
 
 export function hayArte(escena: Phaser.Scene, clave: string): boolean {
@@ -41,7 +45,9 @@ export function pieza(escena: Phaser.Scene, clave: string, x: number, y: number,
     if (Math.abs(Math.log((tam * 4) / Math.max(chica.width, chica.height))) < Math.abs(Math.log((tam * 4) / Math.max(grande.width, grande.height)))) usar = mini;
   }
   const img = escena.add.image(x, y, `ui_${usar}`);
-  img.setScale(escalaNitida(tam / Math.max(img.width, img.height), 1.25));
+  const lado = Math.max(img.width, img.height);
+  // Pixel art chico (≤64 px): escala entera de pantalla. Arte HD (D261): la escala exacta, con suavizado.
+  img.setScale(lado <= 64 ? escalaNitida(tam / lado, 1.25) : tam / lado);
   contenedor?.add(img);
   return img;
 }
@@ -64,7 +70,8 @@ export const ESTADO_DE_STAT: Partial<Record<StatId, 'lentitud' | 'debilidad'>> =
  */
 export function marcoCarta(escena: Phaser.Scene, cont: Phaser.GameObjects.Container, rareza: string, brillante: boolean, clave = claveMarco(rareza)): void {
   const marco = pieza(escena, clave, 0, 0, 88, cont);
-  if (marco) marco.setScale(1);
+  // El marco mide 64×88 en el mundo; en HD (256×352) se ajusta al alto.
+  if (marco) marco.setScale(88 / marco.height);
   if (brillante) pieza(escena, 'brillante', 22, -34, 16, cont);
 }
 

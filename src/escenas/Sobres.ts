@@ -100,7 +100,10 @@ export class Sobres extends Phaser.Scene {
     for (let k = 0; k < FILAS; k++) {
       const y = Y0 + k * ALTO_FILA;
       // Miniatura del sobre (32×44 dibujados al doble: 16×22) y la estrella de descuento semanal.
-      if (hayArte(this, 'sobre_basico_mini')) this.minis.push(this.add.image(15, y + 11, 'ui_sobre_basico_mini').setScale(0.5));
+      if (hayArte(this, 'sobre_basico_mini')) {
+        const mini = this.add.image(15, y + 11, 'ui_sobre_basico_mini');
+        this.minis.push(mini.setScale(16 / mini.width));
+      }
       const rebaja = pieza(this, 'descuento_semana', 113, y + 11, 9);
       if (rebaja) this.rebajas.push(rebaja.setVisible(false));
       this.nombres.push(new Texto(this, 26, y + 3, 84, 10));

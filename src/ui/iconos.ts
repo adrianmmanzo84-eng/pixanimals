@@ -10,7 +10,9 @@ import { claveItem, hayArte } from './arte';
 export function arteSobre(g: Phaser.GameObjects.Graphics, clave: string, x: number, y: number, tam: number): boolean {
   if (!hayArte(g.scene, clave)) return false;
   const p = g.getLocalTransformMatrix().transformPoint(x, y);
-  const img = g.scene.add.image(p.x, p.y, `ui_${clave}`).setRotation(g.rotation).setScale((tam / 32) * g.scaleX);
+  const img = g.scene.add.image(p.x, p.y, `ui_${clave}`).setRotation(g.rotation);
+  // Antes todas las piezas medían 32 px; las HD miden más (D261): se ajusta al lado real.
+  img.setScale((tam / Math.max(32, img.width, img.height)) * g.scaleX);
   const cont = g.parentContainer;
   if (cont) cont.addAt(img, cont.getIndex(g) + 1);
   else img.setDepth(g.depth);

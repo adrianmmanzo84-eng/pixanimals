@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import type { Animacion, EstadoId, Habilidad } from '../esquemas/esquemas';
 import EFECTOS_ATAQUE from './efectos-ataques.json';
+import { HD } from './hdLogico';
 
 /**
  * Efectos de ataque en pixel art. Cada partícula es un mini-sprite dibujado por código
@@ -33,11 +34,43 @@ export function tieneEfectoPropio(id: string): boolean {
 }
 
 export function cargarEfectosIlustrados(escena: Phaser.Scene): void {
+  // Los efectos de cada ataque son HD (D261) y pesan mucho: se cargan a pedido, al empezar el combate.
   for (const n of EFECTOS_ILUSTRADOS) escena.load.image(`fximg_${n}`, `efectos/${n}.png`);
-  for (const [id, e] of Object.entries(ATAQUES)) {
-    if (e.impacto) escena.load.image(`fxat_${id}`, `efectos/ataques/${id}.png`);
-    if (e.pantalla) escena.load.image(`fxat_${id}_pantalla`, `efectos/ataques/${id}_pantalla.png`);
+}
+
+const enCarga = new Map<string, Promise<void>>();
+
+/**
+ * Carga (si hace falta) los efectos propios de estos ataques. Devuelve cuando ya se pueden usar; si algo falla,
+ * el ataque usa su animación compartida de siempre.
+ */
+export function cargarEfectosDeAtaques(escena: Phaser.Scene, ids: Iterable<string>): Promise<void> {
+  const pedidos: Promise<void>[] = [];
+  for (const id of new Set(ids)) {
+    const e = ATAQUES[id];
+    if (!e?.impacto) continue;
+    const claves = [`fxat_${id}`, ...(e.pantalla ? [`fxat_${id}_pantalla`] : [])];
+    const faltan = claves.filter((c) => !escena.textures.exists(c));
+    if (!faltan.length) continue;
+    let p = enCarga.get(id);
+    if (!p) {
+      p = new Promise<void>((listo) => {
+        const carga = escena.load;
+        faltan.forEach((c) => carga.image(c, `efectos/ataques/${c.slice(5)}.webp`));
+        const terminar = () => {
+          carga.off(Phaser.Loader.Events.COMPLETE, terminar);
+          for (const c of faltan) if (escena.textures.exists(c)) escena.textures.get(c).setFilter(Phaser.Textures.FilterMode.LINEAR);
+          enCarga.delete(id);
+          listo();
+        };
+        carga.once(Phaser.Loader.Events.COMPLETE, terminar);
+        if (!carga.isLoading()) carga.start();
+      });
+      enCarga.set(id, p);
+    }
+    pedidos.push(p);
   }
+  return Promise.all(pedidos).then(() => undefined);
 }
 
 const PALETA: Record<string, string> = {
@@ -86,12 +119,7 @@ const COLOR_GARRA: Record<string, [number, number]> = {
 /** Crea una vez las texturas de partículas, con filtro "vecino más cercano" para que se vea el píxel. */
 export function crearTexturasEfectos(escena: Phaser.Scene): void {
   for (const n of EFECTOS_ILUSTRADOS) {
-    if (escena.textures.exists(`fximg_${n}`)) escena.textures.get(`fximg_${n}`).setFilter(Phaser.Textures.FilterMode.NEAREST);
-  }
-  for (const id of Object.keys(ATAQUES)) {
-    for (const clave of [`fxat_${id}`, `fxat_${id}_pantalla`]) {
-      if (escena.textures.exists(clave)) escena.textures.get(clave).setFilter(Phaser.Textures.FilterMode.NEAREST);
-    }
+    if (escena.textures.exists(`fximg_${n}`)) escena.textures.get(`fximg_${n}`).setFilter(Phaser.Textures.FilterMode.LINEAR);
   }
   for (const [nombre, filas] of Object.entries(MAPAS)) {
     const clave = `fx_${nombre}`;
@@ -318,6 +346,7 @@ export class Efectos {
    * se reflejan cuando el ataque va hacia la izquierda.
    */
   async ataque(h: Habilidad, yo: Punto, el: Punto): Promise<boolean> {
+    await cargarEfectosDeAtaques(this.s, [h.id]);
     if (!this.s.textures.exists(`fxat_${h.id}`)) return false;
     try {
       await this.moverAtaque(h, yo, el);
@@ -381,13 +410,14 @@ export class Efectos {
    * y luego el impacto estalla grande sobre el rival. Devuelve false si no hay dibujo.
    */
   async definitivo(h: Habilidad, yo: Punto, el: Punto, color: number): Promise<boolean> {
+    await cargarEfectosDeAtaques(this.s, [h.id]);
     if (!this.s.textures.exists(`fxat_${h.id}`)) return false;
     const dir = Math.sign(el.x - yo.x) || 1;
     const cam = this.s.cameras.main;
     try {
       if (this.s.textures.exists(`fxat_${h.id}_pantalla`)) {
         const p = this.s.add.image(120, 80, `fxat_${h.id}_pantalla`).setFlipX(dir < 0).setAlpha(0);
-        if (p.height >= 150) {
+        if (p.height / HD >= 150) {
           // Escena completa de 240×160 (familias 14 a 33): tapa toda la pantalla, interfaz incluida, un instante,
           // con su propio temblor (está fuera del mundo que tiembla) y un poco de margen para que no se vean bordes.
           p.setDepth(1000).setScale(1.06);
@@ -400,7 +430,7 @@ export class Efectos {
         } else {
           this.capa.add(p);
           // Cubre todo el campo de combate (sobre el cuadro de texto) con margen para el temblor, sin acercar la cámara.
-          const cubre = Math.max(264 / p.width, 134 / p.height);
+          const cubre = Math.max(264 / (p.width / HD), 134 / (p.height / HD));
           p.setPosition(120, 55).setScale(cubre);
           this.temblar(1300, 0.035);
           await this.tw({ targets: p, alpha: 1, duration: 200, ease: 'Cubic.easeOut' });
