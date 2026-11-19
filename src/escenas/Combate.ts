@@ -127,6 +127,7 @@ export class Combate extends Phaser.Scene {
   private fila = false;
   private pies: [{ x: number; y: number }, { x: number; y: number }] = [PLATAFORMAS_BASE[0], PLATAFORMAS_BASE[1]];
   private paneles!: [Panel, Panel];
+  private capaPaneles!: Phaser.GameObjects.Container;
   private turnoTxt!: Texto;
   private fx!: Efectos;
   /** Todo lo que «filma» la cámara: fondo, criaturas y efectos. La interfaz queda fuera y no se mueve. */
@@ -277,7 +278,10 @@ export class Combate extends Phaser.Scene {
     }
     this.add.graphics().fillStyle(n(C.tinta), 1).fillRect(0, 110, 240, 50);
     const disp = clavePlat ? DISPOSICION_FILA : DISPOSICION_NORMAL;
+    const antes = new Set(this.children.list);
     this.paneles = [this.crearPanel(disp[0]), this.crearPanel(disp[1])];
+    // Los carteles se agrupan para poder ocultarlos enteros durante el turno (D257).
+    this.capaPaneles = this.add.container(0, 0, this.children.list.filter((o) => !antes.has(o)));
     this.refrescarPanel(0);
     this.refrescarPanel(1);
     this.turnoTxt = new Texto(this, 4, 30, 116, 10, '#ffffff', 'izq', { borde: '#2b3a78' });
@@ -347,6 +351,8 @@ export class Combate extends Phaser.Scene {
         await this.resultado(true);
         return;
       }
+      this.capaPaneles.setVisible(false);
+      this.turnoTxt.visible(false);
       // Golpe justo: si el ataque hace daño, la barra decide cuánto más fuerte pega (solo para ti).
       const mult = accionConDano(this.bat, 0, accion) ? await this.golpeJusto() : 1;
       if (!this.vivo) return;
@@ -356,6 +362,8 @@ export class Combate extends Phaser.Scene {
       const eventos = this.bat.ejecutarTurno(accion, rival);
       this.bat.potenciador = [1, 1];
       await this.reproducir(eventos);
+      this.capaPaneles.setVisible(true);
+      this.turnoTxt.visible(true);
       // Quien perdió a su criatura activa elige reemplazo antes del turno siguiente.
       while (this.vivo && this.bat.pendientes.length) {
         const lado = this.bat.pendientes[0]!;
