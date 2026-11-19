@@ -18,7 +18,7 @@ describe('jefes', () => {
     for (const tipo of DATOS.tipos.keys()) if (tipo !== 'neutro') expect(jefes.filter((j) => j.jefe === 'semanal' && j.tipo === tipo)).toHaveLength(2);
     for (const j of jefes) expect(DATOS.jugables).not.toContain(j);
     expect(DATOS.jugables.filter((c) => !c.origen)).toHaveLength(165);
-    expect(new Set(jefes.map((j) => j.sprites)).size).toBe(20);
+    expect(new Set(jefes.map((j) => j.sprites)).size).toBe(21);
   });
 
   it('ningún jefe es más débil que una forma final normal (520) y los Guardianes pasan de 600', () => {
@@ -65,7 +65,7 @@ describe('jefes', () => {
     expect(registrarJefe(DATOS, e, 'caldrak')).toBe(true);
     expect(registrarJefe(DATOS, e, 'caldrak')).toBe(false);
     expect(registrarJefe(DATOS, e, 'solarion')).toBe(false);
-    expect(progresoJefes(DATOS, e)).toEqual({ vencidos: 1, total: 20 });
+    expect(progresoJefes(DATOS, e)).toEqual({ vencidos: 1, total: 21 });
     expect(progresoMedalla(DATOS, e, 'jefes')).toBe(1);
   });
 

@@ -7,14 +7,16 @@ import { cobrarPaso, pasoActual, PASOS_GUIA } from '../src/core/progresion/guia'
 
 describe('Primeros pasos', () => {
   it('empieza después de elegir la primera carta', () => {
-    const e = estadoNuevo(DATOS, 0);
+    // Partida de antes de la historia: la guía de Primeros pasos sigue para ellas.
+    const e = { ...estadoNuevo(DATOS, 0), historia: undefined };
     expect(pasoActual(e)).toBeNull();
     e.bienvenida = true;
     expect(pasoActual(e)?.id).toBe('combate');
   });
 
   it('se cobran en orden, cada uno con su premio, y el último da un Sobre Raro', () => {
-    const e = estadoNuevo(DATOS, 0);
+    // Partida de antes de la historia: la guía de Primeros pasos sigue para ellas.
+    const e = { ...estadoNuevo(DATOS, 0), historia: undefined };
     e.bienvenida = true;
     expect(cobrarPaso(DATOS, e)).toBeNull();
     e.estadisticas.victorias = 1;
@@ -45,5 +47,10 @@ describe('Primeros pasos', () => {
     const nueva = { ...estadoNuevo(DATOS, 0), version: 8 } as Record<string, unknown>;
     delete nueva.guia;
     expect(EstadoJuegoZ.parse(migrar(nueva)).guia.paso).toBe(0);
+  });
+  it('con la historia en curso, la guía no se muestra (la reemplaza la historia)', () => {
+    const e = estadoNuevo(DATOS, 0);
+    e.bienvenida = true;
+    expect(pasoActual(e)).toBeNull();
   });
 });

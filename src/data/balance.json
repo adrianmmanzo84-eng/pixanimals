@@ -223,6 +223,10 @@
     "pelaje_eterno": {
       "nombre": "Pelaje Eterno",
       "mecanica": "raices"
+    },
+    "ultimo_trazo": {
+      "nombre": "Último Trazo",
+      "mecanica": "ultimo_rescoldo"
     }
   },
   "definitivo": {

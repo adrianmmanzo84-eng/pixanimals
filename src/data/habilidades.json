@@ -7063,6 +7063,98 @@
       "precision": null,
       "usos": 1,
       "efectos": []
+    },
+    {
+      "id": "borron",
+      "nombre": "Borrón",
+      "tipo": "neutro",
+      "categoria": "especial",
+      "rol": "ofensiva",
+      "potencia": 60,
+      "precision": 100,
+      "usos": 20,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": -1,
+          "prob": 20,
+          "objetivo": "rival"
+        }
+      ],
+      "animacion": "mirada"
+    },
+    {
+      "id": "zarpa_del_vacio",
+      "nombre": "Zarpa del Vacío",
+      "tipo": "sombra",
+      "categoria": "fisica",
+      "rol": "ofensiva",
+      "potencia": 70,
+      "precision": 95,
+      "usos": 15,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "def",
+          "delta": -1,
+          "prob": 15,
+          "objetivo": "rival"
+        }
+      ],
+      "animacion": "zarpazo"
+    },
+    {
+      "id": "lienzo_gris",
+      "nombre": "Lienzo Gris",
+      "tipo": "neutro",
+      "categoria": "estado",
+      "rol": "soporte",
+      "potencia": 0,
+      "precision": null,
+      "usos": 10,
+      "efectos": [
+        {
+          "tipo": "etapa",
+          "stat": "atq",
+          "delta": -1,
+          "prob": 100,
+          "objetivo": "rival"
+        },
+        {
+          "tipo": "etapa",
+          "stat": "ate",
+          "delta": -1,
+          "prob": 100,
+          "objetivo": "rival"
+        }
+      ],
+      "animacion": "brillo"
+    },
+    {
+      "id": "colapso_cromatico",
+      "nombre": "Colapso Cromático",
+      "tipo": "neutro",
+      "categoria": "especial",
+      "rol": "final",
+      "potencia": 120,
+      "precision": 90,
+      "usos": 5,
+      "enfriamiento": 4,
+      "efectos": [],
+      "animacion": "corriente"
+    },
+    {
+      "id": "lienzo_en_blanco",
+      "nombre": "Lienzo en Blanco",
+      "tipo": "neutro",
+      "categoria": "especial",
+      "rol": "definitivo",
+      "potencia": 0,
+      "precision": null,
+      "usos": 1,
+      "efectos": [],
+      "animacion": "mirada"
     }
   ]
 }

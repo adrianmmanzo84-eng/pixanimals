@@ -539,6 +539,33 @@
       "descripcion": "Guardián de las ruinas. Garza ancestral frente a la puerta que no se abre.",
       "evoluciona": [],
       "sprites": "guardian_6"
+    },
+    {
+      "id": "arquitecto",
+      "nombre": "El Arquitecto",
+      "tipo": "neutro",
+      "familia": "arquitecto",
+      "etapa": 4,
+      "jefe": "final",
+      "pasiva": "ultimo_trazo",
+      "base": {
+        "ps": 130,
+        "atq": 140,
+        "def": 110,
+        "ate": 150,
+        "dfe": 110,
+        "vel": 110
+      },
+      "habilidades": [
+        "borron",
+        "zarpa_del_vacio",
+        "lienzo_gris",
+        "colapso_cromatico"
+      ],
+      "definitivo": "lienzo_en_blanco",
+      "descripcion": "Origen del Eclipse. Quiere un mundo quieto y sin color: un lienzo en blanco.",
+      "evoluciona": [],
+      "sprites": "arquitecto_1"
     }
   ]
 }

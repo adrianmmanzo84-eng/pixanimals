@@ -35,12 +35,19 @@ import { cargarGrandes } from '../ui/hd';
 import { C, COLOR_ESTADO, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
 import { Efectos, cargarEfectosDeAtaques } from '../ui/efectos';
 import { fondo, FONDO_POR_TIPO } from '../ui/fondos';
+import { equipoFinal, equipoParada, ganarFinal, ganarParada, regionTerminada, type Parada } from '../core/modos/historia';
+import { claveFondoRegion } from './HistoriaRegion';
+import { texturaGris } from '../ui/arteHistoria';
 import { partir, Texto } from '../ui/texto';
 
 export interface ConfigCombate {
   ia: NivelIA;
   /** rapido: rival parejo al azar; torre: el piso `piso`; entrenador: el Entrenador del día; semanal: el Jefe de la semana; desafio: el Desafío del día (equipo prestado, igual para todos). */
-  modo?: 'rapido' | 'torre' | 'entrenador' | 'semanal' | 'desafio' | 'mina' | 'crono';
+  modo?: 'rapido' | 'torre' | 'entrenador' | 'semanal' | 'desafio' | 'mina' | 'crono' | 'historia';
+  /** historia: región y parada (0 Jefe A, 2 Jefe B, 3 Guardián), o el combate final. */
+  region?: number;
+  parada?: number;
+  final?: boolean;
   piso?: number;
   /** mina: zona de la guarida cuyo monstruo se enfrenta. */
   zona?: number;
@@ -83,6 +90,11 @@ const PLATAFORMAS: Record<string, Plataformas> = {
   crono_era3: [{ x: 53, y: 81 }, { x: 182, y: 55 }],
   crono_era4: [{ x: 50, y: 84 }, { x: 180, y: 46 }],
   crono_era5: [{ x: 52, y: 86 }, { x: 180, y: 54 }],
+  // Modo Historia: centros de los círculos que entregó el autor (posiciones_combate.json, ÷4).
+  fondoimg_desierto: [{ x: 61.5, y: 84 }, { x: 179.25, y: 52.5 }],
+  fondoimg_cumbre_helada: [{ x: 60.25, y: 83.25 }, { x: 177.5, y: 57.25 }],
+  fondoimg_ruinas: [{ x: 58.75, y: 83.75 }, { x: 183.75, y: 55.75 }],
+  fondoimg_origen_eclipse: [{ x: 58.75, y: 83.75 }, { x: 180.5, y: 56.25 }],
 };
 /** Los pies del dibujo quedan 31 px bajo el ancla del sprite (lienzo de 96, origen a 64 px, base a 1 px del borde). */
 const PIES = 31;
@@ -216,6 +228,10 @@ export class Combate extends Phaser.Scene {
             ? equipoSemanal(DATOS, Date.now(), mios)
             : modo === 'mina'
               ? equipoGuarida(DATOS, this.cfg.zona ?? 1, mios.length)
+              : modo === 'historia'
+                ? this.cfg.final
+                  ? equipoFinal(DATOS, mios)
+                  : equipoParada(DATOS, this.cfg.region ?? 0, (this.cfg.parada ?? 0) as Parada, mios)
               : ex && nodoCrono
                 ? rivalesNodo(DATOS, ex.era, nodoCrono, ex.semilla, mios.length)
                 : generarRival(DATOS, mios, rng);
@@ -226,12 +242,12 @@ export class Combate extends Phaser.Scene {
     if (ex) this.bat.regla = reglaDe(DATOS, ex.era);
     // Ataque Definitivo: siempre para ti; entre los rivales, solo jefes de la Torre y el Entrenador del día, que lo cargan avisando.
     const jefe = modo === 'torre' && datosPiso(DATOS, this.cfg.piso ?? 1, 1).jefe;
-    this.bat.definitivoPermitido = [true, ((modo === 'entrenador' || modo === 'semanal') && !this.esPrevia()) || modo === 'mina' || jefe || nodoCrono?.tipo === 'jefe'];
+    this.bat.definitivoPermitido = [true, ((modo === 'entrenador' || modo === 'semanal') && !this.esPrevia()) || modo === 'mina' || modo === 'historia' || jefe || nodoCrono?.tipo === 'jefe'];
     this.bat.definitivoConCarga = [false, true];
     // Cada modo tiene su música; el combate rápido alterna entre tres canciones.
     const pisoTorre = modo === 'torre' ? datosPiso(DATOS, this.cfg.piso ?? 1, 1) : null;
     musica.tocar(
-      pisoTorre ? (pisoTorre.guardian ? 'guardian' : pisoTorre.jefe ? 'jefe' : 'torre') : modo === 'entrenador' ? 'entrenador' : modo === 'semanal' ? 'semanal' : modo === 'desafio' ? 'torre' : modo === 'mina' || nodoCrono?.tipo === 'jefe' ? 'jefe' : ['combate', 'combate2', 'combate3'][Math.floor(Math.random() * 3)]!,
+      pisoTorre ? (pisoTorre.guardian ? 'guardian' : pisoTorre.jefe ? 'jefe' : 'torre') : modo === 'entrenador' ? 'entrenador' : modo === 'semanal' ? 'semanal' : modo === 'desafio' ? 'torre' : modo === 'historia' ? (this.cfg.final || this.cfg.parada === 3 ? 'guardian' : 'jefe') : modo === 'mina' || nodoCrono?.tipo === 'jefe' ? 'jefe' : ['combate', 'combate2', 'combate3'][Math.floor(Math.random() * 3)]!,
     );
     this.verRival();
 
@@ -250,9 +266,15 @@ export class Combate extends Phaser.Scene {
     this.mundo = this.add.container(0, 0);
     // La guarida de la Mina usa su propio fondo (960×455, como los demás fondos de combate).
     const exCrono = modo === 'crono' ? juego.estado.crono?.expedicion : undefined;
-    const guarida = modo === 'mina' ? `mina_guarida${this.cfg.zona ?? 1}` : exCrono ? `crono_era${exCrono.era}` : '';
-    if (guarida && this.textures.exists(guarida)) this.mundo.add(this.add.image(0, 0, guarida).setOrigin(0, 0).setScale(240 / 960)); else this.mundo.add(this.add.image(0, 0, fondo(this, modo === 'mina' ? 'volcan' : arena)).setOrigin(0, 0).setScale(0.25));
-    const clavePlat = guarida && this.textures.exists(guarida) ? guarida : '';
+    const regionH = modo === 'historia' && !this.cfg.final ? DATOS.historia.regiones[this.cfg.region ?? 0]! : null;
+    // Historia: el paisaje de la región (gris hasta vencer a su Guardián, D260) o el Origen del Eclipse.
+    const fondoH = modo === 'historia' ? claveFondoRegion(this, this.cfg.final ? DATOS.historia.final.fondo : regionH!.fondo) : '';
+    const guarida = modo === 'mina' ? `mina_guarida${this.cfg.zona ?? 1}` : exCrono ? `crono_era${exCrono.era}` : fondoH;
+    if (guarida && this.textures.exists(guarida)) {
+      const img = this.add.image(0, 0, regionH && !regionTerminada(juego.estado, regionH) ? texturaGris(this, guarida) : guarida).setOrigin(0, 0);
+      this.mundo.add(img.setScale(240 / this.textures.get(guarida).getSourceImage().width));
+    } else this.mundo.add(this.add.image(0, 0, fondo(this, modo === 'mina' ? 'volcan' : arena)).setOrigin(0, 0).setScale(0.25));
+    const clavePlat = guarida && PLATAFORMAS[guarida] ? guarida : '';
     const plat = PLATAFORMAS[clavePlat] ?? PLATAFORMAS_BASE;
     this.fila = !!clavePlat;
     this.pies = [plat[0], plat[1]];
@@ -327,6 +349,10 @@ export class Combate extends Phaser.Scene {
     if (this.esPrevia()) await this.decir(t(`c.estacion.${this.cfg.modo}`, { n: this.cfg.estacion! + 1 }));
     else if (this.cfg.modo === 'entrenador') await this.decir(t('c.entrenador', { n: entrenadorDelDia(DATOS, Date.now()).nombre }));
     else if (this.cfg.modo === 'semanal') await this.decir(t('c.semanal', { n: this.nom(1), t: DATOS.tipos.get(tipoDeLaSemana(DATOS, Date.now()))!.nombre }));
+    if (this.cfg.modo === 'historia') {
+      if (this.cfg.final) await this.decir(t('hist.final.combate'));
+      else await this.decir(t(`hist.${DATOS.historia.regiones[this.cfg.region ?? 0]!.id}.${this.cfg.parada ?? 0}`));
+    }
     if (this.cfg.modo === 'torre') {
       const p = datosPiso(DATOS, this.cfg.piso ?? 1, 1);
       await this.decir(t(p.jefe ? 'c.torreJefe' : 'c.torre', { n: p.piso }));
@@ -672,6 +698,27 @@ export class Combate extends Phaser.Scene {
       else extra.push(t('fin.guaridaMonedas', { n: p.monedas }));
       this.insignia(this.rivalInicial, extra);
     }
+    let volverHistoria: { escena: string; datos: object } | null = null;
+    if (modo === 'historia') {
+      const nombreSobreH = (id?: string) => (id ? DATOS.sobres.sobres.find((s) => s.id === id)?.nombre ?? id : '');
+      if (this.cfg.final) {
+        const p = !retirada && r.victoria ? ganarFinal(DATOS, juego.estado) : null;
+        if (p) extra.push(t('hist.fin.final', { n: p.monedas ?? 0, s: nombreSobreH(p.sobre) }));
+        if (!retirada && r.victoria) this.insignia(this.rivalInicial, extra);
+        volverHistoria = p ? { escena: 'Historia', datos: { fin: true } } : { escena: 'Historia', datos: {} };
+      } else {
+        const i = this.cfg.region ?? 0;
+        const reg = DATOS.historia.regiones[i]!;
+        if (!retirada && r.victoria) {
+          const p = ganarParada(DATOS, juego.estado, i, (this.cfg.parada ?? 0) as Parada);
+          if (p.monedas) extra.push(t('hist.fin.parada', { n: p.monedas }));
+          if (p.region) extra.push(t('hist.fin.pixel', { r: t(`hist.region.${reg.id}`), n: p.region.monedas ?? 0, s: nombreSobreH(p.region.sobre) }));
+          if (p.abiertos.length) extra.push(t('hist.fin.abiertos', { m: p.abiertos.map((m) => t(`hist.modo.${m}`)).join(', ') }));
+          this.insignia(this.rivalInicial, extra);
+        }
+        volverHistoria = { escena: 'HistoriaRegion', datos: { region: i } };
+      }
+    }
     if (modo === 'entrenador' && !retirada && !previa) {
       const p = resultadoEntrenador(DATOS, juego.estado, r.victoria, Date.now());
       if (p.monedas) extra.push(t('fin.entrenador', { n: p.monedas }));
@@ -716,7 +763,7 @@ export class Combate extends Phaser.Scene {
       if (a !== 'a' && a !== 'b') return;
       sonido.tocar('aceptar');
       // Al ganar se elige una carta premio. La Torre y los caminos vuelven a su mapa.
-      const volver = modo === 'torre' ? { escena: 'Torre', datos: { subio: r.victoria } } : modo === 'entrenador' || modo === 'semanal' ? { escena: 'Ruta', datos: { modo, avanzo: r.victoria } } : null;
+      const volver = volverHistoria ?? (modo === 'torre' ? { escena: 'Torre', datos: { subio: r.victoria } } : modo === 'entrenador' || modo === 'semanal' ? { escena: 'Ruta', datos: { modo, avanzo: r.victoria } } : null);
       if (r.victoria) this.scene.start('Premio', volver ? { volver } : { submenu: 'combates' });
       else if (volver) this.scene.start(volver.escena, volver.datos);
       else this.scene.start('Menu', { submenu: 'combates' });

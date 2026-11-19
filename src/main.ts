@@ -27,6 +27,8 @@ import { Titulo } from './escenas/Titulo';
 import { Minijuegos } from './escenas/Minijuegos';
 import { Misiones } from './escenas/Misiones';
 import { Ruleta } from './escenas/Ruleta';
+import { Historia } from './escenas/Historia';
+import { HistoriaRegion } from './escenas/HistoriaRegion';
 import { MiniBayas } from './escenas/minijuegos/Bayas';
 import { MiniEco } from './escenas/minijuegos/Eco';
 import { MiniGolpe } from './escenas/minijuegos/Golpe';
@@ -218,7 +220,7 @@ async function iniciar(): Promise<void> {
     banner: false,
     audio: { noAudio: true },
     scale: { mode: Phaser.Scale.NONE },
-    scene: [Arranque, Titulo, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, MiniMina, Ataques, Torre, Ruta, Cronoportal, CronoMapa, Misiones, Desafio, Coleccion, Expediciones, Ruleta],
+    scene: [Arranque, Titulo, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, MiniMina, Ataques, Torre, Ruta, Cronoportal, CronoMapa, Misiones, Desafio, Coleccion, Expediciones, Ruleta, Historia, HistoriaRegion],
   });
   ajustarEscala(juego.canvas);
   // Solo en desarrollo: acceso desde la consola para pruebas visuales.

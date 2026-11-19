@@ -1,3 +1,4 @@
+import { modoAbierto, regionQueAbre } from '../core/modos/historia';
 import Phaser from 'phaser';
 import { Puntero } from '../ui/puntero';
 import type { CriaturaJugador, MinijuegoId } from '../esquemas/esquemas';
@@ -94,7 +95,13 @@ export class Minijuegos extends Phaser.Scene {
         const y = 20 + i * 31;
         ventana(g, 8, y, 224, 29);
         if (i === this.sel) g.lineStyle(1.4, n(C.resalte), 1).strokeRoundedRect(8, y, 224, 29, 4);
-        const nombre = txt(16, y + 3, 140, 10, i === this.sel ? C.resalte : C.tinta, 'izq', { peso: 600 }).poner(t(`mj.${id}`));
+        // Modo Historia (D264): los juegos que la historia todavía no abrió se ven apagados, con la región que los abre.
+        const cerrado = !modoAbierto(DATOS, juego.estado, `mj.${id}`);
+        const nombre = txt(16, y + 3, 140, 10, i === this.sel ? C.resalte : cerrado ? '#9aa0b4' : C.tinta, 'izq', { peso: 600 }).poner(t(`mj.${id}`));
+        if (cerrado) {
+          const r = regionQueAbre(DATOS, `mj.${id}`);
+          txt(16, y + 12, 200, 10, C.resalte, 'izq', { tam: 6, peso: 600 }).poner(r ? t('menu.cerrado', { r: t(`hist.region.${r.id}`) }) : t('menu.cerradoHistoria'));
+        }
         if (i === this.sel) puntero.marcar(`j${i}`, nombre.imagen);
         puntero.zona(8, y, 224, 29, () => {
           if (i === this.sel) return;
@@ -102,6 +109,7 @@ export class Minijuegos extends Phaser.Scene {
           sonido.tocar('cursor');
           this.pintar();
         });
+        if (cerrado) return;
         txt(16, y + 12, 160, 16, C.tintaSuave, 'izq', { tam: 6 }).poner(partir(t(`mj.${id}.desc`), 160, 6).slice(0, 2).join('\n'));
         const quedan = partidasConPremio(DATOS, juego.estado, id, ahora);
         txt(130, y + 3, 96, 10, quedan ? '#2f7a48' : C.tintaSuave, 'der').poner(t('mj.premiosHoy', { n: quedan, m: DATOS.economia.minijuegos.conPremioPorDia }));
@@ -171,7 +179,7 @@ export class Minijuegos extends Phaser.Scene {
         this.sel = (this.sel + (a === 'abajo' ? 1 : total - 1)) % total;
         sonido.tocar('cursor');
       } else if (a === 'a') {
-        if (!juego.estado.criaturas.length) {
+        if (!juego.estado.criaturas.length || !modoAbierto(DATOS, juego.estado, `mj.${DATOS.economia.minijuegos.lista[this.sel]!}`)) {
           sonido.tocar('negado');
           return;
         }

@@ -34,6 +34,8 @@ import { marcarAviso, ultimaCopia, ultimoAviso } from '../ui/recordatorio';
 import { Puntero } from '../ui/puntero';
 import { partir, Texto } from '../ui/texto';
 import { hayArte, pieza } from '../ui/arte';
+import { finalAbierto, modoAbierto, PARADAS, regionQueAbre, regionTerminada, siguienteParada } from '../core/modos/historia';
+import type { ModoHistoria } from '../esquemas/esquemas';
 
 const OPCIONES = [
   'menu.combatir', 'menu.minijuegos', 'menu.misiones', 'menu.expediciones', 'menu.sobres', 'menu.tienda',
@@ -41,6 +43,11 @@ const OPCIONES = [
 ];
 const DESTINOS = ['', 'Minijuegos', 'Misiones', 'Expediciones', 'Sobres', 'Tienda', 'BolsaEscena', 'Equipo', 'Coleccion', 'Bestiario', 'Ruleta', ''];
 const GUARDADO = OPCIONES.length - 1;
+/** Qué modo de la historia abre cada opción del menú principal (D264). Combatir siempre está. */
+const MODO_OPCION: (ModoHistoria | null)[] = [null, 'minijuegos', 'misiones', 'expediciones', 'sobres', 'tienda', 'bolsa', 'equipo', 'coleccion', 'bestiario', 'ruleta', 'guardado'];
+const MODO_COMBATE: ModoHistoria[] = ['rapido', 'desafio', 'torre', 'entrenador', 'semanal', 'crono'];
+/** El cartel de la historia, bajo las opciones: es una opción más (índice tras las del menú). */
+const HISTORIA = OPCIONES.length;
 /** Ícono de cada opción (arte del autor; la Ruleta se dibuja por código). */
 const ICONOS = ['menu_combate', 'menu_minijuegos', 'menu_misiones', 'menu_expediciones', 'menu_sobres', 'menu_tienda', 'menu_bolsa', 'menu_equipo', 'menu_coleccion', 'menu_bestiario', 'menu_ruleta', 'menu_guardado'];
 const ALTO_FILA = 10;
@@ -69,6 +76,10 @@ export class Menu extends Phaser.Scene {
   private submenu = false;
   /** Cartel de Primeros pasos (solo en el menú principal). */
   private cartelGuia: Phaser.GameObjects.Container | null = null;
+  /** Hay cartel de la historia (y se puede elegir). */
+  private conHistoria = false;
+  private textoHistoria: Texto | null = null;
+  private avisoHasta = 0;
 
   constructor() {
     super('Menu');
@@ -170,6 +181,7 @@ export class Menu extends Phaser.Scene {
     });
     if (!equipo.length) new Texto(this, 10, 130, 220, 10, C.tintaSuave, 'centro').poner(t('menu.sinEquipo'));
     this.ayuda = new Texto(this, 0, 98, 240, 10, '#ffffff', 'centro', { borde: '#2b3a78' }).visible(false);
+    this.ayuda.imagen.setDepth(20);
     // Primeros pasos: el paso actual en un cartel y el cursor sobre la opción que lleva a cumplirlo.
     this.cartelGuia = null;
     const paso = pasoActual(estado);
@@ -184,6 +196,9 @@ export class Menu extends Phaser.Scene {
         new Texto(this, 88, 101, 120, 10, C.tinta, 'izq', { tam: 6.6, peso: 600 }).poner(t(`guia.${paso.id}`)).imagen,
       ]);
       if (this.modo === 'principal') this.sel = paso.opcion;
+    } else if (!estado.historia?.final) {
+      this.cartelHistoria();
+      if (this.modo === 'principal' && estado.historia && !estado.historia.libre) this.sel = HISTORIA;
     } else {
       // Evento de calendario de hoy (si no hay guía, ocupa su lugar).
       const ev = eventoDeHoy(DATOS, Date.now());
@@ -238,6 +253,51 @@ export class Menu extends Phaser.Scene {
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => Entrada.escuchar(null));
   }
 
+  /** Cartel del Modo Historia: región actual y parada, o el final. Se elige como una opción más. */
+  private cartelHistoria(): void {
+    const estado = juego.estado;
+    const regiones = DATOS.historia.regiones;
+    const g = this.add.graphics();
+    ventana(g, 30, 98, 180, 16, 0.96);
+    g.fillStyle(0x3a2a6a, 1).fillRoundedRect(34, 101, 50, 10, 3);
+    const actual = regiones.find((r) => !regionTerminada(estado, r));
+    const texto = actual
+      ? t('menu.historia.region', { r: t(`hist.region.${actual.id}`), n: siguienteParada(estado, actual) + 1, m: PARADAS })
+      : finalAbierto(DATOS, estado)
+        ? t('menu.historia.final')
+        : '';
+    this.textoHistoria = new Texto(this, 88, 101, 120, 10, C.tinta, 'izq', { tam: 6.4, peso: 600 }).poner(texto);
+    this.cartelGuia = this.add.container(0, 0, [
+      g,
+      new Texto(this, 34, 102.25, 50, 10, '#ffffff', 'centro', { tam: 6, peso: 600 }).poner(t('menu.historia')).imagen,
+      this.textoHistoria.imagen,
+    ]);
+    this.conHistoria = true;
+    this.puntero?.zona(30, 98, 180, 16, () => {
+      if (this.modo !== 'principal' || this.sel === HISTORIA) return;
+      this.sel = HISTORIA;
+      sonido.tocar('cursor');
+      this.pintar();
+    });
+  }
+
+  /** ¿Está cerrada (por la historia) la opción `i` del menú o del submenú de combates? */
+  private cerrada(i: number): ModoHistoria | null {
+    const modo = this.modo === 'combates' ? MODO_COMBATE[i] : this.modo === 'principal' ? MODO_OPCION[i] : null;
+    return modo && !modoAbierto(DATOS, juego.estado, modo) ? modo : null;
+  }
+
+  /** Avisa dónde se abre una opción cerrada. */
+  private avisarCerrada(modo: ModoHistoria): void {
+    sonido.tocar('negado');
+    const r = regionQueAbre(DATOS, modo);
+    this.ayuda.poner(r ? t('menu.cerrado', { r: t(`hist.region.${r.id}`) }) : t('menu.cerradoHistoria')).visible(true);
+    this.avisoHasta = this.time.now + 1800;
+    this.time.delayedCall(1850, () => {
+      if (this.time.now >= this.avisoHasta) this.ayuda.visible(false);
+    });
+  }
+
   private opciones(): string[] {
     if (this.modo === 'dificultad') return NIVELES_IA.map((ia) => t('menu.premio', { ia: t(`ia.${ia}`), n: DATOS.economia.recompensas[ia] }));
     if (this.modo === 'combates') {
@@ -271,7 +331,7 @@ export class Menu extends Phaser.Scene {
 
   private pintar(): void {
     const ops = this.opciones();
-    this.filas.forEach((f, i) => f.poner(ops[i] ?? '', i === this.sel ? C.resalte : C.tinta));
+    this.filas.forEach((f, i) => f.poner(ops[i] ?? '', i === this.sel ? C.resalte : this.cerrada(i) ? '#9aa0b4' : C.tinta));
     // Los íconos son del menú principal: en Combate y en Dificultad no se ven, y el texto ocupa su lugar.
     const principal = this.modo === 'principal';
     this.iconos.forEach((o) => (o as Phaser.GameObjects.Image).setVisible(principal));
@@ -279,12 +339,13 @@ export class Menu extends Phaser.Scene {
       if (i < POR_COLUMNA) f.imagen.setX(COL_X[0]! + (principal && this.conIcono ? 17 : 8));
       else f.imagen.setVisible(principal);
     });
+    const enHistoria = this.sel === HISTORIA && principal;
     const col = Math.floor(this.sel / POR_COLUMNA);
-    const y = 33 + (this.sel % POR_COLUMNA) * ALTO_FILA;
-    const x = COL_X[col]!;
-    this.cursor.clear().fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3);
-    this.puntero?.marcar(`${this.modo}:${this.sel}`, this.filas[this.sel]?.imagen);
-    this.ayuda.poner(t('menu.dificultad')).visible(false);
+    const y = enHistoria ? 103 : 33 + (this.sel % POR_COLUMNA) * ALTO_FILA;
+    const x = enHistoria ? 25 : COL_X[col]!;
+    this.cursor.clear().fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3).setDepth(15);
+    this.puntero?.marcar(`${this.modo}:${this.sel}`, enHistoria ? this.cartelGuia ?? undefined : this.filas[this.sel]?.imagen);
+    if (this.time.now >= this.avisoHasta) this.ayuda.poner(t('menu.dificultad')).visible(false);
     this.cartelGuia?.setVisible(principal);
   }
 
@@ -438,6 +499,25 @@ export class Menu extends Phaser.Scene {
       return;
     }
     const total = this.opciones().length;
+    if (this.modo === 'principal' && this.sel === HISTORIA) {
+      // El cartel de la historia: ▲ vuelve a la última fila, ▼ a la primera; A entra a la historia.
+      if (a === 'arriba' || a === 'abajo') {
+        this.sel = a === 'arriba' ? POR_COLUMNA - 1 : 0;
+        sonido.tocar('cursor');
+        this.pintar();
+      } else if (a === 'a') {
+        if (!equipoDe(juego.estado).length) return void sonido.tocar('negado');
+        sonido.tocar('aceptar');
+        this.scene.start('Historia', {});
+      }
+      return;
+    }
+    if (this.modo === 'principal' && this.conHistoria && ((a === 'abajo' && this.sel % POR_COLUMNA === POR_COLUMNA - 1) || (a === 'arriba' && this.sel % POR_COLUMNA === 0))) {
+      this.sel = HISTORIA;
+      sonido.tocar('cursor');
+      this.pintar();
+      return;
+    }
     if (a === 'arriba' || a === 'abajo') {
       if (this.modo !== 'principal') this.sel = (this.sel + (a === 'abajo' ? 1 : total - 1)) % total;
       else {
@@ -469,6 +549,8 @@ export class Menu extends Phaser.Scene {
         this.scene.start('Combate', { ia: NIVELES_IA[this.sel], modo: 'rapido' });
         return;
       }
+      const cerrada = this.cerrada(this.sel);
+      if (cerrada) return this.avisarCerrada(cerrada);
       if (this.modo === 'combates') {
         sonido.tocar('aceptar');
         if (this.sel === 0) {

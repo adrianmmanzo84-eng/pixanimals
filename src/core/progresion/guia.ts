@@ -24,6 +24,8 @@ export const PASOS_GUIA: PasoGuia[] = [
 
 /** El paso que toca (null si la guía terminó). */
 export function pasoActual(estado: EstadoJuego): PasoGuia | null {
+  // Con la historia en curso (partidas nuevas, D264) la guía la reemplaza la propia historia.
+  if (estado.historia && !estado.historia.libre) return null;
   return estado.bienvenida ? (PASOS_GUIA[estado.guia.paso] ?? null) : null;
 }
 

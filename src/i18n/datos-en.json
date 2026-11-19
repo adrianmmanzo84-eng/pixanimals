@@ -1,2168 +1,2187 @@
 {
- "criaturas": {
-  "lumbrito": {
-   "descripcion": "Sun cub. The gem on its forehead shines brighter when it wins a race."
-  },
-  "leobrasa": {
-   "descripcion": "Its mane catches fire in battle. It trains by roaring into the wind."
-  },
-  "ignileon": {
-   "descripcion": "Its mane burns like a bonfire. It runs from dawn to dusk without tiring."
-  },
-  "solarion": {
-   "descripcion": "Sun king. They say its crown of fire has never gone out."
-  },
-  "solarion_eclipse": {
-   "descripcion": "An eclipsed sun. Its mane burns crimson and it roars louder than ever."
-  },
-  "aletin": {
-   "descripcion": "It uses its fin as a sail. It leaps over waves just to see what's behind."
-  },
-  "corsario": {
-   "descripcion": "Its fins slice the waves like swords. It swims wrapped in foam."
-  },
-  "almirante": {
-   "descripcion": "It wears armored fins. It guides its school through the roughest currents."
-  },
-  "leviatan": {
-   "descripcion": "A colossus of coral and plates. A whirlpool follows it wherever it goes."
-  },
-  "leviatan_eclipse": {
-   "descripcion": "It comes from the deepest sea. A violet current swirls around it."
-  },
-  "brotin": {
-   "descripcion": "Calm cub. If it naps in the sun, the sprout on its head grows a new leaf."
-  },
-  "robledo": {
-   "descripcion": "Its first antlers are peeking out. Its root fists never let go."
-  },
-  "guardabosque": {
-   "descripcion": "It wears bark and leaves. Its antlers sprout anew every season."
-  },
-  "titan_ancestral": {
-   "descripcion": "The forest grows on its back. Its antlers bloom every spring."
-  },
-  "titan_eclipse": {
-   "descripcion": "Night guardian of the forest. Its twisted antlers grow into thorns."
-  },
-  "mantin": {
-   "descripcion": "It floats like a round cloud. It loves the warm afternoon breeze."
-  },
-  "mantabrisa": {
-   "descripcion": "It glides on air currents without moving its fins."
-  },
-  "nimbomanta": {
-   "descripcion": "Its night-sky wings sparkle with tiny stars."
-  },
-  "soberaya": {
-   "descripcion": "Queen of the high sky. Its ribbon tails paint auroras."
-  },
-  "soberaya_eclipse": {
-   "descripcion": "Its scythe-like wings bend gravity around it."
-  },
-  "larvin": {
-   "descripcion": "A shy caterpillar that sleeps by day and eats leaves at night."
-  },
-  "capullon": {
-   "descripcion": "Its violet cocoon holds a dream that lasts for weeks."
-  },
-  "polinoche": {
-   "descripcion": "Its wings shed a dust that makes anyone who breathes it sleepy."
-  },
-  "obsidia": {
-   "descripcion": "Its obsidian wings cover the moon when it flies."
-  },
-  "obsidia_eclipse": {
-   "descripcion": "Jagged wings and crimson marks. Its dust puts out the light."
-  },
-  "ajolin": {
-   "descripcion": "It smiles all the time. Its gills spark when it gets scared."
-  },
-  "chispolote": {
-   "descripcion": "It stores electricity in its pink gills."
-  },
-  "truenolote": {
-   "descripcion": "When it gets angry, the water around it buzzes."
-  },
-  "ajotron": {
-   "descripcion": "Guardian of the lagoons. Its gills are bolts of lightning."
-  },
-  "ajotron_eclipse": {
-   "descripcion": "Its violet armor hums with a trapped storm."
-  },
-  "caracolin": {
-   "descripcion": "Slow but brave. Its shell is smooth as a river stone."
-  },
-  "pedrecol": {
-   "descripcion": "Its shell fills up with pebbles it finds along the way."
-  },
-  "murallacol": {
-   "descripcion": "Its rock shell is as hard as a fortress wall."
-  },
-  "bastion": {
-   "descripcion": "A walking fortress. The cracks in its shell glow."
-  },
-  "bastion_eclipse": {
-   "descripcion": "A sharp basalt shell. Nothing makes it back down."
-  },
-  "colibrin": {
-   "descripcion": "A round chick that flaps so fast it hums."
-  },
-  "picoespina": {
-   "descripcion": "Its beak is thin as a thorn. It visits a thousand flowers a day."
-  },
-  "espinaflor": {
-   "descripcion": "Its leaf wings cut through the air like blades."
-  },
-  "florarca": {
-   "descripcion": "A flower bird with a crown of petals. It pollinates whole forests."
-  },
-  "florarca_eclipse": {
-   "descripcion": "Its razor leaf wings spin like a whirlwind."
-  },
-  "pangolito": {
-   "descripcion": "It curls into a little ball when something surprises it."
-  },
-  "prismolin": {
-   "descripcion": "Its scales begin to shine like colored glass."
-  },
-  "cuarzolin": {
-   "descripcion": "Each scale is a prism that splits the light."
-  },
-  "prismon": {
-   "descripcion": "Guardian of crystal scales. It shines like a rainbow."
-  },
-  "prismon_eclipse": {
-   "descripcion": "Sharp scales and a huge armored crystal tail."
-  },
-  "gequito": {
-   "descripcion": "Tiny and curious. It climbs any wall without falling."
-  },
-  "velogeco": {
-   "descripcion": "It spreads its membranes and glides from tree to tree."
-  },
-  "aurogeco": {
-   "descripcion": "Its violet membranes glow like an aurora."
-  },
-  "auragon": {
-   "descripcion": "Great glider of the sky. Its tail draws the northern lights."
-  },
-  "auragon_eclipse": {
-   "descripcion": "Its jagged membranes flash cyan and magenta."
-  },
-  "ermitin": {
-   "descripcion": "It changes shells as it grows. It always looks for the prettiest one."
-  },
-  "pinzacho": {
-   "descripcion": "Its golden shell keeps treasures it finds on the beach."
-  },
-  "relicario": {
-   "descripcion": "It guards its shell as if it were a sacred chest."
-  },
-  "relicon": {
-   "descripcion": "Armored guardian. Its big claw shields its friends."
-  },
-  "relicon_eclipse": {
-   "descripcion": "Its siege claw splits the coastal rocks."
-  },
-  "orejin": {
-   "descripcion": "Its droopy ears tremble at the slightest noise."
-  },
-  "saltaluna": {
-   "descripcion": "It jumps so high it seems to touch the moon."
-  },
-  "medialuna": {
-   "descripcion": "The marks on its back change with the phases of the moon."
-  },
-  "astaluna": {
-   "descripcion": "A mythical hare with moon antlers. It runs across the night sky."
-  },
-  "astaluna_eclipse": {
-   "descripcion": "Thorny antlers and big claws. Violet moons surround it."
-  },
-  "pulpin": {
-   "descripcion": "Shy. It squirts a little ink when someone looks at it."
-  },
-  "tintapus": {
-   "descripcion": "It draws pictures in the sand with its tentacles."
-  },
-  "abisopus": {
-   "descripcion": "It lives in the deep sea, where light never reaches."
-  },
-  "regiopus": {
-   "descripcion": "Ruler of the abyss. Its mantle looks like a crown."
-  },
-  "regiopus_eclipse": {
-   "descripcion": "Its abyssal ink darkens the whole sea."
-  },
-  "fenequin": {
-   "descripcion": "Its droopy ears warm up when it's happy."
-  },
-  "dunafen": {
-   "descripcion": "It runs across the dunes without leaving footprints."
-  },
-  "vitrifen": {
-   "descripcion": "Its tail is made of sun glass and glows like a lantern."
-  },
-  "vitreon": {
-   "descripcion": "It focuses desert light through its crystal ears."
-  },
-  "vitreon_eclipse": {
-   "descripcion": "Its glass turned to obsidian; it burns without giving light."
-  },
-  "escarlito": {
-   "descripcion": "It rolls like an ember when it gets scared."
-  },
-  "yunquero": {
-   "descripcion": "Its shell rings like an anvil when it collides."
-  },
-  "cornifragua": {
-   "descripcion": "It forges its horn red-hot every dawn."
-  },
-  "fundaris": {
-   "descripcion": "Its armor is a forge that never goes out."
-  },
-  "fundaris_eclipse": {
-   "descripcion": "Its smoky wings hide a magma furnace."
-  },
-  "carbunin": {
-   "descripcion": "Its quills are warm as freshly cooled embers."
-  },
-  "ascuespin": {
-   "descripcion": "It curls into a ball and rolls, throwing sparks."
-  },
-  "pirapuas": {
-   "descripcion": "Each quill holds a burning coal."
-  },
-  "carbunco": {
-   "descripcion": "Its fan of quills glows like a sleeping volcano."
-  },
-  "carbunco_eclipse": {
-   "descripcion": "Its obsidian quills slice the air with heat."
-  },
-  "chispollo": {
-   "descripcion": "It chirps loudly to make the sun come up."
-  },
-  "gallarete": {
-   "descripcion": "Its crest throws sparks when it crows."
-  },
-  "crestallama": {
-   "descripcion": "Its tail feathers burn like torches."
-  },
-  "cometon": {
-   "descripcion": "It crosses the sky leaving a comet trail."
-  },
-  "cometon_eclipse": {
-   "descripcion": "Its trail is red and black, like a comet at night."
-  },
-  "nutrin": {
-   "descripcion": "It never lets go of its favorite coral stone."
-  },
-  "coralutra": {
-   "descripcion": "It sleeps floating belly-up among the corals."
-  },
-  "arrecifa": {
-   "descripcion": "It looks after the reef and knows every fish."
-  },
-  "nutrarca": {
-   "descripcion": "Its coral tail protects the whole reef."
-  },
-  "nutrarca_eclipse": {
-   "descripcion": "The coral of its armor turned crimson."
-  },
-  "hipin": {
-   "descripcion": "It holds on to seaweed with its tail so it won't drift away."
-  },
-  "hipalet": {
-   "descripcion": "It swims in spirals and leaves silver bubbles."
-  },
-  "crestamar": {
-   "descripcion": "Its silver crest glows in dark water."
-  },
-  "abisalio": {
-   "descripcion": "Its fan-shaped fins move entire currents."
-  },
-  "abisalio_eclipse": {
-   "descripcion": "Its fins are violet blades from the abyss."
-  },
-  "medusin": {
-   "descripcion": "It floats calmly and glows when someone says hi."
-  },
-  "campanela": {
-   "descripcion": "Its bell rings softly when a wave rises."
-  },
-  "medusperla": {
-   "descripcion": "The pearls on its tentacles tickle."
-  },
-  "carillon": {
-   "descripcion": "Its chime calms the storms at sea."
-  },
-  "carillon_eclipse": {
-   "descripcion": "Its bell rings deep and makes the water tremble."
-  },
-  "narvalin": {
-   "descripcion": "Its tusk is still a tiny button of ice."
-  },
-  "colmillar": {
-   "descripcion": "It breaks the frost with the tip of its tusk."
-  },
-  "glaciarval": {
-   "descripcion": "Its glacial armor never melts."
-  },
-  "glacior": {
-   "descripcion": "It opens paths between icebergs with its great tusk."
-  },
-  "glacior_eclipse": {
-   "descripcion": "Its tusk is black ice that reflects no light."
-  },
-  "tapirin": {
-   "descripcion": "Its stripes hide it among the moss."
-  },
-  "musgapir": {
-   "descripcion": "Mushrooms grow on its back when it rains."
-  },
-  "hongotapir": {
-   "descripcion": "Its shelf mushrooms are home to insects."
-  },
-  "micelon": {
-   "descripcion": "A whole forest lives on its bark-covered back."
-  },
-  "micelon_eclipse": {
-   "descripcion": "Its mushrooms glow violet in the dark."
-  },
-  "ninfin": {
-   "descripcion": "It stays still like a flower to play hide-and-seek."
-  },
-  "orquiman": {
-   "descripcion": "Its arms look like petals, but they cut leaves."
-  },
-  "orquimantis": {
-   "descripcion": "It dances among flowers without anyone noticing."
-  },
-  "orquira": {
-   "descripcion": "Its petal wings open like a giant orchid."
-  },
-  "orquira_eclipse": {
-   "descripcion": "Its crimson petals cut like scythes."
-  },
-  "capibin": {
-   "descripcion": "It gets along with everyone, even crocodiles."
-  },
-  "raicibara": {
-   "descripcion": "A little plant grows on its head and it takes great care of it."
-  },
-  "manglaron": {
-   "descripcion": "Its roots anchor it to the mangrove water."
-  },
-  "raigon": {
-   "descripcion": "It guards the mangrove with roots older than the river."
-  },
-  "raigon_eclipse": {
-   "descripcion": "Its roots turned black as the bottom of the swamp."
-  },
-  "ramitin": {
-   "descripcion": "It looks like a twig; no one knows how many live in one tree."
-  },
-  "bambulito": {
-   "descripcion": "Its bamboo body sounds hollow when you tap it."
-  },
-  "bambucan": {
-   "descripcion": "Bamboo leaves grow on its back."
-  },
-  "bambuzal": {
-   "descripcion": "Its leaf wings stir up storms in the forest."
-  },
-  "bambuzal_eclipse": {
-   "descripcion": "Its bamboo turned black and its leaves, razor sharp."
-  },
-  "pavito": {
-   "descripcion": "It has no tail yet, but it already struts proudly."
-  },
-  "plumasol": {
-   "descripcion": "Its first feathers have little golden eyes."
-  },
-  "abanicor": {
-   "descripcion": "It opens its fan and the feathers crackle."
-  },
-  "heliavo": {
-   "descripcion": "Its fan of ivory and gold shines like the sun."
-  },
-  "heliavo_eclipse": {
-   "descripcion": "The eyes on its fan stare with violet light."
-  },
-  "carpin": {
-   "descripcion": "It glows a little when it swims to the surface."
-  },
-  "farolin": {
-   "descripcion": "It carries a tiny light on its forehead so it won't get lost."
-  },
-  "lucicarpa": {
-   "descripcion": "Its ribbon fins leave trails of light."
-  },
-  "faroluz": {
-   "descripcion": "Its golden whiskers guide ships at night."
-  },
-  "faroluz_eclipse": {
-   "descripcion": "Its lantern turned violet and buzzes with electricity."
-  },
-  "chinchin": {
-   "descripcion": "Its fur is so soft it gives you a shock when you touch it."
-  },
-  "prismilla": {
-   "descripcion": "It rolls in dust to charge up its fur."
-  },
-  "cuarzilla": {
-   "descripcion": "Quartz crystals grow on its tail."
-  },
-  "prismora": {
-   "descripcion": "Its crystals split light into a thousand colors."
-  },
-  "prismora_eclipse": {
-   "descripcion": "Its quartz turned violet and crackles."
-  },
-  "golondrin": {
-   "descripcion": "It learns to fly by hopping from branch to branch."
-  },
-  "albavuelo": {
-   "descripcion": "It flies just above the water without wetting its wings."
-  },
-  "rasalba": {
-   "descripcion": "It heralds spring with its scissor tail."
-  },
-  "albalis": {
-   "descripcion": "Its radiant wings bring the first ray of the day."
-  },
-  "albalis_eclipse": {
-   "descripcion": "It flies so fast it leaves a trail of night."
-  },
-  "buhito": {
-   "descripcion": "It sleeps all day and opens one eye if it hears a noise."
-  },
-  "ululin": {
-   "descripcion": "It turns its head to look in every direction."
-  },
-  "umbralon": {
-   "descripcion": "It watches over the forest from the highest branch."
-  },
-  "umbrus": {
-   "descripcion": "Its huge wings make no sound at all when it flies."
-  },
-  "umbrus_eclipse": {
-   "descripcion": "Its eyes glow like two violet moons."
-  },
-  "murcito": {
-   "descripcion": "It wraps itself in its wings like a blanket."
-  },
-  "velurci": {
-   "descripcion": "Its velvet wings are super soft."
-  },
-  "alanoche": {
-   "descripcion": "It finds its way in the dark with its echo."
-  },
-  "vespero": {
-   "descripcion": "It rules the night with its great violet wings."
-  },
-  "vespero_eclipse": {
-   "descripcion": "Its echo sounds like thunder in the cave."
-  },
-  "topin": {
-   "descripcion": "Its star-shaped nose sniffs out gemstones."
-  },
-  "excavito": {
-   "descripcion": "It digs tunnels faster than you can walk."
-  },
-  "amatopo": {
-   "descripcion": "Amethysts grow on its back as it digs."
-  },
-  "geodon": {
-   "descripcion": "Its shell is a giant geode full of crystals."
-  },
-  "geodon_eclipse": {
-   "descripcion": "Its amethysts darkened like the center of the earth."
-  },
-  "mapachin": {
-   "descripcion": "It always carries a shiny pebble in its paws."
-  },
-  "onixito": {
-   "descripcion": "It hides treasures in holes in the rocks."
-  },
-  "anillonix": {
-   "descripcion": "Its ringed tail has veins of onyx."
-  },
-  "onixor": {
-   "descripcion": "It guards a cave full of polished stones."
-  },
-  "onixor_eclipse": {
-   "descripcion": "Its onyx turned black and its gaze, violet."
-  },
-  "caldrak": {
-   "nombre": "Caldrak",
-   "descripcion": "Cauldron crocodile. Its basalt scales hold rivers of lava."
-  },
-  "ferrandra": {
-   "nombre": "Ferrandra",
-   "descripcion": "Forge salamander. Its tail fans the air into flames like bellows."
-  },
-  "talasor": {
-   "nombre": "Talasor",
-   "descripcion": "Abyssal eel. It swims in spirals and bites from the darkness."
-  },
-  "borealmo": {
-   "nombre": "Borealmo",
-   "descripcion": "Glacial walrus. Slow as an iceberg and just as hard to move."
-  },
-  "zarzabal": {
-   "nombre": "Zarzabal",
-   "descripcion": "Bramble boar. It charges nonstop through thorns and roots."
-  },
-  "micervido": {
-   "nombre": "Mycervid",
-   "descripcion": "Mycelium stag. Glowing spores sprout from its antlers."
-  },
-  "fulgarok": {
-   "nombre": "Fulgarok",
-   "descripcion": "Storm bison. Every step leaves thunder behind."
-  },
-  "najasol": {
-   "nombre": "Najasol",
-   "descripcion": "Prism cobra. It splits light into rays that can't be dodged."
-  },
-  "astracorno": {
-   "nombre": "Astracorn",
-   "descripcion": "Meteor ibex. Its horns are pieces of a fallen star."
-  },
-  "geodracnida": {
-   "nombre": "Geodrachnid",
-   "descripcion": "Geode spider. It weaves crystal webs inside its cave."
-  },
-  "tempestario": {
-   "nombre": "Tempestar",
-   "descripcion": "Storm albatross. It soars over the eye of the hurricane, unshaken."
-  },
-  "cicloptero": {
-   "nombre": "Cyclopter",
-   "descripcion": "Cyclone pterosaur. One flap of its wings makes a whirlwind."
-  },
-  "umbrafauce": {
-   "nombre": "Umbrafang",
-   "descripcion": "Saber-toothed panther. It strikes from the shadows, never head-on."
-  },
-  "negralith": {
-   "nombre": "Negralith",
-   "descripcion": "Void scorpion. Its stinger snuffs out everything it touches."
-  },
-  "bastion_de_ceniza": {
-   "nombre": "Ash Bastion",
-   "descripcion": "Volcano guardian. A basalt tortoise: nothing gets through its shell."
-  },
-  "custodio_de_las_mareas": {
-   "nombre": "Tide Keeper",
-   "descripcion": "Reef guardian. An ancient nautilus that commands the tides."
-  },
-  "raiz_primordial": {
-   "nombre": "Primal Root",
-   "descripcion": "Forest guardian. An elephant covered in roots older than the trees."
-  },
-  "vigia_del_sol_sepulto": {
-   "nombre": "Sunken Sun Watch",
-   "descripcion": "Desert guardian. A sun jackal that guards the buried sun."
-  },
-  "centinela_del_ultimo_hielo": {
-   "nombre": "Last Ice Sentry",
-   "descripcion": "Summit guardian. A glacial gorilla watching over the last ice."
-  },
-  "custodio_del_umbral": {
-   "nombre": "Threshold Keeper",
-   "descripcion": "Ruins guardian. An ancient heron before the door that won't open."
-  },
-  "terin": {
-   "descripcion": "A long-clawed hatchling. It combs the soil for sweet roots."
-  },
-  "teribrote": {
-   "descripcion": "Leaves sprout on its back. It sleeps standing up among the ferns."
-  },
-  "verdigarra": {
-   "descripcion": "Its claws slice through thick roots as if they were grass."
-  },
-  "verdicron": {
-   "descripcion": "Undying guardian of underground life. A forest grows wherever it steps."
-  },
-  "plesin": {
-   "descripcion": "It swims in cave pools. Its neck stretches whenever it is curious."
-  },
-  "ondaples": {
-   "descripcion": "It paddles its flippers like oars. It sings to call the currents."
-  },
-  "plesiomar": {
-   "descripcion": "It roams underground lakes that no map has ever charted."
-  },
-  "nereidon": {
-   "descripcion": "Undying deity of the deep waters. The tides obey its song."
-  },
-  "triclin": {
-   "descripcion": "Its frill sparks when startled. It headbutts crystals for fun."
-  },
-  "tricorayo": {
-   "descripcion": "It stores electricity in its horns and releases it when it charges."
-  },
-  "voltaceratops": {
-   "descripcion": "Its crystal frill draws in every lightning bolt in the cave."
-  },
-  "triceraion": {
-   "descripcion": "Eternal guardian of the crystals. A single step makes the ground thunder."
-  },
-  "tirin": {
-   "descripcion": "It bites everything it finds. Its teeth are already warm at birth."
-  },
-  "tirascua": {
-   "descripcion": "Its tail leaves embers behind as it sweeps the cave floor."
-  },
-  "rexbrasa": {
-   "descripcion": "It roars inside volcanoes to wake the magma."
-  },
-  "ignirrex": {
-   "descripcion": "Ancient deity of fire. Its roar carved the rivers of lava."
-  },
-  "dimlin": {
-   "descripcion": "It warms itself under glowing mushrooms. Its sail changes color."
-  },
-  "veloscuro": {
-   "descripcion": "It vanishes into the dark by dimming the glow of its sail."
-  },
-  "dimetombra": {
-   "descripcion": "The markings on its sail form maps of the abyss."
-  },
-  "noxmetrodon": {
-   "descripcion": "Undying deity of Shadow. Its sail holds a sky full of stars."
-  },
-  "anomalo_1": {
-   "descripcion": "A hatchling of the first ocean. Its stalk eyes watch everything with curiosity."
-  },
-  "anomalo_2": {
-   "descripcion": "It ripples its side flaps and hunts small fish with its two hooks."
-  },
-  "anomalo_3": {
-   "descripcion": "The most feared hunter of the ancient sea. Its spiny hooks never let go."
-  },
-  "anomalo_4": {
-   "descripcion": "Guardian of the first ocean. Its flaps shine like sails of amber."
-  },
-  "meganeura_1": {
-   "descripcion": "A swamp nymph. Its wing buds spark when it is happy."
-  },
-  "meganeura_2": {
-   "descripcion": "It tries out its four wings and buzzes among the giant ferns."
-  },
-  "meganeura_3": {
-   "descripcion": "A huge dragonfly. The veins of its wings store electricity."
-  },
-  "meganeura_4": {
-   "descripcion": "Guardian of the giant forest storms. Its wings are living stained glass."
-  },
-  "estego_1": {
-   "descripcion": "Little leaves sprout instead of plates. It wags its tail while eating."
-  },
-  "estego_2": {
-   "descripcion": "Its plates are big leaves that follow the sun all day."
-  },
-  "estego_3": {
-   "descripcion": "Its plates hardened like autumn leaves. Nobody goes near its tail."
-  },
-  "estego_4": {
-   "descripcion": "Guardian of the Jurassic herd. It carries a whole forest on its back."
-  },
-  "ptero_1": {
-   "descripcion": "It can't fly yet, but it jumps off rocks flapping its little wings."
-  },
-  "ptero_2": {
-   "descripcion": "It glides over the cliffs looking for warm air currents."
-  },
-  "ptero_3": {
-   "descripcion": "A great sunset glider. Its crest cuts through the wind."
-  },
-  "ptero_4": {
-   "descripcion": "Guardian of the last sky. It crosses the sunset with a comet trail."
-  },
-  "mamut_1": {
-   "descripcion": "A round woolly calf. It curls its trunk to sleep."
-  },
-  "mamut_2": {
-   "descripcion": "Frost sticks to its fur and it doesn't even notice."
-  },
-  "mamut_3": {
-   "descripcion": "It carries rock and ice tangled in its fur. Its steps shake the tundra."
-  },
-  "mamut_4": {
-   "descripcion": "Guardian of the Ice Age. Its ice tusks hold amber."
+  "criaturas": {
+    "lumbrito": {
+      "descripcion": "Sun cub. The gem on its forehead shines brighter when it wins a race."
+    },
+    "leobrasa": {
+      "descripcion": "Its mane catches fire in battle. It trains by roaring into the wind."
+    },
+    "ignileon": {
+      "descripcion": "Its mane burns like a bonfire. It runs from dawn to dusk without tiring."
+    },
+    "solarion": {
+      "descripcion": "Sun king. They say its crown of fire has never gone out."
+    },
+    "solarion_eclipse": {
+      "descripcion": "An eclipsed sun. Its mane burns crimson and it roars louder than ever."
+    },
+    "aletin": {
+      "descripcion": "It uses its fin as a sail. It leaps over waves just to see what's behind."
+    },
+    "corsario": {
+      "descripcion": "Its fins slice the waves like swords. It swims wrapped in foam."
+    },
+    "almirante": {
+      "descripcion": "It wears armored fins. It guides its school through the roughest currents."
+    },
+    "leviatan": {
+      "descripcion": "A colossus of coral and plates. A whirlpool follows it wherever it goes."
+    },
+    "leviatan_eclipse": {
+      "descripcion": "It comes from the deepest sea. A violet current swirls around it."
+    },
+    "brotin": {
+      "descripcion": "Calm cub. If it naps in the sun, the sprout on its head grows a new leaf."
+    },
+    "robledo": {
+      "descripcion": "Its first antlers are peeking out. Its root fists never let go."
+    },
+    "guardabosque": {
+      "descripcion": "It wears bark and leaves. Its antlers sprout anew every season."
+    },
+    "titan_ancestral": {
+      "descripcion": "The forest grows on its back. Its antlers bloom every spring."
+    },
+    "titan_eclipse": {
+      "descripcion": "Night guardian of the forest. Its twisted antlers grow into thorns."
+    },
+    "mantin": {
+      "descripcion": "It floats like a round cloud. It loves the warm afternoon breeze."
+    },
+    "mantabrisa": {
+      "descripcion": "It glides on air currents without moving its fins."
+    },
+    "nimbomanta": {
+      "descripcion": "Its night-sky wings sparkle with tiny stars."
+    },
+    "soberaya": {
+      "descripcion": "Queen of the high sky. Its ribbon tails paint auroras."
+    },
+    "soberaya_eclipse": {
+      "descripcion": "Its scythe-like wings bend gravity around it."
+    },
+    "larvin": {
+      "descripcion": "A shy caterpillar that sleeps by day and eats leaves at night."
+    },
+    "capullon": {
+      "descripcion": "Its violet cocoon holds a dream that lasts for weeks."
+    },
+    "polinoche": {
+      "descripcion": "Its wings shed a dust that makes anyone who breathes it sleepy."
+    },
+    "obsidia": {
+      "descripcion": "Its obsidian wings cover the moon when it flies."
+    },
+    "obsidia_eclipse": {
+      "descripcion": "Jagged wings and crimson marks. Its dust puts out the light."
+    },
+    "ajolin": {
+      "descripcion": "It smiles all the time. Its gills spark when it gets scared."
+    },
+    "chispolote": {
+      "descripcion": "It stores electricity in its pink gills."
+    },
+    "truenolote": {
+      "descripcion": "When it gets angry, the water around it buzzes."
+    },
+    "ajotron": {
+      "descripcion": "Guardian of the lagoons. Its gills are bolts of lightning."
+    },
+    "ajotron_eclipse": {
+      "descripcion": "Its violet armor hums with a trapped storm."
+    },
+    "caracolin": {
+      "descripcion": "Slow but brave. Its shell is smooth as a river stone."
+    },
+    "pedrecol": {
+      "descripcion": "Its shell fills up with pebbles it finds along the way."
+    },
+    "murallacol": {
+      "descripcion": "Its rock shell is as hard as a fortress wall."
+    },
+    "bastion": {
+      "descripcion": "A walking fortress. The cracks in its shell glow."
+    },
+    "bastion_eclipse": {
+      "descripcion": "A sharp basalt shell. Nothing makes it back down."
+    },
+    "colibrin": {
+      "descripcion": "A round chick that flaps so fast it hums."
+    },
+    "picoespina": {
+      "descripcion": "Its beak is thin as a thorn. It visits a thousand flowers a day."
+    },
+    "espinaflor": {
+      "descripcion": "Its leaf wings cut through the air like blades."
+    },
+    "florarca": {
+      "descripcion": "A flower bird with a crown of petals. It pollinates whole forests."
+    },
+    "florarca_eclipse": {
+      "descripcion": "Its razor leaf wings spin like a whirlwind."
+    },
+    "pangolito": {
+      "descripcion": "It curls into a little ball when something surprises it."
+    },
+    "prismolin": {
+      "descripcion": "Its scales begin to shine like colored glass."
+    },
+    "cuarzolin": {
+      "descripcion": "Each scale is a prism that splits the light."
+    },
+    "prismon": {
+      "descripcion": "Guardian of crystal scales. It shines like a rainbow."
+    },
+    "prismon_eclipse": {
+      "descripcion": "Sharp scales and a huge armored crystal tail."
+    },
+    "gequito": {
+      "descripcion": "Tiny and curious. It climbs any wall without falling."
+    },
+    "velogeco": {
+      "descripcion": "It spreads its membranes and glides from tree to tree."
+    },
+    "aurogeco": {
+      "descripcion": "Its violet membranes glow like an aurora."
+    },
+    "auragon": {
+      "descripcion": "Great glider of the sky. Its tail draws the northern lights."
+    },
+    "auragon_eclipse": {
+      "descripcion": "Its jagged membranes flash cyan and magenta."
+    },
+    "ermitin": {
+      "descripcion": "It changes shells as it grows. It always looks for the prettiest one."
+    },
+    "pinzacho": {
+      "descripcion": "Its golden shell keeps treasures it finds on the beach."
+    },
+    "relicario": {
+      "descripcion": "It guards its shell as if it were a sacred chest."
+    },
+    "relicon": {
+      "descripcion": "Armored guardian. Its big claw shields its friends."
+    },
+    "relicon_eclipse": {
+      "descripcion": "Its siege claw splits the coastal rocks."
+    },
+    "orejin": {
+      "descripcion": "Its droopy ears tremble at the slightest noise."
+    },
+    "saltaluna": {
+      "descripcion": "It jumps so high it seems to touch the moon."
+    },
+    "medialuna": {
+      "descripcion": "The marks on its back change with the phases of the moon."
+    },
+    "astaluna": {
+      "descripcion": "A mythical hare with moon antlers. It runs across the night sky."
+    },
+    "astaluna_eclipse": {
+      "descripcion": "Thorny antlers and big claws. Violet moons surround it."
+    },
+    "pulpin": {
+      "descripcion": "Shy. It squirts a little ink when someone looks at it."
+    },
+    "tintapus": {
+      "descripcion": "It draws pictures in the sand with its tentacles."
+    },
+    "abisopus": {
+      "descripcion": "It lives in the deep sea, where light never reaches."
+    },
+    "regiopus": {
+      "descripcion": "Ruler of the abyss. Its mantle looks like a crown."
+    },
+    "regiopus_eclipse": {
+      "descripcion": "Its abyssal ink darkens the whole sea."
+    },
+    "fenequin": {
+      "descripcion": "Its droopy ears warm up when it's happy."
+    },
+    "dunafen": {
+      "descripcion": "It runs across the dunes without leaving footprints."
+    },
+    "vitrifen": {
+      "descripcion": "Its tail is made of sun glass and glows like a lantern."
+    },
+    "vitreon": {
+      "descripcion": "It focuses desert light through its crystal ears."
+    },
+    "vitreon_eclipse": {
+      "descripcion": "Its glass turned to obsidian; it burns without giving light."
+    },
+    "escarlito": {
+      "descripcion": "It rolls like an ember when it gets scared."
+    },
+    "yunquero": {
+      "descripcion": "Its shell rings like an anvil when it collides."
+    },
+    "cornifragua": {
+      "descripcion": "It forges its horn red-hot every dawn."
+    },
+    "fundaris": {
+      "descripcion": "Its armor is a forge that never goes out."
+    },
+    "fundaris_eclipse": {
+      "descripcion": "Its smoky wings hide a magma furnace."
+    },
+    "carbunin": {
+      "descripcion": "Its quills are warm as freshly cooled embers."
+    },
+    "ascuespin": {
+      "descripcion": "It curls into a ball and rolls, throwing sparks."
+    },
+    "pirapuas": {
+      "descripcion": "Each quill holds a burning coal."
+    },
+    "carbunco": {
+      "descripcion": "Its fan of quills glows like a sleeping volcano."
+    },
+    "carbunco_eclipse": {
+      "descripcion": "Its obsidian quills slice the air with heat."
+    },
+    "chispollo": {
+      "descripcion": "It chirps loudly to make the sun come up."
+    },
+    "gallarete": {
+      "descripcion": "Its crest throws sparks when it crows."
+    },
+    "crestallama": {
+      "descripcion": "Its tail feathers burn like torches."
+    },
+    "cometon": {
+      "descripcion": "It crosses the sky leaving a comet trail."
+    },
+    "cometon_eclipse": {
+      "descripcion": "Its trail is red and black, like a comet at night."
+    },
+    "nutrin": {
+      "descripcion": "It never lets go of its favorite coral stone."
+    },
+    "coralutra": {
+      "descripcion": "It sleeps floating belly-up among the corals."
+    },
+    "arrecifa": {
+      "descripcion": "It looks after the reef and knows every fish."
+    },
+    "nutrarca": {
+      "descripcion": "Its coral tail protects the whole reef."
+    },
+    "nutrarca_eclipse": {
+      "descripcion": "The coral of its armor turned crimson."
+    },
+    "hipin": {
+      "descripcion": "It holds on to seaweed with its tail so it won't drift away."
+    },
+    "hipalet": {
+      "descripcion": "It swims in spirals and leaves silver bubbles."
+    },
+    "crestamar": {
+      "descripcion": "Its silver crest glows in dark water."
+    },
+    "abisalio": {
+      "descripcion": "Its fan-shaped fins move entire currents."
+    },
+    "abisalio_eclipse": {
+      "descripcion": "Its fins are violet blades from the abyss."
+    },
+    "medusin": {
+      "descripcion": "It floats calmly and glows when someone says hi."
+    },
+    "campanela": {
+      "descripcion": "Its bell rings softly when a wave rises."
+    },
+    "medusperla": {
+      "descripcion": "The pearls on its tentacles tickle."
+    },
+    "carillon": {
+      "descripcion": "Its chime calms the storms at sea."
+    },
+    "carillon_eclipse": {
+      "descripcion": "Its bell rings deep and makes the water tremble."
+    },
+    "narvalin": {
+      "descripcion": "Its tusk is still a tiny button of ice."
+    },
+    "colmillar": {
+      "descripcion": "It breaks the frost with the tip of its tusk."
+    },
+    "glaciarval": {
+      "descripcion": "Its glacial armor never melts."
+    },
+    "glacior": {
+      "descripcion": "It opens paths between icebergs with its great tusk."
+    },
+    "glacior_eclipse": {
+      "descripcion": "Its tusk is black ice that reflects no light."
+    },
+    "tapirin": {
+      "descripcion": "Its stripes hide it among the moss."
+    },
+    "musgapir": {
+      "descripcion": "Mushrooms grow on its back when it rains."
+    },
+    "hongotapir": {
+      "descripcion": "Its shelf mushrooms are home to insects."
+    },
+    "micelon": {
+      "descripcion": "A whole forest lives on its bark-covered back."
+    },
+    "micelon_eclipse": {
+      "descripcion": "Its mushrooms glow violet in the dark."
+    },
+    "ninfin": {
+      "descripcion": "It stays still like a flower to play hide-and-seek."
+    },
+    "orquiman": {
+      "descripcion": "Its arms look like petals, but they cut leaves."
+    },
+    "orquimantis": {
+      "descripcion": "It dances among flowers without anyone noticing."
+    },
+    "orquira": {
+      "descripcion": "Its petal wings open like a giant orchid."
+    },
+    "orquira_eclipse": {
+      "descripcion": "Its crimson petals cut like scythes."
+    },
+    "capibin": {
+      "descripcion": "It gets along with everyone, even crocodiles."
+    },
+    "raicibara": {
+      "descripcion": "A little plant grows on its head and it takes great care of it."
+    },
+    "manglaron": {
+      "descripcion": "Its roots anchor it to the mangrove water."
+    },
+    "raigon": {
+      "descripcion": "It guards the mangrove with roots older than the river."
+    },
+    "raigon_eclipse": {
+      "descripcion": "Its roots turned black as the bottom of the swamp."
+    },
+    "ramitin": {
+      "descripcion": "It looks like a twig; no one knows how many live in one tree."
+    },
+    "bambulito": {
+      "descripcion": "Its bamboo body sounds hollow when you tap it."
+    },
+    "bambucan": {
+      "descripcion": "Bamboo leaves grow on its back."
+    },
+    "bambuzal": {
+      "descripcion": "Its leaf wings stir up storms in the forest."
+    },
+    "bambuzal_eclipse": {
+      "descripcion": "Its bamboo turned black and its leaves, razor sharp."
+    },
+    "pavito": {
+      "descripcion": "It has no tail yet, but it already struts proudly."
+    },
+    "plumasol": {
+      "descripcion": "Its first feathers have little golden eyes."
+    },
+    "abanicor": {
+      "descripcion": "It opens its fan and the feathers crackle."
+    },
+    "heliavo": {
+      "descripcion": "Its fan of ivory and gold shines like the sun."
+    },
+    "heliavo_eclipse": {
+      "descripcion": "The eyes on its fan stare with violet light."
+    },
+    "carpin": {
+      "descripcion": "It glows a little when it swims to the surface."
+    },
+    "farolin": {
+      "descripcion": "It carries a tiny light on its forehead so it won't get lost."
+    },
+    "lucicarpa": {
+      "descripcion": "Its ribbon fins leave trails of light."
+    },
+    "faroluz": {
+      "descripcion": "Its golden whiskers guide ships at night."
+    },
+    "faroluz_eclipse": {
+      "descripcion": "Its lantern turned violet and buzzes with electricity."
+    },
+    "chinchin": {
+      "descripcion": "Its fur is so soft it gives you a shock when you touch it."
+    },
+    "prismilla": {
+      "descripcion": "It rolls in dust to charge up its fur."
+    },
+    "cuarzilla": {
+      "descripcion": "Quartz crystals grow on its tail."
+    },
+    "prismora": {
+      "descripcion": "Its crystals split light into a thousand colors."
+    },
+    "prismora_eclipse": {
+      "descripcion": "Its quartz turned violet and crackles."
+    },
+    "golondrin": {
+      "descripcion": "It learns to fly by hopping from branch to branch."
+    },
+    "albavuelo": {
+      "descripcion": "It flies just above the water without wetting its wings."
+    },
+    "rasalba": {
+      "descripcion": "It heralds spring with its scissor tail."
+    },
+    "albalis": {
+      "descripcion": "Its radiant wings bring the first ray of the day."
+    },
+    "albalis_eclipse": {
+      "descripcion": "It flies so fast it leaves a trail of night."
+    },
+    "buhito": {
+      "descripcion": "It sleeps all day and opens one eye if it hears a noise."
+    },
+    "ululin": {
+      "descripcion": "It turns its head to look in every direction."
+    },
+    "umbralon": {
+      "descripcion": "It watches over the forest from the highest branch."
+    },
+    "umbrus": {
+      "descripcion": "Its huge wings make no sound at all when it flies."
+    },
+    "umbrus_eclipse": {
+      "descripcion": "Its eyes glow like two violet moons."
+    },
+    "murcito": {
+      "descripcion": "It wraps itself in its wings like a blanket."
+    },
+    "velurci": {
+      "descripcion": "Its velvet wings are super soft."
+    },
+    "alanoche": {
+      "descripcion": "It finds its way in the dark with its echo."
+    },
+    "vespero": {
+      "descripcion": "It rules the night with its great violet wings."
+    },
+    "vespero_eclipse": {
+      "descripcion": "Its echo sounds like thunder in the cave."
+    },
+    "topin": {
+      "descripcion": "Its star-shaped nose sniffs out gemstones."
+    },
+    "excavito": {
+      "descripcion": "It digs tunnels faster than you can walk."
+    },
+    "amatopo": {
+      "descripcion": "Amethysts grow on its back as it digs."
+    },
+    "geodon": {
+      "descripcion": "Its shell is a giant geode full of crystals."
+    },
+    "geodon_eclipse": {
+      "descripcion": "Its amethysts darkened like the center of the earth."
+    },
+    "mapachin": {
+      "descripcion": "It always carries a shiny pebble in its paws."
+    },
+    "onixito": {
+      "descripcion": "It hides treasures in holes in the rocks."
+    },
+    "anillonix": {
+      "descripcion": "Its ringed tail has veins of onyx."
+    },
+    "onixor": {
+      "descripcion": "It guards a cave full of polished stones."
+    },
+    "onixor_eclipse": {
+      "descripcion": "Its onyx turned black and its gaze, violet."
+    },
+    "caldrak": {
+      "nombre": "Caldrak",
+      "descripcion": "Cauldron crocodile. Its basalt scales hold rivers of lava."
+    },
+    "ferrandra": {
+      "nombre": "Ferrandra",
+      "descripcion": "Forge salamander. Its tail fans the air into flames like bellows."
+    },
+    "talasor": {
+      "nombre": "Talasor",
+      "descripcion": "Abyssal eel. It swims in spirals and bites from the darkness."
+    },
+    "borealmo": {
+      "nombre": "Borealmo",
+      "descripcion": "Glacial walrus. Slow as an iceberg and just as hard to move."
+    },
+    "zarzabal": {
+      "nombre": "Zarzabal",
+      "descripcion": "Bramble boar. It charges nonstop through thorns and roots."
+    },
+    "micervido": {
+      "nombre": "Mycervid",
+      "descripcion": "Mycelium stag. Glowing spores sprout from its antlers."
+    },
+    "fulgarok": {
+      "nombre": "Fulgarok",
+      "descripcion": "Storm bison. Every step leaves thunder behind."
+    },
+    "najasol": {
+      "nombre": "Najasol",
+      "descripcion": "Prism cobra. It splits light into rays that can't be dodged."
+    },
+    "astracorno": {
+      "nombre": "Astracorn",
+      "descripcion": "Meteor ibex. Its horns are pieces of a fallen star."
+    },
+    "geodracnida": {
+      "nombre": "Geodrachnid",
+      "descripcion": "Geode spider. It weaves crystal webs inside its cave."
+    },
+    "tempestario": {
+      "nombre": "Tempestar",
+      "descripcion": "Storm albatross. It soars over the eye of the hurricane, unshaken."
+    },
+    "cicloptero": {
+      "nombre": "Cyclopter",
+      "descripcion": "Cyclone pterosaur. One flap of its wings makes a whirlwind."
+    },
+    "umbrafauce": {
+      "nombre": "Umbrafang",
+      "descripcion": "Saber-toothed panther. It strikes from the shadows, never head-on."
+    },
+    "negralith": {
+      "nombre": "Negralith",
+      "descripcion": "Void scorpion. Its stinger snuffs out everything it touches."
+    },
+    "bastion_de_ceniza": {
+      "nombre": "Ash Bastion",
+      "descripcion": "Volcano guardian. A basalt tortoise: nothing gets through its shell."
+    },
+    "custodio_de_las_mareas": {
+      "nombre": "Tide Keeper",
+      "descripcion": "Reef guardian. An ancient nautilus that commands the tides."
+    },
+    "raiz_primordial": {
+      "nombre": "Primal Root",
+      "descripcion": "Forest guardian. An elephant covered in roots older than the trees."
+    },
+    "vigia_del_sol_sepulto": {
+      "nombre": "Sunken Sun Watch",
+      "descripcion": "Desert guardian. A sun jackal that guards the buried sun."
+    },
+    "centinela_del_ultimo_hielo": {
+      "nombre": "Last Ice Sentry",
+      "descripcion": "Summit guardian. A glacial gorilla watching over the last ice."
+    },
+    "custodio_del_umbral": {
+      "nombre": "Threshold Keeper",
+      "descripcion": "Ruins guardian. An ancient heron before the door that won't open."
+    },
+    "terin": {
+      "descripcion": "A long-clawed hatchling. It combs the soil for sweet roots."
+    },
+    "teribrote": {
+      "descripcion": "Leaves sprout on its back. It sleeps standing up among the ferns."
+    },
+    "verdigarra": {
+      "descripcion": "Its claws slice through thick roots as if they were grass."
+    },
+    "verdicron": {
+      "descripcion": "Undying guardian of underground life. A forest grows wherever it steps."
+    },
+    "plesin": {
+      "descripcion": "It swims in cave pools. Its neck stretches whenever it is curious."
+    },
+    "ondaples": {
+      "descripcion": "It paddles its flippers like oars. It sings to call the currents."
+    },
+    "plesiomar": {
+      "descripcion": "It roams underground lakes that no map has ever charted."
+    },
+    "nereidon": {
+      "descripcion": "Undying deity of the deep waters. The tides obey its song."
+    },
+    "triclin": {
+      "descripcion": "Its frill sparks when startled. It headbutts crystals for fun."
+    },
+    "tricorayo": {
+      "descripcion": "It stores electricity in its horns and releases it when it charges."
+    },
+    "voltaceratops": {
+      "descripcion": "Its crystal frill draws in every lightning bolt in the cave."
+    },
+    "triceraion": {
+      "descripcion": "Eternal guardian of the crystals. A single step makes the ground thunder."
+    },
+    "tirin": {
+      "descripcion": "It bites everything it finds. Its teeth are already warm at birth."
+    },
+    "tirascua": {
+      "descripcion": "Its tail leaves embers behind as it sweeps the cave floor."
+    },
+    "rexbrasa": {
+      "descripcion": "It roars inside volcanoes to wake the magma."
+    },
+    "ignirrex": {
+      "descripcion": "Ancient deity of fire. Its roar carved the rivers of lava."
+    },
+    "dimlin": {
+      "descripcion": "It warms itself under glowing mushrooms. Its sail changes color."
+    },
+    "veloscuro": {
+      "descripcion": "It vanishes into the dark by dimming the glow of its sail."
+    },
+    "dimetombra": {
+      "descripcion": "The markings on its sail form maps of the abyss."
+    },
+    "noxmetrodon": {
+      "descripcion": "Undying deity of Shadow. Its sail holds a sky full of stars."
+    },
+    "anomalo_1": {
+      "descripcion": "A hatchling of the first ocean. Its stalk eyes watch everything with curiosity."
+    },
+    "anomalo_2": {
+      "descripcion": "It ripples its side flaps and hunts small fish with its two hooks."
+    },
+    "anomalo_3": {
+      "descripcion": "The most feared hunter of the ancient sea. Its spiny hooks never let go."
+    },
+    "anomalo_4": {
+      "descripcion": "Guardian of the first ocean. Its flaps shine like sails of amber."
+    },
+    "meganeura_1": {
+      "descripcion": "A swamp nymph. Its wing buds spark when it is happy."
+    },
+    "meganeura_2": {
+      "descripcion": "It tries out its four wings and buzzes among the giant ferns."
+    },
+    "meganeura_3": {
+      "descripcion": "A huge dragonfly. The veins of its wings store electricity."
+    },
+    "meganeura_4": {
+      "descripcion": "Guardian of the giant forest storms. Its wings are living stained glass."
+    },
+    "estego_1": {
+      "descripcion": "Little leaves sprout instead of plates. It wags its tail while eating."
+    },
+    "estego_2": {
+      "descripcion": "Its plates are big leaves that follow the sun all day."
+    },
+    "estego_3": {
+      "descripcion": "Its plates hardened like autumn leaves. Nobody goes near its tail."
+    },
+    "estego_4": {
+      "descripcion": "Guardian of the Jurassic herd. It carries a whole forest on its back."
+    },
+    "ptero_1": {
+      "descripcion": "It can't fly yet, but it jumps off rocks flapping its little wings."
+    },
+    "ptero_2": {
+      "descripcion": "It glides over the cliffs looking for warm air currents."
+    },
+    "ptero_3": {
+      "descripcion": "A great sunset glider. Its crest cuts through the wind."
+    },
+    "ptero_4": {
+      "descripcion": "Guardian of the last sky. It crosses the sunset with a comet trail."
+    },
+    "mamut_1": {
+      "descripcion": "A round woolly calf. It curls its trunk to sleep."
+    },
+    "mamut_2": {
+      "descripcion": "Frost sticks to its fur and it doesn't even notice."
+    },
+    "mamut_3": {
+      "descripcion": "It carries rock and ice tangled in its fur. Its steps shake the tundra."
+    },
+    "mamut_4": {
+      "descripcion": "Guardian of the Ice Age. Its ice tusks hold amber."
+    },
+    "arquitecto": {
+      "nombre": "The Architect",
+      "descripcion": "Origin of the Eclipse. It wants a still, colorless world: a blank canvas."
+    }
+  },
+  "habilidades": {
+    "zarpazo_ardiente": {
+      "nombre": "Blazing Swipe"
+    },
+    "pelaje_igneo": {
+      "nombre": "Fiery Coat"
+    },
+    "grito_de_manada": {
+      "nombre": "Pack Howl"
+    },
+    "rugido_solar": {
+      "nombre": "Solar Roar"
+    },
+    "dentellada_marina": {
+      "nombre": "Sea Bite"
+    },
+    "escudo_de_burbujas": {
+      "nombre": "Bubble Shield"
+    },
+    "corriente": {
+      "nombre": "Current"
+    },
+    "tsunami": {
+      "nombre": "Tsunami"
+    },
+    "zarpazo_de_raiz": {
+      "nombre": "Root Swipe"
+    },
+    "armadura_de_corteza": {
+      "nombre": "Bark Armor"
+    },
+    "bano_de_sol": {
+      "nombre": "Sunbathe"
+    },
+    "furia_del_bosque": {
+      "nombre": "Forest Fury"
+    },
+    "mirada_abrasadora": {
+      "nombre": "Scorching Glare"
+    },
+    "arrullo_de_olas": {
+      "nombre": "Wave Lullaby"
+    },
+    "polen_toxico": {
+      "nombre": "Toxic Pollen"
+    },
+    "abrazo_de_raices": {
+      "nombre": "Root Embrace"
+    },
+    "rafaga_celeste": {
+      "nombre": "Sky Gust"
+    },
+    "manto_de_nubes": {
+      "nombre": "Cloud Cloak"
+    },
+    "viento_de_cola": {
+      "nombre": "Tailwind"
+    },
+    "tormenta_estelar": {
+      "nombre": "Star Storm"
+    },
+    "polvo_oscuro": {
+      "nombre": "Dark Dust"
+    },
+    "alas_de_obsidiana": {
+      "nombre": "Obsidian Wings"
+    },
+    "danza_lunar": {
+      "nombre": "Moon Dance"
+    },
+    "eclipse_total": {
+      "nombre": "Total Eclipse"
+    },
+    "chispazo": {
+      "nombre": "Spark"
+    },
+    "piel_estatica": {
+      "nombre": "Static Skin"
+    },
+    "carga_ionica": {
+      "nombre": "Ion Charge"
+    },
+    "tormenta_electrica": {
+      "nombre": "Electric Storm"
+    },
+    "golpe_de_concha": {
+      "nombre": "Shell Smash"
+    },
+    "refugio_de_piedra": {
+      "nombre": "Stone Refuge"
+    },
+    "endurecer": {
+      "nombre": "Harden"
+    },
+    "avalancha": {
+      "nombre": "Avalanche"
+    },
+    "pico_espina": {
+      "nombre": "Thorn Beak"
+    },
+    "escudo_de_petalos": {
+      "nombre": "Petal Shield"
+    },
+    "nectar": {
+      "nombre": "Nectar"
+    },
+    "huracan_floral": {
+      "nombre": "Flower Hurricane"
+    },
+    "escama_afilada": {
+      "nombre": "Sharp Scale"
+    },
+    "bola_de_cristal": {
+      "nombre": "Crystal Ball"
+    },
+    "pulir_escamas": {
+      "nombre": "Polish Scales"
+    },
+    "lluvia_de_prismas": {
+      "nombre": "Prism Rain"
+    },
+    "coletazo_aurora": {
+      "nombre": "Aurora Tail"
+    },
+    "planeo": {
+      "nombre": "Glide"
+    },
+    "luz_de_aurora": {
+      "nombre": "Aurora Light"
+    },
+    "picado_celeste": {
+      "nombre": "Sky Dive"
+    },
+    "pinza_marina": {
+      "nombre": "Sea Pincer"
+    },
+    "concha_sagrada": {
+      "nombre": "Sacred Shell"
+    },
+    "coraza_de_sal": {
+      "nombre": "Salt Armor"
+    },
+    "pinza_de_asedio": {
+      "nombre": "Siege Pincer"
+    },
+    "patada_lunar": {
+      "nombre": "Moon Kick"
+    },
+    "salto_nocturno": {
+      "nombre": "Night Leap"
+    },
+    "luna_creciente": {
+      "nombre": "Crescent Moon"
+    },
+    "embestida_astral": {
+      "nombre": "Astral Charge"
+    },
+    "chorro_de_tinta": {
+      "nombre": "Ink Jet"
+    },
+    "nube_de_tinta": {
+      "nombre": "Ink Cloud"
+    },
+    "regenerar": {
+      "nombre": "Regenerate"
+    },
+    "marea_negra": {
+      "nombre": "Black Tide"
+    },
+    "colmillo_igneo": {
+      "nombre": "Fire Fang"
+    },
+    "rugido_de_guerra": {
+      "nombre": "War Roar"
+    },
+    "llamarada_real": {
+      "nombre": "Royal Blaze"
+    },
+    "sol_carmesi": {
+      "nombre": "Crimson Sun"
+    },
+    "sol_supremo": {
+      "nombre": "Supreme Sun"
+    },
+    "corona_negra": {
+      "nombre": "Black Crown"
+    },
+    "mordisco_abisal": {
+      "nombre": "Abyssal Bite"
+    },
+    "marea_viva": {
+      "nombre": "Spring Tide"
+    },
+    "maremoto": {
+      "nombre": "Seaquake"
+    },
+    "vortice_negro": {
+      "nombre": "Black Vortex"
+    },
+    "diluvio_abisal": {
+      "nombre": "Abyssal Deluge"
+    },
+    "remolino_del_vacio": {
+      "nombre": "Void Whirlpool"
+    },
+    "garra_de_espino": {
+      "nombre": "Thorn Claw"
+    },
+    "savia_vital": {
+      "nombre": "Life Sap"
+    },
+    "ira_del_bosque": {
+      "nombre": "Forest Wrath"
+    },
+    "raiz_nocturna": {
+      "nombre": "Night Root"
+    },
+    "bosque_primordial": {
+      "nombre": "Primeval Forest"
+    },
+    "espinas_nocturnas": {
+      "nombre": "Night Thorns"
+    },
+    "viento_cortante": {
+      "nombre": "Cutting Wind"
+    },
+    "corriente_celeste": {
+      "nombre": "Sky Current"
+    },
+    "cielo_desatado": {
+      "nombre": "Unleashed Sky"
+    },
+    "gravedad_oscura": {
+      "nombre": "Dark Gravity"
+    },
+    "supernova_celeste": {
+      "nombre": "Sky Supernova"
+    },
+    "guadana_estelar": {
+      "nombre": "Star Scythe"
+    },
+    "polvo_somnifero": {
+      "nombre": "Sleep Dust"
+    },
+    "danza_nocturna": {
+      "nombre": "Night Dance"
+    },
+    "luna_negra": {
+      "nombre": "Black Moon"
+    },
+    "polvo_carmesi": {
+      "nombre": "Crimson Dust"
+    },
+    "noche_eterna": {
+      "nombre": "Endless Night"
+    },
+    "ala_carmesi": {
+      "nombre": "Crimson Wing"
+    },
+    "descarga": {
+      "nombre": "Discharge"
+    },
+    "sobrecarga": {
+      "nombre": "Overload"
+    },
+    "trueno_ancestral": {
+      "nombre": "Ancient Thunder"
+    },
+    "rayo_violeta": {
+      "nombre": "Violet Bolt"
+    },
+    "mil_relampagos": {
+      "nombre": "Thousand Bolts"
+    },
+    "tormenta_violeta": {
+      "nombre": "Violet Storm"
+    },
+    "embestida_rocosa": {
+      "nombre": "Rock Charge"
+    },
+    "coraza_de_granito": {
+      "nombre": "Granite Armor"
+    },
+    "terremoto": {
+      "nombre": "Earthquake"
+    },
+    "colmillo_de_basalto": {
+      "nombre": "Basalt Fang"
+    },
+    "derrumbe_total": {
+      "nombre": "Total Collapse"
+    },
+    "erupcion_de_basalto": {
+      "nombre": "Basalt Eruption"
+    },
+    "pico_venenoso": {
+      "nombre": "Venom Beak"
+    },
+    "nectar_dorado": {
+      "nombre": "Golden Nectar"
+    },
+    "tormenta_de_petalos": {
+      "nombre": "Petal Storm"
+    },
+    "ciclon_de_espinas": {
+      "nombre": "Thorn Cyclone"
+    },
+    "jardin_furioso": {
+      "nombre": "Furious Garden"
+    },
+    "torbellino_filoso": {
+      "nombre": "Razor Whirlwind"
+    },
+    "garra_de_cuarzo": {
+      "nombre": "Quartz Claw"
+    },
+    "brillo_prismatico": {
+      "nombre": "Prismatic Shine"
+    },
+    "estallido_prisma": {
+      "nombre": "Prism Burst"
+    },
+    "filo_de_obsidiana": {
+      "nombre": "Obsidian Edge"
+    },
+    "prisma_absoluto": {
+      "nombre": "Absolute Prism"
+    },
+    "cristal_quebrado": {
+      "nombre": "Shattered Crystal"
+    },
+    "latigazo_boreal": {
+      "nombre": "Boreal Lash"
+    },
+    "velo_boreal": {
+      "nombre": "Boreal Veil"
+    },
+    "picado_aurora": {
+      "nombre": "Aurora Dive"
+    },
+    "zarpa_magenta": {
+      "nombre": "Magenta Claw"
+    },
+    "aurora_final": {
+      "nombre": "Final Aurora"
+    },
+    "relampago_boreal": {
+      "nombre": "Boreal Lightning"
+    },
+    "tenaza_dorada": {
+      "nombre": "Golden Claw"
+    },
+    "coraza_real": {
+      "nombre": "Royal Armor"
+    },
+    "pinza_sismica": {
+      "nombre": "Seismic Pincer"
+    },
+    "pinza_del_abismo": {
+      "nombre": "Abyss Pincer"
+    },
+    "tenaza_colosal": {
+      "nombre": "Colossal Claw"
+    },
+    "marea_de_asedio": {
+      "nombre": "Siege Tide"
+    },
+    "patada_creciente": {
+      "nombre": "Crescent Kick"
+    },
+    "luna_plateada": {
+      "nombre": "Silver Moon"
+    },
+    "cometa_lunar": {
+      "nombre": "Lunar Comet"
+    },
+    "garra_lunar": {
+      "nombre": "Moon Claw"
+    },
+    "luna_llena": {
+      "nombre": "Full Moon"
+    },
+    "lluvia_de_lunas": {
+      "nombre": "Moon Shower"
+    },
+    "tinta_abisal": {
+      "nombre": "Abyssal Ink"
+    },
+    "regeneracion": {
+      "nombre": "Regeneration"
+    },
+    "abismo_profundo": {
+      "nombre": "Deep Abyss"
+    },
+    "ojo_del_vacio": {
+      "nombre": "Void Eye"
+    },
+    "abrazo_del_abismo": {
+      "nombre": "Abyss Embrace"
+    },
+    "tinta_del_vacio": {
+      "nombre": "Void Ink"
+    },
+    "chispa_de_arena": {
+      "nombre": "Sand Spark"
+    },
+    "velo_de_calor": {
+      "nombre": "Heat Veil"
+    },
+    "orejas_al_sol": {
+      "nombre": "Sun Ears"
+    },
+    "rayo_de_vidrio": {
+      "nombre": "Glass Ray"
+    },
+    "destello_ardiente": {
+      "nombre": "Blazing Flash"
+    },
+    "danza_del_desierto": {
+      "nombre": "Desert Dance"
+    },
+    "lente_solar": {
+      "nombre": "Solar Lens"
+    },
+    "sol_de_cristal": {
+      "nombre": "Crystal Sun"
+    },
+    "vidrio_fundido": {
+      "nombre": "Molten Glass"
+    },
+    "tormenta_de_vidrio": {
+      "nombre": "Glass Storm"
+    },
+    "cornada_tibia": {
+      "nombre": "Warm Gore"
+    },
+    "caparazon_forjado": {
+      "nombre": "Forged Shell"
+    },
+    "templar": {
+      "nombre": "Temper"
+    },
+    "martillo_de_forja": {
+      "nombre": "Forge Hammer"
+    },
+    "cornada_ignea": {
+      "nombre": "Fire Gore"
+    },
+    "fuelle": {
+      "nombre": "Bellows"
+    },
+    "yunque_ardiente": {
+      "nombre": "Blazing Anvil"
+    },
+    "gran_fundicion": {
+      "nombre": "Great Foundry"
+    },
+    "cuerno_de_magma": {
+      "nombre": "Magma Horn"
+    },
+    "forja_del_ocaso": {
+      "nombre": "Dusk Forge"
+    },
+    "pua_candente": {
+      "nombre": "Searing Quill"
+    },
+    "erizar_puas": {
+      "nombre": "Bristle"
+    },
+    "afilar_puas": {
+      "nombre": "Sharpen Quills"
+    },
+    "lluvia_de_puas": {
+      "nombre": "Quill Rain"
+    },
+    "rodada_ignea": {
+      "nombre": "Fire Roll"
+    },
+    "rescoldo_interno": {
+      "nombre": "Inner Ember"
+    },
+    "tormenta_de_puas": {
+      "nombre": "Quill Storm"
+    },
+    "corona_carbunculo": {
+      "nombre": "Carbuncle Crown"
+    },
+    "pua_de_obsidiana": {
+      "nombre": "Obsidian Quill"
+    },
+    "abanico_del_ocaso": {
+      "nombre": "Dusk Fan"
+    },
+    "picotazo_igneo": {
+      "nombre": "Fire Peck"
+    },
+    "alas_de_ceniza": {
+      "nombre": "Ash Wings"
+    },
+    "canto_matutino": {
+      "nombre": "Morning Song"
+    },
+    "espolon_cometa": {
+      "nombre": "Comet Spur"
+    },
+    "picotazo_solar": {
+      "nombre": "Solar Peck"
+    },
+    "clarin_del_alba": {
+      "nombre": "Dawn Bugle"
+    },
+    "caida_del_cometa": {
+      "nombre": "Comet Fall"
+    },
+    "lluvia_de_cometas": {
+      "nombre": "Comet Shower"
+    },
+    "cola_de_meteoro": {
+      "nombre": "Meteor Tail"
+    },
+    "cometa_negro": {
+      "nombre": "Black Comet"
+    },
+    "coletazo_marino": {
+      "nombre": "Sea Tail"
+    },
+    "escudo_de_coral": {
+      "nombre": "Coral Shield"
+    },
+    "partir_conchas": {
+      "nombre": "Shell Crack"
+    },
+    "ola_coralina": {
+      "nombre": "Coral Wave"
+    },
+    "mordisco_de_coral": {
+      "nombre": "Coral Bite"
+    },
+    "marea_de_coral": {
+      "nombre": "Coral Tide"
+    },
+    "arrecife_furioso": {
+      "nombre": "Furious Reef"
+    },
+    "gran_barrera": {
+      "nombre": "Great Barrier"
+    },
+    "coral_carmesi": {
+      "nombre": "Crimson Coral"
+    },
+    "arrecife_sombrio": {
+      "nombre": "Shadow Reef"
+    },
+    "burbujas_veloces": {
+      "nombre": "Swift Bubbles"
+    },
+    "remolino_protector": {
+      "nombre": "Guard Whirlpool"
+    },
+    "danza_espiral": {
+      "nombre": "Spiral Dance"
+    },
+    "chorro_abisal": {
+      "nombre": "Abyssal Jet"
+    },
+    "hidroespiral": {
+      "nombre": "Hydro Spiral"
+    },
+    "corriente_plateada": {
+      "nombre": "Silver Current"
+    },
+    "torbellino_abisal": {
+      "nombre": "Abyssal Whirl"
+    },
+    "abismo_plateado": {
+      "nombre": "Silver Abyss"
+    },
+    "espiral_violeta": {
+      "nombre": "Violet Spiral"
+    },
+    "vortice_eterno": {
+      "nombre": "Eternal Vortex"
+    },
+    "toque_urticante": {
+      "nombre": "Stinging Touch"
+    },
+    "velo_de_medusa": {
+      "nombre": "Jelly Veil"
+    },
+    "pulso_calmo": {
+      "nombre": "Calm Pulse"
+    },
+    "lluvia_de_perlas": {
+      "nombre": "Pearl Rain"
+    },
+    "latigazo_perlado": {
+      "nombre": "Pearl Lash"
+    },
+    "campana_lunar": {
+      "nombre": "Moon Bell"
+    },
+    "gran_campanada": {
+      "nombre": "Great Chime"
+    },
+    "sinfonia_abisal": {
+      "nombre": "Abyssal Symphony"
+    },
+    "tentaculo_violeta": {
+      "nombre": "Violet Tentacle"
+    },
+    "campana_del_vacio": {
+      "nombre": "Void Bell"
+    },
+    "embestida_helada": {
+      "nombre": "Frost Charge"
+    },
+    "tempano": {
+      "nombre": "Ice Floe"
+    },
+    "afilar_colmillo": {
+      "nombre": "Sharpen Tusk"
+    },
+    "lanza_de_hielo": {
+      "nombre": "Ice Lance"
+    },
+    "colmillo_glacial": {
+      "nombre": "Glacial Tusk"
+    },
+    "aguas_gelidas": {
+      "nombre": "Frigid Waters"
+    },
+    "avalancha_marina": {
+      "nombre": "Sea Avalanche"
+    },
+    "era_glacial": {
+      "nombre": "Ice Age"
+    },
+    "lanza_del_ocaso": {
+      "nombre": "Dusk Lance"
+    },
+    "glaciar_eterno": {
+      "nombre": "Eternal Glacier"
+    },
+    "trompazo": {
+      "nombre": "Trunk Slam"
+    },
+    "manto_de_musgo": {
+      "nombre": "Moss Cloak"
+    },
+    "esporas_vigorosas": {
+      "nombre": "Vigor Spores"
+    },
+    "estampida_verde": {
+      "nombre": "Green Stampede"
+    },
+    "trompa_fungica": {
+      "nombre": "Fungal Trunk"
+    },
+    "red_de_micelio": {
+      "nombre": "Mycelium Web"
+    },
+    "alud_de_hongos": {
+      "nombre": "Mushroom Slide"
+    },
+    "bosque_fungico": {
+      "nombre": "Fungal Forest"
+    },
+    "espora_sombria": {
+      "nombre": "Shadow Spore"
+    },
+    "micelio_del_ocaso": {
+      "nombre": "Dusk Mycelium"
+    },
+    "tajo_de_petalo": {
+      "nombre": "Petal Slash"
+    },
+    "camuflaje_floral": {
+      "nombre": "Flower Camouflage"
+    },
+    "afilar_guadanas": {
+      "nombre": "Sharpen Scythes"
+    },
+    "guadana_floral": {
+      "nombre": "Flower Scythe"
+    },
+    "doble_tajo": {
+      "nombre": "Double Slash"
+    },
+    "danza_de_orquidea": {
+      "nombre": "Orchid Dance"
+    },
+    "ciclon_de_guadanas": {
+      "nombre": "Scythe Cyclone"
+    },
+    "jardin_de_cuchillas": {
+      "nombre": "Blade Garden"
+    },
+    "guadana_carmesi": {
+      "nombre": "Crimson Scythe"
+    },
+    "floracion_oscura": {
+      "nombre": "Dark Bloom"
+    },
+    "cabezazo_manso": {
+      "nombre": "Gentle Headbutt"
+    },
+    "escudo_de_raices": {
+      "nombre": "Root Shield"
+    },
+    "bano_tranquilo": {
+      "nombre": "Calm Bath"
+    },
+    "raiz_aplastante": {
+      "nombre": "Crushing Root"
+    },
+    "latigo_de_mangle": {
+      "nombre": "Mangrove Whip"
+    },
+    "paz_del_manglar": {
+      "nombre": "Mangrove Peace"
+    },
+    "marea_de_raices": {
+      "nombre": "Root Tide"
+    },
+    "gran_manglar": {
+      "nombre": "Great Mangrove"
+    },
+    "raiz_del_ocaso": {
+      "nombre": "Dusk Root"
+    },
+    "pantano_eterno": {
+      "nombre": "Eternal Swamp"
+    },
+    "lluvia_de_hojas": {
+      "nombre": "Leaf Rain"
+    },
+    "quedarse_quieto": {
+      "nombre": "Stay Still"
+    },
+    "brote_nuevo": {
+      "nombre": "New Sprout"
+    },
+    "lanza_de_bambu": {
+      "nombre": "Bamboo Spear"
+    },
+    "hoja_cortante": {
+      "nombre": "Cutting Leaf"
+    },
+    "bosque_de_bambu": {
+      "nombre": "Bamboo Forest"
+    },
+    "ciclon_de_hojas": {
+      "nombre": "Leaf Cyclone"
+    },
+    "selva_de_bambu": {
+      "nombre": "Bamboo Jungle"
+    },
+    "hoja_sombria": {
+      "nombre": "Shadow Leaf"
+    },
+    "bambu_del_ocaso": {
+      "nombre": "Dusk Bamboo"
+    },
+    "destello": {
+      "nombre": "Flash"
+    },
+    "abanico_escudo": {
+      "nombre": "Shield Fan"
+    },
+    "desplegar_plumas": {
+      "nombre": "Spread Plumes"
+    },
+    "ojos_del_abanico": {
+      "nombre": "Fan Eyes"
+    },
+    "pluma_electrica": {
+      "nombre": "Electric Plume"
+    },
+    "pavoneo": {
+      "nombre": "Strut"
+    },
+    "rayo_helianto": {
+      "nombre": "Sunflower Ray"
+    },
+    "mil_ojos_solares": {
+      "nombre": "Thousand Sun Eyes"
+    },
+    "abanico_violeta": {
+      "nombre": "Violet Fan"
+    },
+    "eclipse_de_plumas": {
+      "nombre": "Plume Eclipse"
+    },
+    "chispa_de_farol": {
+      "nombre": "Lantern Spark"
+    },
+    "aleta_brillante": {
+      "nombre": "Shining Fin"
+    },
+    "encender_farol": {
+      "nombre": "Light Lantern"
+    },
+    "relampago_dorado": {
+      "nombre": "Golden Bolt"
+    },
+    "bigote_electrico": {
+      "nombre": "Electric Whisker"
+    },
+    "nado_luminoso": {
+      "nombre": "Glowing Swim"
+    },
+    "farol_celeste": {
+      "nombre": "Sky Lantern"
+    },
+    "mil_faroles": {
+      "nombre": "Thousand Lanterns"
+    },
+    "farol_sombrio": {
+      "nombre": "Shadow Lantern"
+    },
+    "linterna_del_ocaso": {
+      "nombre": "Dusk Lantern"
+    },
+    "zarpa_estatica": {
+      "nombre": "Static Paw"
+    },
+    "pelaje_esponjoso": {
+      "nombre": "Fluffy Fur"
+    },
+    "frotar_pelaje": {
+      "nombre": "Fur Rub"
+    },
+    "salto_prisma": {
+      "nombre": "Prism Leap"
+    },
+    "cola_de_cuarzo": {
+      "nombre": "Quartz Tail"
+    },
+    "brillo_de_cuarzo": {
+      "nombre": "Quartz Gleam"
+    },
+    "embestida_prisma": {
+      "nombre": "Prism Charge"
+    },
+    "prisma_relampago": {
+      "nombre": "Lightning Prism"
+    },
+    "cuarzo_violeta": {
+      "nombre": "Violet Quartz"
+    },
+    "prisma_del_ocaso": {
+      "nombre": "Dusk Prism"
+    },
+    "ala_rapida": {
+      "nombre": "Quick Wing"
+    },
+    "vuelo_esquivo": {
+      "nombre": "Dodge Flight"
+    },
+    "aire_de_alba": {
+      "nombre": "Dawn Air"
+    },
+    "picado_del_alba": {
+      "nombre": "Dawn Dive"
+    },
+    "cola_tijera": {
+      "nombre": "Scissor Tail"
+    },
+    "corriente_alba": {
+      "nombre": "Dawn Current"
+    },
+    "vendaval_alba": {
+      "nombre": "Dawn Gale"
+    },
+    "amanecer_eterno": {
+      "nombre": "Eternal Dawn"
+    },
+    "tijera_del_ocaso": {
+      "nombre": "Dusk Scissors"
+    },
+    "alba_negra": {
+      "nombre": "Black Dawn"
+    },
+    "rafaga_nocturna": {
+      "nombre": "Night Gust"
+    },
+    "plumaje_denso": {
+      "nombre": "Thick Plumage"
+    },
+    "mirada_atenta": {
+      "nombre": "Keen Gaze"
+    },
+    "hipnosis_lunar": {
+      "nombre": "Lunar Hypnosis"
+    },
+    "ala_umbral": {
+      "nombre": "Threshold Wing"
+    },
+    "vigilia": {
+      "nombre": "Vigil"
+    },
+    "tempestad_nocturna": {
+      "nombre": "Night Tempest"
+    },
+    "noche_de_mil_ojos": {
+      "nombre": "Thousand-Eyed Night"
+    },
+    "mirada_del_umbral": {
+      "nombre": "Threshold Gaze"
+    },
+    "umbral_eterno": {
+      "nombre": "Eternal Threshold"
+    },
+    "mordisco_sombrio": {
+      "nombre": "Shadow Bite"
+    },
+    "envoltura_de_alas": {
+      "nombre": "Wing Wrap"
+    },
+    "ecolocacion": {
+      "nombre": "Echolocation"
+    },
+    "picado_nocturno": {
+      "nombre": "Night Dive"
+    },
+    "colmillo_velado": {
+      "nombre": "Veiled Fang"
+    },
+    "vuelo_nocturno": {
+      "nombre": "Night Flight"
+    },
+    "alas_de_medianoche": {
+      "nombre": "Midnight Wings"
+    },
+    "noche_sin_luna": {
+      "nombre": "Moonless Night"
+    },
+    "ala_terciopelo": {
+      "nombre": "Velvet Wing"
+    },
+    "eco_del_vacio": {
+      "nombre": "Void Echo"
+    },
+    "garra_excavadora": {
+      "nombre": "Digging Claw"
+    },
+    "madriguera": {
+      "nombre": "Burrow"
+    },
+    "pulir_garras": {
+      "nombre": "Polish Claws"
+    },
+    "lluvia_de_geodas": {
+      "nombre": "Geode Rain"
+    },
+    "garra_de_amatista": {
+      "nombre": "Amethyst Claw"
+    },
+    "coraza_de_geoda": {
+      "nombre": "Geode Armor"
+    },
+    "sismo_cristalino": {
+      "nombre": "Crystal Quake"
+    },
+    "corazon_de_geoda": {
+      "nombre": "Geode Heart"
+    },
+    "amatista_negra": {
+      "nombre": "Black Amethyst"
+    },
+    "geoda_del_vacio": {
+      "nombre": "Void Geode"
+    },
+    "guijarrazo": {
+      "nombre": "Pebble Toss"
+    },
+    "cola_anillada": {
+      "nombre": "Ringed Tail"
+    },
+    "picardia": {
+      "nombre": "Mischief"
+    },
+    "lluvia_de_onice": {
+      "nombre": "Onyx Rain"
+    },
+    "zarpa_de_onice": {
+      "nombre": "Onyx Paw"
+    },
+    "esconder_tesoro": {
+      "nombre": "Hide Treasure"
+    },
+    "coletazo_anillado": {
+      "nombre": "Ringed Lash"
+    },
+    "tesoro_de_onice": {
+      "nombre": "Onyx Treasure"
+    },
+    "onice_sombrio": {
+      "nombre": "Shadow Onyx"
+    },
+    "guarida_del_vacio": {
+      "nombre": "Void Lair"
+    },
+    "zarpa_de_helecho": {
+      "nombre": "Fern Claw"
+    },
+    "garras_guadana": {
+      "nombre": "Scythe Claws"
+    },
+    "follaje_jurasico": {
+      "nombre": "Jurassic Foliage"
+    },
+    "savia_antigua": {
+      "nombre": "Ancient Sap"
+    },
+    "brote_eterno": {
+      "nombre": "Eternal Sprout"
+    },
+    "siega_prehistorica": {
+      "nombre": "Primal Harvest"
+    },
+    "siega_milenaria": {
+      "nombre": "Millennial Reap"
+    },
+    "raiz_del_mundo": {
+      "nombre": "World Root"
+    },
+    "onda_abisal": {
+      "nombre": "Abyssal Wave"
+    },
+    "oleaje_antiguo": {
+      "nombre": "Ancient Swell"
+    },
+    "burbuja_fosil": {
+      "nombre": "Fossil Bubble"
+    },
+    "canto_profundo": {
+      "nombre": "Deep Song"
+    },
+    "canto_de_nereida": {
+      "nombre": "Nereid Song"
+    },
+    "maremoto_jurasico": {
+      "nombre": "Jurassic Surge"
+    },
+    "diluvio_eterno": {
+      "nombre": "Eternal Deluge"
+    },
+    "mar_primordial": {
+      "nombre": "Primal Sea"
+    },
+    "cuerno_voltio": {
+      "nombre": "Volt Horn"
+    },
+    "tricuerno_electrico": {
+      "nombre": "Tri-Horn Shock"
+    },
+    "gola_escudo": {
+      "nombre": "Frill Shield"
+    },
+    "carga_cristal": {
+      "nombre": "Crystal Charge"
+    },
+    "gola_tormenta": {
+      "nombre": "Storm Frill"
+    },
+    "estampida_voltaica": {
+      "nombre": "Volt Stampede"
+    },
+    "embestida_eterna": {
+      "nombre": "Eternal Charge"
+    },
+    "trueno_del_cretacico": {
+      "nombre": "Cretaceous Thunder"
+    },
+    "dentellada_volcanica": {
+      "nombre": "Volcanic Bite"
+    },
+    "mandibula_de_magma": {
+      "nombre": "Magma Jaws"
+    },
+    "piel_de_basalto": {
+      "nombre": "Basalt Hide"
+    },
+    "rugido_tirano": {
+      "nombre": "Tyrant Roar"
+    },
+    "rugido_cretacico": {
+      "nombre": "Cretaceous Roar"
+    },
+    "erupcion_rex": {
+      "nombre": "Rex Eruption"
+    },
+    "cataclismo_igneo": {
+      "nombre": "Igneous Cataclysm"
+    },
+    "meteoro_final": {
+      "nombre": "Final Meteor"
+    },
+    "mirada_permica": {
+      "nombre": "Permian Gaze"
+    },
+    "ojo_del_abismo": {
+      "nombre": "Abyss Eye"
+    },
+    "velo_fosil": {
+      "nombre": "Fossil Veil"
+    },
+    "vela_sombria": {
+      "nombre": "Shadow Sail"
+    },
+    "vela_estelar": {
+      "nombre": "Star Sail"
+    },
+    "pulso_permico": {
+      "nombre": "Permian Pulse"
+    },
+    "noche_primigenia": {
+      "nombre": "Primeval Night"
+    },
+    "eclipse_fosil": {
+      "nombre": "Fossil Eclipse"
+    },
+    "garra_primitiva": {
+      "nombre": "Primal Claw"
+    },
+    "tenaza_abisal": {
+      "nombre": "Abyssal Pincer"
+    },
+    "caparazon_cambrico": {
+      "nombre": "Cambrian Shell"
+    },
+    "ojos_compuestos": {
+      "nombre": "Compound Eyes"
+    },
+    "marea_cambrica": {
+      "nombre": "Cambrian Tide"
+    },
+    "remolino_cambrico": {
+      "nombre": "Cambrian Whirl"
+    },
+    "abismo_primigenio": {
+      "nombre": "Primeval Abyss"
+    },
+    "primer_oceano": {
+      "nombre": "First Ocean"
+    },
+    "zumbido_voltaico": {
+      "nombre": "Volt Buzz"
+    },
+    "picada_relampago": {
+      "nombre": "Lightning Dive"
+    },
+    "alas_de_vitral": {
+      "nombre": "Glass Wings"
+    },
+    "vuelo_estatico": {
+      "nombre": "Static Flight"
+    },
+    "mil_facetas": {
+      "nombre": "Thousand Facets"
+    },
+    "enjambre_electrico": {
+      "nombre": "Electric Swarm"
+    },
+    "tormenta_pantanosa": {
+      "nombre": "Swamp Storm"
+    },
+    "rayo_primordial": {
+      "nombre": "Primordial Bolt"
+    },
+    "coletazo_de_puas": {
+      "nombre": "Spike Swipe"
+    },
+    "puas_milenarias": {
+      "nombre": "Ancient Spikes"
+    },
+    "placas_de_hoja": {
+      "nombre": "Leaf Plates"
+    },
+    "sol_del_jurasico": {
+      "nombre": "Jurassic Sun"
+    },
+    "bosque_jurasico": {
+      "nombre": "Jurassic Grove"
+    },
+    "estampida_de_hojas": {
+      "nombre": "Leaf Stampede"
+    },
+    "gran_estampida": {
+      "nombre": "Great Stampede"
+    },
+    "corazon_jurasico": {
+      "nombre": "Jurassic Heart"
+    },
+    "picotazo_cretacico": {
+      "nombre": "Cretaceous Peck"
+    },
+    "cresta_cortante": {
+      "nombre": "Crest Slash"
+    },
+    "alas_planeadoras": {
+      "nombre": "Gliding Wings"
+    },
+    "corriente_termica": {
+      "nombre": "Thermal Current"
+    },
+    "vuelo_rasante": {
+      "nombre": "Skimming Flight"
+    },
+    "picado_meteoro": {
+      "nombre": "Meteor Dive"
+    },
+    "lluvia_de_meteoros": {
+      "nombre": "Meteor Shower"
+    },
+    "ultimo_cielo": {
+      "nombre": "Last Sky"
+    },
+    "colmillazo": {
+      "nombre": "Tusk Strike"
+    },
+    "colmillos_de_hielo": {
+      "nombre": "Ice Tusks"
+    },
+    "pelaje_glacial": {
+      "nombre": "Glacial Fur"
+    },
+    "bramido_helado": {
+      "nombre": "Frozen Bellow"
+    },
+    "manada_glacial": {
+      "nombre": "Glacial Herd"
+    },
+    "alud_de_nieve": {
+      "nombre": "Snow Slide"
+    },
+    "glaciacion": {
+      "nombre": "Glaciation"
+    },
+    "era_de_hielo": {
+      "nombre": "Ice Age"
+    },
+    "borron": {
+      "nombre": "Smudge"
+    },
+    "zarpa_del_vacio": {
+      "nombre": "Void Claw"
+    },
+    "lienzo_gris": {
+      "nombre": "Gray Canvas"
+    },
+    "colapso_cromatico": {
+      "nombre": "Chroma Collapse"
+    },
+    "lienzo_en_blanco": {
+      "nombre": "Blank Canvas"
+    }
+  },
+  "items": {
+    "caramelo_s": {
+      "nombre": "Small XP Stone",
+      "descripcion": "Gives 60 experience to one creature."
+    },
+    "caramelo_m": {
+      "nombre": "Medium XP Stone",
+      "descripcion": "Gives 200 experience to one creature."
+    },
+    "caramelo_l": {
+      "nombre": "Large XP Stone",
+      "descripcion": "Gives 600 experience to one creature."
+    },
+    "vit_ps": {
+      "nombre": "Vigor Vitamin",
+      "descripcion": "HP +3 % for good. Up to 5 doses per stat."
+    },
+    "vit_atq": {
+      "nombre": "Strength Vitamin",
+      "descripcion": "Attack +3 % for good. Up to 5 doses per stat."
+    },
+    "vit_def": {
+      "nombre": "Armor Vitamin",
+      "descripcion": "Defense +3 % for good. Up to 5 doses per stat."
+    },
+    "vit_ate": {
+      "nombre": "Spark Vitamin",
+      "descripcion": "Sp. Attack +3 % for good. Up to 5 doses."
+    },
+    "vit_dfe": {
+      "nombre": "Calm Vitamin",
+      "descripcion": "Sp. Defense +3 % for good. Up to 5 doses."
+    },
+    "vit_vel": {
+      "nombre": "Breeze Vitamin",
+      "descripcion": "Speed +3 % for good. Up to 5 doses."
+    },
+    "incienso": {
+      "nombre": "Incense",
+      "descripcion": "30 min: twice as many Rare and Epic cards in packs."
+    },
+    "pocion": {
+      "nombre": "Potion",
+      "descripcion": "In battle: restores 50 % HP."
+    },
+    "antidoto": {
+      "nombre": "Antidote",
+      "descripcion": "In battle: cures burn, poison, paralysis or sleep."
+    },
+    "tonico": {
+      "nombre": "Tonic",
+      "descripcion": "In battle: +5 uses to every move (up to the max)."
+    },
+    "carta_escudo": {
+      "nombre": "Shield Card",
+      "descripcion": "In battle, this turn: takes half damage. Goes first."
+    },
+    "superpocion": {
+      "nombre": "Super Potion",
+      "descripcion": "In battle: restores 75 % HP."
+    },
+    "pocion_max": {
+      "nombre": "Max Potion",
+      "descripcion": "In battle: restores all HP."
+    },
+    "revivir": {
+      "nombre": "Revive",
+      "descripcion": "In battle: brings back a fallen team member with 50 % HP."
+    },
+    "reloj_arena": {
+      "nombre": "Hourglass",
+      "descripcion": "In battle: you attack twice in a row this turn."
+    },
+    "carta_furia": {
+      "nombre": "Fury Card",
+      "descripcion": "In battle: Attack +2 while it stays on the field."
+    },
+    "carta_muralla": {
+      "nombre": "Wall Card",
+      "descripcion": "In battle: Defense +2 while it stays on the field."
+    },
+    "carta_mente": {
+      "nombre": "Mind Card",
+      "descripcion": "In battle: Sp. Attack +2 while it stays on the field."
+    },
+    "carta_calma": {
+      "nombre": "Calm Card",
+      "descripcion": "In battle: Sp. Defense +2 while it stays on the field."
+    },
+    "carta_rafaga": {
+      "nombre": "Gust Card",
+      "descripcion": "In battle: Speed +2 while it stays on the field."
+    },
+    "encanto_sueno": {
+      "nombre": "Sleep Charm",
+      "descripcion": "In battle: puts the foe to sleep."
+    },
+    "encanto_veneno": {
+      "nombre": "Poison Charm",
+      "descripcion": "In battle: poisons the foe."
+    },
+    "encanto_lento": {
+      "nombre": "Slow Charm",
+      "descripcion": "In battle: foe's Speed −2."
+    },
+    "encanto_debil": {
+      "nombre": "Weak Charm",
+      "descripcion": "In battle: foe's Attack −2."
+    },
+    "piedra_eclipse": {
+      "nombre": "Eclipse Stone",
+      "descripcion": "Makes a night evolution possible. Used up on use."
+    },
+    "amuleto_vigor": {
+      "nombre": "Vigor Amulet",
+      "descripcion": "HP +10 % while held. Equip it in My creatures."
+    },
+    "amuleto_fuerza": {
+      "nombre": "Strength Amulet",
+      "descripcion": "Attack +10 % while held. Equip it in My creatures."
+    },
+    "amuleto_coraza": {
+      "nombre": "Armor Amulet",
+      "descripcion": "Defense +10 % while held. Equip it in My creatures."
+    },
+    "amuleto_mente": {
+      "nombre": "Mind Amulet",
+      "descripcion": "Sp. Attack +10 % while held. Equip it in My creatures."
+    },
+    "amuleto_calma": {
+      "nombre": "Calm Amulet",
+      "descripcion": "Sp. Defense +10 % while held. Equip it in My creatures."
+    },
+    "amuleto_pluma": {
+      "nombre": "Feather Amulet",
+      "descripcion": "Speed +10 % while held. Equip it in My creatures."
+    },
+    "pergamino": {
+      "nombre": "Technique Scroll",
+      "descripcion": "Teaches a new move of its type: choose from 3."
+    }
+  },
+  "sobres": {
+    "basico": {
+      "nombre": "Basic Pack"
+    },
+    "brasa": {
+      "nombre": "Ember Pack"
+    },
+    "marea": {
+      "nombre": "Tide Pack"
+    },
+    "brote": {
+      "nombre": "Sprout Pack"
+    },
+    "rayo": {
+      "nombre": "Bolt Pack"
+    },
+    "roca": {
+      "nombre": "Rock Pack"
+    },
+    "cielo": {
+      "nombre": "Sky Pack"
+    },
+    "sombra": {
+      "nombre": "Shadow Pack"
+    },
+    "botiquin": {
+      "nombre": "Medkit Pack"
+    },
+    "raro": {
+      "nombre": "Rare Pack"
+    },
+    "legendario": {
+      "nombre": "Legendary Pack"
+    }
+  },
+  "rarezas": {
+    "comun": {
+      "nombre": "Common"
+    },
+    "poco_comun": {
+      "nombre": "Uncommon"
+    },
+    "rara": {
+      "nombre": "Rare"
+    },
+    "epica": {
+      "nombre": "Epic"
+    }
+  },
+  "tipos": {
+    "brasa": {
+      "nombre": "Ember",
+      "abrev": "EMB"
+    },
+    "marea": {
+      "nombre": "Tide",
+      "abrev": "TID"
+    },
+    "brote": {
+      "nombre": "Sprout",
+      "abrev": "SPR"
+    },
+    "rayo": {
+      "nombre": "Bolt",
+      "abrev": "BLT"
+    },
+    "roca": {
+      "nombre": "Rock",
+      "abrev": "RCK"
+    },
+    "cielo": {
+      "nombre": "Sky",
+      "abrev": "SKY"
+    },
+    "sombra": {
+      "nombre": "Shadow",
+      "abrev": "SHD"
+    },
+    "neutro": {
+      "nombre": "Neutral",
+      "abrev": "NEU"
+    }
   }
- },
- "habilidades": {
-  "zarpazo_ardiente": {
-   "nombre": "Blazing Swipe"
-  },
-  "pelaje_igneo": {
-   "nombre": "Fiery Coat"
-  },
-  "grito_de_manada": {
-   "nombre": "Pack Howl"
-  },
-  "rugido_solar": {
-   "nombre": "Solar Roar"
-  },
-  "dentellada_marina": {
-   "nombre": "Sea Bite"
-  },
-  "escudo_de_burbujas": {
-   "nombre": "Bubble Shield"
-  },
-  "corriente": {
-   "nombre": "Current"
-  },
-  "tsunami": {
-   "nombre": "Tsunami"
-  },
-  "zarpazo_de_raiz": {
-   "nombre": "Root Swipe"
-  },
-  "armadura_de_corteza": {
-   "nombre": "Bark Armor"
-  },
-  "bano_de_sol": {
-   "nombre": "Sunbathe"
-  },
-  "furia_del_bosque": {
-   "nombre": "Forest Fury"
-  },
-  "mirada_abrasadora": {
-   "nombre": "Scorching Glare"
-  },
-  "arrullo_de_olas": {
-   "nombre": "Wave Lullaby"
-  },
-  "polen_toxico": {
-   "nombre": "Toxic Pollen"
-  },
-  "abrazo_de_raices": {
-   "nombre": "Root Embrace"
-  },
-  "rafaga_celeste": {
-   "nombre": "Sky Gust"
-  },
-  "manto_de_nubes": {
-   "nombre": "Cloud Cloak"
-  },
-  "viento_de_cola": {
-   "nombre": "Tailwind"
-  },
-  "tormenta_estelar": {
-   "nombre": "Star Storm"
-  },
-  "polvo_oscuro": {
-   "nombre": "Dark Dust"
-  },
-  "alas_de_obsidiana": {
-   "nombre": "Obsidian Wings"
-  },
-  "danza_lunar": {
-   "nombre": "Moon Dance"
-  },
-  "eclipse_total": {
-   "nombre": "Total Eclipse"
-  },
-  "chispazo": {
-   "nombre": "Spark"
-  },
-  "piel_estatica": {
-   "nombre": "Static Skin"
-  },
-  "carga_ionica": {
-   "nombre": "Ion Charge"
-  },
-  "tormenta_electrica": {
-   "nombre": "Electric Storm"
-  },
-  "golpe_de_concha": {
-   "nombre": "Shell Smash"
-  },
-  "refugio_de_piedra": {
-   "nombre": "Stone Refuge"
-  },
-  "endurecer": {
-   "nombre": "Harden"
-  },
-  "avalancha": {
-   "nombre": "Avalanche"
-  },
-  "pico_espina": {
-   "nombre": "Thorn Beak"
-  },
-  "escudo_de_petalos": {
-   "nombre": "Petal Shield"
-  },
-  "nectar": {
-   "nombre": "Nectar"
-  },
-  "huracan_floral": {
-   "nombre": "Flower Hurricane"
-  },
-  "escama_afilada": {
-   "nombre": "Sharp Scale"
-  },
-  "bola_de_cristal": {
-   "nombre": "Crystal Ball"
-  },
-  "pulir_escamas": {
-   "nombre": "Polish Scales"
-  },
-  "lluvia_de_prismas": {
-   "nombre": "Prism Rain"
-  },
-  "coletazo_aurora": {
-   "nombre": "Aurora Tail"
-  },
-  "planeo": {
-   "nombre": "Glide"
-  },
-  "luz_de_aurora": {
-   "nombre": "Aurora Light"
-  },
-  "picado_celeste": {
-   "nombre": "Sky Dive"
-  },
-  "pinza_marina": {
-   "nombre": "Sea Pincer"
-  },
-  "concha_sagrada": {
-   "nombre": "Sacred Shell"
-  },
-  "coraza_de_sal": {
-   "nombre": "Salt Armor"
-  },
-  "pinza_de_asedio": {
-   "nombre": "Siege Pincer"
-  },
-  "patada_lunar": {
-   "nombre": "Moon Kick"
-  },
-  "salto_nocturno": {
-   "nombre": "Night Leap"
-  },
-  "luna_creciente": {
-   "nombre": "Crescent Moon"
-  },
-  "embestida_astral": {
-   "nombre": "Astral Charge"
-  },
-  "chorro_de_tinta": {
-   "nombre": "Ink Jet"
-  },
-  "nube_de_tinta": {
-   "nombre": "Ink Cloud"
-  },
-  "regenerar": {
-   "nombre": "Regenerate"
-  },
-  "marea_negra": {
-   "nombre": "Black Tide"
-  },
-  "colmillo_igneo": {
-   "nombre": "Fire Fang"
-  },
-  "rugido_de_guerra": {
-   "nombre": "War Roar"
-  },
-  "llamarada_real": {
-   "nombre": "Royal Blaze"
-  },
-  "sol_carmesi": {
-   "nombre": "Crimson Sun"
-  },
-  "sol_supremo": {
-   "nombre": "Supreme Sun"
-  },
-  "corona_negra": {
-   "nombre": "Black Crown"
-  },
-  "mordisco_abisal": {
-   "nombre": "Abyssal Bite"
-  },
-  "marea_viva": {
-   "nombre": "Spring Tide"
-  },
-  "maremoto": {
-   "nombre": "Seaquake"
-  },
-  "vortice_negro": {
-   "nombre": "Black Vortex"
-  },
-  "diluvio_abisal": {
-   "nombre": "Abyssal Deluge"
-  },
-  "remolino_del_vacio": {
-   "nombre": "Void Whirlpool"
-  },
-  "garra_de_espino": {
-   "nombre": "Thorn Claw"
-  },
-  "savia_vital": {
-   "nombre": "Life Sap"
-  },
-  "ira_del_bosque": {
-   "nombre": "Forest Wrath"
-  },
-  "raiz_nocturna": {
-   "nombre": "Night Root"
-  },
-  "bosque_primordial": {
-   "nombre": "Primeval Forest"
-  },
-  "espinas_nocturnas": {
-   "nombre": "Night Thorns"
-  },
-  "viento_cortante": {
-   "nombre": "Cutting Wind"
-  },
-  "corriente_celeste": {
-   "nombre": "Sky Current"
-  },
-  "cielo_desatado": {
-   "nombre": "Unleashed Sky"
-  },
-  "gravedad_oscura": {
-   "nombre": "Dark Gravity"
-  },
-  "supernova_celeste": {
-   "nombre": "Sky Supernova"
-  },
-  "guadana_estelar": {
-   "nombre": "Star Scythe"
-  },
-  "polvo_somnifero": {
-   "nombre": "Sleep Dust"
-  },
-  "danza_nocturna": {
-   "nombre": "Night Dance"
-  },
-  "luna_negra": {
-   "nombre": "Black Moon"
-  },
-  "polvo_carmesi": {
-   "nombre": "Crimson Dust"
-  },
-  "noche_eterna": {
-   "nombre": "Endless Night"
-  },
-  "ala_carmesi": {
-   "nombre": "Crimson Wing"
-  },
-  "descarga": {
-   "nombre": "Discharge"
-  },
-  "sobrecarga": {
-   "nombre": "Overload"
-  },
-  "trueno_ancestral": {
-   "nombre": "Ancient Thunder"
-  },
-  "rayo_violeta": {
-   "nombre": "Violet Bolt"
-  },
-  "mil_relampagos": {
-   "nombre": "Thousand Bolts"
-  },
-  "tormenta_violeta": {
-   "nombre": "Violet Storm"
-  },
-  "embestida_rocosa": {
-   "nombre": "Rock Charge"
-  },
-  "coraza_de_granito": {
-   "nombre": "Granite Armor"
-  },
-  "terremoto": {
-   "nombre": "Earthquake"
-  },
-  "colmillo_de_basalto": {
-   "nombre": "Basalt Fang"
-  },
-  "derrumbe_total": {
-   "nombre": "Total Collapse"
-  },
-  "erupcion_de_basalto": {
-   "nombre": "Basalt Eruption"
-  },
-  "pico_venenoso": {
-   "nombre": "Venom Beak"
-  },
-  "nectar_dorado": {
-   "nombre": "Golden Nectar"
-  },
-  "tormenta_de_petalos": {
-   "nombre": "Petal Storm"
-  },
-  "ciclon_de_espinas": {
-   "nombre": "Thorn Cyclone"
-  },
-  "jardin_furioso": {
-   "nombre": "Furious Garden"
-  },
-  "torbellino_filoso": {
-   "nombre": "Razor Whirlwind"
-  },
-  "garra_de_cuarzo": {
-   "nombre": "Quartz Claw"
-  },
-  "brillo_prismatico": {
-   "nombre": "Prismatic Shine"
-  },
-  "estallido_prisma": {
-   "nombre": "Prism Burst"
-  },
-  "filo_de_obsidiana": {
-   "nombre": "Obsidian Edge"
-  },
-  "prisma_absoluto": {
-   "nombre": "Absolute Prism"
-  },
-  "cristal_quebrado": {
-   "nombre": "Shattered Crystal"
-  },
-  "latigazo_boreal": {
-   "nombre": "Boreal Lash"
-  },
-  "velo_boreal": {
-   "nombre": "Boreal Veil"
-  },
-  "picado_aurora": {
-   "nombre": "Aurora Dive"
-  },
-  "zarpa_magenta": {
-   "nombre": "Magenta Claw"
-  },
-  "aurora_final": {
-   "nombre": "Final Aurora"
-  },
-  "relampago_boreal": {
-   "nombre": "Boreal Lightning"
-  },
-  "tenaza_dorada": {
-   "nombre": "Golden Claw"
-  },
-  "coraza_real": {
-   "nombre": "Royal Armor"
-  },
-  "pinza_sismica": {
-   "nombre": "Seismic Pincer"
-  },
-  "pinza_del_abismo": {
-   "nombre": "Abyss Pincer"
-  },
-  "tenaza_colosal": {
-   "nombre": "Colossal Claw"
-  },
-  "marea_de_asedio": {
-   "nombre": "Siege Tide"
-  },
-  "patada_creciente": {
-   "nombre": "Crescent Kick"
-  },
-  "luna_plateada": {
-   "nombre": "Silver Moon"
-  },
-  "cometa_lunar": {
-   "nombre": "Lunar Comet"
-  },
-  "garra_lunar": {
-   "nombre": "Moon Claw"
-  },
-  "luna_llena": {
-   "nombre": "Full Moon"
-  },
-  "lluvia_de_lunas": {
-   "nombre": "Moon Shower"
-  },
-  "tinta_abisal": {
-   "nombre": "Abyssal Ink"
-  },
-  "regeneracion": {
-   "nombre": "Regeneration"
-  },
-  "abismo_profundo": {
-   "nombre": "Deep Abyss"
-  },
-  "ojo_del_vacio": {
-   "nombre": "Void Eye"
-  },
-  "abrazo_del_abismo": {
-   "nombre": "Abyss Embrace"
-  },
-  "tinta_del_vacio": {
-   "nombre": "Void Ink"
-  },
-  "chispa_de_arena": {
-   "nombre": "Sand Spark"
-  },
-  "velo_de_calor": {
-   "nombre": "Heat Veil"
-  },
-  "orejas_al_sol": {
-   "nombre": "Sun Ears"
-  },
-  "rayo_de_vidrio": {
-   "nombre": "Glass Ray"
-  },
-  "destello_ardiente": {
-   "nombre": "Blazing Flash"
-  },
-  "danza_del_desierto": {
-   "nombre": "Desert Dance"
-  },
-  "lente_solar": {
-   "nombre": "Solar Lens"
-  },
-  "sol_de_cristal": {
-   "nombre": "Crystal Sun"
-  },
-  "vidrio_fundido": {
-   "nombre": "Molten Glass"
-  },
-  "tormenta_de_vidrio": {
-   "nombre": "Glass Storm"
-  },
-  "cornada_tibia": {
-   "nombre": "Warm Gore"
-  },
-  "caparazon_forjado": {
-   "nombre": "Forged Shell"
-  },
-  "templar": {
-   "nombre": "Temper"
-  },
-  "martillo_de_forja": {
-   "nombre": "Forge Hammer"
-  },
-  "cornada_ignea": {
-   "nombre": "Fire Gore"
-  },
-  "fuelle": {
-   "nombre": "Bellows"
-  },
-  "yunque_ardiente": {
-   "nombre": "Blazing Anvil"
-  },
-  "gran_fundicion": {
-   "nombre": "Great Foundry"
-  },
-  "cuerno_de_magma": {
-   "nombre": "Magma Horn"
-  },
-  "forja_del_ocaso": {
-   "nombre": "Dusk Forge"
-  },
-  "pua_candente": {
-   "nombre": "Searing Quill"
-  },
-  "erizar_puas": {
-   "nombre": "Bristle"
-  },
-  "afilar_puas": {
-   "nombre": "Sharpen Quills"
-  },
-  "lluvia_de_puas": {
-   "nombre": "Quill Rain"
-  },
-  "rodada_ignea": {
-   "nombre": "Fire Roll"
-  },
-  "rescoldo_interno": {
-   "nombre": "Inner Ember"
-  },
-  "tormenta_de_puas": {
-   "nombre": "Quill Storm"
-  },
-  "corona_carbunculo": {
-   "nombre": "Carbuncle Crown"
-  },
-  "pua_de_obsidiana": {
-   "nombre": "Obsidian Quill"
-  },
-  "abanico_del_ocaso": {
-   "nombre": "Dusk Fan"
-  },
-  "picotazo_igneo": {
-   "nombre": "Fire Peck"
-  },
-  "alas_de_ceniza": {
-   "nombre": "Ash Wings"
-  },
-  "canto_matutino": {
-   "nombre": "Morning Song"
-  },
-  "espolon_cometa": {
-   "nombre": "Comet Spur"
-  },
-  "picotazo_solar": {
-   "nombre": "Solar Peck"
-  },
-  "clarin_del_alba": {
-   "nombre": "Dawn Bugle"
-  },
-  "caida_del_cometa": {
-   "nombre": "Comet Fall"
-  },
-  "lluvia_de_cometas": {
-   "nombre": "Comet Shower"
-  },
-  "cola_de_meteoro": {
-   "nombre": "Meteor Tail"
-  },
-  "cometa_negro": {
-   "nombre": "Black Comet"
-  },
-  "coletazo_marino": {
-   "nombre": "Sea Tail"
-  },
-  "escudo_de_coral": {
-   "nombre": "Coral Shield"
-  },
-  "partir_conchas": {
-   "nombre": "Shell Crack"
-  },
-  "ola_coralina": {
-   "nombre": "Coral Wave"
-  },
-  "mordisco_de_coral": {
-   "nombre": "Coral Bite"
-  },
-  "marea_de_coral": {
-   "nombre": "Coral Tide"
-  },
-  "arrecife_furioso": {
-   "nombre": "Furious Reef"
-  },
-  "gran_barrera": {
-   "nombre": "Great Barrier"
-  },
-  "coral_carmesi": {
-   "nombre": "Crimson Coral"
-  },
-  "arrecife_sombrio": {
-   "nombre": "Shadow Reef"
-  },
-  "burbujas_veloces": {
-   "nombre": "Swift Bubbles"
-  },
-  "remolino_protector": {
-   "nombre": "Guard Whirlpool"
-  },
-  "danza_espiral": {
-   "nombre": "Spiral Dance"
-  },
-  "chorro_abisal": {
-   "nombre": "Abyssal Jet"
-  },
-  "hidroespiral": {
-   "nombre": "Hydro Spiral"
-  },
-  "corriente_plateada": {
-   "nombre": "Silver Current"
-  },
-  "torbellino_abisal": {
-   "nombre": "Abyssal Whirl"
-  },
-  "abismo_plateado": {
-   "nombre": "Silver Abyss"
-  },
-  "espiral_violeta": {
-   "nombre": "Violet Spiral"
-  },
-  "vortice_eterno": {
-   "nombre": "Eternal Vortex"
-  },
-  "toque_urticante": {
-   "nombre": "Stinging Touch"
-  },
-  "velo_de_medusa": {
-   "nombre": "Jelly Veil"
-  },
-  "pulso_calmo": {
-   "nombre": "Calm Pulse"
-  },
-  "lluvia_de_perlas": {
-   "nombre": "Pearl Rain"
-  },
-  "latigazo_perlado": {
-   "nombre": "Pearl Lash"
-  },
-  "campana_lunar": {
-   "nombre": "Moon Bell"
-  },
-  "gran_campanada": {
-   "nombre": "Great Chime"
-  },
-  "sinfonia_abisal": {
-   "nombre": "Abyssal Symphony"
-  },
-  "tentaculo_violeta": {
-   "nombre": "Violet Tentacle"
-  },
-  "campana_del_vacio": {
-   "nombre": "Void Bell"
-  },
-  "embestida_helada": {
-   "nombre": "Frost Charge"
-  },
-  "tempano": {
-   "nombre": "Ice Floe"
-  },
-  "afilar_colmillo": {
-   "nombre": "Sharpen Tusk"
-  },
-  "lanza_de_hielo": {
-   "nombre": "Ice Lance"
-  },
-  "colmillo_glacial": {
-   "nombre": "Glacial Tusk"
-  },
-  "aguas_gelidas": {
-   "nombre": "Frigid Waters"
-  },
-  "avalancha_marina": {
-   "nombre": "Sea Avalanche"
-  },
-  "era_glacial": {
-   "nombre": "Ice Age"
-  },
-  "lanza_del_ocaso": {
-   "nombre": "Dusk Lance"
-  },
-  "glaciar_eterno": {
-   "nombre": "Eternal Glacier"
-  },
-  "trompazo": {
-   "nombre": "Trunk Slam"
-  },
-  "manto_de_musgo": {
-   "nombre": "Moss Cloak"
-  },
-  "esporas_vigorosas": {
-   "nombre": "Vigor Spores"
-  },
-  "estampida_verde": {
-   "nombre": "Green Stampede"
-  },
-  "trompa_fungica": {
-   "nombre": "Fungal Trunk"
-  },
-  "red_de_micelio": {
-   "nombre": "Mycelium Web"
-  },
-  "alud_de_hongos": {
-   "nombre": "Mushroom Slide"
-  },
-  "bosque_fungico": {
-   "nombre": "Fungal Forest"
-  },
-  "espora_sombria": {
-   "nombre": "Shadow Spore"
-  },
-  "micelio_del_ocaso": {
-   "nombre": "Dusk Mycelium"
-  },
-  "tajo_de_petalo": {
-   "nombre": "Petal Slash"
-  },
-  "camuflaje_floral": {
-   "nombre": "Flower Camouflage"
-  },
-  "afilar_guadanas": {
-   "nombre": "Sharpen Scythes"
-  },
-  "guadana_floral": {
-   "nombre": "Flower Scythe"
-  },
-  "doble_tajo": {
-   "nombre": "Double Slash"
-  },
-  "danza_de_orquidea": {
-   "nombre": "Orchid Dance"
-  },
-  "ciclon_de_guadanas": {
-   "nombre": "Scythe Cyclone"
-  },
-  "jardin_de_cuchillas": {
-   "nombre": "Blade Garden"
-  },
-  "guadana_carmesi": {
-   "nombre": "Crimson Scythe"
-  },
-  "floracion_oscura": {
-   "nombre": "Dark Bloom"
-  },
-  "cabezazo_manso": {
-   "nombre": "Gentle Headbutt"
-  },
-  "escudo_de_raices": {
-   "nombre": "Root Shield"
-  },
-  "bano_tranquilo": {
-   "nombre": "Calm Bath"
-  },
-  "raiz_aplastante": {
-   "nombre": "Crushing Root"
-  },
-  "latigo_de_mangle": {
-   "nombre": "Mangrove Whip"
-  },
-  "paz_del_manglar": {
-   "nombre": "Mangrove Peace"
-  },
-  "marea_de_raices": {
-   "nombre": "Root Tide"
-  },
-  "gran_manglar": {
-   "nombre": "Great Mangrove"
-  },
-  "raiz_del_ocaso": {
-   "nombre": "Dusk Root"
-  },
-  "pantano_eterno": {
-   "nombre": "Eternal Swamp"
-  },
-  "lluvia_de_hojas": {
-   "nombre": "Leaf Rain"
-  },
-  "quedarse_quieto": {
-   "nombre": "Stay Still"
-  },
-  "brote_nuevo": {
-   "nombre": "New Sprout"
-  },
-  "lanza_de_bambu": {
-   "nombre": "Bamboo Spear"
-  },
-  "hoja_cortante": {
-   "nombre": "Cutting Leaf"
-  },
-  "bosque_de_bambu": {
-   "nombre": "Bamboo Forest"
-  },
-  "ciclon_de_hojas": {
-   "nombre": "Leaf Cyclone"
-  },
-  "selva_de_bambu": {
-   "nombre": "Bamboo Jungle"
-  },
-  "hoja_sombria": {
-   "nombre": "Shadow Leaf"
-  },
-  "bambu_del_ocaso": {
-   "nombre": "Dusk Bamboo"
-  },
-  "destello": {
-   "nombre": "Flash"
-  },
-  "abanico_escudo": {
-   "nombre": "Shield Fan"
-  },
-  "desplegar_plumas": {
-   "nombre": "Spread Plumes"
-  },
-  "ojos_del_abanico": {
-   "nombre": "Fan Eyes"
-  },
-  "pluma_electrica": {
-   "nombre": "Electric Plume"
-  },
-  "pavoneo": {
-   "nombre": "Strut"
-  },
-  "rayo_helianto": {
-   "nombre": "Sunflower Ray"
-  },
-  "mil_ojos_solares": {
-   "nombre": "Thousand Sun Eyes"
-  },
-  "abanico_violeta": {
-   "nombre": "Violet Fan"
-  },
-  "eclipse_de_plumas": {
-   "nombre": "Plume Eclipse"
-  },
-  "chispa_de_farol": {
-   "nombre": "Lantern Spark"
-  },
-  "aleta_brillante": {
-   "nombre": "Shining Fin"
-  },
-  "encender_farol": {
-   "nombre": "Light Lantern"
-  },
-  "relampago_dorado": {
-   "nombre": "Golden Bolt"
-  },
-  "bigote_electrico": {
-   "nombre": "Electric Whisker"
-  },
-  "nado_luminoso": {
-   "nombre": "Glowing Swim"
-  },
-  "farol_celeste": {
-   "nombre": "Sky Lantern"
-  },
-  "mil_faroles": {
-   "nombre": "Thousand Lanterns"
-  },
-  "farol_sombrio": {
-   "nombre": "Shadow Lantern"
-  },
-  "linterna_del_ocaso": {
-   "nombre": "Dusk Lantern"
-  },
-  "zarpa_estatica": {
-   "nombre": "Static Paw"
-  },
-  "pelaje_esponjoso": {
-   "nombre": "Fluffy Fur"
-  },
-  "frotar_pelaje": {
-   "nombre": "Fur Rub"
-  },
-  "salto_prisma": {
-   "nombre": "Prism Leap"
-  },
-  "cola_de_cuarzo": {
-   "nombre": "Quartz Tail"
-  },
-  "brillo_de_cuarzo": {
-   "nombre": "Quartz Gleam"
-  },
-  "embestida_prisma": {
-   "nombre": "Prism Charge"
-  },
-  "prisma_relampago": {
-   "nombre": "Lightning Prism"
-  },
-  "cuarzo_violeta": {
-   "nombre": "Violet Quartz"
-  },
-  "prisma_del_ocaso": {
-   "nombre": "Dusk Prism"
-  },
-  "ala_rapida": {
-   "nombre": "Quick Wing"
-  },
-  "vuelo_esquivo": {
-   "nombre": "Dodge Flight"
-  },
-  "aire_de_alba": {
-   "nombre": "Dawn Air"
-  },
-  "picado_del_alba": {
-   "nombre": "Dawn Dive"
-  },
-  "cola_tijera": {
-   "nombre": "Scissor Tail"
-  },
-  "corriente_alba": {
-   "nombre": "Dawn Current"
-  },
-  "vendaval_alba": {
-   "nombre": "Dawn Gale"
-  },
-  "amanecer_eterno": {
-   "nombre": "Eternal Dawn"
-  },
-  "tijera_del_ocaso": {
-   "nombre": "Dusk Scissors"
-  },
-  "alba_negra": {
-   "nombre": "Black Dawn"
-  },
-  "rafaga_nocturna": {
-   "nombre": "Night Gust"
-  },
-  "plumaje_denso": {
-   "nombre": "Thick Plumage"
-  },
-  "mirada_atenta": {
-   "nombre": "Keen Gaze"
-  },
-  "hipnosis_lunar": {
-   "nombre": "Lunar Hypnosis"
-  },
-  "ala_umbral": {
-   "nombre": "Threshold Wing"
-  },
-  "vigilia": {
-   "nombre": "Vigil"
-  },
-  "tempestad_nocturna": {
-   "nombre": "Night Tempest"
-  },
-  "noche_de_mil_ojos": {
-   "nombre": "Thousand-Eyed Night"
-  },
-  "mirada_del_umbral": {
-   "nombre": "Threshold Gaze"
-  },
-  "umbral_eterno": {
-   "nombre": "Eternal Threshold"
-  },
-  "mordisco_sombrio": {
-   "nombre": "Shadow Bite"
-  },
-  "envoltura_de_alas": {
-   "nombre": "Wing Wrap"
-  },
-  "ecolocacion": {
-   "nombre": "Echolocation"
-  },
-  "picado_nocturno": {
-   "nombre": "Night Dive"
-  },
-  "colmillo_velado": {
-   "nombre": "Veiled Fang"
-  },
-  "vuelo_nocturno": {
-   "nombre": "Night Flight"
-  },
-  "alas_de_medianoche": {
-   "nombre": "Midnight Wings"
-  },
-  "noche_sin_luna": {
-   "nombre": "Moonless Night"
-  },
-  "ala_terciopelo": {
-   "nombre": "Velvet Wing"
-  },
-  "eco_del_vacio": {
-   "nombre": "Void Echo"
-  },
-  "garra_excavadora": {
-   "nombre": "Digging Claw"
-  },
-  "madriguera": {
-   "nombre": "Burrow"
-  },
-  "pulir_garras": {
-   "nombre": "Polish Claws"
-  },
-  "lluvia_de_geodas": {
-   "nombre": "Geode Rain"
-  },
-  "garra_de_amatista": {
-   "nombre": "Amethyst Claw"
-  },
-  "coraza_de_geoda": {
-   "nombre": "Geode Armor"
-  },
-  "sismo_cristalino": {
-   "nombre": "Crystal Quake"
-  },
-  "corazon_de_geoda": {
-   "nombre": "Geode Heart"
-  },
-  "amatista_negra": {
-   "nombre": "Black Amethyst"
-  },
-  "geoda_del_vacio": {
-   "nombre": "Void Geode"
-  },
-  "guijarrazo": {
-   "nombre": "Pebble Toss"
-  },
-  "cola_anillada": {
-   "nombre": "Ringed Tail"
-  },
-  "picardia": {
-   "nombre": "Mischief"
-  },
-  "lluvia_de_onice": {
-   "nombre": "Onyx Rain"
-  },
-  "zarpa_de_onice": {
-   "nombre": "Onyx Paw"
-  },
-  "esconder_tesoro": {
-   "nombre": "Hide Treasure"
-  },
-  "coletazo_anillado": {
-   "nombre": "Ringed Lash"
-  },
-  "tesoro_de_onice": {
-   "nombre": "Onyx Treasure"
-  },
-  "onice_sombrio": {
-   "nombre": "Shadow Onyx"
-  },
-  "guarida_del_vacio": {
-   "nombre": "Void Lair"
-  },
-  "zarpa_de_helecho": {
-   "nombre": "Fern Claw"
-  },
-  "garras_guadana": {
-   "nombre": "Scythe Claws"
-  },
-  "follaje_jurasico": {
-   "nombre": "Jurassic Foliage"
-  },
-  "savia_antigua": {
-   "nombre": "Ancient Sap"
-  },
-  "brote_eterno": {
-   "nombre": "Eternal Sprout"
-  },
-  "siega_prehistorica": {
-   "nombre": "Primal Harvest"
-  },
-  "siega_milenaria": {
-   "nombre": "Millennial Reap"
-  },
-  "raiz_del_mundo": {
-   "nombre": "World Root"
-  },
-  "onda_abisal": {
-   "nombre": "Abyssal Wave"
-  },
-  "oleaje_antiguo": {
-   "nombre": "Ancient Swell"
-  },
-  "burbuja_fosil": {
-   "nombre": "Fossil Bubble"
-  },
-  "canto_profundo": {
-   "nombre": "Deep Song"
-  },
-  "canto_de_nereida": {
-   "nombre": "Nereid Song"
-  },
-  "maremoto_jurasico": {
-   "nombre": "Jurassic Surge"
-  },
-  "diluvio_eterno": {
-   "nombre": "Eternal Deluge"
-  },
-  "mar_primordial": {
-   "nombre": "Primal Sea"
-  },
-  "cuerno_voltio": {
-   "nombre": "Volt Horn"
-  },
-  "tricuerno_electrico": {
-   "nombre": "Tri-Horn Shock"
-  },
-  "gola_escudo": {
-   "nombre": "Frill Shield"
-  },
-  "carga_cristal": {
-   "nombre": "Crystal Charge"
-  },
-  "gola_tormenta": {
-   "nombre": "Storm Frill"
-  },
-  "estampida_voltaica": {
-   "nombre": "Volt Stampede"
-  },
-  "embestida_eterna": {
-   "nombre": "Eternal Charge"
-  },
-  "trueno_del_cretacico": {
-   "nombre": "Cretaceous Thunder"
-  },
-  "dentellada_volcanica": {
-   "nombre": "Volcanic Bite"
-  },
-  "mandibula_de_magma": {
-   "nombre": "Magma Jaws"
-  },
-  "piel_de_basalto": {
-   "nombre": "Basalt Hide"
-  },
-  "rugido_tirano": {
-   "nombre": "Tyrant Roar"
-  },
-  "rugido_cretacico": {
-   "nombre": "Cretaceous Roar"
-  },
-  "erupcion_rex": {
-   "nombre": "Rex Eruption"
-  },
-  "cataclismo_igneo": {
-   "nombre": "Igneous Cataclysm"
-  },
-  "meteoro_final": {
-   "nombre": "Final Meteor"
-  },
-  "mirada_permica": {
-   "nombre": "Permian Gaze"
-  },
-  "ojo_del_abismo": {
-   "nombre": "Abyss Eye"
-  },
-  "velo_fosil": {
-   "nombre": "Fossil Veil"
-  },
-  "vela_sombria": {
-   "nombre": "Shadow Sail"
-  },
-  "vela_estelar": {
-   "nombre": "Star Sail"
-  },
-  "pulso_permico": {
-   "nombre": "Permian Pulse"
-  },
-  "noche_primigenia": {
-   "nombre": "Primeval Night"
-  },
-  "eclipse_fosil": {
-   "nombre": "Fossil Eclipse"
-  },
-  "garra_primitiva": {
-   "nombre": "Primal Claw"
-  },
-  "tenaza_abisal": {
-   "nombre": "Abyssal Pincer"
-  },
-  "caparazon_cambrico": {
-   "nombre": "Cambrian Shell"
-  },
-  "ojos_compuestos": {
-   "nombre": "Compound Eyes"
-  },
-  "marea_cambrica": {
-   "nombre": "Cambrian Tide"
-  },
-  "remolino_cambrico": {
-   "nombre": "Cambrian Whirl"
-  },
-  "abismo_primigenio": {
-   "nombre": "Primeval Abyss"
-  },
-  "primer_oceano": {
-   "nombre": "First Ocean"
-  },
-  "zumbido_voltaico": {
-   "nombre": "Volt Buzz"
-  },
-  "picada_relampago": {
-   "nombre": "Lightning Dive"
-  },
-  "alas_de_vitral": {
-   "nombre": "Glass Wings"
-  },
-  "vuelo_estatico": {
-   "nombre": "Static Flight"
-  },
-  "mil_facetas": {
-   "nombre": "Thousand Facets"
-  },
-  "enjambre_electrico": {
-   "nombre": "Electric Swarm"
-  },
-  "tormenta_pantanosa": {
-   "nombre": "Swamp Storm"
-  },
-  "rayo_primordial": {
-   "nombre": "Primordial Bolt"
-  },
-  "coletazo_de_puas": {
-   "nombre": "Spike Swipe"
-  },
-  "puas_milenarias": {
-   "nombre": "Ancient Spikes"
-  },
-  "placas_de_hoja": {
-   "nombre": "Leaf Plates"
-  },
-  "sol_del_jurasico": {
-   "nombre": "Jurassic Sun"
-  },
-  "bosque_jurasico": {
-   "nombre": "Jurassic Grove"
-  },
-  "estampida_de_hojas": {
-   "nombre": "Leaf Stampede"
-  },
-  "gran_estampida": {
-   "nombre": "Great Stampede"
-  },
-  "corazon_jurasico": {
-   "nombre": "Jurassic Heart"
-  },
-  "picotazo_cretacico": {
-   "nombre": "Cretaceous Peck"
-  },
-  "cresta_cortante": {
-   "nombre": "Crest Slash"
-  },
-  "alas_planeadoras": {
-   "nombre": "Gliding Wings"
-  },
-  "corriente_termica": {
-   "nombre": "Thermal Current"
-  },
-  "vuelo_rasante": {
-   "nombre": "Skimming Flight"
-  },
-  "picado_meteoro": {
-   "nombre": "Meteor Dive"
-  },
-  "lluvia_de_meteoros": {
-   "nombre": "Meteor Shower"
-  },
-  "ultimo_cielo": {
-   "nombre": "Last Sky"
-  },
-  "colmillazo": {
-   "nombre": "Tusk Strike"
-  },
-  "colmillos_de_hielo": {
-   "nombre": "Ice Tusks"
-  },
-  "pelaje_glacial": {
-   "nombre": "Glacial Fur"
-  },
-  "bramido_helado": {
-   "nombre": "Frozen Bellow"
-  },
-  "manada_glacial": {
-   "nombre": "Glacial Herd"
-  },
-  "alud_de_nieve": {
-   "nombre": "Snow Slide"
-  },
-  "glaciacion": {
-   "nombre": "Glaciation"
-  },
-  "era_de_hielo": {
-   "nombre": "Ice Age"
-  }
- },
- "items": {
-  "caramelo_s": {
-   "nombre": "Small XP Stone",
-   "descripcion": "Gives 60 experience to one creature."
-  },
-  "caramelo_m": {
-   "nombre": "Medium XP Stone",
-   "descripcion": "Gives 200 experience to one creature."
-  },
-  "caramelo_l": {
-   "nombre": "Large XP Stone",
-   "descripcion": "Gives 600 experience to one creature."
-  },
-  "vit_ps": {
-   "nombre": "Vigor Vitamin",
-   "descripcion": "HP +3 % for good. Up to 5 doses per stat."
-  },
-  "vit_atq": {
-   "nombre": "Strength Vitamin",
-   "descripcion": "Attack +3 % for good. Up to 5 doses per stat."
-  },
-  "vit_def": {
-   "nombre": "Armor Vitamin",
-   "descripcion": "Defense +3 % for good. Up to 5 doses per stat."
-  },
-  "vit_ate": {
-   "nombre": "Spark Vitamin",
-   "descripcion": "Sp. Attack +3 % for good. Up to 5 doses."
-  },
-  "vit_dfe": {
-   "nombre": "Calm Vitamin",
-   "descripcion": "Sp. Defense +3 % for good. Up to 5 doses."
-  },
-  "vit_vel": {
-   "nombre": "Breeze Vitamin",
-   "descripcion": "Speed +3 % for good. Up to 5 doses."
-  },
-  "incienso": {
-   "nombre": "Incense",
-   "descripcion": "30 min: twice as many Rare and Epic cards in packs."
-  },
-  "pocion": {
-   "nombre": "Potion",
-   "descripcion": "In battle: restores 50 % HP."
-  },
-  "antidoto": {
-   "nombre": "Antidote",
-   "descripcion": "In battle: cures burn, poison, paralysis or sleep."
-  },
-  "tonico": {
-   "nombre": "Tonic",
-   "descripcion": "In battle: +5 uses to every move (up to the max)."
-  },
-  "carta_escudo": {
-   "nombre": "Shield Card",
-   "descripcion": "In battle, this turn: takes half damage. Goes first."
-  },
-  "superpocion": {
-   "nombre": "Super Potion",
-   "descripcion": "In battle: restores 75 % HP."
-  },
-  "pocion_max": {
-   "nombre": "Max Potion",
-   "descripcion": "In battle: restores all HP."
-  },
-  "revivir": {
-   "nombre": "Revive",
-   "descripcion": "In battle: brings back a fallen team member with 50 % HP."
-  },
-  "reloj_arena": {
-   "nombre": "Hourglass",
-   "descripcion": "In battle: you attack twice in a row this turn."
-  },
-  "carta_furia": {
-   "nombre": "Fury Card",
-   "descripcion": "In battle: Attack +2 while it stays on the field."
-  },
-  "carta_muralla": {
-   "nombre": "Wall Card",
-   "descripcion": "In battle: Defense +2 while it stays on the field."
-  },
-  "carta_mente": {
-   "nombre": "Mind Card",
-   "descripcion": "In battle: Sp. Attack +2 while it stays on the field."
-  },
-  "carta_calma": {
-   "nombre": "Calm Card",
-   "descripcion": "In battle: Sp. Defense +2 while it stays on the field."
-  },
-  "carta_rafaga": {
-   "nombre": "Gust Card",
-   "descripcion": "In battle: Speed +2 while it stays on the field."
-  },
-  "encanto_sueno": {
-   "nombre": "Sleep Charm",
-   "descripcion": "In battle: puts the foe to sleep."
-  },
-  "encanto_veneno": {
-   "nombre": "Poison Charm",
-   "descripcion": "In battle: poisons the foe."
-  },
-  "encanto_lento": {
-   "nombre": "Slow Charm",
-   "descripcion": "In battle: foe's Speed −2."
-  },
-  "encanto_debil": {
-   "nombre": "Weak Charm",
-   "descripcion": "In battle: foe's Attack −2."
-  },
-  "piedra_eclipse": {
-   "nombre": "Eclipse Stone",
-   "descripcion": "Makes a night evolution possible. Used up on use."
-  },
-  "amuleto_vigor": {
-   "nombre": "Vigor Amulet",
-   "descripcion": "HP +10 % while held. Equip it in My creatures."
-  },
-  "amuleto_fuerza": {
-   "nombre": "Strength Amulet",
-   "descripcion": "Attack +10 % while held. Equip it in My creatures."
-  },
-  "amuleto_coraza": {
-   "nombre": "Armor Amulet",
-   "descripcion": "Defense +10 % while held. Equip it in My creatures."
-  },
-  "amuleto_mente": {
-   "nombre": "Mind Amulet",
-   "descripcion": "Sp. Attack +10 % while held. Equip it in My creatures."
-  },
-  "amuleto_calma": {
-   "nombre": "Calm Amulet",
-   "descripcion": "Sp. Defense +10 % while held. Equip it in My creatures."
-  },
-  "amuleto_pluma": {
-   "nombre": "Feather Amulet",
-   "descripcion": "Speed +10 % while held. Equip it in My creatures."
-  },
-  "pergamino": {
-   "nombre": "Technique Scroll",
-   "descripcion": "Teaches a new move of its type: choose from 3."
-  }
- },
- "sobres": {
-  "basico": {
-   "nombre": "Basic Pack"
-  },
-  "brasa": {
-   "nombre": "Ember Pack"
-  },
-  "marea": {
-   "nombre": "Tide Pack"
-  },
-  "brote": {
-   "nombre": "Sprout Pack"
-  },
-  "rayo": {
-   "nombre": "Bolt Pack"
-  },
-  "roca": {
-   "nombre": "Rock Pack"
-  },
-  "cielo": {
-   "nombre": "Sky Pack"
-  },
-  "sombra": {
-   "nombre": "Shadow Pack"
-  },
-  "botiquin": {
-   "nombre": "Medkit Pack"
-  },
-  "raro": {
-   "nombre": "Rare Pack"
-  },
-  "legendario": {
-   "nombre": "Legendary Pack"
-  }
- },
- "rarezas": {
-  "comun": {
-   "nombre": "Common"
-  },
-  "poco_comun": {
-   "nombre": "Uncommon"
-  },
-  "rara": {
-   "nombre": "Rare"
-  },
-  "epica": {
-   "nombre": "Epic"
-  }
- },
- "tipos": {
-  "brasa": {
-   "nombre": "Ember",
-   "abrev": "EMB"
-  },
-  "marea": {
-   "nombre": "Tide",
-   "abrev": "TID"
-  },
-  "brote": {
-   "nombre": "Sprout",
-   "abrev": "SPR"
-  },
-  "rayo": {
-   "nombre": "Bolt",
-   "abrev": "BLT"
-  },
-  "roca": {
-   "nombre": "Rock",
-   "abrev": "RCK"
-  },
-  "cielo": {
-   "nombre": "Sky",
-   "abrev": "SKY"
-  },
-  "sombra": {
-   "nombre": "Shadow",
-   "abrev": "SHD"
-  },
-  "neutro": {
-   "nombre": "Neutral",
-   "abrev": "NEU"
-  }
- }
 }

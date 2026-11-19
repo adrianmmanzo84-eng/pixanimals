@@ -6,8 +6,9 @@ import jefesJson from '../data/jefes.json';
 import sobresJson from '../data/sobres.json';
 import economiaJson from '../data/economia.json';
 import itemsJson from '../data/items.json';
+import historiaJson from '../data/historia.json';
 import { z } from 'zod';
-import { BalanceZ, CriaturaZ, EconomiaZ, HabilidadZ, ItemsZ, SobresZ, TiposZ, type Balance, type Criatura, type Economia, type Habilidad, type Item, type Items, type Sobres, type TipoDef } from '../esquemas/esquemas';
+import { HistoriaZ, type Historia, BalanceZ, CriaturaZ, EconomiaZ, HabilidadZ, ItemsZ, SobresZ, TiposZ, type Balance, type Criatura, type Economia, type Habilidad, type Item, type Items, type Sobres, type TipoDef } from '../esquemas/esquemas';
 
 export interface Datos {
   tipos: Map<string, TipoDef>;
@@ -22,6 +23,8 @@ export interface Datos {
   items: Map<string, Item>;
   /** Reglas generales de los ítems (límites de vitaminas, ofertas, máximo por combate). */
   reglasItems: Omit<Items, 'items'>;
+  /** Modo Historia: regiones, final y desbloqueos. */
+  historia: Historia;
 }
 
 /** Valida todos los JSON y las referencias cruzadas. Devuelve los datos y la lista de errores. */
@@ -126,7 +129,22 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
       else if (m.origen !== 'mina') errores.push(`Mina, zona ${i + 1}: el monstruo ${z.monstruo} debe ser de una familia exclusiva (origen "mina").`);
     }
   });
-  return { datos: { tipos: mTipos, balance, habilidades: mHab, criaturas: mCri, jugables, sobres, economia, items: mItems, reglasItems }, errores };
+  // Modo Historia: jefes, Guardianes, fondos y sobres existen; cada región de un tipo y sin jefes repetidos.
+  const historia = HistoriaZ.parse(historiaJson);
+  const vistos = new Set<string>();
+  for (const r of historia.regiones) {
+    if (!mTipos.has(r.tipo)) errores.push(`Historia, ${r.id}: tipo inexistente (${r.tipo}).`);
+    for (const j of r.jefes) if (mCri.get(j)?.jefe !== 'semanal' || mCri.get(j)!.tipo !== r.tipo) errores.push(`Historia, ${r.id}: ${j} no es un jefe semanal de tipo ${r.tipo}.`);
+    if (mCri.get(r.guardian)?.jefe !== 'guardian') errores.push(`Historia, ${r.id}: ${r.guardian} no es un Guardián.`);
+    for (const id of [...r.jefes, r.guardian]) {
+      if (vistos.has(id)) errores.push(`Historia: ${id} está en más de una región.`);
+      vistos.add(id);
+    }
+    if (r.premio.sobre && !sobres.sobres.some((x) => x.id === r.premio.sobre)) errores.push(`Historia, ${r.id}: el sobre ${r.premio.sobre} no existe.`);
+  }
+  if (mCri.get(historia.final.jefe)?.jefe !== 'final') errores.push(`Historia: el jefe final ${historia.final.jefe} no existe o no es "final".`);
+  if (historia.final.premio.sobre && !sobres.sobres.some((x) => x.id === historia.final.premio.sobre)) errores.push(`Historia: el sobre final ${historia.final.premio.sobre} no existe.`);
+  return { datos: { tipos: mTipos, balance, habilidades: mHab, criaturas: mCri, jugables, sobres, economia, items: mItems, reglasItems, historia }, errores };
 }
 
 const cargado = cargarDatos();

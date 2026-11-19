@@ -63,7 +63,7 @@ export const CriaturaZ = z.object({
   /** Prefijo de archivo: <sprites>_frente.png, <sprites>_espalda.png, <sprites>_icono.png */
   sprites: z.string().regex(/^[a-z]+_[0-9]+[a-z]?$/),
   /** Jefes: no se capturan, no salen en sobres y no están en el Bestiario ni en el Álbum. `semanal` o `guardian` (Torre). */
-  jefe: z.enum(['semanal', 'guardian']).optional(),
+  jefe: z.enum(['semanal', 'guardian', 'final']).optional(),
   /** «mina»: familia exclusiva de la Mina Pixel (solo se obtiene del huevo de su monstruo; nunca en sobres ni premios). */
   origen: z.enum(['mina', 'crono']).optional(),
 });
@@ -158,6 +158,51 @@ export const MisionZ = z.object({
 
 /** Premio de una meta: monedas, Esencia y/o un sobre de regalo. */
 export const PremioMetaZ = z.object({ monedas: z.number().int().min(0).default(0), esencia: z.number().int().min(0).default(0), sobre: z.string().optional() });
+
+/**
+ * Modo Historia (D264). Lo que la historia abre: modos de combate, opciones del menú y minijuegos (`mj.<id>`).
+ */
+export const ModoHistoriaZ = z.enum([
+  'historia', 'rapido', 'desafio', 'torre', 'entrenador', 'semanal', 'crono',
+  'minijuegos', 'misiones', 'expediciones', 'sobres', 'tienda', 'bolsa', 'equipo', 'coleccion', 'bestiario', 'ruleta', 'guardado',
+  'mj.bayas', 'mj.eco', 'mj.golpe', 'mj.mina',
+]);
+export type ModoHistoria = z.infer<typeof ModoHistoriaZ>;
+const NivelIAZ = z.enum(['novata', 'tactica', 'experta']);
+const PuntoMapaZ = z.tuple([z.number(), z.number()]);
+/** Desafío del entorno: se cumple mirando la partida (como los Primeros pasos). */
+export const DesafioHistoriaZ = z.discriminatedUnion('tipo', [
+  z.object({ tipo: z.literal('minijuego'), id: z.enum(['bayas', 'eco', 'golpe', 'mina']) }),
+  z.object({ tipo: z.literal('mina'), zona: z.number().int().min(1) }),
+  z.object({ tipo: z.literal('crono'), era: z.number().int().min(1) }),
+  z.object({ tipo: z.literal('torre'), piso: z.number().int().min(1) }),
+]);
+export type DesafioHistoria = z.infer<typeof DesafioHistoriaZ>;
+export const RegionZ = z.object({
+  id: z.string(),
+  tipo: z.string(),
+  fondo: z.string(),
+  color: z.string(),
+  marcador: PuntoMapaZ,
+  /** Jefe A (parada 1) y Jefe B, el Jefe Regional (parada 3). */
+  jefes: z.tuple([z.string(), z.string()]),
+  guardian: z.string(),
+  nivel: z.number().int().min(1),
+  ia: NivelIAZ,
+  desafio: DesafioHistoriaZ,
+  /** Lo que se abre al terminar la región (al entrar ya se abre lo que pide su desafío). */
+  abre: z.array(ModoHistoriaZ),
+  premio: PremioMetaZ,
+});
+export type Region = z.infer<typeof RegionZ>;
+export const HistoriaZ = z.object({
+  inicio: z.array(ModoHistoriaZ),
+  regiones: z.array(RegionZ).min(1),
+  final: z.object({ jefe: z.string(), fondo: z.string(), nivel: z.number().int(), ia: NivelIAZ, marcador: PuntoMapaZ, premio: PremioMetaZ }),
+  /** Monedas de cada parada la primera vez (Jefe A, desafío, Jefe B, Guardián). */
+  monedasParada: z.tuple([z.number().int(), z.number().int(), z.number().int(), z.number().int()]),
+});
+export type Historia = z.infer<typeof HistoriaZ>;
 export type PremioMeta = z.infer<typeof PremioMetaZ>;
 
 /** Premio de la ruleta: lo mismo que una meta, más un ítem opcional (con cantidad). Sin criaturas. */
@@ -445,6 +490,17 @@ export const EstadoJuegoZ = z.object({
           botin: z.object({ monedas: z.number(), fosiles: z.number(), ambar: z.number() }),
         })
         .optional(),
+    })
+    .optional(),
+  /**
+   * Modo Historia (D264). Sin dato: partida anterior a la historia, con todo abierto. `libre`: todo abierto
+   * (partidas viejas o historia terminada). `paradas`: «region:n» vencidas (n de 0 a 3). `final`: venció al Arquitecto.
+   */
+  historia: z
+    .object({
+      libre: z.boolean(),
+      paradas: z.array(z.string()),
+      final: z.boolean(),
     })
     .optional(),
   /** Caminos del Entrenador y del Jefe de la semana: estaciones previas vencidas en el día o semana (`ciclo`). */

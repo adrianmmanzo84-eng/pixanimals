@@ -1,0 +1,203 @@
+{
+  "inicio": [
+    "historia",
+    "rapido",
+    "sobres",
+    "equipo",
+    "bolsa",
+    "guardado"
+  ],
+  "regiones": [
+    {
+      "id": "bosque",
+      "tipo": "brote",
+      "fondo": "bosque",
+      "color": "#52c76a",
+      "marcador": [
+        155,
+        245
+      ],
+      "jefes": [
+        "micervido",
+        "zarzabal"
+      ],
+      "guardian": "raiz_primordial",
+      "nivel": 10,
+      "ia": "novata",
+      "desafio": {
+        "tipo": "minijuego",
+        "id": "bayas"
+      },
+      "abre": [
+        "bestiario",
+        "coleccion",
+        "misiones",
+        "mj.golpe"
+      ],
+      "premio": {
+        "monedas": 300,
+        "sobre": "brote"
+      }
+    },
+    {
+      "id": "volcan",
+      "tipo": "brasa",
+      "fondo": "volcan",
+      "color": "#e74d43",
+      "marcador": [
+        460,
+        500
+      ],
+      "jefes": [
+        "ferrandra",
+        "caldrak"
+      ],
+      "guardian": "bastion_de_ceniza",
+      "nivel": 16,
+      "ia": "novata",
+      "desafio": {
+        "tipo": "mina",
+        "zona": 2
+      },
+      "abre": [
+        "tienda",
+        "expediciones"
+      ],
+      "premio": {
+        "monedas": 400,
+        "sobre": "brasa"
+      }
+    },
+    {
+      "id": "costa",
+      "tipo": "marea",
+      "fondo": "costa",
+      "color": "#398edf",
+      "marcador": [
+        170,
+        470
+      ],
+      "jefes": [
+        "borealmo",
+        "talasor"
+      ],
+      "guardian": "custodio_de_las_mareas",
+      "nivel": 22,
+      "ia": "tactica",
+      "desafio": {
+        "tipo": "crono",
+        "era": 1
+      },
+      "abre": [
+        "ruleta",
+        "desafio"
+      ],
+      "premio": {
+        "monedas": 500,
+        "sobre": "marea"
+      }
+    },
+    {
+      "id": "desierto",
+      "tipo": "rayo",
+      "fondo": "desierto",
+      "color": "#e8bd48",
+      "marcador": [
+        770,
+        445
+      ],
+      "jefes": [
+        "najasol",
+        "fulgarok"
+      ],
+      "guardian": "vigia_del_sol_sepulto",
+      "nivel": 28,
+      "ia": "tactica",
+      "desafio": {
+        "tipo": "torre",
+        "piso": 5
+      },
+      "abre": [
+        "entrenador"
+      ],
+      "premio": {
+        "monedas": 600,
+        "sobre": "rayo"
+      }
+    },
+    {
+      "id": "cumbre_helada",
+      "tipo": "cielo",
+      "fondo": "cumbre_helada",
+      "color": "#76d9ed",
+      "marcador": [
+        760,
+        170
+      ],
+      "jefes": [
+        "cicloptero",
+        "tempestario"
+      ],
+      "guardian": "centinela_del_ultimo_hielo",
+      "nivel": 34,
+      "ia": "experta",
+      "desafio": {
+        "tipo": "minijuego",
+        "id": "eco"
+      },
+      "abre": [
+        "semanal"
+      ],
+      "premio": {
+        "monedas": 700,
+        "sobre": "cielo"
+      }
+    },
+    {
+      "id": "ruinas",
+      "tipo": "sombra",
+      "fondo": "ruinas",
+      "color": "#a775df",
+      "marcador": [
+        370,
+        110
+      ],
+      "jefes": [
+        "umbrafauce",
+        "negralith"
+      ],
+      "guardian": "custodio_del_umbral",
+      "nivel": 40,
+      "ia": "experta",
+      "desafio": {
+        "tipo": "torre",
+        "piso": 10
+      },
+      "abre": [],
+      "premio": {
+        "monedas": 800,
+        "sobre": "sombra"
+      }
+    }
+  ],
+  "final": {
+    "jefe": "arquitecto",
+    "fondo": "origen_eclipse",
+    "nivel": 46,
+    "ia": "experta",
+    "marcador": [
+      500,
+      260
+    ],
+    "premio": {
+      "monedas": 2000,
+      "sobre": "legendario"
+    }
+  },
+  "monedasParada": [
+    80,
+    100,
+    150,
+    0
+  ]
+}
