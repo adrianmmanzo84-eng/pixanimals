@@ -130,6 +130,16 @@ export class Bestiario extends Phaser.Scene {
     new Texto(this, 10, 139, 220, 10, C.tintaSuave, 'der').poner(t('best.ayuda'));
 
     this.pintar();
+    // Rueda del ratón y deslizar el dedo hacia arriba o abajo recorren la lista; al llegar al final da la vuelta.
+    this.input.on('wheel', (_p: unknown, _o: unknown, _dx: number, dy: number) => {
+      if (dy) this.alPulsar(dy > 0 ? 'abajo' : 'arriba');
+    });
+    let inicioY: number | null = null;
+    this.input.on('pointerdown', (p: Phaser.Input.Pointer) => (inicioY = p.y));
+    this.input.on('pointerup', (p: Phaser.Input.Pointer) => {
+      if (inicioY !== null && Math.abs(p.y - inicioY) > 40 && Math.abs(p.y - inicioY) > Math.abs(p.x - p.downX)) this.alPulsar(p.y < inicioY ? 'abajo' : 'arriba');
+      inicioY = null;
+    });
     Entrada.escuchar((a) => this.alPulsar(a));
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => Entrada.escuchar(null));
   }
