@@ -123,6 +123,9 @@ export class Combate extends Phaser.Scene {
   private vivo = true;
   private sprites!: [Phaser.GameObjects.Image, Phaser.GameObjects.Image];
   /** Centro de las plataformas del fondo de este combate: donde apoyan los pies [tú, rival]. */
+  /** Reproduciendo un turno sin cuadros de texto: los mensajes no se muestran, solo se espera un instante. */
+  private enEscena = false;
+  private barraBase!: Phaser.GameObjects.Graphics;
   /** Disposición «fila» de los carteles (Mina y Cronoportal). */
   private fila = false;
   private pies: [{ x: number; y: number }, { x: number; y: number }] = [PLATAFORMAS_BASE[0], PLATAFORMAS_BASE[1]];
@@ -250,7 +253,24 @@ export class Combate extends Phaser.Scene {
     // La guarida de la Mina usa su propio fondo (960×455, como los demás fondos de combate).
     const exCrono = modo === 'crono' ? juego.estado.crono?.expedicion : undefined;
     const guarida = modo === 'mina' ? `mina_guarida${this.cfg.zona ?? 1}` : exCrono ? `crono_era${exCrono.era}` : '';
-    if (guarida && this.textures.exists(guarida)) this.mundo.add(this.add.image(0, 0, guarida).setOrigin(0, 0).setScale(240 / 960)); else this.mundo.add(this.add.image(0, 0, fondo(this, modo === 'mina' ? 'volcan' : arena)).setOrigin(0, 0).setScale(0.25));
+    const claveFondo = guarida && this.textures.exists(guarida) ? guarida : fondo(this, modo === 'mina' ? 'volcan' : arena);
+    const imgFondo = this.add.image(0, 0, claveFondo).setOrigin(0, 0).setScale(240 / this.textures.get(claveFondo).getSourceImage().width);
+    this.mundo.add(imgFondo);
+    // Cuando los cuadros de texto se ocultan durante el turno, la escena llega hasta abajo: la última fila del fondo se estira.
+    const fb = this.textures.get(claveFondo).getSourceImage();
+    const claveFranja = `franja_${claveFondo}`;
+    if (!this.textures.exists(claveFranja)) {
+      // 12×1 px promediados de las últimas filas: al estirarla queda un degradado suave, sin rayas.
+      const cv = this.textures.createCanvas(claveFranja, 12, 1)!;
+      cv.context.imageSmoothingEnabled = true;
+      cv.context.imageSmoothingQuality = 'high';
+      cv.context.drawImage(fb as CanvasImageSource, 0, fb.height - 24, fb.width, 24, 0, 0, 12, 1);
+      cv.refresh();
+      cv.setFilter(Phaser.Textures.FilterMode.LINEAR);
+    }
+    const franja = this.add.image(0, imgFondo.displayHeight - 0.5, claveFranja).setOrigin(0, 0);
+    franja.setScale(imgFondo.scaleX * fb.width / 12, 160 - imgFondo.displayHeight + 0.5);
+    this.mundo.add([franja, this.add.rectangle(0, imgFondo.displayHeight - 0.5, 240, 160 - imgFondo.displayHeight + 0.5, 0x000000, 0.32).setOrigin(0, 0)]);
     const clavePlat = guarida && this.textures.exists(guarida) ? guarida : '';
     const plat = PLATAFORMAS[clavePlat] ?? PLATAFORMAS_BASE;
     this.fila = !!clavePlat;
@@ -275,7 +295,7 @@ export class Combate extends Phaser.Scene {
       this.filtroBlur = this.mundo.filters!.external.addBlur(1, 1, 0, 0, 0xffffff, 4);
       this.filtroBlur.active = false;
     }
-    this.add.graphics().fillStyle(n(C.tinta), 1).fillRect(0, 110, 240, 50);
+    this.barraBase = this.add.graphics().fillStyle(n(C.tinta), 1).fillRect(0, 110, 240, 50);
     const disp = clavePlat ? DISPOSICION_FILA : DISPOSICION_NORMAL;
     this.paneles = [this.crearPanel(disp[0]), this.crearPanel(disp[1])];
     this.refrescarPanel(0);
@@ -351,19 +371,17 @@ export class Combate extends Phaser.Scene {
       const mult = accionConDano(this.bat, 0, accion) ? await this.golpeJusto() : 1;
       if (!this.vivo) return;
       const rival = elegirAccion(this.bat, 1, this.cfg.ia, this.rngIA);
-      this.modoMensaje();
       this.bat.potenciador = [mult, 1];
       const eventos = this.bat.ejecutarTurno(accion, rival);
       this.bat.potenciador = [1, 1];
-      await this.reproducir(eventos);
+      await this.reproducirEnEscena(eventos);
       // Quien perdió a su criatura activa elige reemplazo antes del turno siguiente.
       while (this.vivo && this.bat.pendientes.length) {
         const lado = this.bat.pendientes[0]!;
         if (lado === 0) await this.girar('jugador');
         const indice = lado === 0 ? await this.menuEquipo(true) : elegirReemplazo(this.bat, 1, this.cfg.ia, this.rngIA);
         if (!this.vivo || indice === null) return;
-        this.modoMensaje();
-        await this.reproducir(this.bat.reemplazar(lado, indice));
+        await this.reproducirEnEscena(this.bat.reemplazar(lado, indice));
       }
     }
     if (this.vivo) await this.resultado(false);
@@ -1047,6 +1065,32 @@ export class Combate extends Phaser.Scene {
     this.msg.poner('');
   }
 
+  /**
+   * Durante el turno (D258): se ocultan el cuadro de mensajes y el menú; quedan la escena, los ataques y los carteles
+   * con nombre y barra de vida. Los cuadros vuelven al pedir la siguiente acción.
+   */
+  private modoEscena(): void {
+    this.ocultarMenus();
+    this.gVentanas.clear();
+    this.msg.poner('');
+    this.msg.visible(false);
+    this.turnoTxt.visible(false);
+    this.enEscena = true;
+    this.barraBase.setVisible(false);
+  }
+
+  /** Reproduce los eventos de un turno solo con la escena; al terminar, los cuadros pueden volver. */
+  private async reproducirEnEscena(eventos: Evento[]): Promise<void> {
+    this.modoEscena();
+    try {
+      await this.reproducir(eventos);
+    } finally {
+      this.enEscena = false;
+      this.barraBase.setVisible(true);
+      this.turnoTxt.visible(true);
+    }
+  }
+
   private modoMenu(sel: number): void {
     this.ocultarMenus();
     this.gVentanas.clear();
@@ -1669,6 +1713,8 @@ export class Combate extends Phaser.Scene {
   }
 
   private decir(texto: string): Promise<void> {
+    // En la escena sin cuadros, el mensaje no se escribe: una pausa corta deja ver el efecto antes del siguiente.
+    if (this.enEscena) return this.vivo ? this.esperar(320) : Promise.resolve();
     return new Promise((resolver) => {
       if (!this.vivo) return resolver();
       const completo = partir(texto, 220).slice(0, 3).join('\n');
