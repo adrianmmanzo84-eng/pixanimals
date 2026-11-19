@@ -230,3 +230,20 @@ describe('pasivas y reglas de cierre', () => {
       }
   });
 });
+
+describe('primer golpe del combate (D255)', () => {
+  it('en el primer turno no manda la velocidad: el jugador pega primero ~65 % aun siendo más lento', () => {
+    // Lumbrito rival nivel 40 contra un Brotín nivel 5: el rival es mucho más veloz.
+    let jugadorPrimero = 0;
+    const N = 600;
+    for (let s = 1; s <= N; s++) {
+      const bat = new Batalla(DATOS, [crearCombatiente(DATOS, 'brotin', 5), crearCombatiente(DATOS, 'lumbrito', 40)], new Rng(s));
+      expect(bat.velocidad(1)).toBeGreaterThan(bat.velocidad(0));
+      const ev = bat.ejecutarTurno(hab(0), hab(0));
+      const primero = ev.find((e) => e.t === 'usa') as { lado?: number } | undefined;
+      if (primero?.lado === 0) jugadorPrimero++;
+    }
+    expect(jugadorPrimero / N).toBeGreaterThan(0.55);
+    expect(jugadorPrimero / N).toBeLessThan(0.75);
+  });
+});

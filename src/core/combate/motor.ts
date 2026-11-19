@@ -398,6 +398,8 @@ export class Batalla {
     const p0 = this.prioridad(0, acciones[0]);
     const p1 = this.prioridad(1, acciones[1]);
     if (p0 !== p1) return p0 > p1 ? [0, 1] : [1, 0];
+    // Primer turno del combate (D255): el primer golpe no depende de la velocidad; lo da el jugador 65 % de las veces.
+    if (this.turno === 1) return this.rng.prob(65) ? [0, 1] : [1, 0];
     const v0 = this.velocidad(0);
     const v1 = this.velocidad(1);
     if (v0 !== v1) return v0 > v1 ? [0, 1] : [1, 0];

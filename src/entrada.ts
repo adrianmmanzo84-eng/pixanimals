@@ -26,102 +26,6 @@ function emitir(a: AccionEntrada): void {
   oyente?.(a);
 }
 
-/** Dirección analógica del stick (x, y entre -1 y 1; 0,0 sin tocar). Para quien quiera moverse en 360°. */
-const vector = { x: 0, y: 0 };
-
-/**
- * Stick de 360° del celular (D249). En los menús emite la dirección principal al moverlo y la repite si se
- * mantiene (como dejar apretada una flecha); para los minijuegos marca como apretadas las direcciones del
- * ángulo (con diagonales) y deja el vector analógico.
- */
-function iniciarStick(): void {
-  const base = document.getElementById('stick');
-  const perilla = document.getElementById('perilla');
-  if (!base || !perilla) return;
-  const MUERTA = 0.24; // zona muerta (fracción del radio)
-  const PRIMERA = 500; // ms antes de empezar a repetir
-  const REPETIR = 220; // ms entre repeticiones
-  /** Medio ancho del sector de cada eje: 75° deja diagonales de 60° (antes 45°, costaban). */
-  const SECTOR = (Math.PI * 5) / 12;
-  let dedo: number | null = null;
-  let estado = '';
-  let reloj: ReturnType<typeof setTimeout> | null = null;
-  const parar = () => {
-    if (reloj) clearTimeout(reloj);
-    reloj = null;
-  };
-  /** Repite las direcciones del estado; en diagonal alterna las dos (así se avanza en diagonal). */
-  const repetir = (dirs: AccionEntrada[], i: number, espera: number) => {
-    reloj = setTimeout(() => {
-      emitir(dirs[i % dirs.length]!);
-      repetir(dirs, i + 1, REPETIR);
-    }, espera);
-  };
-  const DIRS: AccionEntrada[] = ['arriba', 'abajo', 'izquierda', 'derecha'];
-  const mover = (e: PointerEvent) => {
-    const r = base.getBoundingClientRect();
-    const radio = r.width / 2;
-    let dx = (e.clientX - (r.left + radio)) / radio;
-    let dy = (e.clientY - (r.top + radio)) / radio;
-    const largo = Math.hypot(dx, dy);
-    if (largo > 1) {
-      dx /= largo;
-      dy /= largo;
-    }
-    perilla.style.transform = `translate(${dx * radio * 0.62}px, ${dy * radio * 0.62}px)`;
-    const fuerza = Math.min(1, largo);
-    vector.x = fuerza > MUERTA ? dx : 0;
-    vector.y = fuerza > MUERTA ? dy : 0;
-    for (const d of DIRS) apretadas.delete(d);
-    const dirs: AccionEntrada[] = [];
-    if (fuerza > MUERTA) {
-      const ang = Math.atan2(dy, dx);
-      const cerca = (a: number) => Math.abs(Math.atan2(Math.sin(ang - a), Math.cos(ang - a))) < SECTOR;
-      // Primero el eje dominante: es el que se emite al entrar en la diagonal.
-      const vertical: AccionEntrada | null = cerca(Math.PI / 2) ? 'abajo' : cerca(-Math.PI / 2) ? 'arriba' : null;
-      const horizontal: AccionEntrada | null = cerca(0) ? 'derecha' : cerca(Math.PI) ? 'izquierda' : null;
-      const domina = Math.abs(dx) > Math.abs(dy) ? [horizontal, vertical] : [vertical, horizontal];
-      for (const d of domina) if (d) dirs.push(d);
-      for (const d of dirs) apretadas.add(d);
-    }
-    const clave = [...dirs].sort().join('+');
-    if (clave === estado) return;
-    const antes = estado.split('+').filter(Boolean) as AccionEntrada[];
-    estado = clave;
-    parar();
-    if (!dirs.length) return;
-    // Al pasar de un eje a la diagonal que lo contiene, se emite el otro (no se repite el que ya iba).
-    const nuevo = dirs.find((d) => !antes.includes(d)) ?? dirs[0]!;
-    emitir(nuevo);
-    const orden = dirs.length > 1 ? [dirs.find((d) => d !== nuevo)!, nuevo] : dirs;
-    repetir(orden, 0, PRIMERA);
-  };
-  const soltar = (e: PointerEvent) => {
-    if (e.pointerId !== dedo) return;
-    dedo = null;
-    estado = '';
-    parar();
-    vector.x = vector.y = 0;
-    for (const d of DIRS) apretadas.delete(d);
-    perilla.style.transform = '';
-    base.classList.remove('activo');
-  };
-  base.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
-    if (dedo !== null) return;
-    dedo = e.pointerId;
-    base.setPointerCapture(e.pointerId);
-    base.classList.add('activo');
-    mover(e);
-  });
-  base.addEventListener('pointermove', (e) => {
-    if (e.pointerId === dedo) mover(e);
-  });
-  base.addEventListener('pointerup', soltar);
-  base.addEventListener('pointercancel', soltar);
-  base.addEventListener('lostpointercapture', soltar);
-}
-
 export const Entrada = {
   /** Solo hay un oyente activo: la escena o el menú que tiene el foco. */
   escuchar(f: Oyente | null): void {
@@ -132,9 +36,6 @@ export const Entrada = {
     emitir(a);
   },
   /** Dirección analógica del stick (0,0 si no se toca). */
-  vector(): { x: number; y: number } {
-    return { ...vector };
-  },
   /** ¿Está apretada ahora esta acción? */
   apretada(a: AccionEntrada): boolean {
     return apretadas.has(a);
@@ -174,7 +75,6 @@ export const Entrada = {
       boton.addEventListener('pointercancel', soltar);
     });
     // Tocar la pantalla del juego equivale a A (avanzar texto).
-    iniciarStick();
     // Se espera un instante (D241): primero el juego mueve la elección a la opción tocada y después se confirma.
     // Antes la confirmación llegaba primero y un toque abría la opción que estaba marcada, no la tocada.
     document.getElementById('pantalla')?.addEventListener('pointerdown', () => {

@@ -65,12 +65,26 @@ interface Panel {
   mostrado: number;
 }
 
-/** Centro del lienzo de 64×64 de cada criatura; sus pies caen sobre las plataformas dibujadas en los fondos. */
-const POS = [
-  { x: 51, y: 77 },
-  // El rival apoya 6 px más arriba (D242): sus pies quedaban detrás de tu panel (que empieza en y 82).
-  { x: 186, y: 47 },
-] as const;
+/**
+ * Centro de la plataforma dibujada en cada fondo (medido sobre las ilustraciones, D255): ahí apoya los pies cada criatura.
+ * [tú, rival]; las coordenadas son del mundo de 240×160. Los fondos de la Mina y del Cronoportal cambian de lugar.
+ */
+type Plataformas = readonly [{ x: number; y: number }, { x: number; y: number }];
+const PLATAFORMAS_BASE: Plataformas = [{ x: 50, y: 104 }, { x: 186, y: 81 }];
+const PLATAFORMAS: Record<string, Plataformas> = {
+  mina_guarida1: [{ x: 56, y: 89 }, { x: 177, y: 66 }],
+  mina_guarida2: [{ x: 56, y: 90 }, { x: 179, y: 65 }],
+  mina_guarida3: [{ x: 59, y: 86 }, { x: 184, y: 61 }],
+  mina_guarida4: [{ x: 57, y: 83 }, { x: 182, y: 60 }],
+  mina_guarida5: [{ x: 59, y: 86 }, { x: 182, y: 65 }],
+  crono_era1: [{ x: 53, y: 79 }, { x: 179, y: 53 }],
+  crono_era2: [{ x: 53, y: 81 }, { x: 183, y: 51 }],
+  crono_era3: [{ x: 53, y: 81 }, { x: 182, y: 55 }],
+  crono_era4: [{ x: 50, y: 84 }, { x: 180, y: 46 }],
+  crono_era5: [{ x: 52, y: 86 }, { x: 180, y: 54 }],
+};
+/** Los pies del dibujo quedan 31 px bajo el ancla del sprite (lienzo de 96, origen a 64 px, base a 1 px del borde). */
+const PIES = 31;
 /** Lienzo de los sprites (96×96). Se apoyan en la plataforma: la base queda 32 px bajo POS.y y crecen hacia arriba. */
 const LIENZO = 96;
 const ORIGEN_Y = (LIENZO - 32) / LIENZO;
@@ -94,6 +108,8 @@ export class Combate extends Phaser.Scene {
   private rngIA!: Rng;
   private vivo = true;
   private sprites!: [Phaser.GameObjects.Image, Phaser.GameObjects.Image];
+  /** Centro de las plataformas del fondo de este combate: donde apoyan los pies [tú, rival]. */
+  private pies: [{ x: number; y: number }, { x: number; y: number }] = [PLATAFORMAS_BASE[0], PLATAFORMAS_BASE[1]];
   private paneles!: [Panel, Panel];
   private turnoTxt!: Texto;
   private fx!: Efectos;
@@ -219,9 +235,12 @@ export class Combate extends Phaser.Scene {
     const exCrono = modo === 'crono' ? juego.estado.crono?.expedicion : undefined;
     const guarida = modo === 'mina' ? `mina_guarida${this.cfg.zona ?? 1}` : exCrono ? `crono_era${exCrono.era}` : '';
     if (guarida && this.textures.exists(guarida)) this.mundo.add(this.add.image(0, 0, guarida).setOrigin(0, 0).setScale(240 / 960)); else this.mundo.add(this.add.image(0, 0, fondo(this, modo === 'mina' ? 'volcan' : arena)).setOrigin(0, 0).setScale(0.25));
+    const clavePlat = guarida && this.textures.exists(guarida) ? guarida : '';
+    const plat = PLATAFORMAS[clavePlat] ?? PLATAFORMAS_BASE;
+    this.pies = [plat[0], plat[1]];
     this.sprites = [
-      this.add.image(POS[0].x - 120, POS[0].y, textura(yo.especie.id, 'espalda', yo.brillante)).setOrigin(0.5, ORIGEN_Y),
-      this.add.image(POS[1].x + 120, POS[1].y, textura(el.especie.id, 'frente', el.brillante)).setOrigin(0.5, ORIGEN_Y),
+      this.add.image(plat[0].x - 120, plat[0].y - PIES * this.escalaDe(0), textura(yo.especie.id, 'espalda', yo.brillante)).setOrigin(0.5, ORIGEN_Y),
+      this.add.image(plat[1].x + 120, plat[1].y - PIES * this.escalaDe(1), textura(el.especie.id, 'frente', el.brillante)).setOrigin(0.5, ORIGEN_Y),
     ];
     this.mundo.add(this.sprites);
     // Arte HD (D243): mientras cargan las grandes se ve el pixel art; al llegar se cambian sin mover nada.
@@ -1241,12 +1260,23 @@ export class Combate extends Phaser.Scene {
   }
 
   private pos(lado: Lado): { x: number; y: number } {
-    return POS[this.hueco(lado)];
+    const p = this.pies[this.hueco(lado)];
+    // Si la criatura se achica, sus pies se acercan al ancla: se compensa para que siga pisando la plataforma.
+    return { x: p.x, y: p.y - PIES * this.escalaDe(lado) };
+  }
+
+  /** Escala de combate de la criatura activa de un lado (1, o menos si no cabe entre la plataforma y el borde / el cartel rival). */
+  private escalaDe(lado: Lado): number {
+    const alto = altoVisible(this.bat.act(lado).especie.id);
+    // Tu criatura (abajo a la izquierda) puede rozar apenas el cartel del rival, que llega hasta y 38.
+    const libre = this.pies[this.hueco(lado)].y - (this.hueco(lado) === 0 ? 34 : 3);
+    return Math.min(1, libre / alto);
   }
 
   /** Pone la criatura en el sprite de un lado (HD si está cargada) a tamaño de combate. */
-  private ponerSprite(s: Phaser.GameObjects.Image, clave: string, _lado: Lado): Phaser.GameObjects.Image {
-    return ponerCriatura(s, clave, 1);
+  private ponerSprite(s: Phaser.GameObjects.Image, clave: string, lado: Lado): Phaser.GameObjects.Image {
+    // Las más altas se achican lo justo para no salirse por arriba cuando la plataforma queda lejos (Mina, eras).
+    return ponerCriatura(s, clave, this.escalaDe(lado));
   }
 
   private texturaDe(lado: Lado, c: Combatiente): string {
