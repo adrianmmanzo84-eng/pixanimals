@@ -2,10 +2,11 @@
 
 Estado: **solo diseño, sin código**. Versión del juego al escribirlo: 0.39.1.
 
-## 1. Premisa
-El **Eclipse** apaga los píxeles del mundo Pixel: los colores se vuelven grises y los Pixanimals que toca se transforman en sus formas **Nox**. Cada región guarda un **Píxel Maestro** que protege su color; un Guardián lo custodia y el Eclipse ya lo está cercando. El jugador recorre las 6 regiones, devuelve el color a cada una y al final llega al origen del Eclipse.
-
-Tono: aventura amable, apta para todas las edades. Diálogos de 2 o 3 líneas.
+## 1. Premisa (guion del autor: «La sombra del Eclipse»)
+El Mundo Pixel está hecho de luz y color. Una sombra llamada **el Eclipse** absorbe el color de los paisajes. Al frente están los **Nox**, lugartenientes corruptos del Eclipse. Bajo su dominio, los Pixanimals comunes de cada región combaten presionados por los jefes: **no cambian de color ni se vuelven malvados**, por eso destacan sobre los paisajes grises.
+El jugador es un **Restaurador** con el **Prisma Restaurador**, que no captura criaturas: disipa la influencia del Eclipse, libera a los reclutas y devuelve el color. Al reunir los 6 **Píxeles Maestros** se revela al **Arquitecto**, que quiere un lienzo en blanco silencioso e inmóvil.
+Secundaria: la **Mina** y sus 2 jefes de roca (Astracorno, Geodrácnida), que dan el **Cuarzo de Luz**. Después de la historia, los 14 jefes semanales son brechas que abre el Arquitecto cada semana.
+Tono: aventura amable, apta para todas las edades; tuteo; diálogos de 2 o 3 líneas.
 
 ## 2. Reglas que ya están decididas
 - **No se capturan Pixanimals.** Las cartas se ganan **venciendo a un jefe**, o en sobres y premios. La historia solo otorga cartas por jefes y por premios de capítulo.
@@ -27,14 +28,15 @@ Cada región tiene un tipo, un Guardián ya hecho y 2 jefes de ese tipo ya hecho
 
 Los jefes de tipo **roca** (Astracorno, Geodrácnida) quedan para la Mina, que es el modo de roca.
 
-## 4. Estructura de cada región (5 paradas, unos 10 a 15 min)
-1. **Entrenador de la zona**: combate fácil con criaturas del tipo de la región.
-2. **Entrenador de la zona**: combate algo más difícil.
-3. **Parada de modo**: visita obligada a un modo o minijuego (ver tabla 5). Es la forma de desbloquearlos.
-4. **Jefe de la región**: uno de los dos jefes del tipo. Al vencerlo se obtiene su carta.
-5. **Guardián**: combate final. Da el **Píxel Maestro** (la insignia de la región) y un sobre.
+## 4. Estructura de cada región (4 paradas, unos 10 min; decidido por el autor)
+Los entrenadores se reemplazan por los jefes: cada región tiene solo 2 jefes de su tipo más el Guardián.
+1. **Jefe A** (el más débil de los dos): comandante de zona. Al vencerlo se liberan sus reclutas.
+2. **Desafío del entorno**: modo o minijuego obligado (ver sección 5); abre el camino al santuario.
+3. **Jefe B (Jefe Regional)**: al vencerlo su vínculo con el Eclipse se rompe y entrega su **carta**.
+4. **Guardián**: al purificarlo entrega el **Píxel Maestro** (la región recupera el color) y un **sobre**.
 
-Cada parada reutiliza `Ruta.ts` (mapa de estaciones) y el motor de combate actual; no se toca el motor.
+Las paradas 1 y 3 se presentan con diálogo corto del jefe; no hay entrenadores ni retratos.
+Reutiliza `Ruta.ts` y el motor de combate sin cambios. Antes de vencer al Guardián el paisaje de la región se ve en gris (derivado por código del mismo fondo); los Pixanimals conservan su color.
 
 ## 5. Desbloqueos
 | Cuándo | Se abre |
@@ -69,13 +71,17 @@ Reemplaza la guía actual (`guia.paso`).
 - **Futuro:** nuevas regiones (7, 8…), minijuegos, Pixanimals, escenarios e ítems se enganchan al mapa.
 
 ## 9. Lo que falta (a cargo del autor o a decidir)
+Formatos: fondos 960×455 con dos círculos (tu Pixanimal a la izquierda y abajo, el rival a la derecha y arriba); mapa del mundo 960×640; íconos del tamaño de las medallas.
 | Pieza | Quién | Para qué |
 |---|---|---|
 | Fondo de combate Desierto | autor | Región 4 |
 | Fondo de combate Cumbre helada | autor | Región 5 |
 | Fondo de combate Ruinas | autor | Región 6 |
 | Fondo Origen del Eclipse + criatura final | autor (ya anunciado) | Final |
-| Mapa del mundo (6 regiones + final) | provisorio mío, dibujo del autor después | Pantalla de selección |
+| Mapa del mundo (6 regiones, Mina y final) | provisorio mío, dibujo del autor después | Pantalla de selección |
+| 6 íconos de Píxel Maestro | autor | Insignias de región |
+| Arquitecto (frente y espalda HD, nombre, tipo, descripción) | autor | Final |
+| Prisma Restaurador y Cuarzo de Luz (íconos) | autor, opcional | Interfaz y Mina |
 | Nombre y descripción de la criatura final | autor | Final |
 
 Mientras no estén los fondos, las regiones 4 a 6 usan los existentes más parecidos (`pradera`, `volcan`, `bosque`).
