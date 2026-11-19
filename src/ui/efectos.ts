@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import type { Animacion, EstadoId, Habilidad } from '../esquemas/esquemas';
 import EFECTOS_ATAQUE from './efectos-ataques.json';
+import MOVIMIENTO_ATAQUE from './movimiento-ataques.json';
 import { HD } from './hdLogico';
 
 /**
@@ -30,6 +31,14 @@ export const EFECTOS_ILUSTRADOS = [
  * Tienen prioridad sobre el efecto compartido de su `animacion`.
  */
 const ATAQUES = EFECTOS_ATAQUE as Record<string, { impacto?: number[]; pantalla?: number[] }>;
+
+const RAYOS = new Set<string>(MOVIMIENTO_ATAQUE.rayo);
+const PROYECTILES = new Set<string>(MOVIMIENTO_ATAQUE.proyectil);
+
+/** Cómo viaja el efecto propio de un ataque con daño (D267). */
+export function movimientoDe(id: string): 'rayo' | 'proyectil' | 'impacto' {
+  return RAYOS.has(id) ? 'rayo' : PROYECTILES.has(id) ? 'proyectil' : 'impacto';
+}
 
 export function tieneEfectoPropio(id: string): boolean {
   return !!ATAQUES[id]?.impacto;
@@ -385,6 +394,43 @@ export class Efectos {
       void this.subir(part, en, 4, 420, 16);
       await this.avance(380, (t) => i.setScale(k * (1 + 0.05 * Math.sin(t * Math.PI * 4))));
       await this.desvanecer(i, 240, 0.15);
+      return;
+    }
+    const mov = movimientoDe(h.id);
+    if (mov !== 'impacto') {
+      // El dibujo va de abajo a la izquierda (cola) a arriba a la derecha (punta): se gira para que su diagonal
+      // apunte del atacante al rival, sin reflejarlo (sirve igual en los dos sentidos).
+      const fuerte = h.rol === 'final';
+      const boca = { x: yo.x + 10 * dir, y: yo.y - 3 };
+      const dx = el.x - boca.x;
+      const dy = el.y - boca.y;
+      const dist = Math.hypot(dx, dy);
+      const i = this.s.add.image(boca.x, boca.y, clave);
+      this.capa.add(i);
+      const w = i.width / HD;
+      const hh = i.height / HD;
+      i.setRotation(Math.atan2(dy, dx) - Math.atan2(-hh, w));
+      if (mov === 'rayo') {
+        // Rayo: anclado en la cola, sale de la boca y se estira hasta el rival; vibra un instante y se apaga.
+        const largo = Math.hypot(w, hh) * 0.8;
+        const k = Math.max(0.6, (dist + 8) / largo);
+        i.setOrigin(0.1, 0.9).setScale(0.15 * k, 0.15 * k).setAlpha(0.95);
+        await this.tw({ targets: i, scaleX: k, scaleY: k, duration: fuerte ? 200 : 160, ease: 'Cubic.easeOut' });
+        this.temblar(fuerte ? 260 : 140, fuerte ? 0.012 : 0.006);
+        void this.estallido(part, el, fuerte ? 12 : 8, fuerte ? 36 : 26, 360, fuerte ? 1.3 : 1);
+        await this.avance(fuerte ? 380 : 240, (t) => i.setAlpha(0.8 + 0.2 * Math.sin(t * 40)));
+        await this.desvanecer(i, 220, 0);
+        return;
+      }
+      // Proyectil: sale de la boca, viaja entero hasta el rival y estalla al llegar.
+      const k = fuerte ? 1 : 0.85;
+      i.setScale(0.45 * k).setAlpha(0);
+      await this.tw({ targets: i, alpha: 1, scale: 0.7 * k, duration: 80 });
+      await this.tw({ targets: i, x: el.x, y: el.y, scale: k, duration: fuerte ? 260 : 230, ease: 'Quad.easeIn' });
+      this.temblar(fuerte ? 240 : 120, fuerte ? 0.012 : 0.005);
+      void this.estallido(part, el, fuerte ? 12 : 8, fuerte ? 36 : 26, 340, fuerte ? 1.3 : 1);
+      await this.avance(fuerte ? 220 : 140, (t) => i.setScale(k * (1 + 0.12 * t)));
+      await this.desvanecer(i, 200, 0.15);
       return;
     }
     if (h.rol === 'final') {

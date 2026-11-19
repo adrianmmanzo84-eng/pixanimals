@@ -1,0 +1,13 @@
+{
+  "_nota": "Cómo se mueve el efecto propio de cada ataque con daño (D267). rayo: nace en el atacante y se estira hasta el rival. proyectil: viaja entero del atacante al rival. El resto aparece sobre el rival (olas, tormentas, remolinos, meteoros que caen, garras, mordiscos). Los dibujos van de abajo a la izquierda (cola) hacia arriba a la derecha (punta).",
+  "rayo": [
+    "chispazo", "descarga", "rayo_violeta", "rayo_de_vidrio", "lente_solar", "rayo_helianto", "pluma_electrica",
+    "chispa_de_farol", "relampago_dorado", "bigote_electrico", "farol_sombrio", "pulso_permico", "zumbido_voltaico"
+  ],
+  "proyectil": [
+    "rafaga_celeste", "chorro_de_tinta", "viento_cortante", "tinta_abisal", "chispa_de_arena", "destello_ardiente",
+    "vidrio_fundido", "burbujas_veloces", "toque_urticante", "lluvia_de_perlas", "lanza_de_bambu", "destello",
+    "onda_abisal", "lanza_de_hielo", "lanza_del_ocaso", "pua_candente", "pua_de_obsidiana", "guijarrazo",
+    "lluvia_de_puas", "tormenta_de_puas"
+  ]
+}

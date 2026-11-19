@@ -63,3 +63,18 @@ describe('textos del combate', () => {
     expect([...faltan].sort()).toEqual([]);
   });
 });
+
+describe('movimiento de los efectos de ataque (D267)', () => {
+  it('cada ataque clasificado existe, hace daño y tiene dibujo propio', async () => {
+    const mov = (await import('../src/ui/movimiento-ataques.json')).default as { rayo: string[]; proyectil: string[] };
+    const efectos = (await import('../src/ui/efectos-ataques.json')).default as Record<string, unknown>;
+    const ids = [...mov.rayo, ...mov.proyectil];
+    expect(new Set(ids).size).toBe(ids.length);
+    for (const id of ids) {
+      const h = DATOS.habilidades.get(id);
+      expect(h, id).toBeDefined();
+      expect(h!.potencia, id).toBeGreaterThan(0);
+      expect(efectos[id], id).toBeDefined();
+    }
+  });
+});
