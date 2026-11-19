@@ -34,10 +34,11 @@ const ATAQUES = EFECTOS_ATAQUE as Record<string, { impacto?: number[]; pantalla?
 
 const RAYOS = new Set<string>(MOVIMIENTO_ATAQUE.rayo);
 const PROYECTILES = new Set<string>(MOVIMIENTO_ATAQUE.proyectil);
+const CARGAS = new Set<string>(MOVIMIENTO_ATAQUE.carga);
 
-/** Cómo viaja el efecto propio de un ataque con daño (D267). */
-export function movimientoDe(id: string): 'rayo' | 'proyectil' | 'impacto' {
-  return RAYOS.has(id) ? 'rayo' : PROYECTILES.has(id) ? 'proyectil' : 'impacto';
+/** Cómo viaja el efecto propio de un ataque con daño (D267, D268). */
+export function movimientoDe(id: string): 'rayo' | 'proyectil' | 'carga' | 'impacto' {
+  return RAYOS.has(id) ? 'rayo' : PROYECTILES.has(id) ? 'proyectil' : CARGAS.has(id) ? 'carga' : 'impacto';
 }
 
 export function tieneEfectoPropio(id: string): boolean {
@@ -368,6 +369,49 @@ export class Efectos {
       await this.moverAtaque(h, yo, el);
     } catch (e) {
       console.warn('Efecto fallido:', h.id, e);
+    }
+    return true;
+  }
+
+  /**
+   * Carga (D268): el atacante cruza hasta el rival con el dibujo como estela detrás (la punta del dibujo, arriba a la
+   * derecha, va delante de la criatura) y vuelve. `mover(t)` lleva al atacante: 0 en su lugar, 1 junto al rival.
+   * Devuelve false si no hay dibujo (entonces se usa la embestida de siempre).
+   */
+  async carga(h: Habilidad, yo: Punto, el: Punto, mover: (t: number) => void): Promise<boolean> {
+    await cargarEfectosDeAtaques(this.s, [h.id]);
+    const clave = `fxat_${h.id}`;
+    if (!this.s.textures.exists(clave)) return false;
+    const fuerte = h.rol === 'final';
+    const part = PARTICULA_TIPO[h.tipo] ?? 'chispa';
+    const dx = el.x - yo.x;
+    const dy = el.y - yo.y;
+    const i = this.s.add.image(yo.x, yo.y, clave).setOrigin(0.82, 0.18).setAlpha(0);
+    this.capa.add(i);
+    const w = i.width / HD;
+    const hh = i.height / HD;
+    i.setRotation(Math.atan2(dy, dx) - Math.atan2(-hh, w));
+    const k = Math.min(1, 70 / Math.hypot(w, hh)) * (fuerte ? 1.1 : 0.95);
+    i.setScale(0.5 * k);
+    const llegar = 0.72;
+    const ir = (t: number) => {
+      mover(t);
+      // La punta va un poco por delante del cuerpo del atacante.
+      i.setPosition(yo.x + dx * (t * llegar) + Math.sign(dx) * 8, yo.y + dy * (t * llegar));
+    };
+    try {
+      ir(0);
+      await this.tw({ targets: i, alpha: 1, scale: k, duration: 90 });
+      await this.avance(fuerte ? 230 : 200, (t) => ir(t * t));
+      this.temblar(fuerte ? 280 : 150, fuerte ? 0.014 : 0.007);
+      void this.estallido(part, el, fuerte ? 12 : 8, fuerte ? 36 : 26, 340, fuerte ? 1.3 : 1);
+      await this.tw({ targets: i, scale: k * 1.15, duration: 90, ease: 'Back.easeOut' });
+      void this.desvanecer(i, 240, 0.1);
+      await this.avance(260, (t) => mover(1 - t));
+    } catch (e) {
+      console.warn('Efecto fallido:', h.id, e);
+      mover(0);
+      if (i.active) i.destroy();
     }
     return true;
   }

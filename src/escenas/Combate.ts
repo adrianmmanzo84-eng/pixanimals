@@ -33,7 +33,7 @@ import { juego } from '../juego';
 import { altoVisible, ponerCriatura, textura } from '../ui/criaturas';
 import { cargarGrandes } from '../ui/hd';
 import { C, COLOR_ESTADO, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
-import { Efectos, cargarEfectosDeAtaques } from '../ui/efectos';
+import { Efectos, cargarEfectosDeAtaques, movimientoDe } from '../ui/efectos';
 import { fondo, FONDO_POR_TIPO } from '../ui/fondos';
 import { equipoFinal, equipoParada, ganarFinal, ganarParada, regionTerminada, type Parada } from '../core/modos/historia';
 import { claveFondoRegion } from './HistoriaRegion';
@@ -1519,6 +1519,16 @@ export class Combate extends Phaser.Scene {
       sonido.tocar('final');
       this.cameras.main.flash(160, 255, 255, 255);
     } else if (!fisica) sonido.tocar('especial');
+    if (h && movimientoDe(h.id) === 'carga') {
+      // Embestidas y cornadas (D268): la criatura cruza hasta el rival con su estela y vuelve a su lugar.
+      const p0 = { x: s.x, y: s.y };
+      const desde = this.centro(lado);
+      const hasta = this.centro((1 - lado) as Lado);
+      const v = { x: (hasta.x - desde.x) * 0.72, y: (hasta.y - desde.y) * 0.72 };
+      const ok = await this.fx.carga(h, desde, hasta, (t) => s.setPosition(p0.x + v.x * t, p0.y + v.y * t));
+      s.setPosition(p0.x, p0.y);
+      if (ok) return;
+    }
     if (fisica) await this.tween({ targets: s, x: this.pos(lado).x + 16 * dir, y: this.pos(lado).y - 6 * dir, duration: 90, yoyo: true });
     if (h && (await this.fx.ataque(h, this.centro(lado), this.centro((1 - lado) as Lado)))) return;
     await this.fx.reproducir(h?.animacion ?? (fisica ? (h ? 'zarpazo' : 'impacto') : 'proyectil'), this.centro(lado), this.centro((1 - lado) as Lado), h?.tipo ?? 'neutro');
