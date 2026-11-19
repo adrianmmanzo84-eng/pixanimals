@@ -10,7 +10,7 @@ Tono: aventura amable, apta para todas las edades; tuteo; diálogos de 2 o 3 lí
 
 ## 2. Reglas que ya están decididas
 - **No se capturan Pixanimals.** Las cartas se ganan **venciendo a un jefe**, o en sobres y premios. La historia solo otorga cartas por jefes y por premios de capítulo.
-- Los jugadores **nuevos** tienen los modos bloqueados hasta que la historia los abre. Las partidas guardadas existentes lo conservan todo.
+- Los jugadores **nuevos** empiezan con abierto todo lo básico (combate rápido, Torre, desafío diario, tienda, ruleta, misiones, expediciones, álbum, bestiario y minijuegos), porque es la forma de subir de nivel si la historia se pone difícil (D266). Solo se bloquean Entrenadores (Desierto), Jefes semanales (Cumbre helada) y Cronoportal (Costa). Las partidas guardadas existentes lo conservan todo.
 - La historia **nunca se bloquea con compras**: sobres y monedas solo aceleran.
 
 ## 3. Las 6 regiones (salen de los Guardianes que ya existen)

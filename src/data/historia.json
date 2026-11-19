@@ -2,9 +2,22 @@
   "inicio": [
     "historia",
     "rapido",
+    "desafio",
+    "torre",
+    "minijuegos",
+    "mj.bayas",
+    "mj.eco",
+    "mj.golpe",
+    "mj.mina",
+    "misiones",
+    "expediciones",
     "sobres",
-    "equipo",
+    "tienda",
     "bolsa",
+    "equipo",
+    "coleccion",
+    "bestiario",
+    "ruleta",
     "guardado"
   ],
   "regiones": [
@@ -28,12 +41,7 @@
         "tipo": "minijuego",
         "id": "bayas"
       },
-      "abre": [
-        "bestiario",
-        "coleccion",
-        "misiones",
-        "mj.golpe"
-      ],
+      "abre": [],
       "premio": {
         "monedas": 300,
         "sobre": "brote"
@@ -59,10 +67,7 @@
         "tipo": "mina",
         "zona": 2
       },
-      "abre": [
-        "tienda",
-        "expediciones"
-      ],
+      "abre": [],
       "premio": {
         "monedas": 400,
         "sobre": "brasa"
@@ -88,10 +93,7 @@
         "tipo": "crono",
         "era": 1
       },
-      "abre": [
-        "ruleta",
-        "desafio"
-      ],
+      "abre": [],
       "premio": {
         "monedas": 500,
         "sobre": "marea"

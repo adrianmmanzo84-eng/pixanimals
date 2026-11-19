@@ -39,20 +39,16 @@ describe('modo historia', () => {
     expect(new Set(H.regiones.map((r) => r.tipo)).size).toBe(6);
   });
 
-  it('una partida nueva empieza con casi todo cerrado; una vieja, con todo abierto', () => {
+  it('una partida nueva empieza con lo básico abierto (subir de nivel, tienda, álbum, minijuegos); lo avanzado, cerrado', () => {
     const e = nuevo();
-    expect(modoAbierto(DATOS, e, 'rapido')).toBe(true);
-    expect(modoAbierto(DATOS, e, 'historia')).toBe(true);
-    expect(modoAbierto(DATOS, e, 'torre')).toBe(false);
-    expect(modoAbierto(DATOS, e, 'tienda')).toBe(false);
-    // El desafío de la primera región (Bayas) ya está abierto: hay que poder cumplirlo.
-    expect(modoAbierto(DATOS, e, 'minijuegos')).toBe(true);
-    expect(modoAbierto(DATOS, e, 'mj.bayas')).toBe(true);
-    expect(modoAbierto(DATOS, e, 'mj.mina')).toBe(false);
+    for (const m of ['historia', 'rapido', 'torre', 'desafio', 'tienda', 'expediciones', 'misiones', 'ruleta', 'coleccion', 'bestiario', 'minijuegos', 'mj.bayas', 'mj.eco', 'mj.golpe', 'mj.mina'] as const) {
+      expect(modoAbierto(DATOS, e, m), m).toBe(true);
+    }
+    for (const m of ['entrenador', 'semanal', 'crono'] as const) expect(modoAbierto(DATOS, e, m), m).toBe(false);
     const vieja = nuevo();
     delete vieja.historia;
-    expect(modoAbierto(DATOS, vieja, 'torre')).toBe(true);
-    expect(modoAbierto(DATOS, vieja, 'tienda')).toBe(true);
+    expect(modoAbierto(DATOS, vieja, 'semanal')).toBe(true);
+    expect(modoAbierto(DATOS, vieja, 'entrenador')).toBe(true);
   });
 
   it('las paradas van en orden y el desafío se cumple mirando la partida', () => {
