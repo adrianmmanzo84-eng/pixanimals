@@ -113,3 +113,20 @@ Medidas de los dibujos de efectos (entregar a 4×, fondo transparente, WebP o PN
 - Borrón, Zarpa del Vacío y Lienzo Gris: impacto de **232×232**.
 - Colapso Cromático: impacto de **360×348**.
 - Lienzo en Blanco: impacto de **472×416** y pantalla completa de **960×640**.
+
+## 12. Prólogo e ilustraciones del relato (pedido al autor)
+**Prólogo:** reemplaza al sobre de bienvenida. Presentación con ilustraciones, y el jugador **elige 3 Pixanimals** entre 7 de etapa 1 (uno por tipo). Propuesta para aprobar.
+
+**Formato de las ilustraciones:** 960×640, PNG o JPG, sin texto incrustado. El cuarto inferior (unos 170 px) queda tapado por el cuadro de texto: lo importante va arriba. Mismo estilo que los fondos de combate.
+
+| Archivo | Cuándo se ve | Qué muestra |
+|---|---|---|
+| relato_01_mundo.png | Prólogo | El Mundo Pixel lleno de color, con Pixanimals de varios tipos |
+| relato_02_eclipse.png | Prólogo | El disco del Eclipse en el cielo; el color se escurre y medio paisaje queda gris |
+| relato_03_nox.png | Prólogo | Un jefe Nox al frente; detrás, Pixanimals comunes (con su color) obligados a seguirlo. Sin que dé miedo |
+| relato_04_prisma.png | Prólogo | El Prisma Restaurador brillando en un pedestal antiguo (sin mostrar al jugador) |
+| relato_05_eleccion.png | Prólogo, elección del equipo | Tres círculos de luz vacíos donde el juego pone a los 3 elegidos |
+| relato_bosque.png … relato_ruinas.png (6) | Al llegar a cada región y al restaurarla | El Guardián en su santuario. El juego la muestra en gris al llegar y le devuelve el color al vencerlo |
+| relato_final.png | Tras vencer al Arquitecto | El mundo recuperando el color y los Pixanimals celebrando; el Eclipse se deshace |
+
+La ilustración `final/origen_arquitecto.png` ya entregada pasa a usarse como **revelación del Arquitecto** (antes del combate final). Opcionales: `relato_mina.png` (la Mina derrumbada y el Cuarzo de Luz) y `relato_brechas.png` (las brechas semanales).
