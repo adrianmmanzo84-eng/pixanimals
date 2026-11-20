@@ -1,0 +1,65 @@
+name: Paquete para la tienda
+# Genera el AAB de Google Play (D275). Se lanza a mano: Actions → «Paquete para la tienda» → Run workflow.
+# - Con los 4 secretos de la llave de subida (ver docs/PUBLICACION.md): AAB FIRMADO, listo para subir a Play Console.
+# - Sin secretos: AAB de VERIFICACIÓN firmado con una llave temporal. Sirve para comprobar que el paquete compila; NO se sube a Play.
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  aab:
+    runs-on: ubuntu-latest
+    env:
+      KS_B64: ${{ secrets.PIX_KEYSTORE_B64 }}
+      PIX_KEYSTORE_PASS: ${{ secrets.PIX_KEYSTORE_PASS }}
+      PIX_KEY_ALIAS: ${{ secrets.PIX_KEY_ALIAS }}
+      PIX_KEY_PASS: ${{ secrets.PIX_KEY_PASS }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21, cache: gradle }
+      - name: Llave
+        id: llave
+        run: |
+          if [ -n "$KS_B64" ]; then
+            echo "$KS_B64" | base64 -d > "$RUNNER_TEMP/subida.keystore"
+            echo "PIX_KEYSTORE=$RUNNER_TEMP/subida.keystore" >> "$GITHUB_ENV"
+            echo "real=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::Sin llave de subida: se genera un AAB de VERIFICACIÓN con llave temporal (no sirve para Play)."
+            keytool -genkeypair -keystore "$RUNNER_TEMP/temporal.keystore" -alias temporal -keyalg RSA -keysize 2048 -validity 30 \
+              -storepass temporal -keypass temporal -dname "CN=verificacion"
+            echo "PIX_KEYSTORE=$RUNNER_TEMP/temporal.keystore" >> "$GITHUB_ENV"
+            echo "PIX_KEYSTORE_PASS=temporal" >> "$GITHUB_ENV"
+            echo "PIX_KEY_ALIAS=temporal" >> "$GITHUB_ENV"
+            echo "PIX_KEY_PASS=temporal" >> "$GITHUB_ENV"
+            echo "real=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: La política de privacidad no puede tener datos pendientes (solo en el paquete real)
+        if: steps.llave.outputs.real == 'true'
+        run: |
+          if grep -q "NOMBRE_PENDIENTE\|CORREO_PENDIENTE" public/privacidad.html public/privacy.html; then
+            echo "::error::Faltan el nombre del desarrollador y/o el correo en public/privacidad.html y public/privacy.html"; exit 1
+          fi
+      - run: npm ci
+      - run: npm run build
+      - run: npx cap sync android
+      - name: Compilar el AAB
+        working-directory: android
+        run: ./gradlew bundleRelease --no-daemon
+      - name: Comprobar la firma
+        id: aab
+        run: |
+          V=$(node -p "require('./package.json').version")
+          F="android/app/build/outputs/bundle/release/app-release.aab"
+          ls -l "$F"
+          jarsigner -verify "$F" | head -3
+          SUF=$([ "${{ steps.llave.outputs.real }}" = "true" ] && echo "" || echo "-VERIFICACION")
+          cp "$F" "pixanimals-$V$SUF.aab"
+          echo "nombre=pixanimals-$V$SUF.aab" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.aab.outputs.nombre }}
+          path: ${{ steps.aab.outputs.nombre }}

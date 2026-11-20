@@ -1,4 +1,5 @@
 import type Phaser from 'phaser';
+import { esNativo } from './nativo';
 
 declare const __VERSION__: string;
 declare const __COMMIT__: string;
@@ -14,7 +15,7 @@ const COMMIT = typeof __COMMIT__ === 'string' ? __COMMIT__ : '';
  * nada de la partida.
  */
 export function diagPedido(): boolean {
-  return new URLSearchParams(location.search).has('diag');
+  return !esNativo && new URLSearchParams(location.search).has('diag');
 }
 
 type Linea = { hora: string; texto: string };

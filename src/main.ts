@@ -228,7 +228,9 @@ async function iniciar(): Promise<void> {
   ajustarEscala(juego.canvas);
   // Solo en desarrollo: acceso desde la consola para pruebas visuales.
   if (import.meta.env.DEV) Object.assign(window, { __pixGame: juego });
-  // App de Android: botón Atrás del teléfono.
+  // Audio: se suspende con la pestaña o la app en segundo plano.
+  document.addEventListener('visibilitychange', () => sonido.enPrimerPlano(!document.hidden));
+  // App de Android: botón Atrás del teléfono y segundo plano.
   iniciarNativo(
     () => juego.scene.getScenes(true).map((e) => e.sys.settings.key),
     () => Entrada.pulsar('b'),

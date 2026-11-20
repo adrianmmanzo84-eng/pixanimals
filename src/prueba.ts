@@ -1,6 +1,7 @@
 import { DATOS } from './core/datos';
 import { estadoNuevo, nuevaCriatura } from './core/estado/juego';
 import type { EstadoJuego } from './esquemas/esquemas';
+import { esNativo } from './nativo';
 
 /**
  * Modo prueba (D225): se abre con `?prueba` en la dirección (o `?prueba=especie1,especie2`).
@@ -8,6 +9,8 @@ import type { EstadoJuego } from './esquemas/esquemas';
  * finales al nivel 50 y el Ataque Definitivo disponible desde el turno 1.
  */
 export function pedidoPrueba(): string[] | null {
+  // Versión de tienda (app de Android): sin modo prueba.
+  if (esNativo) return null;
   const p = new URLSearchParams(location.search);
   if (!p.has('prueba')) return null;
   return (p.get('prueba') ?? '')

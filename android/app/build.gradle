@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-// Versión de la app = versión del juego (package.json): 0.33.0 -> versionName "0.33.0", versionCode 33000 (D245).
+// Versión de la app = versión del juego (package.json): 0.45.0 -> versionName "0.45.0", versionCode 45000 (D245).
 def paquete = new groovy.json.JsonSlurper().parse(file('../../package.json'))
 def partes = paquete.version.tokenize('.').collect { it as int }
 def codigoVersion = partes[0] * 1000000 + partes[1] * 1000 + partes[2]
@@ -30,12 +30,24 @@ android {
             keyAlias 'prueba'
             keyPassword 'pixanimals'
         }
+        // Llave de subida de Google Play (D275): llega por variables de entorno desde el CI (flujo «Paquete para la tienda»)
+        // y nunca está en el repositorio. Sin esas variables, el paquete de release sale sin firmar.
+        subida {
+            def archivo = System.getenv('PIX_KEYSTORE')
+            if (archivo) {
+                storeFile file(archivo)
+                storePassword System.getenv('PIX_KEYSTORE_PASS')
+                keyAlias System.getenv('PIX_KEY_ALIAS')
+                keyPassword System.getenv('PIX_KEY_PASS')
+            }
+        }
     }
     buildTypes {
         debug {
             signingConfig signingConfigs.prueba
         }
         release {
+            if (System.getenv('PIX_KEYSTORE')) signingConfig signingConfigs.subida
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

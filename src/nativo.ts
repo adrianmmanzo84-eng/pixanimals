@@ -2,6 +2,7 @@ import { Capacitor } from '@capacitor/core';
 import { App } from '@capacitor/app';
 import { Preferences } from '@capacitor/preferences';
 import type { Respaldo } from './core/estado/respaldo';
+import { sonido } from './audio/sfx';
 
 /**
  * App de Android (D245). En el navegador nada de esto corre.
@@ -15,6 +16,8 @@ const CLAVE = 'partida';
 export function iniciarNativo(pantallaActual: () => string[], pulsarB: () => void): void {
   if (!esNativo) return;
   document.body.classList.add('nativo');
+  // Al minimizar la app o apagar la pantalla, el audio se suspende; al volver, sigue.
+  void App.addListener('appStateChange', ({ isActive }) => sonido.enPrimerPlano(isActive));
   void App.addListener('backButton', () => {
     if (document.body.classList.contains('ajustes-abiertos')) {
       document.body.classList.remove('ajustes-abiertos');

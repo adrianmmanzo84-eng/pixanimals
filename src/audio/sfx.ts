@@ -87,6 +87,16 @@ class Sonido {
   /** Avisa cuando el audio quedó habilitado (tras el primer gesto). */
   alActivar: (() => void) | null = null;
 
+  /**
+   * App en segundo plano (minimizada, otra app encima o pantalla apagada): el audio se suspende y la música
+   * queda quieta donde estaba; al volver sigue. Lo llaman la página (visibilidad) y la app de Android.
+   */
+  enPrimerPlano(activa: boolean): void {
+    const ctx = this.ctx;
+    if (!ctx) return;
+    void (activa ? ctx.resume() : ctx.suspend()).catch(() => undefined);
+  }
+
   /** Debe llamarse dentro de un gesto del usuario. */
   activar(): void {
     try {
