@@ -115,7 +115,8 @@ export function equipoParada(datos: Datos, indice: number, n: Parada, mios: Cria
   const jefe = n === 3 ? r.guardian : r.jefes[n === 0 ? 0 : 1];
   const tam = Math.min(Math.max(1, mios.length), n === 0 ? 2 : 3);
   const ids = [jefe, ...escoltas(datos, r.tipo, nivel - 2, tam - 1, indice * 97 + n * 13 + 5)];
-  return ids.map((id) => crearCombatiente(datos, id, id === jefe ? nivel : nivel - 2));
+  const potencial = r.ajuste[n === 0 ? 0 : n === 2 ? 1 : 2]!;
+  return ids.map((id) => crearCombatiente(datos, id, id === jefe ? nivel : nivel - 2, { potencial }));
 }
 
 /** El Arquitecto y dos lugartenientes Nox (formas Eclipse). */
@@ -126,7 +127,7 @@ export function equipoFinal(datos: Datos, mios: CriaturaJugador[]): Combatiente[
   const tam = Math.min(Math.max(1, mios.length), 3);
   const ids = [f.jefe];
   while (ids.length < tam && nox.length) ids.push(nox.splice(rng.entero(0, nox.length - 1), 1)[0]!);
-  return ids.map((id) => crearCombatiente(datos, id, id === f.jefe ? f.nivel : f.nivel - 3));
+  return ids.map((id) => crearCombatiente(datos, id, id === f.jefe ? f.nivel : f.nivel - 3, { potencial: f.ajuste }));
 }
 
 export interface ResultadoParada {

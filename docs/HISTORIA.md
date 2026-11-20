@@ -140,3 +140,8 @@ Entrega `pixanimals-relato-v1` (14 ilustraciones de 960×640, guardadas en `arte
 - **Regiones:** al entrar por primera vez, el santuario en gris con el Eclipse dibujado por código; al vencer al Guardián, la misma imagen a color con el Píxel Maestro. Una sola vez por partida (`historia.vistos`).
 - **Final:** la revelación del Arquitecto (`final.jpg`) antes del combate; tras vencerlo, `relato_final` y, una sola vez, `relato_brechas`.
 - `relato_mina`: primera bajada a la Mina Pixel (D272).
+
+## 14. Balance (D273)
+
+Cada parada tiene un `ajuste` de stats del equipo rival calibrado por simulación. Con el equipo al nivel de la región se gana ~80 % al primer jefe, ~65 % al Jefe Regional, ~50 % al Guardián y ~45 % al Arquitecto; con 3 niveles más el Guardián cae casi siempre. El primer combate del Bosque se gana con el equipo recién elegido (nivel 5); para el resto del Bosque hay que llegar a nivel 7 (zonas de práctica Pradera y Bosque).
+

@@ -45,7 +45,12 @@
       "premio": {
         "monedas": 300,
         "sobre": "brote"
-      }
+      },
+      "ajuste": [
+        -41,
+        -38,
+        -51
+      ]
     },
     {
       "id": "volcan",
@@ -71,7 +76,12 @@
       "premio": {
         "monedas": 400,
         "sobre": "brasa"
-      }
+      },
+      "ajuste": [
+        -27,
+        -36,
+        -38
+      ]
     },
     {
       "id": "costa",
@@ -97,7 +107,12 @@
       "premio": {
         "monedas": 500,
         "sobre": "marea"
-      }
+      },
+      "ajuste": [
+        -16,
+        -30,
+        -30
+      ]
     },
     {
       "id": "desierto",
@@ -125,7 +140,12 @@
       "premio": {
         "monedas": 600,
         "sobre": "rayo"
-      }
+      },
+      "ajuste": [
+        -12,
+        -17,
+        -36
+      ]
     },
     {
       "id": "cumbre_helada",
@@ -153,7 +173,12 @@
       "premio": {
         "monedas": 700,
         "sobre": "cielo"
-      }
+      },
+      "ajuste": [
+        12,
+        -14,
+        -25
+      ]
     },
     {
       "id": "ruinas",
@@ -179,7 +204,12 @@
       "premio": {
         "monedas": 800,
         "sobre": "sombra"
-      }
+      },
+      "ajuste": [
+        26,
+        -2,
+        -12
+      ]
     }
   ],
   "final": {
@@ -194,7 +224,8 @@
     "premio": {
       "monedas": 2000,
       "sobre": "legendario"
-    }
+    },
+    "ajuste": 3
   },
   "monedasParada": [
     80,

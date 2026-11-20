@@ -1,6 +1,6 @@
 {
   "name": "pixanimals",
-  "version": "0.43.1",
+  "version": "0.44.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,6 +9,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "simular": "tsx scripts/simular.ts",
+    "simular:historia": "tsx scripts/simular-historia.ts",
+    "calibrar:historia": "tsx scripts/calibrar-historia.ts",
     "validar": "tsx scripts/validar.ts",
     "placeholders": "tsx scripts/generar-placeholders.ts",
     "ajustar": "tsx scripts/ajustar-etapas.ts",

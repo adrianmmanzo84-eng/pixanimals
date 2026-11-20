@@ -7,6 +7,7 @@ import {
   regionTerminada, siguienteParada, type Parada,
 } from '../src/core/modos/historia';
 import type { EstadoJuego } from '../src/esquemas/esquemas';
+import { tasaHistoria } from '../src/core/modos/simHistoria';
 
 const H = DATOS.historia;
 const nuevo = (): EstadoJuego => {
@@ -192,5 +193,32 @@ describe('prólogo y relatos (D271)', () => {
     for (const id of ['relato_01_mundo', 'relato_02_eclipse', 'relato_03_nox', 'relato_04_prisma', 'relato_05_eleccion', 'relato_final', 'relato_mina', 'relato_brechas']) {
       expect(existsSync(`public/relato/${id}.jpg`), id).toBe(true);
     }
+  });
+});
+
+describe('balance de la historia (D273)', () => {
+  // Simulación corta (2 partidas por trío): solo vigila que la curva no se rompa con cambios de stats.
+  const N = 2;
+  it('al nivel de la región, cada parada se gana entre 30 % y 95 % de las veces', () => {
+    DATOS.historia.regiones.forEach((r, i) => {
+      for (const n of [0, 2, 3] as const) {
+        const nivel = i === 0 && n === 0 ? DATOS.sobres.nivelInicial : r.nivel;
+        const p = tasaHistoria(DATOS, nivel, (m) => equipoParada(DATOS, i, n, m), r.ia, 77 + i * 10 + n, N);
+        expect(p, `${r.id}:${n}`).toBeGreaterThanOrEqual(30);
+        expect(p, `${r.id}:${n}`).toBeLessThanOrEqual(95);
+      }
+    });
+  });
+  it('el Arquitecto es el combate más duro, pero ganable', () => {
+    const f = DATOS.historia.final;
+    const p = tasaHistoria(DATOS, f.nivel, (m) => equipoFinal(DATOS, m), f.ia, 4646, N);
+    expect(p).toBeGreaterThanOrEqual(25);
+    expect(p).toBeLessThanOrEqual(65);
+  });
+  it('entrenar 3 niveles más deja al Guardián en ventaja clara', () => {
+    DATOS.historia.regiones.forEach((r, i) => {
+      const p = tasaHistoria(DATOS, r.nivel + 3, (m) => equipoParada(DATOS, i, 3, m), r.ia, 300 + i, N);
+      expect(p, r.id).toBeGreaterThanOrEqual(60);
+    });
   });
 });

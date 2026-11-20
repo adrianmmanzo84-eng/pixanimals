@@ -188,6 +188,8 @@ export const RegionZ = z.object({
   jefes: z.tuple([z.string(), z.string()]),
   guardian: z.string(),
   nivel: z.number().int().min(1),
+  /** Balance (D273): % de stats del equipo rival en las paradas 0, 2 y 3 (negativo = más débil). El nivel a la vista no cambia. */
+  ajuste: z.array(z.number().int().min(-60).max(30)).length(3).default([0, 0, 0]),
   ia: NivelIAZ,
   desafio: DesafioHistoriaZ,
   /** Lo que se abre al terminar la región (al entrar ya se abre lo que pide su desafío). */
@@ -200,7 +202,7 @@ export const HistoriaZ = z.object({
   /** Los siete Pixanimals de etapa 1 del prólogo (uno por tipo): el jugador elige tres. */
   iniciales: z.array(z.string()).length(7),
   regiones: z.array(RegionZ).min(1),
-  final: z.object({ jefe: z.string(), fondo: z.string(), nivel: z.number().int(), ia: NivelIAZ, marcador: PuntoMapaZ, premio: PremioMetaZ }),
+  final: z.object({ jefe: z.string(), fondo: z.string(), nivel: z.number().int(), ajuste: z.number().int().min(-60).max(30).default(0), ia: NivelIAZ, marcador: PuntoMapaZ, premio: PremioMetaZ }),
   /** Monedas de cada parada la primera vez (Jefe A, desafío, Jefe B, Guardián). */
   monedasParada: z.tuple([z.number().int(), z.number().int(), z.number().int(), z.number().int()]),
 });
