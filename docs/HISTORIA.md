@@ -139,4 +139,4 @@ Entrega `pixanimals-relato-v1` (14 ilustraciones de 960×640, guardadas en `arte
 - **Prólogo** (partida nueva): 4 ilustraciones con 1–2 líneas (mundo, Eclipse, Nox, Prisma) y luego la elección de **3 de 7 iniciales** (uno por tipo, lista `iniciales` en `historia.json`: Leopix, Pixtibu, Osopix, Rayapix, Larvix, Ajolix y Caracolix o los que resulten de esos ids) sobre los tres círculos de `relato_05_eleccion`. Reemplaza a la carta inicial de una sola criatura.
 - **Regiones:** al entrar por primera vez, el santuario en gris con el Eclipse dibujado por código; al vencer al Guardián, la misma imagen a color con el Píxel Maestro. Una sola vez por partida (`historia.vistos`).
 - **Final:** la revelación del Arquitecto (`final.jpg`) antes del combate; tras vencerlo, `relato_final` y, una sola vez, `relato_brechas`.
-- Sin usar todavía: `relato_mina` (queda para la misión de la Mina).
+- `relato_mina`: primera bajada a la Mina Pixel (D272).

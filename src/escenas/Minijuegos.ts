@@ -1,4 +1,4 @@
-import { modoAbierto, regionQueAbre } from '../core/modos/historia';
+import { marcarRelato, modoAbierto, regionQueAbre, relatoPendiente } from '../core/modos/historia';
 import Phaser from 'phaser';
 import { Puntero } from '../ui/puntero';
 import type { CriaturaJugador, MinijuegoId } from '../esquemas/esquemas';
@@ -204,7 +204,18 @@ export class Minijuegos extends Phaser.Scene {
         sonido.tocar('cursor');
       } else if (a === 'a') {
         sonido.tocar('aceptar');
-        this.scene.start(ESCENA[id], { especie: lista[this.selCriatura]!.especie, zona: this.zona });
+        const datos = { especie: lista[this.selCriatura]!.especie, zona: this.zona };
+        // Relato (D271): la primera vez que se baja a la Mina Pixel, el derrumbe y el Cuarzo de Luz.
+        if (id === 'mina' && relatoPendiente(juego.estado, 'mina')) {
+          marcarRelato(juego.estado, 'mina');
+          juego.guardar();
+          this.scene.start('Relato', {
+            diapositivas: [{ img: 'relato_mina', titulo: t('mj.mina'), texto: t('relato.mina'), musica: 'menu' }],
+            luego: { escena: ESCENA[id], datos },
+          });
+          return;
+        }
+        this.scene.start(ESCENA[id], datos);
         return;
       } else if (a === 'b') {
         this.modo = 'juego';
