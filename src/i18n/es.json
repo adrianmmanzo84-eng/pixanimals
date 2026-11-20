@@ -816,5 +816,19 @@
   "hist.modo.mj.bayas": "Lluvia de Bayas",
   "hist.modo.mj.eco": "Eco",
   "hist.modo.mj.golpe": "Golpe Justo",
-  "hist.modo.mj.mina": "Mina Pixel"
+  "hist.modo.mj.mina": "Mina Pixel",
+  "menu.practica": "Zonas de práctica",
+  "practica.titulo": "Zonas de práctica",
+  "practica.tuNivel": "Nivel medio de tu equipo: {n}",
+  "practica.pradera": "Pradera",
+  "practica.nv": "Nv {a}–{b}",
+  "practica.facil": "Fácil",
+  "practica.pareja": "Pareja",
+  "practica.dificil": "Difícil",
+  "practica.infoTodos": "Salvajes de todos los tipos · Nv {a}–{b}",
+  "practica.todos": "todos los tipos",
+  "practica.info": "Salvajes de tipo {t} · Nv {a}–{b}",
+  "practica.premio": "Experiencia y {m} monedas por victoria. Repetible, sin carta premio.",
+  "practica.cerrada": "Se abre en la historia: {r}",
+  "practica.ayuda": "▲▼: zona · A: pelear · B: volver"
 }

@@ -45,12 +45,14 @@ const DESTINOS = ['', 'Minijuegos', 'Misiones', 'Expediciones', 'Sobres', 'Tiend
 const GUARDADO = OPCIONES.length - 1;
 /** Qué modo de la historia abre cada opción del menú principal (D264). Combatir siempre está. */
 const MODO_OPCION: (ModoHistoria | null)[] = [null, 'minijuegos', 'misiones', 'expediciones', 'sobres', 'tienda', 'bolsa', 'equipo', 'coleccion', 'bestiario', 'ruleta', 'guardado'];
-const MODO_COMBATE: ModoHistoria[] = ['rapido', 'desafio', 'torre', 'entrenador', 'semanal', 'crono'];
+const MODO_COMBATE: (ModoHistoria | null)[] = ['rapido', null, 'desafio', 'torre', 'entrenador', 'semanal', 'crono'];
 /** El cartel de la historia, bajo las opciones: es una opción más (índice tras las del menú). */
 const HISTORIA = OPCIONES.length;
 /** Ícono de cada opción (arte del autor; la Ruleta se dibuja por código). */
 const ICONOS = ['menu_combate', 'menu_minijuegos', 'menu_misiones', 'menu_expediciones', 'menu_sobres', 'menu_tienda', 'menu_bolsa', 'menu_equipo', 'menu_coleccion', 'menu_bestiario', 'menu_ruleta', 'menu_guardado'];
 const ALTO_FILA = 10;
+/** Filas del submenú de combates (7 opciones en la misma ventana). */
+const ALTO_FILA_COMBATES = 8.6;
 /** Dos columnas de hasta 6 opciones. */
 const POR_COLUMNA = 6;
 const COL_X = [40, 126];
@@ -63,6 +65,7 @@ export class Menu extends Phaser.Scene {
   /** El jugador eligió «más tarde» para las ofertas de ataques (hasta que vuelva a abrir el juego). */
   static ofertasVistas = false;
   private filas: Texto[] = [];
+  private zonasFilas: Phaser.GameObjects.Zone[] = [];
   /** Íconos del menú principal: solo se ven en él (los submenús no llevan íconos). */
   private iconos: Phaser.GameObjects.GameObject[] = [];
   private conIcono = false;
@@ -142,12 +145,12 @@ export class Menu extends Phaser.Scene {
     const puntero = new Puntero(this);
     this.puntero = puntero;
     this.filas.forEach((f, i) =>
-      puntero.zona(COL_X[Math.floor(i / POR_COLUMNA)]!, f.imagen.y - 1, 88, ALTO_FILA, () => {
+      this.zonasFilas.push(puntero.zona(COL_X[Math.floor(i / POR_COLUMNA)]!, f.imagen.y - 1, 88, ALTO_FILA, () => {
         if (this.modo === 'diario' || i >= this.opciones().length || i === this.sel) return;
         this.sel = i;
         sonido.tocar('cursor');
         this.pintar();
-      }),
+      })),
     );
 
     // Equipo actual, con icono animado de dos cuadros.
@@ -304,6 +307,7 @@ export class Menu extends Phaser.Scene {
       const piso = juego.estado.torre.piso;
       return [
         t('menu.rapido'),
+        t('menu.practica'),
         t(desafioJugado(juego.estado, Date.now()) ? 'menu.desafioHecho' : 'menu.desafio', { n: numeroDesafio(Date.now()) }),
         t(guardianDePiso(DATOS, piso) ? 'menu.torreGuardian' : esJefe(DATOS, piso) ? 'menu.torreJefe' : 'menu.torre', { n: piso }),
         t(entrenadorCobrado(juego.estado, Date.now()) ? 'menu.entrenadorHecho' : 'menu.entrenador'),
@@ -335,13 +339,19 @@ export class Menu extends Phaser.Scene {
     // Los íconos son del menú principal: en Combate y en Dificultad no se ven, y el texto ocupa su lugar.
     const principal = this.modo === 'principal';
     this.iconos.forEach((o) => (o as Phaser.GameObjects.Image).setVisible(principal));
+    // El submenú de combates tiene 7 opciones: una sola columna, con filas algo más juntas.
+    const combates = this.modo === 'combates';
     this.filas.forEach((f, i) => {
-      if (i < POR_COLUMNA) f.imagen.setX(COL_X[0]! + (principal && this.conIcono ? 17 : 8));
-      else f.imagen.setVisible(principal);
+      const col = combates ? 0 : Math.floor(i / POR_COLUMNA);
+      const x = col === 0 ? COL_X[0]! + (principal && this.conIcono ? 17 : 8) : COL_X[col]! + (this.conIcono ? 17 : 8);
+      const y = combates ? 32 + i * ALTO_FILA_COMBATES : 32 + (i % POR_COLUMNA) * ALTO_FILA;
+      f.imagen.setPosition(x, y).setData('y0', y);
+      f.imagen.setVisible(combates ? i < 7 : i < POR_COLUMNA || principal);
+      this.zonasFilas[i]?.setPosition(COL_X[col]!, y - 1).setSize(88, combates ? ALTO_FILA_COMBATES : ALTO_FILA);
     });
     const enHistoria = this.sel === HISTORIA && principal;
-    const col = Math.floor(this.sel / POR_COLUMNA);
-    const y = enHistoria ? 103 : 33 + (this.sel % POR_COLUMNA) * ALTO_FILA;
+    const col = combates ? 0 : Math.floor(this.sel / POR_COLUMNA);
+    const y = enHistoria ? 103 : combates ? 33 + this.sel * ALTO_FILA_COMBATES : 33 + (this.sel % POR_COLUMNA) * ALTO_FILA;
     const x = enHistoria ? 25 : COL_X[col]!;
     this.cursor.clear().fillStyle(n(C.resalte), 1).fillTriangle(x, y, x, y + 6, x + 4, y + 3).setDepth(15);
     this.puntero?.marcar(`${this.modo}:${this.sel}`, enHistoria ? this.cartelGuia ?? undefined : this.filas[this.sel]?.imagen);
@@ -557,8 +567,9 @@ export class Menu extends Phaser.Scene {
           this.modo = 'dificultad';
           this.sel = 1;
         } else {
-          const modo = (['desafio', 'torre', 'entrenador', 'semanal', 'crono'] as const)[this.sel - 1]!;
-          if (modo === 'crono') this.scene.start(juego.estado.crono?.expedicion ? 'CronoMapa' : 'Cronoportal');
+          const modo = (['practica', 'desafio', 'torre', 'entrenador', 'semanal', 'crono'] as const)[this.sel - 1]!;
+          if (modo === 'practica') this.scene.start('Practica', { zona: 0 });
+          else if (modo === 'crono') this.scene.start(juego.estado.crono?.expedicion ? 'CronoMapa' : 'Cronoportal');
           else if (modo === 'torre') this.scene.start('Torre');
           else if (modo === 'desafio') this.scene.start('Desafio', { modo });
           else this.scene.start('Ruta', { modo });

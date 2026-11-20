@@ -816,5 +816,19 @@
   "hist.modo.mj.bayas": "Berry Rain",
   "hist.modo.mj.eco": "Echo",
   "hist.modo.mj.golpe": "Timed Strike",
-  "hist.modo.mj.mina": "Pixel Mine"
+  "hist.modo.mj.mina": "Pixel Mine",
+  "menu.practica": "Practice zones",
+  "practica.titulo": "Practice zones",
+  "practica.tuNivel": "Your team's average level: {n}",
+  "practica.pradera": "Meadow",
+  "practica.nv": "Lv {a}–{b}",
+  "practica.facil": "Easy",
+  "practica.pareja": "Even",
+  "practica.dificil": "Hard",
+  "practica.infoTodos": "Wild Pixanimals of every type · Lv {a}–{b}",
+  "practica.todos": "all types",
+  "practica.info": "Wild {t} types · Lv {a}–{b}",
+  "practica.premio": "Experience and {m} coins per win. Repeatable, no prize card.",
+  "practica.cerrada": "Unlocks in the story: {r}",
+  "practica.ayuda": "▲▼: zone · A: battle · B: back"
 }

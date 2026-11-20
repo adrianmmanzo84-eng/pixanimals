@@ -35,7 +35,7 @@
         "zarzabal"
       ],
       "guardian": "raiz_primordial",
-      "nivel": 10,
+      "nivel": 7,
       "ia": "novata",
       "desafio": {
         "tipo": "minijuego",
@@ -61,7 +61,7 @@
         "caldrak"
       ],
       "guardian": "bastion_de_ceniza",
-      "nivel": 16,
+      "nivel": 14,
       "ia": "novata",
       "desafio": {
         "tipo": "mina",
@@ -87,7 +87,7 @@
         "talasor"
       ],
       "guardian": "custodio_de_las_mareas",
-      "nivel": 22,
+      "nivel": 20,
       "ia": "tactica",
       "desafio": {
         "tipo": "crono",
@@ -113,7 +113,7 @@
         "fulgarok"
       ],
       "guardian": "vigia_del_sol_sepulto",
-      "nivel": 28,
+      "nivel": 26,
       "ia": "tactica",
       "desafio": {
         "tipo": "torre",
@@ -141,7 +141,7 @@
         "tempestario"
       ],
       "guardian": "centinela_del_ultimo_hielo",
-      "nivel": 34,
+      "nivel": 33,
       "ia": "experta",
       "desafio": {
         "tipo": "minijuego",

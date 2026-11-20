@@ -1,0 +1,11 @@
+{
+  "zonas": [
+    { "id": "pradera", "fondo": "pradera", "tipo": null, "nivel": [2, 5], "ia": "novata", "monedas": 10, "region": null },
+    { "id": "bosque", "fondo": "bosque", "tipo": "brote", "nivel": [4, 7], "ia": "novata", "monedas": 15, "region": 0 },
+    { "id": "volcan", "fondo": "volcan", "tipo": "brasa", "nivel": [11, 14], "ia": "novata", "monedas": 20, "region": 1 },
+    { "id": "costa", "fondo": "costa", "tipo": "marea", "nivel": [17, 20], "ia": "tactica", "monedas": 25, "region": 2 },
+    { "id": "desierto", "fondo": "desierto", "tipo": "rayo", "nivel": [23, 26], "ia": "tactica", "monedas": 30, "region": 3 },
+    { "id": "cumbre_helada", "fondo": "cumbre_helada", "tipo": "cielo", "nivel": [30, 33], "ia": "experta", "monedas": 35, "region": 4 },
+    { "id": "ruinas", "fondo": "ruinas", "tipo": "sombra", "nivel": [37, 40], "ia": "experta", "monedas": 40, "region": 5 }
+  ]
+}

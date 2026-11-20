@@ -37,13 +37,16 @@ import { Efectos, cargarEfectosDeAtaques, movimientoDe } from '../ui/efectos';
 import { fondo, FONDO_POR_TIPO } from '../ui/fondos';
 import { equipoFinal, equipoParada, ganarFinal, ganarParada, regionTerminada, type Parada } from '../core/modos/historia';
 import { claveFondoRegion } from './HistoriaRegion';
+import { equipoPractica, ZONAS } from '../core/modos/practica';
 import { texturaGris } from '../ui/arteHistoria';
 import { partir, Texto } from '../ui/texto';
 
 export interface ConfigCombate {
   ia: NivelIA;
   /** rapido: rival parejo al azar; torre: el piso `piso`; entrenador: el Entrenador del día; semanal: el Jefe de la semana; desafio: el Desafío del día (equipo prestado, igual para todos). */
-  modo?: 'rapido' | 'torre' | 'entrenador' | 'semanal' | 'desafio' | 'mina' | 'crono' | 'historia';
+  modo?: 'rapido' | 'torre' | 'entrenador' | 'semanal' | 'desafio' | 'mina' | 'crono' | 'historia' | 'practica';
+  /** practica: índice de la zona de práctica (D270). */
+  zonaPractica?: number;
   /** historia: región y parada (0 Jefe A, 2 Jefe B, 3 Guardián), o el combate final. */
   region?: number;
   parada?: number;
@@ -231,6 +234,8 @@ export class Combate extends Phaser.Scene {
             ? equipoSemanal(DATOS, Date.now(), mios)
             : modo === 'mina'
               ? equipoGuarida(DATOS, this.cfg.zona ?? 1, mios.length)
+              : modo === 'practica'
+                ? equipoPractica(DATOS, this.cfg.zonaPractica ?? 0, mios.length, rng)
               : modo === 'historia'
                 ? this.cfg.final
                   ? equipoFinal(DATOS, mios)
@@ -272,7 +277,9 @@ export class Combate extends Phaser.Scene {
     const regionH = modo === 'historia' && !this.cfg.final ? DATOS.historia.regiones[this.cfg.region ?? 0]! : null;
     // Historia: el paisaje de la región (gris hasta vencer a su Guardián, D260) o el Origen del Eclipse.
     const fondoH = modo === 'historia' ? claveFondoRegion(this, this.cfg.final ? DATOS.historia.final.fondo : regionH!.fondo) : '';
-    const guarida = modo === 'mina' ? `mina_guarida${this.cfg.zona ?? 1}` : exCrono ? `crono_era${exCrono.era}` : fondoH;
+    // Práctica: el paisaje de la zona, siempre a todo color.
+    const fondoP = modo === 'practica' ? claveFondoRegion(this, ZONAS[this.cfg.zonaPractica ?? 0]!.fondo) : '';
+    const guarida = modo === 'mina' ? `mina_guarida${this.cfg.zona ?? 1}` : exCrono ? `crono_era${exCrono.era}` : fondoH || fondoP;
     if (guarida && this.textures.exists(guarida)) {
       const img = this.add.image(0, 0, regionH && !regionTerminada(juego.estado, regionH) ? texturaGris(this, guarida) : guarida).setOrigin(0, 0);
       this.mundo.add(img.setScale(240 / this.textures.get(guarida).getSourceImage().width));
@@ -679,7 +686,7 @@ export class Combate extends Phaser.Scene {
     if (modo === 'desafio') return this.resultadoDesafio();
     if (modo === 'crono') return this.resultadoCrono(retirada);
     // Torre y Entrenador pagan su propio premio en lugar de las monedas por dificultad.
-    const r = aplicarRecompensa(DATOS, juego.estado, this.bat, this.cfg.ia, retirada, modo === 'rapido' ? undefined : 0);
+    const r = aplicarRecompensa(DATOS, juego.estado, this.bat, this.cfg.ia, retirada, modo === 'rapido' ? undefined : modo === 'practica' ? ZONAS[this.cfg.zonaPractica ?? 0]!.monedas : 0);
     const extra: string[] = [];
     const nombreSobre = (id: string) => DATOS.sobres.sobres.find((s) => s.id === id)?.nombre ?? id;
     if (modo === 'torre' && !retirada) {
@@ -770,8 +777,9 @@ export class Combate extends Phaser.Scene {
       if (a !== 'a' && a !== 'b') return;
       sonido.tocar('aceptar');
       // Al ganar se elige una carta premio. La Torre y los caminos vuelven a su mapa.
-      const volver = volverHistoria ?? (modo === 'torre' ? { escena: 'Torre', datos: { subio: r.victoria } } : modo === 'entrenador' || modo === 'semanal' ? { escena: 'Ruta', datos: { modo, avanzo: r.victoria } } : null);
-      if (r.victoria) this.scene.start('Premio', volver ? { volver } : { submenu: 'combates' });
+      const volver = volverHistoria ?? (modo === 'practica' ? { escena: 'Practica', datos: { zona: this.cfg.zonaPractica ?? 0 } } : modo === 'torre' ? { escena: 'Torre', datos: { subio: r.victoria } } : modo === 'entrenador' || modo === 'semanal' ? { escena: 'Ruta', datos: { modo, avanzo: r.victoria } } : null);
+      // La práctica no da carta premio (solo experiencia y monedas): vuelve a sus zonas.
+      if (r.victoria && modo !== 'practica') this.scene.start('Premio', volver ? { volver } : { submenu: 'combates' });
       else if (volver) this.scene.start(volver.escena, volver.datos);
       else this.scene.start('Menu', { submenu: 'combates' });
     };

@@ -115,3 +115,39 @@ describe('modo historia', () => {
     expect(otra.historia).toEqual(e.historia);
   });
 });
+
+describe('zonas de práctica (D270)', () => {
+  it('cada zona tiene tipo y región válidos y sus rivales salen dentro del rango', async () => {
+    const { ZONAS, equipoPractica, zonaAbierta, dificultadZona } = await import('../src/core/modos/practica');
+    const { Rng } = await import('../src/core/rng');
+    for (const [i, z] of ZONAS.entries()) {
+      if (z.tipo) expect(DATOS.tipos.has(z.tipo), z.id).toBe(true);
+      if (z.region !== null) expect(DATOS.historia.regiones[z.region], z.id).toBeDefined();
+      expect(z.nivel[0]).toBeLessThanOrEqual(z.nivel[1]);
+      for (let k = 0; k < 20; k++) {
+        const rivales = equipoPractica(DATOS, i, 3, new Rng(k + 1));
+        expect(rivales).toHaveLength(3);
+        for (const r of rivales) {
+          expect(r.nivel, z.id).toBeGreaterThanOrEqual(z.nivel[0]);
+          expect(r.nivel, z.id).toBeLessThanOrEqual(z.nivel[1]);
+          if (z.tipo) expect(r.especie.tipo, z.id).toBe(z.tipo);
+        }
+      }
+    }
+    // Una zona siempre queda por debajo del jefe de su región (se practica antes de enfrentarlo).
+    for (const z of ZONAS) if (z.region !== null) expect(z.nivel[1]).toBeLessThanOrEqual(DATOS.historia.regiones[z.region]!.nivel);
+    // Partida nueva: Pradera y Bosque abiertos, el resto no; partida vieja: todo.
+    const e = nuevo();
+    expect(ZONAS.map((_, i) => zonaAbierta(DATOS, e, i))).toEqual([true, true, false, false, false, false, false]);
+    const vieja = nuevo();
+    delete vieja.historia;
+    expect(ZONAS.every((_, i) => zonaAbierta(DATOS, vieja, i))).toBe(true);
+    expect(dificultadZona(ZONAS[1]!, 2)).toBe('dificil');
+    expect(dificultadZona(ZONAS[1]!, 6)).toBe('pareja');
+    expect(dificultadZona(ZONAS[1]!, 9)).toBe('facil');
+  });
+
+  it('el primer jefe del Bosque se puede alcanzar practicando (nivel 7 o menos)', () => {
+    expect(DATOS.historia.regiones[0]!.nivel).toBeLessThanOrEqual(7);
+  });
+});

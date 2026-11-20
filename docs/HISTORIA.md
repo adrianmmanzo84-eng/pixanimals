@@ -1,6 +1,6 @@
 # Modo Historia — diseño (borrador para aprobar)
 
-Estado: **fase H1 hecha (v0.41.0)**: datos, guardado, mapa del mundo, regiones con sus 4 paradas, combates, desbloqueos, final y arte del autor. Pendiente: diálogos más largos/prólogo, efectos del Arquitecto, balance con simulaciones.
+Estado: **fase H1 hecha (v0.41.0)**: datos, guardado, mapa del mundo, regiones con sus 4 paradas, combates, desbloqueos, final y arte del autor. Zonas de práctica y jefes bajados (D270). Pendiente: diálogos más largos/prólogo, efectos del Arquitecto, balance con simulaciones.
 
 ## 1. Premisa (guion del autor: «La sombra del Eclipse»)
 El Mundo Pixel está hecho de luz y color. Una sombra llamada **el Eclipse** absorbe el color de los paisajes. Al frente están los **Nox**, lugartenientes corruptos del Eclipse. Bajo su dominio, los Pixanimals comunes de cada región combaten presionados por los jefes: **no cambian de color ni se vuelven malvados**, por eso destacan sobre los paisajes grises.
