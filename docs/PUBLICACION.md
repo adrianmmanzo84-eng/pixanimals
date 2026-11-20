@@ -1,6 +1,6 @@
 # Guía de publicación en Google Play
 
-Versión 1: gratis, **sin compras**, sin anuncios, para mayores de 7 años. Todo lo que está en `tienda/` (ícono, imagen destacada, 8 capturas, textos) ya está listo para subir.
+Versión 1: descarga **gratuita**, sin anuncios, para mayores de 7 años, con **compras opcionales de monedas y cristales** (diseño D246). Todo lo que está en `tienda/` (ícono, imagen destacada, 8 capturas, textos) ya está listo para subir.
 
 Lo que **solo puedes hacer tú** (pide tu identidad, un pago o una llave secreta) está marcado con 👤. Lo demás ya lo dejé hecho o lo hago yo.
 
@@ -8,11 +8,12 @@ Lo que **solo puedes hacer tú** (pide tu identidad, un pago o una llave secreta
 
 | Dato | Dónde va | Estado |
 | --- | --- | --- |
-| 👤 Nombre del desarrollador | `NOMBRE_PENDIENTE` en `public/privacidad.html` y `public/privacy.html` | pendiente |
-| 👤 Correo de contacto público | `CORREO_PENDIENTE` en los mismos dos archivos (y en Play Console) | pendiente |
-| 👤 Confirmar el nombre del paquete | hoy `com.pixanimals.juego`; **no se puede cambiar después de publicar** | pendiente |
+| Nombre del desarrollador | **LiSaDm** (ya puesto en `public/privacidad.html` y `public/privacy.html`) | listo |
+| Correo de contacto público | **adrianmmanzo84@gmail.com** (ya puesto en las políticas; usar el mismo en Play Console) | listo |
+| Nombre del paquete | **`com.pixanimals.juego`** confirmado por el autor | listo |
+| Compras dentro del juego | la política ya las describe; **falta implementarlas** y borrar la marca `COMPRAS_NO_IMPLEMENTADAS` de las dos políticas | pendiente |
 
-El flujo «Paquete para la tienda» **se niega a generar el AAB real** mientras queden esos dos marcadores en la política. Dime los datos y los completo.
+El flujo «Paquete para la tienda» **se niega a generar el AAB real** mientras la política conserve marcadores pendientes (`NOMBRE_PENDIENTE`, `CORREO_PENDIENTE` o `COMPRAS_NO_IMPLEMENTADAS`): así no se puede publicar una app cuya política promete compras que aún no existen.
 
 ## 1. Cuenta de desarrollador 👤
 
@@ -70,6 +71,9 @@ URL: `https://adrianmmanzo84-eng.github.io/pixanimals/privacidad.html`
 - «¿La app atrae involuntariamente a niños?»: no aplica (ya los declaras).
 - Si Google ofrece unirse a *Diseñado para la familia*, acepta.
 
+### 4.4 bis Compras dentro de la aplicación
+En **Contenido de la app → Anuncios**: sin anuncios. Las compras no se declaran ahí: se activan al subir un AAB con la librería de Google Play Billing y crear productos en **Monetizar → Productos → Productos integrados en la aplicación** (uno por paquete, de tipo *consumible*). Antes hace falta un **perfil de pagos** (datos fiscales y cuenta bancaria) 👤. Los precios se fijan en una moneda base y Google los convierte a cada país.
+
 ### 4.5 Clasificación de contenido (cuestionario IARC)
 Respuestas coherentes con el juego:
 
@@ -81,10 +85,11 @@ Respuestas coherentes con el juego:
 | Contenido sexual / desnudez | No |
 | Lenguaje soez | No |
 | Sustancias (drogas, alcohol, tabaco) | No |
-| Juegos de azar simulados o con dinero | No (los sobres se compran con monedas ganadas jugando; no hay dinero real) |
+| Juegos de azar simulados o con dinero | No (no hay apuestas; los sobres no pagan dinero ni premios reales) |
 | Interacción entre usuarios / chat | No |
 | Comparte ubicación | No |
-| Compras con dinero real | No (en esta versión) |
+| Compras con dinero real | **Sí**: monedas y cristales (moneda virtual), sin valor monetario |
+| Objetos aleatorios por compra | Sí: sobres de criaturas (con probabilidades visibles antes de abrir) |
 
 El resultado esperable es una clasificación apta para niños (PEGI 7 / ESRB E10+ o similar). Si el cuestionario cambia de preguntas, responde con la misma lógica.
 
@@ -108,7 +113,7 @@ Aplicación de noticias: no. Aplicación gubernamental: no. Finanzas: no. Salud:
 
 - No subir el AAB de verificación a Play.
 - No poner la llave de subida ni sus contraseñas en el repositorio ni en el chat.
-- No declarar «sin compras» en la ficha el día que se añadan compras: hay que actualizar la ficha, la política y marcar «Contiene compras».
+- No enviar a revisión mientras las compras no estén implementadas: la política y la ficha ya las anuncian.
 
 ## 6. Prueba cerrada (cuenta personal nueva) 👤
 
@@ -121,7 +126,8 @@ Aplicación de noticias: no. Aplicación gubernamental: no. Finanzas: no. Salud:
 
 ## 7. Lista final antes de enviar a revisión
 
-- [ ] Nombre y correo en las dos políticas; página abre en el navegador
+- [ ] Compras implementadas, productos creados y probados con cuentas de prueba con licencia
+- [ ] Marca `COMPRAS_NO_IMPLEMENTADAS` borrada de las dos políticas; la página abre en el navegador
 - [ ] Probado el APK en un teléfono real (rendimiento, controles, audio)
 - [ ] Música y sonidos aprobados
 - [ ] Paquete confirmado (`com.pixanimals.juego` u otro)

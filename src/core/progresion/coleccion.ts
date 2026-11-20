@@ -11,7 +11,7 @@ import { ORDEN_RAREZA, itemDeRareza, tirarRareza } from '../sobres/sobres';
 /**
  * Lo que impulsa a coleccionar y volver: Álbum (completar familias, tipos y la colección),
  * Medallas (objetivos largos), Fusión de copias repetidas, Expediciones y la Semana temática.
- * Todo se gana jugando: nada se compra con dinero real.
+ * Todo se puede ganar jugando; las compras con dinero real (monedas y cristales) son opcionales.
  */
 
 // ---------------------------------------------------------------- premios

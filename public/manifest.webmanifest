@@ -1,7 +1,7 @@
 {
   "name": "PIXANIMALS",
   "short_name": "PIXANIMALS",
-  "description": "Colecciona criaturas pixel art, combate y juega minijuegos. Sin compras ni registros.",
+  "description": "Colecciona criaturas pixel art, combate y juega minijuegos. Descarga gratis, con compras opcionales dentro del juego. Sin registros.",
   "lang": "es",
   "start_url": "./",
   "scope": "./",

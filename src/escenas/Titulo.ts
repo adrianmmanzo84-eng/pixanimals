@@ -41,8 +41,8 @@ export class Titulo extends Phaser.Scene {
 
     const pulsa = new Texto(this, 0, 136, 240, 12, '#ffffff', 'centro', { tam: 8.6, peso: 600, borde: '#2b3a78' }).poner(t('titulo.pulsa'));
     this.tweens.add({ targets: pulsa.imagen, alpha: 0.25, duration: 650, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
-    new Texto(this, 4, 151, 120, 8, '#94b0c2', 'izq', { tam: 5.4 }).poner(`v${version.version}`);
-    new Texto(this, 116, 151, 120, 8, '#94b0c2', 'der', { tam: 5.4 }).poner(t('titulo.sinCompras'));
+    new Texto(this, 4, 151, 56, 8, '#94b0c2', 'izq', { tam: 5.4 }).poner(`v${version.version}`);
+    new Texto(this, 62, 151, 174, 8, '#94b0c2', 'der', { tam: 5.4 }).poner(t('titulo.sinCompras'));
 
     let listo = false;
     const seguir = () => {

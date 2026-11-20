@@ -82,7 +82,7 @@ Qué haría falta para tenerlas (orden de trabajo):
 ## 6. Orden recomendado
 
 1. Probar el APK en un teléfono real (rendimiento, controles, audio) y aprobar música y sonidos.
-2. Decidir: ¿primera versión **sin compras** y compras en una actualización, o compras desde el día uno?
+2. ~~Decidir si la primera versión lleva compras~~ **Decidido (D276): compras desde el día uno.** Falta implementarlas.
 3. En paralelo: crear la cuenta de Play (empieza el reloj de las 2 semanas de prueba), política de privacidad, nombre y marca, ficha.
 4. AAB firmado y prueba cerrada con 12 testers.
 5. Producción.

@@ -39,7 +39,8 @@ MINIJUEGOS, EXPEDICIONES Y MÁS
 
 PENSADO PARA JUGAR TRANQUILO
 • Para mayores de 7 años.
-• Sin anuncios y sin registros: no hay cuentas ni chat.
+• Descarga gratuita, sin anuncios y sin registros: no hay cuentas ni chat.
+• Incluye compras opcionales de monedas y cristales, que también se ganan jugando: nunca hace falta comprar para jugar ni para terminar la historia. Cada compra pide la confirmación de un adulto y los sobres muestran sus probabilidades.
 • Tu partida se guarda en tu dispositivo, y puedes llevarla a otro con un código.
 • Funciona sin conexión a internet.
 • Pantalla horizontal y música original.
@@ -83,7 +84,8 @@ MINIGAMES, EXPEDITIONS AND MORE
 
 MADE FOR RELAXED PLAY
 • For ages 7 and up.
-• No ads and no sign-up: no accounts, no chat.
+• Free to download, no ads and no sign-up: no accounts, no chat.
+• Includes optional purchases of coins and crystals, which can also be earned by playing: you never need to buy anything to play or finish the story. Every purchase asks for an adult’s confirmation and packs show their odds.
 • Your game is saved on your device, and you can move it to another one with a code.
 • Works without an internet connection.
 • Landscape screen and original music.
@@ -99,4 +101,4 @@ Download it, pick your companions and bring the color back to the Pixel World.
 
 ## Aviso
 
-Cuando se añadan compras con dinero real, hay que actualizar estos textos (la línea «Sin anuncios y sin registros» sigue siendo cierta; añadir que hay compras opcionales y las probabilidades) y marcar la app como «Contiene compras en la aplicación».
+La ficha debe marcarse como **«Contiene compras en la aplicación»** (Play Console → Política y programas → Contenido de la app → Anuncios y compras). Los textos ya lo mencionan. La app no puede enviarse a revisión hasta que las compras estén implementadas y los productos creados en Play Console (ver `docs/PUBLICACION.md`).

@@ -40,8 +40,8 @@ jobs:
       - name: La política de privacidad no puede tener datos pendientes (solo en el paquete real)
         if: steps.llave.outputs.real == 'true'
         run: |
-          if grep -q "NOMBRE_PENDIENTE\|CORREO_PENDIENTE" public/privacidad.html public/privacy.html; then
-            echo "::error::Faltan el nombre del desarrollador y/o el correo en public/privacidad.html y public/privacy.html"; exit 1
+          if grep -q "NOMBRE_PENDIENTE\|CORREO_PENDIENTE\|COMPRAS_NO_IMPLEMENTADAS" public/privacidad.html public/privacy.html; then
+            echo "::error::La política tiene marcadores pendientes (nombre, correo o COMPRAS_NO_IMPLEMENTADAS): public/privacidad.html y public/privacy.html"; exit 1
           fi
       - run: npm ci
       - run: npm run build
