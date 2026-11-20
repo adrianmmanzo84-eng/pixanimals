@@ -144,6 +144,9 @@ export class Combate extends Phaser.Scene {
   private fx!: Efectos;
   /** Todo lo que «filma» la cámara: fondo, criaturas y efectos. La interfaz queda fuera y no se mueve. */
   private mundo!: Phaser.GameObjects.Container;
+  /** Barras de vida chicas sobre la cabeza, solo mientras se juega el turno (los paneles se ocultan, D269). */
+  private vidaMini!: Phaser.GameObjects.Graphics;
+  private miniMostrado: [number, number] = [0, 0];
   private capaFx!: Phaser.GameObjects.Container;
   /**
    * Desde dónde se mira el combate. 'jugador': tu criatura de espaldas abajo a la izquierda (lo clásico).
@@ -304,6 +307,8 @@ export class Combate extends Phaser.Scene {
     this.paneles = [this.crearPanel(disp[0]), this.crearPanel(disp[1])];
     // Los carteles se agrupan para poder ocultarlos enteros durante el turno (D257).
     this.capaPaneles = this.add.container(0, 0, this.children.list.filter((o) => !antes.has(o)));
+    this.vidaMini = this.add.graphics().setVisible(false);
+    this.mundo.add(this.vidaMini);
     this.refrescarPanel(0);
     this.refrescarPanel(1);
     this.turnoTxt = new Texto(this, 4, 30, 116, 10, '#ffffff', 'izq', { borde: '#2b3a78' });
@@ -381,6 +386,7 @@ export class Combate extends Phaser.Scene {
       }
       this.capaPaneles.setVisible(false);
       this.turnoTxt.visible(false);
+      this.mostrarVidaMini(true);
       // Golpe justo: si el ataque hace daño, la barra decide cuánto más fuerte pega (solo para ti).
       const mult = accionConDano(this.bat, 0, accion) ? await this.golpeJusto() : 1;
       if (!this.vivo) return;
@@ -390,6 +396,7 @@ export class Combate extends Phaser.Scene {
       const eventos = this.bat.ejecutarTurno(accion, rival);
       this.bat.potenciador = [1, 1];
       await this.reproducir(eventos);
+      this.mostrarVidaMini(false);
       this.capaPaneles.setVisible(true);
       this.turnoTxt.visible(true);
       // Quien perdió a su criatura activa elige reemplazo antes del turno siguiente.
@@ -1255,6 +1262,7 @@ export class Combate extends Phaser.Scene {
     }
     p.ps.poner(`${v}/${max}`);
     p.mostrado = valor;
+    this.miniMostrado[lado] = valor;
   }
 
   /** Un punto por criatura del equipo, al costado del panel que da al centro: relleno si sigue en pie, hueco si cayó, con aro si está en el campo. */
@@ -1333,6 +1341,35 @@ export class Combate extends Phaser.Scene {
   }
 
   /** Centro del cuerpo visible de la criatura activa (los sprites se apoyan en la base de su lienzo). */
+  private mostrarVidaMini(si: boolean): void {
+    this.vidaMini.setVisible(si);
+    if (si) {
+      this.mundo.bringToTop(this.vidaMini);
+      this.pintarVidaMini();
+    }
+  }
+
+  /** Verde lo que queda, rojo lo que falta; sigue a la criatura si se mueve (cargas, entradas) y se oculta si no está. */
+  private pintarVidaMini(): void {
+    const g = this.vidaMini;
+    g.clear();
+    for (const lado of [0, 1] as Lado[]) {
+      const s = this.sprites[lado];
+      if (!s?.visible || s.alpha < 0.3) continue;
+      const c = this.centro(lado);
+      const p = this.pos(lado);
+      const max = this.bat.act(lado).stats.ps;
+      const r = Phaser.Math.Clamp(this.miniMostrado[lado] / max, 0, 1);
+      const w = 30;
+      const x = c.x + (s.x - p.x) - w / 2;
+      const y = Math.max(3, c.base - c.alto + (s.y - p.y) - 7);
+      g.fillStyle(0x1b1f33, 0.9).fillRect(x - 1, y - 1, w + 2, 5);
+      g.fillStyle(0xd8423c, 1).fillRect(x, y, w, 3);
+      if (r > 0) g.fillStyle(0x47c25b, 1).fillRect(x, y, Math.max(1, w * r), 3);
+      g.fillStyle(0xffffff, 0.35).fillRect(x, y, w * r, 1);
+    }
+  }
+
   private centro(lado: Lado): { x: number; y: number; base: number; alto: number } {
     const p = this.pos(lado);
     // Con la criatura achicada (escalaDe), los pies y el alto visible se escalan igual que el sprite.
@@ -1379,6 +1416,7 @@ export class Combate extends Phaser.Scene {
    */
   override update(_t: number, dt: number): void {
     if (!this.mundo) return;
+    if (this.vidaMini?.visible) this.pintarVidaMini();
     this.reloj += dt / 1000;
     const viva = ajustes.camara;
     const c = this.cam;
