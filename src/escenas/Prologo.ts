@@ -45,7 +45,7 @@ export class Prologo extends Phaser.Scene {
     prepararCamara(this);
     suavizarArteHistoria(this);
     suavizarRelatos(this);
-    musica.tocar('menu');
+    musica.tocar('prologo');
     this.pintar();
     Entrada.escuchar((a) => {
       if (this.fin) return;

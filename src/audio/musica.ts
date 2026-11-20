@@ -37,6 +37,9 @@ export function leerCanal(texto: string, ruido = false): { eventos: Evento[]; la
   return { eventos, largo: paso };
 }
 
+/** Segundos del fundido al cambiar de canción. */
+const FUNDIDO = 0.4;
+
 const VOLUMEN: Record<Canal, number> = { p1: 0.09, p2: 0.04, tri: 0.2, ruido: 0.12 };
 
 class Musica {
@@ -68,10 +71,32 @@ class Musica {
     if (sonido.ctx?.state === 'running') this.empezar(id);
   }
 
-  parar(): void {
+  /** Con `suave`, la canción que suena baja de volumen en un fundido corto en vez de cortarse. */
+  parar(suave = false): void {
     if (this.reloj) clearInterval(this.reloj);
     this.reloj = null;
     this.actual = null;
+    const ctx = sonido.ctx;
+    if (suave && ctx && this.salida) {
+      const vieja = this.salida;
+      const nodos = [...this.nodos];
+      vieja.gain.cancelScheduledValues(ctx.currentTime);
+      vieja.gain.setValueAtTime(vieja.gain.value, ctx.currentTime);
+      vieja.gain.linearRampToValueAtTime(0, ctx.currentTime + FUNDIDO);
+      setTimeout(() => {
+        for (const n of nodos) {
+          try {
+            n.stop();
+          } catch {
+            /* ya terminó */
+          }
+        }
+        vieja.disconnect();
+      }, FUNDIDO * 1000 + 60);
+      this.salida = null;
+      this.nodos = new Set();
+      return;
+    }
     for (const n of this.nodos) {
       try {
         n.stop();
@@ -94,12 +119,17 @@ class Musica {
   private empezar(id: string): void {
     const ctx = sonido.ctx;
     if (!ctx) return;
-    this.parar();
+    const cambia = !!this.reloj;
+    this.parar(cambia);
     if (!this.salida) {
       this.salida = ctx.createGain();
       this.salida.connect(ctx.destination);
     }
-    this.salida.gain.value = this.volumen();
+    if (cambia) {
+      // Entra con un fundido mientras la anterior se apaga.
+      this.salida.gain.setValueAtTime(0, ctx.currentTime);
+      this.salida.gain.linearRampToValueAtTime(this.volumen(), ctx.currentTime + FUNDIDO);
+    } else this.salida.gain.value = this.volumen();
     const c = CANCIONES[id]!;
     this.cancion = c;
     this.actual = id;

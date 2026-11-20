@@ -140,4 +140,104 @@ export const CANCIONES: Record<string, Cancion> = {
     tri: 'A2:8 E2:8 | A1:12 -:4',
     ruido: '-:16 | -:16',
   },
+  // ───────────── Historia (D274): 8 compases, parte A (4) + parte B (4) ─────────────
+  // Mapa de la historia: aventura abierta, Do – Sol – La menor – Fa.
+  mapa: {
+    bpm: 112,
+    bucle: true,
+    p1: 'E5:4 G5:2 E5:2 C5:4 D5:4 | D5:4 B4:2 D5:2 G5:8 | C5:4 E5:2 C5:2 A4:4 C5:4 | A4:2 C5:2 F5:4 E5:2 D5:2 C5:4 | A5:4 F5:2 A5:2 C6:4 A5:4 | B5:4 G5:2 B5:2 D6:8 | E6:4 B5:2 G5:2 B5:4 G5:4 | A5:4 C6:2 B5:2 A5:4 G5:4',
+    p2: [arp('C4', 'E4', 'G4'), arp('G3', 'B3', 'D4'), arp('A3', 'C4', 'E4'), arp('F3', 'A3', 'C4'), arp('F3', 'A3', 'C4'), arp('G3', 'B3', 'D4'), arp('E3', 'G3', 'B3'), arp('A3', 'C4', 'E4')].join(' | '),
+    tri: [bumChic('C2', 'G2'), bumChic('G2', 'D3'), bumChic('A2', 'E3'), bumChic('F2', 'C3'), octavas('F2', 'F3'), octavas('G2', 'G3'), octavas('E2', 'E3'), octavas('A2', 'A3')].join(' | '),
+    ruido: repetir('k:2 -:2 h:2 -:2 s:2 -:2 h:2 -:2', 4) + ' | ' + repetir('k:2 -:2 h:2 k:2 s:2 -:2 h:2 h:2', 4),
+  },
+  // Bosque (Brote): pastoral, Sol mayor, suave.
+  region_bosque: {
+    bpm: 108,
+    bucle: true,
+    p1: 'B4:4 D5:2 G5:2 F#5:4 D5:4 | E5:4 G5:2 E5:2 C5:4 E5:4 | F#5:4 A5:2 F#5:2 D5:4 A4:4 | G5:6 D5:2 B4:8 | E5:4 G5:2 B5:2 A5:4 G5:4 | G5:4 E5:2 C5:2 E5:8 | F#5:4 A5:4 D6:4 C#6:2 A5:2 | A5:4 F#5:4 D5:8',
+    p2: [arp('G4', 'B4', 'D5'), arp('C4', 'E4', 'G4'), arp('D4', 'F#4', 'A4'), arp('G4', 'B4', 'D5'), arp('E4', 'G4', 'B4'), arp('C4', 'E4', 'G4'), arp('D4', 'F#4', 'A4'), arp('D4', 'F#4', 'A4')].join(' | '),
+    tri: [bumChic('G2', 'D3'), bumChic('C3', 'G2'), bumChic('D3', 'A2'), bumChic('G2', 'D3'), bumChic('E2', 'B2'), bumChic('C3', 'G2'), bumChic('D3', 'A2'), bumChic('D3', 'A2')].join(' | '),
+    ruido: repetir('-:2 -:2 h:2 -:2 s:2 -:2 h:2 -:2', 8),
+  },
+  // Volcán (Brasa): pesada y ardiente, Re menor con Mi bemol.
+  region_volcan: {
+    bpm: 144,
+    bucle: true,
+    p1: 'D5:2 D5:2 F5:2 A5:2 G5:4 F5:4 | D#5:2 D#5:2 G5:2 A#5:2 A5:4 G5:4 | F5:2 A5:2 D6:4 C6:2 A5:2 F5:4 | E5:4 C#5:4 A4:4 C#5:2 E5:2 | G5:2 G5:2 A#5:2 D6:2 C6:4 A#5:4 | D#6:4 D6:2 A#5:2 G5:8 | C6:2 E6:2 G6:4 E6:2 C6:2 G5:4 | A5:4 C#6:4 E6:4 A5:4',
+    p2: [arp('D4', 'F4', 'A4'), arp('D#4', 'G4', 'A#4'), arp('D4', 'F4', 'A4'), arp('A3', 'C#4', 'E4'), arp('G3', 'A#3', 'D4'), arp('D#4', 'G4', 'A#4'), arp('C4', 'E4', 'G4'), arp('A3', 'C#4', 'E4')].join(' | '),
+    tri: [octavas('D2', 'D3'), octavas('D#2', 'D#3'), octavas('D2', 'D3'), octavas('A1', 'A2'), octavas('G1', 'G2'), octavas('D#2', 'D#3'), octavas('C2', 'C3'), octavas('A1', 'A2')].join(' | '),
+    ruido: repetir('k:2 k:2 h:2 -:2 s:2 -:2 k:2 h:2', 8),
+  },
+  // Costa (Marea): oleaje, Fa mayor, balanceada.
+  region_costa: {
+    bpm: 100,
+    bucle: true,
+    p1: 'A4:4 C5:2 F5:2 E5:4 C5:4 | D5:4 F5:2 A#5:2 A5:4 F5:4 | G5:4 A#5:2 G5:2 D5:4 A#4:4 | E5:4 G5:4 C6:4 G5:4 | D5:4 F5:2 A5:2 G5:4 F5:4 | F5:4 A#5:2 D6:2 C6:4 A#5:4 | G5:4 C6:2 E6:2 D6:4 C6:4 | B5:4 G5:4 E5:4 G5:4',
+    p2: [arp('F4', 'A4', 'C5'), arp('A#3', 'D4', 'F4'), arp('G3', 'A#3', 'D4'), arp('C4', 'E4', 'G4'), arp('D4', 'F4', 'A4'), arp('A#3', 'D4', 'F4'), arp('C4', 'E4', 'G4'), arp('C4', 'E4', 'G4')].join(' | '),
+    tri: [bumChic('F2', 'C3'), bumChic('A#2', 'F2'), bumChic('G2', 'D3'), bumChic('C3', 'G2'), bumChic('D3', 'A2'), bumChic('A#2', 'F2'), bumChic('C3', 'G2'), bumChic('C3', 'G2')].join(' | '),
+    ruido: repetir('k:2 -:2 -:2 -:2 s:2 -:2 h:2 -:2', 8),
+  },
+  // Desierto (Rayo): La menor armónica, ritmo de tambores.
+  region_desierto: {
+    bpm: 126,
+    bucle: true,
+    p1: 'A4:2 C5:2 E5:4 F5:2 E5:2 C5:4 | B4:2 G#4:2 E5:4 D5:2 C5:2 B4:4 | A4:2 C5:2 E5:2 A5:2 G#5:4 E5:4 | F5:4 E5:4 D5:2 C5:2 B4:4 | D5:2 F5:2 A5:4 G5:2 F5:2 E5:4 | C6:2 B5:2 A5:2 E5:2 A5:8 | F5:2 A5:2 C6:4 B5:2 A5:2 F5:4 | G#5:4 B5:4 E6:4 B5:4',
+    p2: [arp('A3', 'C4', 'E4'), arp('E3', 'G#3', 'B3'), arp('A3', 'C4', 'E4'), arp('E3', 'G#3', 'B3'), arp('D4', 'F4', 'A4'), arp('A3', 'C4', 'E4'), arp('F3', 'A3', 'C4'), arp('E3', 'G#3', 'B3')].join(' | '),
+    tri: [octavas('A2', 'A3'), octavas('E2', 'E3'), octavas('A2', 'A3'), octavas('E2', 'E3'), octavas('D2', 'D3'), octavas('A2', 'A3'), octavas('F2', 'F3'), octavas('E2', 'E3')].join(' | '),
+    ruido: repetir('k:2 -:2 s:2 k:2 -:2 k:2 s:2 h:2', 8),
+  },
+  // Cumbre helada (Cielo): notas largas y cristalinas, Mi menor.
+  region_cumbre_helada: {
+    bpm: 96,
+    bucle: true,
+    p1: 'B5:6 G5:2 E5:4 G5:4 | G5:6 E5:2 C5:4 E5:4 | D5:4 G5:4 B5:8 | A5:6 F#5:2 D5:8 | C6:4 A5:4 E5:4 A5:4 | B5:4 G5:2 B5:2 E6:8 | D6:4 A5:2 F#5:2 A5:4 D5:4 | F#5:6 A5:2 D6:8',
+    p2: [arp('E4', 'G4', 'B4'), arp('C4', 'E4', 'G4'), arp('G3', 'B3', 'D4'), arp('D4', 'F#4', 'A4'), arp('A3', 'C4', 'E4'), arp('E4', 'G4', 'B4'), arp('D4', 'F#4', 'A4'), arp('D4', 'F#4', 'A4')].join(' | '),
+    tri: [bumChic('E2', 'B2'), bumChic('C3', 'G2'), bumChic('G2', 'D3'), bumChic('D3', 'A2'), bumChic('A2', 'E3'), bumChic('E2', 'B2'), bumChic('D3', 'A2'), bumChic('D3', 'A2')].join(' | '),
+    ruido: repetir('k:4 -:4 s:4 -:2 h:2', 8),
+  },
+  // Ruinas (Sombra): inquietante, Do menor.
+  region_ruinas: {
+    bpm: 112,
+    bucle: true,
+    p1: 'C5:6 D#5:2 G5:4 F5:2 D#5:2 | D#5:4 C5:4 G#4:8 | F5:6 G#5:2 C6:4 G#5:4 | B5:4 G5:4 D5:4 B4:4 | G5:2 G5:2 G5:2 D#5:2 C5:8 | F5:4 G#5:4 C6:8 | G#5:2 C6:2 D#6:4 C6:2 G#5:2 D#5:4 | G5:4 B5:4 D6:4 B5:2 G5:2',
+    p2: [arp('C4', 'D#4', 'G4'), arp('G#3', 'C4', 'D#4'), arp('F3', 'G#3', 'C4'), arp('G3', 'B3', 'D4'), arp('C4', 'D#4', 'G4'), arp('F3', 'G#3', 'C4'), arp('G#3', 'C4', 'D#4'), arp('G3', 'B3', 'D4')].join(' | '),
+    tri: [bumChic('C2', 'G2'), bumChic('G#1', 'D#2'), bumChic('F2', 'C3'), bumChic('G1', 'D2'), bumChic('C2', 'G2'), bumChic('F2', 'C3'), bumChic('G#1', 'D#2'), bumChic('G1', 'D2')].join(' | '),
+    ruido: repetir('k:4 -:2 k:2 s:4 -:2 h:2', 8),
+  },
+  // Prólogo: nana tranquila, Do mayor.
+  prologo: {
+    bpm: 88,
+    bucle: true,
+    p1: 'E5:6 D5:2 C5:4 E5:4 | A4:4 C5:4 E5:8 | F5:6 E5:2 D5:4 C5:4 | D5:4 B4:4 G4:8 | G5:6 E5:2 C5:4 E5:4 | B4:4 E5:4 G5:8 | A5:4 G5:2 F5:2 E5:4 D5:4 | D5:6 B4:2 G4:8',
+    p2: [arp('C4', 'E4', 'G4'), arp('A3', 'C4', 'E4'), arp('F3', 'A3', 'C4'), arp('G3', 'B3', 'D4'), arp('C4', 'E4', 'G4'), arp('E4', 'G4', 'B4'), arp('F3', 'A3', 'C4'), arp('G3', 'B3', 'D4')].join(' | '),
+    tri: [bumChic('C2', 'G2'), bumChic('A2', 'E3'), bumChic('F2', 'C3'), bumChic('G2', 'D3'), bumChic('C2', 'G2'), bumChic('E2', 'B2'), bumChic('F2', 'C3'), bumChic('G2', 'D3')].join(' | '),
+    ruido: repetir('h:2 -:6 h:2 -:6', 8),
+  },
+  // Eclipse: tensión lenta, La menor – Fa – Re menor – Mi.
+  eclipse: {
+    bpm: 76,
+    bucle: true,
+    p1: 'E5:8 -:2 E5:2 F5:4 | C5:8 -:4 A4:4 | D5:8 F5:4 E5:4 | G#4:8 B4:4 E5:4 | A5:8 G#5:4 A5:4 | F5:8 E5:4 C5:4 | D5:4 B4:4 G#4:8 | E4:16',
+    p2: [arp('A3', 'C4', 'E4'), arp('F3', 'A3', 'C4'), arp('D4', 'F4', 'A4'), arp('E3', 'G#3', 'B3'), arp('A3', 'C4', 'E4'), arp('F3', 'A3', 'C4'), arp('E3', 'G#3', 'B3'), arp('E3', 'G#3', 'B3')].join(' | '),
+    tri: 'A2:16 | F2:16 | D2:16 | E2:16 | A2:16 | F2:16 | E2:16 | E2:16',
+    ruido: repetir('k:4 -:4 k:2 -:6', 8),
+  },
+  // Arquitecto (jefe final): oscura, rápida, Mi menor con Fa frigio y cromatismos.
+  arquitecto: {
+    bpm: 164,
+    bucle: true,
+    p1: 'E5:2 E5:2 G5:2 B5:2 C6:4 B5:4 | F5:2 F5:2 A5:2 C6:2 D#6:4 C6:4 | E5:2 G5:2 B5:4 A5:2 G5:2 E5:4 | D#5:4 F#5:4 B5:4 F#5:4 | A5:2 A5:2 C6:2 E6:2 D6:4 C6:4 | C6:2 A5:2 F5:2 A5:2 C6:8 | B5:2 D#6:2 F#6:4 E6:2 D#6:2 B5:4 | B5:2 -:2 B5:2 -:2 B5:2 B5:2 B5:4',
+    p2: [arp('E4', 'G4', 'B4'), arp('F4', 'A4', 'C5'), arp('E4', 'G4', 'B4'), arp('B3', 'D#4', 'F#4'), arp('A3', 'C4', 'E4'), arp('F3', 'A3', 'C4'), arp('B3', 'D#4', 'F#4'), arp('B3', 'D#4', 'F#4')].join(' | '),
+    tri: [octavas('E2', 'E3'), octavas('F2', 'F3'), octavas('E2', 'E3'), octavas('B1', 'B2'), octavas('A1', 'A2'), octavas('F2', 'F3'), octavas('B1', 'B2'), octavas('B1', 'B2')].join(' | '),
+    ruido: repetir('k:2 k:2 s:2 -:2 k:2 -:2 s:2 s:2', 7) + ' | k:2 -:2 k:2 -:2 s:2 s:2 s:2 s:2',
+  },
+  // Final de la historia: fanfarria larga y luminosa, Do mayor.
+  final: {
+    bpm: 132,
+    bucle: false,
+    p1: 'C5:2 E5:2 G5:2 C6:2 G5:2 E5:2 G5:2 C6:2 | D6:4 B5:4 G5:8 | A5:2 C6:2 E6:4 D6:2 C6:2 A5:4 | F5:2 A5:2 C6:4 B5:2 A5:2 G5:4 | C6:2 E6:2 G6:4 E6:2 C6:2 E6:4 | D6:2 G6:2 B5:4 D6:2 G6:2 D6:4 | A5:4 C6:4 F6:4 E6:2 D6:2 | C6:12 -:4',
+    p2: [arp('C4', 'E4', 'G4'), arp('G3', 'B3', 'D4'), arp('A3', 'C4', 'E4'), arp('F3', 'A3', 'C4'), arp('C4', 'E4', 'G4'), arp('G3', 'B3', 'D4'), arp('F3', 'A3', 'C4'), 'G4:12 -:4'].join(' | '),
+    tri: [octavas('C2', 'C3'), octavas('G2', 'G3'), octavas('A2', 'A3'), octavas('F2', 'F3'), octavas('C2', 'C3'), octavas('G2', 'G3'), octavas('F2', 'F3'), 'C2:12 -:4'].join(' | '),
+    ruido: repetir('k:2 -:2 h:2 h:2 s:2 -:2 h:2 h:2', 7) + ' | k:4 -:12',
+  },
 };

@@ -255,7 +255,7 @@ export class Combate extends Phaser.Scene {
     // Cada modo tiene su música; el combate rápido alterna entre tres canciones.
     const pisoTorre = modo === 'torre' ? datosPiso(DATOS, this.cfg.piso ?? 1, 1) : null;
     musica.tocar(
-      pisoTorre ? (pisoTorre.guardian ? 'guardian' : pisoTorre.jefe ? 'jefe' : 'torre') : modo === 'entrenador' ? 'entrenador' : modo === 'semanal' ? 'semanal' : modo === 'desafio' ? 'torre' : modo === 'historia' ? (this.cfg.final || this.cfg.parada === 3 ? 'guardian' : 'jefe') : modo === 'mina' || nodoCrono?.tipo === 'jefe' ? 'jefe' : ['combate', 'combate2', 'combate3'][Math.floor(Math.random() * 3)]!,
+      pisoTorre ? (pisoTorre.guardian ? 'guardian' : pisoTorre.jefe ? 'jefe' : 'torre') : modo === 'entrenador' ? 'entrenador' : modo === 'semanal' ? 'semanal' : modo === 'desafio' ? 'torre' : modo === 'historia' ? (this.cfg.final ? 'arquitecto' : this.cfg.parada === 3 ? 'guardian' : 'jefe') : modo === 'mina' || nodoCrono?.tipo === 'jefe' ? 'jefe' : ['combate', 'combate2', 'combate3'][Math.floor(Math.random() * 3)]!,
     );
     this.verRival();
 

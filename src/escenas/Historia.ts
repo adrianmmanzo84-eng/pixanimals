@@ -47,7 +47,7 @@ export class Historia extends Phaser.Scene {
     prepararCamara(this);
     suavizarArteHistoria(this);
     if (this.fin) return this.escenaFinal();
-    musica.tocar('menu');
+    musica.tocar('mapa');
     const estado = juego.estado;
     const regiones = DATOS.historia.regiones;
     if (this.textures.exists('historia_mapa')) this.add.image(0, 0, 'historia_mapa').setOrigin(0, 0).setScale(0.25);
@@ -127,7 +127,7 @@ export class Historia extends Phaser.Scene {
       sonido.tocar('aceptar');
       // Antes del combate final, el Arquitecto se revela y habla.
       this.scene.start('Relato', {
-        diapositivas: [{ img: 'historia_final', titulo: t('hist.final.titulo'), texto: t('hist.final.antes'), musica: 'jefe' }],
+        diapositivas: [{ img: 'historia_final', titulo: t('hist.final.titulo'), texto: t('hist.final.antes'), musica: 'eclipse' }],
         luego: { escena: 'Combate', datos: { ia: DATOS.historia.final.ia, modo: 'historia', final: true } },
       });
       return;
@@ -169,11 +169,11 @@ export class Historia extends Phaser.Scene {
   /** Final (D271): el mundo recupera el color y, una sola vez, se presentan las brechas del Arquitecto. */
   private escenaFinal(): void {
     const estado = juego.estado;
-    const diapositivas = [{ img: 'relato_final', texto: t('hist.final.texto'), musica: 'victoria' as const }];
+    const diapositivas = [{ img: 'relato_final', texto: t('hist.final.texto'), musica: 'final' as string }];
     if (!estado.historia?.vistos?.includes('brechas')) {
       marcarRelato(estado, 'brechas');
       juego.guardar();
-      diapositivas.push({ img: 'relato_brechas', texto: t('relato.brechas'), musica: 'victoria' as const });
+      diapositivas.push({ img: 'relato_brechas', texto: t('relato.brechas'), musica: 'prologo' });
     }
     this.scene.start('Relato', { diapositivas, luego: { escena: 'Menu', datos: {} } });
   }

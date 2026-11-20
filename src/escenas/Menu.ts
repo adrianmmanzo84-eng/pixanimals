@@ -99,7 +99,7 @@ export class Menu extends Phaser.Scene {
     if (!estado.bienvenida) {
       // Prólogo (D271): cuatro ilustraciones con el relato y la elección de tres compañeros.
       this.scene.start('Relato', {
-        diapositivas: [1, 2, 3, 4].map((n, k) => ({ img: ['relato_01_mundo', 'relato_02_eclipse', 'relato_03_nox', 'relato_04_prisma'][k]!, texto: t(`prologo.${n}`) })),
+        diapositivas: [1, 2, 3, 4].map((n, k) => ({ img: ['relato_01_mundo', 'relato_02_eclipse', 'relato_03_nox', 'relato_04_prisma'][k]!, texto: t(`prologo.${n}`), musica: k < 2 ? 'prologo' as const : 'eclipse' as const })),
         luego: { escena: 'Prologo' },
       });
       return;

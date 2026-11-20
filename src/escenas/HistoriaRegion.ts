@@ -53,7 +53,7 @@ export class HistoriaRegion extends Phaser.Scene {
   create(): void {
     prepararCamara(this);
     suavizarArteHistoria(this);
-    musica.tocar('menu');
+    musica.tocar(`region_${this.region.id}`);
     const estado = juego.estado;
     const r = this.region;
     if (!regionAbierta(DATOS, estado, this.indice)) return void this.scene.start('Historia', { sel: this.indice });
@@ -69,7 +69,7 @@ export class HistoriaRegion extends Phaser.Scene {
           titulo: t(`hist.region.${r.id}`),
           texto: t(llegada ? `relato.llegada.${r.id}` : `relato.restaurada.${r.id}`),
           gris: llegada,
-          musica: llegada ? 'menu' : 'victoria',
+          musica: llegada ? 'eclipse' : 'victoria',
         }],
         luego: { escena: 'HistoriaRegion', datos: { region: this.indice, sel: this.sel < 0 ? undefined : this.sel, aviso: this.aviso ?? undefined } },
       });
