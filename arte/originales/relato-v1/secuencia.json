@@ -1,0 +1,26 @@
+{
+  "prologo": [
+    "relatos/relato_01_mundo.png",
+    "relatos/relato_02_eclipse.png",
+    "relatos/relato_03_nox.png",
+    "relatos/relato_04_prisma.png",
+    "relatos/relato_05_eleccion.png"
+  ],
+  "regiones": {
+    "relato_bosque": "relatos/relato_bosque.png",
+    "relato_volcan": "relatos/relato_volcan.png",
+    "relato_costa": "relatos/relato_costa.png",
+    "relato_desierto": "relatos/relato_desierto.png",
+    "relato_cumbre_helada": "relatos/relato_cumbre_helada.png",
+    "relato_ruinas": "relatos/relato_ruinas.png"
+  },
+  "revelacion_arquitecto": {
+    "archivo_previamente_entregado": "origen_arquitecto.png",
+    "momento": "Justo antes del combate final; ya no se usa como cierre."
+  },
+  "cierre": "relatos/relato_final.png",
+  "opcionales": {
+    "mision_mina": "relatos/relato_mina.png",
+    "presentacion_semanales_despues_del_final": "relatos/relato_brechas.png"
+  }
+}

@@ -1,0 +1,390 @@
+[
+  {
+    "id": "relato_01_mundo",
+    "archivo": "relatos/relato_01_mundo.png",
+    "grupo": "prologo",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "2e84718d1ee058b70d9530c1f0dc066494171eec9fc2ddd32d0521ffa0b1e18a"
+  },
+  {
+    "id": "relato_02_eclipse",
+    "archivo": "relatos/relato_02_eclipse.png",
+    "grupo": "prologo",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "67f7ccc3f57c36b8d2f786e28a59e23bb9e13b519a6dbdb1a59af1086ad2aa97"
+  },
+  {
+    "id": "relato_03_nox",
+    "archivo": "relatos/relato_03_nox.png",
+    "grupo": "prologo",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "31e9fad447ebdcbf2eacec682edf27bb3143d1ebd909e6e155bb6dd3fed13fc6"
+  },
+  {
+    "id": "relato_04_prisma",
+    "archivo": "relatos/relato_04_prisma.png",
+    "grupo": "prologo",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "21c5d2d0fb66591fc5b74fcf12e6ad994b820383dd79f5035f56c4afbdc234e3"
+  },
+  {
+    "id": "relato_05_eleccion",
+    "archivo": "relatos/relato_05_eleccion.png",
+    "grupo": "prologo",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "0714dd3ce0547ed422612a2cabb95f5266388d7883c93475b3d4f0bd3404601d",
+    "circulos_vacios_apoyo_aproximado": [
+      [
+        215,
+        315
+      ],
+      [
+        483,
+        315
+      ],
+      [
+        735,
+        315
+      ]
+    ]
+  },
+  {
+    "id": "relato_bosque",
+    "archivo": "relatos/relato_bosque.png",
+    "grupo": "region",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "efa4f534ef3edc980f661a231627febebb87d92624c9e13ca6b942a45b62e517",
+    "guardian": "Raíz Primordial",
+    "sprite_guardian": "guardian_3",
+    "estado": "color_restaurado",
+    "eclipse_incrustado": false
+  },
+  {
+    "id": "relato_volcan",
+    "archivo": "relatos/relato_volcan.png",
+    "grupo": "region",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "190885aee145e6aed6b35cd2c882e2f9d897d0cdd0dd700de5e7b1506d3977dd",
+    "guardian": "Bastión Ceniza",
+    "sprite_guardian": "guardian_1",
+    "estado": "color_restaurado",
+    "eclipse_incrustado": false
+  },
+  {
+    "id": "relato_costa",
+    "archivo": "relatos/relato_costa.png",
+    "grupo": "region",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "ef5c556bcce8f85dd1704e6dd10f25b7ba16e48ef70d9300cfc9f9e4cacd1b8c",
+    "guardian": "Custodio Mareas",
+    "sprite_guardian": "guardian_2",
+    "estado": "color_restaurado",
+    "eclipse_incrustado": false
+  },
+  {
+    "id": "relato_desierto",
+    "archivo": "relatos/relato_desierto.png",
+    "grupo": "region",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "a6635c0a8a01ed6b69d467a7b608c09c99ac250659f9fcf6c1a06c700121f02b",
+    "guardian": "Vigía del Sol",
+    "sprite_guardian": "guardian_4",
+    "estado": "color_restaurado",
+    "eclipse_incrustado": false
+  },
+  {
+    "id": "relato_cumbre_helada",
+    "archivo": "relatos/relato_cumbre_helada.png",
+    "grupo": "region",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "43cddf3b2f88e5995754c2393c19e91996a76144ab4184919ecfe3495cfabb84",
+    "guardian": "Centinela Hielo",
+    "sprite_guardian": "guardian_5",
+    "estado": "color_restaurado",
+    "eclipse_incrustado": false
+  },
+  {
+    "id": "relato_ruinas",
+    "archivo": "relatos/relato_ruinas.png",
+    "grupo": "region",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "e6b9183fce5391f33f55b04dba54fb6ea645e5df6badc19571d65e27241f2179",
+    "guardian": "Custodio Umbral",
+    "sprite_guardian": "guardian_6",
+    "estado": "color_restaurado",
+    "eclipse_incrustado": false
+  },
+  {
+    "id": "relato_final",
+    "archivo": "relatos/relato_final.png",
+    "grupo": "final",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "9b5c2f7481e8fa9e63d3cd097c63353eb14da3bb3427c8970d8d82b322f3ae4d"
+  },
+  {
+    "id": "relato_mina",
+    "archivo": "relatos/relato_mina.png",
+    "grupo": "opcional",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "9fdd56c6dda107ed842b292d6f8b07d275e7df3283d2c29327688a02b1b382bb"
+  },
+  {
+    "id": "relato_brechas",
+    "archivo": "relatos/relato_brechas.png",
+    "grupo": "opcional",
+    "tamano": [
+      960,
+      640
+    ],
+    "formato": "PNG RGB",
+    "zona_cuadro_texto": [
+      0,
+      470,
+      960,
+      170
+    ],
+    "zona_narrativa": [
+      0,
+      0,
+      960,
+      470
+    ],
+    "texto_incrustado": false,
+    "jugador_representado": false,
+    "sha256": "aaa4a663157876dce20aeb482de61d9cb5772a5ef2bd6ed38804684cdfaa76d8"
+  }
+]

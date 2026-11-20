@@ -130,3 +130,13 @@ Medidas de los dibujos de efectos (entregar a 4×, fondo transparente, WebP o PN
 | relato_final.png | Tras vencer al Arquitecto | El mundo recuperando el color y los Pixanimals celebrando; el Eclipse se deshace |
 
 La ilustración `final/origen_arquitecto.png` ya entregada pasa a usarse como **revelación del Arquitecto** (antes del combate final). Opcionales: `relato_mina.png` (la Mina derrumbada y el Cuarzo de Luz) y `relato_brechas.png` (las brechas semanales).
+
+
+## 13. Prólogo y relatos integrados (D271)
+
+Entrega `pixanimals-relato-v1` (14 ilustraciones de 960×640, guardadas en `arte/originales/relato-v1/`; el juego usa JPG en `public/relato/`).
+
+- **Prólogo** (partida nueva): 4 ilustraciones con 1–2 líneas (mundo, Eclipse, Nox, Prisma) y luego la elección de **3 de 7 iniciales** (uno por tipo, lista `iniciales` en `historia.json`: Leopix, Pixtibu, Osopix, Rayapix, Larvix, Ajolix y Caracolix o los que resulten de esos ids) sobre los tres círculos de `relato_05_eleccion`. Reemplaza a la carta inicial de una sola criatura.
+- **Regiones:** al entrar por primera vez, el santuario en gris con el Eclipse dibujado por código; al vencer al Guardián, la misma imagen a color con el Píxel Maestro. Una sola vez por partida (`historia.vistos`).
+- **Final:** la revelación del Arquitecto (`final.jpg`) antes del combate; tras vencerlo, `relato_final` y, una sola vez, `relato_brechas`.
+- Sin usar todavía: `relato_mina` (queda para la misión de la Mina).

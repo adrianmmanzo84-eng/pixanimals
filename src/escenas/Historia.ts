@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { DATOS } from '../core/datos';
 import { equipoDe } from '../core/estado/juego';
-import { finalAbierto, PARADAS, pixelesMaestros, regionAbierta, regionTerminada, siguienteParada } from '../core/modos/historia';
+import { finalAbierto, marcarRelato, PARADAS, pixelesMaestros, regionAbierta, regionTerminada, siguienteParada } from '../core/modos/historia';
 import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { musica } from '../audio/musica';
@@ -11,7 +11,7 @@ import { cargarArteHistoria, clavePixel, suavizarArteHistoria } from '../ui/arte
 import { miniatura, textura } from '../ui/criaturas';
 import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { Puntero } from '../ui/puntero';
-import { partir, Texto } from '../ui/texto';
+import { Texto } from '../ui/texto';
 
 /**
  * Mapa del mundo del Modo Historia (D264): las seis regiones y, en el centro, el Origen del Eclipse.
@@ -21,7 +21,6 @@ import { partir, Texto } from '../ui/texto';
  */
 export class Historia extends Phaser.Scene {
   /** La presentación se muestra una vez por sesión, mientras no hayas vencido a nadie. */
-  static introVista = false;
   private sel = 0;
   private fin = false;
   private aviso: ((a: AccionEntrada) => void) | null = null;
@@ -106,10 +105,6 @@ export class Historia extends Phaser.Scene {
       }
     });
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => Entrada.escuchar(null));
-    if (!Historia.introVista && !estado.historia?.paradas.length) {
-      Historia.introVista = true;
-      this.mostrar(t('hist.intro.titulo'), t('hist.intro.texto'));
-    }
   }
 
   private candado(g: Phaser.GameObjects.Graphics, x: number, y: number): void {
@@ -130,8 +125,11 @@ export class Historia extends Phaser.Scene {
     if (this.sel === regiones.length) {
       if (!finalAbierto(DATOS, estado)) return void sonido.tocar('negado');
       sonido.tocar('aceptar');
-      // Antes del combate final, el Arquitecto habla.
-      this.mostrar(t('hist.final.titulo'), t('hist.final.antes'), () => this.scene.start('Combate', { ia: DATOS.historia.final.ia, modo: 'historia', final: true }));
+      // Antes del combate final, el Arquitecto se revela y habla.
+      this.scene.start('Relato', {
+        diapositivas: [{ img: 'historia_final', titulo: t('hist.final.titulo'), texto: t('hist.final.antes'), musica: 'jefe' }],
+        luego: { escena: 'Combate', datos: { ia: DATOS.historia.final.ia, modo: 'historia', final: true } },
+      });
       return;
     }
     if (!regionAbierta(DATOS, estado, this.sel)) return void sonido.tocar('negado');
@@ -168,44 +166,15 @@ export class Historia extends Phaser.Scene {
   }
 
   /** Cartel de texto (presentación, palabras del Arquitecto). A o B lo cierran. */
-  private mostrar(titulo: string, texto: string, luego?: () => void): void {
-    const capa = this.add.container(0, 0).setDepth(50);
-    const velo = this.add.graphics().fillStyle(0x0c0a18, 0.72).fillRect(0, 0, 240, 160);
-    const g = this.add.graphics();
-    const lineas = partir(texto, 196, 6.6);
-    const alto = 34 + lineas.length * 8.4;
-    const y0 = Math.max(6, 80 - alto / 2);
-    ventana(g, 14, y0, 212, alto);
-    capa.add([
-      velo,
-      g,
-      new Texto(this, 14, y0 + 5, 212, 12, '#257179', 'centro', { tam: 9, peso: 600 }).poner(titulo).imagen,
-      new Texto(this, 22, y0 + 18, 196, lineas.length * 8.4 + 4, C.tinta, 'izq', { tam: 6.6 }).poner(lineas.join('\n')).imagen,
-      new Texto(this, 14, y0 + alto - 11, 212, 10, C.tintaSuave, 'centro', { tam: 6 }).poner(t('fin.continuar')).imagen,
-    ]);
-    this.aviso = (a) => {
-      if (a !== 'a' && a !== 'b') return;
-      sonido.tocar('aceptar');
-      capa.destroy();
-      this.aviso = null;
-      luego?.();
-    };
-  }
-
-  /** Final: el mundo recupera el color. Ilustración del autor y unas líneas; A vuelve al menú. */
+  /** Final (D271): el mundo recupera el color y, una sola vez, se presentan las brechas del Arquitecto. */
   private escenaFinal(): void {
-    musica.tocar('victoria');
-    if (this.textures.exists('historia_final')) this.add.image(0, 0, 'historia_final').setOrigin(0, 0).setScale(0.25);
-    const g = this.add.graphics();
-    ventana(g, 4, 116, 232, 41);
-    const lineas = partir(t('hist.final.texto'), 220, 6.4);
-    new Texto(this, 10, 119, 220, 30, C.tinta, 'izq', { tam: 6.4 }).poner(lineas.join('\n'));
-    new Texto(this, 4, 148, 232, 10, C.tintaSuave, 'centro', { tam: 6 }).poner(t('fin.continuar'));
-    Entrada.escuchar((a) => {
-      if (a !== 'a' && a !== 'b') return;
-      sonido.tocar('aceptar');
-      this.scene.start('Menu', {});
-    });
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => Entrada.escuchar(null));
+    const estado = juego.estado;
+    const diapositivas = [{ img: 'relato_final', texto: t('hist.final.texto'), musica: 'victoria' as const }];
+    if (!estado.historia?.vistos?.includes('brechas')) {
+      marcarRelato(estado, 'brechas');
+      juego.guardar();
+      diapositivas.push({ img: 'relato_brechas', texto: t('relato.brechas'), musica: 'victoria' as const });
+    }
+    this.scene.start('Relato', { diapositivas, luego: { escena: 'Menu', datos: {} } });
   }
 }

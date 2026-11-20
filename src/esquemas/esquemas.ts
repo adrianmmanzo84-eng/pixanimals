@@ -197,6 +197,8 @@ export const RegionZ = z.object({
 export type Region = z.infer<typeof RegionZ>;
 export const HistoriaZ = z.object({
   inicio: z.array(ModoHistoriaZ),
+  /** Los siete Pixanimals de etapa 1 del prólogo (uno por tipo): el jugador elige tres. */
+  iniciales: z.array(z.string()).length(7),
   regiones: z.array(RegionZ).min(1),
   final: z.object({ jefe: z.string(), fondo: z.string(), nivel: z.number().int(), ia: NivelIAZ, marcador: PuntoMapaZ, premio: PremioMetaZ }),
   /** Monedas de cada parada la primera vez (Jefe A, desafío, Jefe B, Guardián). */
@@ -501,6 +503,8 @@ export const EstadoJuegoZ = z.object({
       libre: z.boolean(),
       paradas: z.array(z.string()),
       final: z.boolean(),
+      /** Relatos ya mostrados («region:id», «restaurada:id», «brechas»): cada ilustración sale una sola vez. */
+      vistos: z.array(z.string()).optional(),
     })
     .optional(),
   /** Caminos del Entrenador y del Jefe de la semana: estaciones previas vencidas en el día o semana (`ciclo`). */

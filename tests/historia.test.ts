@@ -151,3 +151,46 @@ describe('zonas de práctica (D270)', () => {
     expect(DATOS.historia.regiones[0]!.nivel).toBeLessThanOrEqual(7);
   });
 });
+
+describe('prólogo y relatos (D271)', () => {
+  it('equipoInicial deja a los tres elegidos como equipo, Poco comunes, y marca la bienvenida', async () => {
+    const { equipoInicial } = await import('../src/core/sobres/sobres');
+    const e = nuevo();
+    e.bienvenida = false;
+    e.criaturas = [];
+    e.equipo = [];
+    const ini = DATOS.historia.iniciales;
+    const cartas = equipoInicial(DATOS, e, [ini[2]!, ini[0]!, ini[5]!]);
+    expect(cartas.map((c) => c.especie)).toEqual([ini[2], ini[0], ini[5]]);
+    expect(e.equipo).toEqual([ini[2], ini[0], ini[5]]);
+    expect(e.criaturas.every((c) => c.rareza === 'poco_comun')).toBe(true);
+    expect(e.bienvenida).toBe(true);
+    expect(() => equipoInicial(DATOS, nuevo(), [ini[0]!, ini[0]!, ini[1]!])).toThrow();
+    expect(() => equipoInicial(DATOS, nuevo(), ['noexiste', ini[0]!, ini[1]!])).toThrow();
+  });
+
+  it('los siete iniciales son de etapa 1, de siete tipos distintos', () => {
+    const tipos = DATOS.historia.iniciales.map((id) => DATOS.criaturas.get(id)!.tipo);
+    expect(new Set(tipos).size).toBe(7);
+  });
+
+  it('cada relato sale una sola vez, y no en partidas viejas', async () => {
+    const { relatoPendiente, marcarRelato } = await import('../src/core/modos/historia');
+    const e = nuevo();
+    expect(relatoPendiente(e, 'region:bosque')).toBe(true);
+    marcarRelato(e, 'region:bosque');
+    expect(relatoPendiente(e, 'region:bosque')).toBe(false);
+    expect(relatoPendiente(e, 'restaurada:bosque')).toBe(true);
+    const vieja = nuevo();
+    delete vieja.historia;
+    expect(relatoPendiente(vieja, 'region:bosque')).toBe(false);
+  });
+
+  it('hay una ilustración para cada región, el prólogo y el final', async () => {
+    const { existsSync } = await import('node:fs');
+    for (const r of DATOS.historia.regiones) expect(existsSync(`public/relato/relato_${r.id}.jpg`), r.id).toBe(true);
+    for (const id of ['relato_01_mundo', 'relato_02_eclipse', 'relato_03_nox', 'relato_04_prisma', 'relato_05_eleccion', 'relato_final', 'relato_mina', 'relato_brechas']) {
+      expect(existsSync(`public/relato/${id}.jpg`), id).toBe(true);
+    }
+  });
+});

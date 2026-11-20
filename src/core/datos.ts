@@ -142,6 +142,13 @@ export function cargarDatos(): { datos: Datos; errores: string[] } {
     }
     if (r.premio.sobre && !sobres.sobres.some((x) => x.id === r.premio.sobre)) errores.push(`Historia, ${r.id}: el sobre ${r.premio.sobre} no existe.`);
   }
+  const tiposIni = new Set<string>();
+  for (const id of historia.iniciales) {
+    const c = mCri.get(id);
+    if (!c || c.etapa !== 1 || c.origen || c.jefe) errores.push(`Historia: el inicial ${id} no existe o no es de etapa 1 jugable.`);
+    else tiposIni.add(c.tipo);
+  }
+  if (tiposIni.size !== historia.iniciales.length) errores.push('Historia: los iniciales deben ser de siete tipos distintos.');
   if (mCri.get(historia.final.jefe)?.jefe !== 'final') errores.push(`Historia: el jefe final ${historia.final.jefe} no existe o no es "final".`);
   if (historia.final.premio.sobre && !sobres.sobres.some((x) => x.id === historia.final.premio.sobre)) errores.push(`Historia: el sobre final ${historia.final.premio.sobre} no existe.`);
   return { datos: { tipos: mTipos, balance, habilidades: mHab, criaturas: mCri, jugables, sobres, economia, items: mItems, reglasItems, historia }, errores };

@@ -180,3 +180,19 @@ export function ganarFinal(datos: Datos, estado: EstadoJuego): PremioMeta | null
   darPremio(estado, datos.historia.final.premio);
   return datos.historia.final.premio;
 }
+
+/**
+ * Relatos (D271): cada ilustración con su texto sale una sola vez por partida («region:id» al llegar,
+ * «restaurada:id» al vencer al Guardián, «brechas» tras el final). Las partidas viejas no los ven.
+ */
+export function relatoPendiente(estado: EstadoJuego, id: string): boolean {
+  const h = estado.historia;
+  return !!h && !h.libre && !(h.vistos ?? []).includes(id);
+}
+
+export function marcarRelato(estado: EstadoJuego, id: string): void {
+  const h = estado.historia;
+  if (!h) return;
+  h.vistos ??= [];
+  if (!h.vistos.includes(id)) h.vistos.push(id);
+}

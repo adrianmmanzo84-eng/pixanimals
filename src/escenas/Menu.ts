@@ -97,7 +97,11 @@ export class Menu extends Phaser.Scene {
     const estado = juego.estado;
     // Primera vez: el sobre de bienvenida entrega el equipo inicial.
     if (!estado.bienvenida) {
-      this.scene.start('Sobres', { bienvenida: true });
+      // Prólogo (D271): cuatro ilustraciones con el relato y la elección de tres compañeros.
+      this.scene.start('Relato', {
+        diapositivas: [1, 2, 3, 4].map((n, k) => ({ img: ['relato_01_mundo', 'relato_02_eclipse', 'relato_03_nox', 'relato_04_prisma'][k]!, texto: t(`prologo.${n}`) })),
+        luego: { escena: 'Prologo' },
+      });
       return;
     }
     musica.tocar('menu');

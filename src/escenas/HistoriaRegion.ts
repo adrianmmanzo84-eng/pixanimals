@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { DATOS } from '../core/datos';
 import { equipoDe } from '../core/estado/juego';
 import {
-  confirmarDesafio, desafioCumplido, nivelParada, PARADAS, paradaVencida, regionAbierta, regionTerminada, siguienteParada, type Parada,
+  confirmarDesafio, desafioCumplido, marcarRelato, nivelParada, PARADAS, paradaVencida, regionAbierta, regionTerminada, relatoPendiente, siguienteParada, type Parada,
 } from '../core/modos/historia';
 import type { Region } from '../esquemas/esquemas';
 import { Entrada } from '../entrada';
@@ -57,6 +57,23 @@ export class HistoriaRegion extends Phaser.Scene {
     const estado = juego.estado;
     const r = this.region;
     if (!regionAbierta(DATOS, estado, this.indice)) return void this.scene.start('Historia', { sel: this.indice });
+    // Relatos (D271): al llegar, el santuario gris bajo el Eclipse; al vencer al Guardián, el color vuelve.
+    const llegada = !regionTerminada(estado, r) && relatoPendiente(estado, `region:${r.id}`);
+    const restaurada = regionTerminada(estado, r) && relatoPendiente(estado, `restaurada:${r.id}`);
+    if (llegada || restaurada) {
+      marcarRelato(estado, llegada ? `region:${r.id}` : `restaurada:${r.id}`);
+      juego.guardar();
+      return void this.scene.start('Relato', {
+        diapositivas: [{
+          img: `relato_${r.id}`,
+          titulo: t(`hist.region.${r.id}`),
+          texto: t(llegada ? `relato.llegada.${r.id}` : `relato.restaurada.${r.id}`),
+          gris: llegada,
+          musica: llegada ? 'menu' : 'victoria',
+        }],
+        luego: { escena: 'HistoriaRegion', datos: { region: this.indice, sel: this.sel < 0 ? undefined : this.sel, aviso: this.aviso ?? undefined } },
+      });
+    }
     // Al volver de un modo: si el desafío del entorno quedó cumplido, se confirma (y paga) acá.
     if (paradaVencida(estado, r, 1) && !estado.historia?.paradas.includes(`${r.id}:1`)) {
       const m = confirmarDesafio(DATOS, estado, this.indice);

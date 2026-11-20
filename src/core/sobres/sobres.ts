@@ -187,6 +187,17 @@ export function cartaInicial(datos: Datos, estado: EstadoJuego, rng: Rng): Carta
   return recibir(datos, estado, rng.elegir(iniciales).id, 'poco_comun', false);
 }
 
+/**
+ * Prólogo de la historia (D271): el jugador elige tres de los siete iniciales (uno por tipo) y son su equipo.
+ * Todos llegan Poco comunes, como la carta inicial de antes. Devuelve las cartas en el orden elegido.
+ */
+export function equipoInicial(datos: Datos, estado: EstadoJuego, ids: string[]): CartaCriatura[] {
+  const unicos = [...new Set(ids)].filter((id) => datos.historia.iniciales.includes(id));
+  if (unicos.length !== 3) throw new Error('El equipo inicial necesita tres Pixanimals distintos de la lista de iniciales.');
+  estado.bienvenida = true;
+  return unicos.map((id) => recibir(datos, estado, id, 'poco_comun', false));
+}
+
 /** Sobre de bienvenida (versión anterior, se usa en pruebas): las criaturas de `sobres.bienvenida` (una de cada familia original), para empezar con equipo completo. */
 export function sobreBienvenida(datos: Datos, estado: EstadoJuego, rng: Rng): CartaCriatura[] {
   const basico = datos.sobres.sobres.find((s) => s.id === datos.sobres.gratis.sobre)!;
