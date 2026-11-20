@@ -110,7 +110,7 @@ export function iconoItem(g: Phaser.GameObjects.Graphics, item: Item, x: number,
   }
 }
 
-/** Moneda (dorada) o Esencia (gema violeta), para precios y recursos. */
+/** Moneda (dorada) o Cristales (gema), para precios y recursos. */
 export function iconoMoneda(g: Phaser.GameObjects.Graphics, moneda: 'monedas' | 'esencia', x: number, y: number): void {
   if (arteSobre(g, moneda, x, y, 8)) return;
   if (moneda === 'monedas') {

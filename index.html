@@ -46,14 +46,22 @@
       #botones button[data-accion="b"] { background: #b13e53; border-color: #ef7d57; }
       #barra button#instalar { background: #38b764; border-color: #a7f070; color: #10142c; }
       #barra button[hidden] { display: none; }
-      #guardado, #ayuda-instalar, #dialogo-apodo { position: fixed; inset: 0; z-index: 5; display: none; align-items: center; justify-content: center; background: rgba(20, 24, 48, 0.82); padding: 14px; touch-action: auto; user-select: text; -webkit-user-select: text; }
-      #guardado.abierto, #ayuda-instalar.abierto, #dialogo-apodo.abierto { display: flex; }
-      #guardado .caja, #ayuda-instalar .caja, #dialogo-apodo .caja { width: 100%; max-width: 440px; background: #fbfaf3; color: #1f2340; border: 3px solid #2b3a78; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-      #guardado h2, #ayuda-instalar h2, #dialogo-apodo h2 { margin: 0; font-size: 18px; }
-      #guardado p, #ayuda-instalar p, #dialogo-apodo p { margin: 0; font-size: 13px; line-height: 1.4; }
+      #guardado, #ayuda-instalar, #dialogo-apodo, #dialogo-adulto { position: fixed; inset: 0; z-index: 5; display: none; align-items: center; justify-content: center; background: rgba(20, 24, 48, 0.82); padding: 14px; touch-action: auto; user-select: text; -webkit-user-select: text; }
+      #guardado.abierto, #ayuda-instalar.abierto, #dialogo-apodo.abierto, #dialogo-adulto.abierto { display: flex; }
+      #guardado .caja, #ayuda-instalar .caja, #dialogo-apodo .caja, #dialogo-adulto .caja { width: 100%; max-width: 440px; background: #fbfaf3; color: #1f2340; border: 3px solid #2b3a78; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+      #guardado h2, #ayuda-instalar h2, #dialogo-apodo h2, #dialogo-adulto h2 { margin: 0; font-size: 18px; }
+      #guardado p, #ayuda-instalar p, #dialogo-apodo p, #dialogo-adulto p { margin: 0; font-size: 13px; line-height: 1.4; }
       #guardado textarea { width: 100%; height: 110px; font: 12px ui-monospace, monospace; border: 2px solid #9fb0c4; border-radius: 8px; padding: 8px; resize: none; user-select: text; -webkit-user-select: text; }
-      #guardado button, #ayuda-instalar button, #dialogo-apodo button { min-height: 42px; border-radius: 8px; border: 2px solid #2b3a78; background: #5aa9f0; color: #10142c; font-size: 14px; font-weight: 600; }
+      #guardado button, #ayuda-instalar button, #dialogo-apodo button, #dialogo-adulto button { min-height: 42px; border-radius: 8px; border: 2px solid #2b3a78; background: #5aa9f0; color: #10142c; font-size: 14px; font-weight: 600; }
       #guardado .caja { max-height: 100%; overflow-y: auto; }
+      #dialogo-adulto input { width: 100%; font: 600 20px system-ui, sans-serif; border: 2px solid #9fb0c4; border-radius: 8px; padding: 10px; user-select: text; -webkit-user-select: text; }
+      #dialogo-adulto .fila { display: flex; gap: 8px; }
+      #dialogo-adulto .fila button { flex: 1; }
+      #dialogo-adulto button.secundario { background: #e3e8f0; }
+      #dialogo-adulto .cuenta { font-size: 28px; font-weight: 700; text-align: center; }
+      #dialogo-adulto .error { min-height: 18px; color: #c0394f; font-weight: 600; }
+      #guardado h3 { margin: 4px 0 0; font-size: 14px; }
+      #guardado pre { margin: 0; font: 12px ui-monospace, monospace; white-space: pre-wrap; background: #eef1f6; border-radius: 8px; padding: 8px; }
       #dialogo-apodo input { width: 100%; font: 600 20px system-ui, sans-serif; border: 2px solid #9fb0c4; border-radius: 8px; padding: 10px; user-select: text; -webkit-user-select: text; }
       #dialogo-apodo .fila { display: flex; gap: 8px; }
       #dialogo-apodo .fila button { flex: 1; }
@@ -132,6 +140,8 @@
         <p id="g-texto"></p>
         <textarea id="g-codigo" spellcheck="false" aria-label="Código de guardado"></textarea>
         <p class="estado" id="g-estado" aria-live="polite"></p>
+        <h3 id="g-compras-titulo"></h3>
+        <pre id="g-compras"></pre>
         <button type="button" id="g-descargar"></button>
         <button type="button" id="g-archivo"></button>
         <input type="file" id="g-entrada" accept=".txt,text/plain" hidden />
@@ -150,6 +160,19 @@
         <div class="fila">
           <button type="button" id="apodo-cancelar" class="secundario"></button>
           <button type="button" id="apodo-aceptar"></button>
+        </div>
+      </div>
+    </div>
+    <div id="dialogo-adulto" role="dialog" aria-modal="true" aria-labelledby="adulto-titulo">
+      <div class="caja">
+        <h2 id="adulto-titulo"></h2>
+        <p id="adulto-texto"></p>
+        <p id="adulto-cuenta" class="cuenta"></p>
+        <input id="adulto-campo" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" spellcheck="false" enterkeyhint="done" />
+        <p id="adulto-error" class="error" aria-live="polite"></p>
+        <div class="fila">
+          <button type="button" id="adulto-cancelar" class="secundario"></button>
+          <button type="button" id="adulto-aceptar"></button>
         </div>
       </div>
     </div>

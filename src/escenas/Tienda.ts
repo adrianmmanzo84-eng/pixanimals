@@ -49,12 +49,17 @@ export class Tienda extends Phaser.Scene {
     this.add.image(0, 0, fondo(this, 'menu')).setOrigin(0, 0).setScale(0.25);
     const g = this.add.graphics();
     const estado = juego.estado;
-    new Texto(this, 6, 3, 100, 14, '#ffffff', 'izq', { tam: 11, peso: 600, borde: '#2b3a78' }).poner(t('tienda.titulo'));
+    new Texto(this, 6, 3, 84, 14, '#ffffff', 'izq', { tam: 11, peso: 600, borde: '#2b3a78' }).poner(t('tienda.titulo'));
     // Recursos arriba a la derecha, con sus iconos.
     iconoMoneda(g, 'monedas', 150, 10);
     new Texto(this, 155, 5, 34, 10, '#ffffff', 'izq', { borde: '#2b3a78' }).poner(String(estado.monedas));
     iconoMoneda(g, 'esencia', 196, 10);
     new Texto(this, 201, 5, 34, 10, '#ffffff', 'izq', { borde: '#2b3a78' }).poner(String(estado.esencia));
+
+    // Atajo a las compras con dinero real (monedas y Cristales).
+    g.fillStyle(n(C.resalte), 1).fillRoundedRect(92, 4, 52, 11, 3);
+    new Texto(this, 92, 4.6, 52, 10, C.papel, 'centro', { tam: 6.4, peso: 600 }).poner(`+ ${t('compras.boton')}`);
+    this.add.zone(92, 4, 52, 11).setOrigin(0, 0).setInteractive({ useHandCursor: true }).on('pointerdown', () => this.irACompras());
 
     ventana(g, 4, 20, 140, 100);
     ventana(g, 148, 20, 88, 100);
@@ -99,11 +104,18 @@ export class Tienda extends Phaser.Scene {
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => Entrada.escuchar(null));
   }
 
+  private irACompras(): void {
+    sonido.tocar('aceptar');
+    this.scene.start('Compras');
+  }
+
   private alPulsar(a: AccionEntrada): void {
     const total = this.items.length;
     if (a === 'b') {
       sonido.tocar('cancelar');
       this.scene.start('Menu');
+    } else if (a === 'derecha') {
+      this.irACompras();
     } else if (a === 'arriba' || a === 'abajo') {
       sonido.tocar('cursor');
       this.scene.restart({ sel: (this.sel + (a === 'abajo' ? 1 : total - 1)) % total, salto: true });

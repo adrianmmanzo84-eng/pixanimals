@@ -33,8 +33,13 @@ export function iniciarNativo(pantallaActual: () => string[], pulsarB: () => voi
 
 /** Copia de la partida en el almacén de la app (no lanza nunca). */
 export function guardarNativo(texto: string, ahora = Date.now()): void {
+  void guardarNativoYa(texto, ahora);
+}
+
+/** Igual, pero se puede esperar a que quede escrito (las compras lo necesitan antes de cerrarse en Google Play). */
+export async function guardarNativoYa(texto: string, ahora = Date.now()): Promise<void> {
   if (!esNativo) return;
-  void Preferences.set({ key: CLAVE, value: JSON.stringify({ texto, en: ahora }) }).catch(() => undefined);
+  await Preferences.set({ key: CLAVE, value: JSON.stringify({ texto, en: ahora }) }).catch(() => undefined);
 }
 
 /** La copia del almacén de la app, como un respaldo más para la recuperación al abrir. */

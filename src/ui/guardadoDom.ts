@@ -1,9 +1,11 @@
 import { esNativo } from '../nativo';
 import { exportarCodigo, importarCodigo } from '../core/estado/guardado';
 import { juego } from '../juego';
-import { t } from '../i18n/i18n';
+import { idioma, t } from '../i18n/i18n';
 import { nombreArchivo } from '../core/estado/respaldo';
 import { marcarCopia } from './recordatorio';
+import { productoDe } from '../core/compras/compras';
+import { nombreProducto } from '../escenas/Compras';
 
 /** Panel de guardado: es HTML normal (no lienzo) para poder seleccionar, copiar y pegar el código. */
 const el = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -96,6 +98,12 @@ export function abrirGuardado(cerrar: () => void): void {
   borrar.dataset.armado = '';
   borrar.textContent = t('g.borrar');
   estado.textContent = '';
+  // Historial de compras (D246): las últimas, la más reciente primero. Solo vive en este dispositivo.
+  el('g-compras-titulo').textContent = t('g.compras');
+  const compras = [...(juego.estado.compras?.historial ?? [])].reverse();
+  el('g-compras').textContent = compras.length
+    ? compras.map((c) => `${new Date(c.en).toLocaleString(idioma() === 'es' ? 'es-AR' : 'en-US', { dateStyle: 'short', timeStyle: 'short' })} · ${productoDe(c.id) ? nombreProducto(productoDe(c.id)!) : c.id}`).join('\n')
+    : t('g.sinCompras');
   codigo.value = juego.estado.bienvenida ? exportarCodigo(juego.estado) : '';
   panel.classList.add('abierto');
 }

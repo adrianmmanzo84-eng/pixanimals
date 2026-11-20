@@ -11,9 +11,9 @@ Lo que **solo puedes hacer tú** (pide tu identidad, un pago o una llave secreta
 | Nombre del desarrollador | **LiSaDm** (ya puesto en `public/privacidad.html` y `public/privacy.html`) | listo |
 | Correo de contacto público | **adrianmmanzo84@gmail.com** (ya puesto en las políticas; usar el mismo en Play Console) | listo |
 | Nombre del paquete | **`com.pixanimals.juego`** confirmado por el autor | listo |
-| Compras dentro del juego | la política ya las describe; **falta implementarlas** y borrar la marca `COMPRAS_NO_IMPLEMENTADAS` de las dos políticas | pendiente |
+| Compras dentro del juego | **implementadas (D277)** con Google Play Billing; falta crear los 7 productos en Play Console (sección 4.4 bis) y probarlas con cuentas de prueba | pendiente |
 
-El flujo «Paquete para la tienda» **se niega a generar el AAB real** mientras la política conserve marcadores pendientes (`NOMBRE_PENDIENTE`, `CORREO_PENDIENTE` o `COMPRAS_NO_IMPLEMENTADAS`): así no se puede publicar una app cuya política promete compras que aún no existen.
+El flujo «Paquete para la tienda» **se niega a generar el AAB real** mientras la política conserve marcadores pendientes (`NOMBRE_PENDIENTE`, `CORREO_PENDIENTE` o `COMPRAS_NO_IMPLEMENTADAS`). Ya no queda ninguno.
 
 ## 1. Cuenta de desarrollador 👤
 
@@ -71,8 +71,31 @@ URL: `https://adrianmmanzo84-eng.github.io/pixanimals/privacidad.html`
 - «¿La app atrae involuntariamente a niños?»: no aplica (ya los declaras).
 - Si Google ofrece unirse a *Diseñado para la familia*, acepta.
 
-### 4.4 bis Compras dentro de la aplicación
-En **Contenido de la app → Anuncios**: sin anuncios. Las compras no se declaran ahí: se activan al subir un AAB con la librería de Google Play Billing y crear productos en **Monetizar → Productos → Productos integrados en la aplicación** (uno por paquete, de tipo *consumible*). Antes hace falta un **perfil de pagos** (datos fiscales y cuenta bancaria) 👤. Los precios se fijan en una moneda base y Google los convierte a cada país.
+### 4.4 bis Compras dentro de la aplicación (D277)
+El juego usa Google Play Billing (plugin `PixBilling`). En **Contenido de la app → Anuncios**: sin anuncios; las compras no se declaran ahí. Pasos 👤:
+
+1. **Perfil de pagos** (Play Console → Configuración → Perfil de pagos): datos fiscales y cuenta bancaria para cobrar.
+2. **Subir primero un AAB** a la prueba cerrada (los productos solo se pueden crear con la app ya subida y con la librería de Billing dentro; este AAB ya la tiene).
+3. **Monetizar → Productos → Productos únicos** (antes «Productos integrados en la aplicación»): crear estos 7, con **exactamente estos identificadores** (no se pueden cambiar después) y activarlos. Precio base en dólares; Google lo convierte a cada país.
+
+| Identificador | Nombre en Play | Precio base | Tipo |
+|---|---|---|---|
+| `monedas_1200` | 1.200 monedas | US$ 0,99 | consumible (se compra muchas veces) |
+| `monedas_6600` | 6.600 monedas | US$ 4,99 | consumible |
+| `monedas_14400` | 14.400 monedas | US$ 9,99 | consumible |
+| `cristales_300` | 300 Cristales | US$ 0,99 | consumible |
+| `cristales_1650` | 1.650 Cristales | US$ 4,99 | consumible |
+| `cristales_3600` | 3.600 Cristales | US$ 9,99 | consumible |
+| `bienvenida` | Pack de bienvenida | US$ 2,99 | compra única (una vez por cuenta) |
+
+   El juego trata todos como productos de pago único: «consume» los seis primeros al entregarlos (para poder volver a comprarlos) y «reconoce» el pack. Si dejas uno sin activar, ese producto aparece sin precio y no se puede comprar.
+4. **Cuentas de prueba con licencia** (Configuración → Pruebas de licencia): agrega los correos de Google de los testers; con ellos las compras no cobran. Prueba en la app instalada **desde la pista de prueba** (un APK instalado a mano no puede cobrar: usa compra simulada).
+5. En **Seguridad de los datos**: las compras las procesa Google Play. El juego no recoge ni envía datos de pago; el historial de compras queda solo en el dispositivo. Declara «Compras» si el formulario lo pide como dato manejado por Google Play.
+6. **Clasificación (IARC)**: marcar «compras digitales» y «objetos aleatorios de pago» (los sobres muestran probabilidades).
+
+**Cómo se prueba cada cosa.** Web y versiones de prueba (APK `android-prueba`): la compra es **simulada** y lo dice en pantalla («COMPRA DE PRUEBA · no se cobra nada»). Compra real: solo con la app instalada desde Google Play. Qué comprobar con testers: comprar un paquete y ver que se suman; cancelar en la ventana de Google (no se suma ni se cuenta); cerrar la app justo después de pagar y reabrirla (debe entregarse una sola vez); comprar el pack dos veces (la segunda se frena); comprar 5 veces y ver el límite diario.
+
+**Límite conocido.** El juego guarda la partida en el propio dispositivo y no tiene servidor: un jugador con conocimientos podría alterar sus monedas, y si desinstala el juego sin copia pierde lo comprado (la política lo dice). Es normal en juegos sin cuenta; si algún día se agrega nube o ranking, habrá que validar las compras en un servidor.
 
 ### 4.5 Clasificación de contenido (cuestionario IARC)
 Respuestas coherentes con el juego:
@@ -113,7 +136,7 @@ Aplicación de noticias: no. Aplicación gubernamental: no. Finanzas: no. Salud:
 
 - No subir el AAB de verificación a Play.
 - No poner la llave de subida ni sus contraseñas en el repositorio ni en el chat.
-- No enviar a revisión mientras las compras no estén implementadas: la política y la ficha ya las anuncian.
+- Las compras reales solo se prueban con la app instalada desde Google Play y cuentas de prueba con licencia.
 
 ## 6. Prueba cerrada (cuenta personal nueva) 👤
 
@@ -126,8 +149,8 @@ Aplicación de noticias: no. Aplicación gubernamental: no. Finanzas: no. Salud:
 
 ## 7. Lista final antes de enviar a revisión
 
-- [ ] Compras implementadas, productos creados y probados con cuentas de prueba con licencia
-- [ ] Marca `COMPRAS_NO_IMPLEMENTADAS` borrada de las dos políticas; la página abre en el navegador
+- [ ] Los 7 productos creados y activos en Play Console y probados con cuentas de prueba con licencia
+- [ ] La política abre en el navegador (https://adrianmmanzo84-eng.github.io/pixanimals/privacidad.html)
 - [ ] Probado el APK en un teléfono real (rendimiento, controles, audio)
 - [ ] Música y sonidos aprobados
 - [ ] Paquete confirmado (`com.pixanimals.juego` u otro)

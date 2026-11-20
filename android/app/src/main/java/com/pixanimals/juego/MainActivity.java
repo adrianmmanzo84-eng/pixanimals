@@ -10,6 +10,8 @@ import com.getcapacitor.BridgeActivity;
 public class MainActivity extends BridgeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        // Compras con Google Play (D277): el plugin se registra antes de arrancar el puente.
+        registerPlugin(PixBillingPlugin.class);
         super.onCreate(savedInstanceState);
         ocultarBarras();
     }

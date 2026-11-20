@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-// Versión de la app = versión del juego (package.json): 0.47.0 -> versionName "0.47.0", versionCode 47000 (D245).
+// Versión de la app = versión del juego (package.json): 0.48.0 -> versionName "0.48.0", versionCode 48000 (D245).
 def paquete = new groovy.json.JsonSlurper().parse(file('../../package.json'))
 def partes = paquete.version.tokenize('.').collect { it as int }
 def codigoVersion = partes[0] * 1000000 + partes[1] * 1000 + partes[2]
@@ -66,6 +66,8 @@ dependencies {
     implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
     implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
     implementation project(':capacitor-android')
+    // Compras dentro del juego (D277): Google Play Billing.
+    implementation "com.android.billingclient:billing:8.0.0"
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"

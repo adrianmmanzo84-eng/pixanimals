@@ -538,6 +538,19 @@ export const EstadoJuegoZ = z.object({
     /** Guaridas vencidas alguna vez (zonas), para la medalla Minero. */
     guaridas: z.array(z.number().int()).optional(),
   }),
+  /**
+   * Compras con dinero real (D277). `hoy`: compras acreditadas el día `dia` (límite diario). `bienvenida`: el pack único ya se acreditó.
+   * `recibos`: los últimos recibos acreditados (para no acreditar dos veces la misma compra). `historial`: las últimas compras.
+   */
+  compras: z
+    .object({
+      dia: z.number().int(),
+      hoy: z.number().int().min(0),
+      bienvenida: z.boolean(),
+      recibos: z.array(z.string()).max(60),
+      historial: z.array(z.object({ id: z.string(), en: z.number() })).max(60),
+    })
+    .optional(),
   /** Premios de valiente de hoy (opcional: las partidas viejas no lo tienen). */
   consuelo: z.object({ dia: z.number().int(), veces: z.number().int().min(0) }).optional(),
   /** Regalos de eventos ya cobrados («navidad-2026»). */

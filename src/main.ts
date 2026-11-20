@@ -16,6 +16,8 @@ import { Bestiario } from './escenas/Bestiario';
 import { Equipo } from './escenas/Equipo';
 import { Combate } from './escenas/Combate';
 import { Tienda } from './escenas/Tienda';
+import { Compras } from './escenas/Compras';
+import { iniciarCompras } from './compras/flujo';
 import { BolsaEscena } from './escenas/BolsaEscena';
 import { Premio } from './escenas/Premio';
 import { Coleccion } from './escenas/Coleccion';
@@ -223,7 +225,7 @@ async function iniciar(): Promise<void> {
     banner: false,
     audio: { noAudio: true },
     scale: { mode: Phaser.Scale.NONE },
-    scene: [Arranque, Titulo, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, MiniMina, Ataques, Torre, Ruta, Cronoportal, CronoMapa, Misiones, Desafio, Coleccion, Expediciones, Ruleta, Historia, HistoriaRegion, Practica, Prologo, Relato],
+    scene: [Arranque, Titulo, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, Compras, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, MiniMina, Ataques, Torre, Ruta, Cronoportal, CronoMapa, Misiones, Desafio, Coleccion, Expediciones, Ruleta, Historia, HistoriaRegion, Practica, Prologo, Relato],
   });
   ajustarEscala(juego.canvas);
   // Solo en desarrollo: acceso desde la consola para pruebas visuales.
@@ -235,9 +237,20 @@ async function iniciar(): Promise<void> {
     () => juego.scene.getScenes(true).map((e) => e.sys.settings.key),
     () => Entrada.pulsar('b'),
   );
+  // Compras con Google Play: entrega lo que haya quedado pendiente al abrir y al volver a la app (D277).
+  iniciarCompras(() => avisoCompra(t('compras.recuperada')));
   // Modo diagnóstico (?diag): versión, pantalla, errores y archivos faltantes en un recuadro.
   montarDiag(juego);
   window.addEventListener('resize', () => ajustarEscala(juego.canvas));
+}
+
+/** Aviso breve arriba de la pantalla (para entregas que ocurren fuera de la pantalla de compras). */
+function avisoCompra(texto: string): void {
+  const div = document.createElement('div');
+  div.textContent = texto;
+  div.style.cssText = 'position:fixed;left:50%;top:10px;transform:translateX(-50%);z-index:60;background:#2b3a78;color:#fff;font:600 14px Fredoka,sans-serif;padding:8px 14px;border-radius:10px;box-shadow:0 2px 8px #0008';
+  document.body.append(div);
+  setTimeout(() => div.remove(), 4500);
 }
 
 void iniciar();
