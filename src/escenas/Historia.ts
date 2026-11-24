@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { DATOS } from '../core/datos';
 import { equipoDe } from '../core/estado/juego';
-import { finalAbierto, marcarRelato, PARADAS, pixelesMaestros, regionAbierta, regionTerminada, siguienteParada } from '../core/modos/historia';
+import { finalAbierto, marcarRelato, PARADAS, pixelesMaestros, regionAbierta, regionTerminada, siguienteParada, equipoBajo, nivelDelEquipo } from '../core/modos/historia';
 import { Entrada, type AccionEntrada } from '../entrada';
 import { sonido } from '../audio/sfx';
 import { musica } from '../audio/musica';
@@ -150,19 +150,29 @@ export class Historia extends Phaser.Scene {
       titulo = `${t(`hist.region.${r.id}`)} · ${DATOS.tipos.get(r.tipo)!.nombre}`;
       const sig = siguienteParada(estado, r);
       linea = regionTerminada(estado, r) ? t('hist.mapa.restaurada') : regionAbierta(DATOS, estado, this.sel) ? t('hist.mapa.paradas', { n: sig, m: PARADAS }) : t('hist.mapa.cerrada', { r: t(`hist.region.${regiones[this.sel - 1]!.id}`) });
-      detalle = t('hist.mapa.nivel', { n: r.nivel });
+      detalle = this.detalleNivel(r.nivel, regionAbierta(DATOS, estado, this.sel) && !regionTerminada(estado, r));
       miniatura(this.add.image(214, 140, textura(r.guardian, estado.jefes.includes(r.guardian) ? 'frente' : 'silueta')), r.guardian, 26, 0.4);
     } else {
       const f = DATOS.historia.final;
       titulo = t('hist.region.origen');
       linea = estado.historia?.final ? t('hist.mapa.restaurada') : finalAbierto(DATOS, estado) ? t('hist.mapa.finalListo') : t('hist.mapa.finalCerrado', { n: pixelesMaestros(DATOS, estado), m: regiones.length });
-      detalle = t('hist.mapa.nivel', { n: f.nivel });
+      detalle = this.detalleNivel(f.nivel, finalAbierto(DATOS, estado) && !estado.historia?.final);
       miniatura(this.add.image(214, 140, textura(f.jefe, estado.jefes.includes(f.jefe) ? 'frente' : 'silueta')), f.jefe, 26, 0.4);
     }
     new Texto(this, 10, 127, 190, 10, '#257179', 'izq', { tam: 7.6, peso: 600 }).poner(titulo);
     new Texto(this, 10, 137, 190, 10, C.tinta, 'izq', { tam: 6.4 }).poner(linea);
-    new Texto(this, 10, 146, 190, 10, C.tintaSuave, 'izq', { tam: 6 }).poner(detalle);
+    new Texto(this, 10, 146, 190, 10, this.bajo ? C.resalte : C.tintaSuave, 'izq', { tam: 6, peso: this.bajo ? 600 : 500 }).poner(detalle);
     void total;
+  }
+
+  private bajo = false;
+
+  /** «Rivales de nivel N», con el nivel del equipo y un aviso si está bajo (solo donde se puede jugar, D278). */
+  private detalleNivel(nivel: number, jugable: boolean): string {
+    const e = nivelDelEquipo(equipoDe(juego.estado));
+    this.bajo = jugable && equipoBajo(e, nivel);
+    if (!jugable) return t('hist.mapa.nivel', { n: nivel });
+    return t(this.bajo ? 'hist.mapa.nivelBajo' : 'hist.mapa.nivelEquipo', { n: nivel, e });
   }
 
   /** Cartel de texto (presentación, palabras del Arquitecto). A o B lo cierran. */

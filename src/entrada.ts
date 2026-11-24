@@ -21,8 +21,13 @@ function gesto(): void {
   alPrimerGesto.forEach((f) => f());
 }
 
-function emitir(a: AccionEntrada): void {
+/** De dónde vino la última acción: el toque en la pantalla del juego es un A «implícito» (D278). */
+export type OrigenEntrada = 'tecla' | 'mando' | 'toque' | 'sistema';
+let origen: OrigenEntrada = 'tecla';
+
+function emitir(a: AccionEntrada, de: OrigenEntrada = 'tecla'): void {
   gesto();
+  origen = de;
   oyente?.(a);
 }
 
@@ -33,7 +38,14 @@ export const Entrada = {
   },
   /** Emite una acción desde fuera del teclado y del mando (botón Atrás de Android). */
   pulsar(a: AccionEntrada): void {
-    emitir(a);
+    emitir(a, 'sistema');
+  },
+  /**
+   * La acción que se está atendiendo vino de tocar la pantalla del juego (no de una tecla ni del botón A).
+   * Las pantallas donde un toque no debe confirmar nada (compras) ignoran ese A.
+   */
+  esToque(): boolean {
+    return origen === 'toque';
   },
   /** Dirección analógica del stick (0,0 si no se toca). */
   /** ¿Está apretada ahora esta acción? */
@@ -64,7 +76,7 @@ export const Entrada = {
         e.preventDefault();
         boton.classList.add('pulsado');
         apretadas.add(boton.dataset.accion as AccionEntrada);
-        emitir(boton.dataset.accion as AccionEntrada);
+        emitir(boton.dataset.accion as AccionEntrada, 'mando');
       });
       const soltar = () => {
         boton.classList.remove('pulsado');
@@ -79,7 +91,7 @@ export const Entrada = {
     // Antes la confirmación llegaba primero y un toque abría la opción que estaba marcada, no la tocada.
     document.getElementById('pantalla')?.addEventListener('pointerdown', () => {
       gesto();
-      window.setTimeout(() => emitir('a'), 90);
+      window.setTimeout(() => emitir('a', 'toque'), 90);
     });
     // `?movil` fuerza el diseño de teléfono en la PC (para verlo sin instalar la app, D248).
     const tactil = window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window || new URLSearchParams(location.search).has('movil');

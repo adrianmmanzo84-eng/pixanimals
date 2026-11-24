@@ -13,7 +13,7 @@ import { criaturaDe, nombreDe } from '../core/estado/juego';
 import { miniatura, textura } from '../ui/criaturas';
 import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
-import { partir, Texto } from '../ui/texto';
+import { recortar, Texto } from '../ui/texto';
 
 type Modo = 'lugares' | 'criatura' | 'duracion';
 /** Cada lugar de expedición tiene su ilustración (expedicion_<lugar>). */
@@ -121,7 +121,7 @@ export class Expediciones extends Phaser.Scene {
         });
       }
       ventana(g, 6, 120, 228, 37);
-      this.txt(12, 123, 216, 20, this.aviso ? C.resalte : C.tinta, 'izq', { tam: 6.6 }).poner(partir(this.aviso || t('exp.explica'), 216, 6.6).slice(0, 2).join('\n'));
+      this.txt(12, 123, 216, 20, this.aviso ? C.resalte : C.tinta, 'izq', { tam: 6.6 }).poner(recortar(this.aviso || t('exp.explica'), 216, 6.6));
       this.txt(12, 145, 216, 10, C.tintaSuave).poner(t('exp.ayuda'));
       return;
     }

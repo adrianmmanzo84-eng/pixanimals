@@ -57,3 +57,9 @@ export function equipoPractica(datos: Datos, indice: number, cuantos: number, rn
   }
   return res;
 }
+
+/** Zona de práctica que sigue a la región i de la historia (atajo tras perder bajo de nivel, D278). */
+export function zonaDeRegion(i: number): number {
+  const z = ZONAS.findIndex((x) => x.region === i);
+  return z < 0 ? 0 : z;
+}

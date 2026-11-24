@@ -35,7 +35,8 @@ import { cargarGrandes } from '../ui/hd';
 import { C, COLOR_ESTADO, COLOR_TIPO, n, prepararCamara, ventana } from '../ui/estilo';
 import { Efectos, cargarEfectosDeAtaques, movimientoDe } from '../ui/efectos';
 import { fondo, FONDO_POR_TIPO } from '../ui/fondos';
-import { equipoFinal, equipoParada, ganarFinal, ganarParada, regionTerminada, type Parada } from '../core/modos/historia';
+import { equipoBajo, equipoFinal, equipoParada, ganarFinal, ganarParada, nivelDelEquipo, nivelParada, regionTerminada, type Parada } from '../core/modos/historia';
+import { zonaDeRegion } from '../core/modos/practica';
 import { claveFondoRegion } from './HistoriaRegion';
 import { equipoPractica, ZONAS } from '../core/modos/practica';
 import { texturaGris } from '../ui/arteHistoria';
@@ -713,6 +714,7 @@ export class Combate extends Phaser.Scene {
       this.insignia(this.rivalInicial, extra);
     }
     let volverHistoria: { escena: string; datos: object } | null = null;
+    let atajoPractica: number | null = null;
     if (modo === 'historia') {
       const nombreSobreH = (id?: string) => (id ? DATOS.sobres.sobres.find((s) => s.id === id)?.nombre ?? id : '');
       if (this.cfg.final) {
@@ -731,6 +733,15 @@ export class Combate extends Phaser.Scene {
           this.insignia(this.rivalInicial, extra);
         }
         volverHistoria = { escena: 'HistoriaRegion', datos: { region: i } };
+      }
+      // Perder con el equipo bajo de nivel: decirlo claro y ofrecer ir a entrenar (D278).
+      if (!r.victoria && !retirada) {
+        const nRival = this.cfg.final ? DATOS.historia.final.nivel : nivelParada(DATOS.historia.regiones[this.cfg.region ?? 0]!, (this.cfg.parada ?? 0) as Parada);
+        const nMio = nivelDelEquipo(equipoDe(juego.estado));
+        if (equipoBajo(nMio, nRival)) {
+          extra.push(t('hist.fin.entrenar', { e: nMio, n: nRival }));
+          atajoPractica = this.cfg.final ? zonaDeRegion(DATOS.historia.regiones.length - 1) : zonaDeRegion(this.cfg.region ?? 0);
+        }
       }
     }
     if (modo === 'entrenador' && !retirada && !previa) {
@@ -763,7 +774,7 @@ export class Combate extends Phaser.Scene {
     ventana(g, 44, 32, 152, alto);
     new Texto(this, 44, 38, 152, 12, r.victoria ? '#257179' : C.resalte, 'centro', { tam: 9.5, peso: 600 }).poner(t(retirada ? 'fin.retirada' : r.victoria ? 'fin.victoria' : 'fin.derrota'));
     new Texto(this, 44, 51, 152, lineas.length * 9 + 4, C.tinta, 'centro').poner(lineas.join('\n'));
-    new Texto(this, 44, 53 + lineas.length * 9, 152, 10, C.tintaSuave, 'centro').poner(t('fin.continuar'));
+    new Texto(this, 44, 53 + lineas.length * 9, 152, 10, atajoPractica !== null ? C.resalte : C.tintaSuave, 'centro', { peso: atajoPractica !== null ? 600 : 500 }).poner(t(atajoPractica !== null ? 'hist.fin.irPractica' : 'fin.continuar'));
     this.msg.poner('');
     // Efectos del autor: subir de nivel sobre tu criatura e insignia de jefe sobre la ventana.
     if (r.subidas.length) {
@@ -776,6 +787,7 @@ export class Combate extends Phaser.Scene {
     this.alPulsar = (a) => {
       if (a !== 'a' && a !== 'b') return;
       sonido.tocar('aceptar');
+      if (atajoPractica !== null && a === 'a') return void this.scene.start('Practica', { zona: atajoPractica });
       // Al ganar se elige una carta premio. La Torre y los caminos vuelven a su mapa.
       const volver = volverHistoria ?? (modo === 'practica' ? { escena: 'Practica', datos: { zona: this.cfg.zonaPractica ?? 0 } } : modo === 'torre' ? { escena: 'Torre', datos: { subio: r.victoria } } : modo === 'entrenador' || modo === 'semanal' ? { escena: 'Ruta', datos: { modo, avanzo: r.victoria } } : null);
       // La práctica no da carta premio (solo experiencia y monedas): vuelve a sus zonas.

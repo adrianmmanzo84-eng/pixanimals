@@ -106,3 +106,14 @@ export class Texto {
     return this;
   }
 }
+
+/** Parte el texto y, si no entra en `max` líneas, termina la última con «…» (nunca corta callado, D278). */
+export function recortar(texto: string, ancho: number, tam = TAM, max = 2): string {
+  const l = partir(texto, ancho, tam);
+  if (l.length <= max) return l.join('\n');
+  const res = l.slice(0, max);
+  let u = res[max - 1]!;
+  while (u && medir(`${u}…`, tam) > ancho) u = u.slice(0, u.lastIndexOf(' ') > 0 ? u.lastIndexOf(' ') : u.length - 1);
+  res[max - 1] = `${u}…`;
+  return res.join('\n');
+}

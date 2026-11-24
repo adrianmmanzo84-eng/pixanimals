@@ -59,7 +59,7 @@ export class BolsaEscena extends Phaser.Scene {
 
     if (!this.items.length) {
       new Texto(this, 10, 128, 220, 20).poner(partir(t('bolsaP.vacia'), 218).join('\n'));
-      new Texto(this, 10, 146, 220, 10, C.tintaSuave).poner('B: volver');
+      new Texto(this, 10, 146, 220, 10, C.tintaSuave).poner(t('bolsa.volver'));
     } else {
       const puntero = new Puntero(this);
       this.items.slice(scroll, scroll + FILAS).forEach((it, k) => {

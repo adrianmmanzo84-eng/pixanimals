@@ -1,5 +1,7 @@
 # Auditoría previa al testeo — v0.48.0 (24 nov 2026)
 
+> **Estado (v0.49.0, D278):** corregidas A1, A3, M1, M2 y M3; A2 con la versión mínima (avisos de nivel y atajo a entrenar). Siguen abiertas M4, M5, la decisión de fondo sobre A2 y las mejoras de prioridad baja.
+
 Cómo se hizo:
 - Chequeos automáticos: tipos, 274 tests, validación de datos y compilación. Todo pasa.
 - Revisión del código: guardado, compras, entrada táctil y botón Atrás.

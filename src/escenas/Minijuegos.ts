@@ -15,7 +15,7 @@ import { juego } from '../juego';
 import { miniatura, textura } from '../ui/criaturas';
 import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { fondo } from '../ui/fondos';
-import { partir, Texto } from '../ui/texto';
+import { recortar, Texto } from '../ui/texto';
 
 const ESCENA: Record<MinijuegoId, string> = { bayas: 'MiniBayas', eco: 'MiniEco', golpe: 'MiniGolpe', mina: 'MiniMina' };
 const VISIBLES = 4;
@@ -110,7 +110,7 @@ export class Minijuegos extends Phaser.Scene {
           this.pintar();
         });
         if (cerrado) return;
-        txt(16, y + 12, 160, 16, C.tintaSuave, 'izq', { tam: 6 }).poner(partir(t(`mj.${id}.desc`), 160, 6).slice(0, 2).join('\n'));
+        txt(16, y + 12, 160, 16, C.tintaSuave, 'izq', { tam: 6 }).poner(recortar(t(`mj.${id}.desc`), 160, 6));
         const quedan = partidasConPremio(DATOS, juego.estado, id, ahora);
         txt(130, y + 3, 96, 10, quedan ? '#2f7a48' : C.tintaSuave, 'der').poner(t('mj.premiosHoy', { n: quedan, m: DATOS.economia.minijuegos.conPremioPorDia }));
         const rec = juego.estado.minijuegos.records[id];

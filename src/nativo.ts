@@ -13,6 +13,27 @@ export const esNativo = Capacitor.isNativePlatform();
 
 const CLAVE = 'partida';
 
+/**
+ * Paneles HTML sobre el juego y el botón que los cierra (D278). Con uno abierto, Atrás lo cierra como ese botón
+ * (en la puerta para adultos, Cancelar) en vez de actuar sobre la pantalla de detrás.
+ */
+const PANELES: [string, string][] = [
+  ['dialogo-adulto', 'adulto-cancelar'],
+  ['dialogo-apodo', 'apodo-cancelar'],
+  ['guardado', 'g-cerrar'],
+  ['ayuda-instalar', 'ios-ok'],
+];
+
+export function cerrarPanelAbierto(): boolean {
+  for (const [panel, boton] of PANELES) {
+    if (document.getElementById(panel)?.classList.contains('abierto')) {
+      document.getElementById(boton)?.click();
+      return true;
+    }
+  }
+  return false;
+}
+
 export function iniciarNativo(pantallaActual: () => string[], pulsarB: () => void): void {
   if (!esNativo) return;
   document.body.classList.add('nativo');
@@ -23,6 +44,7 @@ export function iniciarNativo(pantallaActual: () => string[], pulsarB: () => voi
       document.body.classList.remove('ajustes-abiertos');
       return;
     }
+    if (cerrarPanelAbierto()) return;
     if (pantallaActual().includes('Titulo')) {
       void App.minimizeApp();
       return;

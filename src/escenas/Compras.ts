@@ -66,6 +66,7 @@ export class Compras extends Phaser.Scene {
       const nombre = new Texto(this, 22, y, 74, 10, i === this.sel ? C.resalte : C.tinta, 'izq', { peso: i === this.sel ? 600 : 500 }).poner(nombreProducto(p));
       if (i === this.sel && this.salto) saltito(this, nombre.imagen);
       new Texto(this, 92, y, 46, 10, i === this.sel ? C.resalte : C.tinta, 'der', { peso: 600 }).poner(precioDe(p));
+      // Tocar (o pasar el mouse) solo elige; nunca compra (D278).
       puntero.zona(8, y - 1, 132, 11.5, () => {
         if (i === this.sel || this.ocupado) return;
         sonido.tocar('cursor');
@@ -79,8 +80,17 @@ export class Compras extends Phaser.Scene {
     new Texto(this, 150, 49, 84, 10, C.tinta, 'centro', { peso: 600 }).poner(nombreProducto(p));
     const desc = t(`compras.d.${p.tipo}`, { m: formato(p.monedas), c: formato(p.cristales) });
     new Texto(this, 152, 59, 82, 44, C.tintaSuave, 'izq', { tam: 6 }).poner(partir(desc, 80, 6).join('\n'));
+    // El botón del precio es lo único que compra con un toque (con el teclado o el botón A del mando: A).
     g.fillStyle(n(C.resalte), 1).fillRoundedRect(158, 106, 68, 10, 3);
     new Texto(this, 158, 106, 68, 10, C.papel, 'centro', { peso: 600, tam: 6.6 }).poner(precioDe(p));
+    this.add
+      .zone(156, 104, 72, 14)
+      .setOrigin(0, 0)
+      .setDepth(1001)
+      .setInteractive({ useHandCursor: true })
+      .on('pointerdown', () => {
+        if (!this.ocupado) void this.comprar(PRODUCTOS[this.sel]!);
+      });
 
     // Pie: aviso del último intento o, si no hay, el estado de las compras (de prueba / no disponibles aquí).
     const hoy = comprasHoy(estado, Date.now());
@@ -151,6 +161,8 @@ export class Compras extends Phaser.Scene {
       sonido.tocar('cursor');
       this.scene.restart({ sel: (this.sel + (a === 'abajo' ? 1 : total - 1)) % total, salto: true });
     } else if (a === 'a') {
+      // Un toque en cualquier parte de la pantalla no compra: hay que tocar el botón del precio (D278).
+      if (Entrada.esToque()) return;
       void this.comprar(PRODUCTOS[this.sel]!);
     }
   }

@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { DATOS } from '../core/datos';
 import { equipoDe } from '../core/estado/juego';
 import {
-  confirmarDesafio, desafioCumplido, marcarRelato, nivelParada, PARADAS, paradaVencida, regionAbierta, regionTerminada, relatoPendiente, siguienteParada, type Parada,
+  confirmarDesafio, desafioCumplido, equipoBajo, nivelDelEquipo, marcarRelato, nivelParada, PARADAS, paradaVencida, regionAbierta, regionTerminada, relatoPendiente, siguienteParada, type Parada,
 } from '../core/modos/historia';
 import type { Region } from '../esquemas/esquemas';
 import { Entrada } from '../entrada';
@@ -15,7 +15,7 @@ import { fondo, type FondoId } from '../ui/fondos';
 import { miniatura, textura } from '../ui/criaturas';
 import { C, n, prepararCamara, ventana } from '../ui/estilo';
 import { Puntero } from '../ui/puntero';
-import { partir, Texto } from '../ui/texto';
+import { recortar, Texto } from '../ui/texto';
 import { hayArte, pieza } from '../ui/arte';
 
 /** Fondo de una región: los nuevos (Desierto, Cumbre, Ruinas…) son del Modo Historia; los demás, los de siempre. */
@@ -168,10 +168,11 @@ export class HistoriaRegion extends Phaser.Scene {
     let linea: string;
     if (jefe) linea = t(`hist.${r.id}.${p}`);
     else linea = this.textoDesafio() + (desafioCumplido(estado, r.desafio) && sig >= 1 ? ' ✓' : '');
-    new Texto(this, 10, 127, 220, 18, C.tinta, 'izq', { tam: 6.2 }).poner(partir(linea, 220, 6.2).slice(0, 2).join('\n'));
+    new Texto(this, 10, 127, 220, 18, C.tinta, 'izq', { tam: 6.2 }).poner(recortar(linea, 220, 6.2));
     let estadoTxt: string;
     if (paradaVencida(estado, r, p)) estadoTxt = t('hist.parada.vencida');
     else if (p > sig) estadoTxt = t('hist.parada.cerrada');
+    else if (jefe && equipoBajo(nivelDelEquipo(equipoDe(estado)), nivelParada(r, p))) estadoTxt = t('hist.parada.bajo', { e: nivelDelEquipo(equipoDe(estado)), n: nivelParada(r, p) });
     else if (jefe) estadoTxt = t('hist.parada.combate', { n: nivelParada(r, p), m: DATOS.historia.monedasParada[p] }) + (p === 3 ? t('hist.parada.pixel') : '');
     else estadoTxt = t('hist.parada.ir');
     new Texto(this, 10, 145, 220, 10, this.aviso ? '#2f7a48' : p > sig ? C.tintaSuave : C.resalte, 'izq', { tam: 6.2, peso: 600 }).poner(this.aviso ?? estadoTxt);

@@ -8,7 +8,7 @@ import { t } from '../i18n/i18n';
 import { juego } from '../juego';
 import { marcaCriatura, miniatura, textura } from '../ui/criaturas';
 import { C, prepararCamara, ventana } from '../ui/estilo';
-import { partir, Texto } from '../ui/texto';
+import { partir, recortar, Texto } from '../ui/texto';
 import { Puntero } from '../ui/puntero';
 import { confeti } from '../ui/animaciones';
 
@@ -121,7 +121,7 @@ export class CronoMapa extends Phaser.Scene {
     let info = '';
     if (this.aviso) info = this.aviso;
     else if (o) info = t(`crono.nodo.${o.tipo}`, { n: nivelNodo(DATOS, ex.era, o.col) });
-    new Texto(this, 10, 133, 220, 14, this.aviso ? C.resalte : C.tinta, 'izq', { tam: 6.4 }).poner(partir(info, 218, 6.4).slice(0, 2).join('\n'));
+    new Texto(this, 10, 133, 220, 14, this.aviso ? C.resalte : C.tinta, 'izq', { tam: 6.4 }).poner(recortar(info, 218, 6.4));
     new Texto(this, 4, 147, 232, 9, C.tintaSuave, 'centro', { tam: 5.8 }).poner(t('crono.mapaAyuda'));
   }
 

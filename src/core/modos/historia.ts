@@ -197,3 +197,18 @@ export function marcarRelato(estado: EstadoJuego, id: string): void {
   h.vistos ??= [];
   if (!h.vistos.includes(id)) h.vistos.push(id);
 }
+
+/** Nivel medio del equipo (redondeado), como en las Zonas de práctica. */
+export function nivelDelEquipo(mios: CriaturaJugador[]): number {
+  return mios.length ? Math.round(mios.reduce((s, c) => s + c.nivel, 0) / mios.length) : 1;
+}
+
+/**
+ * ¿El equipo está bajo de nivel para esta parada? (D278) Con 3 niveles menos ya casi no se gana (D273), así que
+ * se avisa desde 3 por debajo del rival principal.
+ */
+export const MARGEN_BAJO = 3;
+export function equipoBajo(nivelEquipo: number, nivelRival: number): boolean {
+  return nivelEquipo <= nivelRival - MARGEN_BAJO;
+}
+
