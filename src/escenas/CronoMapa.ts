@@ -143,6 +143,7 @@ export class CronoMapa extends Phaser.Scene {
   }
 
   private mover(i: number): void {
+    if (i === this.sel) return;
     sonido.tocar('cursor');
     this.scene.restart({ sel: i });
   }

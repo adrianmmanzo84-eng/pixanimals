@@ -50,3 +50,19 @@ describe('correcciones de la auditoría (D278)', () => {
     expect(readFileSync('src/escenas/BolsaEscena.ts', 'utf8')).not.toContain(".poner('B: volver')");
   });
 });
+
+describe('pasar el puntero solo marca, nunca confirma (D280)', () => {
+  const leer = (f: string) => readFileSync(`src/escenas/${f}.ts`, 'utf8');
+  it('iniciales del prólogo: las zonas solo apuntan', () => {
+    const s = leer('Prologo');
+    expect(s).not.toMatch(/zona\([^\n]*this\.(pulsar|terminar)\(/);
+    expect(s).toMatch(/zona\([^\n]*this\.apuntar\(/);
+  });
+  it('relato: sin zona que avance (avanza el toque o clic, una vez)', () => {
+    expect(leer('Relato')).not.toMatch(/\.zona\(/);
+  });
+  it('ataques y zonas de práctica: la fila marcada no se confirma al pasar', () => {
+    expect(leer('Ataques')).not.toContain("return this.tecla('a')");
+    expect(leer('Practica')).not.toMatch(/else this\.entrar\(\)/);
+  });
+});

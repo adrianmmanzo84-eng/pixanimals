@@ -5,7 +5,6 @@ import { musica } from '../audio/musica';
 import { cargarArteHistoria, suavizarArteHistoria, texturaGris } from '../ui/arteHistoria';
 import { claveRelato, cargarRelatos, suavizarRelatos } from '../ui/relatos';
 import { C, prepararCamara, ventana } from '../ui/estilo';
-import { Puntero } from '../ui/puntero';
 import { partir, Texto } from '../ui/texto';
 
 export interface DiapositivaRelato {
@@ -53,8 +52,8 @@ export class Relato extends Phaser.Scene {
     suavizarArteHistoria(this);
     suavizarRelatos(this);
     this.mostrar();
-    const puntero = new Puntero(this);
-    puntero.zona(0, 0, 240, 160, () => this.avanzar(1));
+    // Tocar o hacer clic avanza por el A que emite la pantalla; aquí no hay zona: pasar el mouse no debe avanzar
+    // y un toque no debe avanzar dos diapositivas (D280).
     Entrada.escuchar((a) => {
       if (a === 'a') this.avanzar(1);
       else if (a === 'b') this.avanzar(-1);

@@ -67,6 +67,14 @@ export class Prologo extends Phaser.Scene {
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => Entrada.escuchar(null));
   }
 
+  /** El puntero marca una opción sin elegirla. */
+  private apuntar(i: number): void {
+    if (this.fin || i === this.cursor) return;
+    sonido.tocar('cursor');
+    this.cursor = i;
+    this.pintar();
+  }
+
   private pulsar(i: number): void {
     const ids = DATOS.historia.iniciales;
     if (i === ids.length) return void this.terminar();
@@ -116,7 +124,8 @@ export class Prologo extends Phaser.Scene {
         g.fillStyle(0x2f9a4c, 1).fillCircle(x + 9, 124, 3.6);
         new Texto(this, x + 5.4, 120.8, 7.2, 7, '#ffffff', 'centro', { tam: 5.6, peso: 600 }).poner(String(this.elegidos.indexOf(id) + 1));
       }
-      puntero.zona(x - 12, 120, 26, 26, () => this.pulsar(i));
+      // Pasar por encima (o tocar) solo mueve el cursor; elegir es A, o el toque que sigue (D280).
+      puntero.zona(x - 12, 120, 26, 26, () => this.apuntar(i));
     });
     // «Listo»: aparece con los tres elegidos.
     if (this.elegidos.length === 3) {
@@ -125,7 +134,7 @@ export class Prologo extends Phaser.Scene {
       g.fillStyle(sel ? 0x47c25b : 0x7fbf8c, 1).fillRoundedRect(x - 12, 122, 24, 22, 3);
       if (sel) g.lineStyle(1, 0xd2403c, 1).strokeRoundedRect(x - 12, 122, 24, 22, 3);
       new Texto(this, x - 12, 129, 24, 10, '#ffffff', 'centro', { tam: 7, peso: 600 }).poner(t('prologo.eleccion.listo'));
-      puntero.zona(x - 12, 122, 24, 22, () => this.terminar());
+      puntero.zona(x - 12, 122, 24, 22, () => this.apuntar(DATOS.historia.iniciales.length));
     }
     const especie = this.cursor < ids.length ? DATOS.criaturas.get(ids[this.cursor]!) : null;
     const linea = especie ? `${especie.nombre} · ${DATOS.tipos.get(especie.tipo)!.nombre}` : t('prologo.eleccion.confirmar');

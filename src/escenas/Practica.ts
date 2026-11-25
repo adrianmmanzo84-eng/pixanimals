@@ -70,8 +70,8 @@ export class Practica extends Phaser.Scene {
         g.lineStyle(1, 0x6a6f80, 1).strokeCircle(221, y + 2.6, 1.8);
       }
       puntero.zona(11, y - 0.5, 218, 10.5, () => {
+        // Solo marca la zona; entrar es A o el toque (D280).
         if (this.sel !== i) this.scene.restart({ zona: i });
-        else this.entrar();
       });
     });
 

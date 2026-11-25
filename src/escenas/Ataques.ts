@@ -150,7 +150,8 @@ export class Ataques extends Phaser.Scene {
   }
 
   private mover(i: number): void {
-    if (i === this.d.sel) return this.tecla('a');
+    // Solo marca: confirmar es A o el toque (D280); si no, pasar el mouse por la fila marcada la confirmaba.
+    if (i === this.d.sel) return;
     sonido.tocar('cursor');
     this.scene.restart({ ...this.d, sel: i, aviso: '' });
   }
