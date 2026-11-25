@@ -6,9 +6,9 @@ Límites de Play Console: título 30, descripción corta 80, descripción comple
 
 **Título** (10): PIXANIMALS
 
-**Descripción corta** (75): Colecciona, entrena y combate con más de 200 criaturas pixel. Sin anuncios.
+**Descripción corta** (75): Aventura retro pixel art: colecciona, entrena y combate con +200 criaturas.
 
-**Descripción completa** (1639):
+**Descripción completa** (1935):
 
 Un eclipse apagó los colores del Mundo Píxel. Solo tú puedes devolverlos.
 
@@ -38,9 +38,8 @@ MINIJUEGOS, EXPEDICIONES Y MÁS
 • Entrenador del día, Cronoportal, misiones, expediciones y una ruleta diaria.
 
 PENSADO PARA JUGAR TRANQUILO
-• Para mayores de 7 años.
 • Descarga gratuita, sin anuncios y sin registros: no hay cuentas ni chat.
-• Incluye compras opcionales de monedas y cristales, que también se ganan jugando: nunca hace falta comprar para jugar ni para terminar la historia. Cada compra pide la confirmación de un adulto y los sobres muestran sus probabilidades.
+• Incluye compras opcionales de monedas y cristales, que también se ganan jugando: nunca hace falta comprar para jugar ni para terminar la historia. Algunas compras y los sobres tienen resultado aleatorio; los sobres muestran sus probabilidades y cada compra pide la confirmación de un adulto.
 • Tu partida se guarda en tu dispositivo, y puedes llevarla a otro con un código.
 • Funciona sin conexión a internet.
 • Pantalla horizontal y música original.
@@ -51,9 +50,9 @@ Descárgalo, elige a tus compañeros y devuelve el color al Mundo Píxel.
 
 **Title** (10): PIXANIMALS
 
-**Short description** (74): Collect, train and battle 200+ pixel creatures. No ads, no sign-up needed.
+**Short description** (68): Retro pixel-art adventure: collect, train and battle 200+ creatures.
 
-**Full description** (1577):
+**Full description** (1860):
 
 An eclipse drained the color from the Pixel World. Only you can bring it back.
 
@@ -83,9 +82,8 @@ MINIGAMES, EXPEDITIONS AND MORE
 • Daily trainer, Chrono Portal, missions, expeditions and a daily wheel.
 
 MADE FOR RELAXED PLAY
-• For ages 7 and up.
 • Free to download, no ads and no sign-up: no accounts, no chat.
-• Includes optional purchases of coins and crystals, which can also be earned by playing: you never need to buy anything to play or finish the story. Every purchase asks for an adult’s confirmation and packs show their odds.
+• Includes optional purchases of coins and crystals, which can also be earned by playing: you never need to buy anything to play or finish the story. Some purchases and the packs have random results; packs show their odds and every purchase asks for an adult’s confirmation.
 • Your game is saved on your device, and you can move it to another one with a code.
 • Works without an internet connection.
 • Landscape screen and original music.
