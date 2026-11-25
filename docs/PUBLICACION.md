@@ -129,6 +129,8 @@ Aplicación de noticias: no. Aplicación gubernamental: no. Finanzas: no. Salud:
 - Imagen destacada: `tienda/imagen-destacada-1024x500.png`.
 - Capturas de teléfono (mínimo 2, hay 8; subidas 7, falta `02_combate_efecto.png`): `tienda/capturas-es/`. Son horizontales 3:2 (1440×961).
 - Estado (25-nov-2026): ícono, imagen destacada (1024×500) y textos subidos.
+- Ficha en inglés (en-US) guardada el 25-nov-2026 en Play Console con los textos de `tienda/textos.md` (usa los gráficos de la ficha predeterminada); falta enviarla a revisión desde Resumen de publicación.
+- Seguridad de los datos: declarada «No recoge ni comparte datos» (coincide con la política; las compras las procesa Google Play).
 - Categoría: Juegos → Aventura.
 - Correo de contacto: el tuyo (el mismo de la política).
 
@@ -156,7 +158,7 @@ Aplicación de noticias: no. Aplicación gubernamental: no. Finanzas: no. Salud:
 - [ ] Música y sonidos aprobados
 - [ ] Paquete confirmado (`com.pixanimals.juego` u otro)
 - [ ] AAB firmado con la llave de subida real
-- [ ] Ficha completa en español e inglés con las 8 capturas (falta la 02 y la ficha en inglés)
+- [ ] Ficha completa en español e inglés con las 8 capturas (falta la 02; la ficha en inglés está guardada, sin enviar)
 - [x] Cuestionarios de clasificación, público objetivo y contenido de la app completados
 - [ ] Registro en la cuota de servicio del 15 %
 - [ ] Prueba cerrada con 12 testers durante 14 días
