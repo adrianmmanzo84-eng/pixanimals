@@ -15,8 +15,8 @@ Hola. Estoy por publicar mi primer juego en Google Play y necesito 12 o más tes
 **PIXANIMALS** es una aventura retro de pixel art: eliges compañeros, los haces crecer, abres sobres, completas un álbum de más de 200 criaturas y enfrentas jefes. Se juega en horizontal, funciona sin conexión y no tiene anuncios. Está en español (con inglés en camino). Incluye compras opcionales de monedas y Cristales; en la prueba las compras no cobran.
 
 **Qué te pido**
-1. Únete al grupo de Google: <ENLACE_DEL_GRUPO>
-2. Abre el enlace de la prueba con esa misma cuenta y acepta: <ENLACE_DE_PARTICIPACION>
+1. Únete al grupo de Google: https://groups.google.com/g/pixanimals-testers
+2. Abre el enlace de la prueba con esa misma cuenta y acepta: https://play.google.com/apps/testing/com.pixanimals.juego
 3. Instala el juego desde Play y **déjalo instalado 14 días seguidos**. Abrirlo de vez en cuando ayuda, y si puedes jugar un rato, mejor.
 4. Si encuentras un fallo o algo confuso, cuéntamelo en un comentario o por mensaje.
 
