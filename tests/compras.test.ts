@@ -111,3 +111,30 @@ describe('compras (D277)', () => {
     expect(modoDePago({ ...base, depuracion: true })).toBe('ninguna');
   });
 });
+
+describe('compras con varias ranuras de guardado (D279)', () => {
+  it('un recibo entregado en una ranura no se entrega en otra', async () => {
+    const { registroVacio } = await import('../src/core/compras/compras');
+    const reg = registroVacio();
+    const a = estadoNuevo(DATOS, HOY);
+    const b = estadoNuevo(DATOS, HOY);
+    expect(acreditar(a, 'monedas_1200', 'GPA.7', HOY, reg, 1)).toBe('ok');
+    const m = b.monedas;
+    expect(acreditar(b, 'monedas_1200', 'GPA.7', HOY, reg, 2)).toBe('repetida');
+    expect(b.monedas).toBe(m);
+  });
+
+  it('el pack de bienvenida queda en la ranura donde se compró y no se copia a las otras', async () => {
+    const { registroVacio } = await import('../src/core/compras/compras');
+    const reg = registroVacio();
+    const a = estadoNuevo(DATOS, HOY);
+    const b = estadoNuevo(DATOS, HOY);
+    expect(acreditar(a, 'bienvenida', 'B1', HOY, reg, 1)).toBe('ok');
+    expect(reg.bienvenida).toBe(1);
+    expect(vetoDeCompra(b, 'bienvenida', HOY, reg)).toBe('yaTienes');
+    // Google lo vuelve a informar al abrir la app jugando en la ranura 2: no se entrega ahí.
+    expect(acreditar(b, 'bienvenida', 'B1', HOY, reg, 2)).toBe('repetida');
+    expect(acreditar(b, 'bienvenida', 'B2', HOY, reg, 2)).toBe('repetida');
+    expect(b.sobresRegalo.legendario ?? 0).toBe(0);
+  });
+});

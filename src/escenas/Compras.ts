@@ -11,6 +11,7 @@ import { partir, Texto } from '../ui/texto';
 import { comprasHoy, MAX_POR_DIA, PRODUCTOS, vetoDeCompra, type Producto } from '../core/compras/compras';
 import { comprarProducto, recuperarPendientes, type ResultadoCompra } from '../compras/flujo';
 import { pasarela } from '../compras/pasarela';
+import { registro } from '../compras/registro';
 import { pedirAdulto } from '../ui/adultoDom';
 
 /** Cuántos íconos de moneda o gema se dibujan según el tamaño del paquete (para que se vea cuál es más grande). */
@@ -183,7 +184,8 @@ export class Compras extends Phaser.Scene {
     });
     if ((await pasarela()).modo === 'ninguna') return mal('noDisponible');
     // Se avisa del límite antes de molestar al adulto con la cuenta.
-    const veto = vetoDeCompra(juego.estado, p.id, Date.now());
+    const veto = vetoDeCompra(juego.estado, p.id, Date.now(), registro);
+    if (veto === 'yaTienes' && registro.bienvenida !== null && registro.bienvenida !== juego.ranura) return { ok: false, texto: t('compras.yaTienesOtra', { n: registro.bienvenida }) };
     if (veto === 'limite' || veto === 'yaTienes') return mal(veto);
     if (!(await pedirAdulto())) return { ok: false, texto: '' };
     const r = await comprarProducto(p.id);

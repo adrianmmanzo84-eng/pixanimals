@@ -53,13 +53,25 @@ export function comprasHoy(estado: EstadoJuego, ahora: number): number {
   return c && c.dia === diaLocal(ahora) ? c.hoy : 0;
 }
 
+/**
+ * Registro de compras del dispositivo, común a las 3 ranuras de guardado (D279): cada recibo se entrega una sola
+ * vez en total (no una vez por ranura) y el pack único queda en la ranura donde se compró.
+ */
+export interface RegistroCompras {
+  recibos: string[];
+  /** Ranura donde se entregó el pack de bienvenida, o null. */
+  bienvenida: number | null;
+}
+export const registroVacio = (): RegistroCompras => ({ recibos: [], bienvenida: null });
+const MAX_RECIBOS_DISPOSITIVO = 300;
+
 export type Veto = 'limite' | 'yaTienes' | 'desconocido';
 
 /** ¿Se puede empezar esta compra ahora? null si sí. */
-export function vetoDeCompra(estado: EstadoJuego, id: string, ahora: number): Veto | null {
+export function vetoDeCompra(estado: EstadoJuego, id: string, ahora: number, registro: RegistroCompras = registroVacio()): Veto | null {
   const p = productoDe(id);
   if (!p) return 'desconocido';
-  if (p.unico && estado.compras?.bienvenida) return 'yaTienes';
+  if (p.unico && (estado.compras?.bienvenida || registro.bienvenida !== null)) return 'yaTienes';
   if (comprasHoy(estado, ahora) >= MAX_POR_DIA) return 'limite';
   return null;
 }
@@ -69,20 +81,33 @@ export function vetoDeCompra(estado: EstadoJuego, id: string, ahora: number): Ve
  * (Google Play puede avisar de la misma compra más de una vez, por ejemplo al reabrir la app).
  * No aplica el límite diario: lo que ya se cobró siempre se entrega.
  */
-export function acreditar(estado: EstadoJuego, id: string, recibo: string, ahora: number): 'ok' | 'repetida' | 'desconocido' {
+export function acreditar(
+  estado: EstadoJuego,
+  id: string,
+  recibo: string,
+  ahora: number,
+  registro: RegistroCompras = registroVacio(),
+  ranura = 1,
+): 'ok' | 'repetida' | 'desconocido' {
   const p = productoDe(id);
   if (!p) return 'desconocido';
   const c = comprasDe(estado);
-  if (c.recibos.includes(recibo)) return 'repetida';
+  // Ya entregado: en esta partida o en otra ranura del mismo dispositivo.
+  if (c.recibos.includes(recibo) || registro.recibos.includes(recibo)) return 'repetida';
   // El pack único se entrega una sola vez; si Google lo vuelve a informar (se consulta cada vez), no se repite.
-  if (p.unico && c.bienvenida) {
+  if (p.unico && (c.bienvenida || registro.bienvenida !== null)) {
     c.recibos = [...c.recibos, recibo].slice(-MAX_RECIBOS);
+    registro.recibos = [...registro.recibos, recibo].slice(-MAX_RECIBOS_DISPOSITIVO);
     return 'repetida';
   }
   estado.monedas += p.monedas;
   estado.esencia += p.cristales;
   if (p.sobre) estado.sobresRegalo[p.sobre] = (estado.sobresRegalo[p.sobre] ?? 0) + 1;
-  if (p.unico) c.bienvenida = true;
+  if (p.unico) {
+    c.bienvenida = true;
+    registro.bienvenida = ranura;
+  }
+  registro.recibos = [...registro.recibos, recibo].slice(-MAX_RECIBOS_DISPOSITIVO);
   const dia = diaLocal(ahora);
   if (c.dia !== dia) {
     c.dia = dia;

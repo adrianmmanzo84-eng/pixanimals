@@ -4,6 +4,7 @@ import { acreditar, productoDe, vetoDeCompra } from '../core/compras/compras';
 import { juego } from '../juego';
 import { esNativo, guardarNativoYa } from '../nativo';
 import { pasarela, type CompraPlay } from './pasarela';
+import { cargarRegistro, guardarRegistro, registro } from './registro';
 
 /**
  * Flujo de una compra (D277): puerta para adultos (la pide la pantalla) → ventana de pago → acreditar y guardar →
@@ -17,16 +18,17 @@ let ocupado = false;
 /** Guarda la partida de inmediato y espera a que quede en el almacén de la app. */
 async function guardarYa(): Promise<void> {
   juego.guardar();
-  await guardarNativoYa(serializar(juego.estado));
+  await guardarNativoYa(serializar(juego.estado), Date.now(), juego.ranura);
 }
 
 /** Acredita una compra y la cierra en Google Play: 'ok' si se entregó ahora, 'repetida' si ya estaba entregada. */
 export async function entregar(compra: CompraPlay): Promise<'ok' | 'repetida' | 'error'> {
   const p = productoDe(compra.id);
   if (!p) return 'error';
-  const r = acreditar(juego.estado, compra.id, compra.recibo, Date.now());
+  const r = acreditar(juego.estado, compra.id, compra.recibo, Date.now(), registro, juego.ranura);
   if (r === 'desconocido') return 'error';
   await guardarYa();
+  await guardarRegistro();
   await (await pasarela()).cerrar(compra, !p.unico);
   return r;
 }
@@ -42,7 +44,7 @@ export async function recuperarPendientes(): Promise<string[]> {
 export async function comprarProducto(id: string): Promise<ResultadoCompra> {
   const pas = await pasarela();
   if (pas.modo === 'ninguna') return 'noDisponible';
-  const veto = vetoDeCompra(juego.estado, id, Date.now());
+  const veto = vetoDeCompra(juego.estado, id, Date.now(), registro);
   if (veto === 'limite' || veto === 'yaTienes') return veto;
   if (veto) return 'error';
   if (ocupado) return 'error';
@@ -63,10 +65,13 @@ export async function comprarProducto(id: string): Promise<ResultadoCompra> {
 /** Al abrir la app y cada vez que vuelve al primer plano, entrega lo que haya quedado pendiente. */
 export function iniciarCompras(alEntregar: (ids: string[]) => void): void {
   if (!esNativo) return;
+  // Primero el registro del dispositivo: así una compra ya entregada en otra ranura no se repite.
+  const listo = cargarRegistro();
   const revisar = () => {
     // Mientras se paga, la propia compra se entrega al terminar: no se revisa en paralelo.
     if (ocupado) return;
-    void recuperarPendientes().then((ids) => ids.length && alEntregar(ids));
+    void listo
+      .then(() => recuperarPendientes()).then((ids) => ids.length && alEntregar(ids));
   };
   revisar();
   void App.addListener('appStateChange', ({ isActive }) => {

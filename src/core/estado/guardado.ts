@@ -15,9 +15,11 @@ const CLAVE = 'pixanimals.partida';
 /** Guarda en localStorage. Si el navegador lo impide, sigue funcionando en memoria. */
 export class AlmacenLocal implements Almacen {
   private memoria: string | null = null;
+  /** Clave de localStorage (cada ranura de guardado tiene la suya, D279). */
+  constructor(private readonly clave: string = CLAVE) {}
   leer(): string | null {
     try {
-      return localStorage.getItem(CLAVE) ?? this.memoria;
+      return localStorage.getItem(this.clave) ?? this.memoria;
     } catch {
       return this.memoria;
     }
@@ -25,7 +27,7 @@ export class AlmacenLocal implements Almacen {
   escribir(datos: string): void {
     this.memoria = datos;
     try {
-      localStorage.setItem(CLAVE, datos);
+      localStorage.setItem(this.clave, datos);
     } catch {
       /* sin almacenamiento persistente */
     }
@@ -33,7 +35,7 @@ export class AlmacenLocal implements Almacen {
   borrar(): void {
     this.memoria = null;
     try {
-      localStorage.removeItem(CLAVE);
+      localStorage.removeItem(this.clave);
     } catch {
       /* nada */
     }

@@ -20,7 +20,6 @@ export function abrirGuardado(cerrar: () => void): void {
   alCerrar = cerrar;
   if (!preparado) {
     preparado = true;
-    el('g-titulo').textContent = t('g.titulo');
     el('g-texto').textContent = t(esNativo ? 'g.autoApp' : 'g.auto');
     el('g-copiar').textContent = t('g.copiar');
     el('g-cargar').textContent = t('g.cargar');
@@ -95,6 +94,8 @@ export function abrirGuardado(cerrar: () => void): void {
       alCerrar?.();
     });
   }
+  // La partida en uso puede cambiar entre aperturas (ranuras, D279).
+    el('g-titulo').textContent = juego.prueba ? t('g.titulo') : `${t('g.titulo')} · ${t('g.ranura', { n: juego.ranura })}`;
   borrar.dataset.armado = '';
   borrar.textContent = t('g.borrar');
   estado.textContent = '';

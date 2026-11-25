@@ -1,6 +1,7 @@
 import { Capacitor } from '@capacitor/core';
 import { App } from '@capacitor/app';
 import { Preferences } from '@capacitor/preferences';
+import { claveNativa, type Ranura } from './core/estado/ranuras';
 import type { Respaldo } from './core/estado/respaldo';
 import { sonido } from './audio/sfx';
 
@@ -11,7 +12,6 @@ import { sonido } from './audio/sfx';
  */
 export const esNativo = Capacitor.isNativePlatform();
 
-const CLAVE = 'partida';
 
 /**
  * Paneles HTML sobre el juego y el botón que los cierra (D278). Con uno abierto, Atrás lo cierra como ese botón
@@ -54,21 +54,21 @@ export function iniciarNativo(pantallaActual: () => string[], pulsarB: () => voi
 }
 
 /** Copia de la partida en el almacén de la app (no lanza nunca). */
-export function guardarNativo(texto: string, ahora = Date.now()): void {
-  void guardarNativoYa(texto, ahora);
+export function guardarNativo(texto: string, ahora = Date.now(), ranura: Ranura = 1): void {
+  void guardarNativoYa(texto, ahora, ranura);
 }
 
 /** Igual, pero se puede esperar a que quede escrito (las compras lo necesitan antes de cerrarse en Google Play). */
-export async function guardarNativoYa(texto: string, ahora = Date.now()): Promise<void> {
+export async function guardarNativoYa(texto: string, ahora = Date.now(), ranura: Ranura = 1): Promise<void> {
   if (!esNativo) return;
-  await Preferences.set({ key: CLAVE, value: JSON.stringify({ texto, en: ahora }) }).catch(() => undefined);
+  await Preferences.set({ key: claveNativa(ranura), value: JSON.stringify({ texto, en: ahora }) }).catch(() => undefined);
 }
 
 /** La copia del almacén de la app, como un respaldo más para la recuperación al abrir. */
-export async function leerNativo(): Promise<Respaldo | null> {
+export async function leerNativo(ranura: Ranura = 1): Promise<Respaldo | null> {
   if (!esNativo) return null;
   try {
-    const { value } = await Preferences.get({ key: CLAVE });
+    const { value } = await Preferences.get({ key: claveNativa(ranura) });
     if (!value) return null;
     const r = JSON.parse(value) as { texto: string; en: number };
     return { clave: 'nativo', texto: r.texto, en: r.en };
@@ -77,6 +77,19 @@ export async function leerNativo(): Promise<Respaldo | null> {
   }
 }
 
-export function borrarNativo(): void {
-  if (esNativo) void Preferences.remove({ key: CLAVE }).catch(() => undefined);
+export function borrarNativo(ranura: Ranura = 1): void {
+  if (esNativo) void Preferences.remove({ key: claveNativa(ranura) }).catch(() => undefined);
+}
+
+/** Valor chico en el almacén de la app (registro de compras del dispositivo, D279). */
+export async function leerValorNativo(clave: string): Promise<string | null> {
+  if (!esNativo) return null;
+  try {
+    return (await Preferences.get({ key: clave })).value;
+  } catch {
+    return null;
+  }
+}
+export async function guardarValorNativo(clave: string, valor: string): Promise<void> {
+  if (esNativo) await Preferences.set({ key: clave, value: valor }).catch(() => undefined);
 }

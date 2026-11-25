@@ -49,8 +49,13 @@ export class Titulo extends Phaser.Scene {
       if (listo) return;
       listo = true;
       sonido.tocar('aceptar');
+      // Con alguna partida guardada se elige cuál jugar (o una nueva, D279); si no hay ninguna, se empieza directo.
+      const contenido = juego.prueba ? null : juego.ranuras();
       this.cameras.main.fadeOut(260, 26, 28, 44);
-      this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => this.scene.start('Menu'));
+      this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+        if (!contenido) return void this.scene.start('Menu');
+        void contenido.then((c) => this.scene.start(Object.values(c).some(Boolean) ? 'Ranuras' : 'Menu', { contenido: c }));
+      });
     };
     // Medio segundo de gracia para que un toque al cargar no la salte sin verla.
     this.time.delayedCall(500, () => {

@@ -26,6 +26,7 @@ import { Desafio } from './escenas/Desafio';
 import { ajustes, cambiarAjustes } from './ajustes';
 import './audio/musica';
 import { Titulo } from './escenas/Titulo';
+import { Ranuras } from './escenas/Ranuras';
 import { Minijuegos } from './escenas/Minijuegos';
 import { Misiones } from './escenas/Misiones';
 import { Ruleta } from './escenas/Ruleta';
@@ -225,7 +226,7 @@ async function iniciar(): Promise<void> {
     banner: false,
     audio: { noAudio: true },
     scale: { mode: Phaser.Scale.NONE },
-    scene: [Arranque, Titulo, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, Compras, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, MiniMina, Ataques, Torre, Ruta, Cronoportal, CronoMapa, Misiones, Desafio, Coleccion, Expediciones, Ruleta, Historia, HistoriaRegion, Practica, Prologo, Relato],
+    scene: [Arranque, Titulo, Ranuras, Menu, Sobres, Bestiario, Equipo, Combate, Tienda, Compras, BolsaEscena, Premio, Minijuegos, MiniBayas, MiniEco, MiniGolpe, MiniMina, Ataques, Torre, Ruta, Cronoportal, CronoMapa, Misiones, Desafio, Coleccion, Expediciones, Ruleta, Historia, HistoriaRegion, Practica, Prologo, Relato],
   });
   ajustarEscala(juego.canvas);
   // Solo en desarrollo: acceso desde la consola para pruebas visuales.
